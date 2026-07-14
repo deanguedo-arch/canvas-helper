@@ -1,0 +1,83 @@
+{
+  "schemaVersion": 1,
+  "courseId": "ela20-1",
+  "courseCode": "ELA 20-1",
+  "courseTitle": "English Language Arts 20-1",
+  "profileId": "next-step-english",
+  "profileVersion": "next-step-english-v1",
+  "archives": [
+    {
+      "id": "brightspace",
+      "kind": "brightspace",
+      "path": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+      "sha256": "de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c",
+      "importedAt": "2026-07-14T18:01:48.384Z"
+    },
+    {
+      "id": "teacher-resources",
+      "kind": "teacher-resources",
+      "path": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+      "sha256": "6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d",
+      "importedAt": "2026-07-14T18:01:48.384Z"
+    }
+  ],
+  "units": [
+    {
+      "projectSlug": "ela20-1-short-stories-pilot",
+      "unitTitle": "Short Stories",
+      "recipePath": "projects/ela20-1-short-stories-pilot/meta/english-unit.json",
+      "profileVersion": "next-step-english-v1",
+      "activityProfile": "short-fiction",
+      "brightspaceUnitIds": [
+        "53033"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela20-1-modern-play-crucible",
+      "unitTitle": "Modern Play - The Crucible",
+      "recipePath": "projects/ela20-1-modern-play-crucible/meta/english-unit.json",
+      "profileVersion": "next-step-english-v1",
+      "activityProfile": "modern-drama",
+      "brightspaceUnitIds": [
+        "53034"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela20-1-shakespeare-macbeth",
+      "unitTitle": "Shakespearean Drama - Macbeth",
+      "recipePath": "projects/ela20-1-shakespeare-macbeth/meta/english-unit.json",
+      "profileVersion": "next-step-english-v1",
+      "activityProfile": "shakespeare-drama",
+      "brightspaceUnitIds": [
+        "3448"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela20-1-novel-study-clean",
+      "unitTitle": "Novel Study",
+      "recipePath": "projects/ela20-1-novel-study-clean/meta/english-unit.json",
+      "profileVersion": "next-step-english-v1",
+      "activityProfile": "novel-study",
+      "brightspaceUnitIds": [
+        "53041",
+        "3465"
+      ],
+      "reviewStatus": "needs-review"
+    },
+    {
+      "projectSlug": "ela20-1-feature-film",
+      "unitTitle": "Film Study",
+      "recipePath": "projects/ela20-1-feature-film/meta/english-unit.json",
+      "profileVersion": "next-step-english-v1",
+      "activityProfile": "film-study",
+      "brightspaceUnitIds": [
+        "53042"
+      ],
+      "reviewStatus": "needs-review"
+    }
+  ],
+  "generatedAt": "2026-07-14T18:01:48.384Z"
+}

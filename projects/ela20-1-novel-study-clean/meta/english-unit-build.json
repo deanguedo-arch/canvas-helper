@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela20-1-novel-study-clean",
+  "generatedAt": "2026-07-14T18:26:55.085Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "novel-study",
+    "version": "next-step-english-v1",
+    "sha256": "bceff2c5a779d851f375a539446aa915fe59fbd12a2bc0f4380a48d502ef4760"
+  },
+  "recipe": {
+    "path": "projects/ela20-1-novel-study-clean/meta/english-unit.json",
+    "sha256": "c790d643a245f20055d16a9423d8d3d7de0ceba56f94af2ef2ef429db967d085"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+      "sha256": "de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+      "sha256": "6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/novel-study-introduction-i-love-to-read.jpg",
+    "assets/generated/resources/major-works-data-major-works-data-sheet.docx",
+    "assets/generated/resources/novel-unit-prompts-novel-unit-20-1.docx",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Confirm learner access to Lord of the Flies and The Book Thief; primary texts are not supplied.",
+    "Review the 24 profile-supplied generic questions before final export."
+  ]
+}

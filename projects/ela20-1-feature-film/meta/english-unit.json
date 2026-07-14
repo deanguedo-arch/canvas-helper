@@ -1,0 +1,301 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela20-1-feature-film",
+  "courseCode": "ELA 20-1",
+  "courseTitle": "English Language Arts 20-1",
+  "unitTitle": "Film Study",
+  "profileVersion": "next-step-english-v1",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "teacherResourcesZip": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+    "brightspaceUnitId": "53042",
+    "teacherFolder": "UNIT 5 Film Study",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "53128",
+        "title": "Film Study Lesson 1",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53129",
+        "title": "Film Study Lesson 2",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53130",
+        "title": "Film Study Lesson 3",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53131",
+        "title": "Film Study Lesson 4",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53132",
+        "title": "Film Study Lesson 5",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53133",
+        "title": "Film Study Lesson 6",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53134",
+        "title": "Film Study Lesson 7",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53135",
+        "title": "Film Study Lesson 8",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53136",
+        "title": "Film Study Lesson 9",
+        "disposition": "include"
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "film-study",
+    "filmSelection": {
+      "mode": "pending"
+    },
+    "techniqueQuestionCount": 22,
+    "fullResponseQuestionCount": 18,
+    "criticalEssayFieldCount": 19,
+    "viewingGuide": true,
+    "activities": [
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "critical-essay-plan",
+          "critical-essay-stage"
+        ]
+      },
+      {
+        "id": "viewing-guide",
+        "title": "Viewing Guide",
+        "route": "viewing-guide",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "viewing-moment-entry",
+          "viewing-synthesis"
+        ]
+      },
+      {
+        "id": "film-questions",
+        "title": "Film Study Questions",
+        "route": "film-study-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "film-question-collection"
+        ]
+      },
+      {
+        "id": "film-room",
+        "title": "Film Room",
+        "route": "film-room",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "critical-essay-plan",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "activity",
+        "contributionIdTemplate": "{projectSlug}:critical-essay:collection"
+      },
+      {
+        "id": "critical-essay-stage",
+        "activityId": "critical-essay",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{entryId}"
+      },
+      {
+        "id": "viewing-moment-entry",
+        "activityId": "viewing-guide",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:viewing-guide:{entryId}"
+      },
+      {
+        "id": "viewing-synthesis",
+        "activityId": "viewing-guide",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:viewing-guide:{workId}"
+      },
+      {
+        "id": "film-question-collection",
+        "activityId": "film-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:film-questions:{locatorId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "53128",
+    "53129",
+    "53130",
+    "53131",
+    "53132",
+    "53133",
+    "53134",
+    "53135",
+    "53136"
+  ],
+  "topLevelLessonOrder": [
+    "53128",
+    "53129",
+    "53130",
+    "53131",
+    "53132",
+    "53133",
+    "53134",
+    "53135",
+    "53136"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Film Study",
+      "lessonIds": [
+        "53128",
+        "53129",
+        "53130",
+        "53131",
+        "53132",
+        "53133",
+        "53134",
+        "53135",
+        "53136"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "film-hard-gate",
+      "source": "UNIT 5 Film Study/FILM UNIT 20-1 HARD GATE Personal Response to Text Essay Prompt.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "film-selection",
+      "source": "(not supplied)/film-selection",
+      "role": "supporting-resource",
+      "disposition": "review-required",
+      "reason": "No film was supplied; keep the unit title-neutral until a selection is approved.",
+      "destination": "viewing-guide"
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 5 Film Study/FILM UNIT 20-1 HARD GATE Personal Response to Text Essay Prompt.docx",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 30-1",
+      "replace": "English 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma Exam framing from ELA 20-1."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma Exam section framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "2026-07-14",
+    "allowedYouTubeIds": [
+      "BXAr2yiYCV4",
+      "3Sr-vxVaY_M",
+      "G45X6fSk1do",
+      "sgiZb8jJgF8"
+    ],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [
+    {
+      "id": "film-selection-extension",
+      "slot": "film-scene-log",
+      "mode": "extend",
+      "source": "workspace/components/film-selection-extension/component.html",
+      "assetRoot": "workspace/assets/custom/film-selection-extension",
+      "enabled": false
+    }
+  ],
+  "acceptance": {
+    "requiredRoutes": [
+      "critical-essay",
+      "viewing-guide",
+      "film-study-questions",
+      "film-room",
+      "resources",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "critical-essay",
+      "viewing-guide",
+      "film-questions",
+      "film-room",
+      "resources",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Select and approve the film before final export.",
+      "Validate every inherited lesson video and fallback link."
+    ]
+  }
+}

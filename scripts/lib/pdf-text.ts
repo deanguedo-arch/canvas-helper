@@ -118,6 +118,16 @@ async function resolveTesseractPath() {
 
 async function resolvePdftoppmPath() {
   const localAppData = process.env.LOCALAPPDATA ?? "";
+  const codexBundledPdftoppm = path.join(
+    os.homedir(),
+    ".cache",
+    "codex-runtimes",
+    "codex-primary-runtime",
+    "dependencies",
+    "bin",
+    "override",
+    process.platform === "win32" ? "pdftoppm.exe" : "pdftoppm"
+  );
   const explicitCandidates = [
     process.env.CANVAS_HELPER_PDFTOPPM_PATH ?? "",
     process.env.PDFTOPPM_PATH ?? "",
@@ -125,6 +135,7 @@ async function resolvePdftoppmPath() {
     "/opt/homebrew/bin/pdftoppm",
     "/usr/local/bin/pdftoppm",
     "/opt/local/bin/pdftoppm",
+    codexBundledPdftoppm,
     ...(await listPopplerCandidates()),
     path.join(localAppData, "Programs", "Poppler", "bin", "pdftoppm.exe")
   ];

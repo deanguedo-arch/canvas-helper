@@ -1,0 +1,303 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela20-1-novel-study-clean",
+  "courseCode": "ELA 20-1",
+  "courseTitle": "English Language Arts 20-1",
+  "unitTitle": "Novel Study",
+  "profileVersion": "next-step-english-v1",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "teacherResourcesZip": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+    "brightspaceUnitId": "53041",
+    "teacherFolder": "UNIT 4 Novel",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "53127",
+        "title": "Novel Study Introduction",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3467",
+        "title": "Characteristics of the Novel",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3468",
+        "title": "How to Read a Novel",
+        "disposition": "include"
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "novel-study",
+    "novels": [
+      {
+        "id": "lord-of-the-flies",
+        "title": "Lord of the Flies",
+        "author": "William Golding"
+      },
+      {
+        "id": "the-book-thief",
+        "title": "The Book Thief",
+        "author": "Markus Zusak"
+      }
+    ],
+    "questionPhases": [
+      "opening",
+      "middle",
+      "final"
+    ],
+    "genericQuestionCount": 24,
+    "writingTools": [
+      "analytical-paragraph",
+      "motif-string",
+      "authors-intent",
+      "critical-essay"
+    ],
+    "activities": [
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "critical-essay-plan"
+        ]
+      },
+      {
+        "id": "reading-guide",
+        "title": "Reading Guide",
+        "route": "reading-guide",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "passage-entry"
+        ],
+        "componentSlot": "reading-notebook"
+      },
+      {
+        "id": "major-works-data",
+        "title": "Major Works Data Sheet",
+        "route": "major-works-data",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "major-works-collection"
+        ]
+      },
+      {
+        "id": "novel-questions",
+        "title": "Novel Study Questions",
+        "route": "novel-study-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "novel-question-collection"
+        ]
+      },
+      {
+        "id": "writing-studio",
+        "title": "Writing Studio",
+        "route": "writing-studio",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "paragraph-entry",
+          "motif-entry",
+          "authors-intent-entry"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "critical-essay-plan",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{workId}"
+      },
+      {
+        "id": "passage-entry",
+        "activityId": "reading-guide",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:reading-guide:{entryId}"
+      },
+      {
+        "id": "major-works-collection",
+        "activityId": "major-works-data",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:major-works-data:{workId}"
+      },
+      {
+        "id": "novel-question-collection",
+        "activityId": "novel-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:novel-questions:{locatorId}"
+      },
+      {
+        "id": "paragraph-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "motif-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "authors-intent-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "53127",
+    "3467",
+    "3468"
+  ],
+  "topLevelLessonOrder": [
+    "53127",
+    "3467",
+    "3468"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Novel Study",
+      "lessonIds": [
+        "53127",
+        "3467",
+        "3468"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "novel-unit-prompts",
+      "source": "UNIT 4 Novel/NOVEL UNIT 20-1.docx",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "reason": "Teacher-selected prompts for both configured novel tracks.",
+      "destination": "novel-questions"
+    },
+    {
+      "id": "major-works-data",
+      "source": "UNIT 4 Novel/Major Works Data Sheet.docx",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "reason": "Teacher-selected reading guide and analysis organizer.",
+      "destination": "major-works-data"
+    },
+    {
+      "id": "novel-soft-gate-reading",
+      "source": "UNIT 4 Novel/NOVEL UNIT SOFT GATE ASSESSMENT Falling in Love RC Reading.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "novel-soft-gate-questions",
+      "source": "UNIT 4 Novel/NOVEL UNIT SOFT GATE ASSESSMENT Falling in Love RC Questions.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 4 Novel/NOVEL UNIT SOFT GATE ASSESSMENT Falling in Love RC Reading.docx",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "UNIT 4 Novel/NOVEL UNIT SOFT GATE ASSESSMENT Falling in Love RC Questions.docx",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 30-1",
+      "replace": "English 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma Exam framing from ELA 20-1."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma Exam section framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-applicable",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [
+    {
+      "id": "novel-track-extension",
+      "slot": "reading-notebook",
+      "mode": "extend",
+      "source": "workspace/components/novel-track-extension/component.html",
+      "assetRoot": "workspace/assets/custom/novel-track-extension",
+      "enabled": false
+    }
+  ],
+  "acceptance": {
+    "requiredRoutes": [
+      "critical-essay",
+      "reading-guide",
+      "major-works-data",
+      "novel-study-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "critical-essay",
+      "reading-guide",
+      "major-works-data",
+      "novel-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Confirm learner access to Lord of the Flies and The Book Thief; primary texts are not supplied.",
+      "Review the 24 profile-supplied generic questions before final export."
+    ]
+  }
+}

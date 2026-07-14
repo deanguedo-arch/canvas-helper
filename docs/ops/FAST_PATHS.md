@@ -67,6 +67,24 @@ Read first:
 - `scripts/lib/paths.ts`
 - relevant tests in `scripts/tests/`
 
+## English Course Factory
+
+Read first:
+- `docs/workflows/english-course-factory.md`
+- `config/english/families/<course>.json`
+- `projects/<slug>/meta/prompt-pack.md`
+- `projects/<slug>/meta/english-unit.json`
+- `scripts/lib/english-unit/factory-build.ts`
+- the selected profile in `scripts/lib/english-unit/ela20-activity-profiles.ts`
+
+Do not start from an old unit-specific builder. Rebuild through `npm run build:english-unit -- --project <slug>` and put bespoke sources only under preserved component/custom paths.
+
+Verification floor:
+- `npm run test:english-course`
+- `npm run verify:english-course -- --course <course>`
+- `npm run test:e2e:project -- --project <slug>`
+- `npm run test:scorm`
+
 ## Handoff Resume
 
 - open `docs/ops/ACTIVE_HANDOFF.md`

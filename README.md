@@ -46,6 +46,11 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run blueprint -- --project <slug>`
 - `npm run assessment-map -- --project <slug>`
 - `npm run lesson-packets -- --project <slug>`
+- `npm run intake:english-course -- --course <course> --brightspace-zip "<zip>" --teacher-resources-zip "<zip>"`
+- `npm run build:english-course -- --course <course>`
+- `npm run build:english-unit -- --project <unit-slug>`
+- `npm run verify:english-course -- --course <course>`
+- `npm run test:english-course`
 - `npm run validate:manifests`
 - `npm run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
 - `npm run assessment:export -- --assessment <assessment-slug>`
@@ -92,6 +97,12 @@ Canvas Helper supports three official workflows:
 - `injection/integration`: import and surgically place external activities while keeping provenance clear
 
 Workflow guidance and prompt contracts live under `docs/workflows/`.
+
+### English Course Factory
+
+The English factory converts one Brightspace course plus one teacher-resource archive into profile-specific review-ready units. It shares the Next Step shell, Evidence Bank, autosave, hints, print behavior, responsiveness, and SCORM persistence without forcing Shakespeare, novels, film, drama, and short fiction into one activity layout.
+
+See [docs/workflows/english-course-factory.md](docs/workflows/english-course-factory.md) for intake, safe rebuild ownership, activity profiles, review gates, and individual export commands.
 
 ### D2L / Common Cartridge Mapping
 

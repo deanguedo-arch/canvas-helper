@@ -6543,3 +6543,1118 @@ open projects/general-psychology-20-independent-studies-202633108/exports/apps-s
 ```text
 projects/general-psychology-20-independent-studies-202633108/exports/apps-script/drive-assets/__canvas_helper_shell/index.html
 ```
+
+---
+
+## 2026-07-13: General Psychology 20 video repairs
+
+### Summary
+
+- Repaired the missing/blocked YouTube players in General Psychology 20 Modules 2 and 6.
+- Normalized legacy embeds to HTTPS and `youtube-nocookie.com`, added direct watch-link fallbacks, and replaced retired video ID `BlYcroiA3VU` with `aYCBdZLCDBQ`.
+- Re-exported and deployed the repaired course to `https://generalpsychology.web.app`.
+
+### Files changed
+
+- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/index.html`
+- `scripts/tests/general-psychology-workspace.test.ts`
+- `projects/general-psychology-20-independent-studies-202633108/exports/google-hosted/**`
+- `docs/ops/ACTIVE_HANDOFF.md`
+
+### Verification run
+
+- General Psychology workspace tests passed 19/19.
+- Project verification, Studio build, smoke E2E, and project E2E passed.
+- Live Firebase DOM checks confirmed the corrected Module 2 and Module 6 embeds.
+- Repository-wide typecheck remained blocked by unrelated pre-existing ELA, Forensics, and Social builder errors.
+
+### Known risks / follow-up
+
+- Imported lesson resources retain legacy URLs; the canonical workspace runtime performs the repair.
+- YouTube availability can change, so direct watch links remain the durable fallback.
+
+### Source-of-truth location
+
+- `projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+- `projects/general-psychology-20-independent-studies-202633108/workspace/index.html`
+- `projects/general-psychology-20-independent-studies-202633108/meta/google-hosted.deploy.json`
+
+### Fragile areas / what might drift
+
+- Firebase caching requires a runtime revision change for immediate rollout.
+- Future shell replacements must preserve `sanitizeHtmlContent` and `YOUTUBE_EMBED_REPLACEMENTS`.
+
+### Next prompt assumptions
+
+- Continue as a conversion project and edit the canonical workspace, not imported resources or generated exports.
+
+### Exact next command
+
+`npm run test:e2e:project -- --project general-psychology-20-independent-studies-202633108`
+
+### Exact next file to open
+
+`projects/general-psychology-20-independent-studies-202633108/workspace/main.js`
+
+---
+
+## 2026-07-13: ELA 20-1 Short Stories initial pilot build
+
+### Summary
+
+- Implemented the recipe-driven English unit builder and generated `ela20-1-short-stories-pilot` from Brightspace unit `53033` and the teacher archive.
+- Imported 14 CBE pages, five assigned texts, five question sets, eight verified videos, and the retained irony helper.
+- Excluded all three named gate-assessment files and generated the first non-final SCORM 2004 pilot.
+
+### Files changed
+
+- `scripts/build-english-unit.ts`
+- `scripts/lib/english-unit/**`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/**`
+- `projects/resources/ela20-1-short-stories-pilot/**`
+
+### Verification run
+
+- English unit tests passed 4/4.
+- Project verification, Studio build, Studio project E2E, and smoke E2E passed.
+- SCORM tests passed 15/15 and the SCORM 2004 ZIP passed `unzip -tq`.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing ELA, Forensics, and Social builder errors.
+
+### Known risks / follow-up
+
+- The first pilot rendering used simplified Text Bank, Question Bank, Film Room, and Library surfaces that still required comparison against the finished ELA 30-1 interaction pattern.
+- OCR and external media availability remain environment-sensitive.
+
+### Source-of-truth location
+
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `scripts/lib/english-unit/render.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## 2026-07-13: ELA 20-1 story-level question collections
+
+### Summary
+
+- Replaced 30 per-answer Evidence Bank actions with one story-level collection action for each of the five texts.
+- Each story save gathers completed question-and-answer pairs into one Evidence Bank card and updates that card on resave.
+- Preserved question autosave, shared response IDs, Writing Studio evidence capture, and SCORM storage.
+
+### Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English tests, project verification, Studio build, project and smoke E2E, SCORM tests, ZIP integrity, and browser save/reload checks passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing builder errors.
+
+### Known risks / follow-up
+
+- Live Brightspace persistence still requires an LMS import test.
+- This Evidence Bank design remains active after the following lesson-structure change.
+
+### Source-of-truth location
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 per-question Evidence Bank saving
+
+### Summary
+
+- Removed the separate Short Story Questions evidence form.
+- Added `Save Answer to Evidence Bank` beneath each of the 30 guided responses.
+- Saved each answer as its own Evidence Bank card and updated the card on resave.
+
+### Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English tests, project verification, Studio build, project and smoke E2E, SCORM tests, ZIP integrity, and browser save/reload checks passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing builder errors.
+
+### Known risks / follow-up
+
+- This implementation was superseded immediately by the story-level collection design: one Evidence Bank card per text containing all completed guided responses.
+
+### Source-of-truth location
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 Elements Workbench consolidation
+
+### Summary
+
+- Made `Characters and Characterization` learner Lesson 1 and embedded the complete nine-tab Elements of Fiction Workbench there.
+- Folded the source unit introduction, reading roadmap, and Elements introduction into Lesson 1.
+- Synchronized Writing Studio's Analysis Explorer to the same nine concepts with 90 learner-facing examples across all five texts.
+
+### Files changed
+
+- `scripts/lib/english-unit/types.ts`
+- `scripts/lib/english-unit/pilot-recipe.ts`
+- `scripts/lib/english-unit/render.ts`
+- `scripts/build-english-unit.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English unit tests, project verification, Studio build, project E2E, smoke E2E, SCORM tests, ZIP integrity, and browser checks passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing ELA, Forensics, and Social builder errors.
+
+### Known risks / follow-up
+
+- The generated recipe retains five untagged legacy analysis examples, but the learner runtime deliberately renders only the 90 managed examples.
+- Evidence moments are paraphrases rather than long reproduced passages.
+
+### Source-of-truth location
+
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `scripts/lib/english-unit/pilot-recipe.ts`
+- `scripts/lib/english-unit/render.ts`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/pilot-recipe.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 Short Stories Writing Studio integration
+
+### Summary
+
+- Moved the Analysis Explorer into Writing Studio, following the finished ELA 30-1 course pattern.
+- Added a searchable term rail, text selector, definition panel, evidence cards, analytical breakdowns, and writing-move guidance for the five assigned texts.
+- Preserved the autosaved Personal Response planner below the model bank and kept gate and Diploma Exam framing excluded.
+
+### Files changed
+
+- `scripts/lib/english-unit/types.ts`
+- `scripts/lib/english-unit/pilot-recipe.ts`
+- `scripts/lib/english-unit/render.ts`
+- `scripts/build-english-unit.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English unit tests, project verification, Studio build, project E2E, SCORM tests, and ZIP integrity passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing ELA, Forensics, and Social builder errors.
+
+### Known risks / follow-up
+
+- This was superseded by the next pass, which aligned the explorer to the complete nine-concept Elements of Fiction Workbench and consolidated that Workbench into learner Lesson 1.
+
+### Source-of-truth location
+
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `scripts/lib/english-unit/pilot-recipe.ts`
+- `scripts/lib/english-unit/render.ts`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/pilot-recipe.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 Writing Studio hint and print controls
+
+### Summary
+
+- Replaced the Writing Studio planner's single bottom print action with the ELA 30-1 worksheet toolbar.
+- Added six collapsible planning hints and scoped Print / PDF behavior that preserves current learner values.
+
+### Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English tests, project verification, Studio build, project and smoke E2E, SCORM tests, ZIP integrity, and browser checks passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing builder errors.
+
+### Known risks / follow-up
+
+- This pass updated Writing Studio only. The following pass corrected the separate Short Story Questions toolbar and question-level hints.
+
+### Source-of-truth location
+
+- `scripts/lib/english-unit/render.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 Short Stories reference-surface alignment
+
+### Summary
+
+- Aligned Short Story Bank, Short Story Questions, Film Room, and Resources with the finished ELA 30-1 interaction pattern.
+- Replaced the simplified pilot surfaces with the established two-column reader, worksheet, media-playlist, and resource-card layouts.
+- Preserved ELA 20-1 readings, questions, assessment exclusions, and autosaved response IDs.
+
+### Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/english-unit/source.ts`
+- `scripts/lib/english-unit/types.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/meta/**`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+- `projects/ela20-1-short-stories-pilot/exports/ela20-1-short-stories-pilot-scorm-2004.zip`
+
+### Verification run
+
+- English unit tests, project verification, Studio build, project E2E, SCORM tests, and ZIP integrity passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing ELA, Forensics, and Social builder errors.
+
+### Known risks / follow-up
+
+- External supporting links and videos can drift after their verification date.
+- The Lamp at Noon question extraction still depends on Tesseract OCR for a source rebuild.
+
+### Source-of-truth location
+
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `scripts/lib/english-unit/render.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 Short Story Questions hints
+
+### Summary
+
+- Removed the `Original Questions` shortcut from the guided-response toolbar.
+- Added one contextual Show Hints item for each of the 30 teacher questions across the five selected texts.
+- Preserved original question sheets under Resources and retained scoped Print / PDF behavior.
+
+### Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English tests, project verification, Studio build, project and smoke E2E, SCORM tests, ZIP integrity, and browser checks passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing builder errors.
+
+### Known risks / follow-up
+
+- Future question sets with unusual prompt language receive the safe general hint unless a more specific prompt pattern is added.
+
+### Source-of-truth location
+
+- `scripts/lib/english-unit/render.ts`
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 shared Evidence Bank integration
+
+### Summary
+
+- Added a central Evidence Bank with saved cards, direct entry, removal, and Print / PDF.
+- Added evidence capture panels to Short Story Questions and Writing Studio using the shared Social-course persistence contract.
+- Included `manual-evidence-notes` in the rebuilt SCORM 2004 package.
+
+### Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+### Verification run
+
+- English tests, project verification, Studio build, project and smoke E2E, SCORM tests, ZIP integrity, and browser save/reload checks passed.
+- Repository-wide typecheck remained blocked only by unrelated pre-existing builder errors.
+
+### Known risks / follow-up
+
+- The following pass replaced the separate Short Story Questions capture forms with direct saving of each actual question answer.
+
+### Source-of-truth location
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+
+### Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+### Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+---
+
+## 2026-07-13: ELA 20-1 six-lesson organization parity
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Make the ELA 20-1 learner lessons follow the finished ELA 30-1 Short Stories lesson structure.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/english-unit/types.ts`
+- `scripts/lib/english-unit/pilot-recipe.ts`
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/build-english-unit.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `projects/ela20-1-short-stories-pilot/meta/project.json`
+- `projects/ela20-1-short-stories-pilot/meta/conversion-notes.md`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+- `projects/ela20-1-short-stories-pilot/exports/ela20-1-short-stories-pilot-scorm-2004.zip`
+
+## What changed
+
+- Replaced the pilot's compressed four-lesson presentation with the finished ELA 30-1 six-lesson organization.
+- Moved the eight concept lessons into the Elements of Fiction checklist inside Lesson 3.
+- Added per-element completion controls while retaining all fourteen source lesson IDs in course progress.
+- Added recipe-level `topLevelLessonOrder` and shared-shell `completionIds` contracts.
+- Kept the ELA 20-1 readings, questions, lesson applications, Writing Studio, Evidence Bank, Film Room, Resources, and wording corrections.
+
+## Why this changed
+
+- The finished ELA 30-1 Short Stories course already established the correct lesson sequence and Elements of Fiction interaction pattern.
+
+## Source of truth
+
+- Lesson organization reference: `projects/ela30-1-short-stories/workspace/index.html`
+- ELA 20-1 recipe: `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- Reusable renderer: `scripts/lib/english-unit/render.ts`
+- Shared completion behavior: `scripts/lib/next-step-course-shell.ts`
+
+## Fragile areas / watchouts
+
+- The workspace is generated; durable changes belong in the recipe, renderer, or shared shell.
+- The six visible lessons and fourteen completion IDs are separate contracts.
+- SCORM must retain completion, responses, and `manual-evidence-notes` storage.
+
+## Next prompt should assume
+
+- Six-lesson ordering was complete, but the next pass still needed to correct the lesson page's actual renderer and styling to match ELA 30-1.
+
+## What still needs validation
+
+- User visual acceptance and a final Brightspace import.
+
+## Known risks
+
+- Repository-wide typecheck has unrelated pre-existing errors in older builders.
+
+## Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not copy ELA 30-1 Diploma Exam framing or replace the ELA 20-1 teacher texts.
+
+---
+
+## 2026-07-13: ELA 20-1 lesson presentation parity
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Make the ELA 20-1 lesson pages and lesson content presentation match the finished ELA 30-1 Short Stories course.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/english-unit/literary-terms.ts`
+- `scripts/build-english-unit.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/meta/project.json`
+- `projects/ela20-1-short-stories-pilot/meta/conversion-notes.md`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+## What changed
+
+- Added opt-in ELA 30-1 lesson presentation to the reusable shell and matched the finished lesson panels, source content, Elements of Fiction checklist, and Literary Terms reference.
+- Preserved the ELA 20-1 teacher readings, questions, response IDs, Writing Studio, Evidence Bank, Film Room, Resources, and fourteen-source-lesson progress.
+- Regenerated the editable workspace and SCORM 2004 pilot package.
+
+## Why this changed
+
+- The earlier six-lesson organization still used a generic document renderer and did not visually or structurally match the proven ELA 30-1 lesson presentation.
+
+## Source of truth
+
+- `projects/ela30-1-short-stories/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/meta/english-unit.json`
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/english-unit/literary-terms.ts`
+- `scripts/lib/next-step-course-shell.ts`
+
+## Fragile areas / watchouts
+
+- The workspace and exports are generated; durable fixes belong in the recipe, renderer, glossary, or shared shell.
+- `lessonPresentation: "ela30"` is intentionally opt-in.
+- Six visible lesson pages and fourteen completion IDs are separate contracts.
+
+## Next prompt should assume
+
+- The ELA 20-1 lessons now use the finished ELA 30-1 presentation while keeping ELA 20-1 course-specific content.
+
+## What still needs validation
+
+- User visual acceptance and a real Brightspace cross-session SCORM restore.
+
+## Known risks
+
+- Repository-wide typecheck retains unrelated legacy builder errors.
+
+## Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not patch generated workspace or export files directly.
+
+---
+
+## 2026-07-14: Literary Terms Evidence Builder
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Replace the Literary Terms lesson's static application card with a persistent evidence-building workflow.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+- `projects/ela20-1-short-stories-pilot/exports/ela20-1-short-stories-pilot-scorm-2004.zip`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+
+- Replaced the Literary Terms lesson's static unit-text application card with a complete Literary Terms Evidence Builder.
+- Learners can select any of the five assigned texts and any of the 44 literary terms, grouped by the established glossary categories.
+- Added fields for the exact quotation or textual detail and an explanation of how the selected term develops meaning.
+- Draft field values autosave through the existing response-state contract.
+- A single `Save to Evidence Bank` action stores the completed source, term, evidence, and analysis as one shared Evidence Bank entry.
+- The saved entry persists through the existing `manual-evidence-notes` storage key and is included in SCORM 2004 state.
+- Added generated-markup and Chromium coverage for rendering, saving, bank display, and reload persistence.
+- Rebuilt the canonical workspace and refreshed the SCORM 2004 pilot package.
+
+## Why this changed
+
+- The Literary Terms lesson needed a real application activity that connects vocabulary to the assigned texts and carries useful analysis forward into student writing.
+
+## Source of truth
+
+- Reusable English renderer and activity markup: `scripts/lib/english-unit/render.ts`
+- Canonical literary-term inventory: `scripts/lib/english-unit/literary-terms.ts`
+- Shared evidence persistence runtime: `scripts/lib/next-step-course-shell.ts`
+- Regression coverage: `scripts/tests/english-unit.test.ts`
+- Generated learner entry: `projects/ela20-1-short-stories-pilot/workspace/index.html`
+
+## Verification run
+
+- `npm run build:english-unit -- --project ela20-1-short-stories-pilot` passed.
+- `npm run test:english-unit` passed: 6/6 tests, including save, Evidence Bank display, and reload persistence.
+- `npm run verify -- --project ela20-1-short-stories-pilot` passed with no missing assets or embeds.
+- `npm run build:studio` passed.
+- `npm run test:e2e:project -- --project ela20-1-short-stories-pilot` passed.
+- `npm run test:e2e:smoke` passed.
+- `npm run test:scorm` passed: 15/15 tests.
+- Live in-app browser verification found one Literary Terms evidence activity, five source texts, 44 term options, two response fields, one save action, and one Evidence Bank link.
+- Refreshed SCORM 2004 ZIP passed `unzip -tq`, contains the Literary Terms activity, and loads `scorm-bridge.js` before the inline learner runtime.
+- `git diff --check` passed.
+- Repository-wide `npm run typecheck` still reports only unrelated pre-existing legacy ELA, Forensics, and Social builder errors; no touched implementation file appears in the error list.
+
+## Fragile areas / watchouts
+
+- The activity relies on the established `data-evidence-draft`, `data-save-evidence-note`, and `manual-evidence-notes` contracts in the shared shell.
+- All 44 terms come from `scripts/lib/english-unit/literary-terms.ts`; changes to that inventory deliberately change this selector.
+- The workspace and SCORM files are generated; durable changes belong in the reusable renderer and shell runtime.
+
+## Next prompt should assume
+
+- Literary Terms now has a working application-and-save activity rather than a static reading prompt.
+- One saved activity becomes one Evidence Bank entry containing source, term, quotation/detail, and analysis.
+- The same pattern can be applied selectively to other English lessons without changing the underlying Evidence Bank contract.
+
+## What still needs validation
+
+- User visual and instructional acceptance of the new Literary Terms workflow.
+- Brightspace import and cross-session restore of the refreshed SCORM 2004 package.
+
+## Known risks
+
+- Repository-wide typecheck baseline remains unclean for unrelated builders.
+- Very large Evidence Bank collections remain bounded by the LMS suspend-data limits supported by the selected SCORM version; SCORM 2004 is the intended pilot target.
+
+## Exact next command
+
+`npm run studio:codex`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not patch the generated workspace or SCORM export directly.
+- Do not split one Literary Terms activity into multiple evidence cards unless the learner explicitly saves multiple completed entries.
+- Do not remove the stable response IDs or evidence-store key; they preserve autosave and SCORM restoration.
+
+---
+
+## 2026-07-14: Writing Studio response save
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Add a persistent Evidence Bank save action to Writing Studio's Build Your Response planner.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+- `projects/ela20-1-short-stories-pilot/exports/ela20-1-short-stories-pilot-scorm-2004.zip`
+
+## What changed
+
+- Added `Save Response to Evidence Bank` to Build Your Response.
+- Saves all six prompts as one Personal Response Plan card, preserves learner answers, and updates the same card on later saves.
+- Added optional collection labels and messages to the shared shell without changing story-question behavior.
+
+## Why this changed
+
+- Learners need to carry their complete Writing Studio plan into the shared Evidence Bank.
+
+## Source of truth
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/tests/english-unit.test.ts`
+
+## Verification run
+
+- English unit tests, resource verification, Studio build, project E2E, smoke E2E, SCORM tests, ZIP integrity, and live preview inspection passed.
+- Repository typecheck retained only unrelated pre-existing legacy builder failures.
+
+## Fragile areas / watchouts
+
+- Keep the stable collection ID `english-writing-studio:build-response`.
+- Do not replace the non-destructive collection save with the clearing evidence-draft action.
+
+## Next prompt should assume
+
+- The complete planner saves as one Evidence Bank card and later saves update it.
+
+## What still needs validation
+
+- User visual acceptance and Brightspace cross-session restoration.
+
+## Known risks
+
+- Repository-wide typecheck baseline remains unclean for unrelated builders.
+
+## Exact next command
+
+`npm run studio:codex`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not change the collection ID or patch generated outputs directly.
+
+---
+
+## 2026-07-14: ELA 20-1 factory initial rollout
+
+# Handoff
+
+- Project: `ela20-1` English course family
+- Task: Implement the reusable English factory with unit-specific activity profiles and a shared Evidence Bank.
+- Status: complete; all five workspaces were review-ready, not ready for final export
+
+## Files changed
+
+- `scripts/lib/english-unit/**`
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/intake-english-course.ts`
+- `scripts/build-english-course.ts`
+- `scripts/build-english-unit.ts`
+- `scripts/verify-english-course.ts`
+- `config/english/families/ela20-1*.{json,md}`
+- `projects/ela20-1-*/meta/**`
+- `projects/ela20-1-*/workspace/**`
+- `docs/workflows/english-course-factory.md`
+
+## What changed
+
+- Added typed course manifests, V2 unit recipes, five activity profiles, safe staged rebuilds, source inventories, mapping reports, and profile-dispatched learner surfaces.
+- Added deliberate Evidence Bank entry/collection saves with stable IDs, autosave, reload restore, and SCORM-compatible storage.
+- Built review-ready Short Fiction, Modern Drama, Shakespeare, Novel Study, and Film Study workspaces.
+
+## Why this changed
+
+- English needed one reproducible conversion pipeline that retained the right activity system for each content type instead of copying one-off builders.
+
+## Source of truth
+
+- `docs/workflows/english-course-factory.md`
+- `config/english/families/ela20-1.json`
+- `projects/<slug>/meta/english-unit.json`
+- `scripts/lib/english-unit/factory-build.ts`
+- `scripts/lib/english-unit/ela20-activity-profiles.ts`
+
+## Verification run
+
+- The five-unit build and course verifier passed.
+- English, SCORM, project E2E, and platform smoke tests passed.
+- Studio build passed; repository-wide typecheck retained only unrelated legacy diagnostics.
+
+## Fragile areas / watchouts
+
+- Macbeth companion scenes remained `needs-editorial`; novel access and Film Study selection remained unresolved.
+- Generated workspaces were not durable editing surfaces.
+
+## Next prompt should assume
+
+- The reusable factory exists and individual unit refinement should start with Macbeth.
+
+## What still needs validation
+
+- Individual visual/content review, rights/accessibility decisions, final SCORM packaging, and Brightspace restore testing.
+
+## Known risks
+
+- The repo worktree contained substantial unrelated user changes and an existing typecheck baseline.
+
+## Exact next command
+
+`npm run studio:codex`
+
+## Exact next file to open
+
+`projects/ela20-1-shakespeare-macbeth/meta/prompt-pack.md`
+
+## Do not do next / warnings
+
+- Do not revive the destructive unit-specific builders or export review-blocked units.
+
+---
+
+## 2026-07-14: Standardized Evidence Bank save actions
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Standardize every Evidence Bank save button as the same green primary action.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+- `projects/ela20-1-short-stories-pilot/exports/ela20-1-short-stories-pilot-scorm-2004.zip`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+
+- Added the semantic class `evidence-bank-save-action` to every Evidence Bank save control.
+- Standardized all nine buttons to the established dark green `#154212` background with white text.
+- Added the same darker hover/focus state and accessible focus outline to all nine buttons.
+- Covered Literary Terms, all five story-question collections, Writing Studio evidence capture, Build Your Response, and the Evidence Bank entry form.
+- Added static coverage for all nine buttons and Chromium coverage for their computed background and text colors.
+- Rebuilt the workspace and refreshed the SCORM 2004 package.
+
+## Why this changed
+
+- The generic Writing Studio and worksheet button rules were overriding the primary save-action color on some learner surfaces.
+
+## Source of truth
+
+- Button markup and course CSS: `scripts/lib/english-unit/render.ts`
+- Regression coverage: `scripts/tests/english-unit.test.ts`
+- Generated learner entry: `projects/ela20-1-short-stories-pilot/workspace/index.html`
+
+## Verification run
+
+- `npm run build:english-unit -- --project ela20-1-short-stories-pilot` passed.
+- `npm run test:english-unit` passed: 6/6 tests and confirmed all nine buttons compute to `rgb(21, 66, 18)` with white text.
+- `npm run verify -- --project ela20-1-short-stories-pilot` passed with no missing assets or embeds.
+- `npm run build:studio` passed.
+- `npm run test:e2e:project -- --project ela20-1-short-stories-pilot` passed.
+- `npm run test:e2e:smoke` passed.
+- `npm run test:scorm` passed: 15/15 tests.
+- Refreshed SCORM 2004 ZIP passed `unzip -tq`.
+- Repository-wide `npm run typecheck` still reports only unrelated pre-existing legacy ELA, Forensics, and Social builder errors; no touched implementation file appears in the error list.
+
+## Fragile areas / watchouts
+
+- The stronger `button.evidence-bank-save-action` selector is intentional because `.writing-studio button` and `.worksheet-toolbar button` otherwise override the primary style.
+- New Evidence Bank save controls must use `evidence-bank-save-action` to inherit the standard appearance.
+- Workspace and SCORM files are generated; durable changes belong in the renderer.
+
+## Next prompt should assume
+
+- Every current Evidence Bank save action is the same green primary button.
+- Open Evidence Bank, Show Hints, Print / PDF, and Remove remain secondary actions.
+- The scan currently expects exactly nine save buttons.
+
+## What still needs validation
+
+- User visual acceptance of the standardized green actions.
+- Brightspace import and cross-session restore of the refreshed SCORM package.
+
+## Known risks
+
+- Repository-wide typecheck baseline remains unclean for unrelated builders.
+
+## Exact next command
+
+`npm run studio:codex`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not apply the green primary style to Open Evidence Bank, Remove, Show Hints, or Print / PDF.
+- Do not rely only on `external-resource-action` inside Writing Studio; its lower specificity is why this drift occurred.
+- Do not patch generated workspace or export files directly.
+- Do not copy ELA 30-1 Diploma Exam or gate framing into this pilot.
+
+---
+
+## 2026-07-13: Browser-safe English lesson images
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Repair the broken lesson image and prevent browser-incompatible lesson images from reaching future English builds.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/english-unit/source.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/**`
+- `projects/ela20-1-short-stories-pilot/meta/english-unit-mapping.*`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+## What changed
+
+- Added JPEG 2000 signature detection and browser-safe PNG conversion to the reusable English importer.
+- Added regression coverage that decodes every learner-facing image in Chromium.
+- Rebuilt and integrity-checked the workspace and SCORM 2004 package.
+
+## Why this changed
+
+- The source image contained JPEG 2000 data under a `.jpg` filename, so existence checks passed while the browser could not decode it.
+
+## Source of truth
+
+- `scripts/lib/english-unit/source.ts`
+- `scripts/tests/english-unit.test.ts`
+
+## Fragile areas / watchouts
+
+- Conversion uses macOS `sips`; non-macOS builders need an equivalent converter.
+- Workspace and SCORM outputs are generated.
+
+## Next prompt should assume
+
+- All learner images decode in Chromium and future JPEG 2000 lesson images are converted automatically.
+
+## What still needs validation
+
+- User visual acceptance and a real Brightspace cross-session restore.
+
+## Known risks
+
+- Repository-wide typecheck retains unrelated legacy builder errors.
+
+## Exact next command
+
+`npm run build:english-unit -- --project ela20-1-short-stories-pilot`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/source.ts`
+
+## Do not do next / warnings
+
+- Do not patch generated workspace or export files directly.
+- Do not remove the image decode regression.
+
+---
+
+## 2026-07-14: Flat English lesson sidebar
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Remove lesson-group subheadings from English-course sidebar navigation.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/next-step-course-shell.ts`
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+- `projects/ela20-1-short-stories-pilot/exports/ela20-1-short-stories-pilot-scorm-2004.zip`
+- `docs/ops/ACTIVE_HANDOFF.md`
+- `docs/ops/ARCHIVED_HANDOFFS.md`
+
+## What changed
+
+- Added an opt-in `showLessonSubnavHeadings` shell option without changing the default behavior for existing courses.
+- Disabled sidebar subheadings in the reusable English renderer.
+- English lesson navigation now shows only the six numbered lesson links; `Unit 1: Short Stories`, `Start Here`, and `Reading and Writing` no longer render in the sidebar.
+- Preserved lesson grouping on the main Lessons index and retained all lesson IDs, ordering, completion behavior, and navigation targets.
+- Added generated-markup and Chromium assertions for six links and zero sidebar subheadings.
+- Rebuilt the editable workspace and SCORM 2004 pilot package.
+
+## Why this changed
+
+- English courses do not need the extra hierarchy labels in their compact lesson sidebar.
+
+## Source of truth
+
+- Shared opt-in shell contract: `scripts/lib/next-step-course-shell.ts`
+- English-only configuration: `scripts/lib/english-unit/render.ts`
+- Regression coverage: `scripts/tests/english-unit.test.ts`
+- Generated learner entry: `projects/ela20-1-short-stories-pilot/workspace/index.html`
+
+## Verification run
+
+- `npm run build:english-unit -- --project ela20-1-short-stories-pilot` passed.
+- `npm run test:english-unit` passed: 6/6 tests.
+- `npm run test:course-shell` passed: 4/4 tests.
+- `npm run verify -- --project ela20-1-short-stories-pilot` passed with no missing local assets or embeds.
+- `npm run build:studio` passed.
+- `npm run test:e2e:project -- --project ela20-1-short-stories-pilot` passed.
+- `npm run test:e2e:smoke` passed.
+- In-app browser verification found exactly six English lesson links and zero `.sublesson-unit-heading` or `.sublesson-heading` nodes.
+- `npm run test:scorm` passed: 15/15 tests.
+- The refreshed SCORM 2004 ZIP passed `unzip -tq` and contains no lesson-subheading markup.
+- Repository-wide `npm run typecheck` still reports only unrelated pre-existing legacy ELA, Forensics, and Social builder errors; no file changed by this pass appears in the error list.
+- `git diff --check` passed.
+
+## Fragile areas / watchouts
+
+- `showLessonSubnavHeadings` defaults to enabled so existing Social and other course sidebars do not change.
+- English lesson `group` and `unitGroup` values still drive the main Lessons index; removing them would change that page's grouping.
+- Workspace and SCORM files are generated; durable changes belong in the shell option and English renderer.
+
+## Next prompt should assume
+
+- English sidebar navigation is intentionally flat.
+- The main Lessons index remains grouped.
+- Social and other course sidebars retain their current headings unless they opt out explicitly.
+
+## What still needs validation
+
+- User visual acceptance of the simplified sidebar.
+- Brightspace import and cross-session restore of the refreshed SCORM 2004 package.
+
+## Known risks
+
+- Repository-wide typecheck baseline remains unclean for unrelated builders.
+
+## Exact next command
+
+`npm run studio:codex`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not remove `group` or `unitGroup` from English lessons unless the main Lessons index should also become flat.
+- Do not change the shell option default globally without testing every existing course.
+- Do not patch generated workspace or export files directly.
+
+---
+
+## 2026-07-14: Bottom Writing Studio evidence action
+
+# Handoff
+
+- Project: `ela20-1-short-stories-pilot`
+- Task: Move the Writing Studio Evidence Bank action to the bottom of Build Your Response.
+- Status: complete
+
+## Files changed
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+- `projects/ela20-1-short-stories-pilot/workspace/index.html`
+- `projects/ela20-1-short-stories-pilot/exports/scorm-2004/**`
+
+## What changed
+
+- Moved Save Response, Open Evidence Bank, and save status below the final planner field.
+- Kept Show Hints and Print / PDF in the top toolbar.
+- Preserved non-destructive collection save and update behavior.
+
+## Why this changed
+
+- The response save needed to match the bottom placement used by other Evidence Bank workflows.
+
+## Source of truth
+
+- `scripts/lib/english-unit/render.ts`
+- `scripts/tests/english-unit.test.ts`
+
+## Verification run
+
+- English tests, verification, Studio build, project and smoke E2E, SCORM tests, ZIP integrity, and diff checks passed.
+- Typecheck retained only unrelated legacy builder failures.
+
+## Fragile areas / watchouts
+
+- Keep `.writing-studio-evidence-actions` after `personal-response:draft` and retain the stable collection ID.
+
+## Next prompt should assume
+
+- Save and Evidence Bank actions are at the bottom; hints and print remain at the top.
+
+## What still needs validation
+
+- User visual acceptance and Brightspace cross-session restore.
+
+## Known risks
+
+- Repository-wide typecheck baseline remains unclean.
+
+## Exact next command
+
+`npm run studio:codex`
+
+## Exact next file to open
+
+`scripts/lib/english-unit/render.ts`
+
+## Do not do next / warnings
+
+- Do not change the collection ID or patch generated outputs directly.

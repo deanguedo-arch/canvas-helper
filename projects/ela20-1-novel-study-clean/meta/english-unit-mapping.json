@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela20-1-novel-study-clean",
+  "generatedAt": "2026-07-14T18:26:55.085Z",
+  "selectedUnit": {
+    "identifier": "53041",
+    "title": "Novel Study",
+    "lessonCount": 3
+  },
+  "summary": {
+    "placed": 6,
+    "excluded": 2,
+    "missing": 0,
+    "duplicate": 0,
+    "corrected": 0,
+    "failed": 0
+  },
+  "items": [
+    {
+      "role": "supporting-resource",
+      "source": "novel_study/images/I_love_to_read.jpg",
+      "status": "placed",
+      "destination": "assets/generated/lessons/novel-study-introduction-i-love-to-read.jpg",
+      "note": "Copied image referenced by Novel Study Introduction."
+    },
+    {
+      "role": "lesson",
+      "source": "53127:novel_study/novel_unit_introduction.html",
+      "status": "placed",
+      "destination": "Novel Study Introduction",
+      "note": "Imported from the explicit Brightspace item allowlist (53127)."
+    },
+    {
+      "role": "lesson",
+      "source": "3467:Module 6/20-1characteristicsofanovel.html",
+      "status": "placed",
+      "destination": "Characteristics of the Novel",
+      "note": "Imported from the explicit Brightspace item allowlist (3467)."
+    },
+    {
+      "role": "lesson",
+      "source": "3468:Module 6/20-1howtoreadanovel.html",
+      "status": "placed",
+      "destination": "How to Read a Novel",
+      "note": "Imported from the explicit Brightspace item allowlist (3468)."
+    },
+    {
+      "role": "supporting-resource",
+      "source": "UNIT 4 Novel/NOVEL UNIT 20-1.docx",
+      "status": "placed",
+      "destination": "assets/generated/resources/novel-unit-prompts-novel-unit-20-1.docx",
+      "note": "Teacher-selected prompts for both configured novel tracks."
+    },
+    {
+      "role": "supporting-resource",
+      "source": "UNIT 4 Novel/Major Works Data Sheet.docx",
+      "status": "placed",
+      "destination": "assets/generated/resources/major-works-data-major-works-data-sheet.docx",
+      "note": "Teacher-selected reading guide and analysis organizer."
+    },
+    {
+      "role": "excluded-assessment",
+      "source": "UNIT 4 Novel/NOVEL UNIT SOFT GATE ASSESSMENT Falling in Love RC Reading.docx",
+      "status": "excluded",
+      "note": "Excluded by the factory safety policy for gates, answer keys, or unrelated Math content."
+    },
+    {
+      "role": "excluded-assessment",
+      "source": "UNIT 4 Novel/NOVEL UNIT SOFT GATE ASSESSMENT Falling in Love RC Questions.docx",
+      "status": "excluded",
+      "note": "Excluded by the factory safety policy for gates, answer keys, or unrelated Math content."
+    }
+  ]
+}

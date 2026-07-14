@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "archiveId": "ela20-s2-supplemental",
+  "sourceName": "D2LExport_151068_25-26 _ S2 _ English Lang. Arts 20-1 _ Per 1(A) _ _202671403.zip",
+  "canonicalPath": "projects/resources/ela20-1/_sources/e3024a3265517f915612b58ee98347c3f2d80ef8c42e80a94fe64b02429369a4.zip",
+  "sha256": "e3024a3265517f915612b58ee98347c3f2d80ef8c42e80a94fe64b02429369a4",
+  "sizeBytes": 1650655,
+  "physicalEntryCounts": {
+    "xml": 18,
+    "pdf": 6,
+    "jpeg": 1
+  },
+  "currentBuildPolicy": "source-and-design-donor-only",
+  "physicalFiles": [
+    {
+      "path": "_attachment_dropbox/229/20-1 Unit 3 Macbeth Visual Motif assignment NEWEST.pdf",
+      "unit": "macbeth",
+      "classification": "summative-assessment",
+      "disposition": "design-donor",
+      "reason": "Useful motif, quotation, visual, and commentary requirements; the PDF contains inherited English 30-1 wording."
+    },
+    {
+      "path": "_attachment_dropbox/225/Crucible Written Assessment.pdf",
+      "unit": "the-crucible",
+      "classification": "summative-assessment",
+      "disposition": "exclude"
+    },
+    {
+      "path": "_attachment_dropbox/225/ELA 20-1 half_hanged_mary (1).pdf",
+      "unit": "the-crucible",
+      "classification": "reading-and-question-set",
+      "disposition": "review-required",
+      "reason": "Complete four-page paired reading; rights and placement review are required."
+    },
+    {
+      "path": "_attachment_dropbox/227/ELA 20-1 30-1 Tips for Writing a Critical.pdf",
+      "unit": "shared-writing",
+      "classification": "supporting-resource",
+      "disposition": "design-donor",
+      "reason": "Contains useful critical-writing guidance and inherited grade wording."
+    },
+    {
+      "path": "_attachment_dropbox/231/advice_critical_writing_big_deals.pdf",
+      "unit": "shared-writing",
+      "classification": "supporting-resource",
+      "disposition": "design-donor"
+    },
+    {
+      "path": "_attachment_dropbox/222/ELA 20-1 Unit 1 PRT NEW.pdf",
+      "unit": "unit-1",
+      "classification": "summative-assessment",
+      "disposition": "exclude"
+    },
+    {
+      "path": "book-read-old-literature.jpg",
+      "unit": "course",
+      "classification": "generic-media",
+      "disposition": "not-needed"
+    }
+  ],
+  "unitFindings": [
+    {
+      "unit": "macbeth",
+      "usefulManifestItemIds": ["1477329", "1477363", "1477338", "1477401", "1477402", "1477404", "1477405"],
+      "adaptedIntoBuild": [
+        "MIT Shakespeare original-text access",
+        "myShakespeare scene companion access",
+        "theme-statement scaffolding",
+        "Macbeth character-change paragraph prompt",
+        "visual-motif essay requirements"
+      ],
+      "missingTargets": ["INTRODUCTION TO MACBETH.html", "Unit 3 Formative Work.html"],
+      "excludedAssessmentFiles": ["quiz_d2l_57713.xml", "quiz_d2l_57715.xml"]
+    },
+    {
+      "unit": "novel-study",
+      "usefulManifestItemIds": ["1477359", "1477395", "1491872"],
+      "missingTargets": ["Unit 5 Lord of the Flies Formative Work.html", "Unit 5 The Nickel Boys MODULE.html", "Unit 5 1984 MODULE.html"],
+      "notes": "No novel text is bundled; The Book Thief is not represented."
+    },
+    {
+      "unit": "the-crucible",
+      "usefulManifestItemIds": ["1477331", "1477360", "1477346"],
+      "missingTargets": ["Unit 6 Formative Work.html", "(Watch after reading the text) Film The Crucible.html"],
+      "excludedAssessmentFiles": ["quiz_d2l_57711.xml", "quiz_d2l_57716.xml"]
+    },
+    {
+      "unit": "film-study",
+      "usefulManifestItemIds": ["1477367", "1494530", "1477392", "1477394", "1477393", "1477342", "1477409"],
+      "missingTargets": ["FILM STUDY.html", "Unit 7 Isle of Dogs Formative Work.html", "Unit 7 Dead Poets Society Formative Work.html", "Unit 7 Pleasantville Formative Work.html", "Unit 7 Doubt Formative Work.html"],
+      "notes": "No film, viewing guide, or question booklet is physically bundled."
+    },
+    {
+      "unit": "shorter-texts",
+      "usefulManifestItemIds": ["1477328", "1477356", "1477349", "1477350", "1477351", "1477352"],
+      "missingTargets": ["Unit 2 Formative Work.html", "Cornet at Night.pdf", "Quality.pdf", "The broken Globe.pdf", "The Veldt.pdf"],
+      "excludedAssessmentFiles": ["quiz_d2l_57710.xml", "quiz_d2l_57717.xml"]
+    }
+  ],
+  "globalExclusions": [
+    "quiz_d2l_57718.xml",
+    "questiondb.xml",
+    "hidden PRT and exam dropboxes",
+    "answer and scoring metadata"
+  ]
+}

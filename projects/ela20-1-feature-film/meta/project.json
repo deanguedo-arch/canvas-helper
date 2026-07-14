@@ -1,7 +1,7 @@
 {
   "id": "ela20-1-feature-film",
   "slug": "ela20-1-feature-film",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela20-1-feature-film/source",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -10,7 +10,7 @@
   "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/workspace/index.html",
   "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202662240.zip",
   "createdAt": "2026-06-22T16:21:46.272Z",
-  "updatedAt": "2026-06-23T14:53:08.604Z",
+  "updatedAt": "2026-07-14T18:26:55.414Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -19,35 +19,49 @@
   "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/workspace/index.html",
   "canonicalSources": [
     "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-ela20-feature-film.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/meta/english-unit.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/meta/prompt-pack.md",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/factory-build.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/activity-profile-renderers.ts",
     "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npx tsx scripts/build-ela20-feature-film.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202662240.zip\" --slug ela20-1-feature-film",
+  "regenerateCommand": "npm run build:english-unit -- --project ela20-1-feature-film",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202662240.zip",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
     "importedAt": "2026-06-22T16:21:46.272Z",
-    "notes": "Feature Film clean build from the supplied ELA 20-1 Brightspace export."
+    "notes": "Film Study factory conversion using the film-study activity profile."
   },
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "SCORM 2004 package for Brightspace upload."
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Standalone workspace preview."
+      "notes": "Canonical editable workspace preview."
     }
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-feature-film/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202662240.zip"
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip"
   ],
-  "sourceOfTruthNotes": "Regenerate from scripts/build-ela20-feature-film.ts; shared shell behavior lives in scripts/lib/next-step-course-shell.ts.",
-  "injectedComponents": [],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [
+    {
+      "id": "film-selection-extension",
+      "slot": "film-scene-log",
+      "mode": "extend",
+      "source": "workspace/components/film-selection-extension/component.html",
+      "assetRoot": "workspace/assets/custom/film-selection-extension",
+      "enabled": false
+    }
+  ],
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-06-22T20:26:24.693Z",

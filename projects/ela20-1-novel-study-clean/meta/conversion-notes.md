@@ -1,13 +1,11 @@
-# ELA 20-1 Novel Study Clean Build
+# ELA 20-1 Novel Study
 
-- Source ZIP: /Users/deanguedo/Downloads/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202661808 (1).zip
-- Active source files: novel_study/novel_unit_introduction.html, Module 6/20-1characteristicsofanovel.html, Module 6/20-1howtoreadanovel.html
-- Lessons imported: 3
-- Canonical source: projects/ela20-1-novel-study-clean/workspace/index.html
-- Shared shell renderer: scripts/lib/next-step-course-shell.ts
-- Reading Guide support: Novel Study Questions with Section 1, Section 2, and Section 3 response sets
-- Critical Essay support: dropdown section after Lessons built from /Users/deanguedo/Downloads/ELA 20-1 30-1 FORMAT Tips for Writing a Critical - Copy (1).pdf, split into topic/thesis, introduction, three body paragraph, and conclusion/revision pages
-- Writing Studio activities: Analytical Paragraph Builder, Motif String Board, and Author's Intent Toggle
-- Storage keys tracked by SCORM export: `canvas-helper:ela20-1-novel-study-clean:complete`, `canvas-helper:ela20-1-novel-study-clean:responses`
-
-This is a Novel Study-only clean build from the uploaded Brightspace export. It does not reuse the older `ela20-1-novel-study` project.
+- Activity profile: novel-study
+- Source lesson IDs: 53127, 3467, 3468
+- Status: needs-review
+- Review items: 2
+- Canonical recipe: projects/ela20-1-novel-study-clean/meta/english-unit.json
+- Canonical workspace: projects/ela20-1-novel-study-clean/workspace/index.html
+- Preserved custom code/data: projects/ela20-1-novel-study-clean/workspace/components and workspace/assets/custom
+- Rebuild: npm run build:english-unit -- --project ela20-1-novel-study-clean
+- Final SCORM: only after ready-for-export

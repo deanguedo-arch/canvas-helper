@@ -1,0 +1,63 @@
+{
+  "id": "ela20-1-modern-play-crucible",
+  "slug": "ela20-1-modern-play-crucible",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+  "inputKind": "brightspace-zip",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-modern-play-crucible/workspace/index.html",
+  "createdAt": "2026-07-14T18:06:53.150Z",
+  "updatedAt": "2026-07-14T18:26:41.717Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-modern-play-crucible/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-modern-play-crucible/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-modern-play-crucible/meta/english-unit.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-modern-play-crucible/meta/prompt-pack.md",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/factory-build.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/activity-profile-renderers.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npm run build:english-unit -- --project ela20-1-modern-play-crucible",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "importedAt": "2026-07-14T18:06:53.150Z",
+    "notes": "Modern Play - The Crucible factory conversion using the modern-drama activity profile."
+  },
+  "authoringStatus": "active",
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical editable workspace preview."
+    }
+  ],
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip"
+  ],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [
+    {
+      "id": "crucible-character-conflict",
+      "slot": "act-tracker",
+      "mode": "extend",
+      "source": "workspace/components/crucible-character-conflict/component.html",
+      "assetRoot": "workspace/assets/custom/crucible-character-conflict",
+      "enabled": false
+    }
+  ]
+}

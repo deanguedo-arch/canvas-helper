@@ -1,0 +1,435 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela20-1-shakespeare-macbeth",
+  "courseCode": "ELA 20-1",
+  "courseTitle": "English Language Arts 20-1",
+  "unitTitle": "Shakespearean Drama - Macbeth",
+  "profileVersion": "next-step-english-v1",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "teacherResourcesZip": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+    "brightspaceUnitId": "3448",
+    "teacherFolder": "UNIT 3 Shakespeare",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "3450",
+        "title": "Shakespearean Terminology",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3451",
+        "title": "Characteristics of Shakespearean Drama",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3452",
+        "title": "Tips for Reading Drama 1",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3453",
+        "title": "Tips for Reading Drama 2",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3455",
+        "title": "Shakespeare's World",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3456",
+        "title": "Reading Shakespeare",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3457",
+        "title": "Introduction to Macbeth",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3458",
+        "title": "Macbeth Online",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3459",
+        "title": "Critical Response",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3460",
+        "title": "Critical Response Suggestions",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3454",
+        "title": "Moonlodge",
+        "disposition": "exclude",
+        "reason": "Unrelated play content."
+      },
+      {
+        "itemId": "53037",
+        "title": "Shakespearean Drama - Hamlet",
+        "disposition": "exclude",
+        "includeChildren": true,
+        "reason": "Alternate Shakespeare play branch."
+      },
+      {
+        "itemId": "53038",
+        "title": "King Lear",
+        "disposition": "exclude",
+        "includeChildren": true,
+        "reason": "Alternate Shakespeare play branch."
+      },
+      {
+        "itemId": "53039",
+        "title": "Othello",
+        "disposition": "exclude",
+        "includeChildren": true,
+        "reason": "Alternate Shakespeare play branch."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "shakespeare-drama",
+    "actIds": [
+      "act-1",
+      "act-2",
+      "act-3",
+      "act-4",
+      "act-5"
+    ],
+    "sceneCount": 28,
+    "sideBySideReader": true,
+    "characterIds": [
+      "macbeth",
+      "lady-macbeth",
+      "banquo",
+      "macduff",
+      "duncan",
+      "witches"
+    ],
+    "writingTools": [
+      "language-lab",
+      "close-reading",
+      "theme-builder",
+      "character-change-paragraph",
+      "critical-essay",
+      "graphic-essay"
+    ],
+    "editorialStatus": "needs-editorial",
+    "activities": [
+      {
+        "id": "side-by-side-reader",
+        "title": "Side-by-Side Reader",
+        "route": "side-by-side",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "scene-evidence-entry"
+        ]
+      },
+      {
+        "id": "macbeth-materials",
+        "title": "Macbeth Materials",
+        "route": "play-materials",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "act-questions",
+        "title": "Macbeth Act Questions",
+        "route": "act-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "act-question-collection",
+          "scene-checkpoint-entry"
+        ]
+      },
+      {
+        "id": "character-notes",
+        "title": "Character Notes",
+        "route": "character-notes",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "character-dossier-collection",
+          "character-quotation-entry"
+        ]
+      },
+      {
+        "id": "writing-studio",
+        "title": "Shakespeare Writing Studio",
+        "route": "writing-studio",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "annotation-entry",
+          "theme-response-entry",
+          "writing-plan-collection"
+        ],
+        "componentSlot": "writing-studio"
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "scene-evidence-entry",
+        "activityId": "side-by-side-reader",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:side-by-side-reader:{entryId}"
+      },
+      {
+        "id": "act-question-collection",
+        "activityId": "act-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:act-questions:{locatorId}"
+      },
+      {
+        "id": "scene-checkpoint-entry",
+        "activityId": "act-questions",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:act-questions:{entryId}"
+      },
+      {
+        "id": "character-dossier-collection",
+        "activityId": "character-notes",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:character-notes:{workId}"
+      },
+      {
+        "id": "character-quotation-entry",
+        "activityId": "character-notes",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:character-notes:{entryId}"
+      },
+      {
+        "id": "annotation-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "theme-response-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "writing-plan-collection",
+        "activityId": "writing-studio",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "activity",
+        "contributionIdTemplate": "{projectSlug}:writing-studio:collection"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "3450",
+    "3451",
+    "3452",
+    "3453",
+    "3455",
+    "3456",
+    "3457",
+    "3458",
+    "3459",
+    "3460"
+  ],
+  "topLevelLessonOrder": [
+    "3450",
+    "3451",
+    "3452",
+    "3453",
+    "3455",
+    "3456",
+    "3457",
+    "3458",
+    "3459",
+    "3460"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Shakespearean Drama - Macbeth",
+      "lessonIds": [
+        "3450",
+        "3451",
+        "3452",
+        "3453",
+        "3455",
+        "3456",
+        "3457",
+        "3458",
+        "3459",
+        "3460"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "macbeth-recurring-images",
+      "source": "UNIT 3 Shakespeare/MACBETH Recurring Images.pdf",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "reason": "Teacher-selected motif resource.",
+      "destination": "writing-studio"
+    },
+    {
+      "id": "macbeth-dramatic-purpose",
+      "source": "UNIT 3 Shakespeare/MACBETH-Dramatic Purpose.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected dramatic-purpose activity.",
+      "destination": "writing-studio"
+    },
+    {
+      "id": "macbeth-act-questions",
+      "source": "UNIT 3 Shakespeare/MACBETH Act Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected act and scene questions.",
+      "destination": "act-questions"
+    },
+    {
+      "id": "macbeth-unit-review",
+      "source": "UNIT 3 Shakespeare/MACBETH Unit End Review.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected unit review.",
+      "destination": "macbeth-materials"
+    },
+    {
+      "id": "macbeth-graphic-novel-1",
+      "source": "UNIT 3 Shakespeare/MACBETH Graphic Novel Act 1.pdf",
+      "role": "reading",
+      "disposition": "review-required",
+      "reason": "Retain outside learner output until redistribution and accessibility review is recorded.",
+      "destination": "macbeth-materials"
+    },
+    {
+      "id": "macbeth-graphic-novel-2",
+      "source": "UNIT 3 Shakespeare/MACBETH Graphic Novel Act 2.pdf",
+      "role": "reading",
+      "disposition": "review-required",
+      "reason": "Retain outside learner output until redistribution and accessibility review is recorded.",
+      "destination": "macbeth-materials"
+    },
+    {
+      "id": "macbeth-graphic-novel-3",
+      "source": "UNIT 3 Shakespeare/MACBETH Graphic Novel Act 3.pdf",
+      "role": "reading",
+      "disposition": "review-required",
+      "reason": "Retain outside learner output until redistribution and accessibility review is recorded.",
+      "destination": "macbeth-materials"
+    },
+    {
+      "id": "macbeth-graphic-novel-4",
+      "source": "UNIT 3 Shakespeare/MACBETH Graphic Novel Act 4.pdf",
+      "role": "reading",
+      "disposition": "review-required",
+      "reason": "Retain outside learner output until redistribution and accessibility review is recorded.",
+      "destination": "macbeth-materials"
+    },
+    {
+      "id": "macbeth-graphic-novel-5",
+      "source": "UNIT 3 Shakespeare/MACBETH Graphic Novel Act 5.pdf",
+      "role": "reading",
+      "disposition": "review-required",
+      "reason": "Retain outside learner output until redistribution and accessibility review is recorded.",
+      "destination": "macbeth-materials"
+    },
+    {
+      "id": "macbeth-graphic-essay",
+      "source": "UNIT 3 Shakespeare/MACBETH Graphic Essay.docx",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "reason": "Teacher-supplied Graphic Essay planner and rubric.",
+      "destination": "writing-studio"
+    }
+  ],
+  "excludedFiles": [],
+  "wordingCorrections": [
+    {
+      "find": "English 30-1",
+      "replace": "English 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma Exam framing from ELA 20-1."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma Exam section framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-applicable",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [
+    {
+      "id": "macbeth-side-by-side-data",
+      "slot": "custom:side-by-side-companion",
+      "mode": "extend",
+      "source": "workspace/components/shakespeare-side-by-side/scenes.json",
+      "enabled": true
+    }
+  ],
+  "acceptance": {
+    "requiredRoutes": [
+      "side-by-side",
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "side-by-side-reader",
+      "macbeth-materials",
+      "act-questions",
+      "character-notes",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Editorially review all 28 locally stored plain-language companion scenes.",
+      "Resolve redistribution and accessibility for the supplied graphic-novel scans."
+    ]
+  }
+}

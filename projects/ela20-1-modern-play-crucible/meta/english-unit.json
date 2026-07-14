@@ -1,0 +1,341 @@
+{
+  "schemaVersion": 2,
+  "projectSlug": "ela20-1-modern-play-crucible",
+  "courseCode": "ELA 20-1",
+  "courseTitle": "English Language Arts 20-1",
+  "unitTitle": "Modern Play - The Crucible",
+  "profileVersion": "next-step-english-v1",
+  "status": "needs-review",
+  "source": {
+    "brightspaceZip": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "teacherResourcesZip": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+    "brightspaceUnitId": "53034",
+    "teacherFolder": "UNIT 2 Modern Play",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "53068",
+        "title": "Modern Drama Introduction",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53069",
+        "title": "Characteristics of Modern Drama",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53074",
+        "title": "Critical and Analytical Response",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53075",
+        "title": "Student Samples",
+        "disposition": "include"
+      },
+      {
+        "itemId": "53070",
+        "title": "A Streetcar Named Desire Introduction",
+        "disposition": "exclude",
+        "reason": "Alternate play content; The Crucible is teacher-selected."
+      },
+      {
+        "itemId": "53071",
+        "title": "A Streetcar Named Desire Overview",
+        "disposition": "exclude",
+        "reason": "Alternate play content; The Crucible is teacher-selected."
+      },
+      {
+        "itemId": "53072",
+        "title": "Death of a Salesman Introduction",
+        "disposition": "exclude",
+        "reason": "Alternate play content; The Crucible is teacher-selected."
+      },
+      {
+        "itemId": "53073",
+        "title": "A Doll's House Introduction",
+        "disposition": "exclude",
+        "reason": "Alternate play content; The Crucible is teacher-selected."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "modern-drama",
+    "actIds": [
+      "act-1",
+      "act-2",
+      "act-3",
+      "act-4"
+    ],
+    "characterIds": [
+      "john-proctor",
+      "elizabeth-proctor",
+      "abigail-williams",
+      "reverend-hale",
+      "danforth"
+    ],
+    "criticalEssay": true,
+    "activities": [
+      {
+        "id": "play-materials",
+        "title": "Play Materials",
+        "route": "play-materials",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "act-questions",
+        "title": "Act Questions",
+        "route": "act-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "act-question-collection"
+        ]
+      },
+      {
+        "id": "character-conflict",
+        "title": "Character and Conflict Notes",
+        "route": "character-notes",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "character-dossier-collection",
+          "character-quotation-entry"
+        ],
+        "componentSlot": "act-tracker"
+      },
+      {
+        "id": "critical-essay",
+        "title": "Critical Essay",
+        "route": "critical-essay",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "critical-essay-plan",
+          "critical-essay-stage"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "act-question-collection",
+        "activityId": "act-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:act-questions:{locatorId}"
+      },
+      {
+        "id": "character-dossier-collection",
+        "activityId": "character-conflict",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:character-conflict:{workId}"
+      },
+      {
+        "id": "character-quotation-entry",
+        "activityId": "character-conflict",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:character-conflict:{entryId}"
+      },
+      {
+        "id": "critical-essay-plan",
+        "activityId": "critical-essay",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "activity",
+        "contributionIdTemplate": "{projectSlug}:critical-essay:collection"
+      },
+      {
+        "id": "critical-essay-stage",
+        "activityId": "critical-essay",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:critical-essay:{entryId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "53068",
+    "53069",
+    "53074",
+    "53075"
+  ],
+  "topLevelLessonOrder": [
+    "53068",
+    "53069",
+    "53074",
+    "53075"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Modern Play - The Crucible",
+      "lessonIds": [
+        "53068",
+        "53069",
+        "53074",
+        "53075"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "crucible-act-1",
+      "source": "UNIT 2 Modern Play/#001 Crucible Act 1.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected Crucible Act 1 question sheet.",
+      "destination": "play-materials"
+    },
+    {
+      "id": "crucible-act-2",
+      "source": "UNIT 2 Modern Play/#002 Crucible Act 2.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected Crucible Act 2 question sheet.",
+      "destination": "play-materials"
+    },
+    {
+      "id": "crucible-act-3",
+      "source": "UNIT 2 Modern Play/#003 Crucible Act 3.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected Crucible Act 3 question sheet.",
+      "destination": "play-materials"
+    },
+    {
+      "id": "crucible-act-4",
+      "source": "UNIT 2 Modern Play/#004 Crucible Act 4.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-selected Crucible Act 4 question sheet.",
+      "destination": "play-materials"
+    },
+    {
+      "id": "crucible-conflict",
+      "source": "UNIT 2 Modern Play/Crucible Conflict.jpg",
+      "role": "supporting-resource",
+      "disposition": "place",
+      "reason": "Teacher-supplied conflict teaching image.",
+      "destination": "character-conflict"
+    },
+    {
+      "id": "crucible-litchart",
+      "source": "UNIT 2 Modern Play/thecrucible-LitChart.pdf",
+      "role": "supporting-resource",
+      "disposition": "review-required",
+      "reason": "Retain outside learner output until redistribution and accessibility review is recorded.",
+      "destination": "play-materials"
+    },
+    {
+      "id": "crucible-hard-gate",
+      "source": "UNIT 2 Modern Play/MODERN PLAY UNIT HARD GATE- CRUCIBLE Critical Response to Text.doc",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "ivanov-soft-gate-questions",
+      "source": "UNIT 2 Modern Play/MODERN PLAY UNIT SOFT GATE ASSESSMENT Ivanov RC Questions.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "ivanov-soft-gate-reading",
+      "source": "UNIT 2 Modern Play/MODERN PLAY UNIT SOFT GATE ASSESSMENT Ivanov RC Reading.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "UNIT 2 Modern Play/MODERN PLAY UNIT HARD GATE- CRUCIBLE Critical Response to Text.doc",
+      "reason": "Hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "UNIT 2 Modern Play/MODERN PLAY UNIT SOFT GATE ASSESSMENT Ivanov RC Questions.docx",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "UNIT 2 Modern Play/MODERN PLAY UNIT SOFT GATE ASSESSMENT Ivanov RC Reading.docx",
+      "reason": "Soft-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "English 30-1",
+      "replace": "English 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 20-1",
+      "reason": "Correct inherited grade contamination."
+    },
+    {
+      "find": "Diploma Exam",
+      "replace": "course assessment",
+      "reason": "Remove Diploma Exam framing from ELA 20-1."
+    },
+    {
+      "find": "Part A",
+      "replace": "written response",
+      "reason": "Remove Diploma Exam section framing."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-applicable",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [
+    {
+      "id": "crucible-character-conflict",
+      "slot": "act-tracker",
+      "mode": "extend",
+      "source": "workspace/components/crucible-character-conflict/component.html",
+      "assetRoot": "workspace/assets/custom/crucible-character-conflict",
+      "enabled": false
+    }
+  ],
+  "acceptance": {
+    "requiredRoutes": [
+      "play-materials",
+      "act-questions",
+      "character-notes",
+      "critical-essay",
+      "evidence-bank"
+    ],
+    "requiredActivityIds": [
+      "play-materials",
+      "act-questions",
+      "character-conflict",
+      "critical-essay",
+      "evidence-bank"
+    ],
+    "reviewItems": [
+      "Confirm access to the complete play before final export.",
+      "Resolve redistribution and accessibility for the supplied LitChart."
+    ]
+  }
+}

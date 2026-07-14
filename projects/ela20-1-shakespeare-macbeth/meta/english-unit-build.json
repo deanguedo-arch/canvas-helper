@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela20-1-shakespeare-macbeth",
+  "generatedAt": "2026-07-14T19:46:49.554Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "shakespeare-drama",
+    "version": "next-step-english-v1",
+    "sha256": "eea6ea3484c425a87d9a82b7ea6cc299133c08f172760c9e32965e87913468cf"
+  },
+  "recipe": {
+    "path": "projects/ela20-1-shakespeare-macbeth/meta/english-unit.json",
+    "sha256": "fe2c48b93686d579f562210aacd48a3205b602ff48d234134de66106f7adb87c"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+      "sha256": "de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
+      "sha256": "6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d"
+    }
+  ],
+  "components": [
+    {
+      "id": "components/shakespeare-side-by-side/scenes.json",
+      "source": "components/shakespeare-side-by-side/scenes.json",
+      "sha256": "51b5af1db033247cea23136d915cd93dbb07088c5c27c718af374bba18a09a56"
+    }
+  ],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/resources/macbeth-act-questions-macbeth-act-questions.pdf",
+    "assets/generated/resources/macbeth-dramatic-purpose-macbeth-dramatic-purpose.pdf",
+    "assets/generated/resources/macbeth-graphic-essay-macbeth-graphic-essay.docx",
+    "assets/generated/resources/macbeth-recurring-images-macbeth-recurring-images.pdf",
+    "assets/generated/resources/macbeth-unit-review-macbeth-unit-end-review.pdf",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Editorially review all 28 locally stored plain-language companion scenes.",
+    "Resolve redistribution and accessibility for the supplied graphic-novel scans."
+  ]
+}
