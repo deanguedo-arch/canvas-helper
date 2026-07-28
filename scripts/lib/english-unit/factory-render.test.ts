@@ -379,6 +379,12 @@ test("factory preserves the consolidated Elements of Fiction donor lesson", () =
   assert.match(shellLessons[1]?.html ?? "", /Elements of Fiction Checklist/);
   assert.match(shellLessons[1]?.html ?? "", /data-element-target="lesson-3-irony"/);
   assert.match(shellLessons[1]?.html ?? "", /data-element-panel="lesson-3-point-of-view"/);
+  assert.match(shellLessons[1]?.html ?? "", /<span class="element-selector-action">Review<\/span>/);
+  assert.match(shellLessons[1]?.html ?? "", /Review verbal, situational, and dramatic irony\./);
+  assert.match(shellLessons[1]?.html ?? "", /Apply your understanding of irony/);
+  assert.doesNotMatch(shellLessons[1]?.html ?? "", /class="element-completion-bar"/);
+  assert.match(shellLessons[2]?.html ?? "", /Literary Terms Reference/);
+  assert.match(shellLessons[2]?.html ?? "", /Purdue OWL Literary Terms/);
   assert.doesNotMatch(shellLessons[0]?.html ?? "", /Elements of Fiction Checklist/);
 });
 

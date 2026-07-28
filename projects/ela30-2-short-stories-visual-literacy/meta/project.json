@@ -1,0 +1,67 @@
+{
+  "id": "ela30-2-short-stories-visual-literacy",
+  "slug": "ela30-2-short-stories-visual-literacy",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
+  "inputKind": "brightspace-zip",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-2-short-stories-visual-literacy/workspace/index.html",
+  "createdAt": "2026-07-22T16:31:30.963Z",
+  "updatedAt": "2026-07-28T15:02:17.496Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-2-short-stories-visual-literacy/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-2-short-stories-visual-literacy/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-2-short-stories-visual-literacy/meta/english-unit.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-2-short-stories-visual-literacy/meta/prompt-pack.md",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/factory-build.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/activity-profile-renderers.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-profile-renderer.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-runtime-sanitizer.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-donor-lessons.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/writing-foundations-lessons.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npm run build:english-unit -- --project ela30-2-short-stories-visual-literacy",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
+    "importedAt": "2026-07-22T16:31:30.963Z",
+    "notes": "Short Stories and Visual Literacy V3 derived factory conversion from ela30-1-short-stories using the short-fiction activity profile."
+  },
+  "authoringStatus": "active",
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical editable workspace preview."
+    }
+  ],
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/config/english/families/ela30-2.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/d55d3e9a77fc75273cc02320ba68b0e920c922b2179a7686b4068f4a3e3d865f.pdf",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip"
+  ],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-07-23T18:33:03.569Z",
+  "workspaceApprovedAt": "2026-07-28T15:02:17.496Z"
+}

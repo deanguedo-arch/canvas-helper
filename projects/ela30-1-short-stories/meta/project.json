@@ -10,11 +10,12 @@
   "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/workspace/index.html",
   "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
   "createdAt": "2026-06-21T14:13:24.514Z",
-  "updatedAt": "2026-06-23T14:53:08.683Z",
+  "updatedAt": "2026-07-28T15:02:16.916Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
-    "conversion"
+    "conversion",
+    "injection/integration"
   ],
   "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/workspace/index.html",
   "canonicalSources": [
@@ -44,9 +45,30 @@
   "referenceOnly": [
     "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical Short Stories course shell. Regenerate SCORM after workspace edits.",
-  "injectedComponents": [],
+  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical Short Stories course shell. Regenerate SCORM after workspace edits. Evidence Bank retrofit 1.0.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature. English writing-sequence retrofit 1.0.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.1 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.2 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.3 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.2.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.3.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. Evidence Bank retrofit 1.1.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature.",
+  "injectedComponents": [
+    {
+      "id": "ela30-evidence-bank-v2",
+      "source": "scripts/lib/english-unit/ela30-evidence-retrofit.ts",
+      "target": "projects/ela30-1-short-stories/workspace/index.html#evidence-bank",
+      "status": "active",
+      "notes": "Shared central Evidence Bank, deliberate activity saves, stable contribution IDs, and SCORM-compatible learner-state storage."
+    },
+    {
+      "id": "english-writing-sequences-v1",
+      "source": "scripts/lib/english-unit/writing-sequence-renderer.ts",
+      "target": "projects/ela30-1-short-stories/workspace/index.html",
+      "status": "active",
+      "notes": "Standard Critical Essay and Personal Response lesson sequences; only missing sequences are injected."
+    }
+  ],
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-21T14:13:24.514Z"
+  "learningUpdatedAt": "2026-06-21T14:13:24.514Z",
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "canvas-helper:ela30-1-short-stories:manual-evidence-notes"
+    ]
+  },
+  "workspaceApprovedAt": "2026-07-28T15:02:16.916Z"
 }

@@ -1,0 +1,183 @@
+{
+  "schemaVersion": 1,
+  "retrofitVersion": "1.1.0",
+  "projectSlug": "ela30-1-short-stories",
+  "courseCode": "ELA 30-1",
+  "courseTitle": "Short Stories",
+  "profile": "short-fiction",
+  "storageKey": "canvas-helper:ela30-1-short-stories:manual-evidence-notes",
+  "route": {
+    "id": "evidence-bank",
+    "label": "Evidence Bank",
+    "icon": "collections_bookmark",
+    "links": [
+      {
+        "id": "story-questions",
+        "label": "Short Story Questions",
+        "icon": "arrow_outward"
+      },
+      {
+        "id": "writing",
+        "label": "Writing Studio Analysis",
+        "icon": "arrow_outward"
+      }
+    ]
+  },
+  "selectorsRequired": [
+    "id=\"story-questions\"",
+    "data-default-worksheet-story",
+    "data-worksheet-answer",
+    "id=\"writing\"",
+    "data-analysis-explorer",
+    ".story-questions-studio[data-worksheet-studio]",
+    "[data-analysis-explorer]"
+  ],
+  "adapters": [
+    {
+      "id": "short-story-question-collection",
+      "kind": "collection",
+      "route": "story-questions",
+      "rootSelector": ".story-questions-studio[data-worksheet-studio]",
+      "saveSelector": "[data-save-response-collection=\"short-story-question-collection\"]",
+      "contributionId": "ela30-short-stories:questions:{active}",
+      "source": {
+        "kind": "question-set",
+        "id": "short-story-question-collection",
+        "title": "Short Story Questions"
+      },
+      "activity": {
+        "id": "short-story-question-collection",
+        "profile": "short-fiction",
+        "title": "Short Story Questions"
+      },
+      "work": {
+        "id": "activelabel",
+        "title": "{activeLabel}",
+        "kind": "text"
+      },
+      "questionSelector": ".worksheet-question-prompt, .worksheet-answer-field > span",
+      "responseSelector": "[data-worksheet-answer]",
+      "tags": [
+        "short-fiction",
+        "guided-questions"
+      ],
+      "saveLabel": "Save Story Answers to Evidence Bank",
+      "savedMessage": "Saved to Evidence Bank",
+      "updatedMessage": "Updated in Evidence Bank"
+    },
+    {
+      "id": "short-story-writing-evidence",
+      "kind": "individual",
+      "route": "writing",
+      "rootSelector": "[data-analysis-explorer]",
+      "saveSelector": "[data-save-evidence-note=\"short-story-writing-evidence\"]",
+      "contributionId": "ela30-short-stories:writing:{active}",
+      "source": {
+        "kind": "activity",
+        "id": "short-story-writing-evidence",
+        "title": "Writing Studio Analysis"
+      },
+      "activity": {
+        "id": "short-story-writing-evidence",
+        "profile": "short-fiction",
+        "title": "Writing Studio Analysis"
+      },
+      "work": {
+        "id": "short-stories",
+        "title": "Short Stories",
+        "kind": "text"
+      },
+      "fieldSelectors": {
+        "evidence": "[data-evidence-retrofit-adapter=\"short-story-writing-evidence\"] [data-evidence-composer-field=\"detail\"], [data-analysis-explorer]",
+        "analysis": "[data-evidence-retrofit-adapter=\"short-story-writing-evidence\"] [data-evidence-composer-field=\"analysis\"]"
+      },
+      "tags": [
+        "short-fiction",
+        "analysis"
+      ],
+      "saveLabel": "Save to Evidence Bank",
+      "savedMessage": "Saved to Evidence Bank",
+      "updatedMessage": "Updated in Evidence Bank"
+    },
+    {
+      "id": "short-story-personal-response-plan",
+      "kind": "collection",
+      "route": "writing",
+      "rootSelector": "[data-analysis-explorer]",
+      "saveSelector": "[data-save-response-collection=\"short-story-personal-response-plan\"]",
+      "contributionId": "ela30-short-stories:personal-response:{active}",
+      "source": {
+        "kind": "question-set",
+        "id": "short-story-personal-response-plan",
+        "title": "Personal Response Plan"
+      },
+      "activity": {
+        "id": "short-story-personal-response-plan",
+        "profile": "short-fiction",
+        "title": "Personal Response Plan"
+      },
+      "work": {
+        "id": "activelabel",
+        "title": "{activeLabel}",
+        "kind": "text"
+      },
+      "responseSelector": "[data-analysis-explorer]",
+      "tags": [
+        "short-fiction",
+        "personal-response",
+        "writing-plan"
+      ],
+      "saveLabel": "Save Personal Response Plan to Evidence Bank",
+      "savedMessage": "Saved to Evidence Bank",
+      "updatedMessage": "Updated in Evidence Bank"
+    }
+  ],
+  "sourceSha256": "7dd143ce0c7c41d5c45a16b30b94fb761c53a6ae70759faae58683ad6c11b8ec",
+  "outputSha256": "14499aeed08df011b8c9dfff0dbf0c4188324c54dabe2af828a26c417ff21ada",
+  "appliedAt": "2026-07-22T01:15:36.694Z",
+  "selectorChecks": [
+    {
+      "selector": "id=\"story-questions\"",
+      "count": 1,
+      "status": "placed"
+    },
+    {
+      "selector": "data-default-worksheet-story",
+      "count": 3,
+      "status": "placed"
+    },
+    {
+      "selector": "data-worksheet-answer",
+      "count": 7,
+      "status": "placed"
+    },
+    {
+      "selector": "id=\"writing\"",
+      "count": 1,
+      "status": "placed"
+    },
+    {
+      "selector": "data-analysis-explorer",
+      "count": 1,
+      "status": "placed"
+    },
+    {
+      "selector": ".story-questions-studio[data-worksheet-studio]",
+      "adapterId": "short-story-question-collection",
+      "count": 1,
+      "status": "placed"
+    },
+    {
+      "selector": "[data-analysis-explorer]",
+      "adapterId": "short-story-writing-evidence",
+      "count": 1,
+      "status": "placed"
+    },
+    {
+      "selector": "[data-analysis-explorer]",
+      "adapterId": "short-story-personal-response-plan",
+      "count": 1,
+      "status": "placed"
+    }
+  ]
+}

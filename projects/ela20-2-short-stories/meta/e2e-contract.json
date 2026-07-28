@@ -1,0 +1,195 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela20-2-short-stories",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-short-stories-introduction",
+      "lesson-2-lesson-1-characters-and-characterization",
+      "lesson-3-lesson-2-introduction-to-elements-of-fiction",
+      "lesson-12-lesson-11-suggestions-for-reading-short-stories",
+      "lesson-13-lesson-12-literary-terms",
+      "lesson-14-lesson-13-writing-a-personal-response-to-text-s",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "story-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "literary-exploration-prompt-controlling-idea",
+        "collectionId": "ela20-2-short-stories:literary-exploration:lamp-at-noon:prompt-controlling-idea:collection",
+        "responseId": "ela20-2-short-stories:literary-exploration:lamp-at-noon:prompt-controlling-idea:assigned-prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:literary-exploration\"] option[value=\"lamp-at-noon\"]"
+      },
+      {
+        "route": "literary-exploration-introduction-thesis",
+        "collectionId": "ela20-2-short-stories:literary-exploration:sea-devil:introduction-thesis:collection",
+        "responseId": "ela20-2-short-stories:literary-exploration:sea-devil:introduction-thesis:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:literary-exploration\"] option[value=\"sea-devil\"]"
+      },
+      {
+        "route": "literary-exploration-body-assigned-text",
+        "collectionId": "ela20-2-short-stories:literary-exploration:do-not-fall:body-assigned-text:collection",
+        "responseId": "ela20-2-short-stories:literary-exploration:do-not-fall:body-assigned-text:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:literary-exploration\"] option[value=\"do-not-fall\"]"
+      },
+      {
+        "route": "literary-exploration-body-studied-work",
+        "collectionId": "ela20-2-short-stories:literary-exploration:men-must-pay:body-studied-work:collection",
+        "responseId": "ela20-2-short-stories:literary-exploration:men-must-pay:body-studied-work:studied-work",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:literary-exploration\"] option[value=\"men-must-pay\"]"
+      },
+      {
+        "route": "literary-exploration-body-personal-connection",
+        "collectionId": "ela20-2-short-stories:literary-exploration:we-must-not-return:body-personal-connection:collection",
+        "responseId": "ela20-2-short-stories:literary-exploration:we-must-not-return:body-personal-connection:connection",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:literary-exploration\"] option[value=\"we-must-not-return\"]"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela20-2-short-stories:personal-response:lamp-at-noon:prompt-impression:collection",
+        "responseId": "ela20-2-short-stories:personal-response:lamp-at-noon:prompt-impression:prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:personal-response\"] option[value=\"lamp-at-noon\"]"
+      },
+      {
+        "route": "personal-response-text-evidence",
+        "collectionId": "ela20-2-short-stories:personal-response:sea-devil:text-evidence:collection",
+        "responseId": "ela20-2-short-stories:personal-response:sea-devil:text-evidence:moment",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:personal-response\"] option[value=\"sea-devil\"]"
+      },
+      {
+        "route": "personal-response-knowledge-experience",
+        "collectionId": "ela20-2-short-stories:personal-response:do-not-fall:knowledge-experience:collection",
+        "responseId": "ela20-2-short-stories:personal-response:do-not-fall:knowledge-experience:connection",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:personal-response\"] option[value=\"do-not-fall\"]"
+      },
+      {
+        "route": "personal-response-form-perspective",
+        "collectionId": "ela20-2-short-stories:personal-response:men-must-pay:form-perspective:collection",
+        "responseId": "ela20-2-short-stories:personal-response:men-must-pay:form-perspective:audience-purpose",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:personal-response\"] option[value=\"men-must-pay\"]"
+      },
+      {
+        "route": "personal-response-response-plan",
+        "collectionId": "ela20-2-short-stories:personal-response:we-must-not-return:response-plan:collection",
+        "responseId": "ela20-2-short-stories:personal-response:we-must-not-return:response-plan:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-2-short-stories:personal-response\"] option[value=\"we-must-not-return\"]"
+      },
+      {
+        "route": "story-questions",
+        "collectionId": "ela20-2-short-stories:short-fiction:story-questions:lamp-at-noon:collection",
+        "responseId": "ela20-2-short-stories:short-fiction:story-questions:lamp-at-noon:1"
+      },
+      {
+        "route": "writing-studio",
+        "collectionId": "ela20-2-short-stories:short-fiction:writing-studio:lamp-at-noon:paragraph:collection",
+        "responseId": "ela20-2-short-stories:short-fiction:writing-studio:lamp-at-noon:paragraph:claim"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "story-bank",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-short-stories-introduction",
+        "literary-exploration-prompt-controlling-idea",
+        "literary-exploration-introduction-thesis",
+        "literary-exploration-body-assigned-text",
+        "literary-exploration-body-studied-work",
+        "literary-exploration-body-personal-connection",
+        "personal-response-prompt-impression",
+        "personal-response-text-evidence",
+        "personal-response-knowledge-experience",
+        "personal-response-form-perspective",
+        "personal-response-response-plan",
+        "story-questions",
+        "writing-studio",
+        "story-bank",
+        "evidence-bank"
+      ]
+    }
+  }
+}

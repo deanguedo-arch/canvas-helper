@@ -1,0 +1,66 @@
+{
+  "id": "ela20-2-short-stories",
+  "slug": "ela20-2-short-stories",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+  "inputKind": "brightspace-zip",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-2-short-stories/workspace/index.html",
+  "createdAt": "2026-07-22T16:34:18.611Z",
+  "updatedAt": "2026-07-28T15:02:16.264Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-2-short-stories/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-2-short-stories/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-2-short-stories/meta/english-unit.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-2-short-stories/meta/prompt-pack.md",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/factory-build.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/activity-profile-renderers.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-profile-renderer.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-runtime-sanitizer.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-donor-lessons.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/writing-foundations-lessons.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npm run build:english-unit -- --project ela20-2-short-stories",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "importedAt": "2026-07-22T16:34:18.611Z",
+    "notes": "Short Stories V3 derived factory conversion from ela20-1-short-stories-pilot using the short-fiction activity profile."
+  },
+  "authoringStatus": "active",
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical editable workspace preview."
+    }
+  ],
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/config/english/families/ela20-2.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/meta/english-unit.json"
+  ],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-07-23T23:52:58.693Z",
+  "workspaceApprovedAt": "2026-07-28T15:02:16.264Z"
+}

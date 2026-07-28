@@ -1,0 +1,82 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-2-short-stories",
+  "generatedAt": "2026-07-28T14:33:22.526Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "short-fiction",
+    "version": "next-step-english-v3-ela10-2",
+    "sha256": "8fd5d7a831e6bcc4a25a683f5f48af5d95e2fb5f35283629669a7f7b64e955cf"
+  },
+  "recipe": {
+    "path": "projects/ela10-2-short-stories/meta/english-unit.json",
+    "sha256": "d29ee8ad7d83338db7e579e0d2f51cb610bbf6656f07cb7918f64e563b869f8b"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+      "sha256": "f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be"
+    },
+    {
+      "id": "family:supplement-90a7e3ee3452",
+      "path": "projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf"
+    },
+    {
+      "id": "family:supplement-425beada71fb",
+      "path": "projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef"
+    },
+    {
+      "id": "family:ela10-2",
+      "path": "config/english/families/ela10-2.json",
+      "sha256": "b6f0cb45ae387b564d448a2a3b6e4f5d417109d941457eb6f6eadbd9c2a02e28"
+    },
+    {
+      "id": "donor-data:ela10-1-short-stories",
+      "path": "projects/ela10-1-short-stories/meta/english-unit.json",
+      "sha256": "f7f666ad7cfec39cca890b1dafee6383e94b2a6188a19ee5bbfac6c9a16b526a"
+    },
+    {
+      "id": "donor:ela10-1-short-stories:recipe-v1:1:1",
+      "path": "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip",
+      "sha256": "2b733ba29703933d8c126dea2cc53f12c871dea986c4d6cba10a54edd355b481"
+    },
+    {
+      "id": "donor:ela10-1-short-stories:recipe-v1:1:2",
+      "path": "projects/ela10-1-short-stories/meta/english-unit.json",
+      "sha256": "f7f666ad7cfec39cca890b1dafee6383e94b2a6188a19ee5bbfac6c9a16b526a"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/annotating-readings-annotating-tips-close-reading-free-printable-to-teach-annotation.jpg",
+    "assets/generated/lessons/annotating-readings-student-annotations-color-1-892x1024.jpg",
+    "assets/generated/lessons/literary-devices-visualize-reading.png",
+    "assets/generated/lessons/literary-terms-review-dr-seuss-quote.jpg",
+    "assets/generated/lessons/literary-terms-review-pastedimage-12170678a56c492cb5fd9a50a17dffe1-image-48921645631682368695773.png",
+    "assets/generated/lessons/reading-short-stories-lets-read-stories.jpg",
+    "assets/generated/lessons/reading-strategies-reading-strategies-questions.jpg",
+    "assets/generated/lessons/short-story-terms-short-story-terms-banner.png",
+    "assets/generated/resources/cask-reading-cask-of-amontillado.pdf",
+    "assets/generated/resources/flight-questions-flight-into-danger-questions.pdf",
+    "assets/generated/resources/flight-reading-flight-into-danger.pdf",
+    "assets/generated/resources/flying-machine-flying-machine.pdf",
+    "assets/generated/resources/harrison-questions-harrison-bergeron-questions.pdf",
+    "assets/generated/resources/harrison-reading-harrison-bergeron-overview.pdf",
+    "assets/generated/resources/rock-questions-i-am-a-rock-questions.pdf",
+    "assets/generated/resources/rock-reading-i-am-a-rock-text.pdf",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Review the Cask vocabulary quiz before enabling it as formative practice.",
+    "Confirm every supplied question set is extracted without prefilled learner answers."
+  ]
+}

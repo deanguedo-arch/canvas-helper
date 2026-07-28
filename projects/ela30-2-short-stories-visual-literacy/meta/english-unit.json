@@ -1,0 +1,726 @@
+{
+  "schemaVersion": 3,
+  "projectSlug": "ela30-2-short-stories-visual-literacy",
+  "courseCode": "ELA 30-2",
+  "courseTitle": "English Language Arts 30-2",
+  "unitTitle": "Short Stories and Visual Literacy",
+  "profileVersion": "next-step-english-v3-ela30-2",
+  "status": "needs-review",
+  "derivesFromProject": "ela30-1-short-stories",
+  "writingForms": [
+    {
+      "kind": "literary-exploration",
+      "trackMode": "per-work",
+      "profile": "short-fiction"
+    },
+    {
+      "kind": "personal-response",
+      "trackMode": "per-work",
+      "profile": "short-fiction"
+    },
+    {
+      "kind": "visual-response",
+      "trackMode": "unit",
+      "profile": "visual-literacy"
+    }
+  ],
+  "source": {
+    "brightspaceZip": "projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
+    "teacherResourcesZip": "projects/resources/ela30-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "brightspaceUnitId": "derived-ela30-1-short-stories",
+    "teacherFolder": "ENGLISH 30-2 NSO/UNIT 1 Short Stories",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "donor:ela30-1-short-stories",
+        "title": "Approved donor lesson sequence",
+        "disposition": "include",
+        "includeChildren": true,
+        "reason": "Resolve lesson content from the approved donor recipe during the derived V3 build; this is not a Brightspace content selector."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "short-fiction",
+    "readerMode": "text-bank",
+    "questionCollectionScope": "story",
+    "analysisExplorer": true,
+    "activities": [
+      {
+        "id": "story-bank",
+        "title": "Short Story Bank",
+        "route": "story-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "story-questions",
+        "title": "Short Story Questions",
+        "route": "story-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "story-question-collection"
+        ]
+      },
+      {
+        "id": "writing-studio",
+        "title": "Writing Studio",
+        "route": "writing-studio",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "analysis-entry",
+          "writing-response-collection"
+        ]
+      },
+      {
+        "id": "film-room",
+        "title": "Film Room",
+        "route": "film-room",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "story-question-collection",
+        "activityId": "story-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:story-questions:{workId}"
+      },
+      {
+        "id": "analysis-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "writing-response-collection",
+        "activityId": "writing-studio",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{workId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "donor:ela30-1-short-stories"
+  ],
+  "topLevelLessonOrder": [
+    "donor:ela30-1-short-stories"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Short Stories and Visual Literacy",
+      "lessonIds": [
+        "donor:ela30-1-short-stories"
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "id": "god-is-not-a-fish-inspector",
+      "title": "God Is Not a Fish Inspector",
+      "author": "W. D. Valgardson",
+      "kind": "short-fiction",
+      "group": "Short Stories and Poetry",
+      "readingFile": "God Is Not A Fish Inspector.pdf",
+      "questionFile": "God Is Not A Fish Inspector.pdf",
+      "questionPrompts": [
+        {
+          "id": "question-1",
+          "prompt": "What physical difficulties does Fusi experience as he leaves shore and begins rowing? Support your answer with two details."
+        },
+        {
+          "id": "question-2",
+          "prompt": "How does the comparison of the oars to “too-small wings” develop the reader’s understanding of Fusi?"
+        },
+        {
+          "id": "question-3",
+          "prompt": "Trace how the author’s imagery makes Fusi’s pain increasingly vivid. Which image is most effective, and why?"
+        },
+        {
+          "id": "question-4",
+          "prompt": "What contrast does Fusi make between himself at twenty and himself now? What does it reveal about his conflict?"
+        },
+        {
+          "id": "question-5",
+          "prompt": "Why does Fusi hurry away without facing his daughter? What can you infer from this action?"
+        },
+        {
+          "id": "question-6",
+          "prompt": "Explain how the setting and the approaching dawn create pressure in the excerpt."
+        },
+        {
+          "id": "question-7",
+          "prompt": "What does “invisible deterioration” mean in context, and why is Fusi more afraid of it than his visible aging?"
+        },
+        {
+          "id": "question-8",
+          "prompt": "Develop a theme statement about aging, independence, or endurance. Support it with precise evidence from the excerpt."
+        }
+      ]
+    },
+    {
+      "id": "mother-and-son",
+      "title": "Mother and Son",
+      "author": "Alden Nowlan",
+      "kind": "short-fiction",
+      "group": "Short Stories and Poetry",
+      "readingFile": "Mother and Son.pdf",
+      "questionFile": "Mother and Son.pdf",
+      "questionPrompts": [
+        {
+          "id": "question-1",
+          "prompt": "How does the opening contrast the mother’s attention to guests with her physical attention to her son?"
+        },
+        {
+          "id": "question-2",
+          "prompt": "Identify two gestures made by the mother and explain what each reveals about their relationship."
+        },
+        {
+          "id": "question-3",
+          "prompt": "Why is the mother’s smile described as loving but “not altogether a friendly one”?"
+        },
+        {
+          "id": "question-4",
+          "prompt": "Explain the effect of the words “power” and “cruelty” in the description of a “normal parent.”"
+        },
+        {
+          "id": "question-5",
+          "prompt": "What does the son’s response—half grateful and half resentful—reveal about his conflicting feelings?"
+        },
+        {
+          "id": "question-6",
+          "prompt": "How does the poem develop tension between dependence and independence?"
+        },
+        {
+          "id": "question-7",
+          "prompt": "What does the ending suggest about the son’s readiness to separate from his mother?"
+        },
+        {
+          "id": "question-8",
+          "prompt": "Develop a theme statement about family love, control, or growing up. Support it with precise evidence from the poem."
+        }
+      ]
+    },
+    {
+      "id": "old-man",
+      "title": "Old Man",
+      "author": "Neil Young",
+      "kind": "short-fiction",
+      "group": "Short Stories and Poetry",
+      "readingFile": "Old Man.pdf",
+      "questionFile": "Old Man.pdf",
+      "questionPrompts": [
+        {
+          "id": "question-1",
+          "prompt": "Who is the speaker addressing, and what similarities does the speaker see between them?"
+        },
+        {
+          "id": "question-2",
+          "prompt": "What does “Live alone in a paradise / That makes me think of two” suggest about loneliness and companionship?"
+        },
+        {
+          "id": "question-3",
+          "prompt": "Explain the effect of the recurring request to “look at my life.”"
+        },
+        {
+          "id": "question-4",
+          "prompt": "What do the images of a coin being tossed and “rolling home” suggest about uncertainty or belonging?"
+        },
+        {
+          "id": "question-5",
+          "prompt": "How does the speaker’s need for lasting love contrast with things that “get lost”?"
+        },
+        {
+          "id": "question-6",
+          "prompt": "What does the statement “I’ve been first and last” reveal about the speaker’s experience or emotional state?"
+        },
+        {
+          "id": "question-7",
+          "prompt": "How does repetition shape the tone and central idea of the song?"
+        },
+        {
+          "id": "question-8",
+          "prompt": "Develop a theme statement about aging, connection, or the need to be understood. Support it with two precise details."
+        }
+      ]
+    },
+    {
+      "id": "warren-pryor",
+      "title": "Warren Pryor",
+      "author": "Alden Nowlan",
+      "kind": "short-fiction",
+      "group": "Short Stories and Poetry",
+      "readingFile": "Warren Pryor.pdf",
+      "questionFile": "Warren Pryor.pdf"
+    }
+  ],
+  "placements": [],
+  "analysisTerms": [
+    {
+      "id": "characterization",
+      "category": "Character",
+      "label": "Characterization",
+      "definition": "The methods a writer uses to reveal a character's traits, motives, relationships, and changes."
+    },
+    {
+      "id": "conflict",
+      "category": "Plot",
+      "label": "Conflict",
+      "definition": "A struggle between opposing needs, values, people, forces, or parts of a character's identity."
+    },
+    {
+      "id": "setting",
+      "category": "Story World",
+      "label": "Setting",
+      "definition": "The time, place, social conditions, and atmosphere in which a text unfolds."
+    },
+    {
+      "id": "point-of-view",
+      "category": "Narration",
+      "label": "Point of View",
+      "definition": "The perspective through which information is selected, limited, and presented to the reader."
+    },
+    {
+      "id": "irony",
+      "category": "Layers of Meaning",
+      "label": "Irony",
+      "definition": "A meaningful contrast between what is said, expected, intended, or understood and what is actually true or occurs."
+    },
+    {
+      "id": "symbolism",
+      "category": "Layers of Meaning",
+      "label": "Symbolism",
+      "definition": "The use of a concrete object, image, place, or action to suggest meaning beyond its literal role."
+    },
+    {
+      "id": "tone-and-diction",
+      "category": "Language",
+      "label": "Tone and Diction",
+      "definition": "Tone is the attitude created by a text; diction is the writer's deliberate choice of words that helps create it."
+    },
+    {
+      "id": "theme",
+      "category": "Central Ideas",
+      "label": "Theme",
+      "definition": "A developed insight about people, choices, relationships, society, or experience that emerges across a text."
+    }
+  ],
+  "analysisExamples": [
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "characterization",
+      "term": "Characterization",
+      "evidenceMoment": "He wiped his forehead with his hand and cursed his infirmity.",
+      "analysis": "Fusi's private anger at his weakening body characterizes him as proud and fiercely independent; he treats age as an opponent rather than a condition he is ready to accept."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "conflict",
+      "term": "Conflict",
+      "evidenceMoment": "a quarter of a mile and one net were nearly beyond him",
+      "analysis": "The physical task exposes Fusi's internal conflict between the capable man he remembers and the limits his aging body now imposes."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "setting",
+      "term": "Setting",
+      "evidenceMoment": "no more than an hour and a half until dawn",
+      "analysis": "The dark shoreline and approaching dawn create a deadline. The setting turns Fusi's private trip into a race against exposure, pain, and time."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "point-of-view",
+      "term": "Point of View",
+      "evidenceMoment": "Now, he reflected bitterly",
+      "analysis": "The third-person limited point of view moves into Fusi's thoughts, allowing the reader to feel the bitterness that his daughter and neighbours may not see."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "irony",
+      "term": "Irony",
+      "evidenceMoment": "Externally, he had changed very little over the years.",
+      "analysis": "The contrast is ironic because Fusi still looks strong while his unseen physical decline is steadily reducing what he can do."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "symbolism",
+      "term": "Symbolism",
+      "evidenceMoment": "the oars rising like too-small wings from a cumbersome body",
+      "analysis": "The wing image suggests freedom and power, but their smallness beside the cumbersome body makes the boat-and-oars image symbolize Fusi's diminished independence."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "tone-and-diction",
+      "term": "Tone and Diction",
+      "evidenceMoment": "a bent shingle-nail twisted and turned in his shoulder socket",
+      "analysis": "The harsh verbs and jagged nail image create a punishing tone, making Fusi's pain feel mechanical, invasive, and impossible to ignore."
+    },
+    {
+      "readingId": "god-is-not-a-fish-inspector",
+      "termId": "theme",
+      "term": "Theme",
+      "evidenceMoment": "invisible deterioration that was gradually shrinking the limits of his endurance",
+      "analysis": "The story develops the idea that aging is frightening not only because the body changes, but because those changes threaten a person's identity and independence."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "characterization",
+      "term": "Characterization",
+      "evidenceMoment": "She pushes his hair back from his eyes, curls a lock of it around her finger",
+      "analysis": "The mother's affectionate gestures also position her as controlling: she handles her son as if he still belongs physically and emotionally to her."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "conflict",
+      "term": "Conflict",
+      "evidenceMoment": "half-gratefully, half-resentfully",
+      "analysis": "The balanced phrasing captures the son's internal conflict. He still wants the comfort of his mother's attention while resenting the power it gives her."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "setting",
+      "term": "Setting",
+      "evidenceMoment": "whose twelve-year-old son has drifted into the party",
+      "analysis": "The public party setting makes the mother's touching performative as well as private, increasing the son's embarrassment and revealing the social imbalance between them."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "point-of-view",
+      "term": "Point of View",
+      "evidenceMoment": "her flesh has claimed possession of his",
+      "analysis": "The observing speaker interprets the mother's touch rather than merely reporting it, guiding readers to see affection and possession operating at the same time."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "irony",
+      "term": "Irony",
+      "evidenceMoment": "She's a normal parent.",
+      "analysis": "The flat claim is ironic after the smile has been linked with power and cruelty. It makes ordinary parental love seem capable of control as well as care."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "symbolism",
+      "term": "Symbolism",
+      "evidenceMoment": "plays with the buttons on his shirt",
+      "analysis": "The repeated use of the mother's hands symbolizes her continuing hold over her son, even as he approaches an age when he might pull away."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "tone-and-diction",
+      "term": "Tone and Diction",
+      "evidenceMoment": "a loving smile, of course, but not altogether a friendly one",
+      "analysis": "The qualification 'but not altogether' shifts the tone from warm to uneasy, suggesting that love in this relationship contains pride, power, and threat."
+    },
+    {
+      "readingId": "mother-and-son",
+      "termId": "theme",
+      "term": "Theme",
+      "evidenceMoment": "They both know she's the stronger",
+      "analysis": "The poem suggests that growing independence is complicated when family love also establishes a familiar structure of power."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "characterization",
+      "term": "Characterization",
+      "evidenceMoment": "I need someone to love me the whole day through",
+      "analysis": "The direct admission characterizes the speaker as emotionally open and lonely, despite the freedom and experience he describes elsewhere."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "conflict",
+      "term": "Conflict",
+      "evidenceMoment": "Love lost, such a cost",
+      "analysis": "The compressed line names the speaker's central emotional conflict: independence has not protected him from the pain and cost of lost connection."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "setting",
+      "term": "Setting",
+      "evidenceMoment": "Run around the same old town",
+      "analysis": "The familiar town suggests repetition and emotional stagnation, contrasting with the speaker's claim that there is still 'so much more.'"
+    },
+    {
+      "readingId": "old-man",
+      "termId": "point-of-view",
+      "term": "Point of View",
+      "evidenceMoment": "Old man, look at my life",
+      "analysis": "The first-person address makes the song a plea to be seen. The repeated 'my' keeps the listener inside the speaker's need for recognition."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "irony",
+      "term": "Irony",
+      "evidenceMoment": "Live alone in a paradise",
+      "analysis": "The contrast between 'paradise' and living alone complicates the idea of success: an ideal place cannot satisfy the speaker's need for companionship."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "symbolism",
+      "term": "Symbolism",
+      "evidenceMoment": "Like a coin that won't get tossed / Rolling home to you.",
+      "analysis": "The coin suggests chance and instability; imagining one that will not be tossed expresses the speaker's desire for a dependable bond and a secure return."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "tone-and-diction",
+      "term": "Tone and Diction",
+      "evidenceMoment": "Old man, take a look at my life",
+      "analysis": "The repeated imperative 'look' creates an earnest, pleading tone. The speaker does not simply describe himself; he asks another person to witness him."
+    },
+    {
+      "readingId": "old-man",
+      "termId": "theme",
+      "term": "Theme",
+      "evidenceMoment": "I'm a lot like you were.",
+      "analysis": "The refrain develops the idea that people at different ages share the same basic need for love, understanding, and a sense of belonging."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "characterization",
+      "term": "Characterization",
+      "evidenceMoment": "And he said nothing. Hard and serious",
+      "analysis": "Warren's silence and rigid description characterize him as emotionally contained; his parents see success while he suppresses his dissatisfaction."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "conflict",
+      "term": "Conflict",
+      "evidenceMoment": "aching with empty strength and throttled rage",
+      "analysis": "The physical language reveals Warren's conflict between the labouring identity his body carries and the confined office role chosen for him."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "setting",
+      "term": "Setting",
+      "evidenceMoment": "the stony fields, the meagre acreage that bore them down",
+      "analysis": "The harsh farm setting explains the parents' sacrifice and why the bank appears to them as rescue, even though Warren experiences it differently."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "point-of-view",
+      "term": "Point of View",
+      "evidenceMoment": "They marvelled how he wore a milk-white shirt",
+      "analysis": "The third-person speaker moves between the parents' pride and Warren's silence, exposing a gap between how his life looks and how it feels."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "irony",
+      "term": "Irony",
+      "evidenceMoment": "He was saved from their thistle-strewn farm and its red dirt.",
+      "analysis": "The word 'saved' is ironic because the final image shows Warren trapped in a teller's cage, with his strength unused and his anger restrained."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "symbolism",
+      "term": "Symbolism",
+      "evidenceMoment": "his passport from the years of brutal toil",
+      "analysis": "The diploma symbolizes escape and opportunity to Warren's parents, but the poem later questions whether that passport led him to freedom."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "tone-and-diction",
+      "term": "Tone and Diction",
+      "evidenceMoment": "slaving ... brutal toil ... barren hole",
+      "analysis": "The severe labour diction creates a tone of hardship, making the parents' hopes understandable while preparing the reader for the cost of their plan."
+    },
+    {
+      "readingId": "warren-pryor",
+      "termId": "theme",
+      "term": "Theme",
+      "evidenceMoment": "like a young bear inside his teller's cage",
+      "analysis": "The poem suggests that a life others define as success can become another form of confinement when it denies a person's nature and desires."
+    }
+  ],
+  "resourceDispositions": [
+    {
+      "id": "reading-god-is-not-a-fish-inspector",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/God Is Not A Fish Inspector.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short-story or poetry text.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "reading-mother-and-son",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/Mother and Son.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short-story or poetry text.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "reading-old-man",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/Old Man.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short-story or poetry text.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "reading-warren-pryor",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/Warren Pryor.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short-story or poetry text.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "visual-literacy-slides",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/Visual literacy final[1].pptx",
+      "role": "supporting-resource",
+      "disposition": "review-required",
+      "reason": "Visual-literacy source requires rights, accessibility, and conversion review before learner placement.",
+      "destination": "materials"
+    },
+    {
+      "id": "short-visual-hard-gate",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/SHORT STORY HARD GATE 30-2 Visual Response Task.docx.pdf",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "short-soft-reading",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/SHORT STORY UNIT SOFT GATE ASSESSMENT Grasshopper RC Readings.pdf",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "short-soft-questions",
+      "source": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/SHORT STORY UNIT SOFT GATE ASSESSMENTGrasshopper RC Questions.pdf",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/SHORT STORY HARD GATE 30-2 Visual Response Task.docx.pdf",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/SHORT STORY UNIT SOFT GATE ASSESSMENT Grasshopper RC Readings.pdf",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 30-2 NSO/UNIT 1 Short Stories/SHORT STORY UNIT SOFT GATE ASSESSMENTGrasshopper RC Questions.pdf",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "ELA 10-1",
+      "replace": "ELA 30-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 10-1",
+      "replace": "ELA 30-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 30-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 20-1",
+      "replace": "ELA 30-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 30-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "ELA 30-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "CBE",
+      "replace": "",
+      "reason": "Remove inherited provider branding from learner-facing copy."
+    },
+    {
+      "find": "continue to the next page",
+      "replace": "",
+      "reason": "Remove obsolete LMS navigation language."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "2026-07-23",
+    "allowedYouTubeIds": [
+      "1KbDdiku75E",
+      "j1bfOBBl6pQ",
+      "SKi56cPUSFk",
+      "WH5jlkK4aUI",
+      "30CPmgVQNks",
+      "FzpJnYIQv98",
+      "YcCrsVK5dWs",
+      "urEh4_fTtao",
+      "RecVd-6g-IY"
+    ],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [
+      "https://literarydevices.net/play/",
+      "https://literarydevices.net/character/",
+      "https://www.bibliomania.com/0/0/29/63/frameset.html"
+    ],
+    "externalUrlRewrites": {
+      "http://www.bibliomania.com/0/0/29/63/frameset.html": "https://www.bibliomania.com/0/0/29/63/frameset.html"
+    }
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "film-room",
+      "resources"
+    ],
+    "requiredActivityIds": [
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "film-room",
+      "resources"
+    ],
+    "reviewItems": [
+      "Resolve rights and accessibility for packaged visual-literacy materials.",
+      "Use teacher-authorized or licensed replacement visuals and fresh response models.",
+      "Verify the neutral current-visual track until licensed or teacher-authorized visuals are approved for per-visual tracking.",
+      "Warren Pryor retains the four questions printed in its teacher PDF. God Is Not a Fish Inspector, Mother and Son, and Old Man use clearly authored guided-analysis prompts because their supplied PDFs contain only the assigned texts."
+    ]
+  }
+}

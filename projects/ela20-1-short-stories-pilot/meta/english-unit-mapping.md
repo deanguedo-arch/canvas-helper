@@ -1,12 +1,12 @@
-# ELA 20-1 Short Stories Pilot Mapping
+# ela20-1-short-stories-pilot Source Mapping
 
 - Brightspace unit: Short Stories (53033)
-- CBE lesson pages: 14
+- Brightspace lesson pages: 14
 - Placed: 42
-- Corrected: 7
+- Corrected: 6
 - Excluded: 3
 - Missing: 0
-- Failed live/unclassified resources: 8
+- Failed live/unclassified resources: 9
 
 | Status | Role | Source | Destination | Note |
 | --- | --- | --- | --- | --- |
@@ -24,7 +24,7 @@
 | placed | media | https://www.youtube.com/embed/j1bfOBBl6pQ?feature=oembed&wmode=opaque&rel=0 | Film Room and Lesson 3: Irony | Live YouTube oEmbed check passed; converted to a privacy-enhanced HTTPS embed. |
 | placed | supporting-resource | short_stories/images/ironic-no-bicycles-sign-600w-1159782328.jpg | assets/lessons/lesson-3-irony-ironic-no-bicycles-sign-600w-1159782328.jpg | Copied image referenced by Lesson 3: Irony. |
 | corrected | supporting-resource | http://www.dowse.com/fiction/Lawrence.html | https://www.dowse.com/fiction/Lawrence.html | Live link check passed after upgrading the source URL. |
-| placed | supporting-resource | short_stories/rhw_irony.html | workspace/resources/rhw-irony.html | Retained as a supporting reading rather than a separate lesson. |
+| placed | supporting-resource | short_stories/rhw_irony.html | workspace/resources/generated/rhw-irony.html | Retained as a supporting reading rather than a separate lesson. |
 | corrected | supporting-resource | http://www.bibliomania.com/0/0/29/63/frameset.html | https://www.bibliomania.com/0/0/29/63/frameset.html | Live link check passed after upgrading the source URL. |
 | placed | lesson | short_stories/irony.html | Lesson 3: Irony | Imported from Brightspace unit 53033. |
 | placed | media | https://www.youtube.com/embed/SKi56cPUSFk?feature=oembed&wmode=opaque&rel=0 | Film Room and Lesson 4: Point of View | Live YouTube oEmbed check passed; converted to a privacy-enhanced HTTPS embed. |
@@ -43,7 +43,7 @@
 | placed | media | https://www.youtube.com/embed/YcCrsVK5dWs?feature=oembed&wmode=opaque&rel=0 | Film Room and Lesson 8: Tone and Mood | Live YouTube oEmbed check passed; converted to a privacy-enhanced HTTPS embed. |
 | placed | lesson | short_stories/tone.html | Lesson 8: Tone and Mood | Imported from Brightspace unit 53033. |
 | placed | media | https://www.youtube.com/embed/urEh4_fTtao?feature=oembed&wmode=opaque&rel=0 | Film Room and Lesson 9: Diction | Live YouTube oEmbed check passed; converted to a privacy-enhanced HTTPS embed. |
-| corrected | supporting-resource | http://www.eldritchpress.org/nh/dhe.html | https://www.eldritchpress.org/nh/dhe.html | Live link check passed after upgrading the source URL. |
+| failed | supporting-resource | http://www.eldritchpress.org/nh/dhe.html | - | Removed from Lesson 9: Diction because the live link check failed or the destination was not suitable for secure Brightspace use. |
 | failed | supporting-resource | http://xroads.virginia.edu/~hyper/POE/telltale.html | - | Removed from Lesson 9: Diction because the live link check failed or the destination was not suitable for secure Brightspace use. |
 | placed | lesson | short_stories/diction.html | Lesson 9: Diction | Imported from Brightspace unit 53033. |
 | failed | media | https://www.youtube.com/embed/RecVd-6g-IY?feature=oembed&wmode=opaque&rel=0 | - | Removed because the video failed the live availability check. |

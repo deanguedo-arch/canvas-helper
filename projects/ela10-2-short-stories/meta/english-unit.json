@@ -1,0 +1,370 @@
+{
+  "schemaVersion": 3,
+  "projectSlug": "ela10-2-short-stories",
+  "courseCode": "ELA 10-2",
+  "courseTitle": "English Language Arts 10-2",
+  "unitTitle": "Short Stories",
+  "profileVersion": "next-step-english-v3-ela10-2",
+  "status": "needs-review",
+  "derivesFromProject": "ela10-1-short-stories",
+  "writingForms": [
+    {
+      "kind": "literary-exploration",
+      "trackMode": "per-work",
+      "profile": "short-fiction"
+    },
+    {
+      "kind": "personal-response",
+      "trackMode": "per-work",
+      "profile": "short-fiction"
+    }
+  ],
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "teacherResourcesZip": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "brightspaceUnitId": "derived-ela10-1-short-stories",
+    "teacherFolder": "ENGLISH 10-2 NSO/UNIT 2 Short Stories",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "donor:ela10-1-short-stories",
+        "title": "Approved donor lesson sequence",
+        "disposition": "include",
+        "includeChildren": true,
+        "reason": "Resolve lesson content from the approved donor recipe during the derived V3 build; this is not a Brightspace content selector."
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "short-fiction",
+    "readerMode": "text-bank",
+    "questionCollectionScope": "story",
+    "analysisExplorer": true,
+    "activities": [
+      {
+        "id": "story-bank",
+        "title": "Short Story Bank",
+        "route": "story-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "story-questions",
+        "title": "Short Story Questions",
+        "route": "story-questions",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "story-question-collection"
+        ]
+      },
+      {
+        "id": "writing-studio",
+        "title": "Writing Studio",
+        "route": "writing-studio",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "analysis-entry",
+          "writing-response-collection"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "story-question-collection",
+        "activityId": "story-questions",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:story-questions:{workId}"
+      },
+      {
+        "id": "analysis-entry",
+        "activityId": "writing-studio",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{entryId}"
+      },
+      {
+        "id": "writing-response-collection",
+        "activityId": "writing-studio",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "work",
+        "contributionIdTemplate": "{projectSlug}:writing-studio:{workId}"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "donor:ela10-1-short-stories"
+  ],
+  "topLevelLessonOrder": [
+    "donor:ela10-1-short-stories"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Short Stories",
+      "lessonIds": [
+        "donor:ela10-1-short-stories"
+      ]
+    }
+  ],
+  "readings": [
+    {
+      "id": "cask-of-amontillado",
+      "title": "The Cask of Amontillado",
+      "author": "Edgar Allan Poe",
+      "kind": "short-fiction",
+      "group": "Assigned texts",
+      "readingFile": "Cask of Amontillado.pdf",
+      "questionFile": "Cask of Amontillado Quiz.pdf"
+    },
+    {
+      "id": "flight-into-danger",
+      "title": "Flight into Danger",
+      "author": "Arthur Hailey",
+      "kind": "short-fiction",
+      "group": "Assigned texts",
+      "readingFile": "Flight into Danger.pdf",
+      "questionFile": "Flight_Into_Danger_Questions.pdf"
+    },
+    {
+      "id": "flying-machine",
+      "title": "The Flying Machine",
+      "author": "Ray Bradbury",
+      "kind": "short-fiction",
+      "group": "Assigned texts",
+      "readingFile": "Flying Machine.pdf",
+      "questionFile": "Flying Machine.pdf"
+    },
+    {
+      "id": "harrison-bergeron",
+      "title": "Harrison Bergeron",
+      "author": "Kurt Vonnegut Jr.",
+      "kind": "short-fiction",
+      "group": "Assigned texts",
+      "readingFile": "Harrison Bergeron Overview.pdf",
+      "questionFile": "Harrison Bergeron Questions.pdf"
+    },
+    {
+      "id": "i-am-a-rock",
+      "title": "I Am a Rock",
+      "author": "Paul Simon",
+      "kind": "short-fiction",
+      "group": "Assigned texts",
+      "readingFile": "I am a Rock Text.pdf",
+      "questionFile": "I am a Rock Questions.pdf"
+    }
+  ],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "cask-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Cask of Amontillado.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short story.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "cask-quiz",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Cask of Amontillado Quiz.pdf",
+      "role": "question-set",
+      "disposition": "review-required",
+      "reason": "Formative vocabulary/comprehension practice; teacher review is required before learner placement.",
+      "destination": "story-questions"
+    },
+    {
+      "id": "flight-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Flight into Danger.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short story.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "flight-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Flight_Into_Danger_Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-supplied story questions.",
+      "destination": "story-questions"
+    },
+    {
+      "id": "flying-machine",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Flying Machine.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short story and embedded questions.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "harrison-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Harrison Bergeron Overview.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected short story.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "harrison-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/Harrison Bergeron Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-supplied story questions.",
+      "destination": "story-questions"
+    },
+    {
+      "id": "rock-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/I am a Rock Text.pdf",
+      "role": "reading",
+      "disposition": "place",
+      "reason": "Teacher-selected text.",
+      "destination": "story-bank"
+    },
+    {
+      "id": "rock-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/I am a Rock Questions.pdf",
+      "role": "question-set",
+      "disposition": "place",
+      "reason": "Teacher-supplied text questions.",
+      "destination": "story-questions"
+    },
+    {
+      "id": "short-soft-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/SOFT GATE_ Ceintures SVP Reading.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "short-soft-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/SOFT GATE_ Ceintures SVP Questions.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "short-hard-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/HARD GATE Leiningen vs the Ants.pdf",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "short-hard-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/HARD GATE Leiningen vs the Ants questions.pdf",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/SOFT GATE_ Ceintures SVP Reading.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/SOFT GATE_ Ceintures SVP Questions.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/HARD GATE Leiningen vs the Ants.pdf",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 2 Short Stories/HARD GATE Leiningen vs the Ants questions.pdf",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "ELA 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "CBE",
+      "replace": "",
+      "reason": "Remove inherited provider branding from learner-facing copy."
+    },
+    {
+      "find": "continue to the next page",
+      "replace": "",
+      "reason": "Remove obsolete LMS navigation language."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "resources"
+    ],
+    "requiredActivityIds": [
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "resources"
+    ],
+    "reviewItems": [
+      "Review the Cask vocabulary quiz before enabling it as formative practice.",
+      "Confirm every supplied question set is extracted without prefilled learner answers."
+    ]
+  }
+}

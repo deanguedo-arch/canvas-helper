@@ -125,7 +125,7 @@ test("generated pilot accounts for sources and renders all required learner surf
     true
   );
 
-  for (const heading of ["Short Story Bank", "Short Story Questions", "Personal Response Workspace", "Analysis Explorer", "Evidence Bank", "Media Room", "Source Resources"]) {
+  for (const heading of ["Short Story Bank", "Short Story Questions", "Personal Response Workspace", "Analysis Explorer", "Evidence Bank", "Media Room", "Resources", "Critical Analytical Essay Guide", "Personal Response to Text Guide"]) {
     assert.match(html, new RegExp(`>${heading}<`));
   }
   for (const referencePattern of ["library-browser story-bank-browser", "worksheet-document-header", "analysis-shell", "analysis-term-list", "film-room-shell", 'id="resources"']) {
@@ -149,14 +149,31 @@ test("generated pilot accounts for sources and renders all required learner surf
   assert.equal(html.includes('data-evidence-capture="literary-terms"'), true);
   assert.equal((html.match(/data-literary-term-option/g) ?? []).length, 44);
   assert.equal((html.match(/<button[^>]+data-save-response-evidence/g) ?? []).length, 0);
-  assert.equal((html.match(/<button[^>]+data-save-response-collection/g) ?? []).length, 6);
-  assert.equal((html.match(/<button[^>]+class="[^"]*evidence-bank-save-action[^"]*"[^>]+data-save-(?:evidence-note|response-collection)/g) ?? []).length, 9);
+  const criticalStageIds = ["topic-interpretation", "introduction", "body-one", "body-two", "body-three", "conclusion-revision"];
+  const criticalTrackIds = recipe.readings.map((reading) => reading.id);
+  const criticalCollectionIds = Array.from(
+    html.matchAll(/data-evidence-collection-id="(ela20-1-short-stories-pilot:critical-essay:[^"]+:collection)"/g),
+    (match) => match[1]
+  );
+  const expectedCriticalCollectionIds = criticalTrackIds.flatMap((trackId) =>
+    criticalStageIds.map((stageId) => `ela20-1-short-stories-pilot:critical-essay:${trackId}:${stageId}:collection`)
+  );
+  assert.deepEqual([...new Set(criticalCollectionIds)].sort(), expectedCriticalCollectionIds.sort());
+  assert.equal(criticalCollectionIds.length, 30);
+  assert.equal((html.match(/data-english-writing-track-select="ela20-1-short-stories-pilot:critical-essay"/g) ?? []).length, 8);
+  assert.equal((html.match(/data-english-writing-track-panel="ela20-1-short-stories-pilot:critical-essay"/g) ?? []).length, 35);
+  assert.equal((html.match(/<button[^>]+data-save-response-collection/g) ?? []).length, 42);
+  assert.equal((html.match(/<button[^>]+class="[^"]*evidence-bank-save-action[^"]*"[^>]+data-save-(?:evidence-note|response-collection)/g) ?? []).length, 45);
   assert.equal(html.includes('data-evidence-collection-id="english-writing-studio:build-response"'), true);
   assert.match(html, /data-save-response-collection[^>]*>.*?Save Response to Evidence Bank<\/button>/);
   assert.equal(html.includes("data-manual-evidence-list"), true);
+  assert.equal((html.match(/class="[^"]*short-story-dark-header[^"]*"/g) ?? []).length, 10);
+  assert.equal(html.includes(".short-story-dark-header { border-bottom: 0; background: #161a17; color: #fff; }"), true);
   assert.equal(recipe.analysisTerms.length, 9);
   assert.equal((html.match(/data-element-complete-for=/g) ?? []).length, 8);
-  assert.equal((html.match(/class="element-selector/g) ?? []).length, 8);
+  assert.equal((html.match(/<button class="element-selector/g) ?? []).length, 8);
+  assert.equal((html.match(/class="element-selector-action"/g) ?? []).length, 8);
+  assert.equal((html.match(/class="element-completion-bar"/g) ?? []).length, 0);
   assert.equal((html.match(/class="course-page lesson-page lesson-page--ela30"/g) ?? []).length, 6);
   assert.equal((html.match(/<header class="lesson-document-header"/g) ?? []).length, 0);
   assert.equal((html.match(/<div class="lesson-reader-panel"/g) ?? []).length, 0);
@@ -283,10 +300,10 @@ test("pilot interactions support routing, reader overlay, shared responses, rest
     const elementsChecklist = page.locator("[data-elements-checklist]:visible");
     assert.equal(await elementsChecklist.count(), 1);
     assert.equal(await elementsChecklist.locator("[data-element-complete-for]").count(), 8);
-    await elementsChecklist.getByRole("button", { name: "Point of View", exact: true }).click();
+    await elementsChecklist.getByRole("button", { name: /Point of View/ }).click();
     const pointOfViewPanel = elementsChecklist.locator('[data-element-panel="lesson-5-lesson-4-point-of-view"]:visible');
     assert.equal(await pointOfViewPanel.count(), 1);
-    await pointOfViewPanel.getByRole("button", { name: "Mark Complete", exact: true }).click();
+    await elementsChecklist.locator('[data-element-complete-for="lesson-5-lesson-4-point-of-view"]').click();
     assert.equal(await elementsChecklist.locator('[data-element-complete-for="lesson-5-lesson-4-point-of-view"]').innerText(), "✓");
     assert.match(await page.locator("[data-progress-count]").innerText(), /1 \/ 14 lessons/i);
 
@@ -302,6 +319,18 @@ test("pilot interactions support routing, reader overlay, shared responses, rest
     await page.selectOption("#question-bank-select", "sea-devil");
     const visibleQuestionPanel = page.locator("[data-question-panel]:visible");
     assert.equal(await visibleQuestionPanel.count(), 1);
+    assert.deepEqual(
+      await visibleQuestionPanel.locator(".short-story-dark-header").evaluate((header) => {
+        const heading = header.querySelector("h3");
+        const copy = header.querySelector("p");
+        return {
+          background: getComputedStyle(header).backgroundColor,
+          heading: heading ? getComputedStyle(heading).color : "",
+          copy: copy ? getComputedStyle(copy).color : ""
+        };
+      }),
+      { background: "rgb(22, 26, 23)", heading: "rgb(255, 255, 255)", copy: "rgb(185, 195, 178)" }
+    );
     assert.equal(await visibleQuestionPanel.locator(".worksheet-toolbar-link").count(), 0);
     assert.equal(await visibleQuestionPanel.locator("[data-question-hint]:visible").count(), 0);
     const questionHintButton = visibleQuestionPanel.locator("[data-worksheet-toggle-hints]");
@@ -341,6 +370,19 @@ test("pilot interactions support routing, reader overlay, shared responses, rest
       await page.locator(".course-page:visible").evaluateAll((pages) => pages.map((visiblePage) => visiblePage.id)),
       ["evidence-bank"]
     );
+    assert.deepEqual(
+      await page.locator("#evidence-bank .short-story-dark-header").evaluateAll((headers) =>
+        headers.map((header) => ({
+          background: getComputedStyle(header).backgroundColor,
+          heading: getComputedStyle(header.querySelector("h3") as Element).color,
+          copy: getComputedStyle(header.querySelector("p") as Element).color
+        }))
+      ),
+      [
+        { background: "rgb(22, 26, 23)", heading: "rgb(255, 255, 255)", copy: "rgb(185, 195, 178)" },
+        { background: "rgb(22, 26, 23)", heading: "rgb(255, 255, 255)", copy: "rgb(185, 195, 178)" }
+      ]
+    );
     assert.equal(await page.locator("[data-manual-evidence-list] .social-manual-evidence-card").count(), 1);
     assert.match(await page.locator("[data-manual-evidence-list]").innerText(), /The Sea Devil \| Short Story Questions/);
     assert.match(await page.locator("[data-manual-evidence-list]").innerText(), /The Sea Devil Question Collection/);
@@ -372,15 +414,29 @@ test("pilot interactions support routing, reader overlay, shared responses, rest
       await page.locator(".course-page:visible").evaluateAll((pages) => pages.map((visiblePage) => visiblePage.id)),
       ["writing-studio"]
     );
+    assert.deepEqual(
+      await page.locator("#writing-studio .short-story-dark-header").evaluateAll((headers) =>
+        headers.map((header) => ({
+          background: getComputedStyle(header).backgroundColor,
+          heading: getComputedStyle(header.querySelector("h3") as Element).color,
+          copy: getComputedStyle(header.querySelector("p") as Element).color
+        }))
+      ),
+      [
+        { background: "rgb(22, 26, 23)", heading: "rgb(255, 255, 255)", copy: "rgb(185, 195, 178)" },
+        { background: "rgb(22, 26, 23)", heading: "rgb(255, 255, 255)", copy: "rgb(185, 195, 178)" },
+        { background: "rgb(22, 26, 23)", heading: "rgb(255, 255, 255)", copy: "rgb(185, 195, 178)" }
+      ]
+    );
     assert.equal(await page.getByRole("link", { name: "Analysis Explorer", exact: true }).count(), 0);
-    const evidenceSaveStyles = await page.locator("[data-save-evidence-note], [data-save-response-collection]").evaluateAll((buttons) =>
+    const evidenceSaveStyles = await page.locator("#writing-studio [data-save-evidence-note], #writing-studio [data-save-response-collection]").evaluateAll((buttons) =>
       buttons.map((button) => ({
         className: button.className,
         backgroundColor: getComputedStyle(button).backgroundColor,
         color: getComputedStyle(button).color
       }))
     );
-    assert.equal(evidenceSaveStyles.length, 9);
+    assert.equal(evidenceSaveStyles.length, 2);
     assert.equal(evidenceSaveStyles.every((button) => button.className.includes("evidence-bank-save-action")), true);
     assert.equal(evidenceSaveStyles.every((button) => button.backgroundColor === "rgb(21, 66, 18)"), true);
     assert.equal(evidenceSaveStyles.every((button) => button.color === "rgb(255, 255, 255)"), true);
@@ -393,6 +449,29 @@ test("pilot interactions support routing, reader overlay, shared responses, rest
         assert.equal(await page.locator(".analysis-example-card").count(), 2, `${termId}/${readingId} should render two examples`);
       }
     }
+
+    await page.goto(`http://127.0.0.1:${address.port}/index.html#critical-essay-topic-interpretation`);
+    const criticalTrackSelect = page.locator('[data-english-writing-track-select="ela20-1-short-stories-pilot:critical-essay"]:visible');
+    assert.equal(await criticalTrackSelect.locator("option").count(), 5);
+    assert.equal(await page.locator('[data-english-writing-track-panel="ela20-1-short-stories-pilot:critical-essay"]:visible').count(), 1);
+    const lampTopic = page.locator(
+      '[data-response-id="ela20-1-short-stories-pilot:critical-essay:lamp-at-noon:topic-interpretation:assigned-topic"]'
+    );
+    const seaDevilTopic = page.locator(
+      '[data-response-id="ela20-1-short-stories-pilot:critical-essay:sea-devil:topic-interpretation:assigned-topic"]'
+    );
+    await lampTopic.fill("Pressure can expose the values that control a person's choices.");
+    await criticalTrackSelect.selectOption("sea-devil");
+    assert.equal(await seaDevilTopic.inputValue(), "");
+    await seaDevilTopic.fill("A struggle for survival can unsettle a person's confidence and control.");
+    await criticalTrackSelect.selectOption("lamp-at-noon");
+    assert.equal(await lampTopic.inputValue(), "Pressure can expose the values that control a person's choices.");
+    assert.equal(await seaDevilTopic.inputValue(), "A struggle for survival can unsettle a person's confidence and control.");
+    await page.reload();
+    assert.equal(await criticalTrackSelect.inputValue(), "lamp-at-noon");
+    assert.equal(await lampTopic.inputValue(), "Pressure can expose the values that control a person's choices.");
+
+    await page.goto(`http://127.0.0.1:${address.port}/index.html#writing-studio`);
     const planner = page.locator('[data-response-id="personal-response:idea"]');
     await planner.fill("The text shows how pressure reveals what a person values.");
     await page.reload();
@@ -463,6 +542,10 @@ test("pilot interactions support routing, reader overlay, shared responses, rest
     assert.equal(await page.locator("[data-analysis-term-select]").isVisible(), true);
     const sizes = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
     assert.equal(sizes.scrollWidth <= sizes.innerWidth + 1, true);
+    await page.goto(`http://127.0.0.1:${address.port}/index.html#evidence-bank`);
+    assert.equal(await page.locator("#evidence-bank .short-story-dark-header:visible").count(), 2);
+    const evidenceSizes = await page.evaluate(() => ({ scrollWidth: document.documentElement.scrollWidth, innerWidth: window.innerWidth }));
+    assert.equal(evidenceSizes.scrollWidth <= evidenceSizes.innerWidth + 1, true);
   } finally {
     await browser.close();
     await new Promise<void>((resolve, reject) => server.close((error) => (error ? reject(error) : resolve())));

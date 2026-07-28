@@ -1,0 +1,209 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela30-2-short-stories-visual-literacy",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-short-stories-introduction",
+      "lesson-2-lesson-1-characters-and-characterization",
+      "lesson-3-lesson-2-introduction-to-elements-of-fiction",
+      "lesson-13-lesson-12-literary-terms",
+      "lesson-12-lesson-11-suggestions-for-reading-short-stories",
+      "lesson-14-lesson-13-writing-a-personal-response-to-text-s",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "visual-response",
+      "visual-response-observe",
+      "visual-response-paces",
+      "visual-response-central-idea",
+      "visual-response-prose-form",
+      "visual-response-draft",
+      "visual-response-conclusion-revision",
+      "visual-response-preview",
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "film-room",
+      "resources"
+    ],
+    "hintRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "visual-response-observe",
+      "visual-response-paces",
+      "visual-response-central-idea",
+      "visual-response-prose-form",
+      "visual-response-draft",
+      "visual-response-conclusion-revision",
+      "story-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "visual-response-observe",
+      "visual-response-paces",
+      "visual-response-central-idea",
+      "visual-response-prose-form",
+      "visual-response-draft",
+      "visual-response-conclusion-revision",
+      "visual-response-preview",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "literary-exploration-prompt-controlling-idea",
+        "collectionId": "ela30-2-short-stories-visual-literacy:literary-exploration:god-is-not-a-fish-inspector:prompt-controlling-idea:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:literary-exploration:god-is-not-a-fish-inspector:prompt-controlling-idea:assigned-prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:literary-exploration\"] option[value=\"god-is-not-a-fish-inspector\"]"
+      },
+      {
+        "route": "literary-exploration-introduction-thesis",
+        "collectionId": "ela30-2-short-stories-visual-literacy:literary-exploration:mother-and-son:introduction-thesis:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:literary-exploration:mother-and-son:introduction-thesis:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:literary-exploration\"] option[value=\"mother-and-son\"]"
+      },
+      {
+        "route": "literary-exploration-body-assigned-text",
+        "collectionId": "ela30-2-short-stories-visual-literacy:literary-exploration:old-man:body-assigned-text:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:literary-exploration:old-man:body-assigned-text:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:literary-exploration\"] option[value=\"old-man\"]"
+      },
+      {
+        "route": "literary-exploration-body-studied-work",
+        "collectionId": "ela30-2-short-stories-visual-literacy:literary-exploration:warren-pryor:body-studied-work:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:literary-exploration:warren-pryor:body-studied-work:studied-work",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:literary-exploration\"] option[value=\"warren-pryor\"]"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela30-2-short-stories-visual-literacy:personal-response:god-is-not-a-fish-inspector:prompt-impression:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:personal-response:god-is-not-a-fish-inspector:prompt-impression:prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:personal-response\"] option[value=\"god-is-not-a-fish-inspector\"]"
+      },
+      {
+        "route": "personal-response-text-evidence",
+        "collectionId": "ela30-2-short-stories-visual-literacy:personal-response:mother-and-son:text-evidence:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:personal-response:mother-and-son:text-evidence:moment",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:personal-response\"] option[value=\"mother-and-son\"]"
+      },
+      {
+        "route": "personal-response-knowledge-experience",
+        "collectionId": "ela30-2-short-stories-visual-literacy:personal-response:old-man:knowledge-experience:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:personal-response:old-man:knowledge-experience:connection",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:personal-response\"] option[value=\"old-man\"]"
+      },
+      {
+        "route": "personal-response-form-perspective",
+        "collectionId": "ela30-2-short-stories-visual-literacy:personal-response:warren-pryor:form-perspective:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:personal-response:warren-pryor:form-perspective:audience-purpose",
+        "activateSelector": "[data-english-writing-track-select=\"ela30-2-short-stories-visual-literacy:personal-response\"] option[value=\"warren-pryor\"]"
+      },
+      {
+        "route": "visual-response-observe",
+        "collectionId": "ela30-2-short-stories-visual-literacy:visual-response:unit:observe:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:visual-response:unit:observe:visual-title"
+      },
+      {
+        "route": "story-questions",
+        "collectionId": "ela30-2-short-stories-visual-literacy:short-fiction:story-questions:god-is-not-a-fish-inspector:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:short-fiction:story-questions:god-is-not-a-fish-inspector:question-1"
+      },
+      {
+        "route": "writing-studio",
+        "collectionId": "ela30-2-short-stories-visual-literacy:short-fiction:writing-studio:god-is-not-a-fish-inspector:paragraph:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:short-fiction:writing-studio:god-is-not-a-fish-inspector:paragraph:claim"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "story-bank",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-short-stories-introduction",
+        "literary-exploration-prompt-controlling-idea",
+        "literary-exploration-introduction-thesis",
+        "literary-exploration-body-assigned-text",
+        "literary-exploration-body-studied-work",
+        "personal-response-prompt-impression",
+        "personal-response-text-evidence",
+        "personal-response-knowledge-experience",
+        "personal-response-form-perspective",
+        "visual-response-observe",
+        "story-questions",
+        "writing-studio",
+        "story-bank",
+        "evidence-bank"
+      ]
+    }
+  }
+}

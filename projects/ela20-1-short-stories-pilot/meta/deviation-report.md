@@ -1,7 +1,7 @@
 # Authoring Deviation Report
 
 - Project: ela20-1-short-stories-pilot
-- Generated: 2026-07-14T16:42:13.117Z
+- Generated: 2026-07-28T15:02:15.253Z
 - Pass: yes
 - Deviations: 2
 - Accepted deviations: 0
@@ -19,5 +19,6 @@
 - Severity: warn
 - Surface: export
 - Location: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/workspace/index.html
-- Why: Detected 213 paragraph blocks but max allowed is 5.
-- Evidence: <p> count = 213
+- Why: Detected 521 paragraph blocks but max allowed is 5.
+- Evidence: <p> count = 521
+

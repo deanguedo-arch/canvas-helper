@@ -1,0 +1,136 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela30-1-short-stories",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Short Story Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "short-stories-introduction",
+      "lesson-1-characters-and-characterization",
+      "lesson-2-introduction-to-elements-of-fiction",
+      "lesson-11-suggestions-for-reading-short-stories",
+      "lesson-12-literary-terms",
+      "lesson-13-writing-a-personal-response-to-text-s",
+      "story-bank",
+      "story-questions",
+      "writing",
+      "film-room",
+      "evidence-bank",
+      "resources",
+      "critical-essay",
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview"
+    ],
+    "hintRoutes": [
+      "story-questions",
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise"
+    ],
+    "printRoutes": [
+      "story-questions",
+      "evidence-bank",
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview"
+    ],
+    "evidenceScenarios": [
+      {
+        "kind": "collection",
+        "route": "story-questions",
+        "collectionId": "ela30-short-stories:questions:babylon",
+        "responseId": "thesis",
+        "activateSelector": "[data-worksheet-select] option[value=\"babylon\"]"
+      },
+      {
+        "kind": "individual",
+        "route": "writing",
+        "captureId": "short-story-writing-evidence",
+        "contributionId": "ela30-short-stories:writing:by-the-waters-of-babylon",
+        "responseId": "ela30-1-short-stories:evidence-composer:short-story-writing-evidence:detail",
+        "activateSelector": "[data-analysis-story-select] option[value=\"By the Waters of Babylon\"]",
+        "preserveResponseOnSave": true
+      },
+      {
+        "kind": "collection",
+        "route": "critical-essay-topic-interpretation",
+        "collectionId": "ela30-1-short-stories:critical-essay:by-the-waters-of-babylon:topic-interpretation:collection",
+        "responseId": "ela30-1-short-stories:critical-essay:by-the-waters-of-babylon:topic-interpretation:assigned-topic"
+      },
+      {
+        "kind": "collection",
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela30-1-short-stories:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela30-1-short-stories:personal-response:unit:prompt-impression:prompt"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "story-questions",
+        "writing",
+        "evidence-bank",
+        "resources",
+        "critical-essay-topic-interpretation",
+        "personal-response-prompt-impression"
+      ]
+    }
+  }
+}

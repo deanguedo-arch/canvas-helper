@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "projectSlug": "ela20-1-short-stories-pilot",
-  "generatedAt": "2026-07-14T18:26:41.369Z",
+  "generatedAt": "2026-07-28T14:33:48.827Z",
   "selectedUnit": {
     "identifier": "53033",
     "title": "Short Stories",
@@ -12,8 +12,8 @@
     "excluded": 3,
     "missing": 0,
     "duplicate": 0,
-    "corrected": 7,
-    "failed": 8
+    "corrected": 6,
+    "failed": 9
   },
   "items": [
     {
@@ -117,7 +117,7 @@
       "role": "supporting-resource",
       "source": "short_stories/rhw_irony.html",
       "status": "placed",
-      "destination": "workspace/resources/rhw-irony.html",
+      "destination": "workspace/resources/generated/rhw-irony.html",
       "note": "Retained as a supporting reading rather than a separate lesson."
     },
     {
@@ -246,9 +246,8 @@
     {
       "role": "supporting-resource",
       "source": "http://www.eldritchpress.org/nh/dhe.html",
-      "status": "corrected",
-      "destination": "https://www.eldritchpress.org/nh/dhe.html",
-      "note": "Live link check passed after upgrading the source URL."
+      "status": "failed",
+      "note": "Removed from Lesson 9: Diction because the live link check failed or the destination was not suitable for secure Brightspace use."
     },
     {
       "role": "supporting-resource",

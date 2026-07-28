@@ -29,6 +29,12 @@ function truncate(value: string, length = 170) {
   return clean.length <= length ? clean : `${clean.slice(0, length - 1).trim()}...`;
 }
 
+function elementReviewSummary(lesson: EnglishBuiltLesson) {
+  const clean = lesson.text.replace(/\s+/g, " ").trim();
+  const completeSentence = clean.match(/^.{20,320}?[.!?](?=\s|$)/)?.[0];
+  return completeSentence ?? `Review the definitions, examples, and practice for ${cleanLessonTitle(lesson.title)}.`;
+}
+
 function cleanLessonTitle(title: string) {
   return title.replace(/^Lesson\s+\d+:\s*/i, "");
 }
@@ -180,8 +186,8 @@ function renderElementsHub(input: {
           .map(
             (lesson, index) => `<tr>
               <td><button class="element-check" type="button" data-element-complete-for="${escapeHtml(lesson.id)}" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark complete" aria-label="Mark ${escapeHtml(cleanLessonTitle(lesson.title))} complete">-</button></td>
-              <td><button class="element-selector" type="button" aria-selected="${index === 0 ? "true" : "false"}" data-element-target="${escapeHtml(lesson.id)}">${escapeHtml(cleanLessonTitle(lesson.title))}</button></td>
-              <td>${escapeHtml(truncate(lesson.text, 120))}</td>
+              <td><button class="element-selector" type="button" aria-selected="${index === 0 ? "true" : "false"}" data-element-target="${escapeHtml(lesson.id)}"><span>${escapeHtml(cleanLessonTitle(lesson.title))}</span><span class="element-selector-action">Review</span></button></td>
+              <td>${escapeHtml(elementReviewSummary(lesson))}</td>
             </tr>`
           )
           .join("")}</tbody>
@@ -190,11 +196,10 @@ function renderElementsHub(input: {
         ${workbenchLessons
           .map((lesson, index) => {
             const placement = input.recipe.placements.find((candidate) => candidate.targetLesson === lesson.title);
-            return `<article class="element-panel" data-element-panel="${escapeHtml(lesson.id)}"${index === 0 ? "" : " hidden"}>
+            return `<article class="element-panel" tabindex="-1" data-element-panel="${escapeHtml(lesson.id)}"${index === 0 ? "" : " hidden"}>
               <h3>${escapeHtml(cleanLessonTitle(lesson.title))}</h3>
               <div class="source-content">${lesson.html}</div>
               ${renderPlacement(placement, input.readings)}
-              <div class="element-completion-bar"><button class="mark-complete lesson-complete-button--ela30" type="button" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark Complete">Mark Complete</button></div>
             </article>`;
           })
           .join("")}
@@ -774,7 +779,7 @@ function renderResources(courseCode: string, readings: EnglishBuiltReading[], le
             questionPanel.querySelectorAll('[data-question-hint]').forEach(function(hint){ hint.hidden = !show; });
           }
           const elementTarget = event.target.closest('[data-element-target]');
-          if(elementTarget){ const id = elementTarget.getAttribute('data-element-target'); const workbench = elementTarget.closest('.elements-workbench'); workbench?.querySelectorAll('[data-element-panel]').forEach(function(panel){ panel.hidden = panel.getAttribute('data-element-panel') !== id; }); workbench?.querySelectorAll('[data-element-target]').forEach(function(button){ const active = button.getAttribute('data-element-target') === id; button.classList.toggle('active', active); button.setAttribute('aria-selected', String(active)); }); }
+          if(elementTarget){ const id = elementTarget.getAttribute('data-element-target'); const workbench = elementTarget.closest('.elements-workbench'); let activePanel = null; workbench?.querySelectorAll('[data-element-panel]').forEach(function(panel){ const active = panel.getAttribute('data-element-panel') === id; panel.hidden = !active; if(active) activePanel = panel; }); workbench?.querySelectorAll('[data-element-target]').forEach(function(button){ const active = button.getAttribute('data-element-target') === id; button.classList.toggle('active', active); button.setAttribute('aria-selected', String(active)); }); if(activePanel){ activePanel.scrollIntoView({ behavior: 'smooth', block: 'start' }); activePanel.focus({ preventScroll: true }); } }
         });
         document.addEventListener('keydown', function(event){ if(event.key === 'Escape') closeReader(); });
         window.addEventListener('hashchange', function(){ window.scrollTo({ top: 0, behavior: 'auto' }); });
@@ -855,6 +860,9 @@ const EXTRA_CSS = `
 .source-content img { display: block; max-width: min(100%, 680px); height: auto; margin: 18px auto; }
 .source-content iframe, .film-panel iframe { width: 100%; min-height: 420px; border: 1px solid #cbd4c5; border-radius: 6px; }
 .source-content table { display: block; max-width: 100%; overflow-x: auto; }
+.source-content table[style*="border: none"] { display: table; width: 100%; table-layout: fixed; border-collapse: collapse; }
+.source-content table[style*="border: none"] td { width: auto !important; }
+#lesson-14-literary-terms-review .source-content div[style*="padding-left:"] { padding-left: 0 !important; }
 .lesson-application { margin-top: 26px; padding: 20px; border: 1px solid #b8c5af; background: #f5f7f1; border-radius: 8px; }
 .lesson-application > h3 { margin-top: 0; }
 .lesson-reading-links { margin: 18px 0; }
@@ -875,7 +883,8 @@ const EXTRA_CSS = `
 .element-check { display: inline-grid; place-items: center; width: 30px; min-height: 30px; border: 1px solid #b7c4b2; border-radius: 6px; background: #fff; color: #6b7167; padding: 0; font: inherit; font-weight: 800; line-height: 1; cursor: pointer; }
 .element-check:hover, .element-check:focus-visible { border-color: #154212; color: #154212; outline: 2px solid rgba(21, 66, 18, .18); outline-offset: 2px; }
 .element-check.is-complete { border-color: #154212; background: #154212; color: #fff; }
-.element-selector { appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
+.element-selector { display: grid; gap: 4px; appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
+.element-selector-action { color: #596259; font-size: 12px; font-weight: 700; text-decoration: none; }
 .element-selector.active, .element-selector[aria-selected="true"] { color: #191c1d; text-decoration-thickness: 2px; }
 .element-panels { margin-top: 24px; }
 .element-panel { padding-top: 24px; border-top: 1px solid #d9dadb; }

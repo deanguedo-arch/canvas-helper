@@ -1,0 +1,165 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-1-short-stories",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Question Bank"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-what-do-good-readers-do",
+      "lesson-5-storytelling",
+      "lesson-6-reading-short-stories",
+      "lesson-7-short-story-terms",
+      "lesson-13-writing-a-short-story-analysis",
+      "lesson-14-literary-terms-review",
+      "critical-essay",
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "story-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "critical-essay-topic-interpretation",
+        "collectionId": "ela10-1-short-stories:critical-essay:cask-of-amontillado:topic-interpretation:collection",
+        "responseId": "ela10-1-short-stories:critical-essay:cask-of-amontillado:topic-interpretation:assigned-topic",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-1-short-stories:critical-essay\"] option[value=\"cask-of-amontillado\"]"
+      },
+      {
+        "route": "critical-essay-introduction",
+        "collectionId": "ela10-1-short-stories:critical-essay:flight-into-danger:introduction:collection",
+        "responseId": "ela10-1-short-stories:critical-essay:flight-into-danger:introduction:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-1-short-stories:critical-essay\"] option[value=\"flight-into-danger\"]"
+      },
+      {
+        "route": "critical-essay-body-one",
+        "collectionId": "ela10-1-short-stories:critical-essay:flying-machine:body-one:collection",
+        "responseId": "ela10-1-short-stories:critical-essay:flying-machine:body-one:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-1-short-stories:critical-essay\"] option[value=\"flying-machine\"]"
+      },
+      {
+        "route": "critical-essay-body-two",
+        "collectionId": "ela10-1-short-stories:critical-essay:harrison-bergeron:body-two:collection",
+        "responseId": "ela10-1-short-stories:critical-essay:harrison-bergeron:body-two:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-1-short-stories:critical-essay\"] option[value=\"harrison-bergeron\"]"
+      },
+      {
+        "route": "critical-essay-body-three",
+        "collectionId": "ela10-1-short-stories:critical-essay:i-am-a-rock:body-three:collection",
+        "responseId": "ela10-1-short-stories:critical-essay:i-am-a-rock:body-three:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-1-short-stories:critical-essay\"] option[value=\"i-am-a-rock\"]"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-1-short-stories:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela10-1-short-stories:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "story-questions",
+        "collectionId": "english-question-collection:cask-of-amontillado",
+        "responseId": "english-question:cask-of-amontillado:1"
+      },
+      {
+        "route": "writing-studio",
+        "collectionId": "english-writing-studio:build-response",
+        "responseId": "personal-response:idea"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "story-bank",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-what-do-good-readers-do",
+        "critical-essay-topic-interpretation",
+        "critical-essay-introduction",
+        "critical-essay-body-one",
+        "critical-essay-body-two",
+        "critical-essay-body-three",
+        "personal-response-prompt-impression",
+        "story-questions",
+        "writing-studio",
+        "story-bank",
+        "evidence-bank"
+      ]
+    }
+  }
+}

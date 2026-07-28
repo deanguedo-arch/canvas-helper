@@ -20,5 +20,147 @@
   },
   "fallbackPanel": {
     "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-short-stories-introduction",
+      "lesson-2-lesson-1-characters-and-characterization",
+      "lesson-3-lesson-2-introduction-to-elements-of-fiction",
+      "lesson-13-lesson-12-literary-terms",
+      "lesson-12-lesson-11-suggestions-for-reading-short-stories",
+      "lesson-14-lesson-13-writing-a-personal-response-to-text-s",
+      "critical-essay",
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "film-room",
+      "resources"
+    ],
+    "hintRoutes": [
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "story-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "critical-essay-topic-interpretation",
+      "critical-essay-introduction",
+      "critical-essay-body-one",
+      "critical-essay-body-two",
+      "critical-essay-body-three",
+      "critical-essay-conclusion-revision",
+      "critical-essay-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "critical-essay-topic-interpretation",
+        "collectionId": "ela20-1-short-stories-pilot:critical-essay:lamp-at-noon:topic-interpretation:collection",
+        "responseId": "ela20-1-short-stories-pilot:critical-essay:lamp-at-noon:topic-interpretation:assigned-topic",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-1-short-stories-pilot:critical-essay\"] option[value=\"lamp-at-noon\"]"
+      },
+      {
+        "route": "critical-essay-introduction",
+        "collectionId": "ela20-1-short-stories-pilot:critical-essay:sea-devil:introduction:collection",
+        "responseId": "ela20-1-short-stories-pilot:critical-essay:sea-devil:introduction:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-1-short-stories-pilot:critical-essay\"] option[value=\"sea-devil\"]"
+      },
+      {
+        "route": "critical-essay-body-one",
+        "collectionId": "ela20-1-short-stories-pilot:critical-essay:do-not-fall:body-one:collection",
+        "responseId": "ela20-1-short-stories-pilot:critical-essay:do-not-fall:body-one:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-1-short-stories-pilot:critical-essay\"] option[value=\"do-not-fall\"]"
+      },
+      {
+        "route": "critical-essay-body-two",
+        "collectionId": "ela20-1-short-stories-pilot:critical-essay:men-must-pay:body-two:collection",
+        "responseId": "ela20-1-short-stories-pilot:critical-essay:men-must-pay:body-two:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-1-short-stories-pilot:critical-essay\"] option[value=\"men-must-pay\"]"
+      },
+      {
+        "route": "critical-essay-body-three",
+        "collectionId": "ela20-1-short-stories-pilot:critical-essay:we-must-not-return:body-three:collection",
+        "responseId": "ela20-1-short-stories-pilot:critical-essay:we-must-not-return:body-three:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela20-1-short-stories-pilot:critical-essay\"] option[value=\"we-must-not-return\"]"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela20-1-short-stories-pilot:personal-response:unit:prompt-impression:collection",
+        "responseId": "ela20-1-short-stories-pilot:personal-response:unit:prompt-impression:prompt"
+      },
+      {
+        "route": "story-questions",
+        "collectionId": "english-question-collection:lamp-at-noon",
+        "responseId": "english-question:lamp-at-noon:1"
+      },
+      {
+        "route": "writing-studio",
+        "collectionId": "english-writing-studio:build-response",
+        "responseId": "personal-response:idea"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "story-bank",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-short-stories-introduction",
+        "critical-essay-topic-interpretation",
+        "critical-essay-introduction",
+        "critical-essay-body-one",
+        "critical-essay-body-two",
+        "critical-essay-body-three",
+        "personal-response-prompt-impression",
+        "story-questions",
+        "writing-studio",
+        "story-bank",
+        "evidence-bank"
+      ]
+    }
   }
 }

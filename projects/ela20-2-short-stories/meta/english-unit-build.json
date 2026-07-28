@@ -1,0 +1,67 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela20-2-short-stories",
+  "generatedAt": "2026-07-28T14:35:41.917Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "short-fiction",
+    "version": "next-step-english-v3-ela20-2",
+    "sha256": "8fd5d7a831e6bcc4a25a683f5f48af5d95e2fb5f35283629669a7f7b64e955cf"
+  },
+  "recipe": {
+    "path": "projects/ela20-2-short-stories/meta/english-unit.json",
+    "sha256": "e508ed2da01880ba3d0684ee44c6a6fe99750305dbfa4c61c6205b5aa3302dee"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+      "sha256": "de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela20-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be"
+    },
+    {
+      "id": "family:supplement-90a7e3ee3452",
+      "path": "projects/resources/ela20-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf"
+    },
+    {
+      "id": "family:supplement-425beada71fb",
+      "path": "projects/resources/ela20-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef"
+    },
+    {
+      "id": "family:ela20-2",
+      "path": "config/english/families/ela20-2.json",
+      "sha256": "665f7afc38176df5527e4a7f5b2bdf72c7d7e948f49e7b990a9f0f14c9e8eefb"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/lesson-12-literary-terms-owl-header.jpg",
+    "assets/generated/lessons/lesson-13-writing-a-personal-response-to-text-s-students-writing.jpg",
+    "assets/generated/lessons/lesson-2-introduction-to-elements-of-fiction-owl-header.jpg",
+    "assets/generated/lessons/lesson-3-irony-ironic-no-bicycles-sign-600w-1159782328.jpg",
+    "assets/generated/lessons/lesson-6-setting-tuscany.jpg",
+    "assets/generated/lessons/short-stories-introduction-photo-old-type-writer-focus-260nw-1198882.png",
+    "assets/generated/resources/do-not-fall-do-not-fall-in-new-york-comic.pdf",
+    "assets/generated/resources/do-not-fall-questions-do-not-fall-questions.pdf",
+    "assets/generated/resources/lamp-lamp-at-noon.pdf",
+    "assets/generated/resources/men-must-pay-men-must-pay-text.pdf",
+    "assets/generated/resources/men-must-pay-questions-men-must-pay-for-evil-they-do-questions.pdf",
+    "assets/generated/resources/noose-questions-we-must-not-return-questions.pdf",
+    "assets/generated/resources/noose-we-must-not-return-text.pdf",
+    "assets/generated/resources/sea-devil-questions-sea-devil-questions.pdf",
+    "assets/generated/resources/sea-devil-sea-devil-text.pdf",
+    "assets/generated/supporting/lesson-4-lesson-3-irony-rhw-irony.html",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Confirm The Lamp at Noon page-nine questions remain correctly extracted.",
+    "Verify separate Literary Exploration and Personal Response state for all five selected texts."
+  ]
+}

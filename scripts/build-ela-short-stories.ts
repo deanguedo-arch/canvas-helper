@@ -10,6 +10,8 @@ import JSZip from "jszip";
 
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { decodeBrightspaceHtml } from "./lib/ela-modern-drama.js";
+import { applyEnglishEvidenceRetrofitToHtml } from "./lib/english-unit/ela30-evidence-retrofit.js";
+import { applyEla30WritingRetrofit } from "./lib/english-unit/ela30-writing-retrofit.js";
 import { repoRoot } from "./lib/paths.js";
 
 type SourceLink = {
@@ -2588,6 +2590,12 @@ function truncate(value: string, length = 180) {
   return `${clean.slice(0, length - 1).trim()}...`;
 }
 
+function elementReviewSummary(lesson: Lesson) {
+  const clean = normalizeWhitespace(lesson.text);
+  const completeSentence = clean.match(/^.{20,320}?[.!?](?=\s|$)/)?.[0];
+  return completeSentence ?? `Review the definitions, examples, and practice for ${lesson.title.replace(/^Lesson\s+\d+:\s*/i, "")}.`;
+}
+
 function isFictionElementLesson(lesson: Lesson) {
   return lesson.sequence >= 4 && lesson.sequence <= 11;
 }
@@ -2696,8 +2704,8 @@ function renderFictionElementsChecklist(lessons: Lesson[]) {
           .map(
             (elementLesson) => `<tr>
               <td><span class="element-check" data-element-complete-for="${escapeHtml(elementLesson.id)}" aria-label="Not complete">-</span></td>
-              <td><button class="element-selector" type="button" data-element-target="${escapeHtml(elementLesson.id)}">${escapeHtml(elementLesson.title.replace(/^Lesson\s+\d+:\s*/i, ""))}</button></td>
-              <td>${escapeHtml(truncate(elementLesson.text, 120))}</td>
+              <td><button class="element-selector" type="button" data-element-target="${escapeHtml(elementLesson.id)}"><span>${escapeHtml(elementLesson.title.replace(/^Lesson\s+\d+:\s*/i, ""))}</span><span class="element-selector-action">Review</span></button></td>
+              <td>${escapeHtml(elementReviewSummary(elementLesson))}</td>
             </tr>`
           )
           .join("\n")}
@@ -2706,13 +2714,10 @@ function renderFictionElementsChecklist(lessons: Lesson[]) {
     <div class="element-panels">
       ${elementLessons
         .map(
-          (elementLesson, index) => `<article class="element-panel" data-element-panel="${escapeHtml(elementLesson.id)}"${index === 0 ? "" : " hidden"}>
+          (elementLesson, index) => `<article class="element-panel" tabindex="-1" data-element-panel="${escapeHtml(elementLesson.id)}"${index === 0 ? "" : " hidden"}>
             <h3>${escapeHtml(elementLesson.title.replace(/^Lesson\s+\d+:\s*/i, ""))}</h3>
             <div class="source-content">${elementLesson.contentHtml}</div>
             ${renderSourceLinks(elementLesson.links)}
-            <div class="flex flex-wrap gap-sm mt-lg pt-md border-t border-surface-muted lesson-bottom-bar">
-              <button class="mark-complete bg-primary hover:bg-primary-container text-white font-label-md text-label-md px-4 py-3 rounded-lg transition-colors" data-complete-id="${escapeHtml(elementLesson.id)}">Mark Complete</button>
-            </div>
           </article>`
         )
         .join("\n")}
@@ -2763,7 +2768,7 @@ function renderResourceGroups(groups: ResourceGroup[], localResources: SourceLin
     ? `<section class="resource-lesson-group">
         <div class="resource-group-heading">
           <h3>Recovered Unit Documents</h3>
-          <p>Local files recovered from the Brightspace export.</p>
+          <p>Course files for this unit.</p>
         </div>
         <div class="resource-lesson-items p-md">
           ${localResources
@@ -2816,7 +2821,7 @@ function renderLibrary(localResources: SourceLink[]) {
   return `<div class="library-browser">
     <aside class="library-list-panel">
       <h3>Unit Documents</h3>
-      <p>Local resources recovered from the Brightspace unit.</p>
+      <p>Course materials and supporting documents for this unit.</p>
       <div class="library-doc-list">
         ${localResources
           .map(
@@ -2846,7 +2851,7 @@ function renderLibrary(localResources: SourceLink[]) {
 
 function renderFilmRoom(videos: SourceVideo[]) {
   if (videos.length === 0) {
-    return `<article class="empty-route-card"><h3>Film Room is ready for media</h3><p>No video or audio media was included in this Brightspace export. Short-story explainers, author context, or reading-support videos can be added here later.</p></article>`;
+    return `<article class="empty-route-card"><h3>Film Room</h3><p>No course media is assigned for this unit. Use the reading and analysis activities to continue.</p></article>`;
   }
   return `<div class="film-room-shell">
     <div class="film-room-stage">
@@ -3162,7 +3167,8 @@ ${input.headAssets}
 .elements-table th { color: #154212; font-family: "IBM Plex Sans"; font-size: 13px; font-weight: 700; }
 .elements-table th:first-child, .elements-table td:first-child { width: 64px; text-align: center; }
 .elements-table tbody tr:last-child td { border-bottom: 0; }
-.element-selector { appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
+.element-selector { display: grid; gap: 4px; appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
+.element-selector-action { color: #596259; font-size: 12px; font-weight: 700; text-decoration: none; }
 .element-selector.active { color: #191c1d; text-decoration-thickness: 2px; }
 .element-check { display: inline-grid; place-items: center; width: 26px; height: 26px; border: 1px solid #b7c4b2; border-radius: 6px; color: #6b7167; font-weight: 800; line-height: 1; }
 .element-check.is-complete { background: #154212; border-color: #154212; color: #fff; }
@@ -3328,7 +3334,7 @@ ${input.headAssets}
           <div class="flex flex-wrap gap-sm mt-lg">
             <span class="completed-pill"><strong data-progress-count-inline>0/${total}</strong> lessons complete</span>
             <span class="completed-pill">${total} source lessons</span>
-            <span class="completed-pill">Brightspace conversion</span>
+            <span class="completed-pill">Course unit</span>
           </div>
           <a class="external-resource-action mt-lg" href="#lessons" data-page-target="lessons">Open Lesson Frame</a>
         </div>
@@ -3595,10 +3601,24 @@ function closeStoryReader(){
   document.body.style.overflow = "";
 }
 function setActiveFilm(id){ if(!id) return; document.querySelectorAll("[data-film-panel]").forEach((panel) => panel.hidden = panel.getAttribute("data-film-panel") !== id); }
-function setActiveElement(id){
+function setActiveElement(id, focusPanel = false){
   if(!id) return;
-  document.querySelectorAll("[data-element-panel]").forEach((panel) => panel.hidden = panel.getAttribute("data-element-panel") !== id);
-  document.querySelectorAll("[data-element-target]").forEach((button) => button.classList.toggle("active", button.getAttribute("data-element-target") === id));
+  let activePanel = null;
+  document.querySelectorAll("[data-element-panel]").forEach((panel) => {
+    const active = panel.getAttribute("data-element-panel") === id;
+    panel.hidden = !active;
+    if(active) activePanel = panel;
+  });
+  document.querySelectorAll("[data-element-target]").forEach((button) => {
+    const active = button.getAttribute("data-element-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-selected", String(active));
+  });
+  if(focusPanel && activePanel){
+    activePanel.setAttribute("tabindex", "-1");
+    activePanel.scrollIntoView({ behavior: "smooth", block: "start" });
+    activePanel.focus({ preventScroll: true });
+  }
 }
 function toggleCourseMenu(){
   document.body.classList.toggle("sidebar-collapsed");
@@ -3612,7 +3632,7 @@ document.addEventListener("click", (event) => {
   const lessonToggle = event.target.closest("[data-lessons-toggle]");
   if (lessonToggle) { event.preventDefault(); const nextOpen = !lessonsNav?.classList.contains("is-open"); if(nextOpen){ history.pushState(null, "", "#lessons"); showPage("lessons"); } setLessonsOpen(nextOpen); return; }
   const elementTarget = event.target.closest("[data-element-target]");
-  if (elementTarget) { event.preventDefault(); setActiveElement(elementTarget.getAttribute("data-element-target")); return; }
+  if (elementTarget) { event.preventDefault(); setActiveElement(elementTarget.getAttribute("data-element-target"), true); return; }
   const target = event.target.closest("[data-page-target]");
   if (target) { const pageTarget = target.getAttribute("data-page-target"); if (pageTarget) { showPage(pageTarget); if (pageTarget === "lessons" || visibleLessonIds.includes(pageTarget)) setLessonsOpen(true); } }
   const completeButton = event.target.closest("[data-complete-id]");
@@ -3780,7 +3800,14 @@ async function buildShortStoriesProject(options: { zipPath: string; slug: string
   const storyBankItems = await copyStoryBankItems(workspaceDir);
   const writingWorksheets = await loadWritingWorksheets();
   const videos = uniqueBy(lessons.flatMap((lesson) => lesson.videos), (video) => video.embedSrc);
-  await writeFile(path.join(workspaceDir, "index.html"), buildHtml({ headAssets, lessons, resourceGroups, localResources, storyBankItems, writingWorksheets, videos }), "utf8");
+  const generatedHtml = buildHtml({ headAssets, lessons, resourceGroups, localResources, storyBankItems, writingWorksheets, videos });
+  const workspaceHtml = options.slug === "ela30-1-short-stories"
+    ? applyEla30WritingRetrofit({
+        projectSlug: "ela30-1-short-stories",
+        html: applyEnglishEvidenceRetrofitToHtml({ projectSlug: "ela30-1-short-stories", html: generatedHtml }).html,
+      }).html
+    : generatedHtml;
+  await writeFile(path.join(workspaceDir, "index.html"), workspaceHtml, "utf8");
 
   const now = new Date().toISOString();
   const manifestJson = {

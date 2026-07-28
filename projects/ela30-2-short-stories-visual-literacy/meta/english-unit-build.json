@@ -1,0 +1,74 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela30-2-short-stories-visual-literacy",
+  "generatedAt": "2026-07-28T14:35:49.342Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "short-fiction",
+    "version": "next-step-english-v3-ela30-2",
+    "sha256": "9064cc0037a66ea0007f73eaec172b26c207acb54942ea35b71b2651c9b04813"
+  },
+  "recipe": {
+    "path": "projects/ela30-2-short-stories-visual-literacy/meta/english-unit.json",
+    "sha256": "57ac98d88b9b592a9c58164528fa9039bc851682cba5898a51009ff52a7cde1d"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
+      "sha256": "a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela30-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be"
+    },
+    {
+      "id": "family:supplement-90a7e3ee3452",
+      "path": "projects/resources/ela30-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf"
+    },
+    {
+      "id": "family:supplement-425beada71fb",
+      "path": "projects/resources/ela30-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef"
+    },
+    {
+      "id": "family:supplement-d55d3e9a77fc",
+      "path": "projects/resources/ela30-2/_sources/d55d3e9a77fc75273cc02320ba68b0e920c922b2179a7686b4068f4a3e3d865f.pdf",
+      "sha256": "d55d3e9a77fc75273cc02320ba68b0e920c922b2179a7686b4068f4a3e3d865f"
+    },
+    {
+      "id": "family:ela30-2",
+      "path": "config/english/families/ela30-2.json",
+      "sha256": "ed3c7bcd5711a8b05179ea3b2a355ca4ad44026992185e7ad1f963629ad66d3a"
+    },
+    {
+      "id": "donor:ela30-1-short-stories:legacy-brightspace:1:1",
+      "path": "projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
+      "sha256": "c181722ad0c177f8bc345ee104c370e35f24f342c73977c26c6daa9c4ea8c545"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/lesson-12-literary-terms-owl-header.jpg",
+    "assets/generated/lessons/lesson-13-writing-a-personal-response-to-text-s-students-writing.jpg",
+    "assets/generated/lessons/lesson-2-introduction-to-elements-of-fiction-owl-header.jpg",
+    "assets/generated/lessons/lesson-3-irony-ironic-no-bicycles-sign-600w-1159782328.jpg",
+    "assets/generated/lessons/lesson-6-setting-tuscany.jpg",
+    "assets/generated/lessons/short-stories-introduction-photo-old-type-writer-focus-260nw-1198882.png",
+    "assets/generated/resources/reading-god-is-not-a-fish-inspector-god-is-not-a-fish-inspector.pdf",
+    "assets/generated/resources/reading-mother-and-son-mother-and-son.pdf",
+    "assets/generated/resources/reading-old-man-old-man.pdf",
+    "assets/generated/resources/reading-warren-pryor-warren-pryor.pdf",
+    "assets/generated/supporting/lesson-4-lesson-3-irony-rhw-irony.html",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Resolve rights and accessibility for packaged visual-literacy materials.",
+    "Use teacher-authorized or licensed replacement visuals and fresh response models.",
+    "Verify the neutral current-visual track until licensed or teacher-authorized visuals are approved for per-visual tracking.",
+    "Warren Pryor retains the four questions printed in its teacher PDF. God Is Not a Fish Inspector, Mother and Son, and Old Man use clearly authored guided-analysis prompts because their supplied PDFs contain only the assigned texts."
+  ]
+}

@@ -1,0 +1,195 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-2-short-stories",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-what-do-good-readers-do",
+      "lesson-5-storytelling",
+      "lesson-6-reading-short-stories",
+      "lesson-7-short-story-terms",
+      "lesson-13-writing-a-short-story-analysis",
+      "lesson-14-literary-terms-review",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "story-bank",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "story-questions",
+      "writing-studio"
+    ],
+    "printRoutes": [
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "story-questions",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "literary-exploration-prompt-controlling-idea",
+        "collectionId": "ela10-2-short-stories:literary-exploration:cask-of-amontillado:prompt-controlling-idea:collection",
+        "responseId": "ela10-2-short-stories:literary-exploration:cask-of-amontillado:prompt-controlling-idea:assigned-prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:literary-exploration\"] option[value=\"cask-of-amontillado\"]"
+      },
+      {
+        "route": "literary-exploration-introduction-thesis",
+        "collectionId": "ela10-2-short-stories:literary-exploration:flight-into-danger:introduction-thesis:collection",
+        "responseId": "ela10-2-short-stories:literary-exploration:flight-into-danger:introduction-thesis:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:literary-exploration\"] option[value=\"flight-into-danger\"]"
+      },
+      {
+        "route": "literary-exploration-body-assigned-text",
+        "collectionId": "ela10-2-short-stories:literary-exploration:flying-machine:body-assigned-text:collection",
+        "responseId": "ela10-2-short-stories:literary-exploration:flying-machine:body-assigned-text:claim",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:literary-exploration\"] option[value=\"flying-machine\"]"
+      },
+      {
+        "route": "literary-exploration-body-studied-work",
+        "collectionId": "ela10-2-short-stories:literary-exploration:harrison-bergeron:body-studied-work:collection",
+        "responseId": "ela10-2-short-stories:literary-exploration:harrison-bergeron:body-studied-work:studied-work",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:literary-exploration\"] option[value=\"harrison-bergeron\"]"
+      },
+      {
+        "route": "literary-exploration-body-personal-connection",
+        "collectionId": "ela10-2-short-stories:literary-exploration:i-am-a-rock:body-personal-connection:collection",
+        "responseId": "ela10-2-short-stories:literary-exploration:i-am-a-rock:body-personal-connection:connection",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:literary-exploration\"] option[value=\"i-am-a-rock\"]"
+      },
+      {
+        "route": "personal-response-prompt-impression",
+        "collectionId": "ela10-2-short-stories:personal-response:cask-of-amontillado:prompt-impression:collection",
+        "responseId": "ela10-2-short-stories:personal-response:cask-of-amontillado:prompt-impression:prompt",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:personal-response\"] option[value=\"cask-of-amontillado\"]"
+      },
+      {
+        "route": "personal-response-text-evidence",
+        "collectionId": "ela10-2-short-stories:personal-response:flight-into-danger:text-evidence:collection",
+        "responseId": "ela10-2-short-stories:personal-response:flight-into-danger:text-evidence:moment",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:personal-response\"] option[value=\"flight-into-danger\"]"
+      },
+      {
+        "route": "personal-response-knowledge-experience",
+        "collectionId": "ela10-2-short-stories:personal-response:flying-machine:knowledge-experience:collection",
+        "responseId": "ela10-2-short-stories:personal-response:flying-machine:knowledge-experience:connection",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:personal-response\"] option[value=\"flying-machine\"]"
+      },
+      {
+        "route": "personal-response-form-perspective",
+        "collectionId": "ela10-2-short-stories:personal-response:harrison-bergeron:form-perspective:collection",
+        "responseId": "ela10-2-short-stories:personal-response:harrison-bergeron:form-perspective:audience-purpose",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:personal-response\"] option[value=\"harrison-bergeron\"]"
+      },
+      {
+        "route": "personal-response-response-plan",
+        "collectionId": "ela10-2-short-stories:personal-response:i-am-a-rock:response-plan:collection",
+        "responseId": "ela10-2-short-stories:personal-response:i-am-a-rock:response-plan:opening",
+        "activateSelector": "[data-english-writing-track-select=\"ela10-2-short-stories:personal-response\"] option[value=\"i-am-a-rock\"]"
+      },
+      {
+        "route": "story-questions",
+        "collectionId": "ela10-2-short-stories:short-fiction:story-questions:cask-of-amontillado:collection",
+        "responseId": "ela10-2-short-stories:short-fiction:story-questions:cask-of-amontillado:1"
+      },
+      {
+        "route": "writing-studio",
+        "collectionId": "ela10-2-short-stories:short-fiction:writing-studio:cask-of-amontillado:paragraph:collection",
+        "responseId": "ela10-2-short-stories:short-fiction:writing-studio:cask-of-amontillado:paragraph:claim"
+      }
+    ],
+    "resourceChecks": [
+      {
+        "route": "story-bank",
+        "kind": "document-reader",
+        "minimumPrimary": 1,
+        "minimumFallback": 1
+      }
+    ],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-what-do-good-readers-do",
+        "literary-exploration-prompt-controlling-idea",
+        "literary-exploration-introduction-thesis",
+        "literary-exploration-body-assigned-text",
+        "literary-exploration-body-studied-work",
+        "literary-exploration-body-personal-connection",
+        "personal-response-prompt-impression",
+        "personal-response-text-evidence",
+        "personal-response-knowledge-experience",
+        "personal-response-form-perspective",
+        "personal-response-response-plan",
+        "story-questions",
+        "writing-studio",
+        "story-bank",
+        "evidence-bank"
+      ]
+    }
+  }
+}

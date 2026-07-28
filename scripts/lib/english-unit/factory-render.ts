@@ -8,6 +8,7 @@ import {
   ENGLISH_ACTIVITY_PROFILE_CSS,
   ENGLISH_ACTIVITY_PROFILE_RUNTIME
 } from "./activity-profile-runtime.js";
+import { renderEnglishLiteraryTermsReference } from "./literary-terms.js";
 import type { EnglishMaterialHook, EnglishRenderedActivityProfile } from "./activity-profile-renderers.js";
 import { safeId } from "./source.js";
 import type { EnglishBuiltLesson, EnglishUnitRecipeV2, EnglishUnitRecipeV3 } from "./types.js";
@@ -34,6 +35,12 @@ function lessonSummary(lesson: EnglishBuiltLesson) {
   return lesson.text.length > 180 ? `${lesson.text.slice(0, 177).trim()}...` : lesson.text;
 }
 
+function elementReviewSummary(lesson: EnglishBuiltLesson) {
+  const clean = lesson.text.replace(/\s+/g, " ").trim();
+  const completeSentence = clean.match(/^.{20,320}?[.!?](?=\s|$)/)?.[0];
+  return completeSentence ?? `Review the definitions, examples, and practice for ${cleanLessonTitle(lesson.title)}.`;
+}
+
 function cleanLessonTitle(title: string) {
   return title.replace(/^Lesson\s+\d+[:.\s-]*/i, "");
 }
@@ -49,6 +56,15 @@ function renderSupportingResources(lesson: EnglishBuiltLesson) {
   return `<section class="lesson-source-links--ela30"><h3>Lesson resources</h3><ul>${lesson.supportingResources
     .map((resource) => `<li><a href="${escapeHtml(resource.href)}" target="_blank" rel="noopener noreferrer">${escapeHtml(resource.title)}</a></li>`)
     .join("")}</ul></section>`;
+}
+
+function renderElementPractice(lesson: EnglishBuiltLesson) {
+  if (!/Irony/i.test(lesson.title)) return "";
+  return `<section class="element-review-task" aria-labelledby="${escapeHtml(`${lesson.id}-review-task-title`)}">
+    <h4 id="${escapeHtml(`${lesson.id}-review-task-title`)}">Apply your understanding of irony</h4>
+    <p>Choose an assigned short story. Identify a moment of verbal, situational, or dramatic irony, then explain how the contrast develops character, conflict, or theme.</p>
+    <a href="#text-bank" data-page-target="text-bank">Open the Text Bank</a>
+  </section>`;
 }
 
 function renderFactoryElementsHub(
@@ -71,16 +87,16 @@ function renderFactoryElementsHub(
       <thead><tr><th scope="col">Done</th><th scope="col">Element</th><th scope="col">What to review</th></tr></thead>
       <tbody>${workbenchLessons.map((lesson, index) => `<tr>
         <td><button class="element-check" type="button" data-element-complete-for="${escapeHtml(lesson.id)}" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark complete" aria-label="Mark ${escapeHtml(cleanLessonTitle(lesson.title))} complete">-</button></td>
-        <td><button class="element-selector${index === 0 ? " active" : ""}" type="button" aria-selected="${index === 0 ? "true" : "false"}" data-element-target="${escapeHtml(lesson.id)}">${escapeHtml(cleanLessonTitle(lesson.title))}</button></td>
-        <td>${escapeHtml(lessonSummary(lesson))}</td>
+        <td><button class="element-selector${index === 0 ? " active" : ""}" type="button" aria-selected="${index === 0 ? "true" : "false"}" data-element-target="${escapeHtml(lesson.id)}"><span>${escapeHtml(cleanLessonTitle(lesson.title))}</span><span class="element-selector-action">Review</span></button></td>
+        <td>${escapeHtml(elementReviewSummary(lesson))}</td>
       </tr>`).join("")}</tbody>
     </table>
     <div class="element-panels">
-      ${workbenchLessons.map((lesson, index) => `<article class="element-panel" data-element-panel="${escapeHtml(lesson.id)}"${index === 0 ? "" : " hidden"}>
+      ${workbenchLessons.map((lesson, index) => `<article class="element-panel" tabindex="-1" data-element-panel="${escapeHtml(lesson.id)}"${index === 0 ? "" : " hidden"}>
         <h3>${escapeHtml(cleanLessonTitle(lesson.title))}</h3>
         <div class="${lessonSourceClass(recipe)}">${lesson.html}</div>
+        ${renderElementPractice(lesson)}
         ${renderSupportingResources(lesson)}
-        <div class="element-completion-bar"><button class="mark-complete lesson-complete-button--ela30" type="button" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark Complete">Mark Complete</button></div>
       </article>`).join("")}
     </div>
   </section>`;
@@ -101,7 +117,7 @@ function buildShellLessons(recipe: EnglishFactoryRecipe, lessons: EnglishBuiltLe
     pageTitle: lesson.title,
     summary: lessonSummary(lesson),
     group: groupByLessonId.get(lesson.id) ?? groupByLessonId.get(lesson.title),
-    html: `<div class="${lessonSourceClass(recipe)}">${lesson.html}</div>${renderSupportingResources(lesson)}${recipe.fictionElementsHub?.hubLesson === lesson.title ? renderFactoryElementsHub(recipe, lesson, lessons) : ""}`
+    html: `<div class="${lessonSourceClass(recipe)}">${lesson.html}</div>${/Literary Terms/i.test(lesson.title) && !lesson.html.includes('class="terms-reference"') ? renderEnglishLiteraryTermsReference() : ""}${renderSupportingResources(lesson)}${recipe.fictionElementsHub?.hubLesson === lesson.title ? renderFactoryElementsHub(recipe, lesson, lessons) : ""}`
   }));
 }
 
@@ -603,12 +619,23 @@ const FACTORY_CSS = `
 .elements-table th, .elements-table td { border: 1px solid #d9dadb; padding: 10px 12px; text-align: left; vertical-align: top; }
 .elements-table th { background: #f5f7f1; color: #154212; font-size: 13px; }
 .element-check { min-width: 30px; min-height: 30px; border: 1px solid #aeb8a7; border-radius: 5px; background: #fff; color: #154212; font-weight: 800; cursor: pointer; }
-.element-selector { appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
+.element-selector { display: grid; gap: 4px; appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
+.element-selector-action { color: #596259; font-size: 12px; font-weight: 700; text-decoration: none; }
 .element-selector.active, .element-selector[aria-selected="true"] { color: #191c1d; text-decoration-thickness: 2px; }
 .element-panels { margin-top: 18px; }
 .element-panel { border: 1px solid #d9dadb; border-radius: 8px; background: #fff; padding: 24px; }
 .element-panel[hidden] { display: none; }
-.element-completion-bar { display: flex; justify-content: flex-end; margin-top: 24px; border-top: 1px solid #d9dadb; padding-top: 16px; }
+.element-review-task { margin-top: 24px; border-left: 4px solid #477445; background: #f5f7f1; padding: 16px 18px; }
+.element-review-task h4 { margin: 0 0 8px; font: 800 20px/1.25 "Hanken Grotesk", sans-serif; }
+.element-review-task p { margin: 0; line-height: 1.55; }
+.element-review-task a { display: inline-flex; margin-top: 12px; color: #154212; font-weight: 750; text-underline-offset: 3px; }
+.terms-reference { margin-top: 32px; border-top: 1px solid #d9dadb; padding-top: 24px; }
+.terms-reference h2 { margin: 0 0 12px; font: 800 26px/1.2 "Hanken Grotesk", sans-serif; }
+.terms-reference h3 { margin-top: 24px; }
+.terms-list { display: grid; gap: 10px; max-width: none; margin: 14px 0 24px; }
+.term-row { display: grid; grid-template-columns: minmax(140px, 220px) minmax(0, 1fr); gap: 16px; border-bottom: 1px solid #e1e3e4; padding: 10px 0; }
+.term-row dt { color: #154212; font-weight: 700; }
+.term-row dd { margin: 0; color: #42493e; }
 .lesson-bottom-bar--ela30 { margin-top: 32px; padding-top: 20px; border-top: 1px solid #d9dadb; }
 .overview-notice, .english-novel-access-list { border: 1px solid #cfd6ce; border-left: 4px solid #477445; border-radius: 6px; background: #f7f9f5; padding: 16px 18px; }
 .overview-notice { margin: 20px 0; }
@@ -682,7 +709,7 @@ const FACTORY_CSS = `
 .film-source-link { display: inline-flex; align-items: center; justify-content: center; min-height: 42px; margin-top: 14px; border: 1px solid #154212; border-radius: 8px; background: #154212; color: #fff; padding: 9px 14px; font-weight: 700; text-decoration: none; }
 .film-panel[hidden], .resource-lesson-group[hidden] { display: none !important; }
 .english-material-access-note { border-left: 3px solid #7d9272; background: #f5f7f1; padding: 12px 14px; }
-@media(max-width:760px){.lesson-detail-panel--ela30{padding:22px}.english-evidence-filter-grid,.english-evidence-fields{grid-template-columns:1fr}.english-factory-resource-card{align-items:stretch;flex-direction:column}.english-evidence-bank-heading,.english-evidence-capture-heading{display:grid}.shakespeare-resources-page .scene-overview-control{grid-template-columns:1fr}.film-room-shell{grid-template-columns:1fr}.film-room-frame{min-height:220px}.elements-checklist-header{align-items:start;flex-direction:column}.elements-table th:nth-child(3),.elements-table td:nth-child(3){display:none}.element-panel{padding:18px}}
+@media(max-width:760px){.lesson-detail-panel--ela30{padding:22px}.english-evidence-filter-grid,.english-evidence-fields{grid-template-columns:1fr}.english-factory-resource-card{align-items:stretch;flex-direction:column}.english-evidence-bank-heading,.english-evidence-capture-heading{display:grid}.shakespeare-resources-page .scene-overview-control{grid-template-columns:1fr}.film-room-shell{grid-template-columns:1fr}.film-room-frame{min-height:220px}.elements-checklist-header{align-items:start;flex-direction:column}.elements-table th:nth-child(3),.elements-table td:nth-child(3){display:none}.element-panel{padding:18px}.term-row{grid-template-columns:1fr;gap:4px}}
 @media print{.english-evidence-filter-grid,.english-evidence-bank-actions,.english-evidence-actions{display:none!important}}
 `;
 
@@ -694,7 +721,12 @@ document.addEventListener("click", function(event) {
   const workbench = target.closest(".elements-workbench");
   if (!id || !workbench) return;
   workbench.querySelectorAll("[data-element-panel]").forEach(function(panel) {
-    panel.hidden = panel.getAttribute("data-element-panel") !== id;
+    const active = panel.getAttribute("data-element-panel") === id;
+    panel.hidden = !active;
+    if (active) {
+      panel.scrollIntoView({ behavior: "smooth", block: "start" });
+      panel.focus({ preventScroll: true });
+    }
   });
   workbench.querySelectorAll("[data-element-target]").forEach(function(button) {
     const active = button.getAttribute("data-element-target") === id;
