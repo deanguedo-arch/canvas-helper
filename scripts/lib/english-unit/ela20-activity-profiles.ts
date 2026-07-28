@@ -13,29 +13,43 @@ import type {
   EnglishShakespeareScene,
   EnglishWritingTool
 } from "./activity-profile-renderers.js";
+import type {
+  EnglishFilmStudyActivityProfile,
+  EnglishModernDramaActivityProfile,
+  EnglishNovelStudyActivityProfile,
+  EnglishShakespeareDramaActivityProfile
+} from "./types.js";
 
 const COURSE_CODE = "ELA 20-1";
 const FORBIDDEN_WORDING = /\bELA\s*30-1\b|\bDiploma(?:\s+Exam)?\b|\bPart\s+A\b|\b(?:soft|hard)\s+gate\b/i;
 
 type Ela20ProfileBaseInput = {
   projectSlug: string;
+  courseCode?: string;
+  unitTitle?: string;
   evidenceBankRoute?: string;
   materials?: EnglishMaterialHook[];
 };
 
 export type Ela20CrucibleProfileInput = Ela20ProfileBaseInput & {
   actQuestionSets?: EnglishActivityQuestionSet[];
+  configuration?: EnglishModernDramaActivityProfile;
 };
 
 export type Ela20MacbethProfileInput = Ela20ProfileBaseInput & {
   scenes: EnglishShakespeareScene[];
   actQuestionSets: EnglishActivityQuestionSet[];
+  configuration?: EnglishShakespeareDramaActivityProfile;
 };
 
-export type Ela20NovelProfileInput = Ela20ProfileBaseInput;
+export type Ela20NovelProfileInput = Ela20ProfileBaseInput & {
+  questionSets?: EnglishActivityQuestionSet[];
+  configuration?: EnglishNovelStudyActivityProfile;
+};
 
 export type Ela20FilmProfileInput = Ela20ProfileBaseInput & {
   filmTitle?: string;
+  configuration?: EnglishFilmStudyActivityProfile;
 };
 
 export type Ela20ActivityProfileFactoryInput =
@@ -63,12 +77,18 @@ function selectField(
   return { id, label, type: "select", options, hint: "Choose the option that best matches the evidence or current focus.", evidenceRole };
 }
 
-function question(id: string, label: string, hint: string): EnglishActivityQuestion {
-  return { id, label, hint, rows: 5, placeholder: "Develop your response with specific evidence." };
+function question(id: string, label: string, hint: string, section?: string): EnglishActivityQuestion {
+  return { id, label, hint, section, rows: 5, placeholder: "Develop your response with specific evidence." };
 }
 
 function assertProjectSlug(projectSlug: string) {
   if (!projectSlug.trim()) throw new Error("ELA 20-1 activity profiles require a projectSlug.");
+}
+
+function selectConfiguredItems<T>(ids: string[], catalog: Map<string, T>, label: string) {
+  const unknown = ids.filter((id) => !catalog.has(id));
+  if (unknown.length) throw new Error(`${label} configuration contains unsupported ids: ${unknown.join(", ")}`);
+  return ids.map((id) => catalog.get(id)!);
 }
 
 function assertNoForbiddenWording(value: unknown, context: string) {
@@ -168,18 +188,21 @@ function buildSixStageTextEssay(input: { textKind: "play" | "novel"; title: stri
 
 const CRUCIBLE_ACT_IDS = ["act-1", "act-2", "act-3", "act-4"] as const;
 
-function normalizeCrucibleQuestionSets(input: EnglishActivityQuestionSet[] | undefined) {
+function normalizeCrucibleQuestionSets(input: EnglishActivityQuestionSet[] | undefined, configuredActIds: string[] = [...CRUCIBLE_ACT_IDS]) {
+  const unsupported = configuredActIds.filter((id) => !CRUCIBLE_ACT_IDS.includes(id as (typeof CRUCIBLE_ACT_IDS)[number]));
+  if (unsupported.length) throw new Error(`Crucible act configuration contains unsupported ids: ${unsupported.join(", ")}`);
   const supplied = new Map((input ?? []).map((set) => [safeId(set.id), set]));
-  const unexpected = [...supplied.keys()].filter((id) => !CRUCIBLE_ACT_IDS.includes(id as (typeof CRUCIBLE_ACT_IDS)[number]));
+  const unexpected = [...supplied.keys()].filter((id) => !configuredActIds.includes(id));
   if (unexpected.length) throw new Error(`Crucible question input contains unexpected set ids: ${unexpected.join(", ")}`);
-  const sets = CRUCIBLE_ACT_IDS.map((id, index) => {
+  const sets = configuredActIds.map((id) => {
     const extracted = supplied.get(id);
     if (extracted) return { ...extracted, id };
+    const actNumber = CRUCIBLE_ACT_IDS.indexOf(id as (typeof CRUCIBLE_ACT_IDS)[number]) + 1;
     return {
       id,
-      title: `Act ${index + 1} Questions`,
+      title: `Act ${actNumber} Questions`,
       subtitle: "Source questions pending extraction",
-      intro: `The Act ${index + 1} question sheet has not been extracted yet. Use the teacher-provided source until the guided questions are mapped.`,
+      intro: `The Act ${actNumber} question sheet has not been extracted yet. Use the teacher-provided source until the guided questions are mapped.`,
       questions: []
     } satisfies EnglishActivityQuestionSet;
   });
@@ -198,35 +221,48 @@ const CRUCIBLE_CHARACTER_FIELDS: EnglishActivityField[] = [
   field("evidence", "Best supporting evidence", "Record an act, scene, quotation, action, or dramatic choice.")
 ];
 
+const CRUCIBLE_CHARACTERS = [
+  { id: "john-proctor", name: "John Proctor" },
+  { id: "elizabeth-proctor", name: "Elizabeth Proctor" },
+  { id: "abigail-williams", name: "Abigail Williams" },
+  { id: "reverend-hale", name: "Reverend Hale" },
+  { id: "deputy-governor-danforth", name: "Deputy Governor Danforth" },
+  { id: "mary-warren", name: "Mary Warren" }
+];
+
+const CRUCIBLE_CHARACTER_CATALOG = new Map(CRUCIBLE_CHARACTERS.flatMap((character) => [
+  [character.id, character] as const,
+  ...(character.id === "deputy-governor-danforth" ? [["danforth", { ...character, id: "danforth" }] as const] : [])
+]));
+
 export function buildEla20CrucibleActivityProfile(input: Ela20CrucibleProfileInput): EnglishModernDramaProfile {
   assertProjectSlug(input.projectSlug);
+  const configuration = input.configuration;
+  const suppliedMaterials = input.materials ?? [];
+  const hasCompletePlay = suppliedMaterials.some((material) => material.id === "crucible-full-text-pdf" && material.href);
   const profile: EnglishModernDramaProfile = {
     kind: "modern-drama",
     namespace: input.projectSlug,
     courseCode: COURSE_CODE,
     unitTitle: "Modern Drama",
     evidenceBankRoute: input.evidenceBankRoute ?? "evidence-bank",
+    recipeProfile: configuration,
     playTitle: "The Crucible",
     materials: [
-      {
+      ...(!hasCompletePlay ? [{
         id: "crucible-play-access",
         title: "The Crucible",
         description: "Use the teacher-provided or school-licensed edition of the play.",
         status: "access-required"
-      },
-      ...(input.materials ?? [])
+      } satisfies EnglishMaterialHook] : []),
+      ...suppliedMaterials
     ],
-    actQuestionSets: normalizeCrucibleQuestionSets(input.actQuestionSets),
-    characters: [
-      { id: "john-proctor", name: "John Proctor" },
-      { id: "elizabeth-proctor", name: "Elizabeth Proctor" },
-      { id: "abigail-williams", name: "Abigail Williams" },
-      { id: "reverend-hale", name: "Reverend Hale" },
-      { id: "deputy-governor-danforth", name: "Deputy Governor Danforth" },
-      { id: "mary-warren", name: "Mary Warren" }
-    ],
+    actQuestionSets: normalizeCrucibleQuestionSets(input.actQuestionSets, configuration?.actIds),
+    characters: configuration
+      ? selectConfiguredItems(configuration.characterIds, CRUCIBLE_CHARACTER_CATALOG, "Crucible character")
+      : CRUCIBLE_CHARACTERS,
     characterFields: CRUCIBLE_CHARACTER_FIELDS,
-    essay: buildSixStageTextEssay({ textKind: "play", title: "The Crucible" })
+    essay: configuration?.criticalEssay === false ? undefined : buildSixStageTextEssay({ textKind: "play", title: "The Crucible" })
   };
   return finishProfile(profile);
 }
@@ -263,9 +299,12 @@ function validateMacbethScenes(scenes: EnglishShakespeareScene[]) {
   });
 }
 
-function validateMacbethQuestionSets(sets: EnglishActivityQuestionSet[]) {
+function validateMacbethQuestionSets(sets: EnglishActivityQuestionSet[], configuredActIds = ["act-1", "act-2", "act-3", "act-4", "act-5"]) {
   assertUniqueQuestionData(sets, "Macbeth");
-  const expected = ["act-1", "act-2", "act-3", "act-4", "act-5"];
+  const supported = ["act-1", "act-2", "act-3", "act-4", "act-5"];
+  const invalidConfiguration = configuredActIds.filter((id) => !supported.includes(id));
+  if (invalidConfiguration.length) throw new Error(`Macbeth act configuration contains unsupported ids: ${invalidConfiguration.join(", ")}`);
+  const expected = configuredActIds;
   const byId = new Map(sets.map((set) => [safeId(set.id), set]));
   const missing = expected.filter((id) => !byId.has(id));
   const unexpected = [...byId.keys()].filter((id) => !expected.includes(id));
@@ -289,6 +328,17 @@ const MACBETH_CHARACTER_FIELDS: EnglishActivityField[] = [
   field("act-four-five", "Acts 4-5 development", "Explain the character's final position, change, or consequence."),
   field("quotations", "Anchor quotations", "Record brief quotations with act and scene locators.")
 ];
+
+const MACBETH_CHARACTERS = [
+  { id: "macbeth", name: "Macbeth" },
+  { id: "lady-macbeth", name: "Lady Macbeth" },
+  { id: "banquo", name: "Banquo" },
+  { id: "macduff", name: "Macduff" },
+  { id: "duncan", name: "Duncan" },
+  { id: "witches", name: "The Witches" }
+];
+
+const MACBETH_CHARACTER_CATALOG = new Map(MACBETH_CHARACTERS.map((character) => [character.id, character]));
 
 const MACBETH_WRITING_TOOLS: EnglishWritingTool[] = [
   {
@@ -377,16 +427,27 @@ const MACBETH_WRITING_TOOLS: EnglishWritingTool[] = [
   }
 ];
 
+const MACBETH_WRITING_TOOL_CATALOG = new Map(MACBETH_WRITING_TOOLS.map((tool) => [tool.id, tool]));
+
 export function buildEla20MacbethActivityProfile(input: Ela20MacbethProfileInput): EnglishShakespeareProfile {
   assertProjectSlug(input.projectSlug);
+  const configuration = input.configuration;
+  const scenes = validateMacbethScenes(input.scenes);
+  if (configuration && scenes.length !== configuration.sceneCount) {
+    throw new Error(`Macbeth recipe expects ${configuration.sceneCount} scenes, but ${scenes.length} preserved scenes were supplied.`);
+  }
+  if (configuration?.editorialStatus === "reviewed" && scenes.some((scene) => scene.editorialStatus !== "reviewed")) {
+    throw new Error("Macbeth recipe is marked reviewed, but one or more preserved scene companions still need editorial review.");
+  }
   const profile: EnglishShakespeareProfile = {
     kind: "shakespeare-drama",
     namespace: input.projectSlug,
     courseCode: COURSE_CODE,
     unitTitle: "Shakespearean Drama",
     evidenceBankRoute: input.evidenceBankRoute ?? "evidence-bank",
+    recipeProfile: configuration,
     playTitle: "Macbeth",
-    scenes: validateMacbethScenes(input.scenes),
+    scenes,
     materials: [
       {
         id: "macbeth-original-text",
@@ -400,7 +461,7 @@ export function buildEla20MacbethActivityProfile(input: Ela20MacbethProfileInput
       {
         id: "macbeth-multimedia-companion",
         title: "myShakespeare Macbeth Companion",
-        description: "Open scene-level text, audio, video, and character interviews from the teacher-selected course link.",
+        description: "Open scene-level text, audio, video, and character interviews through myShakespeare.",
         href: "https://myshakespeare.com/macbeth/act-1-scene-1",
         actionLabel: "Open Companion",
         embeddable: false,
@@ -408,17 +469,14 @@ export function buildEla20MacbethActivityProfile(input: Ela20MacbethProfileInput
       },
       ...(input.materials ?? [])
     ],
-    actQuestionSets: validateMacbethQuestionSets(input.actQuestionSets),
-    characters: [
-      { id: "macbeth", name: "Macbeth" },
-      { id: "lady-macbeth", name: "Lady Macbeth" },
-      { id: "banquo", name: "Banquo" },
-      { id: "macduff", name: "Macduff" },
-      { id: "duncan", name: "Duncan" },
-      { id: "witches", name: "The Witches" }
-    ],
+    actQuestionSets: validateMacbethQuestionSets(input.actQuestionSets, configuration?.actIds),
+    characters: configuration
+      ? selectConfiguredItems(configuration.characterIds, MACBETH_CHARACTER_CATALOG, "Macbeth character")
+      : MACBETH_CHARACTERS,
     characterFields: MACBETH_CHARACTER_FIELDS,
-    writingTools: MACBETH_WRITING_TOOLS
+    writingTools: configuration
+      ? selectConfiguredItems(configuration.writingTools, MACBETH_WRITING_TOOL_CATALOG, "Macbeth writing tool")
+      : MACBETH_WRITING_TOOLS
   };
   return finishProfile(profile);
 }
@@ -544,76 +602,99 @@ const NOVEL_WRITING_TOOLS: EnglishWritingTool[] = [
   }
 ];
 
+const NOVEL_QUESTION_CATALOG = new Map(NOVEL_QUESTIONS.map((set) => [set.id, set]));
+const NOVEL_WRITING_TOOL_CATALOG = new Map<string, EnglishWritingTool>([
+  ["analytical-paragraph", NOVEL_WRITING_TOOLS[0]!],
+  ["motif-string", NOVEL_WRITING_TOOLS[1]!],
+  ["authors-intent", NOVEL_WRITING_TOOLS[2]!]
+]);
+
+const DEFAULT_NOVEL_TRACKS = [
+  { id: "lord-of-the-flies", title: "Lord of the Flies", author: "William Golding" },
+  { id: "the-book-thief", title: "The Book Thief", author: "Markus Zusak" }
+];
+
 export function buildEla20NovelStudyActivityProfile(input: Ela20NovelProfileInput): EnglishNovelStudyProfile {
   assertProjectSlug(input.projectSlug);
+  const configuration = input.configuration;
+  const tracks = configuration?.novels ?? DEFAULT_NOVEL_TRACKS;
+  const configuredQuestionSets = configuration
+    ? selectConfiguredItems(configuration.questionPhases, NOVEL_QUESTION_CATALOG, "Novel question phase")
+    : NOVEL_QUESTIONS;
+  const questionCount = configuredQuestionSets.reduce((total, set) => total + set.questions.length, 0);
+  if (configuration && questionCount !== configuration.genericQuestionCount) {
+    throw new Error(`Novel recipe expects ${configuration.genericQuestionCount} profile-supplied questions, but the configured phases contain ${questionCount}.`);
+  }
   const profile: EnglishNovelStudyProfile = {
     kind: "novel-study",
     namespace: input.projectSlug,
-    courseCode: COURSE_CODE,
-    unitTitle: "Novel Study",
+    courseCode: input.courseCode ?? COURSE_CODE,
+    unitTitle: input.unitTitle ?? "Novel Study",
     evidenceBankRoute: input.evidenceBankRoute ?? "evidence-bank",
-    tracks: [
-      { id: "lord-of-the-flies", title: "Lord of the Flies", author: "William Golding" },
-      { id: "the-book-thief", title: "The Book Thief", author: "Markus Zusak" }
-    ],
+    recipeProfile: configuration,
+    tracks,
     materials: [
-      { id: "lord-of-the-flies-access", title: "Lord of the Flies", description: "Use the teacher-provided or school-licensed edition.", status: "access-required" },
-      { id: "the-book-thief-access", title: "The Book Thief", description: "Use the teacher-provided or school-licensed edition.", status: "access-required" },
+      ...tracks.map((track) => ({ id: `${safeId(track.id)}-access`, title: track.title, description: "Use the teacher-provided or school-licensed edition.", status: "access-required" as const })),
       ...(input.materials ?? [])
     ],
     essay: buildSixStageTextEssay({ textKind: "novel", title: "the selected novel" }),
     readingGuideFields: NOVEL_READING_GUIDE_FIELDS,
     majorWorksFields: MAJOR_WORKS_FIELDS,
-    questionSets: NOVEL_QUESTIONS,
-    writingTools: NOVEL_WRITING_TOOLS
+    questionSets: [
+      ...(input.questionSets ?? []),
+      ...configuredQuestionSets.map((set) => ({ ...set, title: input.questionSets?.length ? `Enrichment: ${set.title}` : set.title }))
+    ],
+    writingTools: configuration
+      ? selectConfiguredItems(configuration.writingTools.filter((id) => id !== "critical-essay"), NOVEL_WRITING_TOOL_CATALOG, "Novel writing tool")
+      : NOVEL_WRITING_TOOLS
   };
   return finishProfile(profile);
 }
 
 const FILM_TECHNIQUE_QUESTIONS: EnglishActivityQuestion[] = [
-  question("panning", "What is panning, and why might a director use it?", "Name the movement and explain what it helps the viewer follow."),
-  question("extreme-long-close-up", "How does an extreme long shot differ from a close-up?", "Compare how much subject and setting the viewer can see."),
-  question("close-up-effect", "What effect can a close-up create?", "Consider emotion, detail, and directed attention."),
-  question("dutch-tilt", "What effect can a Dutch tilt create, and why might it be used?", "Connect the tilted frame to instability, threat, or confusion."),
-  question("high-angle", "What is a high-angle shot, and how can it shape meaning?", "Explain camera placement and its effect on power or vulnerability."),
-  question("leading-lines", "What is the function of leading lines, and what forms can they take?", "Explain how lines guide attention through a frame."),
-  question("rack-focus", "What is rack focus, and when might a director use it?", "Describe the focus shift and why attention is redirected."),
-  question("natural-frames", "What objects or spaces can create natural frames within a shot?", "Give several concrete examples."),
-  question("follow-movement", "What camera movement can be used to follow a moving subject?", "Choose one method and describe it accurately."),
-  question("dolly", "What is a dolly movement?", "Explain how the camera physically moves through space."),
-  question("stabilization", "How can camera operators reduce vibration during a moving shot?", "Describe how stabilization equipment supports smooth movement."),
-  question("boom", "How can a boom or crane support both low- and high-angle shots?", "Explain the range of camera position it creates."),
-  question("three-point", "How is three-point lighting constructed?", "Name the three lights and explain how they work together."),
-  question("key-light", "What is the key light?", "Identify the main source in the lighting setup."),
-  question("fill-light", "What does a fill light control?", "Focus on shadow and contrast."),
-  question("back-light", "What is the purpose of a back or hair light?", "Explain how it separates a subject from the background."),
-  question("noir-lighting", "What lighting choices commonly create a film-noir effect?", "Use terms such as low-key lighting, contrast, shadow, and mood."),
-  question("diegetic", "What is the difference between diegetic and non-diegetic sound?", "Ask whether characters inside the film can hear it."),
-  question("diegetic-examples", "What are three examples of diegetic sound?", "Choose sounds that belong inside the film's world."),
-  question("nondiegetic-examples", "What are three examples of non-diegetic sound?", "Choose sounds added for the audience."),
-  question("mise-en-scene", "What is mise-en-scene, and how does it create meaning?", "Consider everything deliberately placed within the frame."),
-  question("visual-emotion", "How can symbols or visual elements emphasize a character's emotional state?", "Connect a specific visual choice to what the viewer understands.")
+  question("panning", "Describe what panning is and why it is used in films.", "Name the movement and explain what it helps the viewer follow.", "Types of Cinematography Shots"),
+  question("extreme-long-close-up", "Explain the difference between an extreme long shot and a close up.", "Compare how much subject and setting the viewer can see.", "Types of Cinematography Shots"),
+  question("close-up-effect", "What effect is achieved in a close up?", "Consider emotion, detail, and directed attention.", "Types of Cinematography Shots"),
+  question("dutch-tilt", "What effect is the director trying to achieve through the use of Dutch tilt? Why might this shot be used?", "Connect the tilted frame to instability, threat, or confusion.", "Types of Cinematography Shots"),
+  question("high-angle", "What is a high-angle shot and what is its purpose?", "Explain camera placement and its effect on power or vulnerability.", "Types of Cinematography Shots"),
+  question("leading-lines", "What is the function of leading lines? Name four different types of leading lines.", "Explain how lines guide attention through a frame.", "Shot Composition"),
+  question("rack-focus", "When is rack focus used? What is rack focus?", "Describe the focus shift and why attention is redirected.", "Shot Composition"),
+  question("natural-frames", "Give four examples of natural frames.", "Identify objects or spaces that can frame a subject within a shot.", "Shot Composition"),
+  question("follow-movement", "Name one common type of camera movement used to follow movement in a scene.", "Choose one method and describe it accurately.", "Camera Movement"),
+  question("dolly", "Describe what is meant by a dolly movement.", "Explain how the camera physically moves through space.", "Camera Movement"),
+  question("stabilization", "How do camera operators minimize vibration when using a sled and vest?", "Describe how stabilization equipment supports smooth movement.", "Camera Movement"),
+  question("boom", "True or false: a boom is used for both low and high angle shots. Explain your answer.", "Explain the range of camera position a boom creates.", "Camera Movement"),
+  question("three-point", "How is three-point lighting achieved?", "Name the three lights and explain how they work together.", "Lighting"),
+  question("key-light", "What is the key light?", "Identify the main source in the lighting setup.", "Lighting"),
+  question("fill-light", "What does the fill light do?", "Focus on shadow and contrast.", "Lighting"),
+  question("back-light", "What is the purpose of the hair light?", "Explain how it separates a subject from the background.", "Lighting"),
+  question("noir-lighting", "Describe the lighting arrangement when making a noir movie.", "Use terms such as low-key lighting, contrast, shadow, and mood.", "Lighting"),
+  question("diegetic", "Explain the difference between diegetic sound and non-diegetic sound.", "Ask whether characters inside the film can hear it.", "Sound Effects"),
+  question("diegetic-examples", "Give three examples of diegetic sound.", "Choose sounds that belong inside the film's world.", "Sound Effects"),
+  question("nondiegetic-examples", "Give three examples of non-diegetic sound.", "Choose sounds added for the audience.", "Sound Effects"),
+  question("mise-en-scene", "Explain the term mise-en-scene. What is the function of mise-en-scene?", "Consider everything deliberately placed within the frame.", "Mise-en-scene"),
+  question("visual-emotion", "Describe some special features a director can use to emphasize a character's emotional state, such as symbols or visual elements.", "Connect a specific visual choice to what the viewer understands.", "Mise-en-scene")
 ];
 
 const FILM_FULL_RESPONSE_QUESTIONS: EnglishActivityQuestion[] = [
-  question("film-choice", "Which film did you watch, and who directed it?", "Identify the film before moving into analysis."),
-  question("character-introduction", "How are the major characters introduced, and what expectations do those introductions create?", "Use setting, dialogue, performance, or early conflict."),
-  question("character-action-theme", "Choose one important character action. What motivates it, and how does it connect to a larger idea?", "Use a specific action rather than a general trait."),
-  question("character-credibility", "What makes the major characters' choices believable or unbelievable?", "Connect personality and context to action."),
-  question("character-consistency", "Do the characters' actions remain consistent with what the film reveals about them?", "Track whether later choices follow or complicate their established nature."),
-  question("major-motives", "What motivates the major characters, and how are those motives revealed?", "Separate stated goals from motives the viewer infers."),
-  question("unconscious-motives", "Does any character act from a motive they do not fully recognize?", "Consider fear, guilt, pride, grief, desire, or denial."),
-  question("relationships", "Which relationships most affect the story, and how do they advance the action?", "Explain what each relationship causes, reveals, or changes."),
-  question("protagonist-motivation", "What motivates the protagonist in the central struggle?", "Identify the goal and what is at stake."),
-  question("protagonist-action", "How does the protagonist act against the opposing force?", "Use one specific scene as evidence."),
-  question("antagonist-motivation", "What motivates the antagonist or opposing force?", "Explain what the opposition wants or protects."),
-  question("antagonist-action", "How does the antagonist or opposing force create pressure?", "Choose one action that changes the protagonist's situation."),
-  question("values", "What values does the film endorse, question, or criticize through character actions?", "Connect choices to the film's larger ideas."),
-  question("backstory", "How does backstory explain or complicate present character choices?", "Connect past events to present action."),
-  question("withheld-information", "What important information is withheld from a character or the viewer, and what effect does that create?", "Consider suspense, irony, secrecy, and revelation."),
-  question("transformation", "What important character transformation occurs, and how does it develop?", "Track a clear before-and-after change."),
-  question("resolution-trait", "Which character trait or choice most affects the resolution?", "Connect the trait to the ending."),
-  question("internal-external", "How are one character's internal and external conflicts resolved or left unresolved?", "Separate the inner struggle from the outside problem.")
+  question("film-choice", "Which film did you watch?", "Identify the film before moving into analysis.", "Film Selection"),
+  question("character-introduction", "How are the major characters introduced? What does this tell us about what will happen in the story?", "Use setting, dialogue, performance, or early conflict.", "Character And Motivation"),
+  question("character-action-theme", "Select an action performed by one character. Explain why that character took the action, what motivated them, and what this motivation has to do with the theme of the film.", "Use a specific action rather than a general trait.", "Character And Motivation"),
+  question("character-credibility", "The characters must be credible; how they act and what they say must make sense. What aspects of the personalities of the major characters affect their credibility?", "Connect personality and context to action.", "Character And Motivation"),
+  question("character-consistency", "Is there consistency in the characters throughout the story? Do their actions follow their natures and ring true?", "Track whether later choices follow or complicate their established nature.", "Character And Motivation"),
+  question("major-motives", "What motivates the major characters? Are their motivations or wants explained outright or revealed over time?", "Separate stated goals from motives the viewer infers.", "Character And Motivation"),
+  question("unconscious-motives", "Are there any major characters who act on motives of which they are not aware? Describe any unconscious motives and explain how these motives affect their actions.", "Consider fear, guilt, pride, grief, desire, or denial.", "Character And Motivation"),
+  question("relationships", "Are there important relationships between characters, such as friends, lovers, co-workers, or family members? Describe relationships that contribute to the story and how they advance the action.", "Explain what each relationship causes, reveals, or changes.", "Relationships And Conflict"),
+  question("protagonist-motivation", "What motivates the protagonist in their struggle against the antagonist?", "Identify the goal and what is at stake.", "Relationships And Conflict"),
+  question("protagonist-action", "How does the protagonist work against the antagonist? Recount one specific event in this struggle.", "Use one specific scene as evidence.", "Relationships And Conflict"),
+  question("antagonist-motivation", "What motivates the antagonist to resist or struggle against the protagonist?", "Explain what the opposition wants or protects.", "Relationships And Conflict"),
+  question("antagonist-action", "How does the antagonist resist or struggle against the protagonist? Recount one specific event in this struggle.", "Choose one action that changes the protagonist's situation.", "Relationships And Conflict"),
+  question("values", "In what ways are the characters' actions driven by the values endorsed or criticized in the story, or by ideas presented by the story?", "Connect choices to the film's larger ideas.", "Theme And Resolution"),
+  question("backstory", "What role does the back-story play in explaining the actions of the major characters? Explain your reasoning.", "Connect past events to present action.", "Theme And Resolution"),
+  question("withheld-information", "Is there information known to the audience that is being held back from any characters? If so, describe it and explain how things change once this information becomes known.", "Consider suspense, irony, secrecy, and revelation.", "Theme And Resolution"),
+  question("transformation", "Explore transformations or changes that occur over the course of the story in any major character. For each change, describe how it comes about and how it relates to the film's themes or ideas.", "Track a clear before-and-after change.", "Theme And Resolution"),
+  question("resolution-trait", "Which aspects of the protagonist's personality lead to the resolution of the conflict? Describe them and their effect on the resolution.", "Connect the trait to the ending.", "Theme And Resolution"),
+  question("internal-external", "As the story moves toward a conclusion, internal and external conflicts are resolved. Select one major character and describe their internal and external conflicts. Explain how the character's choices lead to a resolution of these conflicts.", "Separate the inner struggle from the outside problem.", "Theme And Resolution")
 ];
 
 function buildFilmEssay(): EnglishCriticalEssayProfile {
@@ -624,12 +705,12 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
       {
         id: "topic-interpretation",
         title: "Topic and Interpretation",
-        focus: "Turn the assigned topic into a defensible interpretation of the selected film.",
+        focus: "Turn the assigned topic into a defensible interpretation of the feature film.",
         instruction: "Separate the topic, the insight developed through the film, and the thesis that will control the essay.",
         fields: [
-          field("topic", "Assigned topic", "Restate the topic in your own words."),
-          field("film-insight", "Film insight", "What does the film suggest about this topic?"),
-          field("thesis", "Working thesis", "Name the film creator's larger idea and the character or conflict that develops it.")
+          field("topic", "Two parts of the essay topic", "Separate the key ideas or demands in the assigned topic."),
+          field("film-insight", "Film and character route", "Name the film, filmmaker, central character or conflict, and the beginning-middle-end development you will trace."),
+          field("thesis", "Working thesis", "Write the filmmaker's larger idea about the assigned topic in one controlling sentence.")
         ]
       },
       {
@@ -638,9 +719,9 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
         focus: "Move from the broader human topic to the film, central conflict, and thesis.",
         instruction: "Keep the context purposeful and avoid summarizing the whole film.",
         fields: [
-          field("opening", "Opening idea", "Introduce the human issue at the centre of the topic."),
-          field("context", "Film and conflict context", "Introduce the title, director, character focus, and relevant conflict."),
-          field("thesis-revision", "Revised thesis", "Write the final controlling sentence for the introduction.")
+          field("opening", "General topic opening", "Draft two or three sentences that introduce the topic in human terms."),
+          field("context", "Film and conflict bridge", "Introduce the film, filmmaker, character focus, and central conflict without summarizing the whole plot."),
+          field("thesis-revision", "Final thesis sentence", "Write the controlling sentence that will close the introduction and guide the essay.")
         ]
       },
       {
@@ -648,9 +729,9 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
         title: "Body Paragraph 1 - Beginning",
         focus: "Establish the character, conflict, or idea at the beginning of the film.",
         fields: [
-          field("claim", "Beginning claim", "State the focused paragraph claim."),
-          field("scene-evidence", "Beginning scene evidence", "Record a scene, timestamp, dialogue, performance, or technique."),
-          field("analysis", "Analysis", "Explain how the director's choice develops the interpretation.")
+          field("claim", "Character at the beginning", "Draft the paragraph's topic sentence and explain the character's starting point."),
+          field("scene-evidence", "Beginning film evidence", "Record the scene, timestamp, quotation, performance, or film technique you will use as proof."),
+          field("analysis", "Beginning analysis and topic connection", "Explain how the evidence establishes the character or conflict and supports the thesis.")
         ]
       },
       {
@@ -658,9 +739,9 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
         title: "Body Paragraph 2 - Middle",
         focus: "Analyze the turning point, rising pressure, or change in the middle of the film.",
         fields: [
-          field("claim", "Middle claim", "State the focused paragraph claim."),
-          field("scene-evidence", "Middle scene evidence", "Record a scene, timestamp, dialogue, performance, or technique."),
-          field("analysis", "Analysis", "Explain how the director's choice complicates or advances the interpretation.")
+          field("claim", "Middle conflict or turning point", "Draft the paragraph's topic sentence and identify the pressure, crisis, or choice that drives change."),
+          field("scene-evidence", "Middle film evidence", "Record the scene, timestamp, quotation, performance, or film technique you will use as proof."),
+          field("analysis", "Change in progress and topic connection", "Explain how this moment changes the character or conflict and advances the thesis.")
         ]
       },
       {
@@ -668,9 +749,9 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
         title: "Body Paragraph 3 - End",
         focus: "Explain the final change, resolution, or unresolved tension.",
         fields: [
-          field("claim", "Ending claim", "State the focused paragraph claim."),
-          field("scene-evidence", "Ending scene evidence", "Record a scene, timestamp, dialogue, performance, or technique."),
-          field("analysis", "Analysis", "Explain how the ending completes or complicates the film's idea.")
+          field("claim", "Character at the end", "Draft the paragraph's topic sentence and explain the final change, resolution, or unresolved tension."),
+          field("scene-evidence", "Ending film evidence", "Record the final scene, timestamp, quotation, performance, or film technique you will use as proof."),
+          field("analysis", "Final analysis and topic connection", "Explain how the ending answers the assigned topic and completes or complicates the thesis.")
         ]
       },
       {
@@ -678,10 +759,10 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
         title: "Conclusion and Revision",
         focus: "Complete the interpretation and revise the full essay for control and correctness.",
         fields: [
-          field("synthesis", "Film synthesis", "Return to the final character change, conflict, or idea."),
-          field("significance", "Broader significance", "Explain what viewers should understand beyond this film."),
-          field("structure-check", "Structure check", "Identify changes needed to paragraph order, transitions, or evidence balance."),
-          field("language-check", "Language and correctness check", "Identify changes needed to diction, sentences, grammar, punctuation, or spelling.")
+          field("synthesis", "Restated interpretation", "Restate the thesis in fresh language without repeating it word for word."),
+          field("significance", "Beginning-middle-end synthesis", "Connect the character's starting point, turning point, and final change into one clear insight."),
+          field("structure-check", "Human condition connection", "Explain what the film's idea suggests about people or human experience beyond this story."),
+          field("language-check", "Complete conclusion draft", "Combine the restated interpretation, synthesis, and broader significance into a polished conclusion paragraph.")
         ]
       }
     ]
@@ -689,6 +770,87 @@ function buildFilmEssay(): EnglishCriticalEssayProfile {
   const fieldCount = essay.stages.reduce((total, stage) => total + stage.fields.length, 0);
   if (essay.stages.length !== 6 || fieldCount !== 19) throw new Error("Film essay profile must contain six stages and exactly 19 fields.");
   return essay;
+}
+
+function buildFilmPersonalResponse(): EnglishCriticalEssayProfile {
+  return {
+    title: "Personal Response to Text",
+    description: "Use this six-stage studio to connect a meaningful film idea to precise evidence and your own knowledge or experience in a purposeful prose form.",
+    stages: [
+      {
+        id: "prompt-impression",
+        title: "Prompt and Initial Impression",
+        focus: "Understand the prompt and decide what idea, feeling, or impression you want to explore.",
+        instruction: "Separate the prompt from your first response, then turn that reaction into a focused controlling idea.",
+        checkpoints: ["I can identify what the prompt asks me to explore.", "I can name a genuine initial reaction to the film.", "I can turn that reaction into a focused idea."],
+        fields: [
+          field("prompt", "Course prompt", "Record or restate the assigned personal-response prompt in your own words."),
+          field("initial-impression", "Initial impression", "What idea, feeling, question, or image from the film stays with you?"),
+          field("controlling-idea", "Controlling idea", "What will your response suggest about the prompt or larger human experience?")
+        ]
+      },
+      {
+        id: "film-evidence",
+        title: "Film Evidence",
+        focus: "Choose a precise film moment and explain how it develops your controlling idea.",
+        instruction: "Use a scene, timestamp, line, performance detail, image, sound, or film technique as meaningful support.",
+        checkpoints: ["I can identify a precise film moment.", "I can explain a filmmaker's choice in that moment.", "I can connect the evidence to my controlling idea."],
+        fields: [
+          field("moment", "Film moment", "Record the scene, timestamp, quotation, image, sound, performance, or technique you will use."),
+          field("creator-choice", "Filmmaker's choice", "What did the filmmaker deliberately do, and what effect does that choice create?"),
+          field("meaning", "Connection to your idea", "Explain how this moment develops the idea, feeling, or impression at the centre of your response.")
+        ]
+      },
+      {
+        id: "knowledge-experience",
+        title: "Knowledge and Experience",
+        focus: "Connect the film's idea to relevant personal knowledge, observation, or experience.",
+        instruction: "Choose a connection that deepens the response rather than replacing discussion of the film.",
+        checkpoints: ["I can choose a relevant connection.", "I can explain why the connection matters.", "I can link the connection back to the film and prompt."],
+        fields: [
+          field("connection", "Knowledge or experience", "Describe the memory, observation, learning, or experience that connects meaningfully to the film."),
+          field("significance", "Why it matters", "What did this connection help you understand, question, or reconsider?"),
+          field("link-back", "Link back to the film", "Explain how the connection strengthens or complicates your interpretation of the film moment.")
+        ]
+      },
+      {
+        id: "form-perspective",
+        title: "Prose Form and Perspective",
+        focus: "Choose the form and perspective that best communicate your idea.",
+        instruction: "Personal responses may be personal, critical, creative, or a purposeful blend, but every choice must remain grounded in the film and prompt.",
+        checkpoints: ["I can choose a prose form that suits my purpose.", "I can choose a clear perspective and voice.", "I can identify the audience and effect I want."],
+        fields: [
+          selectField("prose-form", "Prose form", ["Short essay", "Editorial", "Letter", "Screenplay", "Diary entry", "Interior monologue", "Eulogy", "Speech", "Reminiscence", "Short story", "Interview", "Anecdote", "Newspaper article", "Personal observation", "Rebuttal", "Commentary"]),
+          selectField("perspective", "Perspective", ["Personal", "Critical", "Creative", "Blended"]),
+          field("audience-purpose", "Audience, purpose, and voice", "Who are you addressing, what do you want the response to accomplish, and what voice will fit?")
+        ]
+      },
+      {
+        id: "response-plan",
+        title: "Shape the Response",
+        focus: "Plan an opening, development, and ending that suit your chosen prose form.",
+        instruction: "Arrange the film evidence and personal connection so the response develops rather than becoming a list of separate ideas.",
+        checkpoints: ["I can open in a way that suits my form and voice.", "I can develop the film and personal connection coherently.", "I can end with a meaningful final insight."],
+        fields: [
+          field("opening", "Opening move", "Draft the opening that establishes your voice, situation, or controlling idea."),
+          field("development", "Development sequence", "Plan how the film evidence, analysis, and personal connection will build on one another."),
+          field("ending", "Ending insight", "Draft the final realization, image, action, or statement that completes the response.")
+        ]
+      },
+      {
+        id: "draft-revise",
+        title: "Draft and Revise",
+        focus: "Write the complete response and revise it for support, form, voice, and correctness.",
+        instruction: "Use the plan as a foundation, then make the final response sound intentional and complete in its chosen form.",
+        checkpoints: ["I can sustain my controlling idea through the full response.", "I can integrate film support and personal knowledge purposefully.", "I can revise for form, voice, clarity, and correctness."],
+        fields: [
+          { ...field("complete-draft", "Complete response draft", "Write the complete personal response in your chosen prose form."), rows: 14 },
+          field("support-check", "Evidence and connection check", "Identify where the film evidence and personal connection are strongest and where more explanation is needed."),
+          field("voice-form-check", "Form, voice, and correctness check", "Record the revisions needed to make the prose form, voice, sentences, and conventions deliberate and clear.")
+        ]
+      }
+    ]
+  };
 }
 
 const FILM_VIEWING_GUIDE_FIELDS: EnglishActivityField[] = [
@@ -707,33 +869,53 @@ const FILM_VIEWING_GUIDE_FIELDS: EnglishActivityField[] = [
 
 export function buildEla20FilmStudyActivityProfile(input: Ela20FilmProfileInput): EnglishFilmStudyProfile {
   assertProjectSlug(input.projectSlug);
-  const filmTitle = input.filmTitle?.trim();
+  const configuration = input.configuration;
+  const configuredTitle = configuration?.filmSelection.mode === "selected" ? configuration.filmSelection.title.trim() : undefined;
+  const suppliedTitle = input.filmTitle?.trim();
+  if (configuredTitle && suppliedTitle && configuredTitle !== suppliedTitle) {
+    throw new Error(`Film recipe selects "${configuredTitle}", but the builder received "${suppliedTitle}".`);
+  }
+  const filmTitle = configuredTitle ?? suppliedTitle;
+  const techniqueQuestionCount = configuration?.techniqueQuestionCount ?? FILM_TECHNIQUE_QUESTIONS.length;
+  const fullResponseQuestionCount = configuration?.fullResponseQuestionCount ?? FILM_FULL_RESPONSE_QUESTIONS.length;
+  if (techniqueQuestionCount > FILM_TECHNIQUE_QUESTIONS.length || fullResponseQuestionCount > FILM_FULL_RESPONSE_QUESTIONS.length) {
+    throw new Error(`Film recipe requests more profile-supplied questions than are available (${FILM_TECHNIQUE_QUESTIONS.length} technique, ${FILM_FULL_RESPONSE_QUESTIONS.length} full response).`);
+  }
   const questionSets: EnglishActivityQuestionSet[] = [
     {
       id: "technique-questions",
       title: "Film Technique Questions",
       subtitle: "22 profile-supplied concept prompts",
       intro: "Use these questions while studying shots, composition, movement, lighting, sound, and mise-en-scene.",
-      questions: FILM_TECHNIQUE_QUESTIONS
+      questions: FILM_TECHNIQUE_QUESTIONS.slice(0, techniqueQuestionCount)
     },
     {
       id: "full-film-response",
       title: "Full Film Response",
       subtitle: "18 profile-supplied after-viewing prompts",
-      intro: "After viewing the selected film, analyze character, conflict, motivation, technique, theme, and resolution.",
-      questions: FILM_FULL_RESPONSE_QUESTIONS
+      intro: "After viewing the film you are studying, analyze character, conflict, motivation, technique, theme, and resolution.",
+      questions: FILM_FULL_RESPONSE_QUESTIONS.slice(0, fullResponseQuestionCount)
     }
   ];
   assertUniqueQuestionData(questionSets, "Film Study");
+  const essay = buildFilmEssay();
+  const essayFieldCount = essay.stages.reduce((total, stage) => total + stage.fields.length, 0);
+  if (configuration && essayFieldCount !== configuration.criticalEssayFieldCount) {
+    throw new Error(`Film recipe expects ${configuration.criticalEssayFieldCount} critical-essay fields, but the profile provides ${essayFieldCount}.`);
+  }
   const profile: EnglishFilmStudyProfile = {
     kind: "film-study",
     namespace: input.projectSlug,
-    courseCode: COURSE_CODE,
-    unitTitle: "Film Study",
+    courseCode: input.courseCode ?? COURSE_CODE,
+    unitTitle: input.unitTitle ?? "Film Study",
     evidenceBankRoute: input.evidenceBankRoute ?? "evidence-bank",
+    recipeProfile: configuration,
     filmSelection: filmTitle ? { mode: "selected", title: filmTitle } : { mode: "pending" },
-    essay: buildFilmEssay(),
-    viewingGuideFields: FILM_VIEWING_GUIDE_FIELDS,
+    essay,
+    personalResponse: configuration?.activities.some((activity) => activity.enabled && activity.route === "personal-response")
+      ? buildFilmPersonalResponse()
+      : undefined,
+    viewingGuideFields: configuration?.viewingGuide === false ? [] : FILM_VIEWING_GUIDE_FIELDS,
     questionSets,
     materials: input.materials ?? []
   };

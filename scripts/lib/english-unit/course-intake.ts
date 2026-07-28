@@ -1,7 +1,9 @@
 import { createHash } from "node:crypto";
+import { execFile as execFileCallback } from "node:child_process";
 import { createReadStream } from "node:fs";
-import { access, copyFile, mkdir, readFile, rename, rm, writeFile } from "node:fs/promises";
+import { access, copyFile, mkdir, readFile, rename, rm, stat, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { promisify } from "node:util";
 
 import * as cheerio from "cheerio";
 import type { Element } from "domhandler";
@@ -14,8 +16,24 @@ import {
   createEla20RecipeSeeds,
   getEla20TeacherResourceMap
 } from "./course-seeds.js";
+import {
+  ELA10_COURSE_ID,
+  ELA10_UNIT_SEEDS,
+  createEla10CourseManifest,
+  createEla10RecipeSeeds,
+  getEla10TeacherResourceMap
+} from "./ela10-course-seeds.js";
+import {
+  createEla2CourseManifest,
+  createEla2RecipeSeeds,
+  getEla2TeacherResourceMap,
+  getEla2UnitSeeds,
+  isEla2CourseId
+} from "./ela2-course-seeds.js";
 import { parseEnglishCourseManifest, parseEnglishUnitRecipe } from "./schema.js";
 import type { EnglishCourseArchiveV1, EnglishCourseManifestV1 } from "./types.js";
+import type { EnglishUnitRecipe } from "./types.js";
+import type { EnglishUnitSeed } from "./course-seeds.js";
 
 export type EnglishInventoryEntryV1 = {
   path: string;
@@ -24,7 +42,7 @@ export type EnglishInventoryEntryV1 = {
 };
 
 export type EnglishArchiveInventoryV1 = {
-  archiveId: "brightspace" | "teacher-resources";
+  archiveId: string;
   path: string;
   sha256: string;
   entries: EnglishInventoryEntryV1[];
@@ -46,7 +64,7 @@ export type EnglishMappingStatus =
   | "missing";
 
 export type EnglishCourseMappingEntryV1 = {
-  archiveId: "brightspace" | "teacher-resources";
+  archiveId: string;
   path: string;
   status: EnglishMappingStatus;
   classification: string;
@@ -92,9 +110,19 @@ type BrightspaceItemRecord = {
 
 type LoadedArchive = {
   archive: EnglishCourseArchiveV1;
+  recipeArchivePath: string;
   zip: JSZip;
   inventory: EnglishArchiveInventoryV1;
 };
+
+type LoadedSupplement = {
+  archive: EnglishCourseArchiveV1;
+  inventory: EnglishArchiveInventoryV1;
+  mapping: EnglishCourseMappingEntryV1;
+};
+
+const execFile = promisify(execFileCallback);
+const MAX_JSZIP_SOURCE_BYTES = 1_750_000_000;
 
 const mathTopFolders = new Set([
   "face_to_face_exams",
@@ -180,13 +208,46 @@ async function importArchive(input: {
     await copyFile(sourcePath, canonicalPath);
   }
 
-  const zip = await JSZip.loadAsync(await readFile(canonicalPath));
-  const entries = Object.values(zip.files)
-    .map((entry) => ({
-      path: normalizeZipPath(entry.name),
-      isDirectory: entry.dir,
-      extension: entry.dir ? "" : path.posix.extname(entry.name).toLowerCase()
-    }))
+  const sourceSize = (await stat(canonicalPath)).size;
+  let recipeArchivePath = canonicalPath;
+  let inventoryNames: string[] | undefined;
+  if (sourceSize > MAX_JSZIP_SOURCE_BYTES) {
+    const normalizedPath = path.join(sourcesDir, `${digest}.normalized.zip`);
+    if (!(await exists(normalizedPath))) {
+      const stagingDir = path.join(sourcesDir, `.normalize-${digest.slice(0, 12)}-${process.pid}`);
+      await rm(stagingDir, { recursive: true, force: true });
+      await mkdir(stagingDir, { recursive: true });
+      try {
+        await execFile("/usr/bin/tar", [
+          "-xf", canonicalPath, "-C", stagingDir,
+          "--exclude", "*.mp4", "--exclude", "*.MP4",
+          "--exclude", "*.mp3", "--exclude", "*.MP3",
+          "--exclude", "*.wav", "--exclude", "*.WAV"
+        ], { maxBuffer: 64 * 1024 * 1024 });
+        await execFile("/usr/bin/zip", ["-qr", normalizedPath, "."], {
+          cwd: stagingDir,
+          maxBuffer: 64 * 1024 * 1024
+        });
+      } finally {
+        await rm(stagingDir, { recursive: true, force: true });
+      }
+    }
+    recipeArchivePath = normalizedPath;
+    const listed = await execFile("/usr/bin/zipinfo", ["-1", canonicalPath], { maxBuffer: 64 * 1024 * 1024 });
+    inventoryNames = listed.stdout.split(/\r?\n/).map(normalizeZipPath).filter(Boolean);
+  }
+  const zip = await JSZip.loadAsync(await readFile(recipeArchivePath));
+  const entries = (inventoryNames
+    ? inventoryNames.map((entryPath) => ({
+        path: entryPath,
+        isDirectory: entryPath.endsWith("/"),
+        extension: entryPath.endsWith("/") ? "" : path.posix.extname(entryPath).toLowerCase()
+      }))
+    : Object.values(zip.files).map((entry) => ({
+        path: normalizeZipPath(entry.name),
+        isDirectory: entry.dir,
+        extension: entry.dir ? "" : path.posix.extname(entry.name).toLowerCase()
+      })))
     .sort((left, right) => left.path.localeCompare(right.path));
   const archive: EnglishCourseArchiveV1 = {
     id: input.archiveId,
@@ -198,6 +259,7 @@ async function importArchive(input: {
 
   return {
     archive,
+    recipeArchivePath: repoRelative(input.repoRoot, recipeArchivePath),
     zip,
     inventory: { archiveId: input.archiveId, path: archive.path, sha256: digest, entries }
   };
@@ -205,6 +267,56 @@ async function importArchive(input: {
 
 function directChildText($: cheerio.CheerioAPI, element: Element, childName: string) {
   return $(element).children(childName).first().text().replace(/\s+/g, " ").trim();
+}
+
+async function importSupplementFile(input: {
+  repoRoot: string;
+  sourcePath: string;
+  courseId: string;
+  importedAt: string;
+}): Promise<LoadedSupplement> {
+  const sourcePath = path.resolve(input.sourcePath);
+  if (!(await exists(sourcePath))) throw new Error(`Missing supplemental file: ${sourcePath}`);
+  const sourceStats = await stat(sourcePath);
+  if (!sourceStats.isFile()) throw new Error(`Supplemental source is not a file: ${sourcePath}`);
+
+  const digest = await sha256File(sourcePath);
+  const extension = path.extname(sourcePath).toLowerCase();
+  const archiveId = `supplement-${digest.slice(0, 12)}`;
+  const sourcesDir = path.join(input.repoRoot, "projects", "resources", input.courseId, "_sources");
+  const canonicalPath = path.join(sourcesDir, `${digest}${extension}`);
+  await mkdir(sourcesDir, { recursive: true });
+
+  if (await exists(canonicalPath)) {
+    const canonicalDigest = await sha256File(canonicalPath);
+    if (canonicalDigest !== digest) throw new Error(`Canonical supplemental file hash mismatch: ${canonicalPath}`);
+  } else {
+    await copyFile(sourcePath, canonicalPath);
+  }
+
+  const archive: EnglishCourseArchiveV1 = {
+    id: archiveId,
+    kind: "supplement",
+    path: repoRelative(input.repoRoot, canonicalPath),
+    sha256: digest,
+    importedAt: input.importedAt
+  };
+  const displayPath = path.basename(sourcePath);
+  const inventory: EnglishArchiveInventoryV1 = {
+    archiveId,
+    path: archive.path,
+    sha256: digest,
+    entries: [{ path: displayPath, isDirectory: false, extension }]
+  };
+  const mapping: EnglishCourseMappingEntryV1 = {
+    archiveId,
+    path: displayPath,
+    status: "reference-only",
+    classification: "supplemental-source",
+    reason: "Registered, hashed, and inventoried as source material; supplemental files are never placed in learner output automatically."
+  };
+
+  return { archive, inventory, mapping };
 }
 
 async function parseBrightspaceItems(zip: JSZip): Promise<BrightspaceItemRecord[]> {
@@ -215,11 +327,18 @@ async function parseBrightspaceItems(zip: JSZip): Promise<BrightspaceItemRecord[
 
   const xml = await manifestEntry.async("string");
   const $ = cheerio.load(xml, { xmlMode: true });
-  const resourceHrefs = new Map<string, string>();
+  const resourceHrefs = new Map<string, string[]>();
   $("resource").each((_, element) => {
     const id = $(element).attr("identifier");
-    const href = $(element).attr("href") ?? $(element).children("file").first().attr("href");
-    if (id && href) resourceHrefs.set(id, normalizeZipPath(href));
+    if (!id) return;
+    const hrefs = new Set<string>();
+    const primaryHref = $(element).attr("href");
+    if (primaryHref) hrefs.add(normalizeZipPath(primaryHref));
+    $(element).children("file").each((_, fileElement) => {
+      const href = $(fileElement).attr("href");
+      if (href) hrefs.add(normalizeZipPath(href));
+    });
+    if (hrefs.size) resourceHrefs.set(id, [...hrefs]);
   });
 
   const records: BrightspaceItemRecord[] = [];
@@ -229,13 +348,18 @@ async function parseBrightspaceItems(zip: JSZip): Promise<BrightspaceItemRecord[
     if (!itemId) return;
     const nextTopLevelId = topLevelId || itemId;
     const identifierRef = node.attr("identifierref");
-    records.push({
+    const baseRecord = {
       itemId,
       title: directChildText($, element, "title"),
-      href: identifierRef ? resourceHrefs.get(identifierRef) : undefined,
       ancestorIds,
       topLevelId: nextTopLevelId
-    });
+    };
+    const hrefs = identifierRef ? resourceHrefs.get(identifierRef) ?? [] : [];
+    if (hrefs.length) {
+      for (const href of hrefs) records.push({ ...baseRecord, href });
+    } else {
+      records.push(baseRecord);
+    }
     node.children("item").each((_, child) => visit(child, [...ancestorIds, itemId], nextTopLevelId));
   };
 
@@ -271,12 +395,12 @@ function emptySummary(): EnglishCourseMappingReportV1["summary"] {
   };
 }
 
-function selectionIndexes() {
+function selectionIndexes(seeds: readonly EnglishUnitSeed[]) {
   const includes = new Map<string, string>();
   const includeSubtrees = new Map<string, string>();
   const excludes = new Map<string, { projectSlug: string; reason: string }>();
   const excludeSubtrees = new Map<string, { projectSlug: string; reason: string }>();
-  for (const seed of ELA20_UNIT_SEEDS) {
+  for (const seed of seeds) {
     for (const selector of seed.selectors) {
       if (selector.disposition === "include") {
         includes.set(selector.itemId, seed.manifest.projectSlug);
@@ -294,8 +418,10 @@ function selectionIndexes() {
 function classifyBrightspaceEntry(input: {
   entry: EnglishInventoryEntryV1;
   records: BrightspaceItemRecord[];
+  seeds: readonly EnglishUnitSeed[];
+  courseId: string;
 }): EnglishCourseMappingEntryV1 {
-  const { includes, includeSubtrees, excludes, excludeSubtrees } = selectionIndexes();
+  const { includes, includeSubtrees, excludes, excludeSubtrees } = selectionIndexes(input.seeds);
   const entryPath = input.entry.path;
   const records = input.records;
   const itemIds = records.map((record) => record.itemId);
@@ -314,11 +440,10 @@ function classifyBrightspaceEntry(input: {
     return { ...base, status: "excluded", classification: "answer-key", reason: "Answer keys and solutions are excluded from learner output." };
   }
   if (diplomaLike(entryPath)) {
-    return { ...base, status: "excluded", classification: "diploma-content", reason: "Diploma and Part A material is outside the ELA 20-1 unit factory." };
+    return { ...base, status: "excluded", classification: "diploma-content", reason: `Diploma and Part A material is outside the ${input.courseId} unit factory.` };
   }
 
-  const mathRecord = records.find((record) => Number.parseInt(record.topLevelId, 10) >= 60000);
-  if (mathRecord || mathPathLike(entryPath)) {
+  if (mathPathLike(entryPath)) {
     return { ...base, status: "excluded", classification: "unrelated-math", reason: "Unrelated Math course content." };
   }
 
@@ -364,30 +489,37 @@ function classifyBrightspaceEntry(input: {
     }
   }
 
-  if (/^short_stories\//i.test(entryPath)) {
+  if (input.courseId === ELA20_COURSE_ID && /^short_stories\//i.test(entryPath)) {
     return { ...base, status: "placed", classification: "existing-pilot-resource", projectSlug: "ela20-1-short-stories-pilot", reason: "Resource belongs to the existing Short Stories pilot branch." };
   }
-  if (/^film_study\//i.test(entryPath)) {
+  if (input.courseId === ELA20_COURSE_ID && /^film_study\//i.test(entryPath)) {
     return { ...base, status: "placed", classification: "selected-branch-resource", projectSlug: "ela20-1-feature-film", reason: "Resource belongs to the fully selected Film Study branch." };
   }
-  if (/^novel_study\//i.test(entryPath)) {
+  if (input.courseId === ELA20_COURSE_ID && /^novel_study\//i.test(entryPath)) {
     return { ...base, status: "review-required", classification: "novel-branch-resource", projectSlug: "ela20-1-novel-study-clean", reason: "Review before placement because only exact Novel lesson items are selected." };
   }
 
   return {
     ...base,
-    status: records.length ? "reference-only" : "review-required",
-    classification: records.length ? "unselected-brightspace-content" : "unmapped-brightspace-resource",
+    status: "reference-only",
+    classification: records.length ? "unselected-brightspace-content" : "unlinked-brightspace-source",
     reason: records.length
-      ? "Brightspace content is outside the exact ELA 20-1 lesson allowlist."
-      : "Resource is not directly mapped from a selected manifest item and requires review."
+      ? `Brightspace content is outside the exact ${input.courseId} lesson allowlist.`
+      : "File is not linked from the Brightspace content manifest; it remains available only in the immutable source archive."
   };
 }
 
-function classifyTeacherEntry(entry: EnglishInventoryEntryV1): EnglishCourseMappingEntryV1 {
-  const teacherResources = getEla20TeacherResourceMap();
+function classifyTeacherEntry(
+  entry: EnglishInventoryEntryV1,
+  teacherResources: ReadonlyMap<string, { projectSlug: string; resource: import("./types.js").EnglishResourceDispositionV2 }>,
+  courseId: string,
+  seeds: readonly EnglishUnitSeed[]
+): EnglishCourseMappingEntryV1 {
   const entryPath = entry.path;
   const base = { archiveId: "teacher-resources" as const, path: entryPath };
+  const owner = [...seeds]
+    .sort((left, right) => right.teacherFolder.length - left.teacherFolder.length)
+    .find((seed) => entryPath === seed.teacherFolder || entryPath.startsWith(`${seed.teacherFolder}/`));
   if (entry.isDirectory) {
     return { ...base, status: "metadata", classification: "directory", reason: "ZIP directory entry." };
   }
@@ -397,13 +529,19 @@ function classifyTeacherEntry(entry: EnglishInventoryEntryV1): EnglishCourseMapp
       ...base,
       status: "excluded",
       classification: "gate-assessment",
-      projectSlug: mapped?.projectSlug,
+      projectSlug: mapped?.projectSlug ?? owner?.manifest.projectSlug,
       resourceId: mapped?.resource.id,
       reason: "Soft/hard-gate content is globally excluded."
     };
   }
   if (answerKeyLike(entryPath)) {
-    return { ...base, status: "excluded", classification: "answer-key", reason: "Answer keys and solutions are excluded from learner output." };
+    return {
+      ...base,
+      status: "excluded",
+      classification: "answer-key",
+      projectSlug: owner?.manifest.projectSlug,
+      reason: "Answer keys and solutions are excluded from learner output."
+    };
   }
   const mapped = teacherResources.get(entryPath);
   if (mapped) {
@@ -412,7 +550,9 @@ function classifyTeacherEntry(entry: EnglishInventoryEntryV1): EnglishCourseMapp
         ? "placed"
         : mapped.resource.disposition === "exclude"
           ? "excluded"
-          : "review-required";
+          : mapped.resource.disposition === "source-only"
+            ? "reference-only"
+            : "review-required";
     return {
       ...base,
       status,
@@ -422,13 +562,22 @@ function classifyTeacherEntry(entry: EnglishInventoryEntryV1): EnglishCourseMapp
       reason: mapped.resource.reason
     };
   }
-  if (/^UNIT 1 Short Story\//i.test(entryPath)) {
+  if (courseId === ELA20_COURSE_ID && /^UNIT 1 Short Story\//i.test(entryPath)) {
     return {
       ...base,
       status: "placed",
       classification: "existing-pilot-resource",
       projectSlug: "ela20-1-short-stories-pilot",
       reason: "Teacher resource is owned by the existing Short Stories pilot recipe."
+    };
+  }
+  if (owner) {
+    return {
+      ...base,
+      status: "review-required",
+      classification: "teacher-unit-resource",
+      projectSlug: owner.manifest.projectSlug,
+      reason: "Teacher archive ownership is known, but this source is not automatically learner-facing until its unit recipe explicitly places it."
     };
   }
   return {
@@ -444,6 +593,9 @@ async function buildMappingReport(input: {
   generatedAt: string;
   brightspace: LoadedArchive;
   teacherResources: LoadedArchive;
+  supplements: readonly LoadedSupplement[];
+  seeds: readonly EnglishUnitSeed[];
+  teacherResourceMap: ReadonlyMap<string, { projectSlug: string; resource: import("./types.js").EnglishResourceDispositionV2 }>;
 }): Promise<EnglishCourseMappingReportV1> {
   const itemRecords = await parseBrightspaceItems(input.brightspace.zip);
   const recordsByHref = new Map<string, BrightspaceItemRecord[]>();
@@ -456,13 +608,15 @@ async function buildMappingReport(input: {
 
   const entries: EnglishCourseMappingEntryV1[] = [
     ...input.brightspace.inventory.entries.map((entry) =>
-      classifyBrightspaceEntry({ entry, records: recordsByHref.get(entry.path) ?? [] })
+      classifyBrightspaceEntry({ entry, records: recordsByHref.get(entry.path) ?? [], seeds: input.seeds, courseId: input.courseId })
     ),
-    ...input.teacherResources.inventory.entries.map(classifyTeacherEntry)
+    ...input.teacherResources.inventory.entries.map((entry) => classifyTeacherEntry(entry, input.teacherResourceMap, input.courseId, input.seeds)),
+    ...input.supplements.map((supplement) => supplement.mapping)
   ];
 
   const actualTeacherPaths = new Set(input.teacherResources.inventory.entries.map((entry) => entry.path));
-  for (const [resourcePath, mapped] of getEla20TeacherResourceMap()) {
+  for (const [resourcePath, mapped] of input.teacherResourceMap) {
+    if (/^[a-z][a-z0-9+.-]*:\/\//i.test(resourcePath)) continue;
     if (actualTeacherPaths.has(resourcePath)) continue;
     entries.push({
       archiveId: "teacher-resources",
@@ -510,7 +664,7 @@ function renderMappingMarkdown(report: EnglishCourseMappingReportV1) {
 
 async function createRecipeIfMissing(input: {
   repoRoot: string;
-  recipe: ReturnType<typeof createEla20RecipeSeeds>[number];
+  recipe: EnglishUnitRecipe;
 }): Promise<EnglishRecipeIntakeAction> {
   const recipePath = path.join(input.repoRoot, "projects", input.recipe.projectSlug, "meta", "english-unit.json");
   const relativePath = repoRelative(input.repoRoot, recipePath);
@@ -552,7 +706,7 @@ async function createRecipeIfMissing(input: {
     projectSlug: input.recipe.projectSlug,
     path: relativePath,
     status: "created",
-    note: "Created the missing V2 recipe."
+    note: "Created the missing English unit recipe."
   };
 }
 
@@ -566,10 +720,13 @@ export async function intakeEnglishCourse(input: {
   courseId: string;
   brightspaceZip: string;
   teacherResourcesZip: string;
+  supplementalFiles?: string[];
   now?: Date;
 }): Promise<EnglishCourseIntakeResult> {
-  if (input.courseId !== ELA20_COURSE_ID) {
-    throw new Error(`Unsupported English course "${input.courseId}". Available course: ${ELA20_COURSE_ID}.`);
+  if (![ELA20_COURSE_ID, ELA10_COURSE_ID].includes(input.courseId) && !isEla2CourseId(input.courseId)) {
+    throw new Error(
+      `Unsupported English course "${input.courseId}". Available courses: ${ELA20_COURSE_ID}, ${ELA10_COURSE_ID}, ela10-2, ela20-2, ela30-2.`
+    );
   }
 
   const repoRoot = path.resolve(input.repoRoot);
@@ -590,6 +747,14 @@ export async function intakeEnglishCourse(input: {
       importedAt: generatedAt
     })
   ]);
+  const loadedSupplements = await Promise.all(
+    [...new Set(input.supplementalFiles ?? [])].map((sourcePath) =>
+      importSupplementFile({ repoRoot, sourcePath, courseId: input.courseId, importedAt: generatedAt })
+    )
+  );
+  const supplementsByDigest = new Map<string, LoadedSupplement>();
+  for (const supplement of loadedSupplements) supplementsByDigest.set(supplement.archive.sha256, supplement);
+  const supplements = [...supplementsByDigest.values()];
 
   const configDir = path.join(repoRoot, "config", "english", "families");
   const manifestPath = path.join(configDir, `${input.courseId}.json`);
@@ -600,39 +765,75 @@ export async function intakeEnglishCourse(input: {
   const existingReviewStatuses = new Map(
     existingManifest?.units.map((unit) => [unit.projectSlug, unit.reviewStatus] as const) ?? []
   );
-  const archives = [brightspace.archive, teacherResources.archive];
-  const manifest = createEla20CourseManifest({ archives, generatedAt, existingReviewStatuses });
+  const preservedAuditReferences = existingManifest?.archives.filter((archive) => archive.kind === "audit-reference") ?? [];
+  const preservedSupplements = (existingManifest?.archives.filter((archive) => archive.kind === "supplement") ?? [])
+    .filter((archive) => !supplementsByDigest.has(archive.sha256));
+  const archives = [
+    brightspace.archive,
+    teacherResources.archive,
+    ...supplements.map((supplement) => supplement.archive),
+    ...preservedSupplements,
+    ...preservedAuditReferences
+  ];
+  const isEla10 = input.courseId === ELA10_COURSE_ID;
+  const isEla20 = input.courseId === ELA20_COURSE_ID;
+  const ela2CourseId = isEla2CourseId(input.courseId) ? input.courseId : undefined;
+  const seeds = ela2CourseId
+    ? getEla2UnitSeeds(ela2CourseId)
+    : isEla10
+      ? ELA10_UNIT_SEEDS
+      : ELA20_UNIT_SEEDS;
+  const teacherResourceMap = ela2CourseId
+    ? getEla2TeacherResourceMap(ela2CourseId)
+    : isEla10
+      ? getEla10TeacherResourceMap()
+      : getEla20TeacherResourceMap();
+  const manifest = ela2CourseId
+    ? createEla2CourseManifest({ courseId: ela2CourseId, archives, generatedAt, existingReviewStatuses })
+    : isEla10
+      ? createEla10CourseManifest({ archives, generatedAt, existingReviewStatuses })
+      : createEla20CourseManifest({ archives, generatedAt, existingReviewStatuses });
   parseEnglishCourseManifest(manifest);
 
   const inventory: EnglishCourseInventoryV1 = {
     schemaVersion: 1,
     courseId: input.courseId,
     generatedAt,
-    archives: [brightspace.inventory, teacherResources.inventory]
+    archives: [brightspace.inventory, teacherResources.inventory, ...supplements.map((supplement) => supplement.inventory)]
   };
   const mapping = await buildMappingReport({
     courseId: input.courseId,
     generatedAt,
     brightspace,
-    teacherResources
+    teacherResources,
+    supplements,
+    seeds,
+    teacherResourceMap
   });
 
-  const recipeSeeds = createEla20RecipeSeeds({
-    brightspaceArchivePath: brightspace.archive.path,
-    teacherArchivePath: teacherResources.archive.path
-  });
+  const recipeSeeds = ela2CourseId
+    ? createEla2RecipeSeeds({
+        courseId: ela2CourseId,
+        brightspaceArchivePath: brightspace.recipeArchivePath,
+        teacherArchivePath: teacherResources.recipeArchivePath
+      })
+    : isEla10
+      ? createEla10RecipeSeeds({ brightspaceArchivePath: brightspace.recipeArchivePath, teacherArchivePath: teacherResources.recipeArchivePath })
+      : createEla20RecipeSeeds({ brightspaceArchivePath: brightspace.recipeArchivePath, teacherArchivePath: teacherResources.recipeArchivePath });
   const recipeActions: EnglishRecipeIntakeAction[] = [];
   for (const recipe of recipeSeeds) recipeActions.push(await createRecipeIfMissing({ repoRoot, recipe }));
 
-  const shortStoriesPath = path.join(repoRoot, shortStoriesRecipePath());
-  recipeActions.unshift({
-    projectSlug: "ela20-1-short-stories-pilot",
-    path: shortStoriesRecipePath(),
-    status: (await exists(shortStoriesPath)) ? "preserved-existing" : "missing-existing",
-    note: (await exists(shortStoriesPath))
-      ? "Existing Short Stories recipe remains the golden profile and was not modified."
-      : "Short Stories is intentionally not scaffolded by intake; restore or build the existing pilot recipe."
-  });
+  if (isEla20) {
+    const shortStoriesPath = path.join(repoRoot, shortStoriesRecipePath());
+    recipeActions.unshift({
+      projectSlug: "ela20-1-short-stories-pilot",
+      path: shortStoriesRecipePath(),
+      status: (await exists(shortStoriesPath)) ? "preserved-existing" : "missing-existing",
+      note: (await exists(shortStoriesPath))
+        ? "Existing Short Stories recipe remains the golden profile and was not modified."
+        : "Short Stories is intentionally not scaffolded by intake; restore or build the existing pilot recipe."
+    });
+  }
 
   await Promise.all([
     writeJsonAtomic(manifestPath, manifest),

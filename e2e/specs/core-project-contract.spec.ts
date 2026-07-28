@@ -5,6 +5,7 @@ import {
   type ProjectE2EContract
 } from "../lib/load-project-contract";
 import { assertRequiredTestIds } from "../lib/contract-preflight";
+import { assertLearnerCourseContract } from "../lib/learner-course-assertions";
 import { openProjectInStudio } from "../lib/project-open";
 
 const ROOT_DIR = process.cwd();
@@ -147,6 +148,8 @@ async function runContractChecks(contract: ProjectE2EContract, page: Parameters<
       await expect(workspaceFrame.getByTestId("module-content-view")).toBeVisible();
     }
   }
+
+  await assertLearnerCourseContract(contract, page, workspaceFrame);
 }
 
 test("@smoke core project contract: e2e-fixture", async ({ page }) => {
@@ -155,6 +158,7 @@ test("@smoke core project contract: e2e-fixture", async ({ page }) => {
 });
 
 test("@project core project contract: selected slug", async ({ page }) => {
+  test.setTimeout(180_000);
   if (!PROJECT_ENV_SLUG) {
     if (REQUIRE_PROJECT_SLUG) {
       throw new Error("Missing E2E_PROJECT_SLUG for project-contract run.");

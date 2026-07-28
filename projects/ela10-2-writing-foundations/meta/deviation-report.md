@@ -21,4 +21,3 @@
 - Location: /Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-writing-foundations/workspace/index.html
 - Why: Detected 113 paragraph blocks but max allowed is 5.
 - Evidence: <p> count = 113
-

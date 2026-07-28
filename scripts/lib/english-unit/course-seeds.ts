@@ -10,6 +10,7 @@ import type {
   EnglishResourceDispositionV2,
   EnglishUnitRecipeV2
 } from "./types.js";
+import { ensureStandardEnglishWritingProfile } from "./writing-sequence-renderer.js";
 
 export const ELA20_COURSE_ID = "ela20-1";
 export const ELA20_PROFILE_ID = "next-step-english";
@@ -239,17 +240,13 @@ function modernDramaProfile(): EnglishActivityProfileV1 {
     activities: [
       activity("play-materials", "Play Materials", "play-materials"),
       activity("act-questions", "Act Questions", "act-questions", ["act-question-collection"]),
-      activity("character-conflict", "Character and Conflict Notes", "character-notes", [
-        "character-dossier-collection",
-        "character-quotation-entry"
-      ], "act-tracker"),
+      activity("character-conflict", "Character and Conflict Notes", "character-notes", ["character-dossier-collection"], "act-tracker"),
       activity("critical-essay", "Critical Essay", "critical-essay", ["critical-essay-plan", "critical-essay-stage"]),
       activity("evidence-bank", "Evidence Bank", "evidence-bank")
     ],
     evidencePolicies: [
       collectionPolicy("act-question-collection", "act-questions", "locator"),
       collectionPolicy("character-dossier-collection", "character-conflict", "work"),
-      individualPolicy("character-quotation-entry", "character-conflict"),
       collectionPolicy("critical-essay-plan", "critical-essay"),
       individualPolicy("critical-essay-stage", "critical-essay")
     ]
@@ -303,7 +300,7 @@ function novelProfile(): EnglishActivityProfileV1 {
     genericQuestionCount: 24,
     writingTools: ["analytical-paragraph", "motif-string", "authors-intent", "critical-essay"],
     activities: [
-      activity("critical-essay", "Critical Essay", "critical-essay", ["critical-essay-plan"]),
+      activity("critical-essay", "Critical Essay", "critical-essay", ["critical-essay-plan", "critical-essay-stage"]),
       activity("reading-guide", "Reading Guide", "reading-guide", ["passage-entry"], "reading-notebook"),
       activity("major-works-data", "Major Works Data Sheet", "major-works-data", ["major-works-collection"]),
       activity("novel-questions", "Novel Study Questions", "novel-study-questions", ["novel-question-collection"]),
@@ -311,7 +308,22 @@ function novelProfile(): EnglishActivityProfileV1 {
       activity("evidence-bank", "Evidence Bank", "evidence-bank")
     ],
     evidencePolicies: [
-      collectionPolicy("critical-essay-plan", "critical-essay", "work"),
+      {
+        id: "critical-essay-plan",
+        activityId: "critical-essay",
+        saveMode: "collection",
+        requiresExplicitSave: true,
+        collectionScope: "work",
+        contributionIdTemplate: "{projectSlug}:critical-essay:{workId}:full-plan"
+      },
+      {
+        id: "critical-essay-stage",
+        activityId: "critical-essay",
+        saveMode: "collection",
+        requiresExplicitSave: true,
+        collectionScope: "locator",
+        contributionIdTemplate: "{projectSlug}:critical-essay:{workId}:{locatorId}:collection"
+      },
       individualPolicy("passage-entry", "reading-guide"),
       collectionPolicy("major-works-collection", "major-works-data", "work"),
       collectionPolicy("novel-question-collection", "novel-questions", "locator"),
@@ -336,8 +348,8 @@ function filmProfile(): EnglishActivityProfileV1 {
       activity("viewing-guide", "Viewing Guide", "viewing-guide", ["viewing-moment-entry", "viewing-synthesis"]),
       activity("film-questions", "Film Study Questions", "film-study-questions", ["film-question-collection"]),
       activity("film-room", "Film Room", "film-room"),
-      activity("resources", "Resources", "resources"),
-      activity("evidence-bank", "Evidence Bank", "evidence-bank")
+      activity("evidence-bank", "Evidence Bank", "evidence-bank"),
+      activity("resources", "Resources", "resources")
     ],
     evidencePolicies: [
       collectionPolicy("critical-essay-plan", "critical-essay"),
@@ -437,7 +449,7 @@ const novelResources: EnglishResourceDispositionV2[] = [
 
 const filmResources: EnglishResourceDispositionV2[] = [
   resource("film-hard-gate", "UNIT 5 Film Study/FILM UNIT 20-1 HARD GATE Personal Response to Text Essay Prompt.docx", "excluded-assessment", "exclude", "Hard-gate assessment is intentionally excluded."),
-  resource("film-selection", "(not supplied)/film-selection", "supporting-resource", "review-required", "No film was supplied; keep the unit title-neutral until a selection is approved.", "viewing-guide")
+  resource("film-selection", "profile://student-selected-film", "supporting-resource", "place", "Learners record the approved film they select in the title-neutral viewing guide.", "viewing-guide")
 ];
 
 const commonCorrections = [
@@ -471,6 +483,7 @@ function buildRecipe(input: {
   customComponents: EnglishComponentOverride[];
   reviewItems: string[];
 }): EnglishUnitRecipeV2 {
+  input = { ...input, activityProfile: ensureStandardEnglishWritingProfile(input.activityProfile) };
   const includedLessons = input.seed.selectors
     .filter((selector) => selector.disposition === "include")
     .map((selector) => selector.itemId);
@@ -577,7 +590,7 @@ export function createEla20RecipeSeeds(input: {
       activityProfile: filmProfile(),
       resources: filmResources,
       customComponents: [component("film-selection-extension", "film-scene-log", "film-selection-extension")],
-      reviewItems: ["Select and approve the film before final export.", "Validate every inherited lesson video and fallback link."]
+      reviewItems: ["Validate every inherited lesson video and fallback link."]
     })
   ];
 }

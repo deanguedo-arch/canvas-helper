@@ -9,6 +9,12 @@ import {
   buildEla20MacbethActivityProfile,
   buildEla20NovelStudyActivityProfile
 } from "./ela20-activity-profiles.js";
+import type {
+  EnglishFilmStudyActivityProfile,
+  EnglishModernDramaActivityProfile,
+  EnglishNovelStudyActivityProfile,
+  EnglishShakespeareDramaActivityProfile
+} from "./types.js";
 
 function macbethScenes(): EnglishShakespeareScene[] {
   const counts = [7, 4, 6, 3, 8];
@@ -52,7 +58,7 @@ test("Crucible profile creates truthful placeholders and accepts later extracted
   assert.equal(placeholder.actQuestionSets.length, 4);
   assert.equal(placeholder.actQuestionSets.every((set) => set.questions.length === 0), true);
   assert.equal(placeholder.actQuestionSets.every((set) => set.intro?.includes("has not been extracted yet")), true);
-  assert.equal(placeholder.essay.stages.length, 6);
+  assert.equal(placeholder.essay?.stages.length, 6);
   assert.equal(placeholder.playTitle, "The Crucible");
 
   const extracted = buildEla20CrucibleActivityProfile({
@@ -65,6 +71,12 @@ test("Crucible profile creates truthful placeholders and accepts later extracted
   assert.equal(extracted.actQuestionSets.slice(1).every((set) => set.questions.length === 0), true);
   const rendered = renderEnglishActivityProfile(extracted);
   assert.match(rendered.pages.find((page) => page.id === "act-questions")?.html ?? "", /ela20-crucible:act-questions:act-1:q1/);
+
+  const withFullText = buildEla20CrucibleActivityProfile({
+    projectSlug: "ela20-crucible",
+    materials: [{ id: "crucible-full-text-pdf", title: "The Crucible Full Text", kind: "document", href: "assets/full-text.pdf" }]
+  });
+  assert.equal(withFullText.materials.some((material) => material.id === "crucible-play-access"), false);
 });
 
 test("Macbeth profile requires all preserved scenes and five populated act sets", () => {
@@ -132,6 +144,12 @@ test("Novel profile supplies two tracks, six essay stages, and exactly 24 disclo
   ]);
   assert.equal(profile.readingGuideFields.some((field) => field.id === "analytical-use" && field.evidenceRole === "connection"), true);
   assert.equal(profile.majorWorksFields.some((field) => field.id === "themes"), true);
+  const rendered = renderEnglishActivityProfile(profile);
+  const readingGuide = rendered.pages.find((page) => page.id === "reading-guide")?.html ?? "";
+  const writingStudio = rendered.pages.find((page) => page.id === "writing-studio")?.html ?? "";
+  assert.match(readingGuide, /data-repeatable-contribution-prefix="ela20-novel:reading-guide:lord-of-the-flies:passage"/);
+  assert.equal([...writingStudio.matchAll(/data-repeatable-root=/g)].length, 6);
+  assert.match(writingStudio, /data-repeatable-contribution-prefix="ela20-novel:writing-studio:lord-of-the-flies:motif-string-board:entry"/);
 });
 
 test("Film profile is pending by default and has six stages, 19 fields, 22 technique prompts, and 18 full-response prompts", () => {
@@ -140,10 +158,124 @@ test("Film profile is pending by default and has six stages, 19 fields, 22 techn
   assert.equal(profile.essay.stages.length, 6);
   assert.equal(profile.essay.stages.reduce((total, stage) => total + stage.fields.length, 0), 19);
   assert.deepEqual(profile.questionSets.map((set) => set.questions.length), [22, 18]);
+  assert.deepEqual(
+    profile.questionSets.map((set) => [...new Set(set.questions.map((question) => question.section))]),
+    [
+      ["Types of Cinematography Shots", "Shot Composition", "Camera Movement", "Lighting", "Sound Effects", "Mise-en-scene"],
+      ["Film Selection", "Character And Motivation", "Relationships And Conflict", "Theme And Resolution"]
+    ]
+  );
+  assert.equal(profile.questionSets[0]?.questions[21]?.label.includes("Wall-E"), false);
   assert.equal(profile.viewingGuideFields.some((field) => field.id === "timestamp" && field.evidenceRole === "detail"), true);
   assert.equal(profile.viewingGuideFields.some((field) => field.id === "technique" && field.evidenceRole === "concept"), true);
   const rendered = renderEnglishActivityProfile(profile);
-  assert.match(rendered.pages.find((page) => page.id === "viewing-guide")?.html ?? "", /Save Viewing Moment to Evidence Bank/);
+  const viewingGuide = rendered.pages.find((page) => page.id === "viewing-guide")?.html ?? "";
+  assert.match(rendered.runtime ?? "", /data-film-viewing-evidence-save/);
+  assert.match(viewingGuide, /data-film-viewing-store/);
+  assert.match(viewingGuide, /data-film-viewing-editing-id/);
+});
+
+test("recipe profile decisions select generated data and enabled routes instead of being replaced by defaults", () => {
+  const crucibleConfiguration = {
+    schemaVersion: 1,
+    kind: "modern-drama",
+    actIds: ["act-2"],
+    characterIds: ["danforth"],
+    criticalEssay: false,
+    activities: [
+      { id: "play-materials", title: "Play Materials", route: "play-materials", enabled: true, evidencePolicyIds: [] },
+      { id: "act-questions", title: "Act Questions", route: "act-questions", enabled: false, evidencePolicyIds: [] },
+      { id: "character-conflict", title: "Character Notes", route: "character-notes", enabled: false, evidencePolicyIds: [] },
+      { id: "critical-essay", title: "Critical Essay", route: "critical-essay", enabled: false, evidencePolicyIds: [] }
+    ],
+    evidencePolicies: []
+  } satisfies EnglishModernDramaActivityProfile;
+  const crucible = buildEla20CrucibleActivityProfile({ projectSlug: "configured-crucible", configuration: crucibleConfiguration });
+  assert.deepEqual(crucible.actQuestionSets.map((set) => set.id), ["act-2"]);
+  assert.deepEqual(crucible.characters.map((character) => character.id), ["danforth"]);
+  assert.equal(crucible.essay, undefined);
+  assert.deepEqual(renderEnglishActivityProfile(crucible).pages.map((page) => page.id), ["play-materials"]);
+
+  const macbethConfiguration = {
+    schemaVersion: 1,
+    kind: "shakespeare-drama",
+    actIds: ["act-1", "act-2", "act-3", "act-4", "act-5"],
+    sceneCount: 28,
+    sideBySideReader: true,
+    characterIds: ["banquo"],
+    writingTools: ["theme-builder"],
+    editorialStatus: "needs-editorial",
+    activities: [
+      { id: "side-by-side-reader", title: "Reader", route: "side-by-side", enabled: false, evidencePolicyIds: [] },
+      { id: "macbeth-materials", title: "Materials", route: "play-materials", enabled: false, evidencePolicyIds: [] },
+      { id: "act-questions", title: "Questions", route: "act-questions", enabled: false, evidencePolicyIds: [] },
+      { id: "character-notes", title: "Characters", route: "character-notes", enabled: false, evidencePolicyIds: [] },
+      { id: "writing-studio", title: "Writing", route: "writing-studio", enabled: true, evidencePolicyIds: [] }
+    ],
+    evidencePolicies: []
+  } satisfies EnglishShakespeareDramaActivityProfile;
+  const macbeth = buildEla20MacbethActivityProfile({
+    projectSlug: "configured-macbeth",
+    scenes: macbethScenes(),
+    actQuestionSets: macbethActQuestions(),
+    configuration: macbethConfiguration
+  });
+  assert.deepEqual(macbeth.characters.map((character) => character.id), ["banquo"]);
+  assert.deepEqual(macbeth.writingTools.map((tool) => tool.id), ["theme-builder"]);
+  assert.deepEqual(renderEnglishActivityProfile(macbeth).pages.map((page) => page.id), ["writing-studio"]);
+
+  const novelConfiguration = {
+    schemaVersion: 1,
+    kind: "novel-study",
+    novels: [{ id: "configured-novel", title: "Configured Novel", author: "Course Author" }],
+    questionPhases: ["opening"],
+    genericQuestionCount: 9,
+    writingTools: ["motif-string"],
+    activities: [
+      { id: "critical-essay", title: "Essay", route: "critical-essay", enabled: false, evidencePolicyIds: [] },
+      { id: "reading-guide", title: "Reading Guide", route: "reading-guide", enabled: true, evidencePolicyIds: ["passage-entry"] },
+      { id: "major-works-data", title: "Major Works", route: "major-works-data", enabled: false, evidencePolicyIds: [] },
+      { id: "novel-questions", title: "Questions", route: "novel-study-questions", enabled: false, evidencePolicyIds: [] },
+      { id: "writing-studio", title: "Writing", route: "writing-studio", enabled: true, evidencePolicyIds: ["motif-entry"] }
+    ],
+    evidencePolicies: [
+      { id: "passage-entry", activityId: "reading-guide", saveMode: "individual", requiresExplicitSave: true, contributionIdTemplate: "{projectSlug}:reading-guide:{entryId}" },
+      { id: "motif-entry", activityId: "writing-studio", saveMode: "individual", requiresExplicitSave: true, contributionIdTemplate: "{projectSlug}:writing-studio:{entryId}" }
+    ]
+  } satisfies EnglishNovelStudyActivityProfile;
+  const novel = buildEla20NovelStudyActivityProfile({ projectSlug: "configured-novel-project", configuration: novelConfiguration });
+  assert.deepEqual(novel.tracks.map((track) => track.title), ["Configured Novel"]);
+  assert.deepEqual(novel.questionSets.map((set) => set.id), ["opening"]);
+  assert.deepEqual(novel.writingTools.map((tool) => tool.id), ["motif-string-board"]);
+  const renderedNovel = renderEnglishActivityProfile(novel);
+  assert.deepEqual(renderedNovel.pages.map((page) => page.id), ["reading-guide", "writing-studio"]);
+  assert.match(renderedNovel.pages[0]?.html ?? "", /data-repeatable-contribution-prefix="configured-novel-project:reading-guide/);
+
+  const filmConfiguration = {
+    schemaVersion: 1,
+    kind: "film-study",
+    filmSelection: { mode: "selected", title: "Configured Film" },
+    techniqueQuestionCount: 2,
+    fullResponseQuestionCount: 3,
+    criticalEssayFieldCount: 19,
+    viewingGuide: true,
+    activities: [
+      { id: "critical-essay", title: "Essay", route: "critical-essay", enabled: false, evidencePolicyIds: [] },
+      { id: "viewing-guide", title: "Viewing Guide", route: "viewing-guide", enabled: true, evidencePolicyIds: ["viewing-moment-entry"] },
+      { id: "film-questions", title: "Questions", route: "film-study-questions", enabled: true, evidencePolicyIds: [] },
+      { id: "film-room", title: "Film Room", route: "film-room", enabled: false, evidencePolicyIds: [] },
+      { id: "resources", title: "Resources", route: "resources", enabled: false, evidencePolicyIds: [] }
+    ],
+    evidencePolicies: [
+      { id: "viewing-moment-entry", activityId: "viewing-guide", saveMode: "individual", requiresExplicitSave: true, contributionIdTemplate: "{projectSlug}:viewing-guide:{entryId}" }
+    ]
+  } satisfies EnglishFilmStudyActivityProfile;
+  const film = buildEla20FilmStudyActivityProfile({ projectSlug: "configured-film-project", configuration: filmConfiguration });
+  assert.deepEqual(film.filmSelection, { mode: "selected", title: "Configured Film" });
+  assert.deepEqual(film.questionSets.map((set) => set.questions.length), [2, 3]);
+  assert.deepEqual(film.essay.stages[0]?.fields.map((field) => field.label), ["Two parts of the essay topic", "Film and character route", "Working thesis"]);
+  assert.deepEqual(film.essay.stages[5]?.fields.map((field) => field.label), ["Restated interpretation", "Beginning-middle-end synthesis", "Human condition connection", "Complete conclusion draft"]);
+  assert.deepEqual(renderEnglishActivityProfile(film).pages.map((page) => page.id), ["viewing-guide", "film-study-questions"]);
 });
 
 test("factory dispatches by profile kind and rejects excluded wording from supplied data", () => {

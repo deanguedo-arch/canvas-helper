@@ -150,6 +150,17 @@ async function copyDirectory(sourceDir: string, destinationDir: string): Promise
   }
 }
 
+async function movePathSafely(sourcePath: string, destinationPath: string): Promise<void> {
+  const stats = await lstat(sourcePath);
+  if (stats.isDirectory()) {
+    await copyDirectory(sourcePath, destinationPath);
+    await rm(sourcePath, { recursive: true, force: true });
+    return;
+  }
+  await mkdir(path.dirname(destinationPath), { recursive: true });
+  await rename(sourcePath, destinationPath);
+}
+
 async function sha256File(filePath: string): Promise<string> {
   return createHash("sha256").update(await readFile(filePath)).digest("hex");
 }
@@ -232,7 +243,7 @@ async function rollbackPromotion(
     await rm(destinationPath, { recursive: true, force: true });
     if (promoted.hadPrevious && (await pathExists(backupPath))) {
       await mkdir(path.dirname(destinationPath), { recursive: true });
-      await rename(backupPath, destinationPath);
+      await movePathSafely(backupPath, destinationPath);
     }
   }
 }
@@ -253,15 +264,15 @@ async function promoteOwnedPaths(
 
       if (hadPrevious) {
         await mkdir(path.dirname(backupPath), { recursive: true });
-        await rename(destinationPath, backupPath);
+        await movePathSafely(destinationPath, backupPath);
       }
 
       try {
         await mkdir(path.dirname(destinationPath), { recursive: true });
-        await rename(stagedPath, destinationPath);
+        await movePathSafely(stagedPath, destinationPath);
       } catch (error) {
         if (hadPrevious && (await pathExists(backupPath))) {
-          await rename(backupPath, destinationPath);
+          await movePathSafely(backupPath, destinationPath);
         }
         throw error;
       }

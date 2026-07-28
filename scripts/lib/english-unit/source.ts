@@ -64,6 +64,14 @@ export function normalizeZipPath(value: string) {
   return value.replace(/\\/g, "/").replace(/^\.\//, "");
 }
 
+function decodeLocalAssetPath(value: string) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return value;
+  }
+}
+
 export function safeId(value: string, fallback = "item") {
   const normalized = value
     .normalize("NFKD")
@@ -121,6 +129,133 @@ function replaceLiteral(value: string, find: string, replacement: string) {
   return value.split(find).join(replacement);
 }
 
+function escapeHtml(value: string) {
+  return value
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/\"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
+function humanizeAssetName(value: string) {
+  return path.posix.basename(value, path.posix.extname(value))
+    .replace(/[-_]+/g, " ")
+    .replace(/\b(?:img|image|images|download|pastedimage)\b/gi, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function usefulImageAlt(value: string | undefined) {
+  const normalized = String(value ?? "").replace(/[_-]+/g, " ").replace(/\s+/g, " ").trim();
+  if (!normalized) return "";
+  if (/^(?:image|image result|general|et|photo|picture|graphic|untitled)$/i.test(normalized)) return "";
+  return normalized;
+}
+
+function removeMissingImageContainer($: cheerio.CheerioAPI, image: cheerio.Cheerio<Element>) {
+  const figure = image.closest("figure");
+  if (figure.length) {
+    figure.remove();
+    return;
+  }
+  const parent = image.parent();
+  const meaningfulText = parent.text().replace(/\s+/g, " ").trim();
+  if (parent.is("p") && parent.children("img").length === 1 && !meaningfulText) parent.remove();
+  else image.remove();
+}
+
+async function readLessonImageWithFallback(zip: JSZip, sourceAsset: string) {
+  try {
+    return { buffer: await readZipBuffer(zip, sourceAsset), resolvedSource: sourceAsset };
+  } catch {
+    const basename = path.posix.basename(sourceAsset).toLowerCase();
+    const matches = Object.keys(zip.files).filter((entry) => {
+      const candidate = zip.files[entry];
+      return !candidate?.dir && path.posix.basename(normalizeZipPath(entry)).toLowerCase() === basename;
+    });
+    if (matches.length !== 1) throw new Error(`Unable to resolve lesson image ${sourceAsset}.`);
+    return { buffer: await readZipBuffer(zip, matches[0]), resolvedSource: normalizeZipPath(matches[0]) };
+  }
+}
+
+function normalizeKnownLessonContent(input: {
+  $: cheerio.CheerioAPI;
+  body: cheerio.Cheerio<Element>;
+  title: string;
+  recipe: EnglishUnitRecipe;
+}) {
+  const { $, body, title, recipe } = input;
+
+  if (recipe.schemaVersion === 2 && recipe.projectSlug === "ela10-1-shakespeare-merchant-of-venice") {
+    body.find("h1, h2, h3, h4").filter((_, element) => /Romeo\s+and\s+Juliet/i.test($(element).text())).each((_, element) => {
+      const heading = $(element);
+      const level = Number(element.tagName.slice(1));
+      let sibling = heading.next();
+      while (sibling.length) {
+        const tagName = sibling.get(0)?.tagName?.toLowerCase() ?? "";
+        const siblingLevel = /^h[1-4]$/.test(tagName) ? Number(tagName.slice(1)) : Number.POSITIVE_INFINITY;
+        if (siblingLevel <= level) break;
+        const next = sibling.next();
+        sibling.remove();
+        sibling = next;
+      }
+      heading.remove();
+    });
+    body.find("p").filter((_, element) => /majority of Romeo\s+and\s+Juliet/i.test($(element).text())).each((_, element) => {
+      $(element).text("Shakespeare frequently wrote dramatic scenes in blank verse, while prose and rhymed verse serve other purposes.");
+    });
+  }
+
+  if (/Student Samples/i.test(title) && recipe.schemaVersion === 2) {
+    body.html(`<h2>Using Response Models</h2>
+      <p>Use the response model to study how an effective critical response is built.</p>
+      <p>Identify the response's controlling idea, strongest evidence, analytical explanation, organization, and next revision move.</p>
+      <ul>
+        <li>Underline the controlling idea.</li>
+        <li>Mark where evidence is introduced and explained.</li>
+        <li>Notice how each paragraph advances the interpretation.</li>
+        <li>Record one craft move you can apply in your own response.</li>
+      </ul>`);
+    return;
+  }
+
+  if (/Macbeth Online/i.test(title) && recipe.schemaVersion === 2) {
+    body.find("h2, p, li").each((_, element) => {
+      const text = $(element).text().replace(/\s+/g, " ").trim();
+      if (/links above|peruse the sites|through this site/i.test(text)) $(element).remove();
+    });
+    body.prepend(`<section class="source-access-note">
+      <h2>Reading Macbeth Online</h2>
+      <p>Use <strong>Macbeth Materials</strong> for the MIT Shakespeare original text and the myShakespeare multimedia companion. The side-by-side reader remains available inside this unit.</p>
+    </section>`);
+  }
+
+  if (/Film Study (?:Lesson 1|Overview)/i.test(title) && recipe.schemaVersion === 2) {
+    body.find("p").each((_, element) => {
+      const text = $(element).text().replace(/\s+/g, " ").trim();
+      if (/expected to rent\s+ONE\s+of two films|skip ahead to the Film Study Project page/i.test(text)) $(element).remove();
+    });
+    body.prepend(`<section class="source-access-note">
+      <h2>Film Access</h2>
+      <p>Use the feature film assigned for this course and its approved access method. Until a title is confirmed, use these lessons to learn techniques that apply to any film.</p>
+    </section>`);
+  }
+
+  if (recipe.schemaVersion === 1 && /Theme/i.test(title)) {
+    body.find("p, li").each((_, element) => {
+      const text = $(element).text().replace(/\s+/g, " ").trim();
+      if (/^Enlightened\s+and\s+Empty Your Cup$/i.test(text)) $(element).remove();
+    });
+  }
+
+  body.find("p").each((_, element) => {
+    const node = $(element);
+    const text = node.text().replace(/\s+/g, " ").trim();
+    if (/Cabinet of Dr\.? Caligari/i.test(text) && !node.find("img").length) node.remove();
+  });
+}
+
 function stripDiplomaFraming($: cheerio.CheerioAPI, body: cheerio.Cheerio<Element>) {
   body.find("h2, p, li").each((_, element) => {
     const node = $(element);
@@ -133,6 +268,106 @@ function stripDiplomaFraming($: cheerio.CheerioAPI, body: cheerio.Cheerio<Elemen
     const node = $(element);
     if (node.children().length === 0) node.remove();
   });
+}
+
+export function scrubEnglishLmsDeliveryScaffolding(input: {
+  html: string;
+  title: string;
+  courseCode?: string;
+}) {
+  if (input.courseCode !== "ELA 10-1" && input.courseCode !== "ELA 10-2") {
+    return { html: input.html, changes: [] as string[] };
+  }
+  const $ = cheerio.load(`<body>${input.html}</body>`);
+  const body = $("body");
+  const changes = new Set<string>();
+  const isDashTwo = input.courseCode === "ELA 10-2";
+
+  body.find("[data-d2l-editor-default-img-style]").each((_, element) => {
+    $(element).removeAttr("data-d2l-editor-default-img-style");
+    changes.add("Removed an inherited D2L editor-only image attribute.");
+  });
+
+  body.find(".sr-only").each((_, element) => {
+    const text = $(element).text().replace(/\s+/g, " ").trim();
+    if (/this link opens in a new (?:window|tab)(?:\/tab)?\)?/i.test(text)) {
+      $(element).remove();
+      changes.add("Removed inherited new-window accessibility boilerplate that no longer described a learner link.");
+    }
+  });
+
+  body.find("p, li, h1, h2, h3, h4, h5").each((_, element) => {
+    const node = $(element);
+    const text = node.text().replace(/\s+/g, " ").trim();
+    if (!text) return;
+    if (/^(?:click|open)\s+(?:on\s+)?(?:the\s+)?(?:following\s+)?(?:google doc|link)\b/i.test(text)
+      && !node.find("a[href], button, iframe, object, video").length) {
+      node.remove();
+      changes.add("Removed an orphaned click/open direction whose Brightspace destination was not part of the course.");
+      return;
+    }
+    if (/^https?:\/\/\S+$/i.test(text)) {
+      node.remove();
+      changes.add("Removed a raw legacy URL that was not an approved learner resource.");
+      return;
+    }
+    if (/Click the link to watch the video showing/i.test(text)) {
+      node.text(text.replace(/Click the link to watch the video showing.*$/i, "").trim());
+      changes.add("Removed an embedded video-link direction while preserving the instructional definition before it.");
+    }
+  });
+
+  if (/Synopsis and What to Consider Before Reading/i.test(input.title)) {
+    body.find("p").filter((_, element) => /access the assignment prior to starting to read your novel/i.test($(element).text())).each((_, element) => {
+      $(element).text(isDashTwo
+        ? "Review the Literary Exploration, Reading Guide, and Novel Study Questions before you begin so you know what ideas and evidence to collect while reading."
+        : "Review the Critical Essay, Reading Guide, and Novel Study Questions before you begin so you know what ideas and evidence to collect while reading.");
+      changes.add("Replaced the direction to access a separate pre-reading assignment with the actual course tools learners can use here.");
+    });
+  }
+
+  if (/How to Respond to Literature/i.test(input.title)) {
+    body.find("p").filter((_, element) => /re-submit your work in the proper format/i.test($(element).text())).each((_, element) => {
+      $(element).html("<strong>Use this response structure when a prompt asks you to interpret what you have read or observed.</strong> Integrate the question into a clear statement, support it with precise evidence, explain the evidence, and add a meaningful connection or conclusion.");
+      changes.add("Replaced the Brightspace resubmission warning with direct response-writing guidance.");
+    });
+  }
+
+  if (/Writing a Short Story Analysis/i.test(input.title)) {
+    body.find("p").filter((_, element) => /make a copy of this template by clicking/i.test($(element).text())).remove();
+    body.find(".card").filter((_, element) => /^Short Story Analysis Template$/i.test($(element).text().replace(/\s+/g, " ").trim())).remove();
+    body.find("p").filter((_, element) => /Read The Visitor \(provided on the next page\)/i.test($(element).text())).each((_, element) => {
+      $(element).text("Use the Short Story Bank to read the assigned text. Then use Short Story Questions and the Writing Studio to develop your analysis.");
+    });
+    changes.add("Replaced the missing template, next-page, and Unit 2 assignment directions with the Short Story Bank, Questions, and Writing Studio workflow.");
+  }
+
+  if (/Annotating Readings/i.test(input.title)) {
+    body.find("p").filter((_, element) => /demonstrate active reading by some short stories/i.test($(element).text())).each((_, element) => {
+      $(element).text("Annotate important passages as you read. Record questions, patterns, unfamiliar words, and details that may become useful evidence.");
+      changes.add("Reworded the incomplete Brightspace annotation requirement as a usable reading strategy.");
+    });
+  }
+
+  if (/Literary Terms Review/i.test(input.title)) {
+    body.find("p").filter((_, element) => /For a printable version, you can make a copy by clicking the following link:\s*ELA 10-2/i.test($(element).text())).each((_, element) => {
+      $(element).text("Use this glossary as a course reference while reading and writing. Return to the relevant term whenever you need to identify or explain a literary choice.");
+      changes.add("Removed the ELA 10-2 printable-copy direction and kept the local literary-terms glossary as the learner reference.");
+    });
+  }
+
+  if (/^Lion$/i.test(input.title) || /^Pay It Forward$/i.test(input.title)) {
+    const filmTitle = /^Lion$/i.test(input.title) ? "Lion" : "Pay It Forward";
+    const writingTool = isDashTwo ? "Literary Exploration" : "Critical Essay";
+    body.html(`<h3>Using ${filmTitle}</h3><p>If your class is studying <em>${filmTitle}</em>, record important scenes in the Viewing Guide and complete the selected Film Study Questions. Use the ${writingTool} lessons when you are ready to develop a sustained interpretation.</p>`);
+    changes.add(`Replaced the missing Google Doc and assignment directions for ${filmTitle} with the course's Viewing Guide, Film Study Questions, and Critical Essay workflow.`);
+  }
+
+  body.find("p, h1, h2, h3, h4, h5, li").each((_, element) => {
+    const node = $(element);
+    if (!node.text().replace(/\s+/g, " ").trim() && !node.find("img, video, audio, iframe, object, a[href], button").length) node.remove();
+  });
+  return { html: body.html() ?? "", changes: [...changes] };
 }
 
 async function cleanSupportingHtml(zip: JSZip, sourceHref: string, workspaceDir: string) {
@@ -207,45 +442,66 @@ export async function cleanEnglishLesson(input: {
   for (const element of body.find("img").toArray()) {
     const image = $(element);
     const src = image.attr("src") ?? "";
-    if (!src || /^https?:|^data:/i.test(src)) continue;
-    const sourceAsset = normalizeZipPath(path.posix.join(path.posix.dirname(input.sourceHref), src));
+    if (!src || /^data:/i.test(src)) continue;
+    if (/^https?:/i.test(src)) {
+      removeMissingImageContainer($, image);
+      input.reportItems.push({
+        role: "supporting-resource",
+        source: src,
+        status: "corrected",
+        note: `Removed a remotely hosted lesson image from ${input.title}; only package-local images are retained so the SCORM course cannot develop a broken external image.`
+      });
+      continue;
+    }
+    const sourceAsset = normalizeZipPath(path.posix.join(
+      path.posix.dirname(input.sourceHref),
+      decodeLocalAssetPath(src)
+    ));
     let sourceBuffer: Buffer;
+    let resolvedSource = sourceAsset;
     try {
-      sourceBuffer = await readZipBuffer(input.zip, sourceAsset);
+      const resolved = await readLessonImageWithFallback(input.zip, sourceAsset);
+      sourceBuffer = resolved.buffer;
+      resolvedSource = resolved.resolvedSource;
     } catch {
-      image.remove();
+      removeMissingImageContainer($, image);
       input.reportItems.push({
         role: "supporting-resource",
         source: sourceAsset,
-        status: "missing",
-        note: `Referenced image was missing from the Brightspace ZIP and was removed from ${input.title}.`
+        status: "corrected",
+        note: `The Brightspace ZIP did not contain this referenced image. Its dependent empty image container or caption was removed from ${input.title}, so no broken learner asset remains.`
       });
       continue;
     }
     try {
       const { converted, workspaceHref } = await writeBrowserSafeLessonImage({
         buffer: sourceBuffer,
-        sourceAsset,
+        sourceAsset: resolvedSource,
         title: input.title,
         workspaceDir: input.workspaceDir,
-        workspaceAssetRoot: input.recipe.schemaVersion === 2 ? "assets/generated/lessons" : "assets/lessons"
+        workspaceAssetRoot: input.recipe.schemaVersion === 1 ? "assets/lessons" : "assets/generated/lessons"
       });
       image.attr("src", workspaceHref);
       image.removeAttr("width").removeAttr("height");
+      const existingAlt = usefulImageAlt(image.attr("alt")) || usefulImageAlt(image.attr("title"));
+      const assetLabel = humanizeAssetName(resolvedSource);
+      image.attr("alt", existingAlt || `${input.title}${assetLabel ? ` - ${assetLabel}` : " instructional visual"}`);
       input.reportItems.push({
         role: "supporting-resource",
-        source: sourceAsset,
+        source: resolvedSource,
         status: "placed",
         destination: workspaceHref,
-        note: converted
-          ? `Converted JPEG 2000 image referenced by ${input.title} to browser-safe PNG.`
-          : `Copied image referenced by ${input.title}.`
+        note: resolvedSource !== sourceAsset
+          ? `Recovered a misaddressed image by its unique filename and copied it for ${input.title}.`
+          : converted
+            ? `Converted JPEG 2000 image referenced by ${input.title} to browser-safe PNG.`
+            : `Copied image referenced by ${input.title}.`
       });
     } catch {
-      image.remove();
+      removeMissingImageContainer($, image);
       input.reportItems.push({
         role: "supporting-resource",
-        source: sourceAsset,
+        source: resolvedSource,
         status: "failed",
         note: `Referenced image could not be converted to a browser-safe format and was removed from ${input.title}.`
       });
@@ -274,7 +530,7 @@ export async function cleanEnglishLesson(input: {
           role: "supporting-resource",
           source: sourceAsset,
           status: "placed",
-          destination: "workspace/resources/rhw-irony.html",
+          destination: `workspace/${workspaceHref}`,
           note: "Retained as a supporting reading rather than a separate lesson."
         });
       } else if (/^#/.test(originalHref)) {
@@ -287,7 +543,15 @@ export async function cleanEnglishLesson(input: {
 
     const rewritten = input.recipe.mediaPolicy.externalUrlRewrites[originalHref] ?? originalHref;
     if (!input.recipe.mediaPolicy.approvedExternalUrls.includes(rewritten)) {
-      anchor.replaceWith(anchor.contents());
+      const parent = anchor.parent();
+      const parentText = parent.text().replace(/\s+/g, " ").trim();
+      const resourceOnly = parent.is("p, li") && parentText.length < 180 && (
+        parent.children("a").length === parent.children().length
+        || /^(?:read|watch|visit|open|view|use|try|explore)\b/i.test(parentText)
+        || /^(?:Enlightened|Empty Your Cup)(?:\s+and\s+(?:Enlightened|Empty Your Cup))?$/i.test(parentText)
+      );
+      if (resourceOnly) parent.remove();
+      else anchor.replaceWith(anchor.contents());
       input.reportItems.push({
         role: "supporting-resource",
         source: originalHref,
@@ -310,8 +574,10 @@ export async function cleanEnglishLesson(input: {
       status: rewritten === originalHref ? "placed" : "corrected",
       destination: rewritten,
       note: rewritten === originalHref ? "Live link check passed." : "Live link check passed after upgrading the source URL."
-    });
+      });
   }
+
+  normalizeKnownLessonContent({ $, body, title: input.title, recipe: input.recipe });
 
   if (input.recipe.schemaVersion === 2) {
     const lessonPrefix = safeId(input.title, "lesson");
@@ -332,6 +598,21 @@ export async function cleanEnglishLesson(input: {
   }
 
   let contentHtml = body.html() ?? "";
+  const lmsCleanup = scrubEnglishLmsDeliveryScaffolding({
+    html: contentHtml,
+    title: input.title,
+    courseCode: input.recipe.courseCode
+  });
+  contentHtml = lmsCleanup.html;
+  if (lmsCleanup.changes.length) {
+    input.reportItems.push({
+      role: "lesson",
+      source: input.sourceHref,
+      status: "corrected",
+      destination: input.title,
+      note: lmsCleanup.changes.join(" ")
+    });
+  }
   for (const correction of input.recipe.wordingCorrections) {
     if (contentHtml.includes(correction.find)) {
       contentHtml = replaceLiteral(contentHtml, correction.find, correction.replace);
@@ -344,7 +625,14 @@ export async function cleanEnglishLesson(input: {
       });
     }
   }
+  const courseLevel = input.recipe.courseCode?.match(/\d{2}[\u2010-\u2015-]1/)?.[0]?.replace(/[\u2010-\u2015]/g, "-") ?? "20-1";
   contentHtml = contentHtml
+    .replace(/English Language Arts\s*(?:10|20|30)[\u2010-\u2015-]1/gi, `English Language Arts ${courseLevel}`)
+    .replace(/\b(?:ELA|English)\s*(?:10|20|30)[\u2010-\u2015-]1\b/gi, (value) => value.toLowerCase().startsWith("ela") ? `ELA ${courseLevel}` : `English ${courseLevel}`)
+    .replace(/\bin the exam booklet\b/gi, "in your planning notes")
+    .replace(/\bpreparation for and writing of the examination\b/gi, "planning and drafting")
+    .replace(/\bwriting of the examination\b/gi, "writing process")
+    .replace(/\bfor the examination\b/gi, "for the response")
     .replace(/Personal Response to Texts Assignment/gi, "personal response")
     .replace(/Critical\/Analytical Response to Literary Texts Assignment/gi, "analytical response")
     .replace(/\s+style="[^"]*width:\s*\d+px;?[^"]*"/gi, "");
@@ -365,9 +653,6 @@ export async function loadBrightspaceUnit(input: {
   const unitElement = unit.get(0);
   if (!unitElement) throw new Error(`Brightspace unit ${input.recipe.source.brightspaceUnitId} was not found.`);
   const title = directTitle($, unitElement);
-  if (title !== "Short Stories") {
-    throw new Error(`Brightspace unit ${input.recipe.source.brightspaceUnitId} is "${title}", not "Short Stories".`);
-  }
 
   const resources = resourceMap($);
   const sourceByTitle = new Map<string, string>();
@@ -378,8 +663,16 @@ export async function loadBrightspaceUnit(input: {
     if (lessonTitle && href) sourceByTitle.set(lessonTitle, href);
   });
 
-  const unexpected = [...sourceByTitle.keys()].filter((lessonTitle) => !input.recipe.lessonOrder.includes(lessonTitle));
-  if (unexpected.length) throw new Error(`Selected Short Stories unit has unexpected lessons: ${unexpected.join(", ")}`);
+  const unexpected = [...sourceByTitle.entries()].filter(([lessonTitle]) => !input.recipe.lessonOrder.includes(lessonTitle));
+  for (const [lessonTitle, sourceHref] of unexpected) {
+    input.reportItems.push({
+      role: "lesson",
+      source: sourceHref,
+      status: "excluded",
+      destination: lessonTitle,
+      note: "Brightspace item is outside the recipe lesson allowlist."
+    });
+  }
 
   const lessons: EnglishBuiltLesson[] = [];
   for (const [index, lessonTitle] of input.recipe.lessonOrder.entries()) {
@@ -448,6 +741,30 @@ export async function loadBrightspaceLessonsByIds(input: {
       throw new Error(`Brightspace lesson item ${selector.itemId} (${sourceTitle}) has no resource href.`);
     }
     const title = selector.title?.trim() || sourceTitle;
+    if (/\.pdf(?:[?#].*)?$/i.test(sourceHref)) {
+      const fileName = `${safeId(title)}-${safeFileName(sourceHref)}`;
+      const localHref = `assets/generated/lessons/${fileName}`;
+      await mkdir(path.join(input.workspaceDir, "assets", "generated", "lessons"), { recursive: true });
+      await writeFile(path.join(input.workspaceDir, localHref), await readZipBuffer(input.zip, sourceHref));
+      const safeTitle = escapeHtml(title);
+      const safeHref = escapeHtml(localHref);
+      lessons.push({
+        id: `lesson-${index + 1}-${safeId(title)}`,
+        title,
+        sourceHref,
+        html: `<section class="source-pdf-lesson"><p>This lesson is provided as a PDF. Read it in the embedded viewer, open it full screen, or download a copy.</p><div class="source-pdf-actions"><a href="${safeHref}" target="_blank" rel="noopener noreferrer">Open full screen</a><a href="${safeHref}" download>Download</a></div><object class="source-pdf-frame" data="${safeHref}" type="application/pdf" aria-label="${safeTitle}"><p>Your browser cannot display this PDF here. <a href="${safeHref}" target="_blank" rel="noopener noreferrer">Open the ${safeTitle} lesson</a>.</p></object></section>`,
+        text: `${title}. Instructional lesson provided as a PDF.`,
+        supportingResources: [{ id: `${safeId(title)}-pdf`, title, href: localHref, kind: "local", lessonTitle: title }]
+      });
+      input.reportItems.push({
+        role: "lesson",
+        source: `${selector.itemId}:${sourceHref}`,
+        status: "placed",
+        destination: title,
+        note: `Imported the Brightspace PDF lesson from the explicit item allowlist (${selector.itemId}).`
+      });
+      continue;
+    }
     const cleaned = await cleanEnglishLesson({
       zip: input.zip,
       sourceHref,
@@ -491,13 +808,23 @@ export function parseNumberedQuestions(text: string): EnglishQuestionPrompt[] {
 
 export function collectVerifiedVideos(lessons: EnglishBuiltLesson[], recipe: EnglishUnitRecipe) {
   const videos: Array<{ id: string; lessonTitle: string; embedSrc: string }> = [];
+  const labelCounts = new Map<string, number>();
   for (const lesson of lessons) {
     const $ = cheerio.load(lesson.html);
     $("iframe[src]").each((_, element) => {
       const src = $(element).attr("src") ?? "";
       const id = youtubeId(src);
       if (id && recipe.mediaPolicy.allowedYouTubeIds.includes(id) && !videos.some((video) => video.id === id)) {
-        videos.push({ id, lessonTitle: lesson.title.replace(/^Lesson\s+\d+:\s*/i, ""), embedSrc: src });
+        const lessonLabel = lesson.title.replace(/^Lesson\s+\d+[:.\s-]*/i, "");
+        const container = $(element).closest("p, div, section");
+        const nearbyHeading = container.prevAll("h2, h3, h4").first().text().replace(/\s+/g, " ").trim()
+          || $(element).prevAll("h2, h3, h4").first().text().replace(/\s+/g, " ").trim();
+        const baseLabel = nearbyHeading && nearbyHeading.toLowerCase() !== lessonLabel.toLowerCase()
+          ? `${lessonLabel} - ${nearbyHeading}`
+          : lessonLabel;
+        const count = (labelCounts.get(baseLabel) ?? 0) + 1;
+        labelCounts.set(baseLabel, count);
+        videos.push({ id, lessonTitle: count > 1 ? `${baseLabel} (${count})` : baseLabel, embedSrc: src });
       }
     });
   }

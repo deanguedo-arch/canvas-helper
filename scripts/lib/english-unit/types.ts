@@ -131,6 +131,7 @@ export type EnglishBuiltReading = EnglishReadingRecipe & {
 
 export type EnglishActivityProfileKind =
   | "short-fiction"
+  | "writing-foundations"
   | "modern-drama"
   | "shakespeare-drama"
   | "novel-study"
@@ -169,6 +170,10 @@ export type EnglishShortFictionActivityProfile = EnglishActivityProfileBase & {
   readerMode: "text-bank";
   questionCollectionScope: "story";
   analysisExplorer: boolean;
+};
+
+export type EnglishWritingFoundationsActivityProfile = EnglishActivityProfileBase & {
+  kind: "writing-foundations";
 };
 
 export type EnglishModernDramaActivityProfile = EnglishActivityProfileBase & {
@@ -224,6 +229,7 @@ export type EnglishFilmStudyActivityProfile = EnglishActivityProfileBase & {
 
 export type EnglishActivityProfileV1 =
   | EnglishShortFictionActivityProfile
+  | EnglishWritingFoundationsActivityProfile
   | EnglishModernDramaActivityProfile
   | EnglishShakespeareDramaActivityProfile
   | EnglishNovelStudyActivityProfile
@@ -235,6 +241,11 @@ export type EnglishLessonSelectorV2 = {
   title?: string;
   includeChildren?: boolean;
   reason?: string;
+};
+
+export type EnglishSourcePageRangeV1 = {
+  start: number;
+  end: number;
 };
 
 export type EnglishUnitSourceV2 = EnglishUnitRecipeV1["source"] & {
@@ -250,7 +261,13 @@ export type EnglishResourceDispositionV2 = {
   source: string;
   title?: string;
   role: EnglishResourceRole;
-  disposition: "place" | "exclude" | "review-required";
+  disposition: "place" | "exclude" | "review-required" | "source-only";
+  /**
+   * One-based inclusive PDF page ranges used for text extraction. Page-scoped
+   * resources remain source-only so an untrimmed source PDF cannot become a
+   * learner-facing download by mistake.
+   */
+  sourcePages?: EnglishSourcePageRangeV1[];
   destination?: string;
   targetLessonIds?: string[];
   reason: string;
@@ -315,13 +332,36 @@ export type EnglishUnitRecipeV2 = {
   acceptance: EnglishUnitAcceptanceV2;
 };
 
-export type EnglishUnitRecipe = EnglishUnitRecipeV1 | EnglishUnitRecipeV2;
+export type EnglishWritingFormKind =
+  | "critical-essay"
+  | "literary-exploration"
+  | "personal-response"
+  | "visual-response";
+
+export type EnglishWritingFormConfigV1 = {
+  kind: EnglishWritingFormKind;
+  trackMode: "unit" | "per-work";
+  profile?: string;
+};
+
+/**
+ * Recipe V3 keeps the complete V2 unit contract and makes the writing system
+ * explicit. The array order is learner-facing navigation order.
+ */
+export type EnglishUnitRecipeV3 = Omit<EnglishUnitRecipeV2, "schemaVersion"> & {
+  schemaVersion: 3;
+  derivesFromProject: string;
+  writingForms: EnglishWritingFormConfigV1[];
+};
+
+export type EnglishUnitRecipe = EnglishUnitRecipeV1 | EnglishUnitRecipeV2 | EnglishUnitRecipeV3;
 
 export type EnglishCourseArchiveV1 = {
   id: string;
-  kind: "brightspace" | "teacher-resources";
+  kind: "brightspace" | "teacher-resources" | "audit-reference" | "supplement";
   path: string;
   sha256: string;
+  inventoryPath?: string;
   importedAt?: string;
 };
 
@@ -394,9 +434,13 @@ export type EnglishEvidenceEntryV2 = {
 };
 
 export type EnglishEvidenceFilterV2 = {
+  contributionId?: string | string[];
+  responseId?: string | string[];
   activityId?: string;
+  activity?: string;
   profile?: EnglishActivityProfileKind;
   workId?: string;
+  text?: string;
   locator?: string;
   tags?: string[];
 };
@@ -405,6 +449,75 @@ export type EnglishEvidenceBankApiV1 = {
   upsert(entry: EnglishEvidenceEntryV2): EnglishEvidenceEntryV2;
   remove(contributionId: string): boolean;
   list(filters?: EnglishEvidenceFilterV2): EnglishEvidenceEntryV2[];
+};
+
+export type EnglishEvidenceBankRouteLinkV1 = {
+  id: string;
+  label: string;
+  icon: string;
+};
+
+export type EnglishEvidenceBankRetrofitEvidencePolicyV1 = {
+  defaultKind: "individual" | "collection";
+  individualActiveValues?: string[];
+  disabledActiveValues?: string[];
+};
+
+export type EnglishEvidenceBankRetrofitAdapterV1 = {
+  id: string;
+  kind: "individual" | "collection";
+  route: string;
+  rootSelector: string;
+  saveSelector: string;
+  contributionId: string;
+  source: EnglishEvidenceSourceV2;
+  activity: EnglishEvidenceActivityV2;
+  work?: EnglishEvidenceWorkV2;
+  locator?: EnglishEvidenceLocatorV2;
+  fieldSelectors?: Partial<
+    Record<"source" | "concept" | "prompt" | "answer" | "evidence" | "analysis" | "counterpoint", string>
+  >;
+  questionSelector?: string;
+  responseSelector?: string;
+  evidencePolicy?: EnglishEvidenceBankRetrofitEvidencePolicyV1;
+  tags?: string[];
+  saveLabel?: string;
+  savedMessage?: string;
+  updatedMessage?: string;
+};
+
+export type EnglishEvidenceBankSelectorCheckV1 = {
+  selector: string;
+  adapterId?: string;
+  count: number;
+  status: "placed" | "failed";
+  message?: string;
+};
+
+/**
+ * Durable manifest and application report for adding the shared Evidence Bank
+ * to a completed English workspace without rebuilding its course-specific UI.
+ */
+export type EnglishEvidenceBankRetrofitV1 = {
+  schemaVersion: 1;
+  retrofitVersion: string;
+  projectSlug: string;
+  courseCode: string;
+  courseTitle: string;
+  profile: EnglishActivityProfileKind;
+  storageKey: string;
+  route: {
+    id: "evidence-bank";
+    label: string;
+    icon: string;
+    links?: EnglishEvidenceBankRouteLinkV1[];
+  };
+  selectorsRequired: string[];
+  adapters: EnglishEvidenceBankRetrofitAdapterV1[];
+  sourceSha256: string;
+  outputSha256: string;
+  appliedAt: string;
+  selectorChecks: EnglishEvidenceBankSelectorCheckV1[];
 };
 
 export type EnglishUnitBuildSourceV1 = {

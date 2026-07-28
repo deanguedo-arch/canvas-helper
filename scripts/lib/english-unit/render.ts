@@ -1,4 +1,6 @@
 import { renderNextStepCourseShell, type NextStepShellLesson } from "../next-step-course-shell.js";
+import { ENGLISH_ACTIVITY_PROFILE_CSS, ENGLISH_ACTIVITY_PROFILE_RUNTIME } from "./activity-profile-runtime.js";
+import { renderEnglishWritingSequences } from "./writing-sequence-renderer.js";
 import { ENGLISH_LITERARY_TERMS_SECTIONS, renderEnglishLiteraryTermsReference } from "./literary-terms.js";
 import { safeId } from "./source.js";
 import type {
@@ -146,7 +148,7 @@ function renderReadingRoadmap(readings: EnglishBuiltReading[]) {
   for (const reading of readings) groups.set(reading.group, [...(groups.get(reading.group) ?? []), reading]);
   return `<section class="reading-roadmap">
     <h2>Unit reading roadmap</h2>
-    <p>The CBE lessons teach the concepts. These teacher-selected texts are where you will apply them.</p>
+    <p>These lessons teach the concepts. The assigned texts are where you will apply them.</p>
     <div class="roadmap-groups">${[...groups.entries()]
       .map(
         ([group, items]) => `<section>
@@ -177,7 +179,7 @@ function renderElementsHub(input: {
         <tbody>${workbenchLessons
           .map(
             (lesson, index) => `<tr>
-              <td><span class="element-check" data-element-complete-for="${escapeHtml(lesson.id)}" aria-label="Not complete">-</span></td>
+              <td><button class="element-check" type="button" data-element-complete-for="${escapeHtml(lesson.id)}" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark complete" aria-label="Mark ${escapeHtml(cleanLessonTitle(lesson.title))} complete">-</button></td>
               <td><button class="element-selector" type="button" aria-selected="${index === 0 ? "true" : "false"}" data-element-target="${escapeHtml(lesson.id)}">${escapeHtml(cleanLessonTitle(lesson.title))}</button></td>
               <td>${escapeHtml(truncate(lesson.text, 120))}</td>
             </tr>`
@@ -346,7 +348,7 @@ function renderQuestionBank(courseCode: string, readings: EnglishBuiltReading[])
             </div>
           </div>
           <article class="worksheet-document">
-            <header class="worksheet-document-header">
+            <header class="worksheet-document-header short-story-dark-header">
               <p>${escapeHtml(courseCode)} Guided Analysis</p>
               <h3>&quot;${escapeHtml(reading.title)}&quot;</h3>
               <span>by ${escapeHtml(reading.author)}</span>
@@ -388,8 +390,9 @@ function renderAnalysisTermButtons(recipe: EnglishUnitRecipeV1) {
 
 function renderWritingEvidenceCapture(recipe: EnglishUnitRecipeV1, readings: EnglishBuiltReading[]) {
   const responseBase = "evidence-draft:writing-studio";
+  const evidenceLabel = readings.some((reading) => reading.kind === "visual-narrative") ? "textual or visual evidence" : "textual evidence";
   return `<section class="english-evidence-capture english-writing-evidence-capture" data-writing-activity-panel data-evidence-notebook-panel data-evidence-capture="writing-studio">
-    <div class="english-evidence-capture-heading">
+    <div class="english-evidence-capture-heading short-story-dark-header">
       <div>
         <p>Evidence Bank</p>
         <h3>Keep an analysis example</h3>
@@ -409,7 +412,7 @@ function renderWritingEvidenceCapture(recipe: EnglishUnitRecipeV1, readings: Eng
         </select>
       </label>
     </div>
-    <label>Exact textual or visual evidence
+    <label>Exact ${evidenceLabel}
       <textarea rows="4" data-response-id="${responseBase}:detail" data-evidence-draft="detail" placeholder="Record or paste the evidence moment you want to keep."></textarea>
     </label>
     <label>Analytical breakdown
@@ -457,7 +460,7 @@ function renderFilmRoom(courseCode: string, videos: Array<{ id: string; lessonTi
           <select id="film-select" class="film-room-select" data-film-select>
             ${videos.map((video, index) => `<option value="${escapeHtml(video.id)}"${index === 0 ? " selected" : ""}>${escapeHtml(VIDEO_TITLES[video.id] ?? video.lessonTitle)}</option>`).join("")}
           </select>
-          <p class="film-room-note">Availability verified ${escapeHtml(verifiedAt)}. Each video also remains in its source lesson.</p>
+          <p class="film-room-note">Availability verified ${escapeHtml(verifiedAt)}. Each video is also available in its related lesson.</p>
         </div>
       </aside>
     </div>
@@ -467,12 +470,14 @@ function renderFilmRoom(courseCode: string, videos: Array<{ id: string; lessonTi
 function renderWritingStudio(recipe: EnglishUnitRecipeV1, readings: EnglishBuiltReading[]) {
   const analysisReadings = readings.map((reading) => ({ id: reading.id, title: reading.title, author: reading.author }));
   const firstTerm = recipe.analysisTerms[0]?.id ?? "";
+  const hasVisualNarrative = readings.some((reading) => reading.kind === "visual-narrative");
+  const evidencePrompt = `What specific textual${hasVisualNarrative ? " or visual" : ""} evidence will you use?`;
   return `<section id="writing-studio" class="course-page" data-writing-studio hidden>
     <p class="route-kicker">${escapeHtml(recipe.courseCode)} | Writing Studio</p>
     <h2 class="route-title">Personal Response Workspace</h2>
     <p class="route-description">Use these tools to turn short-story reading into clear personal and analytical writing.</p>
     <section class="analysis-explorer" data-analysis-explorer>
-      <div class="analysis-explorer-header">
+      <div class="analysis-explorer-header short-story-dark-header">
         <div>
           <h3>Analysis Explorer</h3>
           <p>Choose a term and a text, then study evidence moments and analytical breakdowns before building your own response.</p>
@@ -510,7 +515,7 @@ function renderWritingStudio(recipe: EnglishUnitRecipeV1, readings: EnglishBuilt
           <button type="button" data-worksheet-print data-print-writing><span class="material-symbols-outlined" aria-hidden="true">print</span> Print / PDF</button>
         </div>
       </div>
-      <div class="writing-studio-section-heading">
+      <div class="writing-studio-section-heading short-story-dark-header">
         <h3>Build Your Response</h3>
         <p>Move from the models above to your own interpretation, evidence, and writing choices.</p>
       </div>
@@ -530,8 +535,8 @@ function renderWritingStudio(recipe: EnglishUnitRecipeV1, readings: EnglishBuilt
         <p class="writing-studio-hint" data-writing-hint hidden>Choose a connection that helps explain your interpretation. Make clear why the experience matters instead of only describing what happened.</p>
         <textarea rows="6" data-response-id="personal-response:connection"></textarea>
       </label>
-      <label data-evidence-question-number="4" data-evidence-question-prompt="What specific textual or visual evidence will you use?">What specific textual or visual evidence will you use?
-        <p class="writing-studio-hint" data-writing-hint hidden>Record two precise moments, quotations, actions, or visual details. Explain how each one supports the idea you identified.</p>
+      <label data-evidence-question-number="4" data-evidence-question-prompt="${escapeHtml(evidencePrompt)}">${escapeHtml(evidencePrompt)}
+        <p class="writing-studio-hint" data-writing-hint hidden>Record two precise moments, quotations, or actions${hasVisualNarrative ? ", or visual details" : ""}. Explain how each one supports the idea you identified.</p>
         <textarea rows="6" data-response-id="personal-response:evidence"></textarea>
       </label>
       <label data-evidence-question-number="5" data-evidence-question-prompt="Which prose form best suits what you want to communicate, and why?">Which prose form best suits what you want to communicate, and why?
@@ -610,16 +615,18 @@ function renderWritingStudio(recipe: EnglishUnitRecipeV1, readings: EnglishBuilt
 
 function renderEvidenceBank(recipe: EnglishUnitRecipeV1) {
   const responseBase = "evidence-draft:evidence-bank";
+  const hasVisualNarrative = recipe.readings.some((reading) => reading.kind === "visual-narrative");
+  const exampleSource = recipe.readings[0]?.title ?? "Assigned text";
   return `<section id="evidence-bank" class="course-page" hidden>
     <p class="route-kicker">${escapeHtml(recipe.courseCode)} | Evidence Bank</p>
     <h2 class="route-title">Evidence Bank</h2>
-    <p class="route-description">Keep strong quotations, visual details, and analytical observations in one place so you can reuse them in lesson responses and writing.</p>
+    <p class="route-description">Keep strong quotations${hasVisualNarrative ? ", visual details," : ""} and analytical observations in one place so you can reuse them in lesson responses and writing.</p>
     <div class="english-evidence-bank-actions">
       <a href="#story-questions" data-page-target="story-questions"><span class="material-symbols-outlined" aria-hidden="true">quiz</span> Find evidence in Short Story Questions</a>
       <a href="#writing-studio" data-page-target="writing-studio"><span class="material-symbols-outlined" aria-hidden="true">edit_note</span> Build evidence in Writing Studio</a>
     </div>
     <section class="english-evidence-bank-list" aria-labelledby="saved-evidence-title">
-      <div class="english-evidence-bank-heading">
+      <div class="english-evidence-bank-heading short-story-dark-header">
         <div>
           <p>Running notebook</p>
           <h3 id="saved-evidence-title">Saved evidence</h3>
@@ -629,7 +636,7 @@ function renderEvidenceBank(recipe: EnglishUnitRecipeV1) {
       <div class="english-evidence-card-list" data-manual-evidence-list></div>
     </section>
     <section class="english-evidence-capture english-evidence-bank-capture" data-writing-activity-panel data-evidence-notebook-panel data-evidence-capture="evidence-bank">
-      <div class="english-evidence-capture-heading">
+      <div class="english-evidence-capture-heading short-story-dark-header">
         <div>
           <p>Quick entry</p>
           <h3>Add evidence directly</h3>
@@ -639,14 +646,14 @@ function renderEvidenceBank(recipe: EnglishUnitRecipeV1) {
       </div>
       <div class="english-evidence-fields">
         <label>Source text or lesson
-          <input type="text" data-response-id="${responseBase}:source" data-evidence-draft="source" placeholder="Example: The Lamp at Noon - setting lesson">
+          <input type="text" data-response-id="${responseBase}:source" data-evidence-draft="source" placeholder="Example: ${escapeHtml(exampleSource)} - lesson or reading location">
         </label>
         <label>Literary concept
           <input type="text" data-response-id="${responseBase}:concept" data-evidence-draft="concept" placeholder="Example: setting, symbolism, point of view">
         </label>
       </div>
-      <label>Exact textual or visual evidence
-        <textarea rows="4" data-response-id="${responseBase}:detail" data-evidence-draft="detail" placeholder="Record a quotation, action, image, panel, or other precise detail."></textarea>
+      <label>Exact textual${hasVisualNarrative ? " or visual" : ""} evidence
+        <textarea rows="4" data-response-id="${responseBase}:detail" data-evidence-draft="detail" placeholder="Record a quotation, action${hasVisualNarrative ? ", image, or panel" : ""}, or other precise detail."></textarea>
       </label>
       <label>Why this evidence matters
         <textarea rows="4" data-response-id="${responseBase}:connection" data-evidence-draft="connection" placeholder="Explain how this evidence supports an interpretation."></textarea>
@@ -694,12 +701,12 @@ function renderResources(courseCode: string, readings: EnglishBuiltReading[], le
     .filter((group) => group.items.length > 0);
   return `<section id="resources" class="course-page" hidden>
     <p class="route-kicker">${escapeHtml(courseCode)} | Resources</p>
-    <h2 class="route-title">Source Resources</h2>
+    <h2 class="route-title">Resources</h2>
     <div class="resource-stack">
       <section class="resource-lesson-group">
         <div class="resource-group-heading">
-          <h3>Teacher-Selected Documents</h3>
-          <p>Original readings and question sheets supplied for this unit.</p>
+          <h3>Course Documents</h3>
+          <p>Readings and question sheets for this unit.</p>
         </div>
         <div class="resource-lesson-items">${documentCards}</div>
       </section>
@@ -713,7 +720,7 @@ function renderResources(courseCode: string, readings: EnglishBuiltReading[], le
           ${supportGroups
             .map(
               (group, index) => `<section class="resource-lesson-group" data-resource-panel="${escapeHtml(group.id)}"${index === 0 ? "" : " hidden"}>
-                <div class="resource-group-heading"><h3>${escapeHtml(cleanLessonTitle(group.title))}</h3><p>Verified supporting material retained from the CBE lesson.</p></div>
+                <div class="resource-group-heading"><h3>${escapeHtml(cleanLessonTitle(group.title))}</h3><p>Supporting material connected to this lesson.</p></div>
                 <div class="resource-lesson-items">${group.items
                   .map((item) => renderResourceCard({ kicker: item.kind === "local" ? "Local Source" : "External Source", title: item.title, detail: item.href, href: item.href }))
                   .join("")}</div>
@@ -809,6 +816,17 @@ const EXTRA_CSS = `
 .lesson-page--ela30 .source-content h2,
 .lesson-page--ela30 .source-content h3 { margin: 28px 0 12px; font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 22px; font-weight: 700; line-height: 1.25; }
 .lesson-page--ela30 .source-content p { max-width: 74ch; margin: 0 0 16px; }
+.lesson-page--ela30 .source-content .source-intro-callout {
+  max-width: 74ch;
+  margin: 0 0 24px;
+  padding: 20px 22px;
+  border: 1px solid #d8ddd4;
+  border-left: 4px solid #154212;
+  border-radius: 8px;
+  background: #fff;
+  box-shadow: 0 8px 20px rgba(20, 32, 18, .06);
+}
+.lesson-page--ela30 .source-content .source-intro-callout > span { font-size: 17px !important; line-height: 1.65; }
 .lesson-page--ela30 .source-content ul,
 .lesson-page--ela30 .source-content ol { max-width: 74ch; margin: 0 0 16px 22px; padding: 0; }
 .lesson-page--ela30 .source-content li { margin: 8px 0; }
@@ -854,7 +872,8 @@ const EXTRA_CSS = `
 .elements-table th { color: #154212; font-family: "IBM Plex Sans", sans-serif; font-size: 13px; font-weight: 700; }
 .elements-table th:first-child, .elements-table td:first-child { width: 64px; text-align: center; }
 .elements-table tbody tr:last-child td { border-bottom: 0; }
-.element-check { display: inline-grid; place-items: center; width: 26px; height: 26px; border: 1px solid #b7c4b2; border-radius: 6px; color: #6b7167; font-weight: 800; line-height: 1; }
+.element-check { display: inline-grid; place-items: center; width: 30px; min-height: 30px; border: 1px solid #b7c4b2; border-radius: 6px; background: #fff; color: #6b7167; padding: 0; font: inherit; font-weight: 800; line-height: 1; cursor: pointer; }
+.element-check:hover, .element-check:focus-visible { border-color: #154212; color: #154212; outline: 2px solid rgba(21, 66, 18, .18); outline-offset: 2px; }
 .element-check.is-complete { border-color: #154212; background: #154212; color: #fff; }
 .element-selector { appearance: none; border: 0; background: transparent; color: #154212; padding: 0; text-align: left; text-decoration: underline; text-underline-offset: 3px; font: inherit; font-weight: 700; cursor: pointer; }
 .element-selector.active, .element-selector[aria-selected="true"] { color: #191c1d; text-decoration-thickness: 2px; }
@@ -962,6 +981,17 @@ const EXTRA_CSS = `
 .social-evidence-card-actions { margin-top: 16px; padding-top: 12px; border-top: 1px solid #e3e6e1; }
 .social-secondary-action { min-height: 36px; background: #fff; color: #154212; padding: 7px 11px; cursor: pointer; }
 .english-evidence-bank-capture { margin-top: 18px; }
+.short-story-dark-header { border-bottom: 0; background: #161a17; color: #fff; }
+.short-story-dark-header h3, .short-story-dark-header h4 { color: #fff; }
+.short-story-dark-header p { color: #b9c3b2; }
+.short-story-dark-header span:not(.material-symbols-outlined) { color: #d7ddd4; }
+.short-story-dark-header > .material-symbols-outlined { background: #293029; color: #9fcf93; }
+#writing-studio .analysis-explorer > .short-story-dark-header { margin: -18px -18px 18px; border-radius: 9px 9px 0 0; padding: 24px 28px; }
+#writing-studio .english-evidence-capture > .short-story-dark-header { margin: -22px -22px 0; border-radius: 9px 9px 0 0; padding: 24px 28px; }
+#writing-studio .analysis-response-planner > .short-story-dark-header { margin: 0 -22px; padding: 24px 28px; }
+#writing-studio .analysis-response-planner > .short-story-dark-header p { color: #b9c3b2; }
+#evidence-bank .english-evidence-bank-list > .short-story-dark-header { margin: -22px -22px 18px; border-radius: 9px 9px 0 0; padding: 24px 28px; }
+#evidence-bank .english-evidence-capture > .short-story-dark-header { margin: -22px -22px 0; border-radius: 9px 9px 0 0; padding: 24px 28px; }
 .library-table-wrap { overflow-x: auto; }
 .library-table { width: 100%; border-collapse: collapse; }
 .library-table th, .library-table td { border-bottom: 1px solid #d5dbd0; padding: 12px; text-align: left; vertical-align: top; }
@@ -1090,6 +1120,10 @@ button.evidence-bank-save-action:hover, button.evidence-bank-save-action:focus-v
   .film-room-frame { min-height: 220px; }
   .analysis-explorer, .analysis-response-planner { padding: 16px; }
   .english-evidence-capture, .english-evidence-bank-list { padding: 16px; }
+  #writing-studio .analysis-explorer > .short-story-dark-header { margin: -16px -16px 16px; padding: 20px; }
+  #writing-studio .english-evidence-capture > .short-story-dark-header, #evidence-bank .english-evidence-capture > .short-story-dark-header { margin: -16px -16px 0; padding: 20px; }
+  #writing-studio .analysis-response-planner > .short-story-dark-header { margin: 0 -16px; padding: 20px; }
+  #evidence-bank .english-evidence-bank-list > .short-story-dark-header { margin: -16px -16px 18px; padding: 20px; }
   .english-evidence-capture-heading, .english-evidence-bank-heading { align-items: flex-start; }
   .english-evidence-bank-heading { display: grid; }
   .english-evidence-card-list { grid-template-columns: 1fr; }
@@ -1110,15 +1144,43 @@ export function renderEnglishUnit(input: {
   videos: Array<{ id: string; lessonTitle: string; embedSrc: string }>;
 }) {
   const shellLessons = buildShellLessons(input);
-  return renderNextStepCourseShell({
+  const readingGroups = [...new Set(input.readings.map((reading) => reading.group))];
+  const readingList = readingGroups.length > 1
+    ? `${readingGroups.slice(0, -1).join(", ")} and ${readingGroups.at(-1)}`
+    : readingGroups[0] ?? "the assigned texts";
+  const hasVisualNarrative = input.readings.some((reading) => reading.kind === "visual-narrative");
+  const writingSequences = renderEnglishWritingSequences({
+    namespace: input.recipe.projectSlug,
+    courseCode: input.recipe.courseCode,
+    unitTitle: input.recipe.unitTitle,
+    profileKind: "short-fiction",
+    works: input.readings.map((reading) => ({ id: reading.id, title: reading.title, author: reading.author, kind: "text" as const })),
+    visualProfile: "ela20-workbook",
+    criticalEssayTrackMode: "per-work",
+    personalResponseTrackMode: "unit",
+    includeCriticalEssay: true,
+    includePersonalResponse: true,
+  });
+  const groupedWritingPageIds = new Set(writingSequences.navGroups.flatMap((group) => [group.id, ...group.itemPageIds]));
+  const navItems = [
+    { id: "story-bank", label: "Short Story Bank", icon: "auto_stories", html: renderTextBank(input.recipe.courseCode, input.readings) },
+    { id: "story-questions", label: "Short Story Questions", icon: "quiz", html: renderQuestionBank(input.recipe.courseCode, input.readings) },
+    { id: "writing-studio", label: "Writing Studio", icon: "edit_note", html: renderWritingStudio(input.recipe, input.readings) },
+    { id: "evidence-bank", label: "Evidence Bank", icon: "library_books", html: renderEvidenceBank(input.recipe) },
+    ...(input.videos.length
+      ? [{ id: "film-room", label: "Film Room", icon: "live_tv", html: renderFilmRoom(input.recipe.courseCode, input.videos, input.recipe.mediaPolicy.verifiedAt) }]
+      : []),
+    { id: "resources", label: "Resources", icon: "folder_open", html: renderResources(input.recipe.courseCode, input.readings, input.lessons) }
+  ];
+  const html = renderNextStepCourseShell({
     slug: input.recipe.projectSlug,
     courseTitle: input.recipe.courseTitle,
     courseCode: input.recipe.courseCode,
     overviewIntro:
-      "Read across short fiction, visual narrative, and paired nonfiction. Use the CBE lessons to build a shared language for evidence, interpretation, and response.",
+      `Read across ${readingList}. Use the course lessons to build a shared language for evidence, interpretation, and response.`,
     outcomes: [
-      "I can explain how literary and visual choices shape meaning.",
-      "I can support an interpretation with precise textual or visual evidence.",
+      `I can explain how literary${hasVisualNarrative ? " and visual" : ""} choices shape meaning.`,
+      `I can support an interpretation with precise textual${hasVisualNarrative ? " or visual" : ""} evidence.`,
       "I can compare how different texts develop perspective, conflict, and theme.",
       "I can plan a clear personal, critical, or creative response."
     ],
@@ -1128,23 +1190,31 @@ export function renderEnglishUnit(input: {
     completionIds: input.lessons.map((lesson) => lesson.id),
     lessonGroupTitle: "Short Stories",
     lessonSequenceTitle: "Short Stories Lesson Sequence",
-    sourceLessonLabel: "CBE source lessons",
+    sourceLessonLabel: "course lessons",
     nextAfterLastLesson: { id: "story-bank", label: "Short Story Bank" },
     logoPath: "assets/brand/nxt-ce-logo-white-with-ce.png",
     storageKeyBase: `canvas-helper:${input.recipe.projectSlug}`,
-    navItems: [
-      { id: "story-bank", label: "Short Story Bank", icon: "auto_stories", html: renderTextBank(input.recipe.courseCode, input.readings) },
-      { id: "story-questions", label: "Short Story Questions", icon: "quiz", html: renderQuestionBank(input.recipe.courseCode, input.readings) },
-      { id: "writing-studio", label: "Writing Studio", icon: "edit_note", html: renderWritingStudio(input.recipe, input.readings) },
-      { id: "evidence-bank", label: "Evidence Bank", icon: "library_books", html: renderEvidenceBank(input.recipe) },
-      {
-        id: "film-room",
-        label: "Film Room",
-        icon: "live_tv",
-        html: renderFilmRoom(input.recipe.courseCode, input.videos, input.recipe.mediaPolicy.verifiedAt)
-      },
-      { id: "resources", label: "Resources", icon: "folder_open", html: renderResources(input.recipe.courseCode, input.readings, input.lessons) }
-    ],
-    extraCss: EXTRA_CSS
+    navGroups: writingSequences.navGroups.map((group) => {
+      const landing = writingSequences.pages.find((page) => page.id === group.id);
+      if (!landing) throw new Error(`Writing sequence ${group.id} is missing its landing page.`);
+      return {
+        id: group.id,
+        label: group.label,
+        icon: group.icon,
+        html: landing.html,
+        landingItemLabel: group.landingItemLabel,
+        items: group.itemPageIds.map((pageId) => {
+          const page = writingSequences.pages.find((candidate) => candidate.id === pageId);
+          if (!page) throw new Error(`Writing sequence ${group.id} references missing page ${pageId}.`);
+          return { id: page.id, label: page.label, icon: page.icon, html: page.html };
+        }),
+      };
+    }),
+    navItems,
+    extraCss: `${EXTRA_CSS}\n${ENGLISH_ACTIVITY_PROFILE_CSS}\n${writingSequences.css}`
   });
+  if (writingSequences.pages.some((page) => !groupedWritingPageIds.has(page.id))) {
+    throw new Error("Short-fiction writing sequence contains an ungrouped route.");
+  }
+  return html.replace("</body>", `<script>${ENGLISH_ACTIVITY_PROFILE_RUNTIME}\n${writingSequences.runtime}</script></body>`);
 }

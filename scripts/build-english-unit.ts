@@ -5,6 +5,7 @@ import path from "node:path";
 import JSZip from "jszip";
 
 import { getStringFlag, parseArgs } from "./lib/cli.js";
+import { writeEnglishLearnerE2EContract } from "./lib/english-unit/e2e-contract.js";
 import { buildEnglishFactoryProject } from "./lib/english-unit/factory-build.js";
 import {
   createEla20ShortStoriesPilotRecipe,
@@ -14,6 +15,11 @@ import {
   ELA20_SHORT_STORY_MANAGED_ANALYSIS_TERM_IDS,
   ELA20_SHORT_STORY_TOP_LEVEL_LESSONS
 } from "./lib/english-unit/pilot-recipe.js";
+import {
+  ELA10_SHORT_STORY_ANALYSIS_EXAMPLES,
+  ELA10_SHORT_STORY_ANALYSIS_TERMS,
+  ELA10_SHORT_STORY_MANAGED_ANALYSIS_TERM_IDS
+} from "./lib/english-unit/ela10-course-seeds.js";
 import { renderEnglishUnit } from "./lib/english-unit/render.js";
 import {
   collectVerifiedVideos,
@@ -133,6 +139,28 @@ async function prepareRecipe(args: BuildArgs, projectDir: string, metaDir: strin
       recipeChanged = true;
     }
   }
+  const ela10ReadingIds = new Set(ELA10_SHORT_STORY_ANALYSIS_EXAMPLES.map((example) => example.readingId));
+  const usesEla10AnalysisDefaults = [...ela10ReadingIds].every((readingId) =>
+    recipe.readings.some((reading) => reading.id === readingId)
+  );
+  if (usesEla10AnalysisDefaults) {
+    const preservedTerms = (recipe.analysisTerms ?? []).filter(
+      (term) => !ELA10_SHORT_STORY_MANAGED_ANALYSIS_TERM_IDS.has(term.id)
+    );
+    const nextTerms = [...ELA10_SHORT_STORY_ANALYSIS_TERMS.map((term) => ({ ...term })), ...preservedTerms];
+    if (JSON.stringify(recipe.analysisTerms ?? []) !== JSON.stringify(nextTerms)) {
+      recipe.analysisTerms = nextTerms;
+      recipeChanged = true;
+    }
+    const preservedExamples = (recipe.analysisExamples ?? []).filter(
+      (example) => !example.termId || !ELA10_SHORT_STORY_MANAGED_ANALYSIS_TERM_IDS.has(example.termId)
+    );
+    const nextExamples = [...preservedExamples, ...ELA10_SHORT_STORY_ANALYSIS_EXAMPLES.map((example) => ({ ...example }))];
+    if (JSON.stringify(recipe.analysisExamples ?? []) !== JSON.stringify(nextExamples)) {
+      recipe.analysisExamples = nextExamples;
+      recipeChanged = true;
+    }
+  }
   if (recipeChanged) await writeFile(recipePath, `${JSON.stringify(recipe, null, 2)}\n`, "utf8");
 
   const brightspaceRawPath = path.join(projectDir, recipe.source.brightspaceZip);
@@ -221,7 +249,7 @@ async function buildReadings(input: {
     if (!questionExtraction) throw new Error(`Question extraction was not prepared for ${reading.questionFile}.`);
     let questions = reading.questionPrompts ?? [];
     let extractionMethod: EnglishBuiltReading["extractionMethod"] = reading.questionPrompts ? "recipe" : "native";
-    if (reading.questionPrompts && questionExtraction.method === "ocr") {
+    if (reading.id === "lamp-at-noon" && reading.questionPrompts && questionExtraction.method === "ocr") {
       const ocrText = questionExtraction.text ?? "";
       const requiredSignals = ["Responding to Style", "foreshadowing", "Paul and Ellen", "Responding Personally"];
       const missingSignals = requiredSignals.filter((signal) => !ocrText.includes(signal));
@@ -297,7 +325,7 @@ function renderMappingMarkdown(report: EnglishBuildReport) {
         `| ${item.status} | ${item.role} | ${item.source.replace(/\|/g, "\\|")} | ${(item.destination ?? "-").replace(/\|/g, "\\|")} | ${item.note.replace(/\|/g, "\\|")} |`
     )
     .join("\n");
-  return `# ELA 20-1 Short Stories Pilot Mapping\n\n- Brightspace unit: ${report.selectedUnit.title} (${report.selectedUnit.identifier})\n- CBE lesson pages: ${report.selectedUnit.lessonCount}\n- Placed: ${report.summary.placed}\n- Corrected: ${report.summary.corrected}\n- Excluded: ${report.summary.excluded}\n- Missing: ${report.summary.missing}\n- Failed live/unclassified resources: ${report.summary.failed}\n\n| Status | Role | Source | Destination | Note |\n| --- | --- | --- | --- | --- |\n${rows}\n`;
+  return `# ${report.projectSlug} Source Mapping\n\n- Brightspace unit: ${report.selectedUnit.title} (${report.selectedUnit.identifier})\n- Brightspace lesson pages: ${report.selectedUnit.lessonCount}\n- Placed: ${report.summary.placed}\n- Corrected: ${report.summary.corrected}\n- Excluded: ${report.summary.excluded}\n- Missing: ${report.summary.missing}\n- Failed live/unclassified resources: ${report.summary.failed}\n\n| Status | Role | Source | Destination | Note |\n| --- | --- | --- | --- | --- |\n${rows}\n`;
 }
 
 async function writeProjectMetadata(input: {
@@ -324,7 +352,7 @@ async function writeProjectMetadata(input: {
   if (!(await fileExists(promptPackPath))) {
     await writeFile(
       promptPackPath,
-      `# ELA 20-1 Short Stories Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: short-fiction golden profile\n- Exact Brightspace unit: ${input.recipe.source.brightspaceUnitId}\n- Canonical recipe: projects/${input.args.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.args.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.args.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.args.projectSlug}\n\n## Authoring boundary\n\nKeep the finished Short Stories behavior as the regression baseline. Edit the recipe or reusable English renderers for durable decisions; put bespoke code or data under the preserved custom paths. The staged build may replace only declared generated paths.\n\n## Review blocker\n\n- Review the pilot content mapping before changing the project to ready-for-export.\n\nFinal SCORM packaging remains blocked until the project is ready-for-export and project E2E passes.\n`,
+      `# ${input.recipe.courseCode} ${input.recipe.courseTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: short-fiction golden profile\n- Exact Brightspace unit: ${input.recipe.source.brightspaceUnitId}\n- Canonical recipe: projects/${input.args.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.args.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.args.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.args.projectSlug}\n\n## Source authority\n\nThe teacher/SPO archive controls the unit organization, assigned texts, and question sets. Brightspace supplies instructional lesson content. The finished Short Stories course supplies the visual and interaction baseline.\n\n## Authoring boundary\n\nEdit the recipe or reusable English renderers for durable decisions; put bespoke code or data under the preserved custom paths. The staged build may replace only declared generated paths.\n\n## Review blocker\n\n- Review the content mapping before changing the project to ready-for-export.\n\nFinal SCORM packaging remains blocked until the project is ready-for-export and project E2E passes.\n`,
       "utf8"
     );
   }
@@ -358,7 +386,7 @@ async function writeProjectMetadata(input: {
       sourceSystem: "brightspace",
       sourcePath: input.brightspaceRawPath,
       importedAt: (existing.importedFirstPassOrigin as { importedAt?: string } | undefined)?.importedAt ?? now,
-      notes: "ELA 20-1 Short Stories pilot: CBE lesson sequence plus teacher-selected readings and questions."
+      notes: `${input.recipe.courseCode} ${input.recipe.courseTitle}: Brightspace lesson sequence plus teacher-selected readings and questions.`
     },
     exportTargets: [
       { target: "scorm", enabled: true, notes: "Non-final SCORM 2004 pilot package for Brightspace testing." },
@@ -367,35 +395,22 @@ async function writeProjectMetadata(input: {
     authoringStatus: "active",
     referenceOnly: [input.brightspaceRawPath, input.teacherRawPath, ELA30_SHORT_STORIES_REFERENCE],
     sourceOfTruthNotes:
-      "The editable workspace is generated from meta/english-unit.json, the immutable source ZIPs in raw, and scripts/build-english-unit.ts. The finished ELA 30-1 Short Stories workspace is the lesson-organization and lesson-presentation reference; ELA 20-1 readings, questions, wording corrections, and evidence tools remain course-specific. Edit the recipe or reusable renderer for durable decisions; do not patch exports.",
+      `The editable workspace is generated from meta/english-unit.json, the immutable imported source ZIPs, and scripts/build-english-unit.ts. The teacher/SPO archive controls organization and assigned texts; Brightspace supplies lessons. The finished ELA 30-1 Short Stories workspace is the visual and interaction reference; ${input.recipe.courseCode} content remains course-specific. Edit the recipe or reusable renderer for durable decisions; do not patch exports.`,
     injectedComponents: []
   };
   await writeFile(projectJsonPath, `${JSON.stringify(projectJson, null, 2)}\n`, "utf8");
   const e2ePath = path.join(input.metaDir, "e2e-contract.json");
-  if (!(await fileExists(e2ePath))) {
-    await writeFile(
-      e2ePath,
-      `${JSON.stringify(
-        {
-          $schema: "../../../e2e/project-e2e-contract.schema.json",
-          projectSlug: input.args.projectSlug,
-          requiredTestIds: ["studio-shell", "course-studio-tab", "workspace-project-select", "project-root", "workspace-preview-frame"],
-          modes: { enabled: false },
-          navigation: { enabled: false },
-          quiz: { enabled: false, lessonTitle: "Question Bank" },
-          fallbackPanel: { enabled: false }
-        },
-        null,
-        2
-      )}\n`,
-      "utf8"
-    );
-  }
+  await writeEnglishLearnerE2EContract({
+    projectSlug: input.args.projectSlug,
+    html: await readFile(workspaceEntry, "utf8"),
+    contractPath: e2ePath,
+    quizTitle: "Question Bank"
+  });
   await writeFile(path.join(input.metaDir, "english-unit-mapping.json"), `${JSON.stringify(input.report, null, 2)}\n`, "utf8");
   await writeFile(path.join(input.metaDir, "english-unit-mapping.md"), renderMappingMarkdown(input.report), "utf8");
   await writeFile(
     path.join(input.metaDir, "conversion-notes.md"),
-    `# ELA 20-1 Short Stories Pilot\n\n- Selected Brightspace unit: Short Stories (${input.recipe.source.brightspaceUnitId})\n- CBE lessons imported: ${input.recipe.lessonOrder.length}\n- Learner-facing lesson sequence: ${input.recipe.topLevelLessonOrder.length} lessons, matching the finished ELA 30-1 Short Stories organization and lesson presentation\n- Teacher readings: ${input.recipe.readings.length}\n- Assessments intentionally excluded: ${input.recipe.excludedFiles.length}\n- Lesson design and source-content reference: projects/ela30-1-short-stories/workspace/index.html\n- Canonical recipe: projects/${input.args.projectSlug}/meta/english-unit.json\n- Canonical workspace: projects/${input.args.projectSlug}/workspace/index.html\n- Rebuild: npm run build:english-unit -- --project ${input.args.projectSlug}\n- SCORM target: 2004 pilot only until content review\n\nThe recipe is preserved across rebuilds. The workspace is generated and may be replaced.\n`,
+    `# ${input.recipe.courseCode} ${input.recipe.courseTitle}\n\n- Selected Brightspace unit: ${input.report.selectedUnit.title} (${input.recipe.source.brightspaceUnitId})\n- Brightspace lessons imported: ${input.recipe.lessonOrder.length}\n- Learner-facing lesson sequence: ${input.recipe.topLevelLessonOrder.length} lessons\n- Teacher readings: ${input.recipe.readings.length}\n- Assessments intentionally excluded: ${input.recipe.excludedFiles.length}\n- Source authority: the teacher/SPO archive controls unit organization and assigned texts; Brightspace supplies instructional lessons\n- Visual and interaction reference: projects/ela30-1-short-stories/workspace/index.html\n- Canonical recipe: projects/${input.args.projectSlug}/meta/english-unit.json\n- Canonical workspace: projects/${input.args.projectSlug}/workspace/index.html\n- Rebuild: npm run build:english-unit -- --project ${input.args.projectSlug}\n\nThe recipe is preserved across rebuilds. The workspace is generated and may be replaced.\n`,
     "utf8"
   );
 }
@@ -409,7 +424,7 @@ export async function buildEnglishUnit(args: BuildArgs) {
   const existingRecipePath = path.join(metaDir, "english-unit.json");
   if (await fileExists(existingRecipePath)) {
     const existingRecipe = JSON.parse(await readFile(existingRecipePath, "utf8")) as { schemaVersion?: number };
-    if (existingRecipe.schemaVersion === 2) {
+    if (existingRecipe.schemaVersion === 2 || existingRecipe.schemaVersion === 3) {
       return buildEnglishFactoryProject({ repoRoot, projectSlug: args.projectSlug });
     }
   }
@@ -453,7 +468,16 @@ export async function buildEnglishUnit(args: BuildArgs) {
       readings = await buildReadings({ recipe: prepared.recipe, teacherZip, workspaceDir: stageDir, resourceDir, reportItems });
       videos = collectVerifiedVideos(unit.lessons, prepared.recipe);
       const html = renderEnglishUnit({ recipe: prepared.recipe, lessons: unit.lessons, readings, videos });
-      const forbiddenLearnerPhrases = ["SHORT STORY HARD GATE", "SHORT STORY UNIT SOFT GATE", "English 30-1", "Diploma Exam", "diploma exam", "Part A (Written)"];
+      const forbiddenLearnerPhrases = [
+        "HARD GATE",
+        "SOFT GATE",
+        "Diploma Exam",
+        "diploma exam",
+        "Part A (Written)",
+        ...(prepared.recipe.courseCode === "ELA 10-1"
+          ? ["ELA 20-1", "English 20-1", "ELA 30-1", "English 30-1"]
+          : ["ELA 30-1", "English 30-1"])
+      ];
       const leaked = forbiddenLearnerPhrases.filter((phrase) => html.includes(phrase));
       if (leaked.length) throw new Error(`Forbidden learner-facing content remains: ${leaked.join(", ")}`);
       await writeFile(path.join(stageDir, "index.html"), html, "utf8");
@@ -491,7 +515,7 @@ async function main() {
   console.log(`Lessons: ${result.report.selectedUnit.lessonCount}`);
   console.log(`Readings/resources: ${"readings" in result ? result.readings.length : result.resourceCount}`);
   console.log(`Verified videos: ${"videos" in result ? result.videos.length : result.videoCount}`);
-  console.log(`Excluded assessments: ${result.report.summary.excluded}`);
+  console.log(`Excluded items: ${result.report.summary.excluded}`);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

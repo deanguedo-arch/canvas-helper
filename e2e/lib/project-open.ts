@@ -1,7 +1,121 @@
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 
-export async function openProjectInStudio(page: Page, slug: string) {
+type WorkspacePreviewReadyOptions = {
+  requireEvidenceBank?: boolean;
+};
+
+function urlWithoutHash(value: string) {
+  const url = new URL(value);
+  return `${url.origin}${url.pathname}${url.search}`;
+}
+
+export function workspacePreviewPathMatchesProject(pathname: string, slug: string) {
+  let decodedPathname = pathname;
+  try {
+    decodedPathname = decodeURIComponent(pathname);
+  } catch {
+    // Keep the original pathname so malformed escaping fails the exact segment check.
+  }
+  return decodedPathname.includes(`/preview/workspace/${slug}/`);
+}
+
+async function waitForStudioRender(page: Page) {
+  await page.evaluate(
+    () => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))
+  );
+}
+
+export async function waitForWorkspacePreviewReady(
+  page: Page,
+  slug: string,
+  options: WorkspacePreviewReadyOptions = {}
+) {
+  const frameElement = page.getByTestId("workspace-preview-frame");
+  await expect(frameElement, `workspace preview frame is visible for ${slug}`).toBeVisible();
+  await expect
+    .poll(
+      async () => {
+        const src = await frameElement.getAttribute("src");
+        if (!src) return false;
+        return workspacePreviewPathMatchesProject(new URL(src, page.url()).pathname, slug);
+      },
+      { message: `workspace preview source targets ${slug}` }
+    )
+    .toBe(true);
+
+  await expect
+    .poll(
+      async () => {
+        const src = await frameElement.getAttribute("src");
+        if (!src) return false;
+        const expectedUrl = urlWithoutHash(new URL(src, page.url()).href);
+        const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+        return workspaceFrame.locator("body").evaluate(
+          (_, readiness) => {
+            const evidenceApi = (
+              window as typeof window & {
+                nextStepEvidenceBank?: {
+                  list?: unknown;
+                  remove?: unknown;
+                  upsert?: unknown;
+                };
+              }
+            ).nextStepEvidenceBank;
+            const activeUrl = `${window.location.origin}${window.location.pathname}${window.location.search}`;
+            const evidenceReady = !readiness.requireEvidenceBank
+              || Boolean(
+                evidenceApi
+                && typeof evidenceApi.list === "function"
+                && typeof evidenceApi.remove === "function"
+                && typeof evidenceApi.upsert === "function"
+              );
+            return document.readyState !== "loading"
+              && Boolean(document.body)
+              && activeUrl === readiness.expectedUrl
+              && evidenceReady;
+          },
+          { expectedUrl, requireEvidenceBank: Boolean(options.requireEvidenceBank) }
+        ).catch(() => false);
+      },
+      {
+        message: options.requireEvidenceBank
+          ? `workspace preview and Evidence Bank runtime are ready for ${slug}`
+          : `workspace preview runtime is ready for ${slug}`
+      }
+    )
+    .toBe(true);
+
+  await page
+    .frameLocator('[data-testid="workspace-preview-frame"]')
+    .locator("body")
+    .evaluate(
+      () => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))
+    );
+}
+
+export async function reloadWorkspacePreview(
+  page: Page,
+  slug: string,
+  options: WorkspacePreviewReadyOptions = {}
+) {
+  await waitForWorkspacePreviewReady(page, slug, options);
+  const frameElement = page.getByTestId("workspace-preview-frame");
+  const elementHandle = await frameElement.elementHandle();
+  const workspaceFrame = await elementHandle?.contentFrame();
+  if (!workspaceFrame) {
+    throw new Error(`Workspace preview frame is unavailable for ${slug}.`);
+  }
+
+  await workspaceFrame.goto(workspaceFrame.url(), { waitUntil: "domcontentloaded" });
+  await waitForWorkspacePreviewReady(page, slug, options);
+}
+
+export async function openProjectInStudio(
+  page: Page,
+  slug: string,
+  options: WorkspacePreviewReadyOptions = {}
+) {
   await page.goto("/?e2e=1");
   await expect(page.getByTestId("studio-shell")).toBeVisible();
 
@@ -22,17 +136,24 @@ export async function openProjectInStudio(page: Page, slug: string) {
       { message: `workspace project option appears for ${slug}` }
     )
     .toBe(true);
-  await projectSelect.evaluate((select, targetSlug) => {
-    const element = select as HTMLSelectElement;
-    element.value = targetSlug;
-    element.dispatchEvent(new Event("change", { bubbles: true }));
-  }, slug);
+  await projectSelect.selectOption(slug);
+  await expect(projectSelect, `workspace project selection updates to ${slug}`).toHaveValue(slug);
 
   await expect(page.getByTestId("project-root")).toBeVisible();
-  await expect(page.getByTestId("workspace-preview-frame")).toBeVisible();
+  await waitForWorkspacePreviewReady(page, slug, options);
 
   const refreshButton = page.getByTestId("workspace-refresh-button");
   if (await refreshButton.isVisible()) {
+    const refreshResponse = page.waitForResponse((response) => {
+      const url = new URL(response.url());
+      return url.pathname === "/api/projects"
+        && response.request().method() === "GET"
+        && response.ok();
+    });
     await refreshButton.click();
+    await refreshResponse;
+    await waitForStudioRender(page);
+    await expect(projectSelect, `workspace project remains selected after refreshing ${slug}`).toHaveValue(slug);
+    await waitForWorkspacePreviewReady(page, slug, options);
   }
 }
