@@ -1,0 +1,304 @@
+{
+  "schemaVersion": 3,
+  "projectSlug": "ela10-2-writing-foundations",
+  "courseCode": "ELA 10-2",
+  "courseTitle": "English Language Arts 10-2",
+  "unitTitle": "Writing Foundations",
+  "profileVersion": "next-step-english-v3-ela10-2",
+  "status": "needs-review",
+  "derivesFromProject": "ela10-1-short-stories",
+  "writingForms": [],
+  "source": {
+    "brightspaceZip": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "teacherResourcesZip": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "brightspaceUnitId": "3350",
+    "teacherFolder": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting",
+    "archiveRefs": {
+      "brightspace": "brightspace",
+      "teacherResources": "teacher-resources"
+    },
+    "lessonSelectors": [
+      {
+        "itemId": "3351",
+        "title": "Writing Foundations",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3352",
+        "title": "Complete Sentences",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3353",
+        "title": "Paragraph Structure and Drafting",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3354",
+        "title": "Paragraph Planning Model: Hamburger",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3355",
+        "title": "Paragraph Planning Model: Graphic Organizer",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3356",
+        "title": "Paragraph Planning Model: PEEL",
+        "disposition": "include"
+      },
+      {
+        "itemId": "3357",
+        "title": "Organizing for Coherence",
+        "disposition": "include"
+      }
+    ]
+  },
+  "activityProfile": {
+    "schemaVersion": 1,
+    "kind": "writing-foundations",
+    "activities": [
+      {
+        "id": "sentence-lab",
+        "title": "Sentence Lab",
+        "route": "sentence-lab",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "corrected-sentence-collection",
+          "sentence-example-entry"
+        ]
+      },
+      {
+        "id": "paragraph-builder",
+        "title": "Paragraph Builder",
+        "route": "paragraph-builder",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "paragraph-plan-collection"
+        ]
+      },
+      {
+        "id": "organization-lab",
+        "title": "Coherence Practice",
+        "route": "organization-lab",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "organized-paragraph-collection"
+        ]
+      },
+      {
+        "id": "final-paragraph",
+        "title": "Final Paragraph",
+        "route": "final-paragraph",
+        "enabled": true,
+        "evidencePolicyIds": [
+          "final-paragraph-collection"
+        ]
+      },
+      {
+        "id": "evidence-bank",
+        "title": "Evidence Bank",
+        "route": "evidence-bank",
+        "enabled": true,
+        "evidencePolicyIds": []
+      },
+      {
+        "id": "resources",
+        "title": "Resources",
+        "route": "resources",
+        "enabled": true,
+        "evidencePolicyIds": []
+      }
+    ],
+    "evidencePolicies": [
+      {
+        "id": "corrected-sentence-collection",
+        "activityId": "sentence-lab",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "activity",
+        "contributionIdTemplate": "{projectSlug}:sentence-lab:collection"
+      },
+      {
+        "id": "sentence-example-entry",
+        "activityId": "sentence-lab",
+        "saveMode": "individual",
+        "requiresExplicitSave": true,
+        "contributionIdTemplate": "{projectSlug}:sentence-lab:{entryId}"
+      },
+      {
+        "id": "paragraph-plan-collection",
+        "activityId": "paragraph-builder",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "locator",
+        "contributionIdTemplate": "{projectSlug}:paragraph-builder:{locatorId}"
+      },
+      {
+        "id": "organized-paragraph-collection",
+        "activityId": "organization-lab",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "activity",
+        "contributionIdTemplate": "{projectSlug}:organization-lab:collection"
+      },
+      {
+        "id": "final-paragraph-collection",
+        "activityId": "final-paragraph",
+        "saveMode": "collection",
+        "requiresExplicitSave": true,
+        "collectionScope": "activity",
+        "contributionIdTemplate": "{projectSlug}:final-paragraph:collection"
+      }
+    ]
+  },
+  "lessonOrder": [
+    "3351",
+    "3352",
+    "3353",
+    "3354",
+    "3355",
+    "3356",
+    "3357"
+  ],
+  "topLevelLessonOrder": [
+    "3351",
+    "3352",
+    "3353",
+    "3354",
+    "3355",
+    "3356",
+    "3357"
+  ],
+  "lessonGroups": [
+    {
+      "id": "unit-lessons",
+      "title": "Writing Foundations",
+      "lessonIds": [
+        "3351",
+        "3352",
+        "3353",
+        "3354",
+        "3355",
+        "3356",
+        "3357"
+      ]
+    }
+  ],
+  "readings": [],
+  "placements": [],
+  "analysisTerms": [],
+  "analysisExamples": [],
+  "resourceDispositions": [
+    {
+      "id": "writing-soft-reading",
+      "source": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting/SOFT GATE_ Ensign Knightly Reading.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "writing-soft-questions",
+      "source": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting/SOFT GATE_ Ensign Knightly Questions.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "id": "writing-hard-gate",
+      "source": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting/HARD GATE- Paragraph Response.docx",
+      "role": "excluded-assessment",
+      "disposition": "exclude",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "excludedFiles": [
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting/SOFT GATE_ Ensign Knightly Reading.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting/SOFT GATE_ Ensign Knightly Questions.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    },
+    {
+      "file": "ENGLISH 10-2 NSO/UNIT 1 Essentials of Writting/HARD GATE- Paragraph Response.docx",
+      "reason": "Soft/hard-gate assessment is intentionally excluded."
+    }
+  ],
+  "wordingCorrections": [
+    {
+      "find": "ELA 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 10-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 20-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "ELA 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "English 30-1",
+      "replace": "ELA 10-2",
+      "reason": "Correct inherited donor course-level wording."
+    },
+    {
+      "find": "CBE",
+      "replace": "",
+      "reason": "Remove inherited provider branding from learner-facing copy."
+    },
+    {
+      "find": "continue to the next page",
+      "replace": "",
+      "reason": "Remove obsolete LMS navigation language."
+    }
+  ],
+  "mediaPolicy": {
+    "verifiedAt": "not-reviewed",
+    "allowedYouTubeIds": [],
+    "blockedYouTubeIds": [],
+    "approvedExternalUrls": [],
+    "externalUrlRewrites": {}
+  },
+  "customComponents": [],
+  "acceptance": {
+    "requiredRoutes": [
+      "sentence-lab",
+      "paragraph-builder",
+      "organization-lab",
+      "final-paragraph",
+      "evidence-bank",
+      "resources"
+    ],
+    "requiredActivityIds": [
+      "sentence-lab",
+      "paragraph-builder",
+      "organization-lab",
+      "final-paragraph",
+      "evidence-bank",
+      "resources"
+    ],
+    "reviewItems": [
+      "Confirm all seven UTF-16LE pages normalize cleanly to UTF-8.",
+      "Resolve rights before using the Teachers Pay Teachers slides; they remain source-only by default.",
+      "Verify the native run-on-sentence lesson and accessible hamburger, Graphic, and PEEL diagrams.",
+      "Use the current Purdue OWL Paragraphs and Paragraphing page as the verified writing support; the broken SlideShare embed and obsolete Purdue URL remain excluded."
+    ]
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "id": "ela10-2-writing-foundations",
+  "slug": "ela10-2-writing-foundations",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+  "inputKind": "brightspace-zip",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-writing-foundations/workspace/index.html",
+  "createdAt": "2026-07-22T16:31:29.116Z",
+  "updatedAt": "2026-07-28T18:12:43.685Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-writing-foundations/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-writing-foundations/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-writing-foundations/meta/english-unit.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-writing-foundations/meta/prompt-pack.md",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/factory-build.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/activity-profile-renderers.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-profile-renderer.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-runtime-sanitizer.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-donor-lessons.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/writing-foundations-lessons.ts",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+  ],
+  "generatedOutputs": [],
+  "regenerateCommand": "npm run build:english-unit -- --project ela10-2-writing-foundations",
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "importedAt": "2026-07-22T16:31:29.116Z",
+    "notes": "Writing Foundations V3 derived factory conversion from ela10-1-short-stories using the writing-foundations activity profile."
+  },
+  "authoringStatus": "active",
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical editable workspace preview."
+    }
+  ],
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/config/english/families/ela10-2.json",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx"
+  ],
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-07-24T18:23:48.382Z",
+  "workspaceApprovedAt": "2026-07-28T17:07:43.415Z"
+}

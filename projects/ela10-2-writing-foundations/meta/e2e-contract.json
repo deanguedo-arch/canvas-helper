@@ -1,0 +1,93 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela10-2-writing-foundations",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-writing-foundations",
+      "lesson-2-complete-sentences",
+      "lesson-3-topic-sentences-paragraph-structure",
+      "lesson-4-supporting-details-development",
+      "lesson-5-paragraph-planning-models",
+      "lesson-6-unity-coherence-transitions",
+      "lesson-7-revise-edit-polish",
+      "sentence-lab",
+      "paragraph-builder",
+      "organization-lab",
+      "final-paragraph",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [
+      "sentence-lab",
+      "paragraph-builder",
+      "organization-lab",
+      "final-paragraph"
+    ],
+    "printRoutes": [
+      "sentence-lab",
+      "paragraph-builder",
+      "organization-lab",
+      "final-paragraph",
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "route": "sentence-lab",
+        "collectionId": "ela10-2-writing-foundations:writing-foundations:sentence-lab:collection",
+        "responseId": "ela10-2-writing-foundations:writing-foundations:sentence-lab:speaker-doubts:repair"
+      },
+      {
+        "route": "paragraph-builder",
+        "collectionId": "ela10-2-writing-foundations:writing-foundations:paragraph-builder:hamburger:collection",
+        "responseId": "ela10-2-writing-foundations:writing-foundations:paragraph-builder:hamburger:topic-sentence"
+      },
+      {
+        "route": "organization-lab",
+        "collectionId": "ela10-2-writing-foundations:writing-foundations:organization-lab:collection",
+        "responseId": "ela10-2-writing-foundations:writing-foundations:organization-lab:details-evidence"
+      },
+      {
+        "route": "final-paragraph",
+        "collectionId": "ela10-2-writing-foundations:writing-foundations:final-paragraph:collection",
+        "responseId": "ela10-2-writing-foundations:writing-foundations:final-paragraph:planning-note"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-writing-foundations",
+        "sentence-lab",
+        "paragraph-builder",
+        "organization-lab",
+        "final-paragraph",
+        "evidence-bank"
+      ]
+    }
+  }
+}

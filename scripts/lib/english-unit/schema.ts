@@ -4,10 +4,12 @@ import type {
   EnglishActivityProfileV1,
   EnglishContractValidationIssue,
   EnglishCourseManifestV1,
+  EnglishEvidenceBankRetrofitV1,
   EnglishEvidenceEntryV2,
   EnglishReviewStatus,
   EnglishUnitRecipeV1,
-  EnglishUnitRecipeV2
+  EnglishUnitRecipeV2,
+  EnglishUnitRecipeV3
 } from "./types.js";
 
 const nonEmptyString = z.string().trim().min(1);
@@ -25,6 +27,7 @@ export const EnglishResourceRoleSchema = z.enum([
 
 export const EnglishActivityProfileKindSchema = z.enum([
   "short-fiction",
+  "writing-foundations",
   "modern-drama",
   "shakespeare-drama",
   "novel-study",
@@ -103,6 +106,12 @@ export const EnglishShortFictionActivityProfileSchema = activityProfileBase
   })
   .strict();
 
+export const EnglishWritingFoundationsActivityProfileSchema = activityProfileBase
+  .extend({
+    kind: z.literal("writing-foundations")
+  })
+  .strict();
+
 export const EnglishModernDramaActivityProfileSchema = activityProfileBase
   .extend({
     kind: z.literal("modern-drama"),
@@ -171,6 +180,7 @@ export const EnglishFilmStudyActivityProfileSchema = activityProfileBase
 
 export const EnglishActivityProfileV1Schema = z.discriminatedUnion("kind", [
   EnglishShortFictionActivityProfileSchema,
+  EnglishWritingFoundationsActivityProfileSchema,
   EnglishModernDramaActivityProfileSchema,
   EnglishShakespeareDramaActivityProfileSchema,
   EnglishNovelStudyActivityProfileSchema,
@@ -301,18 +311,57 @@ const v2SourceSchema = v1SourceSchema
   })
   .strict();
 
+const EnglishSourcePageRangeV1Schema = z
+  .object({
+    start: z.number().int().positive(),
+    end: z.number().int().positive()
+  })
+  .strict()
+  .refine((range) => range.end >= range.start, {
+    path: ["end"],
+    message: "Source page range end must be greater than or equal to start."
+  });
+
 export const EnglishResourceDispositionV2Schema = z
   .object({
     id: nonEmptyString,
     source: nonEmptyString,
     title: nonEmptyString.optional(),
     role: EnglishResourceRoleSchema,
-    disposition: z.enum(["place", "exclude", "review-required"]),
+    disposition: z.enum(["place", "exclude", "review-required", "source-only"]),
+    sourcePages: z.array(EnglishSourcePageRangeV1Schema).min(1).optional(),
     destination: nonEmptyString.optional(),
     targetLessonIds: z.array(nonEmptyString).optional(),
     reason: nonEmptyString
   })
-  .strict();
+  .strict()
+  .superRefine((resource, context) => {
+    if (!resource.sourcePages) return;
+    if (resource.disposition !== "source-only") {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["sourcePages"],
+        message: "Page-scoped PDF resources must be source-only so the untrimmed source cannot become a learner download."
+      });
+    }
+    if (!/\.pdf$/i.test(resource.source.split(/[?#]/, 1)[0] ?? "")) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["sourcePages"],
+        message: "Source page ranges are supported only for PDF resources."
+      });
+    }
+    resource.sourcePages.forEach((range, index) => {
+      const previous = resource.sourcePages?.[index - 1];
+      if (previous && range.start <= previous.end) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["sourcePages", index, "start"],
+          message: "Source page ranges must be ordered and non-overlapping."
+        });
+      }
+    });
+  });
 
 export const EnglishComponentOverrideSchema = z
   .object({
@@ -373,9 +422,91 @@ export const EnglishUnitRecipeV2Schema = z
   })
   .strict();
 
-export const EnglishUnitRecipeSchema = z.discriminatedUnion("schemaVersion", [
+export const EnglishWritingFormKindSchema = z.enum([
+  "critical-essay",
+  "literary-exploration",
+  "personal-response",
+  "visual-response"
+]);
+
+export const EnglishWritingFormConfigV1Schema = z
+  .object({
+    kind: EnglishWritingFormKindSchema,
+    trackMode: z.enum(["unit", "per-work"]),
+    profile: nonEmptyString.optional()
+  })
+  .strict();
+
+const orderedWritingFormsSchema = z.array(EnglishWritingFormConfigV1Schema).superRefine((forms, context) => {
+  const firstIndexByKind = new Map<string, number>();
+  forms.forEach((form, index) => {
+    const firstIndex = firstIndexByKind.get(form.kind);
+    if (firstIndex !== undefined) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: [index, "kind"],
+        message: `Writing form "${form.kind}" duplicates the form at index ${firstIndex}.`
+      });
+      return;
+    }
+    firstIndexByKind.set(form.kind, index);
+  });
+});
+
+function normalizedCourseCode(value: string) {
+  return value.toUpperCase().replace(/\s+/g, "");
+}
+
+export const EnglishUnitRecipeV3Schema = EnglishUnitRecipeV2Schema
+  .omit({ schemaVersion: true })
+  .extend({
+    schemaVersion: z.literal(3),
+    derivesFromProject: nonEmptyString,
+    writingForms: orderedWritingFormsSchema
+  })
+  .strict()
+  .superRefine((recipe, context) => {
+    const courseCode = normalizedCourseCode(recipe.courseCode);
+    const kinds = recipe.writingForms.map((form) => form.kind);
+    const isMinusTwo = /(?:10|20|30)-2$/.test(courseCode);
+    const isThirtyTwo = /30-2$/.test(courseCode);
+    const isWritingFoundations = recipe.activityProfile.kind === "writing-foundations";
+
+    if (isMinusTwo && kinds.includes("critical-essay")) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["writingForms"],
+        message: "English -2 recipes cannot include Critical Essay."
+      });
+    }
+    if (!isThirtyTwo && kinds.includes("visual-response")) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["writingForms"],
+        message: "Visual Response is available only in ELA 30-2 recipes."
+      });
+    }
+
+    if (isMinusTwo) {
+      const expected = isWritingFoundations
+        ? []
+        : isThirtyTwo
+        ? ["literary-exploration", "personal-response", "visual-response"]
+        : ["literary-exploration", "personal-response"];
+      if (kinds.length !== expected.length || kinds.some((kind, index) => kind !== expected[index])) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["writingForms"],
+          message: `${recipe.courseCode} writing forms must appear exactly in this order: ${expected.join(", ")}.`
+        });
+      }
+    }
+  });
+
+export const EnglishUnitRecipeSchema = z.union([
   EnglishUnitRecipeV1Schema,
-  EnglishUnitRecipeV2Schema
+  EnglishUnitRecipeV2Schema,
+  EnglishUnitRecipeV3Schema
 ]);
 
 export const EnglishCourseManifestV1Schema = z
@@ -390,9 +521,10 @@ export const EnglishCourseManifestV1Schema = z
       z
         .object({
           id: nonEmptyString,
-          kind: z.enum(["brightspace", "teacher-resources"]),
+          kind: z.enum(["brightspace", "teacher-resources", "audit-reference", "supplement"]),
           path: nonEmptyString,
           sha256,
+          inventoryPath: nonEmptyString.optional(),
           importedAt: isoDateTime.optional()
         })
         .strict()
@@ -476,13 +608,229 @@ export const EnglishEvidenceEntryV2Schema = z
 
 export const EnglishEvidenceFilterV2Schema = z
   .object({
+    contributionId: z.union([nonEmptyString, z.array(nonEmptyString).min(1)]).optional(),
+    responseId: z.union([nonEmptyString, z.array(nonEmptyString).min(1)]).optional(),
     activityId: nonEmptyString.optional(),
+    activity: nonEmptyString.optional(),
     profile: EnglishActivityProfileKindSchema.optional(),
     workId: nonEmptyString.optional(),
+    text: nonEmptyString.optional(),
     locator: nonEmptyString.optional(),
     tags: z.array(nonEmptyString).optional()
   })
   .strict();
+
+export const EnglishEvidenceBankRetrofitAdapterV1Schema = z
+  .object({
+    id: nonEmptyString,
+    kind: z.enum(["individual", "collection"]),
+    route: nonEmptyString,
+    rootSelector: nonEmptyString,
+    saveSelector: nonEmptyString,
+    contributionId: nonEmptyString,
+    source: z
+      .object({
+        kind: z.enum(["lesson", "reading", "question-set", "writing-studio", "activity", "media"]),
+        id: nonEmptyString,
+        title: nonEmptyString.optional()
+      })
+      .strict(),
+    activity: z
+      .object({
+        id: nonEmptyString,
+        profile: EnglishActivityProfileKindSchema,
+        title: nonEmptyString.optional()
+      })
+      .strict(),
+    work: z
+      .object({
+        id: nonEmptyString,
+        title: nonEmptyString,
+        kind: z.enum(["text", "film", "visual", "paired-text"])
+      })
+      .strict()
+      .optional(),
+    locator: z
+      .object({
+        label: nonEmptyString.optional(),
+        act: nonEmptyString.optional(),
+        scene: nonEmptyString.optional(),
+        chapter: nonEmptyString.optional(),
+        timestamp: nonEmptyString.optional()
+      })
+      .strict()
+      .optional(),
+    fieldSelectors: z
+      .object({
+        source: nonEmptyString.optional(),
+        concept: nonEmptyString.optional(),
+        prompt: nonEmptyString.optional(),
+        answer: nonEmptyString.optional(),
+        evidence: nonEmptyString.optional(),
+        analysis: nonEmptyString.optional(),
+        counterpoint: nonEmptyString.optional()
+      })
+      .strict()
+      .optional(),
+    questionSelector: nonEmptyString.optional(),
+    responseSelector: nonEmptyString.optional(),
+    evidencePolicy: z
+      .object({
+        defaultKind: z.enum(["individual", "collection"]),
+        individualActiveValues: z.array(nonEmptyString).optional(),
+        disabledActiveValues: z.array(nonEmptyString).optional()
+      })
+      .strict()
+      .optional(),
+    tags: z.array(nonEmptyString).optional(),
+    saveLabel: nonEmptyString.optional(),
+    savedMessage: nonEmptyString.optional(),
+    updatedMessage: nonEmptyString.optional()
+  })
+  .strict()
+  .superRefine((adapter, context) => {
+    if (adapter.kind === "individual" && !adapter.fieldSelectors) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["fieldSelectors"],
+        message: "Individual Evidence Bank adapters require field selectors."
+      });
+    }
+    if (adapter.kind === "collection" && !adapter.responseSelector && !adapter.questionSelector) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["responseSelector"],
+        message: "Collection Evidence Bank adapters require a response or question selector."
+      });
+    }
+    const individualValues = adapter.evidencePolicy?.individualActiveValues || [];
+    const disabledValues = adapter.evidencePolicy?.disabledActiveValues || [];
+    if (new Set(individualValues).size !== individualValues.length) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["evidencePolicy", "individualActiveValues"],
+        message: "Individual active values must be unique."
+      });
+    }
+    if (new Set(disabledValues).size !== disabledValues.length) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["evidencePolicy", "disabledActiveValues"],
+        message: "Disabled active values must be unique."
+      });
+    }
+    const overlap = individualValues.find((value) => disabledValues.includes(value));
+    if (overlap) {
+      context.addIssue({
+        code: z.ZodIssueCode.custom,
+        path: ["evidencePolicy"],
+        message: `Active value ${overlap} cannot be both individual and disabled.`
+      });
+    }
+  });
+
+export const EnglishEvidenceBankRetrofitV1Schema = z
+  .object({
+    schemaVersion: z.literal(1),
+    retrofitVersion: nonEmptyString,
+    projectSlug: nonEmptyString,
+    courseCode: nonEmptyString,
+    courseTitle: nonEmptyString,
+    profile: EnglishActivityProfileKindSchema,
+    storageKey: nonEmptyString,
+    route: z
+      .object({
+        id: z.literal("evidence-bank"),
+        label: nonEmptyString,
+        icon: nonEmptyString,
+        links: z
+          .array(z.object({ id: nonEmptyString, label: nonEmptyString, icon: nonEmptyString }).strict())
+          .optional()
+      })
+      .strict(),
+    selectorsRequired: z.array(nonEmptyString).min(1),
+    adapters: z.array(EnglishEvidenceBankRetrofitAdapterV1Schema).min(1),
+    sourceSha256: sha256,
+    outputSha256: sha256,
+    appliedAt: isoDateTime,
+    selectorChecks: z.array(
+      z
+        .object({
+          selector: nonEmptyString,
+          adapterId: nonEmptyString.optional(),
+          count: z.number().int().nonnegative(),
+          status: z.enum(["placed", "failed"]),
+          message: nonEmptyString.optional()
+        })
+        .strict()
+    ).min(1)
+  })
+  .strict()
+  .superRefine((retrofit, context) => {
+    const adapterIds = new Set<string>();
+    const checkedSelectors = new Set(retrofit.selectorChecks.map((check) => check.selector));
+    const checkedAdapterIds = new Set(
+      retrofit.selectorChecks.flatMap((check) => check.adapterId ? [check.adapterId] : [])
+    );
+    retrofit.adapters.forEach((adapter, index) => {
+      if (adapterIds.has(adapter.id)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["adapters", index, "id"],
+          message: `Duplicate Evidence Bank adapter id: ${adapter.id}`
+        });
+      }
+      adapterIds.add(adapter.id);
+      if (adapter.activity.profile !== retrofit.profile) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["adapters", index, "activity", "profile"],
+          message: "Adapter profile must match the retrofit profile."
+        });
+      }
+    });
+    retrofit.selectorChecks.forEach((check, index) => {
+      if (check.adapterId && !adapterIds.has(check.adapterId)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["selectorChecks", index, "adapterId"],
+          message: `Selector check references unknown adapter: ${check.adapterId}`
+        });
+      }
+      if ((check.status === "placed" && check.count === 0) || (check.status === "failed" && check.count > 0)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["selectorChecks", index, "status"],
+          message: "Selector check status must agree with its match count."
+        });
+      }
+      if (check.status !== "placed") {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["selectorChecks", index, "status"],
+          message: "Completed Evidence Bank retrofit reports cannot contain failed selector checks."
+        });
+      }
+    });
+    retrofit.selectorsRequired.forEach((selector, index) => {
+      if (!checkedSelectors.has(selector)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["selectorsRequired", index],
+          message: `Required selector was not verified: ${selector}`
+        });
+      }
+    });
+    retrofit.adapters.forEach((adapter, index) => {
+      if (!checkedAdapterIds.has(adapter.id)) {
+        context.addIssue({
+          code: z.ZodIssueCode.custom,
+          path: ["adapters", index, "id"],
+          message: `Evidence Bank adapter was not verified: ${adapter.id}`
+        });
+      }
+    });
+  });
 
 export const EnglishUnitBuildManifestV1Schema = z
   .object({
@@ -567,7 +915,7 @@ export function validateEnglishActivityProfileCrossReferences(
   return issues;
 }
 
-export function validateEnglishUnitRecipeCrossReferences(recipe: EnglishUnitRecipeV2): EnglishContractValidationIssue[] {
+export function validateEnglishUnitRecipeCrossReferences(recipe: EnglishUnitRecipeV2 | EnglishUnitRecipeV3): EnglishContractValidationIssue[] {
   const issues = validateEnglishActivityProfileCrossReferences(recipe.activityProfile);
   const lessonIds = new Set(recipe.lessonOrder);
   const readingIds = new Set(recipe.readings.map((reading) => reading.id));
@@ -711,6 +1059,16 @@ export function validateEnglishCourseManifestCrossReferences(
       });
     }
   }
+
+  manifest.archives.forEach((archive, index) => {
+    if (archive.kind === "audit-reference" && !archive.inventoryPath) {
+      issues.push({
+        code: "audit_reference_inventory_required",
+        path: ["archives", index, "inventoryPath"],
+        message: `Audit-reference archive "${archive.id}" requires an inventoryPath so advertised-but-absent targets remain explicit.`
+      });
+    }
+  });
 
   manifest.units.forEach((unit, index) => {
     if (unit.profileVersion !== manifest.profileVersion) {
@@ -885,9 +1243,11 @@ export function adaptEnglishUnitRecipeV1(
   };
 }
 
-export function parseEnglishUnitRecipe(input: unknown): EnglishUnitRecipeV2 {
+export function parseEnglishUnitRecipe(input: unknown): EnglishUnitRecipeV2 | EnglishUnitRecipeV3 {
   const parsed = EnglishUnitRecipeSchema.parse(input);
-  const recipe = parsed.schemaVersion === 1 ? adaptEnglishUnitRecipeV1(parsed as EnglishUnitRecipeV1) : (parsed as EnglishUnitRecipeV2);
+  const recipe = parsed.schemaVersion === 1
+    ? adaptEnglishUnitRecipeV1(parsed as EnglishUnitRecipeV1)
+    : (parsed as EnglishUnitRecipeV2 | EnglishUnitRecipeV3);
   const issues = validateEnglishUnitRecipeCrossReferences(recipe);
   if (issues.length > 0) {
     throw new EnglishContractValidationError("English unit recipe cross-reference validation failed.", issues);
@@ -906,4 +1266,8 @@ export function parseEnglishCourseManifest(input: unknown): EnglishCourseManifes
 
 export function parseEnglishEvidenceEntry(input: unknown): EnglishEvidenceEntryV2 {
   return EnglishEvidenceEntryV2Schema.parse(input) as EnglishEvidenceEntryV2;
+}
+
+export function parseEnglishEvidenceBankRetrofit(input: unknown): EnglishEvidenceBankRetrofitV1 {
+  return EnglishEvidenceBankRetrofitV1Schema.parse(input) as EnglishEvidenceBankRetrofitV1;
 }

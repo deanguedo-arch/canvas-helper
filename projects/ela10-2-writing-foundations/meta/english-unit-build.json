@@ -1,0 +1,60 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "ela10-2-writing-foundations",
+  "generatedAt": "2026-07-28T18:12:43.685Z",
+  "status": "needs-review",
+  "profile": {
+    "id": "writing-foundations",
+    "version": "next-step-english-v3-ela10-2",
+    "sha256": "ce42c13708ac218b691ccc7dbcaf8211ba9a1e12d6eb94ef72aa54ecc07dfefe"
+  },
+  "recipe": {
+    "path": "projects/ela10-2-writing-foundations/meta/english-unit.json",
+    "sha256": "0a09085e8cf50a2a904f0b804a41eb283b0406b640faee7270f4765b467c2448"
+  },
+  "sources": [
+    {
+      "id": "brightspace",
+      "path": "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+      "sha256": "f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53"
+    },
+    {
+      "id": "teacher-resources",
+      "path": "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+      "sha256": "cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be"
+    },
+    {
+      "id": "family:supplement-90a7e3ee3452",
+      "path": "projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+      "sha256": "90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf"
+    },
+    {
+      "id": "family:supplement-425beada71fb",
+      "path": "projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+      "sha256": "425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef"
+    },
+    {
+      "id": "family:ela10-2",
+      "path": "config/english/families/ela10-2.json",
+      "sha256": "b6f0cb45ae387b564d448a2a3b6e4f5d417109d941457eb6f6eadbd9c2a02e28"
+    }
+  ],
+  "components": [],
+  "ownedFiles": [
+    "assets/generated/brand/nxt-ce-logo-white-with-ce.png",
+    "assets/generated/lessons/paragraph-planning-model-graphic-organizer-screen-shot-2018-01-31-at-10-56-06-am.png",
+    "assets/generated/lessons/paragraph-planning-model-hamburger-slide05.jpg",
+    "assets/generated/lessons/paragraph-planning-model-hamburger-slide06.jpg",
+    "assets/generated/lessons/paragraph-planning-model-hamburger-slide07.jpg",
+    "assets/generated/lessons/paragraph-planning-model-hamburger-slide08.jpg",
+    "assets/generated/lessons/paragraph-planning-model-hamburger-slide09.jpg",
+    "assets/generated/lessons/paragraph-planning-model-peel-screen-shot-2018-01-31-at-11-05-25-am.png",
+    "index.html"
+  ],
+  "reviewItems": [
+    "Confirm all seven UTF-16LE pages normalize cleanly to UTF-8.",
+    "Resolve rights before using the Teachers Pay Teachers slides; they remain source-only by default.",
+    "Verify the native run-on-sentence lesson and accessible hamburger, Graphic, and PEEL diagrams.",
+    "Use the current Purdue OWL Paragraphs and Paragraphing page as the verified writing support; the broken SlideShare embed and obsolete Purdue URL remain excluded."
+  ]
+}

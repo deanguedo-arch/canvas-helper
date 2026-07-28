@@ -1,3 +1,6 @@
+import { ENGLISH_EVIDENCE_BANK_RUNTIME } from "./english-unit/evidence-bank-core.js";
+import type { EnglishActivityProfileKind } from "./english-unit/types.js";
+
 export type NextStepShellLesson = {
   id: string;
   title: string;
@@ -15,6 +18,8 @@ export type NextStepShellNavItem = {
   label: string;
   icon: string;
   html: string;
+  /** Render the page and route, but omit a redundant top-level sidebar link. */
+  hiddenFromNavigation?: boolean;
 };
 
 export type NextStepShellNavGroup = {
@@ -22,6 +27,7 @@ export type NextStepShellNavGroup = {
   label: string;
   icon: string;
   html: string;
+  landingItemLabel?: string;
   items: NextStepShellNavItem[];
 };
 
@@ -30,9 +36,11 @@ export type NextStepCourseShellOptions = {
   courseTitle: string;
   courseCode: string;
   overviewIntro: string;
+  overviewNotice?: string;
   outcomes: string[];
   lessons: NextStepShellLesson[];
   completionIds?: string[];
+  completionLabel?: string;
   navGroups?: NextStepShellNavGroup[];
   navItems?: NextStepShellNavItem[];
   lessonGroupTitle?: string;
@@ -41,6 +49,7 @@ export type NextStepCourseShellOptions = {
   nextAfterLastLesson?: { id: string; label: string };
   logoPath?: string;
   storageKeyBase?: string;
+  evidenceProfile?: EnglishActivityProfileKind;
   showLessonCardSummary?: boolean;
   showLessonHeaderSummary?: boolean;
   showLessonSubnavHeadings?: boolean;
@@ -129,6 +138,7 @@ function renderSubnav(lessons: NextStepShellLesson[], showHeadings = true) {
 }
 
 function renderNavGroup(group: NextStepShellNavGroup) {
+  const itemNumberOffset = group.landingItemLabel ? 2 : 1;
   return `<div class="nav-group" data-nav-group="${escapeHtml(group.id)}">
         <a class="course-nav-link nav-group-toggle" href="#${escapeHtml(group.id)}" data-page-target="${escapeHtml(group.id)}" data-nav-group-toggle="${escapeHtml(group.id)}" aria-expanded="false" aria-controls="${escapeHtml(group.id)}-subnav">
           <span class="material-symbols-outlined" aria-hidden="true">${escapeHtml(group.icon)}</span>
@@ -136,10 +146,13 @@ function renderNavGroup(group: NextStepShellNavGroup) {
           <span class="material-symbols-outlined lessons-toggle-icon nav-group-icon" aria-hidden="true">expand_more</span>
         </a>
         <div id="${escapeHtml(group.id)}-subnav" class="lesson-subnav nav-group-subnav">
+          ${group.landingItemLabel
+            ? `<a class="sublesson-link" href="#${escapeHtml(group.id)}" data-page-target="${escapeHtml(group.id)}">1. ${escapeHtml(group.landingItemLabel)}</a>`
+            : ""}
           ${group.items
             .map(
               (item, index) =>
-                `<a class="sublesson-link" href="#${escapeHtml(item.id)}" data-page-target="${escapeHtml(item.id)}">${index + 1}. ${escapeHtml(item.label)}</a>`
+                `<a class="sublesson-link" href="#${escapeHtml(item.id)}" data-page-target="${escapeHtml(item.id)}">${index + itemNumberOffset}. ${escapeHtml(item.label)}</a>`
             )
             .join("\n")}
         </div>
@@ -149,6 +162,7 @@ function renderNavGroup(group: NextStepShellNavGroup) {
 function renderSidebar(options: NextStepCourseShellOptions) {
   const navGroups = (options.navGroups ?? []).map((group) => renderNavGroup(group)).join("\n");
   const extraNav = (options.navItems ?? [])
+    .filter((item) => !item.hiddenFromNavigation)
     .map(
       (item) => `<a class="course-nav-link" href="#${escapeHtml(item.id)}" data-page-target="${escapeHtml(item.id)}">
         <span class="material-symbols-outlined" aria-hidden="true">${escapeHtml(item.icon)}</span>
@@ -187,6 +201,7 @@ function renderSidebar(options: NextStepCourseShellOptions) {
 function renderTopbar(options: NextStepCourseShellOptions) {
   const logoPath = options.logoPath ?? "assets/brand/nxt-ce-logo-white-with-ce.png";
   const completionCount = options.completionIds?.length ?? options.lessons.length;
+  const completionLabel = options.completionLabel ?? "lessons";
   return `<header class="course-topbar">
     <button id="topbar-menu-toggle" class="topbar-menu-toggle" type="button" aria-label="Toggle menu">
       <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
@@ -197,7 +212,7 @@ function renderTopbar(options: NextStepCourseShellOptions) {
     <div class="top-progress-shell" aria-label="Course progress">
       <div class="top-progress-meta">
         <span>Course Progress</span>
-        <strong data-progress-count>0 / ${completionCount} lessons</strong>
+        <strong data-progress-count>0 / ${completionCount} ${escapeHtml(completionLabel)}</strong>
         <strong data-progress-percent>0%</strong>
       </div>
       <div class="top-progress-bar"><div class="top-progress-fill" data-progress-fill></div></div>
@@ -209,6 +224,7 @@ function renderOverview(options: NextStepCourseShellOptions) {
   const firstLesson = options.lessons[0];
   const sourceLessonLabel = options.sourceLessonLabel ?? "source lessons";
   const completionCount = options.completionIds?.length ?? options.lessons.length;
+  const completionLabel = options.completionLabel ?? "lessons";
   return `<section id="overview" class="course-page">
     <p class="course-kicker">Course overview</p>
     <h2>${escapeHtml(options.courseTitle)}</h2>
@@ -219,8 +235,9 @@ function renderOverview(options: NextStepCourseShellOptions) {
         ${options.outcomes.map((outcome) => `<li>${escapeHtml(outcome.replace(/^I can\s+/i, ""))}</li>`).join("\n")}
       </ul>
     </section>
+    ${options.overviewNotice ? `<aside class="overview-notice"><strong>Text access</strong><p>${escapeHtml(options.overviewNotice)}</p></aside>` : ""}
     <div class="overview-actions" aria-label="Course status and actions">
-      <span class="completed-pill"><strong data-progress-count-inline>0/${completionCount}</strong> lessons complete</span>
+      <span class="completed-pill"><strong data-progress-count-inline>0/${completionCount}</strong> ${escapeHtml(completionLabel)} complete</span>
       <span class="completed-pill">${completionCount} ${escapeHtml(sourceLessonLabel)}</span>
       ${firstLesson ? `<a class="external-resource-action" href="#${escapeHtml(firstLesson.id)}" data-page-target="${escapeHtml(firstLesson.id)}">Open Lesson Frame</a>` : ""}
     </div>
@@ -305,7 +322,7 @@ function renderLessonPanel(
       <div class="lesson-bottom-bar lesson-bottom-bar--ela30">
         ${previous ? `<a class="lesson-jump" href="#${escapeHtml(previous.id)}" data-page-target="${escapeHtml(previous.id)}">Previous</a>` : `<a class="lesson-jump" href="#lessons" data-page-target="lessons">Lesson Library</a>`}
         ${nextAction}
-        <button class="mark-complete lesson-complete-button--ela30" type="button" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark Complete">Mark Complete</button>
+        <button class="lesson-jump primary mark-complete lesson-complete-button--ela30" type="button" data-complete-id="${escapeHtml(lesson.id)}" data-complete-label="Mark Complete">Mark Complete</button>
       </div>
     </article>
   </section>`;
@@ -926,14 +943,18 @@ function renderShellScript(options: NextStepCourseShellOptions) {
   );
   const pageIds = ["overview", "lessons", ...lessonIds, ...navGroupPageIds, ...(options.navItems ?? []).map((item) => item.id)];
   const storageBase = options.storageKeyBase ?? `canvas-helper:${options.slug}`;
+  const completionLabel = options.completionLabel ?? "lessons";
   return `<script>
 const lessonIds = ${scriptJson(lessonIds)};
 const completionIds = ${scriptJson(completionIds)};
+const completionLabel = ${scriptJson(completionLabel)};
 const pageIds = ${scriptJson(pageIds)};
 const navGroupIdsByPage = ${scriptJson(navGroupIdsByPage)};
 const STORAGE_KEY = "${escapeHtml(storageBase)}:complete";
 const RESPONSE_STORAGE_KEY = "${escapeHtml(storageBase)}:responses";
 const MANUAL_EVIDENCE_STORAGE_KEY = "${escapeHtml(storageBase)}:manual-evidence-notes";
+const EVIDENCE_PROJECT_SLUG = ${scriptJson(options.slug)};
+const EVIDENCE_PROFILE = ${scriptJson(options.evidenceProfile ?? "short-fiction")};
 const lessonsNav = document.querySelector(".lessons-nav");
 const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
 const fallbackStorage = {};
@@ -1003,7 +1024,7 @@ function updateComplete(){
   const complete = readComplete();
   const count = completionIds.filter((id) => complete.has(id)).length;
   const percent = completionIds.length ? Math.round((count / completionIds.length) * 100) : 0;
-  document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = count + " / " + completionIds.length + " lessons");
+  document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = count + " / " + completionIds.length + " " + completionLabel);
   document.querySelectorAll("[data-progress-count-inline]").forEach((node) => node.textContent = count + "/" + completionIds.length);
   document.querySelectorAll("[data-progress-percent]").forEach((node) => node.textContent = percent + "%");
   document.querySelectorAll("[data-progress-fill]").forEach((node) => node.style.width = percent + "%");
@@ -1030,19 +1051,25 @@ function showPage(id){
   const navGroupId = navGroupIdsByPage[fallback] || "";
   document.querySelectorAll("[data-page-target]").forEach((link) => {
     const target = link.getAttribute("data-page-target");
-    link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || (navGroupId && target === navGroupId));
+    const activeGroupToggle = navGroupId && target === navGroupId && link.hasAttribute("data-nav-group-toggle");
+    link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || activeGroupToggle);
   });
   syncNavOpenState(navGroupId, lessonsOpen);
+  if (window.matchMedia("(max-width: 1100px)").matches) setCourseMenuCollapsed(true);
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 }
 function route(){
   showPage((location.hash || "#overview").slice(1));
 }
-function toggleCourseMenu(){
-  document.body.classList.toggle("sidebar-collapsed");
-  const iconText = document.body.classList.contains("sidebar-collapsed") ? "dock_to_right" : "dock_to_left";
+function setCourseMenuCollapsed(collapsed){
+  document.body.classList.toggle("sidebar-collapsed", collapsed);
+  const iconText = collapsed ? "dock_to_right" : "dock_to_left";
   document.querySelectorAll("#sidebar-toggle .material-symbols-outlined, #topbar-menu-toggle .material-symbols-outlined").forEach((icon) => {
     icon.textContent = iconText;
   });
+}
+function toggleCourseMenu(){
+  setCourseMenuCollapsed(!document.body.classList.contains("sidebar-collapsed"));
 }
 function setResourcePanel(id){
   document.querySelectorAll("[data-resource-panel]").forEach((panel) => {
@@ -1187,17 +1214,31 @@ function clearEvidenceDraft(scope){
   });
   writeResponses(responses);
 }
+function getEvidenceBankApi(){
+  const api = window.nextStepEvidenceBank;
+  return api && typeof api.upsert === "function" && typeof api.remove === "function" && typeof api.list === "function"
+    ? api
+    : null;
+}
+function getEvidenceLocatorLabel(note){
+  if (!note?.locator) return "";
+  if (typeof note.locator === "string") return note.locator;
+  if (note.locator.label) return note.locator.label;
+  return [note.locator.act, note.locator.scene, note.locator.chapter, note.locator.timestamp]
+    .filter(Boolean)
+    .join(" | ");
+}
 function renderManualEvidenceBank(){
   const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
   if (!lists.length) return;
-  const notes = readManualEvidenceNotes();
+  const notes = getEvidenceBankApi()?.list() || [];
   lists.forEach((list) => {
     const filterRoot = list.closest("[data-evidence-bank-filters]")?.parentElement || list.closest(".english-evidence-bank-list") || document;
     const filterFields = Array.from(filterRoot.querySelectorAll("[data-evidence-bank-filter]"));
     function facetValue(note, facet){
       if (facet === "activity") return note.activity?.title || note.activity?.id || note.activityId || note.concept || "";
-      if (facet === "work") return note.work?.title || note.work?.id || note.workId || note.source || "";
-      if (facet === "locator") return note.locator?.label || note.locator?.act || note.locator?.chapter || note.locator?.timestamp || note.locator || "";
+      if (facet === "work") return note.work?.title || note.work?.id || note.workId || note.source?.title || (typeof note.source === "string" ? note.source : "");
+      if (facet === "locator") return getEvidenceLocatorLabel(note);
       if (facet === "type") return note.evidenceType || note.entryKind || note.type || (note.responseId ? "collection" : "individual");
       return "";
     }
@@ -1219,55 +1260,72 @@ function renderManualEvidenceBank(){
       return;
     }
     list.innerHTML = filteredNotes.map((note) => {
-      const title = note.concept || note.source || "Saved proof note";
-      const metaParts = [note.source || "", note.updatedAt ? "Updated " + new Date(note.updatedAt).toLocaleDateString() : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
-      const promptLabel = note.promptLabel || "Question";
+      const contributionId = note.contributionId || note.responseId || note.id || "";
+      const sourceTitle = note.source?.title || note.source?.id || (typeof note.source === "string" ? note.source : "");
+      const workTitle = note.work?.title || "";
+      const title = note.activity?.title || note.activity?.id || note.concept || sourceTitle || "Saved proof note";
+      const locatorLabel = getEvidenceLocatorLabel(note);
+      const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", locatorLabel, note.updatedAt ? "Updated " + new Date(note.updatedAt).toLocaleDateString() : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
+      const promptLabel = note.metadata?.promptLabel || note.promptLabel || "Question";
       const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
-      const detailLabel = note.detailLabel || "Evidence";
-      const detail = note.detail ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(note.detail) + '</p></div>' : "";
-      const connection = note.connection ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(note.connection) + '</p></div>' : "";
-      const counterpoint = note.counterpoint ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(note.counterpoint) + '</p></div>' : "";
-      return '<article class="social-lesson-evidence-card social-manual-evidence-card">' +
+      const detailLabel = note.metadata?.detailLabel || note.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
+      const detailValue = note.entryKind === "collection" ? (note.answer || note.evidence || "") : (note.evidence || note.answer || "");
+      const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
+      const connectionValue = note.analysis || note.connection || "";
+      const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
+      const counterpointValue = note.metadata?.counterpoint || note.counterpoint || "";
+      const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
+      return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || (note.responseId ? "collection" : "individual")) + '">' +
         '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
         '<h4>' + escapeForHtml(title) + '</h4>' +
         prompt +
         detail +
         connection +
         counterpoint +
-        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(note.id || "") + '">Remove</button></div>' +
+        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
       '</article>';
     }).join("");
   });
 }
 function saveEvidenceDraftToNotebook(panel){
   const draft = getEvidenceDraft(panel);
-  if (!draft.source && !draft.concept && !draft.detail && !draft.connection && !draft.counterpoint) {
-    setEvidenceNotebookStatus("Add a note before saving.", panel);
+  if (!draft.detail && !draft.connection && !draft.counterpoint) {
+    setEvidenceNotebookStatus("Add evidence or analysis before saving.", panel);
     return;
   }
-  const notes = readManualEvidenceNotes();
-  const contributionId = panel?.getAttribute("data-evidence-contribution-id") || "";
-  const existing = contributionId ? notes.find((note) => note.contributionId === contributionId || note.responseId === contributionId) : undefined;
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setEvidenceNotebookStatus("Evidence Bank is unavailable.", panel);
+    return;
+  }
+  const configuredContributionId = panel?.getAttribute("data-evidence-contribution-id") || "";
+  const contributionId = configuredContributionId || "manual:" + Date.now().toString(36) + ":" + Math.random().toString(36).slice(2, 9);
   const now = new Date().toISOString();
+  const sourceTitle = draft.source || "Manual evidence";
+  const activityTitle = draft.concept || "Evidence entry";
+  const analysis = [draft.connection, draft.counterpoint].filter(Boolean).join("\\n\\n");
   const entry = {
-    id: existing?.id || "evidence-" + Date.now(),
-    contributionId: contributionId || undefined,
+    schemaVersion: 2,
+    contributionId,
+    projectSlug: EVIDENCE_PROJECT_SLUG,
     entryKind: "individual",
-    createdAt: existing?.createdAt || now,
-    updatedAt: now,
-    source: draft.source,
-    concept: draft.concept,
-    activity: { id: draft.concept || "evidence-entry", title: draft.concept || "Evidence entry" },
-    work: draft.source ? { id: draft.source, title: draft.source } : undefined,
-    evidenceType: "individual",
+    source: { kind: "activity", id: evidenceSafeId(sourceTitle), title: sourceTitle },
+    activity: { id: evidenceSafeId(activityTitle), profile: EVIDENCE_PROFILE, title: activityTitle },
+    work: draft.source ? { id: evidenceSafeId(draft.source), title: draft.source, kind: EVIDENCE_PROFILE === "film-study" ? "film" : "text" } : undefined,
+    evidence: draft.detail || undefined,
+    analysis: analysis || undefined,
     tags: [],
-    detail: draft.detail,
-    connection: draft.connection,
-    counterpoint: draft.counterpoint
+    createdAt: now,
+    updatedAt: now,
+    ...(draft.counterpoint ? { metadata: { counterpoint: draft.counterpoint } } : {})
   };
-  writeManualEvidenceNotes([entry, ...notes.filter((note) => !existing || note.id !== existing.id)]);
+  try {
+    api.upsert(entry);
+  } catch {
+    setEvidenceNotebookStatus("Evidence could not be saved.", panel);
+    return;
+  }
   clearEvidenceDraft(panel);
-  renderManualEvidenceBank();
   panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
   setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
 }
@@ -1285,7 +1343,8 @@ function saveResponseCollectionToNotebook(button){
     return {
       number: question.getAttribute("data-evidence-question-number") || "",
       prompt: question.getAttribute("data-evidence-question-prompt") || "",
-      answer: String(responses[responseId] || field?.value || "").trim()
+      answer: String(responses[responseId] || field?.value || "").trim(),
+      responseId
     };
   });
   const answered = entries.filter((entry) => entry.answer);
@@ -1293,44 +1352,58 @@ function saveResponseCollectionToNotebook(button){
     setResponseCollectionStatus(button, "Write at least one answer before saving.");
     return;
   }
-  const notes = readManualEvidenceNotes();
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setResponseCollectionStatus(button, "Evidence Bank is unavailable.");
+    return;
+  }
   const collectionId = collection.getAttribute("data-evidence-collection-id") || "question-collection";
   const responsePrefix = collection.getAttribute("data-evidence-response-prefix") || "";
-  const existing = notes.find((note) => note.responseId === collectionId);
+  const existing = api.list({ contributionId: collectionId })[0];
   const savedResponses = answered.map((entry) =>
     "Question " + entry.number + ": " + entry.prompt + "\\nAnswer: " + entry.answer
   ).join("\\n\\n");
+  const sourceTitle = collection.getAttribute("data-evidence-source") || "Short Story Questions";
+  const activityTitle = collection.getAttribute("data-evidence-activity-title") || collection.getAttribute("data-evidence-concept") || "Activity";
+  const workTitle = collection.getAttribute("data-evidence-work-title") || "";
+  const locatorLabel = collection.getAttribute("data-evidence-locator") || "";
+  const now = new Date().toISOString();
   const nextNote = {
-    id: existing?.id || "evidence-" + Date.now(),
+    schemaVersion: 2,
     contributionId: collectionId,
+    projectSlug: EVIDENCE_PROJECT_SLUG,
     entryKind: "collection",
-    createdAt: existing?.createdAt || new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    responseId: collectionId,
+    source: { kind: "question-set", id: evidenceSafeId(sourceTitle), title: sourceTitle },
     activity: {
-      id: collection.getAttribute("data-evidence-activity-id") || collection.getAttribute("data-evidence-concept") || "activity",
-      title: collection.getAttribute("data-evidence-activity-title") || collection.getAttribute("data-evidence-concept") || "Activity"
+      id: collection.getAttribute("data-evidence-activity-id") || evidenceSafeId(activityTitle),
+      profile: EVIDENCE_PROFILE,
+      title: activityTitle
     },
-    work: collection.getAttribute("data-evidence-work-title") ? {
-      id: collection.getAttribute("data-evidence-work-id") || collection.getAttribute("data-evidence-work-title"),
-      title: collection.getAttribute("data-evidence-work-title")
+    work: workTitle ? {
+      id: collection.getAttribute("data-evidence-work-id") || evidenceSafeId(workTitle),
+      title: workTitle,
+      kind: EVIDENCE_PROFILE === "film-study" ? "film" : "text"
     } : undefined,
-    locator: collection.getAttribute("data-evidence-locator") ? { label: collection.getAttribute("data-evidence-locator") } : undefined,
-    evidenceType: collection.getAttribute("data-evidence-entry-type") || "collection",
-    tags: (collection.getAttribute("data-evidence-tags") || "").split(",").map((tag) => tag.trim()).filter(Boolean),
-    source: collection.getAttribute("data-evidence-source") || "Short Story Questions",
-    concept: collection.getAttribute("data-evidence-concept") || "Story Question Collection",
+    locator: locatorLabel ? { label: locatorLabel } : undefined,
     prompt: answered.length + " of " + entries.length + " guided responses saved.",
-    promptLabel: collection.getAttribute("data-evidence-prompt-label") || "Question set",
-    detail: savedResponses,
-    detailLabel: collection.getAttribute("data-evidence-detail-label") || "Saved responses",
-    connection: "",
-    counterpoint: ""
+    answer: savedResponses,
+    responseIds: answered.map((entry) => entry.responseId).filter(Boolean),
+    tags: (collection.getAttribute("data-evidence-tags") || "").split(",").map((tag) => tag.trim()).filter(Boolean),
+    createdAt: existing?.createdAt || now,
+    updatedAt: now,
+    metadata: {
+      promptLabel: collection.getAttribute("data-evidence-prompt-label") || "Question set",
+      detailLabel: collection.getAttribute("data-evidence-detail-label") || "Saved responses"
+    }
   };
-  writeManualEvidenceNotes([nextNote, ...notes.filter((note) =>
-    note.responseId !== collectionId && !(responsePrefix && String(note.responseId || "").startsWith(responsePrefix))
-  )]);
-  renderManualEvidenceBank();
+  if (responsePrefix) {
+    api.list().forEach((note) => {
+      if (note.entryKind === "collection" && note.contributionId !== collectionId && String(note.contributionId || "").startsWith(responsePrefix)) {
+        api.remove(note.contributionId);
+      }
+    });
+  }
+  api.upsert(nextNote);
   setResponseCollectionStatus(
     button,
     existing
@@ -1340,129 +1413,9 @@ function saveResponseCollectionToNotebook(button){
 }
 function removeManualEvidenceNote(id){
   if (!id) return;
-  const notes = readManualEvidenceNotes().filter((note) => note.id !== id);
-  writeManualEvidenceNotes(notes);
-  renderManualEvidenceBank();
-  setEvidenceNotebookStatus("Removed saved note");
+  if (getEvidenceBankApi()?.remove(id)) setEvidenceNotebookStatus("Removed saved note");
 }
-function cloneEvidenceValue(value){
-  return JSON.parse(JSON.stringify(value));
-}
-function normalizeEvidenceIdentity(value){
-  return typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
-}
-function getEvidenceIdentities(entry){
-  return [entry?.contributionId, entry?.responseId]
-    .map(normalizeEvidenceIdentity)
-    .filter((value, index, values) => value && values.indexOf(value) === index);
-}
-function evidenceEntriesShareIdentity(entry, identities){
-  const entryIdentities = getEvidenceIdentities(entry);
-  return entryIdentities.some((identity) => identities.includes(identity));
-}
-function getIncomingEvidenceText(incoming, existing, keys, fallbackValue){
-  for (const key of keys) {
-    if (Object.prototype.hasOwnProperty.call(incoming, key)) return String(incoming[key] ?? "");
-  }
-  for (const key of keys) {
-    if (Object.prototype.hasOwnProperty.call(existing || {}, key)) return String(existing[key] ?? "");
-  }
-  return fallbackValue;
-}
-function normalizeEvidenceEntry(incoming, existing, identity){
-  const now = new Date().toISOString();
-  const sourceFallback = [incoming.text || incoming.film || "", incoming.activity || ""].filter(Boolean).join(" | ");
-  const conceptFallback = String(incoming.title || incoming.evidenceType || incoming.type || "Saved evidence");
-  const responseId = normalizeEvidenceIdentity(incoming.responseId) || normalizeEvidenceIdentity(existing?.responseId);
-  return {
-    ...(existing || {}),
-    ...incoming,
-    id: normalizeEvidenceIdentity(existing?.id) || normalizeEvidenceIdentity(incoming.id) || "evidence-" + Date.now(),
-    contributionId: normalizeEvidenceIdentity(incoming.contributionId) || normalizeEvidenceIdentity(existing?.contributionId) || identity,
-    responseId,
-    source: getIncomingEvidenceText(incoming, existing, ["source"], sourceFallback),
-    concept: getIncomingEvidenceText(incoming, existing, ["concept", "title", "evidenceType", "type"], conceptFallback),
-    prompt: getIncomingEvidenceText(incoming, existing, ["prompt"], ""),
-    detail: getIncomingEvidenceText(incoming, existing, ["detail", "evidence", "answer"], ""),
-    connection: getIncomingEvidenceText(incoming, existing, ["connection", "analysis"], ""),
-    counterpoint: getIncomingEvidenceText(incoming, existing, ["counterpoint"], ""),
-    createdAt: existing?.createdAt || incoming.createdAt || now,
-    updatedAt: now
-  };
-}
-function upsertEvidenceEntry(entry){
-  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
-    throw new TypeError("Evidence Bank entries must be objects.");
-  }
-  const incoming = cloneEvidenceValue(entry);
-  const identities = getEvidenceIdentities(incoming);
-  if (!identities.length) {
-    throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
-  }
-  const notes = readManualEvidenceNotes();
-  const existing = notes.find((note) => evidenceEntriesShareIdentity(note, identities));
-  const nextEntry = normalizeEvidenceEntry(incoming, existing, identities[0]);
-  writeManualEvidenceNotes([
-    nextEntry,
-    ...notes.filter((note) => !evidenceEntriesShareIdentity(note, identities))
-  ]);
-  renderManualEvidenceBank();
-  return cloneEvidenceValue(nextEntry);
-}
-function removeEvidenceEntry(contributionId){
-  const identity = normalizeEvidenceIdentity(contributionId);
-  if (!identity) return false;
-  const notes = readManualEvidenceNotes();
-  const remaining = notes.filter((note) => !getEvidenceIdentities(note).includes(identity));
-  if (remaining.length === notes.length) return false;
-  writeManualEvidenceNotes(remaining);
-  renderManualEvidenceBank();
-  return true;
-}
-function evidenceValueMatchesFilter(actual, expected){
-  if (Array.isArray(expected)) {
-    return expected.some((value) => evidenceValueMatchesFilter(actual, value));
-  }
-  if (Array.isArray(actual)) {
-    return actual.some((value) => evidenceValueMatchesFilter(value, expected));
-  }
-  return actual === expected;
-}
-function evidenceEntryMatchesFilters(entry, filters){
-  return Object.entries(filters || {}).every(([key, expected]) => {
-    if (typeof expected === "undefined") return true;
-    if (key === "contributionId" || key === "responseId") {
-      if (Array.isArray(expected)) {
-        return expected.some((value) => getEvidenceIdentities(entry).includes(normalizeEvidenceIdentity(value)));
-      }
-      return getEvidenceIdentities(entry).includes(normalizeEvidenceIdentity(expected));
-    }
-    if (key === "tags") {
-      const requestedTags = (Array.isArray(expected) ? expected : [expected]).map(normalizeEvidenceIdentity).filter(Boolean);
-      const entryTags = (Array.isArray(entry.tags) ? entry.tags : []).map(normalizeEvidenceIdentity).filter(Boolean);
-      return requestedTags.every((tag) => entryTags.includes(tag));
-    }
-    if (key === "activityId") return evidenceValueMatchesFilter(entry.activity?.id || entry.activityId, expected);
-    if (key === "profile") return evidenceValueMatchesFilter(entry.activity?.profile || entry.profile, expected);
-    if (key === "workId") return evidenceValueMatchesFilter(entry.work?.id || entry.workId, expected);
-    if (key === "locator") {
-      const values = entry.locator && typeof entry.locator === "object"
-        ? [entry.locator.label, entry.locator.act, entry.locator.scene, entry.locator.chapter, entry.locator.timestamp].filter(Boolean)
-        : [entry.locator].filter(Boolean);
-      return values.some((value) => evidenceValueMatchesFilter(value, expected));
-    }
-    return evidenceValueMatchesFilter(entry[key], expected);
-  });
-}
-function listEvidenceEntries(filters){
-  const normalizedFilters = filters && typeof filters === "object" && !Array.isArray(filters) ? filters : {};
-  return cloneEvidenceValue(readManualEvidenceNotes().filter((entry) => evidenceEntryMatchesFilters(entry, normalizedFilters)));
-}
-window.nextStepEvidenceBank = Object.freeze({
-  upsert: upsertEvidenceEntry,
-  remove: removeEvidenceEntry,
-  list: listEvidenceEntries
-});
+${ENGLISH_EVIDENCE_BANK_RUNTIME}
 function restoreResponses(){
   const responses = readResponses();
   document.querySelectorAll("[data-response-id]").forEach((field) => {
@@ -1575,12 +1528,12 @@ document.addEventListener("click", (event) => {
     const groupId = navGroupToggle.getAttribute("data-nav-group-toggle");
     if (!groupId) return;
     const group = getNavGroup(groupId);
-    const open = !group?.classList.contains("is-open");
-    if (open) {
+    const collapseCurrentLanding = group?.classList.contains("is-open") && location.hash === "#" + groupId;
+    if (location.hash !== "#" + groupId) {
       history.pushState(null, "", "#" + groupId);
-      showPage(groupId);
     }
-    setNavGroupOpen(groupId, open);
+    showPage(groupId);
+    if (collapseCurrentLanding) setNavGroupOpen(groupId, false);
     return;
   }
   const target = event.target.closest("[data-page-target]");
