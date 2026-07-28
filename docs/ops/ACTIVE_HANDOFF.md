@@ -56,7 +56,9 @@
 
 - The full repository English test suite is not green on this selective clean branch. Do not represent the 18 unrelated failures as short-story project failures.
 - Brightspace import and cross-browser save-close-reopen remain the external acceptance checks for any newly generated SCORM packages.
-- The original checkout remains on the oversized historical branch and still shows its uncommitted short-story files; this clean worktree/branch is the publishable checkpoint.
+- The main checkout is now on the clean checkpoint branch with a clean working tree.
+- The former uncommitted short-story state is preserved in the named safety stash `safety-before-clean-short-stories-checkpoint-20260728`.
+- Previously hidden OCR and processed-source files that became visible under the clean branch’s ignore rules are preserved in two additional named safety stashes.
 
 ## Fragile areas / watchouts
 
@@ -67,12 +69,12 @@
 
 ## Next prompt should assume
 
-- The current six-project short-story state is safely checkpointed on `codex/ela-short-stories-checkpoint-20260728`.
+- The current six-project short-story state is safely checkpointed on `codex/ela-short-stories-checkpoint-20260728`, and the main checkout is clean on that branch.
 - Continue new work from this clean branch, not from `codex/ela20-factory-checkpoint-20260714`.
 
 ## Exact next command
 
-`git switch codex/ela-short-stories-checkpoint-20260728`
+`git status -sb`
 
 ## Exact next file to open
 
@@ -81,4 +83,4 @@
 ## Do not do next / warnings
 
 - Do not merge or rebase the old oversized branch into the clean checkpoint.
-- Do not discard the original dirty checkout until the user confirms the clean branch contains everything they expect.
+- Do not drop the three July 28 safety stashes until the user confirms the clean branch contains everything they expect.
