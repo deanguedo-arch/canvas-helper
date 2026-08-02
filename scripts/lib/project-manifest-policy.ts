@@ -25,6 +25,12 @@ const INJECTED_COMPONENT_STATUSES = new Set<InjectedComponentStatus>([
 ]);
 const EXPORT_TARGETS = new Set(["brightspace", "scorm", "google-hosted", "apps-script", "html", "docx"]);
 const IMPORT_SOURCE_SYSTEMS = new Set(["gemini-canvas", "d2l", "brightspace", "manual", "other"]);
+const AUTHORING_DRIVER_IDS = new Set([
+  "direct-workspace-v1",
+  "english-factory-v1",
+  "social-related-issues-v1",
+  "proposal-only-v1"
+]);
 
 function toTrimmedString(value: unknown) {
   return typeof value === "string" ? value.trim() : "";
@@ -161,6 +167,28 @@ function normalizeImportedFirstPassOrigin(value: unknown) {
   } satisfies NonNullable<ProjectManifest["importedFirstPassOrigin"]>;
 }
 
+function normalizeAuthoringContract(value: unknown): ProjectManifest["authoring"] {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
+    return undefined;
+  }
+
+  const record = value as Record<string, unknown>;
+  const driverId = toTrimmedString(record.driverId);
+  if (!AUTHORING_DRIVER_IDS.has(driverId)) {
+    return undefined;
+  }
+
+  const familyId = toTrimmedString(record.familyId);
+  const qualityProfile = toTrimmedString(record.qualityProfile);
+  const sourceResourceIds = normalizeStringList(record.sourceResourceIds);
+  return {
+    driverId: driverId as NonNullable<ProjectManifest["authoring"]>["driverId"],
+    familyId: familyId || undefined,
+    sourceResourceIds: sourceResourceIds.length > 0 ? sourceResourceIds : undefined,
+    qualityProfile: qualityProfile || undefined
+  };
+}
+
 export function normalizeProjectManifestPolicy(manifest: ProjectManifest): ProjectManifest {
   const migrationState = normalizeMigrationState(manifest.migrationState);
   return {
@@ -173,6 +201,7 @@ export function normalizeProjectManifestPolicy(manifest: ProjectManifest): Proje
     canonicalSources: normalizeStringList(manifest.canonicalSources),
     generatedOutputs: normalizeStringList(manifest.generatedOutputs),
     regenerateCommand: toTrimmedString(manifest.regenerateCommand) || undefined,
+    authoring: normalizeAuthoringContract(manifest.authoring),
     injectedComponents: normalizeInjectedComponents(manifest.injectedComponents),
     importedFirstPassOrigin: normalizeImportedFirstPassOrigin(manifest.importedFirstPassOrigin),
     exportTargets: normalizeExportTargets(manifest.exportTargets),
@@ -215,6 +244,10 @@ export function validateProjectManifestPolicy(manifest: ProjectManifest): Projec
 
   if (!normalized.authoringStatus) {
     errors.push("Missing `authoringStatus` for migrated project.");
+  }
+
+  if (manifest.authoring !== undefined && !normalized.authoring) {
+    errors.push("`authoring` is present but does not declare a supported `driverId`.");
   }
 
   if (requiresSourceOfTruth(normalized.authoringStatus)) {

@@ -231,6 +231,7 @@ Optional override flags for convert/export/deploy:
 
 - Use [docs/ops/FAST_PATHS.md](docs/ops/FAST_PATHS.md) to keep agent retrieval narrow for common tasks
 - Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`
+- Run `npm run course:list -- --all` to see whether a project is actually `direct-ready`, `factory-ready`, `proposal-only`, or `blocked`; lifecycle `active` alone is not a readiness signal.
 - For active migrated course work, run `npm run course:doctor -- --project <slug>` before using a course context; it validates source ownership and paths without changing the manifest
 - When that doctor passes, use `npm run context:project -- --project <slug>` for the compact (at most 5,000 UTF-8 bytes) source-of-truth brief; it intentionally excludes whole blueprints, resource catalogs, and prompt-pack content and does not write files
 - Studio generation starts with that compact source contract, not whole blueprint or catalog files. Add at most eight explicit `unit:`, `outcome:`, `resource:`, or `lesson:` IDs only when targeted evidence is needed; the server rejects oversized assembled context above 16,000 UTF-8 bytes.

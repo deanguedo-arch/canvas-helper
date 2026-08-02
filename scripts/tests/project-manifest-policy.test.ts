@@ -81,6 +81,44 @@ test("normalization defaults unknown policy values safely", () => {
   assert.deepEqual(normalized.preferredWorkflows, ["conversion"]);
 });
 
+test("normalization preserves a declared code-owned authoring driver", () => {
+  const normalized = normalizeProjectManifestPolicy(
+    createManifest({
+      authoring: {
+        driverId: "social-related-issues-v1",
+        familyId: "social30-related-issues",
+        sourceResourceIds: ["social30-main-zip", "social30-main-zip"],
+        qualityProfile: "social-related-issues"
+      }
+    })
+  );
+
+  assert.deepEqual(normalized.authoring, {
+    driverId: "social-related-issues-v1",
+    familyId: "social30-related-issues",
+    sourceResourceIds: ["social30-main-zip"],
+    qualityProfile: "social-related-issues"
+  });
+});
+
+test("validation rejects an unsupported declared authoring driver", () => {
+  const result = validateProjectManifestPolicy(
+    createManifest({
+      migrationState: "migrated",
+      authoringStatus: "active",
+      projectType: "conversion",
+      preferredWorkflows: ["conversion"],
+      canonicalEntry: "/tmp/workspace/index.html",
+      canonicalSources: ["/tmp/workspace/index.html"],
+      exportTargets: [{ target: "html", enabled: true }],
+      authoring: { driverId: "not-a-driver" as never }
+    })
+  );
+
+  assert.equal(result.status, "invalid");
+  assert.ok(result.errors.some((line) => line.includes("supported `driverId`")));
+});
+
 test("normalization preserves apps-script export targets", () => {
   const normalized = normalizeProjectManifestPolicy(
     createManifest({

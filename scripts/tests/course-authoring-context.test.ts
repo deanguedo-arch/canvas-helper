@@ -9,6 +9,7 @@ import {
   MAX_PROJECT_CONTEXT_BYTES,
   buildProjectAuthoringContext,
   inspectCourseAuthoringProject,
+  listCourseAuthoringProjects,
   renderProjectAuthoringContext
 } from "../lib/course-authoring/context.js";
 
@@ -18,6 +19,10 @@ type FixtureOptions = {
   regenerateCommand?: string;
   sourceOfTruthNotes?: string;
   authoringStatus?: string;
+  authoring?: {
+    driverId: "direct-workspace-v1" | "english-factory-v1" | "social-related-issues-v1" | "proposal-only-v1";
+    familyId?: string;
+  };
 };
 
 async function createFixture(options: FixtureOptions = {}) {
@@ -60,7 +65,8 @@ async function createFixture(options: FixtureOptions = {}) {
     authoringStatus: options.authoringStatus ?? "active",
     exportTargets: [{ target: "scorm", enabled: true }],
     ...(options.regenerateCommand ? { regenerateCommand: options.regenerateCommand } : {}),
-    ...(options.sourceOfTruthNotes ? { sourceOfTruthNotes: options.sourceOfTruthNotes } : {})
+    ...(options.sourceOfTruthNotes ? { sourceOfTruthNotes: options.sourceOfTruthNotes } : {}),
+    ...(options.authoring ? { authoring: options.authoring } : {})
   };
   await mkdir(metaDir, { recursive: true });
   await writeFile(path.join(metaDir, "project.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
@@ -209,6 +215,53 @@ test("uses the English staging contract instead of treating factory output as ed
     assert.match(editableSection, /meta\/english-unit\.json/);
     assert.doesNotMatch(editableSection, /workspace\/index\.html/);
     assert.match(text ?? "", /workspace\/index\.html/);
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("uses a declared shared Social driver instead of treating generated workspace output as editable", async () => {
+  const fixture = await createFixture({
+    authoring: { driverId: "social-related-issues-v1", familyId: "social30-related-issues" }
+  });
+  try {
+    const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
+    assert.equal(report.status, "pass");
+    assert.equal(report.project?.driverId, "social-related-issues-v1");
+    assert.equal(report.project?.driverSource, "declared");
+    assert.equal(report.project?.authoringMode, "proposal-only");
+    assert.deepEqual(report.project?.editableSources, []);
+    assert.ok(report.project?.protectedPaths.some((entry) => entry.repoRelative === "projects/course/workspace"));
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("course:list derives readiness from the same doctor inspection", async () => {
+  const fixture = await createFixture();
+  try {
+    const readyRows = await listCourseAuthoringProjects({ repoRoot: fixture.repoRoot });
+    assert.deepEqual(readyRows, [
+      {
+        slug: fixture.slug,
+        readiness: "direct-ready",
+        lifecycle: "active",
+        driver: "direct-workspace-v1",
+        driverSource: "legacy-inferred",
+        issueCount: 0
+      }
+    ]);
+
+    const manifestPath = path.join(fixture.metaDir, "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
+    manifest.canonicalSources = [fixture.indexPath, path.join(fixture.workspaceDir, "missing.js")];
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+
+    const blockedRows = await listCourseAuthoringProjects({ repoRoot: fixture.repoRoot });
+    assert.equal(blockedRows.length, 1);
+    assert.equal(blockedRows[0]?.readiness, "blocked");
+    assert.equal(blockedRows[0]?.driver, "direct-workspace-v1");
+    assert.ok((blockedRows[0]?.issueCount ?? 0) > 0);
   } finally {
     await rm(fixture.repoRoot, { recursive: true, force: true });
   }

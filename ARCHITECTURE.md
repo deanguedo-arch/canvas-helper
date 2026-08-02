@@ -99,12 +99,14 @@ Migrated active projects should explicitly declare:
 - regeneration contract (`generatedOutputs`, `regenerateCommand`) where needed
 - integration provenance (`injectedComponents`, `importedFirstPassOrigin`)
 - lifecycle/export posture (`authoringStatus`, `exportTargets`, `referenceOnly`)
+- optional explicit authoring ownership (`authoring.driverId`, `authoring.familyId`, source-resource IDs, and a focused quality profile) for newly onboarded projects; legacy projects remain visibly marked as inferred until migrated
 
 ### Compact Course Authoring Context
 
 The `course:doctor`, `course:list`, and `context:project` commands form a read-only safety layer for active migrated course work. Their implementation lives in `scripts/lib/course-authoring/`.
 
 - `course:doctor` reads the manifest without rehydrating a project, validates canonical paths against the current checkout, rejects traversal and symbolic-link escapes, and reports legacy absolute paths as normalized repo-relative values without rewriting metadata.
+- `course:list` runs the same doctor-backed resolver before showing a readiness state: `direct-ready`, `factory-ready`, `proposal-only`, or `blocked`. It never equates lifecycle `active` with permission to edit or rebuild.
 - `context:project` runs only after the doctor passes and emits a compact source-of-truth brief capped at 5,000 UTF-8 bytes. It excludes whole blueprints, resource catalogs, and prompt-pack bodies.
 - English factory projects are classified from the staging/build contract: `meta/english-unit.json`, `workspace/components/**`, and `workspace/assets/custom/**` are editable; factory-owned workspace output remains protected.
 - Studio generation assembles the brief with only explicitly named `unit:`, `outcome:`, `resource:`, or `lesson:` evidence in `scripts/lib/engine/context-builder.ts`. It never automatically stacks whole blueprints or resource catalogs, accepts at most eight IDs, and rejects an assembled server context over 16,000 UTF-8 bytes.

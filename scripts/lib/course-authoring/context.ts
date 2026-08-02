@@ -12,7 +12,13 @@ const PROJECT_SLUG_PATTERN = /^[a-z0-9]+(?:[._-][a-z0-9]+)*$/;
 const RESERVED_PROJECT_DIRECTORIES = new Set(["assessments", "incoming", "processed", "resources"]);
 const PROJECT_LOCAL_ROOTS = new Set(["workspace", "raw", "meta", "exports"]);
 
-export type CourseAuthoringDriverId = "direct-workspace-v1" | "english-factory-v1" | "proposal-only-v1";
+export type CourseAuthoringDriverId =
+  | "direct-workspace-v1"
+  | "english-factory-v1"
+  | "social-related-issues-v1"
+  | "proposal-only-v1";
+
+export type CourseAuthoringDriverSource = "declared" | "legacy-inferred";
 
 export type CourseAuthoringPath = {
   kind: "file" | "directory";
@@ -29,6 +35,7 @@ export type CourseDoctorIssue = {
 export type ResolvedCourseAuthoringProject = {
   slug: string;
   driverId: CourseAuthoringDriverId;
+  driverSource: CourseAuthoringDriverSource;
   authoringMode: "direct" | "factory" | "proposal-only";
   canonicalSources: CourseAuthoringPath[];
   editableSources: CourseAuthoringPath[];
@@ -45,10 +52,15 @@ export type CourseDoctorReport = {
   project?: ResolvedCourseAuthoringProject;
 };
 
+export type CourseReadiness = "direct-ready" | "factory-ready" | "proposal-only" | "blocked" | "not-onboarded" | "invalid-manifest";
+
 export type CourseListEntry = {
   slug: string;
-  status: string;
+  readiness: CourseReadiness;
+  lifecycle: string;
   driver: CourseAuthoringDriverId | "invalid-manifest" | "not-onboarded";
+  driverSource?: CourseAuthoringDriverSource;
+  issueCount?: number;
 };
 
 type LoadedProjectManifest = {
@@ -184,8 +196,21 @@ function manifestStringList(value: unknown) {
   return Array.isArray(value) ? value.filter((entry): entry is string => typeof entry === "string") : [];
 }
 
-function isEnglishFactoryProject(manifest: ProjectManifest, slug: string) {
+function hasLegacyEnglishFactoryCommand(manifest: ProjectManifest, slug: string) {
   return manifest.regenerateCommand === `npm run build:english-unit -- --project ${slug}`;
+}
+
+function resolveAuthoringDriver(manifest: ProjectManifest, slug: string): {
+  driverId?: CourseAuthoringDriverId;
+  source: CourseAuthoringDriverSource;
+} {
+  if (manifest.authoring?.driverId) {
+    return { driverId: manifest.authoring.driverId, source: "declared" };
+  }
+  if (hasLegacyEnglishFactoryCommand(manifest, slug)) {
+    return { driverId: "english-factory-v1", source: "legacy-inferred" };
+  }
+  return { source: "legacy-inferred" };
 }
 
 function createIssue(report: CourseDoctorReport, code: string, message: string, severity: "error" | "warning" = "error") {
@@ -268,7 +293,8 @@ async function inspectEnglishFactoryProject(
   report: CourseDoctorReport,
   manifest: ProjectManifest,
   repoRoot: string,
-  projectRoot: string
+  projectRoot: string,
+  driverSource: CourseAuthoringDriverSource
 ) {
   const slug = manifest.slug;
   const recipe = await requireManifestPath(
@@ -332,6 +358,7 @@ async function inspectEnglishFactoryProject(
   return {
     slug,
     driverId: "english-factory-v1" as const,
+    driverSource,
     authoringMode: "factory" as const,
     canonicalSources: uniquePaths(canonicalSources.filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
     editableSources: uniquePaths([recipe, components, customAssets].filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
@@ -345,7 +372,11 @@ async function inspectDirectProject(
   report: CourseDoctorReport,
   manifest: ProjectManifest,
   repoRoot: string,
-  projectRoot: string
+  projectRoot: string,
+  options: {
+    driverId?: Exclude<CourseAuthoringDriverId, "english-factory-v1">;
+    driverSource: CourseAuthoringDriverSource;
+  }
 ) {
   const declaredSources = [
     ...(typeof manifest.canonicalEntry === "string" ? [manifest.canonicalEntry] : []),
@@ -363,6 +394,8 @@ async function inspectDirectProject(
   const allWorkspaceOwned = resolvedSources
     .filter((entry): entry is ResolvedManifestPath => Boolean(entry))
     .every((entry) => isContainedPath(workspaceRoot, entry.absolutePath));
+  const forceProposal = options.driverId === "social-related-issues-v1" || options.driverId === "proposal-only-v1";
+  const proposalOnly = forceProposal || !allWorkspaceOwned;
 
   const protectedEntries = [
     { path: `projects/${manifest.slug}/raw`, kind: "directory" },
@@ -377,15 +410,27 @@ async function inspectDirectProject(
       })
     )
   );
+  const workspacePath = proposalOnly
+    ? await requireManifestPath(report, "Generated workspace", `projects/${manifest.slug}/workspace`, repoRoot, projectRoot, {
+        required: false,
+        kind: "directory"
+      })
+    : undefined;
+  const sharedSources = resolvedSources
+    .filter((entry): entry is ResolvedManifestPath => Boolean(entry))
+    .filter((entry) => !isContainedPath(workspaceRoot, entry.absolutePath));
 
   return {
     slug: manifest.slug,
-    driverId: (allWorkspaceOwned ? "direct-workspace-v1" : "proposal-only-v1") as CourseAuthoringDriverId,
-    authoringMode: (allWorkspaceOwned ? "direct" : "proposal-only") as "direct" | "proposal-only",
+    driverId: (options.driverId ?? (proposalOnly ? "proposal-only-v1" : "direct-workspace-v1")) as CourseAuthoringDriverId,
+    driverSource: options.driverSource,
+    authoringMode: (proposalOnly ? "proposal-only" : "direct") as "direct" | "proposal-only",
     canonicalSources,
-    editableSources: allWorkspaceOwned ? canonicalSources : [],
-    protectedPaths: uniquePaths(protectedPaths.filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
-    sharedSources: [],
+    editableSources: proposalOnly ? [] : canonicalSources,
+    protectedPaths: uniquePaths(
+      [...protectedPaths, workspacePath].filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)
+    ),
+    sharedSources: uniquePaths(sharedSources.map(toCoursePath)),
     regenerateCommand: manifest.regenerateCommand
   };
 }
@@ -429,9 +474,13 @@ export async function inspectCourseAuthoringProject(
     );
   }
 
-  report.project = isEnglishFactoryProject(loaded.manifest, slug)
-    ? await inspectEnglishFactoryProject(report, loaded.manifest, repoRoot, loaded.projectRoot)
-    : await inspectDirectProject(report, loaded.manifest, repoRoot, loaded.projectRoot);
+  const resolvedDriver = resolveAuthoringDriver(loaded.manifest, slug);
+  report.project = resolvedDriver.driverId === "english-factory-v1"
+    ? await inspectEnglishFactoryProject(report, loaded.manifest, repoRoot, loaded.projectRoot, resolvedDriver.source)
+    : await inspectDirectProject(report, loaded.manifest, repoRoot, loaded.projectRoot, {
+        driverId: resolvedDriver.driverId,
+        driverSource: resolvedDriver.source
+      });
 
   report.status = report.issues.some((issue) => issue.severity === "error")
     ? "fail"
@@ -451,6 +500,7 @@ export function renderCourseDoctorReport(report: CourseDoctorReport) {
   const lines = [`${report.status.toUpperCase()}: ${report.slug}`];
   if (report.project) {
     lines.push(`Driver: ${report.project.driverId}`);
+    lines.push(`Driver source: ${report.project.driverSource}`);
     lines.push(`Mode: ${report.project.authoringMode}`);
   }
   if (report.normalizedLegacyPathCount > 0) {
@@ -476,6 +526,7 @@ export function renderProjectAuthoringContext(report: CourseDoctorReport) {
     "",
     `- Project: ${project.slug}`,
     `- Driver: ${project.driverId}`,
+    `- Driver source: ${project.driverSource}`,
     `- Mode: ${project.authoringMode}`,
     automaticWriteStatus,
     `- Legacy path normalization: ${report.normalizedLegacyPathCount} path(s), in memory only.`,
@@ -518,6 +569,19 @@ export async function buildProjectAuthoringContext(slug: string, repoRoot = defa
   }
 }
 
+function readinessFromDoctorReport(report: CourseDoctorReport): CourseReadiness {
+  if (report.status !== "pass" || !report.project) {
+    return "blocked";
+  }
+  if (report.project.driverId === "direct-workspace-v1" && report.project.authoringMode === "direct") {
+    return "direct-ready";
+  }
+  if (report.project.driverId === "english-factory-v1") {
+    return "factory-ready";
+  }
+  return "proposal-only";
+}
+
 export async function listCourseAuthoringProjects(options: { includeAll?: boolean; repoRoot?: string } = {}) {
   const repoRoot = options.repoRoot ?? defaultRepoRoot;
   const projectsRoot = path.join(repoRoot, "projects");
@@ -533,18 +597,27 @@ export async function listCourseAuthoringProjects(options: { includeAll?: boolea
         const { manifest } = await loadProjectManifest(slug, repoRoot);
         const migratedActive = manifest.migrationState === "migrated" && manifest.authoringStatus === "active";
         if (!options.includeAll && !migratedActive) return undefined;
+        if (!migratedActive) {
+          return {
+            slug,
+            readiness: "not-onboarded",
+            lifecycle: manifest.authoringStatus ?? "missing-status",
+            driver: "not-onboarded"
+          };
+        }
+
+        const report = await inspectCourseAuthoringProject(slug, repoRoot);
         return {
           slug,
-          status: manifest.authoringStatus ?? "missing-status",
-          driver: migratedActive
-            ? isEnglishFactoryProject(manifest, slug)
-              ? "english-factory-v1"
-              : "direct-workspace-v1"
-            : "not-onboarded"
+          readiness: readinessFromDoctorReport(report),
+          lifecycle: manifest.authoringStatus ?? "missing-status",
+          driver: report.project?.driverId ?? "invalid-manifest",
+          driverSource: report.project?.driverSource,
+          issueCount: report.issues.length
         };
       } catch {
         return options.includeAll
-          ? { slug, status: "invalid-manifest", driver: "invalid-manifest" }
+          ? { slug, readiness: "invalid-manifest", lifecycle: "invalid-manifest", driver: "invalid-manifest" }
           : undefined;
       }
     })

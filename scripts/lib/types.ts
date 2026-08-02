@@ -86,6 +86,19 @@ export type ProjectManifest = {
   canonicalSources?: string[];
   generatedOutputs?: string[];
   regenerateCommand?: string;
+  authoring?: {
+    /**
+     * The code-owned workflow that owns edits and rebuilds for this project.
+     * This is deliberately independent of legacy regenerateCommand strings.
+     */
+    driverId: "direct-workspace-v1" | "english-factory-v1" | "social-related-issues-v1" | "proposal-only-v1";
+    /** A stable family identifier when a project shares an authoring workflow with siblings. */
+    familyId?: string;
+    /** Stable IDs from a project resource manifest; never host-machine source paths. */
+    sourceResourceIds?: string[];
+    /** The named quality profile that governs the project's focused verification. */
+    qualityProfile?: string;
+  };
   injectedComponents?: {
     id: string;
     source: string;

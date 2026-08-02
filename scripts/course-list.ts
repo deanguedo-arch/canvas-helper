@@ -22,9 +22,11 @@ async function main() {
     return;
   }
 
-  console.log("PROJECT\tSTATUS\tDRIVER");
+  console.log("PROJECT\tREADINESS\tLIFECYCLE\tDRIVER\tDRIVER_SOURCE\tISSUES");
   for (const row of rows) {
-    console.log(`${row.slug}\t${row.status}\t${row.driver}`);
+    console.log(
+      `${row.slug}\t${row.readiness}\t${row.lifecycle}\t${row.driver}\t${row.driverSource ?? "-"}\t${row.issueCount ?? "-"}`
+    );
   }
 }
 
