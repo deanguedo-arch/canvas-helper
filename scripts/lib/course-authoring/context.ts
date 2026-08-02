@@ -468,13 +468,16 @@ export function renderProjectAuthoringContext(report: CourseDoctorReport) {
   }
 
   const project = report.project;
+  const automaticWriteStatus = project.driverId === "direct-workspace-v1"
+    ? "- Automatic generation writes: allowed only for the exact canonical workspace files above; the server revalidates this before writing."
+    : "- Automatic generation writes: proposal-only for this driver; use the declared authoring driver and rebuild flow.";
   const lines = [
     "# Course Authoring Context",
     "",
     `- Project: ${project.slug}`,
     `- Driver: ${project.driverId}`,
     `- Mode: ${project.authoringMode}`,
-    "- Automatic write status: disabled in this phase; use this as a source-of-truth brief only.",
+    automaticWriteStatus,
     `- Legacy path normalization: ${report.normalizedLegacyPathCount} path(s), in memory only.`,
     "",
     "## Canonical editable sources",

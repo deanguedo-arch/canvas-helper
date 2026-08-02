@@ -233,6 +233,8 @@ Optional override flags for convert/export/deploy:
 - Repo-wide or multi-project continuation work should resume from `docs/ops/ACTIVE_HANDOFF.md`
 - For active migrated course work, run `npm run course:doctor -- --project <slug>` before using a course context; it validates source ownership and paths without changing the manifest
 - When that doctor passes, use `npm run context:project -- --project <slug>` for the compact (at most 5,000 UTF-8 bytes) source-of-truth brief; it intentionally excludes whole blueprints, resource catalogs, and prompt-pack content and does not write files
+- Studio generation starts with that compact source contract, not whole blueprint or catalog files. Add at most eight explicit `unit:`, `outcome:`, `resource:`, or `lesson:` IDs only when targeted evidence is needed; the server rejects oversized assembled context above 16,000 UTF-8 bytes.
+- Automatic Studio writes run only for a passing `direct-workspace-v1` project and only to exact declared canonical workspace files. Factory and proposal-only projects remain proposal/rebuild workflows, and raw or export paths cannot be generated into.
 - Use `npm run headroom` only when you intentionally need to regenerate a prompt pack, with `--project <slug>` / `--all` for explicit targeting
 - Use `npm run headroom:all` only when you intentionally need Canvas Helper-wide prompt-pack refresh
 - If workflow is known, read [docs/workflows/README.md](docs/workflows/README.md) and the matching workflow guide before broad repo scans

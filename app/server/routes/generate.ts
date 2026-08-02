@@ -1,9 +1,10 @@
+import { Buffer } from "node:buffer";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { parse } from "node:url";
 import { getProjectPaths } from "../../../scripts/lib/paths.ts";
-import { buildGenerationContext } from "../../../scripts/lib/engine/context-builder.ts";
-import { generateContent } from "../../../scripts/lib/engine/llm.ts";
-import { applyGeneration } from "../../../scripts/lib/engine/apply-generation.ts";
+import { buildGenerationContext, parseGenerationContextIds } from "../../../scripts/lib/engine/context-builder.ts";
+import { generateContent, type LlmProvider } from "../../../scripts/lib/engine/llm.ts";
+import { applyGeneration, assertGenerationWriteEligible } from "../../../scripts/lib/engine/apply-generation.ts";
 
 // Basic JSON response helper
 function jsonResponse(response: ServerResponse, status: number, body: unknown) {
@@ -26,25 +27,29 @@ export async function handleGenerateRoute(url: string, request: IncomingMessage,
   request.on("end", async () => {
     try {
       const payload = JSON.parse(bodyData);
-      const { slug, prompt, includeBlueprint, includeResourceCatalog, lessonPackets, provider } = payload;
+      const { slug, prompt, contextIds, provider } = payload;
       
-      if (!slug || !prompt) {
+      if (typeof slug !== "string" || typeof prompt !== "string" || !slug.trim() || !prompt.trim()) {
         return jsonResponse(response, 400, { error: "Missing slug or prompt" });
+      }
+      if (provider !== undefined && provider !== "gemini" && provider !== "openai") {
+        return jsonResponse(response, 400, { error: "Unsupported model provider" });
       }
 
       const roots = getProjectPaths(slug);
+      const selectedContextIds = parseGenerationContextIds(contextIds);
+      const selectedProvider: LlmProvider = provider === "openai" ? "openai" : "gemini";
 
-      // Build context
+      // Reject unsupported project drivers before spending model tokens.
+      await assertGenerationWriteEligible({ slug, roots });
+
       const systemContext = await buildGenerationContext({
         slug,
         roots,
-        includeBlueprint,
-        includeResourceCatalog,
-        lessonPackets
+        contextIds: selectedContextIds
       });
 
-      // Call API
-      const resultText = await generateContent(systemContext, prompt, provider || "gemini");
+      const resultText = await generateContent(systemContext, prompt, selectedProvider);
 
       // We could optionally just return the response to the UI instead of applying immediately.
       // But let's apply for now, and return what we applied.
@@ -57,7 +62,9 @@ export async function handleGenerateRoute(url: string, request: IncomingMessage,
       jsonResponse(response, 200, { 
         success: true, 
         appliedFiles,
-        rawResponse: resultText
+        rawResponse: resultText,
+        contextBytes: Buffer.byteLength(systemContext, "utf8"),
+        contextIds: selectedContextIds
       });
 
     } catch (err: any) {

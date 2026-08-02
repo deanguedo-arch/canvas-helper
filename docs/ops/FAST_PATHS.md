@@ -63,12 +63,16 @@ Then only open collect/apply modules that are directly affected.
 
 Read first:
 - `scripts/lib/course-authoring/context.ts`
+- `scripts/lib/engine/context-builder.ts`
+- `scripts/lib/engine/apply-generation.ts`
 - `projects/<slug>/meta/project.json`
 - `scripts/lib/english-unit/workspace-staging.ts` when the project uses `build:english-unit`
 
 Use:
 - `npm run course:doctor -- --project <slug>` before building a compact course brief
 - `npm run context:project -- --project <slug>` only after the doctor passes
+- In Studio, leave evidence IDs blank by default; add only exact `unit:`, `outcome:`, `resource:`, or `lesson:` IDs for an intentional narrow context.
+- Treat automatic writes as direct-workspace only. Factory and proposal-only projects require their owning rebuild flow.
 
 Verification floor:
 - `npm run test:authoring-context`

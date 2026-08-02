@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import type { ProjectBundle } from "../lib/types";
 
 export interface GenerativePanelProps {
@@ -12,10 +12,14 @@ export function GenerativePanel({ selectedProject, onClose }: GenerativePanelPro
   const [result, setResult] = useState<string | null>(null);
   const [error, setError] = useState<string | null>(null);
 
-  // Context options
-  const [includeBlueprint, setIncludeBlueprint] = useState(true);
-  const [includeResourceCatalog, setIncludeResourceCatalog] = useState(true);
+  const [contextIdInput, setContextIdInput] = useState("");
   const [provider, setProvider] = useState<"gemini" | "openai">("gemini");
+
+  useEffect(() => {
+    setContextIdInput("");
+    setResult(null);
+    setError(null);
+  }, [selectedProject?.manifest.slug]);
 
   if (!selectedProject) {
     return (
@@ -44,8 +48,7 @@ export function GenerativePanel({ selectedProject, onClose }: GenerativePanelPro
         body: JSON.stringify({
           slug: selectedProject.manifest.slug,
           prompt,
-          includeBlueprint,
-          includeResourceCatalog,
+          contextIds: contextIdInput.split(/[\s,]+/).filter(Boolean),
           provider
         })
       });
@@ -56,7 +59,8 @@ export function GenerativePanel({ selectedProject, onClose }: GenerativePanelPro
       }
 
       const data = await res.json();
-      setResult(`Applied changes to ${data.appliedFiles?.length || 0} file(s) in workspace.`);
+      const contextNote = typeof data.contextBytes === "number" ? ` using ${data.contextBytes.toLocaleString()} bytes of selected context` : "";
+      setResult(`Applied changes to ${data.appliedFiles?.length || 0} file(s) in workspace${contextNote}.`);
     } catch (err: any) {
       console.error(err);
       setError(err.message || "Something went wrong.");
@@ -87,23 +91,17 @@ export function GenerativePanel({ selectedProject, onClose }: GenerativePanelPro
         </div>
 
         <div>
-          <h3 style={{ fontSize: "0.9rem", color: "#666", marginBottom: "0.5rem" }}>Context Options</h3>
-          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center" }}>
-            <input 
-               type="checkbox" 
-               checked={includeBlueprint} 
-               onChange={e => setIncludeBlueprint(e.target.checked)} 
-            />
-            Include Course Blueprint
-          </label>
-          <label style={{ display: "flex", gap: "0.5rem", alignItems: "center", marginTop: "0.25rem" }}>
-            <input 
-               type="checkbox" 
-               checked={includeResourceCatalog} 
-               onChange={e => setIncludeResourceCatalog(e.target.checked)} 
-            />
-            Include Resource Catalog
-          </label>
+          <h3 style={{ fontSize: "0.9rem", color: "#666", marginBottom: "0.5rem" }}>Optional evidence IDs</h3>
+          <textarea
+            value={contextIdInput}
+            onChange={(event) => setContextIdInput(event.target.value)}
+            style={{ width: "100%", minHeight: "74px", padding: "0.5rem", resize: "vertical" }}
+            placeholder="unit:unit-1, lesson:lesson-id"
+            aria-label="Optional evidence IDs"
+          />
+          <p style={{ margin: "0.35rem 0 0", color: "#666", fontSize: "0.8rem", lineHeight: 1.35 }}>
+            Comma-separate exact IDs as unit:, outcome:, resource:, or lesson:. No blueprint, catalog, or lesson packet is loaded unless you name it.
+          </p>
         </div>
 
         <div style={{ display: "flex", flexDirection: "column", flex: 1, gap: "0.5rem" }}>

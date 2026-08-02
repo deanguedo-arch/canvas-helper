@@ -107,7 +107,8 @@ The `course:doctor`, `course:list`, and `context:project` commands form a read-o
 - `course:doctor` reads the manifest without rehydrating a project, validates canonical paths against the current checkout, rejects traversal and symbolic-link escapes, and reports legacy absolute paths as normalized repo-relative values without rewriting metadata.
 - `context:project` runs only after the doctor passes and emits a compact source-of-truth brief capped at 5,000 UTF-8 bytes. It excludes whole blueprints, resource catalogs, and prompt-pack bodies.
 - English factory projects are classified from the staging/build contract: `meta/english-unit.json`, `workspace/components/**`, and `workspace/assets/custom/**` are editable; factory-owned workspace output remains protected.
-- These commands do not write project files or authorize automatic generation writes. A later write gate must consume the doctor result and an explicit owning driver.
+- Studio generation assembles the brief with only explicitly named `unit:`, `outcome:`, `resource:`, or `lesson:` evidence in `scripts/lib/engine/context-builder.ts`. It never automatically stacks whole blueprints or resource catalogs, accepts at most eight IDs, and rejects an assembled server context over 16,000 UTF-8 bytes.
+- `scripts/lib/engine/apply-generation.ts` runs the doctor before a model call and again before writes. Only `direct-workspace-v1` may apply output, and every response target must exactly match a declared canonical workspace file after traversal and symbolic-link containment checks. English-factory and proposal-only work stays on its owning rebuild flow.
 
 ### Intake and Resources
 
