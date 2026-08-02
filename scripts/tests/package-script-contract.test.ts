@@ -1,0 +1,32 @@
+import assert from "node:assert/strict";
+import { readFile, stat } from "node:fs/promises";
+import path from "node:path";
+import test from "node:test";
+
+import { repoRoot } from "../lib/paths.js";
+
+test("every package script entrypoint under scripts resolves to a real file", async () => {
+  const packageJson = JSON.parse(await readFile(path.join(repoRoot, "package.json"), "utf8")) as {
+    scripts?: Record<string, string>;
+  };
+  const scripts = packageJson.scripts ?? {};
+  for (const requiredName of ["course:doctor", "course:list", "context:project"]) {
+    assert.equal(typeof scripts[requiredName], "string", `${requiredName} must be advertised in package.json`);
+  }
+
+  const entrypoints = new Set<string>();
+  for (const command of Object.values(scripts)) {
+    for (const match of command.matchAll(/(?:^|\s)(scripts\/[^\s]+\.ts)(?=\s|$)/g)) {
+      entrypoints.add(match[1]);
+    }
+  }
+  assert.ok(entrypoints.size > 0);
+
+  await Promise.all(
+    [...entrypoints].map(async (entrypoint) => {
+      const target = path.join(repoRoot, entrypoint);
+      const targetStats = await stat(target);
+      assert.ok(targetStats.isFile(), `${entrypoint} must be a file`);
+    })
+  );
+});

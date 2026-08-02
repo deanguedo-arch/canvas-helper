@@ -23,8 +23,8 @@ Use this folder to keep local work disciplined, reproducible, and handoff-friend
 1. Read [`AGENTS.md`](../../AGENTS.md)
 2. Read [`ARCHITECTURE.md`](../../ARCHITECTURE.md)
 3. Use [`session-checklist.md`](./session-checklist.md) before and during work
-4. After restoring from [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md), run Headroom when working in Cursor or Codex
-5. If the session helper is unavailable on the machine, use `npm run headroom` as the repo-native context fallback
+4. After restoring from [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md), use `course:doctor` and `context:project` for an active migrated course when a compact source brief is needed
+5. Use `npm run headroom` only when prompt-pack regeneration is intentionally required; it is not the default resume step
 6. Use [`HANDOFF.md`](./HANDOFF.md) for every meaningful stop point and write it into [`ACTIVE_HANDOFF.md`](./ACTIVE_HANDOFF.md)
 7. If workflow is known, read the matching guide under [`docs/workflows/`](../workflows/README.md)
 8. Use [`agent-prompt-templates.md`](./agent-prompt-templates.md) only after architecture, workflow, and task boundaries are clear

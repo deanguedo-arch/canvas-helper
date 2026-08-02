@@ -100,6 +100,15 @@ Migrated active projects should explicitly declare:
 - integration provenance (`injectedComponents`, `importedFirstPassOrigin`)
 - lifecycle/export posture (`authoringStatus`, `exportTargets`, `referenceOnly`)
 
+### Compact Course Authoring Context
+
+The `course:doctor`, `course:list`, and `context:project` commands form a read-only safety layer for active migrated course work. Their implementation lives in `scripts/lib/course-authoring/`.
+
+- `course:doctor` reads the manifest without rehydrating a project, validates canonical paths against the current checkout, rejects traversal and symbolic-link escapes, and reports legacy absolute paths as normalized repo-relative values without rewriting metadata.
+- `context:project` runs only after the doctor passes and emits a compact source-of-truth brief capped at 5,000 UTF-8 bytes. It excludes whole blueprints, resource catalogs, and prompt-pack bodies.
+- English factory projects are classified from the staging/build contract: `meta/english-unit.json`, `workspace/components/**`, and `workspace/assets/custom/**` are editable; factory-owned workspace output remains protected.
+- These commands do not write project files or authorize automatic generation writes. A later write gate must consume the doctor result and an explicit owning driver.
+
 ### Intake and Resources
 
 - `projects/incoming/`: one-shot import queue for HTML files and bundle folders

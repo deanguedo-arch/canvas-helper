@@ -59,6 +59,21 @@ Read first:
 
 Then only open collect/apply modules that are directly affected.
 
+## Compact Course Authoring Context
+
+Read first:
+- `scripts/lib/course-authoring/context.ts`
+- `projects/<slug>/meta/project.json`
+- `scripts/lib/english-unit/workspace-staging.ts` when the project uses `build:english-unit`
+
+Use:
+- `npm run course:doctor -- --project <slug>` before building a compact course brief
+- `npm run context:project -- --project <slug>` only after the doctor passes
+
+Verification floor:
+- `npm run test:authoring-context`
+- `npm run test:metadata-policy`
+
 ## Import / Refs Work
 
 Read first:
