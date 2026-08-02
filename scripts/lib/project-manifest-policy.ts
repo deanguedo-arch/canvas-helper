@@ -165,6 +165,7 @@ export function normalizeProjectManifestPolicy(manifest: ProjectManifest): Proje
   const migrationState = normalizeMigrationState(manifest.migrationState);
   return {
     ...manifest,
+    title: toTrimmedString(manifest.title) || undefined,
     migrationState,
     projectType: normalizeProjectType(manifest.projectType),
     preferredWorkflows: normalizePreferredWorkflows(manifest.preferredWorkflows),

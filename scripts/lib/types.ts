@@ -1,6 +1,6 @@
 export type InputKind = "html" | "text-html";
 export type PreviewMode = "raw" | "workspace";
-export type BrightspaceTarget = "course-page";
+export type BrightspaceTarget = "course-page" | "scorm";
 export type ProjectType = "conversion" | "generated-course" | "hybrid";
 export type WorkflowType = "conversion" | "generated-course" | "injection/integration";
 export type ManifestMigrationState = "legacy" | "migrated";
@@ -67,6 +67,7 @@ export type ReferenceChunkManifest = {
 export type ProjectManifest = {
   id: string;
   slug: string;
+  title?: string;
   sourcePath: string;
   inputKind: InputKind;
   brightspaceTarget: BrightspaceTarget;

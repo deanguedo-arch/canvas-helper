@@ -44,6 +44,10 @@ export function resolveTrackedScormStorageKeys(
   return [...keys];
 }
 
+export function resolveScormPackageTitle(manifest: { slug: string; title?: string }) {
+  return manifest.title?.trim() || manifest.slug;
+}
+
 export async function exportProjectToScormPackage(
   projectSlug: string,
   version: ScormVersion = "2004",
@@ -91,7 +95,7 @@ export async function exportProjectToScormPackage(
   const packageFilePaths = packageFiles.map((filePath) => toRelativePosixPath(scormExportDir, filePath));
   const scormManifest = buildScormManifest({
     identifier: `${projectSlug}-${zipLabel}`,
-    title: manifest.slug,
+    title: resolveScormPackageTitle(manifest),
     entrypoint: workspaceEntrypointRelative,
     files: packageFilePaths,
     version

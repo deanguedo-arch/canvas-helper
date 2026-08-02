@@ -1,0 +1,712 @@
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="A student guide to Product, Process, Defence, and readiness checkpoints."
+    />
+    <title>How Assessment Works</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <script src="./main.js" defer></script>
+  </head>
+  <body data-testid="assessment-root">
+    <a class="skip-link" href="#main-content">Skip to the guide</a>
+    <button class="button focus-exit" id="focus-exit" type="button">
+      Exit focus mode
+    </button>
+
+    <header class="site-header" aria-label="Unit controls">
+      <div class="site-header__inner">
+        <a class="unit-title" href="#main-content">How Assessment Works</a>
+        <div class="unit-progress" data-testid="assessment-progress">
+          <span id="progress-label">0 of 3 activities complete</span>
+          <progress id="unit-progress" value="0" max="3">0 of 3</progress>
+        </div>
+        <div class="header-actions">
+          <button
+            class="button button--quiet"
+            id="save-exit"
+            type="button"
+            title="Save progress in this browser"
+          >
+            Save progress
+          </button>
+          <button
+            class="button button--quiet"
+            id="theme-toggle"
+            type="button"
+            aria-pressed="false"
+          >
+            Dark theme
+          </button>
+          <button
+            class="button button--quiet"
+            id="focus-toggle"
+            type="button"
+            aria-pressed="false"
+          >
+            Focus mode
+          </button>
+        </div>
+        <p class="save-status" id="save-status" aria-live="polite"></p>
+      </div>
+    </header>
+
+    <main id="main-content" class="lesson-shell">
+      <div class="resume-panel" id="resume-panel" hidden>
+        <p>You have saved progress in this guide.</p>
+        <button class="button button--secondary" id="resume-button" type="button">
+          Continue where I left off
+        </button>
+      </div>
+
+      <header class="opening">
+        <h1>How Assessment Works</h1>
+        <p class="opening__lead">
+          Your grade is based on more than a finished assignment. You will show what you
+          created, how your thinking developed, and what you understand.
+        </p>
+        <div class="opening__promise">
+          <p>
+            <strong>No surprises:</strong> every major assessment tells you the learning
+            goal, success criteria, evidence to submit, and the weight of each part.
+          </p>
+        </div>
+      </header>
+
+      <section class="guide-block" id="journey" data-step="journey" aria-labelledby="journey-title">
+        <div class="section-heading">
+          <h2 id="journey-title">Your assessment journey</h2>
+          <p>
+            Major assessments come after learning and practice. A readiness checkpoint helps
+            you decide whether to move forward or complete one useful next step first.
+          </p>
+        </div>
+
+        <ol class="journey" aria-label="The seven parts of the assessment journey">
+          <li>
+            <span class="journey__number">1</span>
+            <div>
+              <strong>Learn</strong>
+              <span>Understand the goal and key ideas.</span>
+            </div>
+          </li>
+          <li>
+            <span class="journey__number">2</span>
+            <div>
+              <strong>Practise</strong>
+              <span>Try the skill before the final task.</span>
+            </div>
+          </li>
+          <li>
+            <span class="journey__number">3</span>
+            <div>
+              <strong>Check readiness</strong>
+              <span>Use practice evidence and a brief check-in.</span>
+            </div>
+          </li>
+          <li>
+            <span class="journey__number">4</span>
+            <div>
+              <strong>Create</strong>
+              <span>Plan, draft, and improve your work.</span>
+            </div>
+          </li>
+          <li>
+            <span class="journey__number">5</span>
+            <div>
+              <strong>Submit</strong>
+              <span>Hand in the requested body of evidence.</span>
+            </div>
+          </li>
+          <li>
+            <span class="journey__number">6</span>
+            <div>
+              <strong>Explain</strong>
+              <span>Show your understanding and choices.</span>
+            </div>
+          </li>
+          <li>
+            <span class="journey__number">7</span>
+            <div>
+              <strong>Revise if needed</strong>
+              <span>Use feedback to address a specific gap.</span>
+            </div>
+          </li>
+        </ol>
+
+        <div class="expectations-grid" aria-label="What students can expect">
+          <div>
+            <h3>Before the task</h3>
+            <p>You see the goal, criteria, required evidence, and weights.</p>
+          </div>
+          <div>
+            <h3>At a checkpoint</h3>
+            <p>You find out whether you are ready and what to do next.</p>
+          </div>
+          <div>
+            <h3>After submission</h3>
+            <p>
+              You complete Defence, then receive a fair result based on the full body of
+              evidence.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="guide-block" id="pillars" data-step="pillars" aria-labelledby="pillars-title">
+        <div class="section-heading">
+          <h2 id="pillars-title">Product, Process, and Defence</h2>
+          <p>
+            The three pillars answer different questions. Together, they give a clearer
+            picture of what you know and can do.
+          </p>
+        </div>
+
+        <div class="pillar-grid" aria-label="Explore the three assessment pillars">
+          <button
+            class="pillar-card pillar-card--product is-active"
+            type="button"
+            data-pillar="product"
+            aria-pressed="true"
+          >
+            <span class="pillar-card__letter" aria-hidden="true">P</span>
+            <strong>Product</strong>
+            <span>What finished work demonstrates the outcome?</span>
+          </button>
+          <button
+            class="pillar-card pillar-card--process"
+            type="button"
+            data-pillar="process"
+            aria-pressed="false"
+          >
+            <span class="pillar-card__letter" aria-hidden="true">P</span>
+            <strong>Process</strong>
+            <span>What evidence shows how your thinking developed?</span>
+          </button>
+          <button
+            class="pillar-card pillar-card--defence"
+            type="button"
+            data-pillar="defence"
+            aria-pressed="false"
+          >
+            <span class="pillar-card__letter" aria-hidden="true">D</span>
+            <strong>Defence</strong>
+            <span>How can you show that you understand and own the work?</span>
+          </button>
+        </div>
+
+        <div class="pillar-detail" id="pillar-detail" aria-live="polite">
+          <div>
+            <h3 id="pillar-detail-title">Product</h3>
+            <p id="pillar-detail-description">
+              Your final response, performance, project, exam, or other result demonstrates
+              the learning outcome.
+            </p>
+          </div>
+          <div>
+            <h4>Examples</h4>
+            <ul id="pillar-detail-examples">
+              <li>Final written response or exam</li>
+              <li>Presentation, demonstration, or performance</li>
+              <li>Completed project or solution</li>
+            </ul>
+          </div>
+        </div>
+
+        <article class="video-card" aria-labelledby="inspire-video-title">
+          <div class="video-card__intro">
+            <h3 id="inspire-video-title">Watch: How process evidence supports your work</h3>
+            <p>
+              This overview shows how assessment contracts, process evidence, and different
+              learning paths can help you understand what to prepare.
+            </p>
+            <p class="video-card__note">
+              The video is optional. Everything you need for the activities is also written on
+              this page.
+            </p>
+          </div>
+          <video
+            id="inspire-video"
+            data-testid="inspire-video"
+            controls
+            preload="metadata"
+            playsinline
+            data-video-source="inspire"
+            aria-label="How process evidence supports your work video"
+          >
+            Your browser does not support embedded video playback.
+          </video>
+        </article>
+
+        <div class="calculator" data-testid="score-calculator">
+          <div class="calculator__intro">
+            <h3>See how the three parts combine</h3>
+            <p>
+              Set the weights and sample marks to see how the result changes. The three weights
+              always total 100%, and Process can be set from 0–25%. Your assessment instructions
+              will show the actual weights for your task.
+            </p>
+          </div>
+
+          <div class="calculator__layout">
+            <form class="mark-controls" id="mark-form">
+              <fieldset class="weight-controls">
+                <legend>Set the example weights</legend>
+                <p class="control-help" id="weight-help">
+                  Moving one weight automatically adjusts the other two so the total stays at
+                  100%.
+                </p>
+
+                <div class="weight-control weight-control--product">
+                  <div class="weight-control__heading">
+                    <label for="product-weight">Product weight</label>
+                    <output id="product-weight-value" for="product-weight">50%</output>
+                  </div>
+                  <input
+                    id="product-weight"
+                    name="product-weight"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value="50"
+                    aria-describedby="weight-help weight-status"
+                    aria-valuetext="50 percent"
+                  />
+                </div>
+
+                <div class="weight-control weight-control--process">
+                  <div class="weight-control__heading">
+                    <label for="process-weight">Process weight</label>
+                    <output id="process-weight-value" for="process-weight">25%</output>
+                  </div>
+                  <input
+                    id="process-weight"
+                    name="process-weight"
+                    type="range"
+                    min="0"
+                    max="25"
+                    step="1"
+                    value="25"
+                    aria-describedby="weight-help weight-status"
+                    aria-valuetext="25 percent"
+                  />
+                </div>
+
+                <div class="weight-control weight-control--defence">
+                  <div class="weight-control__heading">
+                    <label for="defence-weight">Defence weight</label>
+                    <output id="defence-weight-value" for="defence-weight">25%</output>
+                  </div>
+                  <input
+                    id="defence-weight"
+                    name="defence-weight"
+                    type="range"
+                    min="0"
+                    max="100"
+                    step="1"
+                    value="25"
+                    aria-describedby="weight-help weight-status"
+                    aria-valuetext="25 percent"
+                  />
+                </div>
+
+                <p class="weight-status" id="weight-status" aria-live="polite">
+                  Product 50%, Process 25%, Defence 25%. Total: 100%.
+                </p>
+              </fieldset>
+
+              <fieldset class="mark-fields">
+                <legend>Set the example marks</legend>
+                <label>
+                  <span>Product example mark</span>
+                  <span class="mark-input">
+                    <input
+                      id="product-mark"
+                      name="product"
+                      type="number"
+                      inputmode="numeric"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="80"
+                    />
+                    <span>%</span>
+                  </span>
+                </label>
+                <label>
+                  <span>Process example mark</span>
+                  <span class="mark-input">
+                    <input
+                      id="process-mark"
+                      name="process"
+                      type="number"
+                      inputmode="numeric"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="80"
+                    />
+                    <span>%</span>
+                  </span>
+                </label>
+                <label>
+                  <span>Defence example mark</span>
+                  <span class="mark-input">
+                    <input
+                      id="defence-mark"
+                      name="defence"
+                      type="number"
+                      inputmode="numeric"
+                      min="0"
+                      max="100"
+                      step="1"
+                      value="80"
+                    />
+                    <span>%</span>
+                  </span>
+                </label>
+              </fieldset>
+
+              <button class="button button--secondary" id="reset-marks" type="button">
+                Reset example
+              </button>
+            </form>
+
+            <div class="score-result">
+              <p>Example overall mark</p>
+              <output
+                id="overall-mark"
+                for="product-weight process-weight defence-weight product-mark process-mark defence-mark"
+              >80%</output>
+              <div
+                class="score-bar"
+                id="score-bar"
+                role="img"
+                aria-label="Example overall mark is 80 percent."
+              >
+                <span id="product-contribution"></span>
+                <span id="process-contribution"></span>
+                <span id="defence-contribution"></span>
+                <span class="score-bar__remaining"></span>
+              </div>
+              <dl class="contribution-list">
+                <div>
+                  <dt>Product contribution</dt>
+                  <dd id="product-points">40 points</dd>
+                </div>
+                <div>
+                  <dt>Process contribution</dt>
+                  <dd id="process-points">20 points</dd>
+                </div>
+                <div>
+                  <dt>Defence contribution</dt>
+                  <dd id="defence-points">20 points</dd>
+                </div>
+              </dl>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section
+        class="guide-block"
+        id="evidence"
+        data-step="evidence"
+        aria-labelledby="evidence-title"
+      >
+        <div class="section-heading">
+          <h2 id="evidence-title">What counts as evidence?</h2>
+          <p>
+            Classify each example. You can retry without losing progress; this activity is
+            practice, not a grade.
+          </p>
+        </div>
+
+        <form class="activity" id="evidence-activity" data-testid="evidence-activity">
+          <div class="activity-list">
+            <fieldset class="evidence-item" data-evidence-item="final-response">
+              <legend>The finished source analysis submitted for marking</legend>
+              <div class="choice-row">
+                <label><input type="radio" name="final-response" value="product" /> Product</label>
+                <label><input type="radio" name="final-response" value="process" /> Process</label>
+                <label><input type="radio" name="final-response" value="defence" /> Defence</label>
+              </div>
+              <p class="item-feedback" id="feedback-final-response" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset class="evidence-item" data-evidence-item="planning-notes">
+              <legend>The plan and notes created before drafting</legend>
+              <div class="choice-row">
+                <label><input type="radio" name="planning-notes" value="product" /> Product</label>
+                <label><input type="radio" name="planning-notes" value="process" /> Process</label>
+                <label><input type="radio" name="planning-notes" value="defence" /> Defence</label>
+              </div>
+              <p class="item-feedback" id="feedback-planning-notes" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset class="evidence-item" data-evidence-item="revision-note">
+              <legend>A note explaining how feedback changed the work</legend>
+              <div class="choice-row">
+                <label><input type="radio" name="revision-note" value="product" /> Product</label>
+                <label><input type="radio" name="revision-note" value="process" /> Process</label>
+                <label><input type="radio" name="revision-note" value="defence" /> Defence</label>
+              </div>
+              <p class="item-feedback" id="feedback-revision-note" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset class="evidence-item" data-evidence-item="choice-explanation">
+              <legend>An explanation of why a particular strategy was chosen</legend>
+              <div class="choice-row">
+                <label><input type="radio" name="choice-explanation" value="product" /> Product</label>
+                <label><input type="radio" name="choice-explanation" value="process" /> Process</label>
+                <label><input type="radio" name="choice-explanation" value="defence" /> Defence</label>
+              </div>
+              <p class="item-feedback" id="feedback-choice-explanation" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset class="evidence-item" data-evidence-item="finished-presentation">
+              <legend>The completed presentation shown to an audience</legend>
+              <div class="choice-row">
+                <label><input type="radio" name="finished-presentation" value="product" /> Product</label>
+                <label><input type="radio" name="finished-presentation" value="process" /> Process</label>
+                <label><input type="radio" name="finished-presentation" value="defence" /> Defence</label>
+              </div>
+              <p class="item-feedback" id="feedback-finished-presentation" aria-live="polite"></p>
+            </fieldset>
+
+            <fieldset class="evidence-item" data-evidence-item="new-application">
+              <legend>Applying the learning to a new situation during a check-in</legend>
+              <div class="choice-row">
+                <label><input type="radio" name="new-application" value="product" /> Product</label>
+                <label><input type="radio" name="new-application" value="process" /> Process</label>
+                <label><input type="radio" name="new-application" value="defence" /> Defence</label>
+              </div>
+              <p class="item-feedback" id="feedback-new-application" aria-live="polite"></p>
+            </fieldset>
+          </div>
+
+          <div class="activity-actions">
+            <button class="button button--primary" type="submit">Check my classifications</button>
+            <p class="activity-status" id="evidence-status" aria-live="polite">
+              Answer all six examples, then check your classifications.
+            </p>
+          </div>
+        </form>
+      </section>
+
+      <section
+        class="guide-block"
+        id="readiness"
+        data-step="readiness"
+        aria-labelledby="readiness-title"
+      >
+        <div class="section-heading">
+          <h2 id="readiness-title">Readiness checkpoints</h2>
+          <p>
+            A checkpoint is not a punishment or a surprise test. It is a short pause that
+            protects your chance to succeed on the major assessment.
+          </p>
+        </div>
+
+        <div class="checkpoint-flow" aria-label="Readiness checkpoint flow">
+          <div>
+            <strong>Show preparation</strong>
+            <span>Practice, plans, notes, or drafts</span>
+          </div>
+          <span class="checkpoint-flow__arrow" aria-hidden="true">→</span>
+          <div>
+            <strong>Brief check-in</strong>
+            <span>Explain an idea or demonstrate a skill</span>
+          </div>
+          <span class="checkpoint-flow__arrow" aria-hidden="true">→</span>
+          <div>
+            <strong>Ready</strong>
+            <span>Move into the major assessment</span>
+          </div>
+          <span class="checkpoint-flow__or">or</span>
+          <div class="checkpoint-flow__support">
+            <strong>Not ready yet</strong>
+            <span>Address one gap, get support, and check again</span>
+          </div>
+        </div>
+
+        <article class="video-card" aria-labelledby="checkin-video-title">
+          <div class="video-card__intro">
+            <h3 id="checkin-video-title">Watch: What a readiness check-in can look like</h3>
+            <p>
+              See how a short human check-in can turn plans, notes, feedback, and questions into
+              a useful next step before a major task.
+            </p>
+            <p class="video-card__note">
+              The video is optional. The readiness activity below includes all required
+              information.
+            </p>
+          </div>
+          <video
+            id="process-checkin-video"
+            data-testid="process-checkin-video"
+            controls
+            preload="metadata"
+            playsinline
+            data-video-source="checkin"
+            aria-label="What a readiness check-in can look like video"
+          >
+            Your browser does not support embedded video playback.
+          </video>
+        </article>
+
+        <form class="activity scenario-activity" id="readiness-scenario" data-testid="readiness-scenario">
+          <fieldset class="scenario-question" data-scenario-item="practice-gap">
+            <legend>
+              You completed the practice, but you still cannot explain one key idea without
+              looking at the lesson. What is the most useful next step?
+            </legend>
+            <label>
+              <input type="radio" name="practice-gap" value="submit-now" />
+              Submit the major assessment before the idea is forgotten.
+            </label>
+            <label>
+              <input type="radio" name="practice-gap" value="targeted-practice" />
+              Ask a focused question, practise the gap, and check readiness again.
+            </label>
+            <label>
+              <input type="radio" name="practice-gap" value="skip-evidence" />
+              Skip the preparation evidence and rely only on the final product.
+            </label>
+            <p class="item-feedback" id="feedback-practice-gap" aria-live="polite"></p>
+          </fieldset>
+
+          <fieldset class="scenario-question" data-scenario-item="teacher-checkin">
+            <legend>
+              Your product is complete. During a short check-in, your teacher asks why you
+              chose one piece of evidence. What should you do?
+            </legend>
+            <label>
+              <input type="radio" name="teacher-checkin" value="repeat-product" />
+              Read the final paragraph aloud without explaining the choice.
+            </label>
+            <label>
+              <input type="radio" name="teacher-checkin" value="explain-choice" />
+              Connect the choice to your goal, process evidence, and understanding.
+            </label>
+            <label>
+              <input type="radio" name="teacher-checkin" value="decline-checkin" />
+              Decline because the finished product should be the only evidence.
+            </label>
+            <p class="item-feedback" id="feedback-teacher-checkin" aria-live="polite"></p>
+          </fieldset>
+
+          <div class="activity-actions">
+            <button class="button button--primary" type="submit">Check my decisions</button>
+            <p class="activity-status" id="readiness-status" aria-live="polite">
+              Choose a response for both situations.
+            </p>
+          </div>
+        </form>
+      </section>
+
+      <section
+        class="guide-block"
+        id="before-submit"
+        data-step="before-submit"
+        aria-labelledby="before-submit-title"
+      >
+        <div class="section-heading">
+          <h2 id="before-submit-title">After you submit: Defence</h2>
+          <p>
+            After you submit the requested Product and Process evidence, Defence is a normal
+            opportunity to explain choices, demonstrate understanding, and apply learning. It
+            is not an accusation.
+          </p>
+        </div>
+
+        <div class="defence-formats">
+          <div>
+            <h3>Short conversation</h3>
+            <p>Answer a few focused questions with your teacher.</p>
+          </div>
+          <div>
+            <h3>Written response</h3>
+            <p>Explain a decision or apply the learning in writing.</p>
+          </div>
+          <div>
+            <h3>Recorded explanation</h3>
+            <p>Use an approved audio or video response when directed.</p>
+          </div>
+        </div>
+
+        <p class="format-note">
+          Your assessment directions identify the expected format. Accommodations and
+          alternate ways to respond remain available when they are part of your learning plan.
+        </p>
+
+        <details class="answer-comparison">
+          <summary>Compare two Defence answers</summary>
+          <div class="answer-comparison__grid">
+            <div>
+              <h3>Needs more explanation</h3>
+              <blockquote>
+                “I chose this evidence because it seemed like the best one.”
+              </blockquote>
+            </div>
+            <div>
+              <h3>Shows understanding</h3>
+              <blockquote>
+                “I chose this evidence because it directly supports my claim. My first draft
+                used a broader example, but feedback showed that it did not prove the specific
+                idea.”
+              </blockquote>
+            </div>
+          </div>
+        </details>
+
+        <form class="completion-card" id="completion-checklist" data-testid="completion-checklist">
+          <h3>My readiness checklist</h3>
+          <p>Confirm what you now know about major assessments.</p>
+
+          <label>
+            <input type="checkbox" name="criteria" />
+            I can find the learning goal, success criteria, required evidence, and weights.
+          </label>
+          <label>
+            <input type="checkbox" name="process" />
+            I know which plans, drafts, feedback, and revisions I need to keep.
+          </label>
+          <label>
+            <input type="checkbox" name="defence" />
+            I expect to explain important choices and show what I understand.
+          </label>
+          <label>
+            <input type="checkbox" name="support" />
+            I know “not ready yet” means I will get a useful next step before trying again.
+          </label>
+
+          <div class="completion-actions">
+            <button class="button button--primary" id="finish-unit" type="submit" disabled>
+              Finish unit
+            </button>
+            <p
+              class="completion-status"
+              id="completion-status"
+              data-testid="completion-status"
+              aria-live="polite"
+            >
+              Complete the evidence activity, readiness scenarios, and all four checklist
+              items.
+            </p>
+          </div>
+        </form>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <p>
+        Revisit this guide whenever you need to check what to prepare for a major assessment.
+      </p>
+    </footer>
+  </body>
+</html>

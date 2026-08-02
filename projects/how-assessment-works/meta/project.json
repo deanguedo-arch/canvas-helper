@@ -1,0 +1,81 @@
+{
+  "id": "9a944a45-5b19-466f-b433-b107b16f9fbc",
+  "slug": "how-assessment-works",
+  "title": "How Assessment Works",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources",
+  "inputKind": "html",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
+  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html",
+  "migrationState": "migrated",
+  "projectType": "generated-course",
+  "preferredWorkflows": [
+    "generated-course"
+  ],
+  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
+  "canonicalSources": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/styles.css",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/main.js"
+  ],
+  "generatedOutputs": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/exports/single-html/how-assessment-works.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/exports/scorm-2004",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/exports/how-assessment-works-scorm-2004.zip"
+  ],
+  "regenerateCommand": "npm run export:html -- --project how-assessment-works && npm run export:scorm -- --project how-assessment-works --version 2004",
+  "injectedComponents": [
+    {
+      "id": "inspire-the-work-video",
+      "source": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/media/inspire-the-work.mp4",
+      "target": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/assets/media/inspire-the-work.mp4",
+      "status": "active",
+      "notes": "Copied local reference video used as optional learner support beside the assessment-weight activity."
+    },
+    {
+      "id": "process-check-in-video",
+      "source": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/media/the-process-check-in.mp4",
+      "target": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/assets/media/the-process-check-in.mp4",
+      "status": "active",
+      "notes": "Copied local reference video used as optional learner support beside the readiness-checkpoint activity."
+    }
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "manual",
+    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources",
+    "importedAt": "2026-07-30T15:37:40.000Z",
+    "notes": "Student-facing interpretation of the assessment pillars and readiness architecture. The Firebase administration presentation remains a separate canonical project."
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "One ungraded SCORM 2004 4th Edition learner item for Brightspace."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Self-contained local learner preview with all styles and scripts packaged locally."
+    }
+  ],
+  "authoringStatus": "ready-for-export",
+  "referenceOnly": [
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html",
+    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html"
+  ],
+  "sourceOfTruthNotes": "Edit only workspace/index.html, workspace/styles.css, and workspace/main.js for learner content and behavior. The two active workspace/assets/media videos are copied from the declared injected-component sources and should be refreshed by copying those sources, not edited in generated exports. The administration presentation is reference-only and must remain unchanged. HTML and SCORM exports are derived output and must be regenerated with regenerateCommand.",
+  "googleHosted": {
+    "trackedStorageKeys": [
+      "canvas-helper:how-assessment-works:state:v1"
+    ]
+  },
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-07-30T15:37:40.000Z",
+  "createdAt": "2026-07-30T15:37:40.000Z",
+  "updatedAt": "2026-07-30T18:06:27.167Z",
+  "workspaceApprovedAt": "2026-07-30T18:06:27.167Z"
+}

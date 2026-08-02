@@ -304,12 +304,14 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     ? {
         completionKey: "cmi.completion_status",
         exitKey: "cmi.exit",
-        incompleteValue: "incomplete"
+        incompleteValue: "incomplete",
+        completedValue: "completed"
       }
     : {
         completionKey: "cmi.core.lesson_status",
         exitKey: "cmi.core.exit",
-        incompleteValue: "incomplete"
+        incompleteValue: "incomplete",
+        completedValue: "completed"
       };
   let api = null;
   let initialized = false;
@@ -317,6 +319,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   let saveTimer = null;
   let localStoragePatched = false;
   let controlHost = null;
+  let lastPersistErrorMessage = "";
 
   function logWarning(message) {
     try {
@@ -505,7 +508,9 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
   }
 
   function persistToLms(reason, exitValue) {
+    lastPersistErrorMessage = "";
     if (!api || !initialized || terminated) {
+      lastPersistErrorMessage = "Progress could not be saved to Brightspace. Keep this tab open and try again.";
       return false;
     }
 
@@ -515,25 +520,31 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
     if (serialized.length > config.maxSuspendChars) {
       logWarning("State payload exceeded suspend_data budget; skipping save.");
+      lastPersistErrorMessage = "This course has more saved work than Brightspace can accept. Your last successful LMS save is still safe. Keep this tab open and remove unneeded draft evidence before trying again.";
+      announceStatus(lastPersistErrorMessage, true);
       return false;
     }
 
     if (!ensureCompletionStatus()) {
+      lastPersistErrorMessage = "Brightspace rejected the course completion state. Your last successful LMS save is still safe.";
       return false;
     }
 
     if (!api.setValue("cmi.suspend_data", serialized)) {
       logWarning("Failed to write cmi.suspend_data.");
+      lastPersistErrorMessage = "Brightspace rejected the saved course data. Your last successful LMS save is still safe.";
       return false;
     }
 
     if (exitValue && !api.setValue(statusModel.exitKey, exitValue)) {
       logWarning("Failed to write " + statusModel.exitKey + ".");
+      lastPersistErrorMessage = "Brightspace could not suspend this attempt. Your last successful LMS save is still safe.";
       return false;
     }
 
     if (!api.commit()) {
       logWarning("Failed to commit SCORM data.");
+      lastPersistErrorMessage = "Brightspace could not commit this save. Your last successful LMS save is still safe.";
       return false;
     }
 
@@ -547,7 +558,29 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     }
 
     const saved = persistToLms("manual-save");
-    announceStatus(saved ? "Progress saved." : "Save failed. Try again before closing.");
+    announceStatus(saved ? "Progress saved." : (lastPersistErrorMessage || "Save failed. Try again before closing."), !saved);
+    return saved;
+  }
+
+  function markCompleted() {
+    if (!api || !initialized || terminated) {
+      return false;
+    }
+
+    const currentValue = String(api.getValue(statusModel.completionKey) || "").trim().toLowerCase();
+    if (currentValue !== statusModel.completedValue) {
+      if (!api.setValue(statusModel.completionKey, statusModel.completedValue)) {
+        logWarning("Failed to mark the SCORM attempt complete.");
+        announceStatus("Brightspace could not record completion. Save your work and try again.", true);
+        return false;
+      }
+    }
+
+    const saved = persistToLms("completion");
+    announceStatus(
+      saved ? "Unit complete. Progress saved." : (lastPersistErrorMessage || "Completion could not be saved."),
+      !saved
+    );
     return saved;
   }
 
@@ -563,7 +596,7 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
 
     const saved = persistToLms("save-and-exit", "suspend");
     if (!saved) {
-      announceStatus("Save failed. Keep this tab open and try again.", true);
+      announceStatus(lastPersistErrorMessage || "Save failed. Keep this tab open and try again.", true);
       return false;
     }
 
@@ -736,8 +769,12 @@ export function buildScormBridgeScript(options: BuildScormBridgeScriptOptions) {
     installControls();
     window.__canvasHelperScorm = {
       save: save,
-      saveAndExit: saveAndExit
+      saveAndExit: saveAndExit,
+      markCompleted: markCompleted
     };
+    if (typeof window.dispatchEvent === "function" && typeof window.CustomEvent === "function") {
+      window.dispatchEvent(new window.CustomEvent("canvas-helper:scorm-ready"));
+    }
     scheduleFlush("init");
 
     window.addEventListener("beforeunload", terminateSession);

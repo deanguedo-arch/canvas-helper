@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "how-assessment-works",
+  "generatedAt": "2026-07-30T18:06:26.454Z",
+  "pass": true,
+  "deviations": [
+    {
+      "ruleId": "quality-max-consecutive-paragraph-blocks",
+      "severity": "warn",
+      "surface": "export",
+      "location": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
+      "why": "Detected 38 paragraph blocks but max allowed is 5.",
+      "evidence": "<p> count = 38"
+    }
+  ],
+  "acceptedDeviations": []
+}
