@@ -1,4 +1,4 @@
-export type InputKind = "html" | "text-html";
+export type InputKind = "html" | "text-html" | "brightspace-zip" | "resource-pack";
 export type PreviewMode = "raw" | "workspace";
 export type BrightspaceTarget = "course-page" | "scorm";
 export type ProjectType = "conversion" | "generated-course" | "hybrid";

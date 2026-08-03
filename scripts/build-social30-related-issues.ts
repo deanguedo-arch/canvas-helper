@@ -9,11 +9,15 @@ import JSZip from "jszip";
 
 import { decodeBrightspaceHtml } from "./lib/ela-modern-drama.js";
 import { renderNextStepCourseShell, type NextStepShellLesson, type NextStepShellNavItem } from "./lib/next-step-course-shell.js";
+import { stageAndPromoteSocialBuild } from "./lib/social-build-staging.js";
+import {
+  resolveSocial30SourceResource,
+  SOCIAL30_DEFAULT_RESOURCE_ID,
+  type ResolvedSocialSourceResource
+} from "./lib/social-resource-manifest.js";
 
 const ROOT = process.cwd();
 const COURSE_CODE = "Social Studies 30-1";
-const DEFAULT_ZIP_PATH =
-  "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip";
 const LOGO_SOURCE_PATH = path.join(
   ROOT,
   "docs",
@@ -145,6 +149,10 @@ function getArg(name: string, fallback = "") {
     return fallback;
   }
   return process.argv[index + 1] ?? fallback;
+}
+
+function hasFlag(name: string) {
+  return process.argv.some((argument) => argument === `--${name}` || argument.startsWith(`--${name}=`));
 }
 
 function normalizeWhitespace(value: string) {
@@ -642,7 +650,7 @@ function renderEvidenceBank(config: IssueConfig) {
     <p class="course-kicker">${COURSE_CODE} | Evidence</p>
     <h2>Evidence Bank</h2>
     <p class="page-intro">Collect moments you may reuse in source responses, position papers, discussions, and exam-style writing.</p>
-    <article class="social-document" data-writing-activity-panel>
+    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel data-evidence-capture="${escapeHtml(`${config.slug}:evidence-notebook`)}" data-evidence-contribution-id="${escapeHtml(`${config.slug}:evidence:notebook`)}">
       <header class="social-document-header">
         <p>Running Evidence Notebook</p>
         <h3>Save Proof As You Move</h3>
@@ -650,16 +658,23 @@ function renderEvidenceBank(config: IssueConfig) {
       </header>
       <div class="social-document-body">
         <section class="social-evidence-row">
-          ${renderField(`${config.slug}:evidence:source`, "Source or lesson", "Example: Unit 3, Lesson 1 - Liberalism and Canadian Government", "input")}
-          ${renderField(`${config.slug}:evidence:concept`, "Concept", "Example: individual rights, collectivism, authoritarianism", "input")}
+          <label>Source or lesson<input data-response-id="${escapeHtml(`${config.slug}:evidence:source`)}" data-evidence-draft="source" placeholder="Example: Unit 3, Lesson 1 - Liberalism and Canadian Government"></label>
+          <label>Concept<input data-response-id="${escapeHtml(`${config.slug}:evidence:concept`)}" data-evidence-draft="concept" placeholder="Example: individual rights, collectivism, authoritarianism"></label>
         </section>
-        ${renderField(`${config.slug}:evidence:detail`, "Evidence detail", "Quote, event, policy, image detail, statistic, or source observation.")}
-        ${renderField(`${config.slug}:evidence:connection`, "Why it matters", "Explain how this evidence helps answer the related issue question.")}
-        ${renderField(`${config.slug}:evidence:counterpoint`, "Possible counterpoint", "What would someone with a different ideological perspective say?")}
+        <label>Evidence detail<textarea data-response-id="${escapeHtml(`${config.slug}:evidence:detail`)}" data-evidence-draft="detail" placeholder="Quote, event, policy, image detail, statistic, or source observation."></textarea></label>
+        <label>Why it matters<textarea data-response-id="${escapeHtml(`${config.slug}:evidence:connection`)}" data-evidence-draft="connection" placeholder="Explain how this evidence helps answer the related issue question."></textarea></label>
+        <label>Possible counterpoint<textarea data-response-id="${escapeHtml(`${config.slug}:evidence:counterpoint`)}" data-evidence-draft="counterpoint" placeholder="What would someone with a different ideological perspective say?"></textarea></label>
         <div class="social-print-actions">
+          <button class="external-resource-action" type="button" data-save-evidence-note>Save to Evidence Bank</button>
           <button class="external-resource-action" type="button" data-print-writing>Print / PDF</button>
           <span class="save-status" data-save-status>Saved locally</span>
         </div>
+        <section class="social-evidence-bank" data-evidence-bank-filters>
+          <h4>Saved Evidence</h4>
+          <div class="social-evidence-bank-list" data-manual-evidence-list>
+            <p class="social-empty-state" data-manual-evidence-empty>Use the notebook above to save reusable proof notes here.</p>
+          </div>
+        </section>
       </div>
     </article>
   </section>`;
@@ -861,6 +876,47 @@ function socialExtraCss() {
 .social-resource-label {
   color: var(--primary);
   letter-spacing: .04em;
+}
+.social-evidence-bank {
+  display: grid;
+  gap: 14px;
+  padding-top: 8px;
+}
+.social-evidence-bank h4 {
+  margin: 0;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 23px;
+}
+.social-evidence-bank-list {
+  display: grid;
+  gap: 12px;
+}
+.social-lesson-evidence-card {
+  padding: 16px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: #fff;
+}
+.social-lesson-evidence-card h4,
+.social-lesson-evidence-card p {
+  margin: 0;
+}
+.social-lesson-evidence-card h4 {
+  margin-top: 5px;
+}
+.social-evidence-card-detail {
+  margin-top: 10px;
+}
+.social-evidence-card-detail p {
+  margin-top: 4px;
+  white-space: pre-wrap;
+}
+.social-evidence-card-actions {
+  margin-top: 12px;
+}
+.social-empty-state {
+  margin: 0;
+  color: var(--text-muted);
 }
 @media (max-width: 900px) {
   .social-question-grid,
@@ -1787,143 +1843,123 @@ function renderNavItems(config: IssueConfig, resources: ImportedResource[]): Nex
   ];
 }
 
-async function writeProjectMetadata(slug: string, config: IssueConfig, zipPath: string, lessonCount: number) {
-  const projectDir = path.join(ROOT, "projects", slug);
+async function writeBuildMetadata(
+  stageMetaDir: string,
+  config: IssueConfig,
+  sourceResource: ResolvedSocialSourceResource,
+  lessonCount: number,
+  resourceCount: number
+) {
   const now = new Date().toISOString();
   const isInlineD2L = config.renderMode === "inline-d2l";
   const isPaletteShell = config.renderMode === "palette-shell";
+  const renderMode = isInlineD2L
+    ? "inline-d2l-next-step-palette"
+    : isPaletteShell
+      ? "next-step-palette-shell"
+      : "standard-next-step-shell";
   const metadata = {
-    id: slug,
-    slug,
-    sourcePath: zipPath,
-    inputKind: "brightspace-zip",
-    brightspaceTarget: "scorm",
-    previewModes: ["workspace"],
-    workspaceEntrypoint: path.join(projectDir, "workspace", "index.html"),
-    rawEntrypoint: path.join(projectDir, "raw", "README.md"),
-    createdAt: now,
-    updatedAt: now,
-    migrationState: "migrated",
-    projectType: "conversion",
-    preferredWorkflows: ["conversion"],
-    canonicalEntry: path.join(projectDir, "workspace", "index.html"),
-    canonicalSources: [
-      path.join(projectDir, "workspace", "index.html"),
-      path.join(ROOT, "scripts", "build-social30-related-issues.ts"),
-      ...(isInlineD2L ? [] : [path.join(ROOT, "scripts", "lib", "next-step-course-shell.ts")])
-    ],
-    generatedOutputs: [],
-    regenerateCommand: `npx tsx scripts/build-social30-related-issues.ts --zip "${zipPath}" --only ${slug}`,
-    importedFirstPassOrigin: {
-      sourceSystem: "brightspace",
-      sourcePath: zipPath,
-      importedAt: now,
-      notes: `${config.title} ${isInlineD2L ? "inline D2L redesign option" : isPaletteShell ? "alternate palette shell option" : "clean shell"} generated from Social Studies 30-1 Brightspace units ${config.units.join(" + ")}.`
+    schemaVersion: 1,
+    projectSlug: config.slug,
+    generatedAt: now,
+    builder: "scripts/build-social30-related-issues.ts",
+    resource: {
+      id: sourceResource.id,
+      path: sourceResource.path,
+      sha256: sourceResource.sha256,
+      availability: sourceResource.availability
     },
-    exportTargets: [
-      {
-        target: "scorm",
-        enabled: true,
-        notes: "SCORM 2004 package for Brightspace upload."
-      },
-      {
-        target: "html",
-        enabled: true,
-        notes: "Standalone workspace preview."
-      }
-    ],
-    authoringStatus: "active",
-    referenceOnly: [zipPath, path.join(projectDir, "raw", "README.md")],
-    sourceOfTruthNotes: isInlineD2L
-      ? "The shared Brightspace ZIP is not duplicated per issue. Regenerate this inline styled D2L option through scripts/build-social30-related-issues.ts."
-      : isPaletteShell
-        ? "The shared Brightspace ZIP is not duplicated per issue. Regenerate this alternate palette shell through scripts/build-social30-related-issues.ts and the shared Next Step shell."
-        : "The shared Brightspace ZIP is not duplicated per issue. Regenerate this workspace through scripts/build-social30-related-issues.ts and the shared Next Step shell.",
-    conversionSummary: {
-      relatedIssue: config.title,
-      issueQuestion: config.issueQuestion,
-      units: config.units,
-      lessonsRecovered: lessonCount,
-      styleVariant: isInlineD2L ? "inline-d2l-next-step-palette" : isPaletteShell ? "next-step-palette-shell" : "standard-next-step-shell"
-    }
+    units: config.units,
+    lessonsRecovered: lessonCount,
+    resourcesRecovered: resourceCount,
+    renderMode
   };
-  await fs.mkdir(path.join(projectDir, "meta"), { recursive: true });
-  await fs.writeFile(path.join(projectDir, "meta", "project.json"), `${JSON.stringify(metadata, null, 2)}\n`);
+  await fs.writeFile(path.join(stageMetaDir, "social-build.json"), `${JSON.stringify(metadata, null, 2)}\n`);
   await fs.writeFile(
-    path.join(projectDir, "meta", "conversion-notes.md"),
-    `# ${config.title} Conversion Notes\n\n- Source ZIP: ${zipPath}\n- Units included: ${config.units.join(", ")}\n- Lessons recovered: ${lessonCount}\n- Render mode: ${isInlineD2L ? "Inline CSS Brightspace/D2L redesign option" : isPaletteShell ? "Shared Next Step course shell with alternate palette styling" : "Shared Next Step course shell"}\n${isInlineD2L ? "" : "- Shared shell: scripts/lib/next-step-course-shell.ts\n"}- Builder: scripts/build-social30-related-issues.ts\n\nThe raw ZIP is referenced rather than duplicated to avoid four large copies of the same Brightspace export.\n`
+    path.join(stageMetaDir, "conversion-notes.md"),
+    `# ${config.title} Conversion Notes\n\n- Source resource ID: ${sourceResource.id}\n- Source ZIP: ${sourceResource.path}\n- Source availability: ${sourceResource.availability}\n- Source checksum: ${sourceResource.sha256}\n- Units included: ${config.units.join(", ")}\n- Lessons recovered: ${lessonCount}\n- Resources recovered: ${resourceCount}\n- Render mode: ${isInlineD2L ? "Inline CSS Brightspace/D2L redesign option" : isPaletteShell ? "Shared Next Step course shell with alternate palette styling" : "Shared Next Step course shell"}\n${isInlineD2L ? "" : "- Shared shell: scripts/lib/next-step-course-shell.ts\n"}- Builder: scripts/build-social30-related-issues.ts\n\nThe source ZIP is named and checksum-verified through projects/resources/social30-1-related-issues/resource-manifest.json. This build never rewrites raw source or meta/project.json.\n`
   );
 }
 
-async function buildIssue(zip: JSZip, zipIndex: Map<string, string>, zipPath: string, config: IssueConfig) {
+async function buildIssue(
+  zip: JSZip,
+  zipIndex: Map<string, string>,
+  sourceResource: ResolvedSocialSourceResource,
+  config: IssueConfig
+) {
   const projectDir = path.join(ROOT, "projects", config.slug);
-  const workspaceDir = path.join(projectDir, "workspace");
-  const rawDir = path.join(projectDir, "raw");
-  const resourceMap = new Map<string, ImportedResource>();
+  let summary: { slug: string; lessons: number; resources: number } | undefined;
+  await stageAndPromoteSocialBuild({
+    projectDir,
+    async buildStage({ stageWorkspaceDir, stageMetaDir }) {
+      const workspaceDir = stageWorkspaceDir;
+      const resourceMap = new Map<string, ImportedResource>();
+      await fs.mkdir(path.join(workspaceDir, "assets", "brand"), { recursive: true });
+      await fs.copyFile(LOGO_SOURCE_PATH, path.join(workspaceDir, "assets", "brand", "nxt-ce-logo-white-with-ce.png"));
 
-  await fs.rm(workspaceDir, { recursive: true, force: true });
-  await fs.mkdir(path.join(workspaceDir, "assets", "brand"), { recursive: true });
-  await fs.mkdir(rawDir, { recursive: true });
-  await fs.copyFile(LOGO_SOURCE_PATH, path.join(workspaceDir, "assets", "brand", "nxt-ce-logo-white-with-ce.png"));
-  await fs.writeFile(
-    path.join(rawDir, "README.md"),
-    `# Raw Source\n\nThis project references the shared Brightspace ZIP instead of duplicating it:\n\n${zipPath}\n`
-  );
+      const lessonSources = await parseManifestLessons(zip, config);
+      const lessonIdByEntry = new Map<string, string>();
+      lessonSources.forEach((lesson, index) => {
+        const unitToken = lesson.unitPrefix.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+        lessonIdByEntry.set(normalizeZipPath(lesson.entry), `lesson-${index + 1}-${unitToken}-${slugify(lesson.title)}`);
+      });
 
-  const lessonSources = await parseManifestLessons(zip, config);
-  const lessonIdByEntry = new Map<string, string>();
-  lessonSources.forEach((lesson, index) => {
-    const unitToken = lesson.unitPrefix.toLowerCase().replace(/[^a-z0-9]+/g, "-");
-    lessonIdByEntry.set(normalizeZipPath(lesson.entry), `lesson-${index + 1}-${unitToken}-${slugify(lesson.title)}`);
+      const lessons: SanitizedLesson[] = [];
+      const registerResource = (resource: ImportedResource) => {
+        resourceMap.set(`${resource.category}:${resource.href}`, resource);
+      };
+
+      for (const lessonSource of lessonSources) {
+        const lesson = await sanitizeLesson(zip, zipIndex, workspaceDir, lessonSource, lessonIdByEntry, registerResource);
+        lessons.push(lesson);
+      }
+
+      await collectResources(zip, workspaceDir, config, resourceMap);
+      const resources = uniqueResources([...resourceMap.values()]).sort((a, b) => {
+        const categoryOrder = ["textbook", "unit", "student", "external"];
+        return categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category) || a.title.localeCompare(b.title);
+      });
+
+      const html =
+        config.renderMode === "inline-d2l"
+          ? renderInlineD2LCourseShell(config, lessons, resources)
+          : renderNextStepCourseShell({
+              slug: config.slug,
+              courseTitle: `Social Studies 30-1: ${config.title}`,
+              courseCode: COURSE_CODE,
+              overviewIntro: config.overviewIntro,
+              outcomes: [
+                `I can explain how ${config.units.join(" and ")} connect to ${config.issueQuestion}`,
+                "I can analyze sources for perspective, evidence, bias, and ideological assumptions.",
+                "I can collect evidence from lessons and resources to support a defensible position.",
+                "I can refine my thinking into a clear Social Studies 30-1 position response."
+              ],
+              lessons,
+              navItems: renderNavItems(config, resources),
+              lessonGroupTitle: config.title,
+              lessonSequenceTitle: `${config.title} Lesson Sequence`,
+              sourceLessonLabel: "imported lessons",
+              nextAfterLastLesson: { id: "issue-inquiry", label: "Issue Inquiry" },
+              storageKeyBase: `canvas-helper:${config.slug}`,
+              extraCss: socialShellCss(config)
+            });
+
+      await fs.writeFile(path.join(workspaceDir, "index.html"), html);
+      await writeBuildMetadata(stageMetaDir, config, sourceResource, lessons.length, resources.length);
+      summary = { slug: config.slug, lessons: lessons.length, resources: resources.length };
+    }
   });
-
-  const lessons: SanitizedLesson[] = [];
-  const registerResource = (resource: ImportedResource) => {
-    resourceMap.set(`${resource.category}:${resource.href}`, resource);
-  };
-
-  for (const lessonSource of lessonSources) {
-    const lesson = await sanitizeLesson(zip, zipIndex, workspaceDir, lessonSource, lessonIdByEntry, registerResource);
-    lessons.push(lesson);
+  if (!summary) {
+    throw new Error(`Social build did not produce a summary for ${config.slug}.`);
   }
-
-  await collectResources(zip, workspaceDir, config, resourceMap);
-  const resources = uniqueResources([...resourceMap.values()]).sort((a, b) => {
-    const categoryOrder = ["textbook", "unit", "student", "external"];
-    return categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category) || a.title.localeCompare(b.title);
-  });
-
-  const html =
-    config.renderMode === "inline-d2l"
-      ? renderInlineD2LCourseShell(config, lessons, resources)
-      : renderNextStepCourseShell({
-          slug: config.slug,
-          courseTitle: `Social Studies 30-1: ${config.title}`,
-          courseCode: COURSE_CODE,
-          overviewIntro: config.overviewIntro,
-          outcomes: [
-            `I can explain how ${config.units.join(" and ")} connect to ${config.issueQuestion}`,
-            "I can analyze sources for perspective, evidence, bias, and ideological assumptions.",
-            "I can collect evidence from lessons and resources to support a defensible position.",
-            "I can refine my thinking into a clear Social Studies 30-1 position response."
-          ],
-          lessons,
-          navItems: renderNavItems(config, resources),
-          lessonGroupTitle: config.title,
-          lessonSequenceTitle: `${config.title} Lesson Sequence`,
-          sourceLessonLabel: "imported lessons",
-          nextAfterLastLesson: { id: "issue-inquiry", label: "Issue Inquiry" },
-          storageKeyBase: `canvas-helper:${config.slug}`,
-          extraCss: socialShellCss(config)
-        });
-
-  await fs.writeFile(path.join(workspaceDir, "index.html"), html);
-  await writeProjectMetadata(config.slug, config, zipPath, lessons.length);
-  return { slug: config.slug, lessons: lessons.length, resources: resources.length };
+  return summary;
 }
 
 async function main() {
-  const zipPath = getArg("zip", DEFAULT_ZIP_PATH);
+  if (hasFlag("zip")) {
+    throw new Error("--zip is no longer supported. Use a declared --resource ID instead.");
+  }
+  const resourceId = getArg("resource", SOCIAL30_DEFAULT_RESOURCE_ID);
   const only = getArg("only");
   const selectedIssues = only
     ? ALL_ISSUES.filter((issue) => issue.slug === only || issue.title.toLowerCase() === only.toLowerCase())
@@ -1933,11 +1969,12 @@ async function main() {
     throw new Error(`No related issue matched --only ${only}`);
   }
 
-  const zip = await JSZip.loadAsync(await fs.readFile(zipPath));
+  const sourceResource = await resolveSocial30SourceResource({ repoRoot: ROOT, resourceId });
+  const zip = await JSZip.loadAsync(await fs.readFile(sourceResource.absolutePath));
   const zipIndex = buildZipPathIndex(zip);
   const results = [];
   for (const issue of selectedIssues) {
-    results.push(await buildIssue(zip, zipIndex, zipPath, issue));
+    results.push(await buildIssue(zip, zipIndex, sourceResource, issue));
   }
 
   for (const result of results) {

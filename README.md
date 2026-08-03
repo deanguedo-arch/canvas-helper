@@ -47,10 +47,15 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run assessment-map -- --project <slug>`
 - `npm run lesson-packets -- --project <slug>`
 - `npm run intake:english-course -- --course <course> --brightspace-zip "<zip>" --teacher-resources-zip "<zip>"`
+- `npm run intake:science-pilot -- --project <slug> --course-code "<code>" --title "<title>" --mode <conversion|generated-course> --brightspace-zip "<zip>" [--teacher-resources-zip "<zip>"]`
 - `npm run build:english-course -- --course <course>`
 - `npm run build:english-unit -- --project <unit-slug>`
+- `npm run build:social30 -- --resource <resource-id> --only <issue-slug>`
 - `npm run verify:english-course -- --course <course>`
 - `npm run test:english-course`
+- `npm run test:english-transaction`
+- `npm run test:social-build`
+- `npm run test:science-pilot`
 - `npm run validate:manifests`
 - `npm run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
 - `npm run assessment:export -- --assessment <assessment-slug>`
@@ -236,6 +241,9 @@ Optional override flags for convert/export/deploy:
 - When that doctor passes, use `npm run context:project -- --project <slug>` for the compact (at most 5,000 UTF-8 bytes) source-of-truth brief; it intentionally excludes whole blueprints, resource catalogs, and prompt-pack content and does not write files
 - Studio generation starts with that compact source contract, not whole blueprint or catalog files. Add at most eight explicit `unit:`, `outcome:`, `resource:`, or `lesson:` IDs only when targeted evidence is needed; the server rejects oversized assembled context above 16,000 UTF-8 bytes.
 - Automatic Studio writes run only for a passing `direct-workspace-v1` project and only to exact declared canonical workspace files. Factory and proposal-only projects remain proposal/rebuild workflows, and raw or export paths cannot be generated into.
+- An English factory course is only `factory-ready` when both source archives named by its recipe are materialized (not missing or LFS pointers). Its owned workspace, resource copies/extractions, and generated metadata are rollback-safe; recipes and teacher-authored custom paths are preserved.
+- Social related-issues work is a proposal/rebuild workflow: name a checksum-verified resource in `projects/resources/social30-1-related-issues/resource-manifest.json`, then rebuild with `npm run build:social30 -- --resource <resource-id> --only <issue-slug>`. Do not pass a personal `--zip` path or hand-edit the generated workspace.
+- Start a new Science course with `intake:science-pilot`, not a generic factory. It copies and hashes the real ZIP sources, creates a blocked planning contract, and gives the red-team / green-team review the same small set of metadata files before one representative unit is built.
 - Use `npm run headroom` only when you intentionally need to regenerate a prompt pack, with `--project <slug>` / `--all` for explicit targeting
 - Use `npm run headroom:all` only when you intentionally need Canvas Helper-wide prompt-pack refresh
 - If workflow is known, read [docs/workflows/README.md](docs/workflows/README.md) and the matching workflow guide before broad repo scans

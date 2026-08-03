@@ -1,5 +1,6 @@
 import assert from "node:assert/strict";
 import { Buffer } from "node:buffer";
+import { createHash } from "node:crypto";
 import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
@@ -22,6 +23,7 @@ type FixtureOptions = {
   authoring?: {
     driverId: "direct-workspace-v1" | "english-factory-v1" | "social-related-issues-v1" | "proposal-only-v1";
     familyId?: string;
+    sourceResourceIds?: string[];
   };
 };
 
@@ -71,6 +73,73 @@ async function createFixture(options: FixtureOptions = {}) {
   await mkdir(metaDir, { recursive: true });
   await writeFile(path.join(metaDir, "project.json"), `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
   return { repoRoot, slug, projectRoot, workspaceDir, metaDir, indexPath, mainPath };
+}
+
+async function createSocialSourceFixture(repoRoot: string) {
+  const resourcePath = "projects/resources/social30-1-related-issues/_sources/social30-fixture.zip";
+  const sourcePath = path.join(repoRoot, resourcePath);
+  const manifestPath = path.join(repoRoot, "projects/resources/social30-1-related-issues/resource-manifest.json");
+  const content = "fixture source export";
+  const sha256 = createHash("sha256").update(content).digest("hex");
+  await Promise.all([mkdir(path.dirname(sourcePath), { recursive: true }), mkdir(path.dirname(manifestPath), { recursive: true })]);
+  await Promise.all([
+    writeFile(sourcePath, content, "utf8"),
+    writeFile(
+      manifestPath,
+      `${JSON.stringify(
+        {
+          schemaVersion: 1,
+          familyId: "social30-1-related-issues",
+          resources: [
+            {
+              id: "social30-fixture",
+              kind: "brightspace-zip",
+              path: resourcePath,
+              sha256,
+              availability: "canonical",
+              provenance: { sourceSystem: "brightspace", description: "Fixture source export." }
+            }
+          ]
+        },
+        null,
+        2
+      )}\n`,
+      "utf8"
+    )
+  ]);
+}
+
+async function createEnglishFactoryFixture(fixture: Awaited<ReturnType<typeof createFixture>>, options: { includeTeacherArchive?: boolean } = {}) {
+  const brightspaceArchive = path.join(fixture.projectRoot, "raw", "brightspace.zip");
+  const teacherArchive = path.join(fixture.projectRoot, "raw", "teacher.zip");
+  await Promise.all([
+    writeFile(
+      path.join(fixture.metaDir, "english-unit.json"),
+      `${JSON.stringify(
+        {
+          source: {
+            brightspaceZip: "raw/brightspace.zip",
+            teacherResourcesZip: "raw/teacher.zip"
+          }
+        },
+        null,
+        2
+      )}\n`,
+      "utf8"
+    ),
+    writeFile(brightspaceArchive, "fixture Brightspace archive", "utf8"),
+    mkdir(path.join(fixture.workspaceDir, "components"), { recursive: true }),
+    mkdir(path.join(fixture.workspaceDir, "assets", "custom"), { recursive: true }),
+    mkdir(path.join(fixture.repoRoot, "scripts", "lib", "english-unit"), { recursive: true })
+  ]);
+  if (options.includeTeacherArchive !== false) {
+    await writeFile(teacherArchive, "fixture teacher archive", "utf8");
+  }
+  await Promise.all([
+    writeFile(path.join(fixture.repoRoot, "scripts", "build-english-unit.ts"), "export {};", "utf8"),
+    writeFile(path.join(fixture.repoRoot, "scripts", "lib", "english-unit", "factory-build.ts"), "export {};", "utf8"),
+    writeFile(path.join(fixture.repoRoot, "scripts", "lib", "english-unit", "workspace-staging.ts"), "export {};", "utf8")
+  ]);
 }
 
 test("builds a bounded repo-relative context without loading large project artifacts", async () => {
@@ -195,17 +264,7 @@ test("uses the English staging contract instead of treating factory output as ed
     sourceOfTruthNotes: "Factory-owned index/assets/generated output is replaced through a safe staged build."
   });
   try {
-    await Promise.all([
-      writeFile(path.join(fixture.metaDir, "english-unit.json"), "{}\n", "utf8"),
-      mkdir(path.join(fixture.workspaceDir, "components"), { recursive: true }),
-      mkdir(path.join(fixture.workspaceDir, "assets", "custom"), { recursive: true }),
-      mkdir(path.join(fixture.repoRoot, "scripts", "lib", "english-unit"), { recursive: true })
-    ]);
-    await Promise.all([
-      writeFile(path.join(fixture.repoRoot, "scripts", "build-english-unit.ts"), "export {};", "utf8"),
-      writeFile(path.join(fixture.repoRoot, "scripts", "lib", "english-unit", "factory-build.ts"), "export {};", "utf8"),
-      writeFile(path.join(fixture.repoRoot, "scripts", "lib", "english-unit", "workspace-staging.ts"), "export {};", "utf8")
-    ]);
+    await createEnglishFactoryFixture(fixture);
 
     const { report, text } = await buildProjectAuthoringContext(fixture.slug, fixture.repoRoot);
     assert.equal(report.status, "pass");
@@ -220,11 +279,45 @@ test("uses the English staging contract instead of treating factory output as ed
   }
 });
 
+test("blocks an English factory project when a declared recipe archive is missing", async () => {
+  const fixture = await createFixture({ regenerateCommand: "npm run build:english-unit -- --project course" });
+  try {
+    await createEnglishFactoryFixture(fixture, { includeTeacherArchive: false });
+    const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
+    assert.equal(report.status, "fail");
+    assert.ok(report.issues.some((issue) => issue.code === "missing-source" && /teacher-resource archive/.test(issue.message)));
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("blocks an English factory project when a declared archive is an unresolved LFS pointer", async () => {
+  const fixture = await createFixture({ regenerateCommand: "npm run build:english-unit -- --project course" });
+  try {
+    await createEnglishFactoryFixture(fixture);
+    await writeFile(
+      path.join(fixture.projectRoot, "raw", "teacher.zip"),
+      "version https://git-lfs.github.com/spec/v1\noid sha256:placeholder\nsize 1\n",
+      "utf8"
+    );
+    const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
+    assert.equal(report.status, "fail");
+    assert.ok(report.issues.some((issue) => issue.code === "unresolved-lfs-source" && /teacher-resource archive/.test(issue.message)));
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
 test("uses a declared shared Social driver instead of treating generated workspace output as editable", async () => {
   const fixture = await createFixture({
-    authoring: { driverId: "social-related-issues-v1", familyId: "social30-related-issues" }
+    authoring: {
+      driverId: "social-related-issues-v1",
+      familyId: "social30-related-issues",
+      sourceResourceIds: ["social30-fixture"]
+    }
   });
   try {
+    await createSocialSourceFixture(fixture.repoRoot);
     const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
     assert.equal(report.status, "pass");
     assert.equal(report.project?.driverId, "social-related-issues-v1");
@@ -232,6 +325,21 @@ test("uses a declared shared Social driver instead of treating generated workspa
     assert.equal(report.project?.authoringMode, "proposal-only");
     assert.deepEqual(report.project?.editableSources, []);
     assert.ok(report.project?.protectedPaths.some((entry) => entry.repoRelative === "projects/course/workspace"));
+    assert.ok(report.project?.sharedSources.some((entry) => entry.repoRelative.endsWith("social30-fixture.zip")));
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("blocks a Social project whose authoring contract does not name a source resource", async () => {
+  const fixture = await createFixture({
+    authoring: { driverId: "social-related-issues-v1", familyId: "social30-related-issues" }
+  });
+  try {
+    await createSocialSourceFixture(fixture.repoRoot);
+    const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
+    assert.equal(report.status, "fail");
+    assert.ok(report.issues.some((issue) => issue.code === "missing-social-resource"));
   } finally {
     await rm(fixture.repoRoot, { recursive: true, force: true });
   }
@@ -262,6 +370,28 @@ test("course:list derives readiness from the same doctor inspection", async () =
     assert.equal(blockedRows[0]?.readiness, "blocked");
     assert.equal(blockedRows[0]?.driver, "direct-workspace-v1");
     assert.ok((blockedRows[0]?.issueCount ?? 0) > 0);
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("course:list preserves an intentional blocked planning state", async () => {
+  const fixture = await createFixture({
+    authoringStatus: "blocked",
+    authoring: { driverId: "proposal-only-v1", familyId: "science-pilot-v1" }
+  });
+  try {
+    const rows = await listCourseAuthoringProjects({ includeAll: true, repoRoot: fixture.repoRoot });
+    assert.deepEqual(rows, [
+      {
+        slug: fixture.slug,
+        readiness: "blocked",
+        lifecycle: "blocked",
+        driver: "proposal-only-v1",
+        driverSource: "declared",
+        issueCount: 0
+      }
+    ]);
   } finally {
     await rm(fixture.repoRoot, { recursive: true, force: true });
   }

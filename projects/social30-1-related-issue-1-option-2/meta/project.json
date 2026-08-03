@@ -1,37 +1,44 @@
 {
   "id": "social30-1-related-issue-1-option-2",
   "slug": "social30-1-related-issue-1-option-2",
-  "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+  "sourcePath": "projects/resources/social30-1-related-issues/resource-manifest.json",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-1-option-2/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-1-option-2/raw/README.md",
+  "workspaceEntrypoint": "projects/social30-1-related-issue-1-option-2/workspace/index.html",
+  "rawEntrypoint": "projects/social30-1-related-issue-1-option-2/raw/README.md",
   "createdAt": "2026-06-23T15:31:53.176Z",
-  "updatedAt": "2026-06-23T15:31:53.176Z",
+  "updatedAt": "2026-08-02T00:00:00.000Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-1-option-2/workspace/index.html",
+  "canonicalEntry": "scripts/build-social30-related-issues.ts",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-1-option-2/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-social30-related-issues.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+    "scripts/build-social30-related-issues.ts",
+    "scripts/lib/next-step-course-shell.ts",
+    "projects/resources/social30-1-related-issues/resource-manifest.json"
   ],
-  "generatedOutputs": [],
-  "regenerateCommand": "npx tsx scripts/build-social30-related-issues.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip\" --only social30-1-related-issue-1-option-2",
+  "generatedOutputs": [
+    "projects/social30-1-related-issue-1-option-2/workspace/index.html",
+    "projects/social30-1-related-issue-1-option-2/meta/social-build.json",
+    "projects/social30-1-related-issue-1-option-2/meta/conversion-notes.md"
+  ],
+  "regenerateCommand": "npx tsx scripts/build-social30-related-issues.ts --resource social30-1-brightspace-winter-2020 --only social30-1-related-issue-1-option-2",
   "authoring": {
     "driverId": "social-related-issues-v1",
     "familyId": "social30-related-issues",
+    "sourceResourceIds": [
+      "social30-1-brightspace-winter-2020"
+    ],
     "qualityProfile": "social-related-issues"
   },
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "sourcePath": "projects/processed/social30-1-related-issue-1/source/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
     "importedAt": "2026-06-23T15:31:53.176Z",
     "notes": "Related Issue 1 (Option Two) alternate palette shell option generated from Social Studies 30-1 Brightspace units U1 + U2."
   },
@@ -49,10 +56,10 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-1-option-2/raw/README.md"
+    "projects/processed/social30-1-related-issue-1/source/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "projects/social30-1-related-issue-1-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The shared Brightspace ZIP is not duplicated per issue. Regenerate this alternate palette shell through scripts/build-social30-related-issues.ts and the shared Next Step shell.",
+  "sourceOfTruthNotes": "The workspace is generated output, not a hand-edit target. Rebuild this alternate palette shell through scripts/build-social30-related-issues.ts using source resource social30-1-brightspace-winter-2020 from the Social resource manifest; the staged builder never rewrites raw source or meta/project.json.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 1 (Option Two)",
     "issueQuestion": "To what extent should ideology be the foundation of identity?",

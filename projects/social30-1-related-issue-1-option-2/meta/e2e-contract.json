@@ -1,0 +1,57 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "social30-1-related-issue-1-option-2",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lessons",
+      "lesson-1-u1identity-u1-introduction",
+      "issue-inquiry",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "evidence-bank"
+    ],
+    "evidenceScenario": {
+      "kind": "individual",
+      "route": "evidence-bank",
+      "captureId": "social30-1-related-issue-1-option-2:evidence-notebook",
+      "contributionId": "social30-1-related-issue-1-option-2:evidence:notebook",
+      "responseId": "social30-1-related-issue-1-option-2:evidence:detail"
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-1-u1identity-u1-introduction",
+        "evidence-bank",
+        "resources"
+      ]
+    }
+  }
+}

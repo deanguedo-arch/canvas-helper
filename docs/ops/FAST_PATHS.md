@@ -67,6 +67,7 @@ Read first:
 - `scripts/lib/engine/apply-generation.ts`
 - `projects/<slug>/meta/project.json`
 - `scripts/lib/english-unit/workspace-staging.ts` when the project uses `build:english-unit`
+- `scripts/lib/social-resource-manifest.ts` and `scripts/lib/social-build-staging.ts` when the project uses `build:social30`
 
 Use:
 - `npm run course:list -- --all` to distinguish actual readiness from a project lifecycle label; do not treat `active` as permission to edit or rebuild.
@@ -101,9 +102,59 @@ Do not start from an old unit-specific builder. Rebuild through `npm run build:e
 
 Verification floor:
 - `npm run test:english-course`
+- `npm run test:english-transaction`
 - `npm run verify:english-course -- --course <course>`
 - `npm run test:e2e:project -- --project <slug>`
 - `npm run test:scorm`
+
+## Social 30 Related-Issues Rebuild
+
+Read first:
+- `docs/workflows/social-related-issues.md`
+- `projects/<slug>/meta/project.json`
+- `projects/resources/social30-1-related-issues/resource-manifest.json`
+- `scripts/lib/social-resource-manifest.ts`
+- `scripts/lib/social-build-staging.ts`
+- `scripts/build-social30-related-issues.ts`
+
+Do not start from a personal Downloads path or manually alter `workspace/index.html`. Select a declared source by ID, check the project first, then rebuild one exact issue:
+
+```bash
+npm run course:doctor -- --project <issue-slug>
+npm run build:social30 -- --resource <resource-id> --only <issue-slug>
+```
+
+Verification floor:
+- `npm run test:social-build`
+- `npm run course:doctor -- --project <issue-slug>`
+- `npm run test:e2e:project -- --project <issue-slug>`
+- `git diff --check`
+
+## Science Pilot Intake
+
+Read first:
+- `docs/workflows/science-pilot.md`
+- `scripts/lib/science-pilot-intake.ts`
+- `projects/<science-slug>/meta/science-pilot.json` after intake
+- `projects/<science-slug>/meta/decision-log.md` after the two review passes
+
+Create a planning-only pilot from real ZIP sources:
+
+```bash
+npm run intake:science-pilot -- \
+  --project <science-slug> \
+  --course-code "SCI 20" \
+  --title "Science 20" \
+  --mode conversion \
+  --brightspace-zip "<brightspace.zip>" \
+  --teacher-resources-zip "<teacher-resources.zip>"
+```
+
+The command intentionally leaves the course blocked and creates no learner workspace. Use the shared planning packet for red-team and green-team review; build one representative unit only after their evidence is recorded.
+
+Verification floor:
+- `npm run test:science-pilot`
+- `npm run validate:manifests`
 
 ## Handoff Resume
 
@@ -117,6 +168,8 @@ When workflow type is known, read the matching workflow guide immediately after 
 - `docs/workflows/generated-course.md`
 - `docs/workflows/injection-integration.md`
 - `docs/workflows/prompt-contract.md` for prompt structure
+- `docs/workflows/social-related-issues.md` for related-issues rebuilds
+- `docs/workflows/science-pilot.md` for a source-backed Science pilot
 
 For conversion work, use the ordered playbook in `docs/workflows/conversion.md`:
 - Intake + artifact generation

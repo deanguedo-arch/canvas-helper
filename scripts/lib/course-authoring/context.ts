@@ -1,10 +1,11 @@
 import { Buffer } from "node:buffer";
-import { lstat, readdir, readFile, realpath, stat } from "node:fs/promises";
+import { lstat, open, readdir, readFile, realpath, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { repoRoot as defaultRepoRoot } from "../paths.js";
 import { validateProjectManifestPolicy } from "../project-manifest-policy.js";
 import type { ProjectManifest } from "../types.js";
+import { resolveSocial30SourceResource, SOCIAL30_RESOURCE_MANIFEST_PATH } from "../social-resource-manifest.js";
 
 export const MAX_PROJECT_CONTEXT_BYTES = 5_000;
 
@@ -289,6 +290,57 @@ function uniquePaths(paths: CourseAuthoringPath[]) {
   });
 }
 
+async function assertNotLfsPointer(report: CourseDoctorReport, label: string, resolved: ResolvedManifestPath | undefined) {
+  if (!resolved?.exists || resolved.kind !== "file") return;
+  const handle = await open(resolved.absolutePath, "r");
+  try {
+    const buffer = Buffer.alloc(64);
+    const { bytesRead } = await handle.read(buffer, 0, buffer.length, 0);
+    if (buffer.subarray(0, bytesRead).toString("utf8").startsWith("version https://git-lfs.github.com/spec/v1")) {
+      createIssue(report, "unresolved-lfs-source", `${label} is an unresolved Git LFS pointer: ${resolved.repoRelative}`);
+    }
+  } finally {
+    await handle.close();
+  }
+}
+
+async function inspectEnglishRecipeSourceArchives(
+  report: CourseDoctorReport,
+  recipe: ResolvedManifestPath | undefined,
+  repoRoot: string,
+  projectRoot: string
+) {
+  if (!recipe?.exists) return [] as ResolvedManifestPath[];
+  let parsed: unknown;
+  try {
+    parsed = JSON.parse(await readFile(recipe.absolutePath, "utf8"));
+  } catch (error) {
+    createIssue(report, "invalid-english-recipe", `English recipe cannot be read as JSON: ${error instanceof Error ? error.message : String(error)}`);
+    return [];
+  }
+  const source = isRecord(parsed) && isRecord(parsed.source) ? parsed.source : undefined;
+  if (!source) {
+    createIssue(report, "invalid-english-recipe", "English recipe is missing a source object with both archive paths.");
+    return [];
+  }
+
+  const archiveDeclarations = [
+    { label: "English Brightspace archive", value: source.brightspaceZip },
+    { label: "English teacher-resource archive", value: source.teacherResourcesZip }
+  ];
+  const archives: ResolvedManifestPath[] = [];
+  for (const archive of archiveDeclarations) {
+    if (typeof archive.value !== "string" || !archive.value.trim()) {
+      createIssue(report, "invalid-english-recipe", `${archive.label} is missing from the English recipe.`);
+      continue;
+    }
+    const resolved = await requireManifestPath(report, archive.label, archive.value, repoRoot, projectRoot, { kind: "file" });
+    await assertNotLfsPointer(report, archive.label, resolved);
+    if (resolved) archives.push(resolved);
+  }
+  return archives;
+}
+
 async function inspectEnglishFactoryProject(
   report: CourseDoctorReport,
   manifest: ProjectManifest,
@@ -320,6 +372,7 @@ async function inspectEnglishFactoryProject(
     projectRoot,
     { required: false, kind: "directory" }
   );
+  const sourceArchives = await inspectEnglishRecipeSourceArchives(report, recipe, repoRoot, projectRoot);
   const shared = await Promise.all(
     [
       "scripts/build-english-unit.ts",
@@ -363,7 +416,9 @@ async function inspectEnglishFactoryProject(
     canonicalSources: uniquePaths(canonicalSources.filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
     editableSources: uniquePaths([recipe, components, customAssets].filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
     protectedPaths: uniquePaths(protectedPaths.filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
-    sharedSources: uniquePaths(shared.filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)),
+    sharedSources: uniquePaths(
+      [...shared, ...sourceArchives].filter((entry): entry is ResolvedManifestPath => Boolean(entry)).map(toCoursePath)
+    ),
     regenerateCommand: manifest.regenerateCommand
   };
 }
@@ -435,6 +490,61 @@ async function inspectDirectProject(
   };
 }
 
+async function inspectSocialRelatedIssuesProject(
+  report: CourseDoctorReport,
+  manifest: ProjectManifest,
+  repoRoot: string,
+  projectRoot: string,
+  driverSource: CourseAuthoringDriverSource
+) {
+  const base = await inspectDirectProject(report, manifest, repoRoot, projectRoot, {
+    driverId: "social-related-issues-v1",
+    driverSource
+  });
+  const sourceResourceIds = manifest.authoring?.sourceResourceIds ?? [];
+  const resourceManifest = await requireManifestPath(
+    report,
+    "Social resource manifest",
+    SOCIAL30_RESOURCE_MANIFEST_PATH,
+    repoRoot,
+    projectRoot,
+    { kind: "file" }
+  );
+
+  if (sourceResourceIds.length === 0) {
+    createIssue(report, "missing-social-resource", "Social related-issues projects must declare at least one authoring.sourceResourceIds entry.");
+  }
+
+  const resolvedResources: ResolvedManifestPath[] = [];
+  for (const resourceId of sourceResourceIds) {
+    try {
+      const resource = await resolveSocial30SourceResource({ repoRoot, resourceId });
+      resolvedResources.push({
+        absolutePath: resource.absolutePath,
+        repoRelative: toRepoRelative(repoRoot, resource.absolutePath),
+        kind: "file",
+        exists: true,
+        normalizedLegacyPath: false
+      });
+    } catch (error) {
+      createIssue(
+        report,
+        "invalid-social-resource",
+        `Social source resource ${resourceId}: ${error instanceof Error ? error.message : String(error)}`
+      );
+    }
+  }
+
+  return {
+    ...base,
+    sharedSources: uniquePaths(
+      [...base.sharedSources, resourceManifest, ...resolvedResources]
+        .filter((entry): entry is ResolvedManifestPath => Boolean(entry))
+        .map(toCoursePath)
+    )
+  };
+}
+
 export function assertExactProjectSlug(slug: string) {
   if (!PROJECT_SLUG_PATTERN.test(slug)) {
     throw new Error(`Invalid exact project slug: "${slug}".`);
@@ -477,10 +587,12 @@ export async function inspectCourseAuthoringProject(
   const resolvedDriver = resolveAuthoringDriver(loaded.manifest, slug);
   report.project = resolvedDriver.driverId === "english-factory-v1"
     ? await inspectEnglishFactoryProject(report, loaded.manifest, repoRoot, loaded.projectRoot, resolvedDriver.source)
-    : await inspectDirectProject(report, loaded.manifest, repoRoot, loaded.projectRoot, {
-        driverId: resolvedDriver.driverId,
-        driverSource: resolvedDriver.source
-      });
+    : resolvedDriver.driverId === "social-related-issues-v1"
+      ? await inspectSocialRelatedIssuesProject(report, loaded.manifest, repoRoot, loaded.projectRoot, resolvedDriver.source)
+      : await inspectDirectProject(report, loaded.manifest, repoRoot, loaded.projectRoot, {
+          driverId: resolvedDriver.driverId,
+          driverSource: resolvedDriver.source
+        });
 
   report.status = report.issues.some((issue) => issue.severity === "error")
     ? "fail"
@@ -598,11 +710,15 @@ export async function listCourseAuthoringProjects(options: { includeAll?: boolea
         const migratedActive = manifest.migrationState === "migrated" && manifest.authoringStatus === "active";
         if (!options.includeAll && !migratedActive) return undefined;
         if (!migratedActive) {
+          const lifecycle = manifest.authoringStatus ?? "missing-status";
+          const declaredDriver = manifest.authoring?.driverId;
           return {
             slug,
-            readiness: "not-onboarded",
-            lifecycle: manifest.authoringStatus ?? "missing-status",
-            driver: "not-onboarded"
+            readiness: lifecycle === "blocked" ? "blocked" : "not-onboarded",
+            lifecycle,
+            driver: declaredDriver ?? "not-onboarded",
+            driverSource: declaredDriver ? "declared" : undefined,
+            issueCount: lifecycle === "blocked" ? 0 : undefined
           };
         }
 

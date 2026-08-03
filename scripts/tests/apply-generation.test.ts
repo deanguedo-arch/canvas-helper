@@ -41,7 +41,18 @@ async function createFixture(options: FixtureOptions = {}) {
   if (options.englishFactory) {
     await mkdir(path.join(repoRoot, "scripts", "lib", "english-unit"), { recursive: true });
     await Promise.all([
-      writeFile(path.join(metaDir, "english-unit.json"), "{}", "utf8"),
+      writeFile(
+        path.join(metaDir, "english-unit.json"),
+        `${JSON.stringify({
+          source: {
+            brightspaceZip: "raw/brightspace.zip",
+            teacherResourcesZip: "raw/teacher-resources.zip"
+          }
+        })}\n`,
+        "utf8"
+      ),
+      writeFile(path.join(projectRoot, "raw", "brightspace.zip"), "fixture Brightspace archive", "utf8"),
+      writeFile(path.join(projectRoot, "raw", "teacher-resources.zip"), "fixture teacher-resource archive", "utf8"),
       writeFile(path.join(repoRoot, "scripts", "build-english-unit.ts"), "export {};", "utf8"),
       writeFile(path.join(repoRoot, "scripts", "lib", "english-unit", "factory-build.ts"), "export {};", "utf8"),
       writeFile(path.join(repoRoot, "scripts", "lib", "english-unit", "workspace-staging.ts"), "export {};", "utf8")

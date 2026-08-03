@@ -61,6 +61,7 @@ import { renderV3ActivityProfile } from "./v3-profile-renderer.js";
 import { composeEnglishV3Runtime } from "./v3-runtime-sanitizer.js";
 import { transformWritingFoundationsLessons } from "./writing-foundations-lessons.js";
 import { ensureStandardEnglishWritingProfile } from "./writing-sequence-renderer.js";
+import { runEnglishFactoryOutputTransaction } from "./factory-transaction.js";
 import { stageAndPromoteEnglishWorkspace } from "./workspace-staging.js";
 
 const LOGO_RELATIVE_PATH = path.join("docs", "design", "next-step", "assets", "nxt-ce-logo-white-with-ce.png");
@@ -590,6 +591,10 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
   const [brightspaceBuffer, teacherBuffer] = await Promise.all([readFile(brightspacePath), readFile(teacherPath)]);
   const [brightspaceZip, teacherZip] = await Promise.all([JSZip.loadAsync(brightspaceBuffer), JSZip.loadAsync(teacherBuffer)]);
   const resourceDir = path.join(input.repoRoot, "projects", "resources", input.projectSlug);
+  return await runEnglishFactoryOutputTransaction({
+    projectDir,
+    resourceDir,
+    async run() {
   await mkdir(resourceDir, { recursive: true });
   const reportItems: EnglishBuildReportItem[] = [];
   if (donorDataHydration?.source && inheritedDonorDecisionCount > 0) {
@@ -658,7 +663,11 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
     : undefined;
   const promotion = await stageAndPromoteEnglishWorkspace({
     workspaceDir,
-    ownedPaths: [{ path: "index.html", kind: "file" }, { path: "assets/generated", kind: "directory" }],
+    ownedPaths: [
+      { path: "index.html", kind: "file" },
+      { path: "assets/generated", kind: "directory" },
+      { path: "resources/generated", kind: "directory" }
+    ],
     metadata: {
       projectSlug: recipe.projectSlug,
       status: recipe.status === "ready-for-export" ? "success" : "needs-review",
@@ -677,7 +686,10 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
       reviewItems: recipe.acceptance.reviewItems
     },
     async buildStage({ stageDir }) {
-      await mkdir(path.join(stageDir, "assets", "generated", "brand"), { recursive: true });
+      await Promise.all([
+        mkdir(path.join(stageDir, "assets", "generated", "brand"), { recursive: true }),
+        mkdir(path.join(stageDir, "resources", "generated"), { recursive: true })
+      ]);
       await copyFile(path.join(input.repoRoot, LOGO_RELATIVE_PATH), path.join(stageDir, "assets", "generated", "brand", "nxt-ce-logo-white-with-ce.png"));
       const includedSelectors = recipe.source.lessonSelectors.filter((selector) => selector.disposition === "include");
       if (recipe.schemaVersion === 3 && hasV3DonorLessonSelector(recipe)) {
@@ -818,6 +830,8 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
     ]
   });
   return { projectSlug: recipe.projectSlug, recipe, report, renderedRoutes, resourceCount: preparedResources.length, videoCount: videos.length, workspaceEntry: path.join(workspaceDir, "index.html") };
+    }
+  });
 }
 
 export const englishFactoryBuildInternals = { validateLearnerHtml, materialHooks, buildActivityProfile, FORBIDDEN_LEARNER_PATTERNS };

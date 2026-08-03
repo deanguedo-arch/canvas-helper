@@ -70,9 +70,11 @@ Factory-owned rebuild paths are only:
 
 - `workspace/index.html`
 - `workspace/assets/generated/**`
-- legacy Short Stories `workspace/resources/generated/**`
+- `workspace/resources/generated/**`
+- `projects/resources/<slug>/teacher/**` and `projects/resources/<slug>/_extracted/**`
+- generated metadata: `english-unit-build.json`, `english-unit-mapping.json`, `english-unit-mapping.md`, `e2e-contract.json`, and `conversion-notes.md`
 
-Recipes, prompt packs, `workspace/components/**`, and `workspace/assets/custom/**` survive bulk rebuilds. Never patch an export as source.
+The factory stages the learner workspace, then holds a rollback-safe transaction around these generated resource and metadata paths. If a later metadata step fails, the previous workspace, generated resources, mappings, E2E contract, conversion notes, and project contract are restored together. Recipes, prompt packs, `workspace/components/**`, `workspace/assets/custom/**`, `raw/**`, and resource `_sources/**` survive bulk rebuilds. Never patch an export as source.
 
 ## Rebuild Loop
 
@@ -129,6 +131,7 @@ Run the factory-specific gates:
 
 ```bash
 npm run test:english-course
+npm run test:english-transaction
 npm run verify:english-course -- --course ela20-1
 ```
 

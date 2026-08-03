@@ -235,8 +235,7 @@ function renderOverview(options: NextStepCourseShellOptions) {
         ${options.outcomes.map((outcome) => `<li>${escapeHtml(outcome.replace(/^I can\s+/i, ""))}</li>`).join("\n")}
       </ul>
     </section>
-    ${options.overviewNotice ? `<aside class="overview-notice"><strong>Text access</strong><p>${escapeHtml(options.overviewNotice)}</p></aside>` : ""}
-    <div class="overview-actions" aria-label="Course status and actions">
+${options.overviewNotice ? `    <aside class="overview-notice"><strong>Text access</strong><p>${escapeHtml(options.overviewNotice)}</p></aside>\n` : ""}    <div class="overview-actions" aria-label="Course status and actions">
       <span class="completed-pill"><strong data-progress-count-inline>0/${completionCount}</strong> ${escapeHtml(completionLabel)} complete</span>
       <span class="completed-pill">${completionCount} ${escapeHtml(sourceLessonLabel)}</span>
       ${firstLesson ? `<a class="external-resource-action" href="#${escapeHtml(firstLesson.id)}" data-page-target="${escapeHtml(firstLesson.id)}">Open Lesson Frame</a>` : ""}

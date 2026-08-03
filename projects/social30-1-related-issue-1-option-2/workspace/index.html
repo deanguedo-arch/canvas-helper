@@ -163,6 +163,42 @@ button, input, select, textarea { font: inherit; }
 }
 .lessons-nav.is-open .lesson-subnav,
 .nav-group.is-open .lesson-subnav { display: grid; gap: 4px; }
+.sublesson-unit {
+  display: grid;
+  gap: 5px;
+  padding: 10px 0 8px;
+  border-top: 1px solid #2d332f;
+}
+.sublesson-unit:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+.sublesson-unit-heading {
+  display: block;
+  padding: 4px 0 2px;
+  color: #fff;
+  font-size: 13px;
+  font-weight: 900;
+  line-height: 1.25;
+}
+.sublesson-group {
+  display: grid;
+  gap: 4px;
+  padding: 8px 0 6px;
+  border-top: 1px solid #2d332f;
+}
+.sublesson-group:first-child {
+  border-top: 0;
+  padding-top: 2px;
+}
+.sublesson-heading {
+  display: block;
+  padding: 4px 0 2px;
+  color: #aebaaa;
+  font-size: 12px;
+  font-weight: 800;
+  line-height: 1.25;
+}
 .sublesson-link {
   display: block;
   padding: 7px 0;
@@ -219,9 +255,11 @@ button, input, select, textarea { font: inherit; }
   list-style: none;
 }
 .unit-focus-list li {
+  box-sizing: border-box;
   padding: 10px 14px;
-  border-left: 3px solid var(--primary);
-  background: var(--surface-low);
+  border-left: 5px solid var(--primary);
+  background: #fff;
+  box-shadow: 0 6px 18px var(--surface-muted);
 }
 .overview-actions {
   display: flex;
@@ -308,6 +346,10 @@ button, input, select, textarea { font: inherit; }
 .lesson-card span { color: var(--primary); font-family: "IBM Plex Sans", "Aptos", sans-serif; font-size: 14px; font-weight: 700; }
 .lesson-card strong { font-family: "Hanken Grotesk", "Aptos Display", sans-serif; font-size: 21px; line-height: 1.18; }
 .lesson-card p { margin: 0; color: #556052; }
+.lesson-card--title-only {
+  gap: 8px;
+  align-content: start;
+}
 .lesson-detail-panel {
   overflow: hidden;
   border: 1px solid var(--surface-muted);
@@ -363,8 +405,11 @@ button, input, select, textarea { font: inherit; }
 .source-content ol { margin: .75em 0 1em 1.35em; padding: 0; }
 .source-content img,
 .source-image {
-  max-width: 100%;
+  width: auto;
+  max-width: min(100%, 760px);
+  max-height: 520px;
   height: auto;
+  object-fit: contain;
   border: 1px solid var(--surface-muted);
   border-radius: 8px;
 }
@@ -687,6 +732,47 @@ body.sidebar-collapsed .course-nav-link {
   color: var(--primary);
   letter-spacing: .04em;
 }
+.social-evidence-bank {
+  display: grid;
+  gap: 14px;
+  padding-top: 8px;
+}
+.social-evidence-bank h4 {
+  margin: 0;
+  font-family: "Hanken Grotesk", "Aptos Display", sans-serif;
+  font-size: 23px;
+}
+.social-evidence-bank-list {
+  display: grid;
+  gap: 12px;
+}
+.social-lesson-evidence-card {
+  padding: 16px;
+  border: 1px solid var(--surface-muted);
+  border-radius: 8px;
+  background: #fff;
+}
+.social-lesson-evidence-card h4,
+.social-lesson-evidence-card p {
+  margin: 0;
+}
+.social-lesson-evidence-card h4 {
+  margin-top: 5px;
+}
+.social-evidence-card-detail {
+  margin-top: 10px;
+}
+.social-evidence-card-detail p {
+  margin-top: 4px;
+  white-space: pre-wrap;
+}
+.social-evidence-card-actions {
+  margin-top: 12px;
+}
+.social-empty-state {
+  margin: 0;
+  color: var(--text-muted);
+}
 @media (max-width: 900px) {
   .social-question-grid,
   .social-three-column,
@@ -951,7 +1037,9 @@ a:focus-visible {
           <span class="sidebar-label">Lessons</span>
           <span class="material-symbols-outlined lessons-toggle-icon" aria-hidden="true">expand_more</span>
         </a>
-        <div id="lesson-subnav" class="lesson-subnav"><a class="sublesson-link" href="#lesson-1-u1identity-u1-introduction" data-page-target="lesson-1-u1identity-u1-introduction">1. U1 Introduction</a>
+        <div id="lesson-subnav" class="lesson-subnav"><div class="sublesson-group">
+        <span class="sublesson-heading">Unit 1: Ideology and Identity</span>
+        <a class="sublesson-link" href="#lesson-1-u1identity-u1-introduction" data-page-target="lesson-1-u1identity-u1-introduction">1. U1 Introduction</a>
 <a class="sublesson-link" href="#lesson-2-u1identity-section-1-intro" data-page-target="lesson-2-u1identity-section-1-intro">2. Section 1 Intro</a>
 <a class="sublesson-link" href="#lesson-3-u1identity-l1-exploring-identity" data-page-target="lesson-3-u1identity-l1-exploring-identity">3. L1: Exploring Identity</a>
 <a class="sublesson-link" href="#lesson-4-u1identity-l2-exploring-beliefs-and-values" data-page-target="lesson-4-u1identity-l2-exploring-beliefs-and-values">4. L2: Exploring Beliefs and Values</a>
@@ -963,7 +1051,10 @@ a:focus-visible {
 <a class="sublesson-link" href="#lesson-10-u1identity-l1-how-can-ideology-shape-identity" data-page-target="lesson-10-u1identity-l1-how-can-ideology-shape-identity">10. L1: How can ideology shape identity?</a>
 <a class="sublesson-link" href="#lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i" data-page-target="lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i">11. L2: Pros and Cons of linking Identity with Ideology (Part I)</a>
 <a class="sublesson-link" href="#lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii" data-page-target="lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii">12. L3: Pros and Cons of Linking Ideology with Identity (Part II)</a>
-<a class="sublesson-link" href="#lesson-13-u2foundations-u2-introduction" data-page-target="lesson-13-u2foundations-u2-introduction">13. U2 Introduction</a>
+      </div>
+<div class="sublesson-group">
+        <span class="sublesson-heading">Unit 2: Foundations of Liberalism</span>
+        <a class="sublesson-link" href="#lesson-13-u2foundations-u2-introduction" data-page-target="lesson-13-u2foundations-u2-introduction">13. U2 Introduction</a>
 <a class="sublesson-link" href="#lesson-14-u2foundations-u2s1-introduction" data-page-target="lesson-14-u2foundations-u2s1-introduction">14. U2S1 Introduction</a>
 <a class="sublesson-link" href="#lesson-15-u2foundations-l1-basics-of-liberal-democracy" data-page-target="lesson-15-u2foundations-l1-basics-of-liberal-democracy">15. L1: Basics of liberal democracy</a>
 <a class="sublesson-link" href="#lesson-16-u2foundations-l2-ideological-perspectives" data-page-target="lesson-16-u2foundations-l2-ideological-perspectives">16. L2: Ideological Perspectives</a>
@@ -973,7 +1064,8 @@ a:focus-visible {
 <a class="sublesson-link" href="#lesson-20-u2foundations-u2s2-summary" data-page-target="lesson-20-u2foundations-u2s2-summary">20. U2S2 Summary</a>
 <a class="sublesson-link" href="#lesson-21-u2foundations-u2s3-introduction" data-page-target="lesson-21-u2foundations-u2s3-introduction">21. U2S3 Introduction</a>
 <a class="sublesson-link" href="#lesson-22-u2foundations-l1-life-under-classical-liberalism" data-page-target="lesson-22-u2foundations-l1-life-under-classical-liberalism">22. L1: Life under classical liberalism</a>
-<a class="sublesson-link" href="#lesson-23-u2foundations-l2-responses-to-classical-liberalism" data-page-target="lesson-23-u2foundations-l2-responses-to-classical-liberalism">23. L2: Responses to classical liberalism</a></div>
+<a class="sublesson-link" href="#lesson-23-u2foundations-l2-responses-to-classical-liberalism" data-page-target="lesson-23-u2foundations-l2-responses-to-classical-liberalism">23. L2: Responses to classical liberalism</a>
+      </div></div>
       </div>
       
       <a class="course-nav-link" href="#issue-inquiry" data-page-target="issue-inquiry">
@@ -1001,7 +1093,7 @@ a:focus-visible {
 <main class="course-main">
   <div class="course-frame">
     <section id="overview" class="course-page">
-    <p class="course-kicker">Social Studies 30-1 | Unit Frame</p>
+    <p class="course-kicker">Course overview</p>
     <h2>Social Studies 30-1: Related Issue 1 (Option Two)</h2>
     <p class="page-intro">Explore how identity, beliefs, values, and the foundations of liberalism shape the way people understand themselves and society.</p>
     <section class="unit-outcomes" aria-labelledby="outcomes-title">
@@ -1020,7 +1112,7 @@ a:focus-visible {
     </div>
   </section>
     <section id="lessons" class="course-page" hidden>
-    <p class="course-kicker">Social Studies 30-1 | Lessons</p>
+    <p class="course-kicker">Lesson pathway</p>
     <h2>Related Issue 1 (Option Two) Lesson Sequence</h2>
     <div class="resource-stack">
       <details class="resource-lesson-group" open>
@@ -3065,7 +3157,7 @@ The connections people felt arose, at least in part, from a sense of their own i
     <p class="course-kicker">Social Studies 30-1 | Evidence</p>
     <h2>Evidence Bank</h2>
     <p class="page-intro">Collect moments you may reuse in source responses, position papers, discussions, and exam-style writing.</p>
-    <article class="social-document" data-writing-activity-panel>
+    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel data-evidence-capture="social30-1-related-issue-1-option-2:evidence-notebook" data-evidence-contribution-id="social30-1-related-issue-1-option-2:evidence:notebook">
       <header class="social-document-header">
         <p>Running Evidence Notebook</p>
         <h3>Save Proof As You Move</h3>
@@ -3073,16 +3165,23 @@ The connections people felt arose, at least in part, from a sense of their own i
       </header>
       <div class="social-document-body">
         <section class="social-evidence-row">
-          <label>Source or lesson<input data-response-id="social30-1-related-issue-1-option-2:evidence:source" placeholder="Example: Unit 3, Lesson 1 - Liberalism and Canadian Government"></label>
-          <label>Concept<input data-response-id="social30-1-related-issue-1-option-2:evidence:concept" placeholder="Example: individual rights, collectivism, authoritarianism"></label>
+          <label>Source or lesson<input data-response-id="social30-1-related-issue-1-option-2:evidence:source" data-evidence-draft="source" placeholder="Example: Unit 3, Lesson 1 - Liberalism and Canadian Government"></label>
+          <label>Concept<input data-response-id="social30-1-related-issue-1-option-2:evidence:concept" data-evidence-draft="concept" placeholder="Example: individual rights, collectivism, authoritarianism"></label>
         </section>
-        <label>Evidence detail<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:detail" placeholder="Quote, event, policy, image detail, statistic, or source observation."></textarea></label>
-        <label>Why it matters<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:connection" placeholder="Explain how this evidence helps answer the related issue question."></textarea></label>
-        <label>Possible counterpoint<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:counterpoint" placeholder="What would someone with a different ideological perspective say?"></textarea></label>
+        <label>Evidence detail<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:detail" data-evidence-draft="detail" placeholder="Quote, event, policy, image detail, statistic, or source observation."></textarea></label>
+        <label>Why it matters<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:connection" data-evidence-draft="connection" placeholder="Explain how this evidence helps answer the related issue question."></textarea></label>
+        <label>Possible counterpoint<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:counterpoint" data-evidence-draft="counterpoint" placeholder="What would someone with a different ideological perspective say?"></textarea></label>
         <div class="social-print-actions">
+          <button class="external-resource-action" type="button" data-save-evidence-note>Save to Evidence Bank</button>
           <button class="external-resource-action" type="button" data-print-writing>Print / PDF</button>
           <span class="save-status" data-save-status>Saved locally</span>
         </div>
+        <section class="social-evidence-bank" data-evidence-bank-filters>
+          <h4>Saved Evidence</h4>
+          <div class="social-evidence-bank-list" data-manual-evidence-list>
+            <p class="social-empty-state" data-manual-evidence-empty>Use the notebook above to save reusable proof notes here.</p>
+          </div>
+        </section>
       </div>
     </article>
   </section>
@@ -3587,24 +3686,59 @@ The connections people felt arose, at least in part, from a sense of their own i
 </main>
 <script>
 const lessonIds = ["lesson-1-u1identity-u1-introduction","lesson-2-u1identity-section-1-intro","lesson-3-u1identity-l1-exploring-identity","lesson-4-u1identity-l2-exploring-beliefs-and-values","lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values","lesson-6-u1identity-section-2-introduction","lesson-7-u1identity-l1-understanding-ideology","lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people","lesson-9-u1identity-section-3-introduction","lesson-10-u1identity-l1-how-can-ideology-shape-identity","lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i","lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii","lesson-13-u2foundations-u2-introduction","lesson-14-u2foundations-u2s1-introduction","lesson-15-u2foundations-l1-basics-of-liberal-democracy","lesson-16-u2foundations-l2-ideological-perspectives","lesson-17-u2foundations-u2s2-introduction","lesson-18-u2foundations-l1-early-origins-of-liberalism","lesson-19-u2foundations-l2-development-of-classical-liberalism","lesson-20-u2foundations-u2s2-summary","lesson-21-u2foundations-u2s3-introduction","lesson-22-u2foundations-l1-life-under-classical-liberalism","lesson-23-u2foundations-l2-responses-to-classical-liberalism"];
+const completionIds = ["lesson-1-u1identity-u1-introduction","lesson-2-u1identity-section-1-intro","lesson-3-u1identity-l1-exploring-identity","lesson-4-u1identity-l2-exploring-beliefs-and-values","lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values","lesson-6-u1identity-section-2-introduction","lesson-7-u1identity-l1-understanding-ideology","lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people","lesson-9-u1identity-section-3-introduction","lesson-10-u1identity-l1-how-can-ideology-shape-identity","lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i","lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii","lesson-13-u2foundations-u2-introduction","lesson-14-u2foundations-u2s1-introduction","lesson-15-u2foundations-l1-basics-of-liberal-democracy","lesson-16-u2foundations-l2-ideological-perspectives","lesson-17-u2foundations-u2s2-introduction","lesson-18-u2foundations-l1-early-origins-of-liberalism","lesson-19-u2foundations-l2-development-of-classical-liberalism","lesson-20-u2foundations-u2s2-summary","lesson-21-u2foundations-u2s3-introduction","lesson-22-u2foundations-l1-life-under-classical-liberalism","lesson-23-u2foundations-l2-responses-to-classical-liberalism"];
+const completionLabel = "lessons";
 const pageIds = ["overview","lessons","lesson-1-u1identity-u1-introduction","lesson-2-u1identity-section-1-intro","lesson-3-u1identity-l1-exploring-identity","lesson-4-u1identity-l2-exploring-beliefs-and-values","lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values","lesson-6-u1identity-section-2-introduction","lesson-7-u1identity-l1-understanding-ideology","lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people","lesson-9-u1identity-section-3-introduction","lesson-10-u1identity-l1-how-can-ideology-shape-identity","lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i","lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii","lesson-13-u2foundations-u2-introduction","lesson-14-u2foundations-u2s1-introduction","lesson-15-u2foundations-l1-basics-of-liberal-democracy","lesson-16-u2foundations-l2-ideological-perspectives","lesson-17-u2foundations-u2s2-introduction","lesson-18-u2foundations-l1-early-origins-of-liberalism","lesson-19-u2foundations-l2-development-of-classical-liberalism","lesson-20-u2foundations-u2s2-summary","lesson-21-u2foundations-u2s3-introduction","lesson-22-u2foundations-l1-life-under-classical-liberalism","lesson-23-u2foundations-l2-responses-to-classical-liberalism","issue-inquiry","source-analysis","position-builder","evidence-bank","resources"];
 const navGroupIdsByPage = {};
 const STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:complete";
 const RESPONSE_STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:responses";
+const MANUAL_EVIDENCE_STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:manual-evidence-notes";
+const EVIDENCE_PROJECT_SLUG = "social30-1-related-issue-1-option-2";
+const EVIDENCE_PROFILE = "short-fiction";
 const lessonsNav = document.querySelector(".lessons-nav");
 const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
+const fallbackStorage = {};
 let saveTimer = null;
+function readStorageValue(key, fallbackValue){
+  try {
+    if (window.localStorage) return window.localStorage.getItem(key) || fallbackValue;
+  } catch {}
+  return Object.prototype.hasOwnProperty.call(fallbackStorage, key) ? fallbackStorage[key] : fallbackValue;
+}
+function writeStorageValue(key, value){
+  try {
+    if (window.localStorage) {
+      window.localStorage.setItem(key, value);
+      return;
+    }
+  } catch {}
+  fallbackStorage[key] = value;
+}
 function readComplete(){
-  try { return new Set(JSON.parse(localStorage.getItem(STORAGE_KEY) || "[]")); } catch { return new Set(); }
+  try { return new Set(JSON.parse(readStorageValue(STORAGE_KEY, "[]"))); } catch { return new Set(); }
 }
 function writeComplete(values){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(Array.from(values)));
+  writeStorageValue(STORAGE_KEY, JSON.stringify(Array.from(values)));
 }
 function readResponses(){
-  try { return JSON.parse(localStorage.getItem(RESPONSE_STORAGE_KEY) || "{}"); } catch { return {}; }
+  try { return JSON.parse(readStorageValue(RESPONSE_STORAGE_KEY, "{}")); } catch { return {}; }
 }
 function writeResponses(values){
-  localStorage.setItem(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+  Object.keys(values).forEach((key) => {
+    if (typeof values[key] === "string" && !values[key].trim()) delete values[key];
+  });
+  writeStorageValue(RESPONSE_STORAGE_KEY, JSON.stringify(values));
+}
+function readManualEvidenceNotes(){
+  try {
+    const notes = JSON.parse(readStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, "[]"));
+    return Array.isArray(notes) ? notes : [];
+  } catch {
+    return [];
+  }
+}
+function writeManualEvidenceNotes(notes){
+  writeStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, JSON.stringify(notes));
 }
 function setLessonsOpen(open){
   lessonsNav?.classList.toggle("is-open", open);
@@ -3628,15 +3762,26 @@ function syncNavOpenState(activeGroupId, lessonsOpen){
 }
 function updateComplete(){
   const complete = readComplete();
-  const count = lessonIds.filter((id) => complete.has(id)).length;
-  const percent = lessonIds.length ? Math.round((count / lessonIds.length) * 100) : 0;
-  document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = count + " / " + lessonIds.length + " lessons");
-  document.querySelectorAll("[data-progress-count-inline]").forEach((node) => node.textContent = count + "/" + lessonIds.length);
+  const count = completionIds.filter((id) => complete.has(id)).length;
+  const percent = completionIds.length ? Math.round((count / completionIds.length) * 100) : 0;
+  document.querySelectorAll("[data-progress-count]").forEach((node) => node.textContent = count + " / " + completionIds.length + " " + completionLabel);
+  document.querySelectorAll("[data-progress-count-inline]").forEach((node) => node.textContent = count + "/" + completionIds.length);
   document.querySelectorAll("[data-progress-percent]").forEach((node) => node.textContent = percent + "%");
   document.querySelectorAll("[data-progress-fill]").forEach((node) => node.style.width = percent + "%");
   document.querySelectorAll("[data-complete-id]").forEach((button) => {
     const done = complete.has(button.getAttribute("data-complete-id"));
-    button.textContent = done ? "Completed" : "Complete";
+    button.textContent = done ? "Completed" : (button.getAttribute("data-complete-label") || "Complete");
+  });
+  document.querySelectorAll("[data-element-complete-for]").forEach((marker) => {
+    const done = complete.has(marker.getAttribute("data-element-complete-for"));
+    marker.textContent = done ? "✓" : "-";
+    marker.classList.toggle("is-complete", done);
+    marker.setAttribute("aria-label", done ? "Complete" : "Not complete");
+  });
+  document.querySelectorAll("[data-elements-complete-summary]").forEach((summary) => {
+    const checklist = summary.closest("[data-elements-checklist]");
+    const ids = Array.from(checklist?.querySelectorAll("[data-element-complete-for]") || []).map((marker) => marker.getAttribute("data-element-complete-for")).filter(Boolean);
+    summary.textContent = ids.filter((id) => complete.has(id)).length + "/" + ids.length + " elements complete";
   });
 }
 function showPage(id){
@@ -3646,19 +3791,25 @@ function showPage(id){
   const navGroupId = navGroupIdsByPage[fallback] || "";
   document.querySelectorAll("[data-page-target]").forEach((link) => {
     const target = link.getAttribute("data-page-target");
-    link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || (navGroupId && target === navGroupId));
+    const activeGroupToggle = navGroupId && target === navGroupId && link.hasAttribute("data-nav-group-toggle");
+    link.classList.toggle("active", target === fallback || (lessonsOpen && target === "lessons") || activeGroupToggle);
   });
   syncNavOpenState(navGroupId, lessonsOpen);
+  if (window.matchMedia("(max-width: 1100px)").matches) setCourseMenuCollapsed(true);
+  window.scrollTo({ top: 0, left: 0, behavior: "auto" });
 }
 function route(){
   showPage((location.hash || "#overview").slice(1));
 }
-function toggleCourseMenu(){
-  document.body.classList.toggle("sidebar-collapsed");
-  const iconText = document.body.classList.contains("sidebar-collapsed") ? "dock_to_right" : "dock_to_left";
+function setCourseMenuCollapsed(collapsed){
+  document.body.classList.toggle("sidebar-collapsed", collapsed);
+  const iconText = collapsed ? "dock_to_right" : "dock_to_left";
   document.querySelectorAll("#sidebar-toggle .material-symbols-outlined, #topbar-menu-toggle .material-symbols-outlined").forEach((icon) => {
     icon.textContent = iconText;
   });
+}
+function toggleCourseMenu(){
+  setCourseMenuCollapsed(!document.body.classList.contains("sidebar-collapsed"));
 }
 function setResourcePanel(id){
   document.querySelectorAll("[data-resource-panel]").forEach((panel) => {
@@ -3671,14 +3822,690 @@ function setActiveFilm(id){
     panel.hidden = panel.getAttribute("data-film-panel") !== id;
   });
 }
+function getLibraryDocumentScope(trigger){
+  return trigger?.closest("[data-library-doc-scope], .social-library-browser") || document;
+}
+function setActiveLibraryDocument(id, scope){
+  if (!id) return;
+  const root = scope || document;
+  root.querySelectorAll("[data-library-doc-panel]").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-library-doc-panel") !== id;
+  });
+  root.querySelectorAll("[data-library-doc-target]").forEach((button) => {
+    const active = button.getAttribute("data-library-doc-target") === id;
+    button.classList.toggle("active", active);
+    button.setAttribute("aria-pressed", String(active));
+  });
+  root.querySelectorAll("[data-library-doc-select]").forEach((select) => {
+    if (select.value !== id) select.value = id;
+  });
+}
+function getStudyTopicScope(trigger){
+  return trigger?.closest("[data-study-topic-scope]") || document;
+}
+function setActiveStudyTopic(group, id, scope){
+  if (!group || !id) return;
+  const root = scope || document;
+  root.querySelectorAll("[data-study-topic-panel='" + group + "']").forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-study-topic-id") !== id;
+  });
+}
+function escapeForHtml(value){
+  return String(value || "").replace(/[&<>"']/g, (char) => ({
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;"
+  })[char] || char);
+}
+function getLessonEvidenceNotes(){
+  const responses = readResponses();
+  return Array.from(document.querySelectorAll("[data-evidence-note='lesson'][data-response-id]"))
+    .map((field) => {
+      const key = field.getAttribute("data-response-id");
+      const storedValue = key ? responses[key] : "";
+      const value = typeof storedValue === "string" ? storedValue.trim() : "";
+      return {
+        value,
+        title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
+        group: field.getAttribute("data-evidence-lesson-group") || "",
+        number: field.getAttribute("data-evidence-lesson-number") || ""
+      };
+    })
+    .filter((note) => note.value);
+}
+function renderLessonEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
+  if (!lists.length) return;
+  const notes = getLessonEvidenceNotes();
+  lists.forEach((list) => {
+    if (!notes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-lesson-evidence-empty>No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>';
+      return;
+    }
+    list.innerHTML = notes.map((note) => {
+      const meta = [note.number ? "Lesson " + note.number : "", note.group].filter(Boolean).join(" - ");
+      return '<article class="social-lesson-evidence-card">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(meta) + '</div>' +
+        '<h4>' + escapeForHtml(note.title) + '</h4>' +
+        '<p>' + escapeForHtml(note.value) + '</p>' +
+      '</article>';
+    }).join("");
+  });
+}
+function getEvidenceDraftFields(key, scope){
+  const root = scope || document;
+  const scopedFields = Array.from(root.querySelectorAll("[data-evidence-draft='" + key + "']"));
+  if (scopedFields.length) return scopedFields;
+  const fallback = root.querySelector("[data-response-id$=':evidence:" + key + "']");
+  return fallback ? [fallback] : [];
+}
+function getEvidenceFieldValue(field){
+  if (field instanceof HTMLSelectElement) {
+    return field.selectedOptions?.[0]?.textContent || field.value || "";
+  }
+  if (field instanceof HTMLInputElement && field.type === "radio") {
+    if (!field.checked) return "";
+    return field.getAttribute("data-practice-source-title") || field.closest("label")?.textContent?.trim() || field.value || "";
+  }
+  return field.value || "";
+}
+function getEvidenceDraft(scope){
+  const getValue = (key) => {
+    const fields = getEvidenceDraftFields(key, scope);
+    const values = fields
+      .map((field) => {
+        const value = String(getEvidenceFieldValue(field)).trim();
+        if (!value) return "";
+        const label = field.getAttribute("data-evidence-draft-label");
+        return fields.length > 1 && label ? label + ": " + value : value;
+      })
+      .filter(Boolean);
+    return values.join("\n\n");
+  };
+  return {
+    source: getValue("source"),
+    concept: getValue("concept"),
+    detail: getValue("detail"),
+    connection: getValue("connection"),
+    counterpoint: getValue("counterpoint")
+  };
+}
+function setEvidenceNotebookStatus(message, panel){
+  panel = panel || document.querySelector("[data-evidence-notebook-panel]");
+  const saveStatus = panel?.querySelector("[data-save-status]");
+  if (saveStatus) saveStatus.textContent = message;
+}
+function clearEvidenceDraft(scope){
+  const responses = readResponses();
+  ["source", "concept", "detail", "connection", "counterpoint"].forEach((key) => {
+    getEvidenceDraftFields(key, scope).forEach((field) => {
+      if (field instanceof HTMLSelectElement && field.options.length) {
+        field.selectedIndex = 0;
+      } else if (field instanceof HTMLInputElement && field.type === "radio") {
+        field.checked = field.hasAttribute("data-practice-source-default");
+      } else {
+        field.value = "";
+      }
+      const responseId = field.getAttribute("data-response-id");
+      if (responseId) delete responses[responseId];
+    });
+  });
+  writeResponses(responses);
+}
+function getEvidenceBankApi(){
+  const api = window.nextStepEvidenceBank;
+  return api && typeof api.upsert === "function" && typeof api.remove === "function" && typeof api.list === "function"
+    ? api
+    : null;
+}
+function getEvidenceLocatorLabel(note){
+  if (!note?.locator) return "";
+  if (typeof note.locator === "string") return note.locator;
+  if (note.locator.label) return note.locator.label;
+  return [note.locator.act, note.locator.scene, note.locator.chapter, note.locator.timestamp]
+    .filter(Boolean)
+    .join(" | ");
+}
+function renderManualEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
+  if (!lists.length) return;
+  const notes = getEvidenceBankApi()?.list() || [];
+  lists.forEach((list) => {
+    const filterRoot = list.closest("[data-evidence-bank-filters]")?.parentElement || list.closest(".english-evidence-bank-list") || document;
+    const filterFields = Array.from(filterRoot.querySelectorAll("[data-evidence-bank-filter]"));
+    function facetValue(note, facet){
+      if (facet === "activity") return note.activity?.title || note.activity?.id || note.activityId || note.concept || "";
+      if (facet === "work") return note.work?.title || note.work?.id || note.workId || note.source?.title || (typeof note.source === "string" ? note.source : "");
+      if (facet === "locator") return getEvidenceLocatorLabel(note);
+      if (facet === "type") return note.evidenceType || note.entryKind || note.type || (note.responseId ? "collection" : "individual");
+      return "";
+    }
+    filterFields.forEach((field) => {
+      const facet = field.getAttribute("data-evidence-bank-filter") || "";
+      const selected = field.value || "";
+      const defaultLabel = field.options?.[0]?.textContent || "All";
+      const values = notes.map((note) => String(facetValue(note, facet) || "").trim()).filter(Boolean).filter((value, index, all) => all.indexOf(value) === index).sort((left, right) => left.localeCompare(right));
+      field.innerHTML = '<option value="">' + escapeForHtml(defaultLabel) + '</option>' + values.map((value) => '<option value="' + escapeForHtml(value) + '">' + escapeForHtml(value) + '</option>').join("");
+      if (values.includes(selected)) field.value = selected;
+    });
+    const filteredNotes = notes.filter((note) => filterFields.every((field) => {
+      if (!field.value) return true;
+      const facet = field.getAttribute("data-evidence-bank-filter") || "";
+      return String(facetValue(note, facet) || "") === field.value;
+    }));
+    if (!filteredNotes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
+      return;
+    }
+    list.innerHTML = filteredNotes.map((note) => {
+      const contributionId = note.contributionId || note.responseId || note.id || "";
+      const sourceTitle = note.source?.title || note.source?.id || (typeof note.source === "string" ? note.source : "");
+      const workTitle = note.work?.title || "";
+      const title = note.activity?.title || note.activity?.id || note.concept || sourceTitle || "Saved proof note";
+      const locatorLabel = getEvidenceLocatorLabel(note);
+      const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", locatorLabel, note.updatedAt ? "Updated " + new Date(note.updatedAt).toLocaleDateString() : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
+      const promptLabel = note.metadata?.promptLabel || note.promptLabel || "Question";
+      const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
+      const detailLabel = note.metadata?.detailLabel || note.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
+      const detailValue = note.entryKind === "collection" ? (note.answer || note.evidence || "") : (note.evidence || note.answer || "");
+      const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
+      const connectionValue = note.analysis || note.connection || "";
+      const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
+      const counterpointValue = note.metadata?.counterpoint || note.counterpoint || "";
+      const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
+      return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || (note.responseId ? "collection" : "individual")) + '">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+        '<h4>' + escapeForHtml(title) + '</h4>' +
+        prompt +
+        detail +
+        connection +
+        counterpoint +
+        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
+      '</article>';
+    }).join("");
+  });
+}
+function saveEvidenceDraftToNotebook(panel){
+  const draft = getEvidenceDraft(panel);
+  if (!draft.detail && !draft.connection && !draft.counterpoint) {
+    setEvidenceNotebookStatus("Add evidence or analysis before saving.", panel);
+    return;
+  }
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setEvidenceNotebookStatus("Evidence Bank is unavailable.", panel);
+    return;
+  }
+  const configuredContributionId = panel?.getAttribute("data-evidence-contribution-id") || "";
+  const contributionId = configuredContributionId || "manual:" + Date.now().toString(36) + ":" + Math.random().toString(36).slice(2, 9);
+  const now = new Date().toISOString();
+  const sourceTitle = draft.source || "Manual evidence";
+  const activityTitle = draft.concept || "Evidence entry";
+  const analysis = [draft.connection, draft.counterpoint].filter(Boolean).join("\n\n");
+  const entry = {
+    schemaVersion: 2,
+    contributionId,
+    projectSlug: EVIDENCE_PROJECT_SLUG,
+    entryKind: "individual",
+    source: { kind: "activity", id: evidenceSafeId(sourceTitle), title: sourceTitle },
+    activity: { id: evidenceSafeId(activityTitle), profile: EVIDENCE_PROFILE, title: activityTitle },
+    work: draft.source ? { id: evidenceSafeId(draft.source), title: draft.source, kind: EVIDENCE_PROFILE === "film-study" ? "film" : "text" } : undefined,
+    evidence: draft.detail || undefined,
+    analysis: analysis || undefined,
+    tags: [],
+    createdAt: now,
+    updatedAt: now,
+    ...(draft.counterpoint ? { metadata: { counterpoint: draft.counterpoint } } : {})
+  };
+  try {
+    api.upsert(entry);
+  } catch {
+    setEvidenceNotebookStatus("Evidence could not be saved.", panel);
+    return;
+  }
+  clearEvidenceDraft(panel);
+  panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
+  setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
+}
+function setResponseCollectionStatus(button, message){
+  const status = button?.closest("[data-response-collection]")?.querySelector("[data-response-collection-status]");
+  if (status) status.textContent = message;
+}
+function saveResponseCollectionToNotebook(button){
+  const collection = button?.closest("[data-response-collection]");
+  if (!collection) return;
+  const responses = readResponses();
+  const entries = Array.from(collection.querySelectorAll("[data-evidence-question-number]")).map((question) => {
+    const field = question.querySelector("[data-response-id]");
+    const responseId = field?.getAttribute("data-response-id") || "";
+    return {
+      number: question.getAttribute("data-evidence-question-number") || "",
+      prompt: question.getAttribute("data-evidence-question-prompt") || "",
+      answer: String(responses[responseId] || field?.value || "").trim(),
+      responseId
+    };
+  });
+  const answered = entries.filter((entry) => entry.answer);
+  if (!answered.length) {
+    setResponseCollectionStatus(button, "Write at least one answer before saving.");
+    return;
+  }
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setResponseCollectionStatus(button, "Evidence Bank is unavailable.");
+    return;
+  }
+  const collectionId = collection.getAttribute("data-evidence-collection-id") || "question-collection";
+  const responsePrefix = collection.getAttribute("data-evidence-response-prefix") || "";
+  const existing = api.list({ contributionId: collectionId })[0];
+  const savedResponses = answered.map((entry) =>
+    "Question " + entry.number + ": " + entry.prompt + "\nAnswer: " + entry.answer
+  ).join("\n\n");
+  const sourceTitle = collection.getAttribute("data-evidence-source") || "Short Story Questions";
+  const activityTitle = collection.getAttribute("data-evidence-activity-title") || collection.getAttribute("data-evidence-concept") || "Activity";
+  const workTitle = collection.getAttribute("data-evidence-work-title") || "";
+  const locatorLabel = collection.getAttribute("data-evidence-locator") || "";
+  const now = new Date().toISOString();
+  const nextNote = {
+    schemaVersion: 2,
+    contributionId: collectionId,
+    projectSlug: EVIDENCE_PROJECT_SLUG,
+    entryKind: "collection",
+    source: { kind: "question-set", id: evidenceSafeId(sourceTitle), title: sourceTitle },
+    activity: {
+      id: collection.getAttribute("data-evidence-activity-id") || evidenceSafeId(activityTitle),
+      profile: EVIDENCE_PROFILE,
+      title: activityTitle
+    },
+    work: workTitle ? {
+      id: collection.getAttribute("data-evidence-work-id") || evidenceSafeId(workTitle),
+      title: workTitle,
+      kind: EVIDENCE_PROFILE === "film-study" ? "film" : "text"
+    } : undefined,
+    locator: locatorLabel ? { label: locatorLabel } : undefined,
+    prompt: answered.length + " of " + entries.length + " guided responses saved.",
+    answer: savedResponses,
+    responseIds: answered.map((entry) => entry.responseId).filter(Boolean),
+    tags: (collection.getAttribute("data-evidence-tags") || "").split(",").map((tag) => tag.trim()).filter(Boolean),
+    createdAt: existing?.createdAt || now,
+    updatedAt: now,
+    metadata: {
+      promptLabel: collection.getAttribute("data-evidence-prompt-label") || "Question set",
+      detailLabel: collection.getAttribute("data-evidence-detail-label") || "Saved responses"
+    }
+  };
+  if (responsePrefix) {
+    api.list().forEach((note) => {
+      if (note.entryKind === "collection" && note.contributionId !== collectionId && String(note.contributionId || "").startsWith(responsePrefix)) {
+        api.remove(note.contributionId);
+      }
+    });
+  }
+  api.upsert(nextNote);
+  setResponseCollectionStatus(
+    button,
+    existing
+      ? collection.getAttribute("data-evidence-updated-message") || "Story answers updated in Evidence Bank"
+      : collection.getAttribute("data-evidence-saved-message") || "Story answers saved to Evidence Bank"
+  );
+}
+function removeManualEvidenceNote(id){
+  if (!id) return;
+  if (getEvidenceBankApi()?.remove(id)) setEvidenceNotebookStatus("Removed saved note");
+}
+
+function cloneEvidenceValue(value){
+  return typeof value === "undefined" ? undefined : JSON.parse(JSON.stringify(value));
+}
+function normalizeEvidenceIdentity(value){
+  return typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
+}
+function evidenceRecord(value){
+  return value && typeof value === "object" && !Array.isArray(value) ? value : null;
+}
+function evidenceText(value){
+  return typeof value === "string" || typeof value === "number" ? String(value).trim() : "";
+}
+function evidenceFirstText(){
+  for (const value of arguments) {
+    const normalized = evidenceText(value);
+    if (normalized) return normalized;
+  }
+  return "";
+}
+function evidenceSafeId(value){
+  return evidenceText(value).toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "evidence";
+}
+function evidenceValidDate(value, fallbackValue){
+  const normalized = evidenceText(value);
+  return normalized && !Number.isNaN(Date.parse(normalized)) ? normalized : fallbackValue;
+}
+const evidenceSourceKinds = ["lesson", "reading", "question-set", "writing-studio", "activity", "media"];
+const evidenceProfileKinds = ["short-fiction", "modern-drama", "shakespeare-drama", "novel-study", "film-study"];
+const evidenceWorkKinds = ["text", "film", "visual", "paired-text"];
+function getEvidenceIdentities(entry){
+  return [entry?.contributionId, entry?.responseId, entry?.id, entry?.metadata?.responseId]
+    .map(normalizeEvidenceIdentity)
+    .filter((value, index, values) => value && values.indexOf(value) === index);
+}
+function evidenceEntriesShareIdentity(entry, identities){
+  const entryIdentities = getEvidenceIdentities(entry);
+  return entryIdentities.some((identity) => identities.includes(identity));
+}
+function normalizeEvidenceSource(input, entryKind){
+  const source = evidenceRecord(input.source);
+  if (source) {
+    const title = evidenceFirstText(source.title, source.id, input.sourceTitle);
+    const kind = evidenceText(source.kind);
+    return {
+      kind: evidenceSourceKinds.includes(kind) ? kind : entryKind === "collection" ? "question-set" : "activity",
+      id: evidenceFirstText(source.id, title, "evidence-source"),
+      ...(title ? { title } : {})
+    };
+  }
+  const title = evidenceFirstText(input.source, input.sourceTitle, input.text, input.film, input.workTitle, "Evidence source");
+  return {
+    kind: entryKind === "collection" ? "question-set" : "activity",
+    id: evidenceFirstText(input.sourceId, evidenceSafeId(title)),
+    title
+  };
+}
+function normalizeEvidenceActivity(input, profileFallback){
+  const activity = evidenceRecord(input.activity);
+  const profile = evidenceFirstText(activity?.profile, input.profile, profileFallback);
+  if (activity) {
+    const title = evidenceFirstText(activity.title, activity.id, input.concept, "Evidence activity");
+    return {
+      id: evidenceFirstText(activity.id, evidenceSafeId(title)),
+      profile: evidenceProfileKinds.includes(profile) ? profile : profileFallback,
+      ...(title ? { title } : {})
+    };
+  }
+  const title = evidenceFirstText(input.activity, input.activityTitle, input.concept, input.title, "Evidence activity");
+  return {
+    id: evidenceFirstText(input.activityId, evidenceSafeId(title)),
+    profile: evidenceProfileKinds.includes(profile) ? profile : profileFallback,
+    title
+  };
+}
+function normalizeEvidenceWork(input){
+  const work = evidenceRecord(input.work);
+  if (work) {
+    const title = evidenceFirstText(work.title, work.id);
+    if (!title) return undefined;
+    const kind = evidenceText(work.kind);
+    return {
+      id: evidenceFirstText(work.id, evidenceSafeId(title)),
+      title,
+      kind: evidenceWorkKinds.includes(kind) ? kind : "text"
+    };
+  }
+  const title = evidenceFirstText(input.workTitle, input.text, input.film);
+  if (!title) return undefined;
+  return {
+    id: evidenceFirstText(input.workId, evidenceSafeId(title)),
+    title,
+    kind: evidenceText(input.film) ? "film" : "text"
+  };
+}
+function normalizeEvidenceLocator(input){
+  const locator = evidenceRecord(input.locator);
+  if (locator) {
+    const values = {
+      label: evidenceFirstText(locator.label),
+      act: evidenceFirstText(locator.act),
+      scene: evidenceFirstText(locator.scene),
+      chapter: evidenceFirstText(locator.chapter),
+      timestamp: evidenceFirstText(locator.timestamp)
+    };
+    const normalized = Object.fromEntries(Object.entries(values).filter(([, value]) => value));
+    return Object.keys(normalized).length ? normalized : undefined;
+  }
+  const label = evidenceFirstText(input.locator);
+  return label ? { label } : undefined;
+}
+function normalizeEvidenceMetadata(input){
+  const metadata = { ...(evidenceRecord(input.metadata) || {}) };
+  const responseId = evidenceText(input.responseId);
+  const promptLabel = evidenceText(input.promptLabel);
+  const detailLabel = evidenceText(input.detailLabel);
+  const counterpoint = evidenceText(input.counterpoint);
+  if (responseId) metadata.responseId = responseId;
+  if (promptLabel) metadata.promptLabel = promptLabel;
+  if (detailLabel) metadata.detailLabel = detailLabel;
+  if (counterpoint) metadata.counterpoint = counterpoint;
+  return Object.keys(metadata).length ? metadata : undefined;
+}
+function normalizeEvidenceEntry(value){
+  const input = evidenceRecord(value);
+  if (!input) throw new TypeError("Evidence Bank entries must be objects.");
+  const contributionId = evidenceFirstText(input.contributionId, input.responseId, input.id);
+  if (!contributionId) throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
+  const now = new Date().toISOString();
+  const entryKind = input.entryKind === "collection" || (!input.entryKind && evidenceText(input.responseId)) ? "collection" : "individual";
+  const activityRecord = evidenceRecord(input.activity);
+  const requestedProfile = evidenceFirstText(activityRecord?.profile, input.profile, "short-fiction");
+  const profileFallback = evidenceProfileKinds.includes(requestedProfile) ? requestedProfile : "short-fiction";
+  const legacyDetail = evidenceFirstText(input.detail);
+  const explicitEvidence = evidenceFirstText(input.evidence);
+  const answer = evidenceFirstText(input.answer, entryKind === "collection" ? legacyDetail : undefined);
+  const evidence = evidenceFirstText(explicitEvidence, entryKind === "individual" ? legacyDetail : undefined);
+  const connection = evidenceFirstText(input.connection);
+  const counterpoint = evidenceFirstText(input.counterpoint);
+  const analysis = evidenceFirstText(input.analysis, [connection, counterpoint].filter(Boolean).join("\n\n"));
+  const responseIds = Array.isArray(input.responseIds) ? input.responseIds.map(evidenceText).filter(Boolean) : [];
+  if (!answer && !evidence && !analysis && !responseIds.length) {
+    throw new TypeError("Evidence Bank entries require saved content or at least one response id.");
+  }
+  const work = normalizeEvidenceWork(input);
+  const locator = normalizeEvidenceLocator(input);
+  const prompt = evidenceFirstText(input.prompt);
+  const metadata = normalizeEvidenceMetadata(input);
+  return {
+    schemaVersion: 2,
+    contributionId,
+    projectSlug: evidenceFirstText(input.projectSlug, "english-unit"),
+    entryKind,
+    source: normalizeEvidenceSource(input, entryKind),
+    activity: normalizeEvidenceActivity(input, profileFallback),
+    ...(work ? { work } : {}),
+    ...(locator ? { locator } : {}),
+    ...(prompt ? { prompt } : {}),
+    ...(answer ? { answer } : {}),
+    ...(evidence ? { evidence } : {}),
+    ...(analysis ? { analysis } : {}),
+    ...(responseIds.length ? { responseIds } : {}),
+    tags: Array.isArray(input.tags) ? input.tags.map(evidenceText).filter(Boolean) : [],
+    createdAt: evidenceValidDate(input.createdAt, now),
+    updatedAt: evidenceValidDate(input.updatedAt, now),
+    ...(metadata ? { metadata } : {})
+  };
+}
+function tryNormalizeEvidenceEntry(entry){
+  try {
+    return normalizeEvidenceEntry(entry);
+  } catch {
+    return null;
+  }
+}
+function mergeEvidenceEntries(existing, incoming){
+  const merged = { ...(existing || {}), ...incoming };
+  if (evidenceRecord(existing?.activity) && evidenceRecord(incoming.activity)) {
+    merged.activity = { ...existing.activity, ...incoming.activity };
+  } else if (evidenceRecord(existing?.activity) && typeof incoming.activity === "string") {
+    merged.activity = { ...existing.activity, id: incoming.activity, title: incoming.activity };
+  }
+  if (evidenceRecord(existing?.source) && evidenceRecord(incoming.source)) {
+    merged.source = { ...existing.source, ...incoming.source };
+  }
+  if (evidenceRecord(existing?.work) && evidenceRecord(incoming.work)) {
+    merged.work = { ...existing.work, ...incoming.work };
+  }
+  if (evidenceRecord(existing?.locator) && evidenceRecord(incoming.locator)) {
+    merged.locator = { ...existing.locator, ...incoming.locator };
+  }
+  if (evidenceRecord(existing?.metadata) || evidenceRecord(incoming.metadata)) {
+    merged.metadata = { ...(evidenceRecord(existing?.metadata) || {}), ...(evidenceRecord(incoming.metadata) || {}) };
+  }
+  return merged;
+}
+function upsertEvidenceEntry(entry){
+  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+    throw new TypeError("Evidence Bank entries must be objects.");
+  }
+  const incoming = cloneEvidenceValue(entry);
+  const identities = getEvidenceIdentities(incoming);
+  if (!identities.length) {
+    throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
+  }
+  const notes = readManualEvidenceNotes();
+  const existing = notes.find((note) => evidenceEntriesShareIdentity(note, identities));
+  const normalizedExisting = existing ? tryNormalizeEvidenceEntry(existing) : null;
+  const merged = mergeEvidenceEntries(normalizedExisting || existing, incoming);
+  merged.updatedAt = new Date().toISOString();
+  const nextEntry = normalizeEvidenceEntry(merged);
+  writeManualEvidenceNotes([
+    nextEntry,
+    ...notes.filter((note) => !evidenceEntriesShareIdentity(note, identities))
+  ]);
+  renderManualEvidenceBank();
+  return cloneEvidenceValue(nextEntry);
+}
+function removeEvidenceEntry(contributionId){
+  const identity = normalizeEvidenceIdentity(contributionId);
+  if (!identity) return false;
+  const notes = readManualEvidenceNotes();
+  const remaining = notes.filter((note) => !getEvidenceIdentities(note).includes(identity));
+  if (remaining.length === notes.length) return false;
+  writeManualEvidenceNotes(remaining);
+  renderManualEvidenceBank();
+  return true;
+}
+function evidenceValueMatchesFilter(actual, expected){
+  if (Array.isArray(expected)) {
+    return expected.some((value) => evidenceValueMatchesFilter(actual, value));
+  }
+  if (Array.isArray(actual)) {
+    return actual.some((value) => evidenceValueMatchesFilter(value, expected));
+  }
+  return actual === expected;
+}
+function evidenceEntryMatchesFilters(entry, filters){
+  return Object.entries(filters || {}).every(([key, expected]) => {
+    if (typeof expected === "undefined") return true;
+    if (key === "contributionId" || key === "responseId") {
+      if (Array.isArray(expected)) {
+        return expected.some((value) => getEvidenceIdentities(entry).includes(normalizeEvidenceIdentity(value)));
+      }
+      return getEvidenceIdentities(entry).includes(normalizeEvidenceIdentity(expected));
+    }
+    if (key === "tags") {
+      const requestedTags = (Array.isArray(expected) ? expected : [expected]).map(normalizeEvidenceIdentity).filter(Boolean);
+      const entryTags = (Array.isArray(entry.tags) ? entry.tags : []).map(normalizeEvidenceIdentity).filter(Boolean);
+      return requestedTags.every((tag) => entryTags.includes(tag));
+    }
+    if (key === "activityId") return evidenceValueMatchesFilter(entry.activity?.id || entry.activityId, expected);
+    if (key === "activity") {
+      return [entry.activity?.id, entry.activity?.title, entry.activityId, entry.activityTitle, entry.concept]
+        .filter(Boolean)
+        .some((value) => evidenceValueMatchesFilter(value, expected));
+    }
+    if (key === "profile") return evidenceValueMatchesFilter(entry.activity?.profile || entry.profile, expected);
+    if (key === "workId") return evidenceValueMatchesFilter(entry.work?.id || entry.workId, expected);
+    if (key === "text") {
+      return [entry.work?.id, entry.work?.title, entry.workId, entry.workTitle, entry.text, entry.film]
+        .filter(Boolean)
+        .some((value) => evidenceValueMatchesFilter(value, expected));
+    }
+    if (key === "locator") {
+      const values = entry.locator && typeof entry.locator === "object"
+        ? [entry.locator.label, entry.locator.act, entry.locator.scene, entry.locator.chapter, entry.locator.timestamp].filter(Boolean)
+        : [entry.locator].filter(Boolean);
+      return values.some((value) => evidenceValueMatchesFilter(value, expected));
+    }
+    return evidenceValueMatchesFilter(entry[key], expected);
+  });
+}
+function listEvidenceEntries(filters){
+  const normalizedFilters = filters && typeof filters === "object" && !Array.isArray(filters) ? filters : {};
+  const entries = readManualEvidenceNotes().map(tryNormalizeEvidenceEntry).filter(Boolean);
+  return cloneEvidenceValue(entries.filter((entry) => evidenceEntryMatchesFilters(entry, normalizedFilters)));
+}
+window.nextStepEvidenceBank = Object.freeze({
+  upsert: upsertEvidenceEntry,
+  remove: removeEvidenceEntry,
+  list: listEvidenceEntries
+});
+function printEnglishEvidenceBank(route){
+  if (!route || typeof document === "undefined" || typeof window.print !== "function") return;
+  const pages = Array.from(document.querySelectorAll(".course-page"));
+  const hiddenStates = pages.map((page) => page.hidden);
+  pages.forEach((page) => { page.hidden = page !== route; });
+  document.body?.classList.add("english-evidence-printing");
+  let restored = false;
+  const restore = () => {
+    if (restored) return;
+    restored = true;
+    pages.forEach((page, index) => { page.hidden = hiddenStates[index]; });
+    document.body?.classList.remove("english-evidence-printing");
+    window.removeEventListener?.("afterprint", restore);
+  };
+  window.addEventListener?.("afterprint", restore, { once: true });
+  try {
+    window.print();
+  } finally {
+    restore();
+  }
+}
+if (typeof document !== "undefined") {
+  document.addEventListener("click", (event) => {
+    const printButton = event.target?.closest?.("[data-print-writing]");
+    const route = printButton?.closest?.("#evidence-bank");
+    if (!route) return;
+    event.preventDefault();
+    printEnglishEvidenceBank(route);
+  });
+}
+
 function restoreResponses(){
   const responses = readResponses();
   document.querySelectorAll("[data-response-id]").forEach((field) => {
     const key = field.getAttribute("data-response-id");
     if (!key) return;
     if (field.type === "checkbox") field.checked = Boolean(responses[key]);
+    else if (field.type === "radio") field.checked = responses[key] ? field.value === responses[key] : field.hasAttribute("data-practice-source-default");
+    else if (field instanceof HTMLSelectElement) {
+      if (typeof responses[key] === "string" && responses[key]) field.value = responses[key];
+    }
     else field.value = responses[key] || "";
   });
+  renderLessonEvidenceBank();
+  renderManualEvidenceBank();
+}
+function persistResponseField(field){
+  const key = field.getAttribute("data-response-id");
+  if (!key) return;
+  const responses = readResponses();
+  if (field.type === "checkbox") {
+    responses[key] = field.checked;
+  } else if (field.type === "radio") {
+    if (!field.checked) return;
+    responses[key] = field.value || "";
+  } else {
+    const value = field.value || "";
+    if (value.trim()) responses[key] = value;
+    else delete responses[key];
+  }
+  writeResponses(responses);
+  renderLessonEvidenceBank();
+  const saveStatus = field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]") || document.querySelector("[data-save-status]");
+  if (saveStatus) {
+    saveStatus.textContent = "Saving...";
+    clearTimeout(saveTimer);
+    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
+  }
 }
 function clearPrintJob(){
   document.body.classList.remove("print-job-active");
@@ -3721,6 +4548,21 @@ function printCourseSection(source){
   window.setTimeout(() => window.print(), 0);
 }
 window.printCourseSection = printCourseSection;
+function setActivePracticeSource(id, select){
+  const root = select?.closest("[data-practice-source-region]") || document;
+  const panels = Array.from(root.querySelectorAll("[data-practice-source-panel]"));
+  if (!panels.length) return;
+  const nextId = id || panels[0]?.getAttribute("data-practice-source-panel") || "";
+  panels.forEach((panel) => {
+    panel.hidden = panel.getAttribute("data-practice-source-panel") !== nextId;
+  });
+}
+function initializePracticeSourceRegion(region){
+  if (!region) return;
+  const checked = region.querySelector("[data-practice-source-select]:checked");
+  const control = checked || region.querySelector("[data-practice-source-select]");
+  if (control) setActivePracticeSource(control.value, control);
+}
 document.addEventListener("click", (event) => {
   const lessonToggle = event.target.closest("[data-lessons-toggle]");
   if (lessonToggle) {
@@ -3739,18 +4581,22 @@ document.addEventListener("click", (event) => {
     const groupId = navGroupToggle.getAttribute("data-nav-group-toggle");
     if (!groupId) return;
     const group = getNavGroup(groupId);
-    const open = !group?.classList.contains("is-open");
-    if (open) {
+    const collapseCurrentLanding = group?.classList.contains("is-open") && location.hash === "#" + groupId;
+    if (location.hash !== "#" + groupId) {
       history.pushState(null, "", "#" + groupId);
-      showPage(groupId);
     }
-    setNavGroupOpen(groupId, open);
+    showPage(groupId);
+    if (collapseCurrentLanding) setNavGroupOpen(groupId, false);
     return;
   }
   const target = event.target.closest("[data-page-target]");
   if (target) {
     const id = target.getAttribute("data-page-target");
     if (id) showPage(id);
+  }
+  const libraryTarget = event.target.closest("[data-library-doc-target]");
+  if (libraryTarget) {
+    setActiveLibraryDocument(libraryTarget.getAttribute("data-library-doc-target"), getLibraryDocumentScope(libraryTarget));
   }
   const completeButton = event.target.closest("[data-complete-id]");
   if (completeButton) {
@@ -3760,6 +4606,24 @@ document.addEventListener("click", (event) => {
     writeComplete(complete);
     updateComplete();
   }
+  const saveEvidenceButton = event.target.closest("[data-save-evidence-note]");
+  if (saveEvidenceButton) {
+    event.preventDefault();
+    saveEvidenceDraftToNotebook(saveEvidenceButton.closest("[data-evidence-notebook-panel]"));
+    return;
+  }
+  const saveResponseCollectionButton = event.target.closest("[data-save-response-collection]");
+  if (saveResponseCollectionButton) {
+    event.preventDefault();
+    saveResponseCollectionToNotebook(saveResponseCollectionButton);
+    return;
+  }
+  const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");
+  if (removeEvidenceButton) {
+    event.preventDefault();
+    removeManualEvidenceNote(removeEvidenceButton.getAttribute("data-remove-evidence-note"));
+    return;
+  }
   const printButton = event.target.closest("[data-print-writing]");
   if (printButton) {
     printCourseSection(printButton.closest("[data-writing-activity-panel]") || printButton.closest(".course-page"));
@@ -3768,23 +4632,35 @@ document.addEventListener("click", (event) => {
 document.addEventListener("input", (event) => {
   const field = event.target.closest("[data-response-id]");
   if (!field) return;
-  const key = field.getAttribute("data-response-id");
-  if (!key) return;
-  const responses = readResponses();
-  responses[key] = field.type === "checkbox" ? field.checked : field.value;
-  writeResponses(responses);
-  const saveStatus = document.querySelector("[data-save-status]");
-  if (saveStatus) {
-    saveStatus.textContent = "Saving...";
-    clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
-  }
+  persistResponseField(field);
 });
 document.addEventListener("change", (event) => {
+  const evidenceFilter = event.target.closest("[data-evidence-bank-filter]");
+  if (evidenceFilter) renderManualEvidenceBank();
+  const responseField = event.target.closest("[data-response-id]");
+  if (responseField) persistResponseField(responseField);
   const resourceSelect = event.target.closest("[data-resource-select]");
   if (resourceSelect) setResourcePanel(resourceSelect.value);
   const filmSelect = event.target.closest("[data-film-select]");
   if (filmSelect) setActiveFilm(filmSelect.value);
+  const practiceSourceSelect = event.target.closest("[data-practice-source-select]");
+  if (practiceSourceSelect && (!practiceSourceSelect.type || practiceSourceSelect.type !== "radio" || practiceSourceSelect.checked)) {
+    setActivePracticeSource(practiceSourceSelect.value, practiceSourceSelect);
+  }
+  const libraryDocSelect = event.target.closest("[data-library-doc-select]");
+  if (libraryDocSelect) setActiveLibraryDocument(libraryDocSelect.value, getLibraryDocumentScope(libraryDocSelect));
+  const studyTopicSelect = event.target.closest("[data-study-topic-select]");
+  if (studyTopicSelect) {
+    setActiveStudyTopic(
+      studyTopicSelect.getAttribute("data-study-topic-select"),
+      studyTopicSelect.value,
+      getStudyTopicScope(studyTopicSelect)
+    );
+  }
+});
+document.addEventListener("focusout", (event) => {
+  const responseField = event.target.closest("[data-response-id]");
+  if (responseField) persistResponseField(responseField);
 });
 document.getElementById("sidebar-toggle")?.addEventListener("click", toggleCourseMenu);
 document.getElementById("topbar-menu-toggle")?.addEventListener("click", toggleCourseMenu);
@@ -3793,6 +4669,16 @@ window.addEventListener("afterprint", clearPrintJob);
 restoreResponses();
 document.querySelectorAll("[data-resource-select]").forEach((select) => setResourcePanel(select.value));
 document.querySelectorAll("[data-film-select]").forEach((select) => setActiveFilm(select.value));
+document.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
+document.querySelectorAll("[data-library-doc-select]").forEach((select) => {
+  setActiveLibraryDocument(select.value, getLibraryDocumentScope(select));
+});
+document.querySelectorAll("[data-study-topic-select]").forEach((select) => {
+  setActiveStudyTopic(select.getAttribute("data-study-topic-select"), select.value, getStudyTopicScope(select));
+});
+document.querySelectorAll("[data-library-doc-target].active, [data-library-doc-target][aria-pressed='true']").forEach((button) => {
+  setActiveLibraryDocument(button.getAttribute("data-library-doc-target"), getLibraryDocumentScope(button));
+});
 route();
 updateComplete();
 </script>
