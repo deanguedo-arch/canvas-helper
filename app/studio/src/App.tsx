@@ -436,6 +436,7 @@ export function App() {
     }
     if (
       inspectionPreviewMode !== "workspace" ||
+      inspectionPreviewMode !== previewMode ||
       inspectionRequest.root !== "workspace" ||
       inspectionRequest.projectSlug !== selectedSlug ||
       inspectionRequest.projectSlug !== inspectionResolution.projectSlug ||
@@ -455,7 +456,7 @@ export function App() {
       return { canAdd: false, reason: `Keep the teacher note to ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.` };
     }
     return { canAdd: true, reason: "" };
-  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, reviewSetItems, reviewSetPreparing, selectedSlug]);
+  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetItems, reviewSetPreparing, selectedSlug]);
 
   const copyToClipboard = async (value: string) => {
     await navigator.clipboard.writeText(value);
