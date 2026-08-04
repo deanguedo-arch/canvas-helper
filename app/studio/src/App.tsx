@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState } from "react";
 
 import { CommandToolbar } from "./components/CommandToolbar";
 import { InspectorPanel } from "./components/InspectorPanel";
@@ -65,6 +65,7 @@ export function App() {
   const [inspectionCopyStatus, setInspectionCopyStatus] = useState("");
   const [inspectionPreviewMode, setInspectionPreviewMode] = useState<PreviewMode>("workspace");
   const [inspectionPreviewUrl, setInspectionPreviewUrl] = useState("");
+  const inspectionScopeVersionRef = useRef(0);
   const screenshotAnnotation = useScreenshotAnnotation();
   const selectedProject = useMemo(
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
@@ -156,6 +157,42 @@ export function App() {
     return { reference: referenceSrc, workspace: workspaceSrc };
   }, [previewOrigin, referenceRevision, resolvedReference, selectedProject, workspaceTarget]);
 
+  const inspectionContextKey = useMemo(
+    () =>
+      JSON.stringify({
+        selectedSlug,
+        previewMode,
+        workspaceTarget,
+        referenceTarget: resolvedReference.target,
+        workspacePreview: previewSources.workspace,
+        referencePreview: previewSources.reference
+      }),
+    [previewMode, previewSources.reference, previewSources.workspace, resolvedReference.target, selectedSlug, workspaceTarget]
+  );
+  const screenshotClearRef = useRef(screenshotAnnotation.clear);
+  screenshotClearRef.current = screenshotAnnotation.clear;
+
+  const resetInspection = useCallback(
+    (resetTeacherInput = false) => {
+      inspectionScopeVersionRef.current += 1;
+      setInspectionResolution(null);
+      setInspectionResolving(false);
+      setInspectionCopyStatus("");
+      setInspectionPreviewMode(previewMode);
+      setInspectionPreviewUrl("");
+      if (resetTeacherInput) {
+        setInspectionTeacherNote("");
+        setInspectionIssueCategory("unsure");
+      }
+      screenshotClearRef.current();
+    },
+    [previewMode]
+  );
+
+  useEffect(() => {
+    resetInspection(true);
+  }, [inspectionContextKey, resetInspection]);
+
   const inspectionPacketState = useMemo(() => {
     if (!inspectionResolution) {
       return { packet: "", error: "" };
@@ -179,16 +216,22 @@ export function App() {
   }, [inspectionIssueCategory, inspectionResolution, inspectionTeacherNote]);
 
   const resolveInspection = async (mode: PreviewMode, selection: PreviewInspectPayload) => {
+    const requestScopeVersion = inspectionScopeVersionRef.current;
+    const isCurrentRequest = () => inspectionScopeVersionRef.current === requestScopeVersion;
     const target = mode === "workspace" ? workspaceTarget : resolvedReference.target;
     const selectionPayload: InspectionSelection = selection;
     setInspectionPreviewMode(mode);
     setInspectionPreviewUrl(previewSources[mode]);
     screenshotAnnotation.clear();
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    setInspectionResolution(null);
     setInspectionResolving(true);
     setInspectionCopyStatus("");
 
     if (!target?.projectSlug || (mode === "reference" && resolvedReference.target.source !== "html")) {
+      if (!isCurrentRequest()) {
+        return;
+      }
       setInspectionResolution({
         projectSlug: target?.projectSlug || selectedSlug,
         previewPath: "reference resource",
@@ -223,8 +266,14 @@ export function App() {
       if (!response.ok || !payload.resolution) {
         throw new Error(payload.error || "Canvas Helper could not resolve the selected element.");
       }
+      if (!isCurrentRequest()) {
+        return;
+      }
       setInspectionResolution(payload);
     } catch (error) {
+      if (!isCurrentRequest()) {
+        return;
+      }
       setInspectionResolution({
         projectSlug: target.projectSlug,
         previewPath: "unresolved preview",
@@ -241,7 +290,9 @@ export function App() {
         warnings: [error instanceof Error ? error.message : "Canvas Helper could not resolve the selected element."]
       });
     } finally {
-      setInspectionResolving(false);
+      if (isCurrentRequest()) {
+        setInspectionResolving(false);
+      }
     }
   };
 
@@ -298,11 +349,15 @@ export function App() {
       screenshotAnnotation.reportError("Select a source-mapped preview element before capturing a screenshot.");
       return;
     }
+    const captureScopeVersion = inspectionScopeVersionRef.current;
     const iframe = getPreviewFrame(inspectionPreviewMode);
     iframe?.scrollIntoView({ block: "center", inline: "center", behavior: "auto" });
     const currentSelection = requestCurrentInspectionSelection(inspectionPreviewMode, inspectionResolution.selection.nodeId);
     void currentSelection
       .then((selection) => {
+        if (inspectionScopeVersionRef.current !== captureScopeVersion) {
+          return;
+        }
         setInspectionResolution((current) =>
           current && current.selection.nodeId === selection.nodeId
             ? { ...current, selection }
@@ -313,7 +368,8 @@ export function App() {
     void screenshotAnnotation.capture({
       iframe,
       selection: currentSelection,
-      expectedPreviewUrl: inspectionPreviewUrl
+      expectedPreviewUrl: inspectionPreviewUrl,
+      isCurrent: () => inspectionScopeVersionRef.current === captureScopeVersion
     });
   };
 
@@ -325,6 +381,9 @@ export function App() {
   const handlePreviewModeChange = (nextMode: PreviewMode) => {
     persistAllVisibleScrollPositions();
     syncFocusModeScrollPosition(previewMode, nextMode);
+    if (nextMode !== previewMode) {
+      resetInspection(true);
+    }
     setPreviewMode(nextMode);
   };
 
@@ -374,7 +433,11 @@ export function App() {
             const nextEnabled = !inspectEnabled;
             setPreviewInspectMode(nextEnabled);
             setInspectEnabled(nextEnabled);
-            setInspectionCopyStatus("");
+            if (!nextEnabled) {
+              resetInspection(true);
+            } else {
+              setInspectionCopyStatus("");
+            }
           }}
           inspectAvailable={Boolean(previewOrigin)}
           hasWorkspacePreview={Boolean(previewSources.workspace)}
@@ -428,6 +491,7 @@ export function App() {
                               }
 
                               persistAllVisibleScrollPositions();
+                              resetInspection(true);
                               setReferenceTarget((current) => ({
                                 ...current,
                                 source: "resource",
@@ -476,26 +540,32 @@ export function App() {
                               incomingRefreshIsError={incomingRefreshIsError}
                               onProjectChange={(slug) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setReferenceTarget((current) => ({ ...current, projectSlug: slug }));
                               }}
                               onSourceChange={(source) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setReferenceTarget((current) => ({ ...current, source }));
                               }}
                               onRootChange={(root) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setReferenceTarget((current) => ({ ...current, root }));
                               }}
                               onHtmlChange={(htmlPath) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setReferenceTarget((current) => ({ ...current, htmlPath }));
                               }}
                               onResourceRootChange={(resourceRoot) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setReferenceTarget((current) => ({ ...current, resourceRoot }));
                               }}
                               onResourcePathChange={(resourcePath) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setReferenceTarget((current) => ({ ...current, resourcePath }));
                               }}
                               onRefreshIntake={() => void refreshIncoming()}
@@ -508,14 +578,16 @@ export function App() {
                               workspaceFileOptions={selectedProject.htmlFiles.workspace}
                               onProjectChange={(slug) => {
                                 persistAllVisibleScrollPositions();
+                                resetInspection(true);
                                 setSelectedSlug(slug);
                               }}
-                              onHtmlChange={(htmlPath) =>
+                              onHtmlChange={(htmlPath) => {
+                                resetInspection(true);
                                 setWorkspaceHtmlSelections((current) => ({
                                   ...current,
                                   [selectedSlug]: htmlPath
-                                }))
-                              }
+                                }));
+                              }}
                               onRefresh={() => void refreshProjects()}
                             />
                           )

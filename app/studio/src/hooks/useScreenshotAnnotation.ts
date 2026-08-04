@@ -20,6 +20,7 @@ type CaptureScreenshotOptions = {
   iframe: HTMLIFrameElement | null;
   selection: Promise<PreviewInspectPayload>;
   expectedPreviewUrl: string;
+  isCurrent: () => boolean;
 };
 
 function clamp(value: number, minimum: number, maximum: number) {
@@ -212,7 +213,10 @@ export function useScreenshotAnnotation() {
 
   useEffect(() => () => releaseObjectUrl(), []);
 
-  const capture = async ({ iframe, selection, expectedPreviewUrl }: CaptureScreenshotOptions) => {
+  const capture = async ({ iframe, selection, expectedPreviewUrl, isCurrent }: CaptureScreenshotOptions) => {
+    if (!isCurrent()) {
+      return;
+    }
     if (!iframe) {
       setStatus("error");
       setError("The selected preview is no longer available.");
@@ -246,6 +250,9 @@ export function useScreenshotAnnotation() {
 
       const currentSelection = await selection;
       stream = await streamPromise;
+      if (!isCurrent()) {
+        return;
+      }
       const track = stream.getVideoTracks()[0];
       if (!track || track.readyState !== "live" || track.muted) {
         throw new Error("The selected tab did not provide a live video stream.");
@@ -257,6 +264,9 @@ export function useScreenshotAnnotation() {
 
       assertCurrentPreview(iframe, expectedPreviewUrl);
       frameCanvas = await captureFrameCanvas(stream);
+      if (!isCurrent()) {
+        return;
+      }
       if (track.readyState !== "live" || track.muted) {
         throw new Error("The selected tab stopped sharing before its screenshot could be captured.");
       }
@@ -267,11 +277,18 @@ export function useScreenshotAnnotation() {
       cropCanvas = crop.cropCanvas;
       const blob = await canvasBlob(cropCanvas);
       const imageUrl = URL.createObjectURL(blob);
+      if (!isCurrent()) {
+        URL.revokeObjectURL(imageUrl);
+        return;
+      }
       objectUrlRef.current = imageUrl;
       setAnnotation({ imageUrl, width: cropCanvas.width, height: cropCanvas.height, marker: crop.marker });
       setStatus("ready");
     } catch (captureError) {
       streamMustStopWhenAvailable = true;
+      if (!isCurrent()) {
+        return;
+      }
       releaseObjectUrl();
       setStatus("error");
       setError(captureError instanceof Error ? captureError.message : "Screen capture was canceled or unavailable.");

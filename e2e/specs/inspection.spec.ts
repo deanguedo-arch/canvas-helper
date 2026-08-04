@@ -1,6 +1,6 @@
 import { expect, test } from "@playwright/test";
 
-import { openProjectInStudio } from "../lib/project-open";
+import { openProjectInStudio, waitForWorkspacePreviewReady } from "../lib/project-open";
 
 test("@inspection Studio uses an isolated preview origin and creates a bounded local handoff", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
@@ -72,6 +72,46 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
 });
 
+test("@inspection changing projects clears a handoff and ignores a late source-resolution response", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+
+  let releaseInspectionResponse: (() => void) | null = null;
+  await page.route("**/api/inspection/resolve", async (route) => {
+    await new Promise<void>((resolve) => {
+      releaseInspectionResponse = resolve;
+    });
+    await route.continue();
+  });
+
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await expect.poll(() => Boolean(releaseInspectionResponse)).toBe(true);
+
+  const projectSelect = page.getByTestId("workspace-project-select");
+  await projectSelect.selectOption("forensics35");
+  await expect(projectSelect).toHaveValue("forensics35");
+  await expect(page.getByTestId("inspection-resolution")).toHaveCount(0);
+  await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
+
+  const inspectionResponse = page.waitForResponse((response) => {
+    const url = new URL(response.url());
+    return url.pathname === "/api/inspection/resolve" && response.request().method() === "POST";
+  });
+  releaseInspectionResponse?.();
+  await inspectionResponse;
+  await waitForWorkspacePreviewReady(page, "forensics35");
+
+  await expect(page.getByTestId("inspection-resolution")).toHaveCount(0);
+  await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
+});
+
 test("@inspection screenshot capture refreshes the selection and stops the local stream", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
@@ -125,6 +165,72 @@ test("@inspection screenshot capture refreshes the selection and stops the local
   await page.getByTestId("capture-annotated-screenshot").click();
   await expect(page.getByTestId("screenshot-annotation")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stopped", "true");
+});
+
+test("@inspection changing projects during capture stops the stale stream without keeping an annotation", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await expect(page.getByTestId("inspection-panel")).toBeVisible();
+
+  await page.evaluate(() => {
+    const state = window as typeof window & {
+      releaseDelayedCapture?: () => void;
+    };
+    Object.defineProperty(navigator.mediaDevices, "getDisplayMedia", {
+      configurable: true,
+      value: async () => {
+        document.documentElement.setAttribute("data-e2e-capture-requested", "true");
+        return new Promise<MediaStream>((resolve) => {
+          state.releaseDelayedCapture = () => {
+            const canvas = document.createElement("canvas");
+            canvas.width = window.innerWidth * 4;
+            canvas.height = window.innerHeight * 4;
+            const stream = canvas.captureStream(30);
+            const track = stream.getVideoTracks()[0];
+            const stop = track.stop.bind(track);
+            Object.defineProperty(track, "getSettings", {
+              configurable: true,
+              value: () => ({ displaySurface: "browser" })
+            });
+            Object.defineProperty(track, "stop", {
+              configurable: true,
+              value: () => {
+                const count = Number(document.documentElement.getAttribute("data-e2e-capture-stop-count") || "0") + 1;
+                document.documentElement.setAttribute("data-e2e-capture-stop-count", String(count));
+                stop();
+              }
+            });
+            resolve(stream);
+          };
+        });
+      }
+    });
+  });
+
+  await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-requested", "true");
+
+  const projectSelect = page.getByTestId("workspace-project-select");
+  await projectSelect.selectOption("forensics35");
+  await expect(projectSelect).toHaveValue("forensics35");
+  await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
+
+  await page.evaluate(() => {
+    const state = window as typeof window & { releaseDelayedCapture?: () => void };
+    state.releaseDelayedCapture?.();
+  });
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stop-count", "1");
+  await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
+  await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
 });
 
 test("@inspection screenshot capture stops an early stream when selection refresh fails", async ({ page }) => {
