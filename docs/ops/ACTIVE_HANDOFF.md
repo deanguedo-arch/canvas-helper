@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Implement the API-free Studio Inspector, secure preview boundary, concise Codex handoff, consent-based screenshot annotation, and reusable Science-pilot operating path.
-- Status: implementation complete and locally verified; the final independent re-review must inspect the pushed latest commit. The first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
+- Status: implementation complete, pushed, and independently re-reviewed `GREEN` at `ac9081c12cf26e7d7be7db4001a5d362dabfe0ab`; the first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
 
 ## Summary
 
@@ -41,7 +41,7 @@
 
 - Screenshot capture requires a real browser permission action. Automated tests intentionally do not accept a capture prompt; manually verify target-browser tab capture before relying on it in a live workflow.
 - A browser cannot force the exact tab choice. Studio validates available surface metadata, crops only the visible preview region, and requires review before download, but the teacher must select the Studio tab in the picker.
-- ChatGPT Pro's first exact-commit green-team pass found two genuine privacy blockers; the local fixes have targeted regression coverage, but its final verdict must be refreshed from the pushed fix commit.
+- ChatGPT Pro's first exact-commit green-team pass found two genuine privacy blockers. The final GitHub-backed re-review of `ac9081c12cf26e7d7be7db4001a5d362dabfe0ab` returned `GREEN` with no remaining must-fix items; browser-owned capture acceptance remains manual.
 - A real Science pilot cannot be created until real source ZIPs are available. Do not invent a Science factory or learner workspace to bypass that gate.
 - Existing full-repo typecheck noise is outside this change and should be handled as a separate maintenance task.
 

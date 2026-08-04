@@ -44,7 +44,7 @@ Screenshot capture and visual annotation are now implemented as a separate, cons
 
 ## Review result that governs this plan
 
-This plan combines local repository evidence with an independent ChatGPT Pro red-team and green-team review. The first exact-commit green-team pass identified two real release blockers that have since been fixed and regression-tested locally: a late screen-share cleanup race and raw filesystem-error exposure. A final re-review must be run against the pushed fix commit before calling the review loop green.
+This plan combines local repository evidence with an independent ChatGPT Pro red-team and green-team review. The first exact-commit green-team pass identified two real release blockers that were fixed and regression-tested locally: a late screen-share cleanup race and raw filesystem-error exposure. The final GitHub-backed re-review of `ac9081c12cf26e7d7be7db4001a5d362dabfe0ab` returned `GREEN` with no remaining must-fix items; the only remaining gates are the browser-owned manual capture checks described below.
 
 The earlier review also established two sequencing changes and two cuts:
 
