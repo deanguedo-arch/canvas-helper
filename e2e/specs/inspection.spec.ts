@@ -74,6 +74,8 @@ test("@inspection keyboard selection creates a handoff without activating the le
 
 test("@inspection changing projects clears a handoff and ignores a late source-resolution response", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
 
   let releaseInspectionResponse: (() => void) | null = null;
   await page.route("**/api/inspection/resolve", async (route) => {
@@ -85,6 +87,7 @@ test("@inspection changing projects clears a handoff and ignores a late source-r
 
   await page.getByTestId("inspect-toggle").click();
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
   const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
   const headingBounds = await heading.boundingBox();
   expect(headingBounds).toBeTruthy();
@@ -110,6 +113,55 @@ test("@inspection changing projects clears a handoff and ignores a late source-r
 
   await expect(page.getByTestId("inspection-resolution")).toHaveCount(0);
   await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
+});
+
+test("@inspection a late first selection cannot overwrite a newer selection in the same preview", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
+
+  let inspectionRequestCount = 0;
+  let releaseFirstInspectionResponse: (() => void) | null = null;
+  await page.route("**/api/inspection/resolve", async (route) => {
+    inspectionRequestCount += 1;
+    if (inspectionRequestCount === 1) {
+      await new Promise<void>((resolve) => {
+        releaseFirstInspectionResponse = resolve;
+      });
+    }
+    await route.continue();
+  });
+
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const firstSelection = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const firstBounds = await firstSelection.boundingBox();
+  expect(firstBounds).toBeTruthy();
+  await page.mouse.click(
+    (firstBounds?.x ?? 0) + (firstBounds?.width ?? 0) / 2,
+    (firstBounds?.y ?? 0) + (firstBounds?.height ?? 0) / 2
+  );
+  await expect.poll(() => inspectionRequestCount).toBe(1);
+
+  const secondSelection = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  const secondBounds = await secondSelection.boundingBox();
+  expect(secondBounds).toBeTruthy();
+  await page.mouse.click(
+    (secondBounds?.x ?? 0) + (secondBounds?.width ?? 0) / 2,
+    (secondBounds?.y ?? 0) + (secondBounds?.height ?? 0) / 2
+  );
+  await expect.poll(() => inspectionRequestCount).toBe(2);
+  await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
+
+  const firstInspectionResponse = page.waitForResponse((response) => {
+    const url = new URL(response.url());
+    return url.pathname === "/api/inspection/resolve" && response.request().method() === "POST";
+  });
+  releaseFirstInspectionResponse?.();
+  await firstInspectionResponse;
+
+  await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
 });
 
 test("@inspection screenshot capture refreshes the selection and stops the local stream", async ({ page }) => {
@@ -169,9 +221,12 @@ test("@inspection screenshot capture refreshes the selection and stops the local
 
 test("@inspection changing projects during capture stops the stale stream without keeping an annotation", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
   await page.getByTestId("inspect-toggle").click();
 
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
   const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
   const headingBounds = await heading.boundingBox();
   expect(headingBounds).toBeTruthy();

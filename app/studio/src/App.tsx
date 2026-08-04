@@ -216,7 +216,8 @@ export function App() {
   }, [inspectionIssueCategory, inspectionResolution, inspectionTeacherNote]);
 
   const resolveInspection = async (mode: PreviewMode, selection: PreviewInspectPayload) => {
-    const requestScopeVersion = inspectionScopeVersionRef.current;
+    const requestScopeVersion = inspectionScopeVersionRef.current + 1;
+    inspectionScopeVersionRef.current = requestScopeVersion;
     const isCurrentRequest = () => inspectionScopeVersionRef.current === requestScopeVersion;
     const target = mode === "workspace" ? workspaceTarget : resolvedReference.target;
     const selectionPayload: InspectionSelection = selection;
