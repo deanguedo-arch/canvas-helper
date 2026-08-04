@@ -260,6 +260,8 @@ export function useScreenshotAnnotation() {
       if (track.readyState !== "live" || track.muted) {
         throw new Error("The selected tab stopped sharing before its screenshot could be captured.");
       }
+      stopStream(stream);
+      stream = null;
       assertCurrentPreview(iframe, expectedPreviewUrl);
       const crop = cropPreviewFrame({ frameCanvas, iframe, geometry: currentSelection.geometry });
       cropCanvas = crop.cropCanvas;

@@ -10,7 +10,7 @@
 - Replaced same-origin preview access with a read-only isolated loopback preview service and private MessageChannel bridge.
 - Added Inspect, validated exact/bounded/unknown source ownership, a compact Copy for Codex packet, issue focus, keyboard selection, and a local-only screenshot annotation flow.
 - Direct static workspaces now include a verified current source line in a handoff; generated Social and English workspaces remain source-line-free and rebuild-owned.
-- Fixed a screen-share cleanup race and redacted raw inspection-route errors so malformed requests cannot disclose an absolute local path.
+- Fixed a screen-share cleanup race, now stop capture before crop/PNG work, and redact raw inspection-route errors so malformed requests cannot disclose an absolute local path.
 - Kept Social and English learner artifacts untouched; generated workspaces are still never the suggested edit target.
 - Updated the mobile E2E learner harness to open the isolated preview origin, preserving Social and English project verification.
 - Kept the existing Science source-backed intake/decision-log process and documented the Inspector contract a future Science driver must meet.

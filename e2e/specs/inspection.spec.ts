@@ -159,7 +159,8 @@ test("@inspection screenshot capture stops an early stream when selection refres
         Object.defineProperty(track, "stop", {
           configurable: true,
           value: () => {
-            document.documentElement.setAttribute("data-e2e-capture-stopped-after-failure", "true");
+            const count = Number(document.documentElement.getAttribute("data-e2e-capture-stop-count") || "0") + 1;
+            document.documentElement.setAttribute("data-e2e-capture-stop-count", String(count));
             stop();
           }
         });
@@ -178,6 +179,6 @@ test("@inspection screenshot capture stops an early stream when selection refres
   });
 
   await page.getByTestId("capture-annotated-screenshot").click();
-  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stopped-after-failure", "true");
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stop-count", "1");
   await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
 });
