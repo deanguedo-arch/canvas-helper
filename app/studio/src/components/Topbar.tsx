@@ -7,7 +7,9 @@ type TopbarProps = {
   onSetCompareMode: (compareMode: boolean) => void;
   onSetPreviewMode: (previewMode: PreviewMode) => void;
   onToggleInspector: () => void;
-  onToggleGenerator: () => void;
+  inspectEnabled: boolean;
+  inspectAvailable: boolean;
+  onToggleInspect: () => void;
   hasWorkspacePreview: boolean;
   onOpenWorkspacePreview: () => void;
 };
@@ -19,7 +21,9 @@ export function Topbar({
   onSetCompareMode,
   onSetPreviewMode,
   onToggleInspector,
-  onToggleGenerator,
+  inspectEnabled,
+  inspectAvailable,
+  onToggleInspect,
   hasWorkspacePreview,
   onOpenWorkspacePreview
 }: TopbarProps) {
@@ -72,6 +76,16 @@ export function Topbar({
         ) : null}
         <button
           type="button"
+          className={inspectEnabled ? "ghost-button compact active-toggle" : "ghost-button compact"}
+          onClick={onToggleInspect}
+          disabled={!inspectAvailable}
+          data-testid="inspect-toggle"
+          title={inspectAvailable ? "Select a course element and prepare a bounded Codex handoff" : "Starting isolated preview"}
+        >
+          {inspectEnabled ? "Inspecting" : "Inspect"}
+        </button>
+        <button
+          type="button"
           className={hasWorkspacePreview ? "ghost-button compact active-toggle" : "ghost-button compact"}
           onClick={onOpenWorkspacePreview}
           disabled={!hasWorkspacePreview}
@@ -80,15 +94,6 @@ export function Topbar({
         >
           Preview
         </button>
-        <button
-          type="button"
-          className={layoutPreferences.generatorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}
-          onClick={onToggleGenerator}
-          data-testid="generator-toggle"
-        >
-          {layoutPreferences.generatorOpen ? "Hide Assistant" : "Assistant"}
-        </button>
-
         <button
           type="button"
           className={layoutPreferences.inspectorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}

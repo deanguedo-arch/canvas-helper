@@ -10,6 +10,7 @@ export default defineConfig({
   root: path.join(repoRoot, "app", "studio"),
   plugins: [react(), createStudioServerPlugin()],
   server: {
+    host: "127.0.0.1",
     fs: {
       allow: [repoRoot]
     }

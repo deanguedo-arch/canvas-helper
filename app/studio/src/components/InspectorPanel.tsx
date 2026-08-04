@@ -1,15 +1,81 @@
 import { toCursorHref } from "../lib/projects";
 import type { ProjectBundle } from "../lib/types";
+import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
+import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
+import { InspectionPanel } from "./InspectionPanel";
 
 type InspectorPanelProps = {
   selectedProject: ProjectBundle | null;
   sourceFiles: string[];
   onCopyToClipboard: (value: string) => Promise<void>;
+  inspectEnabled: boolean;
+  inspectionResolution: InspectionResolution | null;
+  inspectionResolving: boolean;
+  inspectionTeacherNote: string;
+  inspectionIssueCategory: InspectionIssueCategory;
+  inspectionPacket: string;
+  inspectionPacketError: string;
+  inspectionCopyStatus: string;
+  screenshotSupported: boolean;
+  screenshotStatus: "idle" | "capturing" | "ready" | "error";
+  screenshotError: string;
+  screenshot: ScreenshotAnnotationState | null;
+  onInspectionTeacherNoteChange: (value: string) => void;
+  onInspectionIssueCategoryChange: (value: InspectionIssueCategory) => void;
+  onCopyInspectionPacket: () => void;
+  onCaptureScreenshot: () => void;
+  onScreenshotMarkerChange: (marker: AnnotationRect) => void;
+  onDownloadScreenshot: () => void;
+  onDiscardScreenshot: () => void;
 };
 
-export function InspectorPanel({ selectedProject, sourceFiles, onCopyToClipboard }: InspectorPanelProps) {
+export function InspectorPanel({
+  selectedProject,
+  sourceFiles,
+  onCopyToClipboard,
+  inspectEnabled,
+  inspectionResolution,
+  inspectionResolving,
+  inspectionTeacherNote,
+  inspectionIssueCategory,
+  inspectionPacket,
+  inspectionPacketError,
+  inspectionCopyStatus,
+  screenshotSupported,
+  screenshotStatus,
+  screenshotError,
+  screenshot,
+  onInspectionTeacherNoteChange,
+  onInspectionIssueCategoryChange,
+  onCopyInspectionPacket,
+  onCaptureScreenshot,
+  onScreenshotMarkerChange,
+  onDownloadScreenshot,
+  onDiscardScreenshot
+}: InspectorPanelProps) {
   return (
     <section className="inspector">
+      <InspectionPanel
+        inspectEnabled={inspectEnabled}
+        resolution={inspectionResolution}
+        resolving={inspectionResolving}
+        teacherNote={inspectionTeacherNote}
+        issueCategory={inspectionIssueCategory}
+        packet={inspectionPacket}
+        packetError={inspectionPacketError}
+        copyStatus={inspectionCopyStatus}
+        screenshotSupported={screenshotSupported}
+        screenshotStatus={screenshotStatus}
+        screenshotError={screenshotError}
+        screenshot={screenshot}
+        onTeacherNoteChange={onInspectionTeacherNoteChange}
+        onIssueCategoryChange={onInspectionIssueCategoryChange}
+        onCopyPacket={onCopyInspectionPacket}
+        onCaptureScreenshot={onCaptureScreenshot}
+        onScreenshotMarkerChange={onScreenshotMarkerChange}
+        onDownloadScreenshot={onDownloadScreenshot}
+        onDiscardScreenshot={onDiscardScreenshot}
+      />
       <div className="panel-card">
         <div className="section-header">
           <h3>Source Files</h3>

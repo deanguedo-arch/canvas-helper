@@ -1,0 +1,349 @@
+import { createHash } from "node:crypto";
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
+import { Parser } from "htmlparser2";
+
+import {
+  inspectCourseAuthoringProject,
+  type CourseAuthoringPath,
+  type ResolvedCourseAuthoringProject
+} from "../../../scripts/lib/course-authoring/context.js";
+import { repoRoot } from "../../../scripts/lib/paths.js";
+import {
+  type InspectionResolveRequest,
+  type InspectionResolution,
+  type InspectionResolutionState
+} from "../../shared/inspection.js";
+
+export const PREVIEW_INSPECT_NODE_ATTRIBUTE = "data-canvas-helper-inspect-node";
+
+const MAX_INSPECTABLE_HTML_BYTES = 8 * 1024 * 1024;
+const PREVIEW_NODE_ID_PREFIX = "ch1";
+const EXCLUDED_TAGS = new Set(["base", "head", "link", "meta", "script", "style", "template", "title"]);
+
+type OpeningTag = {
+  start: number;
+  end: number;
+  tagName: string;
+};
+
+export type PreviewInspectionDocument = {
+  html: string;
+  sourceDigest: string;
+  nodeIds: Set<string>;
+};
+
+function sha256(value: string) {
+  return createHash("sha256").update(value, "utf8").digest("hex");
+}
+
+function isUtf16Body(body: Buffer) {
+  return body.length >= 2 && ((body[0] === 0xff && body[1] === 0xfe) || (body[0] === 0xfe && body[1] === 0xff));
+}
+
+function collectOpeningTags(html: string) {
+  const tags: OpeningTag[] = [];
+  let templateDepth = 0;
+  let unsafeReservedAttribute = false;
+  let parseFailed = false;
+  let parser: Parser;
+  parser = new Parser(
+    {
+      onopentag(tagName) {
+        const normalizedTagName = tagName.toLowerCase();
+        if (normalizedTagName === "template") {
+          templateDepth += 1;
+          return;
+        }
+
+        if (templateDepth > 0 || EXCLUDED_TAGS.has(normalizedTagName)) {
+          return;
+        }
+
+        const start = parser.startIndex;
+        const end = parser.endIndex;
+        if (start < 0 || end < start || html[end] !== ">") {
+          return;
+        }
+
+        const openingTag = html.slice(start, end + 1);
+        if (new RegExp(`\\b${PREVIEW_INSPECT_NODE_ATTRIBUTE}\\s*=`, "i").test(openingTag)) {
+          unsafeReservedAttribute = true;
+          return;
+        }
+
+        tags.push({ start, end, tagName: normalizedTagName });
+      },
+      onclosetag(tagName) {
+        if (tagName.toLowerCase() === "template" && templateDepth > 0) {
+          templateDepth -= 1;
+        }
+      },
+      onerror() {
+        parseFailed = true;
+      }
+    },
+    {
+      decodeEntities: false,
+      recognizeSelfClosing: true
+    }
+  );
+  parser.write(html);
+  parser.end();
+  return parseFailed || unsafeReservedAttribute || templateDepth !== 0 ? null : tags;
+}
+
+function createNodeId(sourceDigest: string, ordinal: number) {
+  return `${PREVIEW_NODE_ID_PREFIX}:${sourceDigest.slice(0, 24)}:${ordinal}`;
+}
+
+export function isPreviewInspectionNodeId(value: string | null | undefined) {
+  return typeof value === "string" && new RegExp(`^${PREVIEW_NODE_ID_PREFIX}:[a-f0-9]{24}:[1-9][0-9]*$`).test(value);
+}
+
+function injectNodeAttribute(html: string, tag: OpeningTag, nodeId: string) {
+  const insertionIndex = html[tag.end - 1] === "/" ? tag.end - 1 : tag.end;
+  return `${html.slice(0, insertionIndex)} ${PREVIEW_INSPECT_NODE_ATTRIBUTE}="${nodeId}"${html.slice(insertionIndex)}`;
+}
+
+export function decoratePreviewHtml(html: string): PreviewInspectionDocument | null {
+  if (Buffer.byteLength(html, "utf8") > MAX_INSPECTABLE_HTML_BYTES) {
+    return null;
+  }
+
+  const sourceDigest = sha256(html);
+  const tags = collectOpeningTags(html);
+  if (!tags) {
+    return null;
+  }
+  const nodeIds = new Set<string>();
+  let decorated = html;
+
+  for (let index = tags.length - 1; index >= 0; index -= 1) {
+    const nodeId = createNodeId(sourceDigest, index + 1);
+    decorated = injectNodeAttribute(decorated, tags[index], nodeId);
+    nodeIds.add(nodeId);
+  }
+
+  return { html: decorated, sourceDigest, nodeIds };
+}
+
+export function decoratePreviewHtmlBuffer(body: Buffer) {
+  if (isUtf16Body(body)) {
+    return null;
+  }
+
+  return decoratePreviewHtml(body.toString("utf8"));
+}
+
+export function injectPreviewBridgeScript(html: string, scriptSource: string) {
+  const scriptTag = `<script src="${scriptSource}" data-canvas-helper-preview-bridge="v1"></script>`;
+  const openingHead = /<head\b[^>]*>/i.exec(html);
+  const firstScript = html.search(/<script\b/i);
+  if (openingHead && (firstScript < 0 || openingHead.index < firstScript)) {
+    const insertionIndex = openingHead.index + openingHead[0].length;
+    return `${html.slice(0, insertionIndex)}${scriptTag}${html.slice(insertionIndex)}`;
+  }
+
+  if (firstScript >= 0) {
+    return `${html.slice(0, firstScript)}${scriptTag}${html.slice(firstScript)}`;
+  }
+
+  const openingBody = /<body\b[^>]*>/i.exec(html);
+  if (openingBody) {
+    const insertionIndex = openingBody.index + openingBody[0].length;
+    return `${html.slice(0, insertionIndex)}${scriptTag}${html.slice(insertionIndex)}`;
+  }
+
+  const openingHtml = /<html\b[^>]*>/i.exec(html);
+  if (openingHtml) {
+    const insertionIndex = openingHtml.index + openingHtml[0].length;
+    return `${html.slice(0, insertionIndex)}${scriptTag}${html.slice(insertionIndex)}`;
+  }
+
+  return `${scriptTag}${html}`;
+}
+
+function toRepoRelative(filePath: string) {
+  const relative = path.relative(repoRoot, filePath).split(path.sep).join("/");
+  return relative && !relative.startsWith("../") && relative !== ".." && !path.isAbsolute(relative) ? relative : null;
+}
+
+async function loadInspectionDocument(filePath: string) {
+  const body = await readFile(filePath);
+  return decoratePreviewHtmlBuffer(body);
+}
+
+function uniquePaths(paths: CourseAuthoringPath[], maximum = 3) {
+  const seen = new Set<string>();
+  const result: string[] = [];
+  for (const entry of paths) {
+    if (!entry.exists || entry.kind !== "file" || seen.has(entry.repoRelative)) {
+      continue;
+    }
+    seen.add(entry.repoRelative);
+    result.push(entry.repoRelative);
+    if (result.length >= maximum) {
+      break;
+    }
+  }
+  return result;
+}
+
+function firstFile(paths: CourseAuthoringPath[]) {
+  return uniquePaths(paths, 1)[0] ?? null;
+}
+
+function buildUnknownResolution(
+  request: InspectionResolveRequest,
+  previewPath: string,
+  warning: string,
+  options: { freshness?: InspectionResolution["freshness"]; artifactRole?: InspectionResolution["artifactRole"] } = {}
+): InspectionResolution {
+  return {
+    projectSlug: request.projectSlug,
+    previewPath,
+    selection: request.selection,
+    resolution: "unknown",
+    freshness: options.freshness ?? "unsupported",
+    artifactRole: options.artifactRole ?? (request.root === "raw" ? "reference-only" : "unknown"),
+    generated: false,
+    primaryEditTarget: null,
+    contributors: [],
+    rebuildCommand: null,
+    validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
+    warnings: [warning]
+  };
+}
+
+function resolveGeneratedTarget(project: ResolvedCourseAuthoringProject) {
+  if (project.driverId === "english-factory-v1") {
+    return firstFile(project.editableSources) ?? firstFile(project.canonicalSources);
+  }
+
+  return firstFile(project.canonicalSources) ?? firstFile(project.sharedSources);
+}
+
+function resolveContributors(project: ResolvedCourseAuthoringProject, primaryEditTarget: string | null) {
+  const contributors = uniquePaths([...project.editableSources, ...project.sharedSources, ...project.canonicalSources], 4);
+  return contributors.filter((entry) => entry !== primaryEditTarget).slice(0, 3);
+}
+
+function generatedResolution(
+  request: InspectionResolveRequest,
+  previewPath: string,
+  project: ResolvedCourseAuthoringProject
+): InspectionResolution {
+  const primaryEditTarget = resolveGeneratedTarget(project);
+  return {
+    projectSlug: request.projectSlug,
+    previewPath,
+    selection: request.selection,
+    resolution: "bounded",
+    freshness: "unverified",
+    artifactRole: "generated-workspace-output",
+    generated: true,
+    primaryEditTarget,
+    contributors: resolveContributors(project, primaryEditTarget),
+    rebuildCommand: project.regenerateCommand ?? null,
+    validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
+    warnings: [
+      "The selected workspace is generated output. Do not hand-edit the displayed HTML; use the declared source and rebuild flow."
+    ]
+  };
+}
+
+function directResolution(
+  request: InspectionResolveRequest,
+  previewPath: string,
+  project: ResolvedCourseAuthoringProject
+): InspectionResolution {
+  const primaryEditTarget = project.editableSources.find((entry) => entry.kind === "file" && entry.repoRelative === previewPath)?.repoRelative ?? null;
+  const resolution: InspectionResolutionState = primaryEditTarget ? "exact" : "unknown";
+  return {
+    projectSlug: request.projectSlug,
+    previewPath,
+    selection: request.selection,
+    resolution,
+    freshness: primaryEditTarget ? "current" : "unsupported",
+    artifactRole: primaryEditTarget ? "canonical-editable-source" : "unknown",
+    generated: false,
+    primaryEditTarget,
+    contributors: primaryEditTarget ? resolveContributors(project, primaryEditTarget) : [],
+    rebuildCommand: project.regenerateCommand ?? null,
+    validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
+    warnings: primaryEditTarget
+      ? []
+      : ["This static preview element is not declared as a canonical editable source." ]
+  };
+}
+
+export async function resolvePreviewInspection(request: InspectionResolveRequest, previewFilePath: string): Promise<InspectionResolution> {
+  const previewPath = toRepoRelative(previewFilePath);
+  if (!previewPath) {
+    throw new Error("Preview path is outside this checkout.");
+  }
+
+  if (request.root !== "workspace") {
+    return buildUnknownResolution(request, previewPath, "Reference and raw previews are inspectable, but are never edit targets.", {
+      freshness: "unsupported",
+      artifactRole: "reference-only"
+    });
+  }
+
+  const document = await loadInspectionDocument(previewFilePath);
+  if (!document) {
+    return buildUnknownResolution(
+      request,
+      previewPath,
+      "This preview format cannot be source-decorated safely, so Canvas Helper will not claim an exact source target."
+    );
+  }
+
+  const requestedNode = request.selection.nodeId;
+  if (!requestedNode || !isPreviewInspectionNodeId(requestedNode)) {
+    return buildUnknownResolution(
+      request,
+      previewPath,
+      "The selected element was created at runtime or has no stable source node ID; no source target was inferred.",
+      { freshness: "unsupported" }
+    );
+  }
+
+  if (!document.nodeIds.has(requestedNode)) {
+    const freshness = requestedNode.includes(document.sourceDigest.slice(0, 24)) ? "unsupported" : "stale";
+    return buildUnknownResolution(
+      request,
+      previewPath,
+      "The preview node does not match the current local HTML. Reload the preview before making an edit decision.",
+      { freshness }
+    );
+  }
+
+  const report = await inspectCourseAuthoringProject(request.projectSlug);
+  if (report.status !== "pass" || !report.project) {
+    return buildUnknownResolution(
+      request,
+      previewPath,
+      "Course source ownership is not currently valid, so Canvas Helper will not recommend a write target.",
+      { freshness: "current" }
+    );
+  }
+
+  const project = report.project;
+  if (project.driverId === "direct-workspace-v1" && project.authoringMode === "direct") {
+    return directResolution(request, previewPath, project);
+  }
+
+  if (project.driverId === "english-factory-v1" || project.driverId === "social-related-issues-v1") {
+    return generatedResolution(request, previewPath, project);
+  }
+
+  return buildUnknownResolution(
+    request,
+    previewPath,
+    "This project is proposal-only; an inspect selection cannot safely identify a primary write target.",
+    { freshness: "current" }
+  );
+}

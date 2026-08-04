@@ -614,10 +614,17 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
   const pageErrors: string[] = [];
   const localFailures: string[] = [];
   const baseOrigin = new URL(page.url()).origin;
+  const previewConfigResponse = await page.request.get("/api/preview-config");
+  expect(previewConfigResponse.ok(), "isolated preview configuration is available for mobile learner checks").toBe(true);
+  const previewConfig = (await previewConfigResponse.json()) as { origin?: string };
+  if (!previewConfig.origin) {
+    throw new Error("Isolated preview configuration did not provide a preview origin.");
+  }
+  const previewOrigin = new URL(previewConfig.origin).origin;
 
   mobilePage.on("pageerror", (error) => pageErrors.push(error.message));
   mobilePage.on("response", (response) => {
-    if (new URL(response.url()).origin === baseOrigin && response.status() >= 400) {
+    if ([baseOrigin, previewOrigin].includes(new URL(response.url()).origin) && response.status() >= 400) {
       localFailures.push(`${response.status()} ${response.url()}`);
     }
   });
@@ -627,7 +634,9 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
       width: learnerCourse.mobile.width,
       height: learnerCourse.mobile.height
     });
-    await mobilePage.goto(`/preview/workspace/${projectSlug}/index.html`, { waitUntil: "domcontentloaded" });
+    await mobilePage.goto(new URL(`/preview/workspace/${projectSlug}/index.html`, previewOrigin).toString(), {
+      waitUntil: "domcontentloaded"
+    });
 
     for (const route of learnerCourse.mobile.routes) {
       const section = await showLearnerRoute(mobilePage, route);

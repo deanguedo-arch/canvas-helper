@@ -89,3 +89,35 @@ test("missing html workspace previews return an in-browser diagnostic instead of
     await removePath(paths.resourceDir);
   }
 });
+
+test("isolated HTML previews receive transient opaque nodes and the bridge without rewriting the source", async () => {
+  const slug = `preview-decoration-${Date.now()}`;
+  const paths = getProjectPaths(slug);
+  const source = "<!doctype html><html><head><script>window.courseScript = true;</script><title>Preview</title></head><body><main><h1>Inspectable</h1></main></body></html>";
+
+  await removePath(paths.root);
+  try {
+    await ensureDir(paths.workspaceDir);
+    await (await import("node:fs/promises")).writeFile(paths.workspaceEntrypoint, source, "utf8");
+    const { response, getBody } = createResponseRecorder();
+
+    const handled = await handlePreviewRoutes(
+      `/preview/workspace/${slug}/index.html`,
+      {
+        method: "GET",
+        url: `/preview/workspace/${slug}/index.html`
+      } as IncomingMessage,
+      response,
+      { bridgeScriptPath: "/_canvas-helper/preview-bridge.js" }
+    );
+
+    assert.equal(handled, true);
+    assert.match(getBody(), /data-canvas-helper-inspect-node="ch1:/);
+    assert.match(getBody(), /_canvas-helper\/preview-bridge\.js"/);
+    assert.doesNotMatch(getBody(), /__ch_(?:nonce|studio|frame)/);
+    assert.ok(getBody().indexOf("data-canvas-helper-preview-bridge") < getBody().indexOf("window.courseScript"));
+    assert.equal(await (await import("node:fs/promises")).readFile(paths.workspaceEntrypoint, "utf8"), source);
+  } finally {
+    await removePath(paths.root);
+  }
+});

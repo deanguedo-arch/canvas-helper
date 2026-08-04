@@ -30,6 +30,28 @@ Read first:
 
 Do not start by searching the whole repo. The shared command contract is the source of truth.
 
+## Studio Inspect + Codex Handoff
+
+Read first:
+- `app/shared/preview-bridge.ts`
+- `app/shared/inspection.ts`
+- `app/server/preview-server.ts`
+- `app/server/lib/preview-inspection.ts`
+- `app/server/routes/inspection.ts`
+- `app/studio/src/hooks/usePreviewScrollSync.ts`
+- `app/studio/src/components/InspectionPanel.tsx`
+
+Rules:
+- Keep preview on the isolated loopback origin; never restore iframe DOM reads, wildcard messaging, or a same-origin preview shortcut.
+- A preview selection is evidence, not source authority. Resolve canonical targets only through the project driver and fail closed as `unknown` when it cannot be proved.
+- Generated Social and English workspaces remain output; packets point to their builder/factory source and rebuild flow.
+- Screenshot capture is explicit Studio-only browser consent. The preview origin must retain `Permissions-Policy: display-capture=()`; images never enter a Codex packet.
+
+Verification floor:
+- `npm run test:studio-inspection`
+- `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts`
+- `npm run build:studio`
+
 ## E2E Platform Work
 
 Read first:
@@ -63,8 +85,6 @@ Then only open collect/apply modules that are directly affected.
 
 Read first:
 - `scripts/lib/course-authoring/context.ts`
-- `scripts/lib/engine/context-builder.ts`
-- `scripts/lib/engine/apply-generation.ts`
 - `projects/<slug>/meta/project.json`
 - `scripts/lib/english-unit/workspace-staging.ts` when the project uses `build:english-unit`
 - `scripts/lib/social-resource-manifest.ts` and `scripts/lib/social-build-staging.ts` when the project uses `build:social30`
@@ -73,8 +93,7 @@ Use:
 - `npm run course:list -- --all` to distinguish actual readiness from a project lifecycle label; do not treat `active` as permission to edit or rebuild.
 - `npm run course:doctor -- --project <slug>` before building a compact course brief
 - `npm run context:project -- --project <slug>` only after the doctor passes
-- In Studio, leave evidence IDs blank by default; add only exact `unit:`, `outcome:`, `resource:`, or `lesson:` IDs for an intentional narrow context.
-- Treat automatic writes as direct-workspace only. Factory and proposal-only projects require their owning rebuild flow.
+- Treat Studio as a local read-only inspection and handoff surface. Course changes belong in the declared canonical source or owning rebuild flow.
 
 Verification floor:
 - `npm run test:authoring-context`

@@ -56,6 +56,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run test:english-transaction`
 - `npm run test:social-build`
 - `npm run test:science-pilot`
+- `npm run test:studio-inspection`
 - `npm run validate:manifests`
 - `npm run assessment:import -- --input "<file-or-dir>" [--slug <assessment-slug>]`
 - `npm run assessment:export -- --assessment <assessment-slug>`
@@ -92,6 +93,19 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 10. Run export commands as needed
 11. Run `validate:manifests` when project source-of-truth metadata changed
 12. Capture a handoff before stopping
+
+## Studio Inspect + Codex Handoff
+
+Studio has no model-provider integration and does not write course sources. Use **Inspect** when one visible course element needs a focused change:
+
+1. Open the project, turn on Inspect, and select the learner-facing element.
+2. Studio reports `exact`, `bounded`, or `unknown` ownership. Treat generated Social and English workspace HTML as display output, not the place to edit.
+3. Choose the change focus, add a short note, and use **Copy for Codex** to make a bounded text packet.
+4. Give that packet to ChatGPT Pro for a second opinion if useful, then give Codex the packet plus the advice. Codex still verifies the local manifest, canonical source, and rebuild command before changing anything.
+
+The live preview is served from a separate local loopback origin and communicates through a bounded private bridge. The Inspector and packet builder make no external request; a course preview can still load any third-party resources declared by that course.
+
+**Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper captures one local frame, stops sharing immediately, crops it to the visible preview, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet.
 
 ## Workflow Types
 
@@ -239,8 +253,7 @@ Optional override flags for convert/export/deploy:
 - Run `npm run course:list -- --all` to see whether a project is actually `direct-ready`, `factory-ready`, `proposal-only`, or `blocked`; lifecycle `active` alone is not a readiness signal.
 - For active migrated course work, run `npm run course:doctor -- --project <slug>` before using a course context; it validates source ownership and paths without changing the manifest
 - When that doctor passes, use `npm run context:project -- --project <slug>` for the compact (at most 5,000 UTF-8 bytes) source-of-truth brief; it intentionally excludes whole blueprints, resource catalogs, and prompt-pack content and does not write files
-- Studio generation starts with that compact source contract, not whole blueprint or catalog files. Add at most eight explicit `unit:`, `outcome:`, `resource:`, or `lesson:` IDs only when targeted evidence is needed; the server rejects oversized assembled context above 16,000 UTF-8 bytes.
-- Automatic Studio writes run only for a passing `direct-workspace-v1` project and only to exact declared canonical workspace files. Factory and proposal-only projects remain proposal/rebuild workflows, and raw or export paths cannot be generated into.
+- Studio does not call model providers or write course sources. Use the compact source contract to give Codex a focused, reviewable brief; make course changes through the declared canonical source or owning rebuild flow.
 - An English factory course is only `factory-ready` when both source archives named by its recipe are materialized (not missing or LFS pointers). Its owned workspace, resource copies/extractions, and generated metadata are rollback-safe; recipes and teacher-authored custom paths are preserved.
 - Social related-issues work is a proposal/rebuild workflow: name a checksum-verified resource in `projects/resources/social30-1-related-issues/resource-manifest.json`, then rebuild with `npm run build:social30 -- --resource <resource-id> --only <issue-slug>`. Do not pass a personal `--zip` path or hand-edit the generated workspace.
 - Start a new Science course with `intake:science-pilot`, not a generic factory. It copies and hashes the real ZIP sources, creates a blocked planning contract, and gives the red-team / green-team review the same small set of metadata files before one representative unit is built.

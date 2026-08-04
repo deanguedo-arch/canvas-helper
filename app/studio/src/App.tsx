@@ -7,9 +7,10 @@ import { ReferencePicker } from "./components/ReferencePicker";
 import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
 import { Topbar } from "./components/Topbar";
 import { WorkspacePicker } from "./components/WorkspacePicker";
-import { GenerativePanel } from "./components/GenerativePanel";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
+import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
+import { useScreenshotAnnotation } from "./hooks/useScreenshotAnnotation";
 import { useProjectCommands } from "./hooks/useProjectCommands";
 import { useProjects } from "./hooks/useProjects";
 import { useReferenceTarget } from "./hooks/useReferenceTarget";
@@ -20,6 +21,9 @@ import {
   type PreviewMode
 } from "./lib/types";
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
+import { buildCodexPacket } from "./lib/codex-packet";
+import type { InspectionIssueCategory, InspectionResolution, InspectionSelection } from "../../shared/inspection.js";
+import type { PreviewInspectPayload } from "../../shared/preview-bridge.js";
 
 export function App() {
   const {
@@ -34,6 +38,7 @@ export function App() {
   const { selectedSlug, setSelectedSlug, previewMode, setPreviewMode } = useStudioSelection(projects);
   const { layoutPreferences, setLayoutPreferences, paneControlsVisible, setPaneControlsVisible } =
     useLayoutPreferences();
+  const { previewOrigin, previewError } = usePreviewRuntime();
   const { referenceTarget, setReferenceTarget, resolvedReference, selectedResourceExtractedPath } =
     useReferenceTarget(projects, selectedSlug);
   const {
@@ -52,7 +57,15 @@ export function App() {
 
   const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>({});
   const [studioMode, setStudioMode] = useState<"course" | "assessment">("course");
-
+  const [inspectEnabled, setInspectEnabled] = useState(false);
+  const [inspectionResolution, setInspectionResolution] = useState<InspectionResolution | null>(null);
+  const [inspectionResolving, setInspectionResolving] = useState(false);
+  const [inspectionTeacherNote, setInspectionTeacherNote] = useState("");
+  const [inspectionIssueCategory, setInspectionIssueCategory] = useState<InspectionIssueCategory>("unsure");
+  const [inspectionCopyStatus, setInspectionCopyStatus] = useState("");
+  const [inspectionPreviewMode, setInspectionPreviewMode] = useState<PreviewMode>("workspace");
+  const [inspectionPreviewUrl, setInspectionPreviewUrl] = useState("");
+  const screenshotAnnotation = useScreenshotAnnotation();
   const selectedProject = useMemo(
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
@@ -99,9 +112,10 @@ export function App() {
     : 0;
 
   const previewSources = useMemo(() => {
-    if (!selectedProject || !workspaceTarget) {
+    if (!selectedProject || !workspaceTarget || !previewOrigin || typeof window === "undefined") {
       return { reference: "", workspace: "" };
     }
+    const createPreviewOptions = { origin: previewOrigin };
     const isE2E = typeof window !== "undefined" && window.location.search.includes("e2e=1");
     const withE2E = (value: string) => {
       if (!isE2E || !value) return value;
@@ -114,7 +128,8 @@ export function App() {
       "workspace",
       selectedProject.manifest.slug,
       workspaceTarget.htmlPath,
-      selectedProject.revisions.workspace
+      selectedProject.revisions.workspace,
+      createPreviewOptions
     ));
 
     const referenceSrc =
@@ -125,19 +140,107 @@ export function App() {
                 resolvedReference.target.resourceRoot,
                 resolvedReference.target.projectSlug,
                 resolvedReference.target.resourcePath,
-                referenceRevision
+                referenceRevision,
+                createPreviewOptions
               ))
             : ""
           : withE2E(toPreviewUrl(
               resolvedReference.target.root,
               resolvedReference.target.projectSlug,
               resolvedReference.target.htmlPath,
-              referenceRevision
+              referenceRevision,
+              createPreviewOptions
             ))
         : "";
 
     return { reference: referenceSrc, workspace: workspaceSrc };
-  }, [referenceRevision, resolvedReference, selectedProject, workspaceTarget]);
+  }, [previewOrigin, referenceRevision, resolvedReference, selectedProject, workspaceTarget]);
+
+  const inspectionPacketState = useMemo(() => {
+    if (!inspectionResolution) {
+      return { packet: "", error: "" };
+    }
+    try {
+      return {
+        packet: buildCodexPacket({
+          resolution: inspectionResolution,
+          teacherNote: inspectionTeacherNote,
+          teacherCategory: inspectionIssueCategory
+        }),
+        error: ""
+      };
+    } catch (error) {
+      return {
+        packet: "",
+        error: error instanceof Error ? error.message : "Could not build the Codex handoff packet."
+      };
+    }
+  }, [inspectionIssueCategory, inspectionResolution, inspectionTeacherNote]);
+
+  const resolveInspection = async (mode: PreviewMode, selection: PreviewInspectPayload) => {
+    const target = mode === "workspace" ? workspaceTarget : resolvedReference.target;
+    const selectionPayload: InspectionSelection = selection;
+    setInspectionPreviewMode(mode);
+    setInspectionPreviewUrl(previewSources[mode]);
+    screenshotAnnotation.clear();
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    setInspectionResolving(true);
+    setInspectionCopyStatus("");
+
+    if (!target?.projectSlug || (mode === "reference" && resolvedReference.target.source !== "html")) {
+      setInspectionResolution({
+        projectSlug: target?.projectSlug || selectedSlug,
+        previewPath: "reference resource",
+        selection: selectionPayload,
+        resolution: "unknown",
+        freshness: "unsupported",
+        artifactRole: "reference-only",
+        generated: false,
+        primaryEditTarget: null,
+        contributors: [],
+        rebuildCommand: null,
+        validationCommand: null,
+        warnings: ["This reference resource can be inspected visually, but it is not a course source edit target."]
+      });
+      setInspectionResolving(false);
+      return;
+    }
+
+    try {
+      const response = await fetch("/api/inspection/resolve", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          projectSlug: target.projectSlug,
+          root: target.root,
+          htmlPath: target.htmlPath,
+          selection: selectionPayload
+        })
+      });
+      const payload = (await response.json().catch(() => ({}))) as InspectionResolution & { error?: string };
+      if (!response.ok || !payload.resolution) {
+        throw new Error(payload.error || "Canvas Helper could not resolve the selected element.");
+      }
+      setInspectionResolution(payload);
+    } catch (error) {
+      setInspectionResolution({
+        projectSlug: target.projectSlug,
+        previewPath: "unresolved preview",
+        selection: selectionPayload,
+        resolution: "unknown",
+        freshness: "unsupported",
+        artifactRole: "unknown",
+        generated: false,
+        primaryEditTarget: null,
+        contributors: [],
+        rebuildCommand: null,
+        validationCommand: null,
+        warnings: [error instanceof Error ? error.message : "Canvas Helper could not resolve the selected element."]
+      });
+    } finally {
+      setInspectionResolving(false);
+    }
+  };
 
   const {
     registerPreviewFrame,
@@ -145,14 +248,18 @@ export function App() {
     persistAllVisibleScrollPositions,
     copyPreviewModeScrollPosition,
     syncFocusModeScrollPosition,
-    fitPreviewToWidth
+    fitPreviewToWidth,
+    getPreviewFrame
   } = usePreviewScrollSync({
     previewMode,
     layoutPreferences,
     setLayoutPreferences,
     selectedProject,
     workspaceTarget,
-    referenceTarget: resolvedReference.target
+    referenceTarget: resolvedReference.target,
+    previewOrigin,
+    inspectEnabled,
+    onInspectSelection: (mode, selection) => void resolveInspection(mode, selection)
   });
 
   const referenceFileOptions = resolvedReference.options.html;
@@ -169,6 +276,27 @@ export function App() {
 
   const copyToClipboard = async (value: string) => {
     await navigator.clipboard.writeText(value);
+  };
+
+  const copyInspectionPacket = () => {
+    if (!inspectionPacketState.packet) {
+      return;
+    }
+    void navigator.clipboard
+      .writeText(inspectionPacketState.packet)
+      .then(() => setInspectionCopyStatus("Copied. Paste this into a Codex task."))
+      .catch(() => setInspectionCopyStatus("Clipboard access was blocked. Select the packet and copy it manually."));
+  };
+
+  const captureInspectionScreenshot = () => {
+    if (!inspectionResolution) {
+      return;
+    }
+    void screenshotAnnotation.capture({
+      iframe: getPreviewFrame(inspectionPreviewMode),
+      geometry: inspectionResolution.selection.geometry,
+      expectedPreviewUrl: inspectionPreviewUrl
+    });
   };
 
   const setCompareMode = (compareMode: boolean) => {
@@ -223,14 +351,18 @@ export function App() {
           onToggleInspector={() =>
             setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }))
           }
-          onToggleGenerator={() =>
-            setLayoutPreferences((current) => ({ ...current, generatorOpen: !current.generatorOpen }))
-          }
+          inspectEnabled={inspectEnabled}
+          onToggleInspect={() => {
+            setInspectEnabled((current) => !current);
+            setInspectionCopyStatus("");
+          }}
+          inspectAvailable={Boolean(previewOrigin)}
           hasWorkspacePreview={Boolean(previewSources.workspace)}
           onOpenWorkspacePreview={handleOpenWorkspacePreview}
         />
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
+        {previewError ? <div className="error-banner">{previewError}</div> : null}
 
         <div className="studio-mode-switch" role="tablist" aria-label="Studio mode" data-testid="studio-mode-switch">
           <button
@@ -399,13 +531,25 @@ export function App() {
                 selectedProject={selectedProject}
                 sourceFiles={sourceFiles}
                 onCopyToClipboard={copyToClipboard}
-              />
-            ) : null}
-
-            {layoutPreferences.generatorOpen ? (
-              <GenerativePanel
-                selectedProject={selectedProject}
-                onClose={() => setLayoutPreferences(current => ({ ...current, generatorOpen: false }))}
+                inspectEnabled={inspectEnabled}
+                inspectionResolution={inspectionResolution}
+                inspectionResolving={inspectionResolving}
+                inspectionTeacherNote={inspectionTeacherNote}
+                inspectionIssueCategory={inspectionIssueCategory}
+                inspectionPacket={inspectionPacketState.packet}
+                inspectionPacketError={inspectionPacketState.error}
+                inspectionCopyStatus={inspectionCopyStatus}
+                screenshotSupported={screenshotAnnotation.isSupported}
+                screenshotStatus={screenshotAnnotation.status}
+                screenshotError={screenshotAnnotation.error}
+                screenshot={screenshotAnnotation.annotation}
+                onInspectionTeacherNoteChange={setInspectionTeacherNote}
+                onInspectionIssueCategoryChange={setInspectionIssueCategory}
+                onCopyInspectionPacket={copyInspectionPacket}
+                onCaptureScreenshot={captureInspectionScreenshot}
+                onScreenshotMarkerChange={screenshotAnnotation.updateMarker}
+                onDownloadScreenshot={() => void screenshotAnnotation.download()}
+                onDiscardScreenshot={screenshotAnnotation.clear}
               />
             ) : null}
           </div>

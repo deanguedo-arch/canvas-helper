@@ -1,7 +1,16 @@
 import { useEffect, useRef, type Dispatch, type SetStateAction } from "react";
 
+import {
+  createPreviewBridgeBootstrap,
+  createPreviewBridgeMessage,
+  isPreviewBridgeMessage,
+  isPreviewEventMessage,
+  PREVIEW_BRIDGE_MAX_MESSAGE_BYTES,
+  previewBridgeMessageByteLength,
+  type PreviewInspectPayload,
+  type PreviewScrollState
+} from "../../../shared/preview-bridge.js";
 import { loadPreviewScrollMap, savePreviewScrollMap } from "../lib/storage";
-import { capturePreviewScrollPosition, restorePreviewScrollPosition } from "../lib/preview-scroll";
 import { getTargetKey } from "../lib/preview-urls";
 import {
   normalizeZoom,
@@ -10,8 +19,8 @@ import {
   type PreviewMode,
   type ProjectBundle,
   type ReferenceTarget,
-  type ScrollSelectorCache,
-  type PreviewScrollMap
+  type PreviewScrollMap,
+  type PreviewScrollPosition
 } from "../lib/types";
 
 type PreviewTarget = Pick<ReferenceTarget, "projectSlug" | "root" | "htmlPath"> & Partial<ReferenceTarget>;
@@ -23,7 +32,40 @@ type UsePreviewScrollSyncOptions = {
   selectedProject: ProjectBundle | null;
   workspaceTarget: PreviewTarget | null;
   referenceTarget: ReferenceTarget;
+  previewOrigin: string;
+  inspectEnabled: boolean;
+  onInspectSelection: (mode: PreviewMode, selection: PreviewInspectPayload) => void;
+  onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload) => void;
 };
+
+type BridgeState = Pick<
+  UsePreviewScrollSyncOptions,
+  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled"
+>;
+
+function toScrollPosition(state: PreviewScrollState): PreviewScrollPosition {
+  return {
+    windowTop: state.windowTop,
+    windowLeft: state.windowLeft,
+    containers: state.containers.map((container) => ({
+      selector: container.selector,
+      top: container.top,
+      left: container.left
+    }))
+  };
+}
+
+function toBridgeScrollState(position: PreviewScrollPosition): PreviewScrollState {
+  return {
+    windowTop: position.windowTop,
+    windowLeft: position.windowLeft,
+    containers: position.containers.map((container) => ({
+      selector: container.selector,
+      top: container.top,
+      left: container.left
+    }))
+  };
+}
 
 export function usePreviewScrollSync({
   previewMode,
@@ -31,44 +73,91 @@ export function usePreviewScrollSync({
   setLayoutPreferences,
   selectedProject,
   workspaceTarget,
-  referenceTarget
+  referenceTarget,
+  previewOrigin,
+  inspectEnabled,
+  onInspectSelection,
+  onInspectHover
 }: UsePreviewScrollSyncOptions) {
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
     reference: null,
     workspace: null
   });
-  const previewCleanupRefs = useRef<Record<PreviewMode, (() => void) | null>>({
+  const previewReadyRefs = useRef<Record<PreviewMode, boolean>>({
+    reference: false,
+    workspace: false
+  });
+  const previewPortRefs = useRef<Record<PreviewMode, MessagePort | null>>({
     reference: null,
     workspace: null
   });
   const previewScrollMapRef = useRef<PreviewScrollMap>(loadPreviewScrollMap());
-  const scrollSelectorCacheRef = useRef<ScrollSelectorCache>({});
+  const latestScrollStateRef = useRef<Record<PreviewMode, PreviewScrollPosition | null>>({
+    reference: null,
+    workspace: null
+  });
+  const stateRef = useRef<BridgeState>({
+    previewMode,
+    selectedProject,
+    workspaceTarget,
+    referenceTarget,
+    previewOrigin,
+    inspectEnabled
+  });
+  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover });
+  stateRef.current = {
+    previewMode,
+    selectedProject,
+    workspaceTarget,
+    referenceTarget,
+    previewOrigin,
+    inspectEnabled
+  };
+  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover };
 
   const getModeTarget = (mode: PreviewMode) => {
-    if (mode === "workspace") {
-      return workspaceTarget;
+    const current = stateRef.current;
+    return mode === "workspace" ? current.workspaceTarget : current.referenceTarget.projectSlug ? current.referenceTarget : null;
+  };
+
+  const postBridgeCommand = (mode: PreviewMode, type: "studio-request-state" | "studio-restore-scroll" | "studio-set-inspect-mode", payload: unknown) => {
+    const port = previewPortRefs.current[mode];
+    if (!port) {
+      return;
     }
 
-    return referenceTarget.projectSlug ? referenceTarget : null;
+    const message = createPreviewBridgeMessage(type, payload);
+    if (previewBridgeMessageByteLength(message) > PREVIEW_BRIDGE_MAX_MESSAGE_BYTES) {
+      return;
+    }
+
+    try {
+      port.postMessage(message);
+    } catch {
+      // A preview navigation can close a port between readiness and dispatch.
+    }
   };
 
   const persistPreviewScrollPosition = (mode: PreviewMode) => {
     const target = getModeTarget(mode);
-    const iframe = previewFrameRefs.current[mode];
-    if (!iframe || !target) {
+    const position = latestScrollStateRef.current[mode];
+    if (!target || !position) {
       return;
     }
 
-    const key = getTargetKey(target);
-    const cachedSelectors = scrollSelectorCacheRef.current[key];
-    const captured = capturePreviewScrollPosition(iframe, cachedSelectors);
-    if (!captured) {
-      return;
-    }
-
-    scrollSelectorCacheRef.current[key] = captured.selectors;
-    previewScrollMapRef.current[key] = captured.position;
+    previewScrollMapRef.current[getTargetKey(target)] = position;
     savePreviewScrollMap(previewScrollMapRef.current);
+  };
+
+  const restoreStoredScrollPosition = (mode: PreviewMode) => {
+    const target = getModeTarget(mode);
+    if (!target) {
+      return;
+    }
+    const position = previewScrollMapRef.current[getTargetKey(target)];
+    if (position) {
+      postBridgeCommand(mode, "studio-restore-scroll", toBridgeScrollState(position));
+    }
   };
 
   const persistAllVisibleScrollPositions = () => {
@@ -78,95 +167,90 @@ export function usePreviewScrollSync({
   const copyPreviewModeScrollPosition = (sourceMode: PreviewMode, targetMode: PreviewMode) => {
     const sourceTarget = getModeTarget(sourceMode);
     const targetTarget = getModeTarget(targetMode);
-    if (!sourceTarget || !targetTarget) {
+    const captured = latestScrollStateRef.current[sourceMode] ?? (sourceTarget ? previewScrollMapRef.current[getTargetKey(sourceTarget)] : null);
+    if (!sourceTarget || !targetTarget || !captured) {
       return;
     }
 
-    const sourceIframe = previewFrameRefs.current[sourceMode];
-    if (!sourceIframe) {
-      return;
-    }
-
-    const sourceKey = getTargetKey(sourceTarget);
-    const cachedSelectors = scrollSelectorCacheRef.current[sourceKey];
-    const captured = capturePreviewScrollPosition(sourceIframe, cachedSelectors);
-    if (!captured) {
-      return;
-    }
-
-    scrollSelectorCacheRef.current[sourceKey] = captured.selectors;
-    previewScrollMapRef.current[sourceKey] = captured.position;
-
-    const targetKey = getTargetKey(targetTarget);
-    scrollSelectorCacheRef.current[targetKey] = captured.selectors;
-    previewScrollMapRef.current[targetKey] = captured.position;
-
+    previewScrollMapRef.current[getTargetKey(sourceTarget)] = captured;
+    previewScrollMapRef.current[getTargetKey(targetTarget)] = captured;
+    latestScrollStateRef.current[targetMode] = captured;
     savePreviewScrollMap(previewScrollMapRef.current);
-
-    const targetIframe = previewFrameRefs.current[targetMode];
-    if (targetIframe) {
-      restorePreviewScrollPosition(targetIframe, captured.position);
-    }
+    postBridgeCommand(targetMode, "studio-restore-scroll", toBridgeScrollState(captured));
   };
 
   const syncFocusModeScrollPosition = (fromMode: PreviewMode, toMode: PreviewMode) => {
-    if (fromMode === toMode) {
+    if (fromMode !== toMode) {
+      copyPreviewModeScrollPosition(fromMode, toMode);
+    }
+  };
+
+  const handleBridgeMessage = (mode: PreviewMode, data: unknown) => {
+    if (!isPreviewBridgeMessage(data) || !isPreviewEventMessage(data) || previewBridgeMessageByteLength(data) > PREVIEW_BRIDGE_MAX_MESSAGE_BYTES) {
       return;
     }
 
-    copyPreviewModeScrollPosition(fromMode, toMode);
+    switch (data.type) {
+      case "preview-ready":
+        previewReadyRefs.current[mode] = true;
+        restoreStoredScrollPosition(mode);
+        postBridgeCommand(mode, "studio-request-state", null);
+        postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: stateRef.current.inspectEnabled });
+        break;
+      case "preview-scroll-state": {
+        previewReadyRefs.current[mode] = true;
+        const position = toScrollPosition(data.payload as PreviewScrollState);
+        latestScrollStateRef.current[mode] = position;
+        persistPreviewScrollPosition(mode);
+        break;
+      }
+      case "preview-inspect-hover":
+        inspectionCallbacksRef.current.onInspectHover?.(mode, data.payload as PreviewInspectPayload);
+        break;
+      case "preview-inspect-selected":
+        inspectionCallbacksRef.current.onInspectSelection(mode, data.payload as PreviewInspectPayload);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const connectPreviewBridge = (mode: PreviewMode) => {
+    const current = stateRef.current;
+    const iframe = previewFrameRefs.current[mode];
+    if (!iframe?.contentWindow || !current.previewOrigin) {
+      return;
+    }
+
+    previewReadyRefs.current[mode] = false;
+    previewPortRefs.current[mode]?.close();
+
+    const channel = new MessageChannel();
+    previewPortRefs.current[mode] = channel.port1;
+    channel.port1.onmessage = (event) => {
+      if (previewPortRefs.current[mode] !== channel.port1) {
+        return;
+      }
+      handleBridgeMessage(mode, event.data);
+    };
+    channel.port1.start();
+
+    try {
+      iframe.contentWindow.postMessage(createPreviewBridgeBootstrap(), current.previewOrigin, [channel.port2]);
+    } catch {
+      channel.port1.close();
+      previewPortRefs.current[mode] = null;
+    }
   };
 
   const attachPreviewPersistence = (mode: PreviewMode) => {
-    const target = getModeTarget(mode);
-    const iframe = previewFrameRefs.current[mode];
-    const contentWindow = iframe?.contentWindow;
-    const contentDocument = iframe?.contentDocument;
-    if (!iframe || !contentWindow || !contentDocument || !target) {
-      previewCleanupRefs.current[mode] = null;
-      return;
-    }
-
-    const key = getTargetKey(target);
-    const stored = previewScrollMapRef.current[key];
-    if (stored) {
-      restorePreviewScrollPosition(iframe, stored);
-    }
-
-    let frameHandle = 0;
-    const scheduleSave = () => {
-      if (frameHandle) {
-        return;
-      }
-
-      frameHandle = contentWindow.requestAnimationFrame(() => {
-        frameHandle = 0;
-        persistPreviewScrollPosition(mode);
-      });
-    };
-
-    contentWindow.addEventListener("scroll", scheduleSave, { passive: true });
-    contentWindow.addEventListener("hashchange", scheduleSave);
-    contentDocument.addEventListener("scroll", scheduleSave, true);
-
-    previewCleanupRefs.current[mode] = () => {
-      if (frameHandle) {
-        contentWindow.cancelAnimationFrame(frameHandle);
-      }
-
-      persistPreviewScrollPosition(mode);
-      contentWindow.removeEventListener("scroll", scheduleSave);
-      contentWindow.removeEventListener("hashchange", scheduleSave);
-      contentDocument.removeEventListener("scroll", scheduleSave, true);
-    };
+    connectPreviewBridge(mode);
   };
 
   const registerPreviewFrame = (mode: PreviewMode, node: HTMLIFrameElement | null) => {
     if (!node) {
-      previewCleanupRefs.current[mode]?.();
-      previewCleanupRefs.current[mode] = null;
+      persistPreviewScrollPosition(mode);
     }
-
     previewFrameRefs.current[mode] = node;
   };
 
@@ -185,7 +269,6 @@ export function usePreviewScrollSync({
       const activeDevice = current.devices[mode];
       const baseWidth = activeDevice === "tablet" ? 820 : activeDevice === "mobile" ? 430 : availableWidth;
       const fitZoom = normalizeZoom((availableWidth / baseWidth) * 100);
-
       return {
         ...current,
         zooms: {
@@ -197,42 +280,36 @@ export function usePreviewScrollSync({
   };
 
   useEffect(() => {
-    const handleBeforeUnload = () => {
-      persistAllVisibleScrollPositions();
-    };
+    previewModes.forEach((mode) => {
+      if (previewReadyRefs.current[mode]) {
+        postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: inspectEnabled });
+      }
+    });
+  }, [inspectEnabled, previewOrigin]);
 
+  useEffect(() => {
+    const handleBeforeUnload = () => persistAllVisibleScrollPositions();
     window.addEventListener("beforeunload", handleBeforeUnload);
-
     return () => {
       handleBeforeUnload();
       window.removeEventListener("beforeunload", handleBeforeUnload);
       previewModes.forEach((mode) => {
-        previewCleanupRefs.current[mode]?.();
-        previewCleanupRefs.current[mode] = null;
+        previewReadyRefs.current[mode] = false;
+        previewPortRefs.current[mode]?.close();
+        previewPortRefs.current[mode] = null;
       });
     };
-  }, [selectedProject, referenceTarget, layoutPreferences.compareMode]);
+  }, []);
 
   useEffect(() => {
-    const target = getModeTarget(previewMode);
-    const iframe = previewFrameRefs.current[previewMode];
-    if (!target || !iframe) {
-      return;
-    }
-
-    const key = getTargetKey(target);
-    const stored = previewScrollMapRef.current[key];
-    if (!stored) {
-      return;
-    }
-
-    const timer = window.setTimeout(() => restorePreviewScrollPosition(iframe, stored), 0);
+    const timer = window.setTimeout(() => restoreStoredScrollPosition(previewMode), 0);
     return () => window.clearTimeout(timer);
   }, [previewMode, selectedProject, referenceTarget]);
 
   return {
     registerPreviewFrame,
     attachPreviewPersistence,
+    getPreviewFrame: (mode: PreviewMode) => previewFrameRefs.current[mode],
     persistAllVisibleScrollPositions,
     copyPreviewModeScrollPosition,
     syncFocusModeScrollPosition,

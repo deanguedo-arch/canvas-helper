@@ -40,9 +40,10 @@ flowchart LR
   CB --> E
   AM --> E
   LP --> E
-  D --> G["app/server preview routes"]
-  C --> G
-  G --> H["app/studio React UI"]
+  D --> PV["isolated preview server (127.0.0.1, read-only)"]
+  C --> PV
+  PV --> PF["course preview iframe"]
+  PF <-. "private MessageChannel bridge" .-> H["app/studio React UI"]
   H --> I["app/server API routes"]
   I --> J["scripts/lib analyze/refs/export commands"]
   H --> IA["app/server assessment routes"]
@@ -69,6 +70,8 @@ flowchart LR
 - location: `app/server/`
 - responsibility: API endpoints, preview handlers, request parsing, path validation, command bridge, session-log writes
 - not responsible for: frontend rendering or project transformation logic
+
+Studio API routes and course preview routes have separate browser origins. The preview server is a separately allocated loopback port that serves only `GET`/`HEAD` preview assets and the early-injected preview bridge. It has no Studio APIs, denies `display-capture` through Permissions Policy, pins its allowed Studio parent through `frame-ancestors`, validates contained real paths, and returns 404 for every other route. Studio never reads a preview iframe DOM; scroll, inspect, and selection events travel through a bounded private `MessageChannel` that is re-established after each frame load.
 
 ### Scripts / Engine
 
@@ -110,8 +113,13 @@ The `course:doctor`, `course:list`, and `context:project` commands form a read-o
 - `context:project` runs only after the doctor passes and emits a compact source-of-truth brief capped at 5,000 UTF-8 bytes. It excludes whole blueprints, resource catalogs, and prompt-pack bodies.
 - English factory projects are classified from the staging/build contract: `meta/english-unit.json`, `workspace/components/**`, and `workspace/assets/custom/**` are editable; factory-owned workspace output remains protected. The doctor also checks that the recipe's Brightspace and teacher archives exist as real files rather than unresolved LFS pointers. A rollback-safe factory transaction covers generated workspace output, resource-library `teacher/**` and `_extracted/**` files, and generated metadata; recipes, prompt packs, custom components, raw imports, and resource `_sources/**` remain outside its write set.
 - Social related-issues projects are proposal/rebuild-only. Their `authoring.sourceResourceIds` resolve through the checksum-verified `projects/resources/social30-1-related-issues/resource-manifest.json`; the doctor fails if that declared source is missing, an unresolved LFS pointer, or has drifted from its checksum. The Social builder stages a whole workspace and only promotes it after a valid HTML entrypoint exists, writing at most `workspace/**`, `meta/social-build.json`, and `meta/conversion-notes.md`; it never writes `raw/**` or `meta/project.json`.
-- Studio generation assembles the brief with only explicitly named `unit:`, `outcome:`, `resource:`, or `lesson:` evidence in `scripts/lib/engine/context-builder.ts`. It never automatically stacks whole blueprints or resource catalogs, accepts at most eight IDs, and rejects an assembled server context over 16,000 UTF-8 bytes.
-- `scripts/lib/engine/apply-generation.ts` runs the doctor before a model call and again before writes. Only `direct-workspace-v1` may apply output, and every response target must exactly match a declared canonical workspace file after traversal and symbolic-link containment checks. English-factory and proposal-only work stays on its owning rebuild flow.
+- Studio deliberately has no model-provider integration or automatic source-write path. Its role is local preview, source-of-truth visibility, and safe handoff into an explicit Codex task; actual course edits remain in the declared canonical source or owning rebuild flow. The Inspector resolves only `exact`, `bounded`, or `unknown` source ownership from repository-side metadata and caps its copied packet at 5 KB with repo-relative targets only.
+
+### Studio Inspector and screenshot boundary
+
+The Inspector receives only opaque preview facts (temporary node ID, safe visible text, semantic label, and viewport geometry). The server derives edit targets, contributor paths, and rebuild commands from the selected project's declared authoring driver. A generated Social or English workspace is therefore never promoted into a primary source just because it is visible in the preview.
+
+Optional screenshot annotation uses the Studio document's explicit `getDisplayMedia` permission flow. The isolated preview is denied that capability. Studio captures one approved frame, immediately stops all tracks, crops the working image to the selected preview frame, keeps it only in memory, and does not put pixels, object URLs, or image data into the copied Codex packet. The teacher must explicitly download or discard the image.
 
 ### Intake and Resources
 

@@ -3,6 +3,10 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 
 import type { Plugin, ViteDevServer } from "vite";
 
+import { startIsolatedPreviewServer, type IsolatedPreviewServer } from "./preview-server";
+import { hasTrustedStudioMutationOrigin, isUnsafeStudioRequest } from "./lib/request-security";
+import { sendJson } from "./lib/response";
+
 type RouteHandler = (url: string, request: IncomingMessage, response: ServerResponse) => Promise<boolean>;
 
 let projectsRouteHandler: RouteHandler | null = null;
@@ -10,8 +14,7 @@ let commandsRouteHandler: RouteHandler | null = null;
 let sessionLogRouteHandler: RouteHandler | null = null;
 let incomingRouteHandler: RouteHandler | null = null;
 let assessmentsRouteHandler: RouteHandler | null = null;
-let previewRouteHandler: RouteHandler | null = null;
-let generateRouteHandler: RouteHandler | null = null;
+let inspectionRouteHandler: RouteHandler | null = null;
 
 async function loadRouteHandler(server: ViteDevServer, moduleName: string, exportName: string) {
   const routeModulePath = path.join(process.cwd(), "app", "server", "routes", `${moduleName}.ts`);
@@ -58,28 +61,34 @@ async function getAssessmentsRouteHandler(server: ViteDevServer) {
   return assessmentsRouteHandler;
 }
 
-async function getPreviewRouteHandler(server: ViteDevServer) {
-  if (!previewRouteHandler) {
-    previewRouteHandler = await loadRouteHandler(server, "preview", "handlePreviewRoutes");
+async function getInspectionRouteHandler(server: ViteDevServer) {
+  if (!inspectionRouteHandler) {
+    inspectionRouteHandler = await loadRouteHandler(server, "inspection", "handleInspectionRoute");
   }
-  return previewRouteHandler;
+  return inspectionRouteHandler;
 }
 
-async function getGenerateRouteHandler(server: ViteDevServer) {
-  if (!generateRouteHandler) {
-    generateRouteHandler = await loadRouteHandler(server, "generate", "handleGenerateRoute");
-  }
-  return generateRouteHandler;
-}
-
-async function handleRequest(server: ViteDevServer, request: IncomingMessage, response: ServerResponse, next: () => void) {
+async function handleRequest(
+  server: ViteDevServer,
+  request: IncomingMessage,
+  response: ServerResponse,
+  next: () => void,
+  previewServer: IsolatedPreviewServer | null
+) {
   const url = request.url ? request.url.split("?")[0] : "";
 
-  if (url === "/api/generate") {
-    const handler = await getGenerateRouteHandler(server);
-    if (await handler(url, request, response)) {
+  if (url === "/api/preview-config") {
+    if (!previewServer) {
+      sendJson(response, 503, { error: "Isolated preview server is starting." });
       return;
     }
+    sendJson(response, 200, { origin: previewServer.origin, studioOrigin: previewServer.studioOrigin });
+    return;
+  }
+
+  if (url.startsWith("/api/") && isUnsafeStudioRequest(request) && !hasTrustedStudioMutationOrigin(request)) {
+    sendJson(response, 403, { error: "Studio mutations require an exact same-origin request." });
+    return;
   }
 
   if (url.startsWith("/api/projects/")) {
@@ -108,15 +117,15 @@ async function handleRequest(server: ViteDevServer, request: IncomingMessage, re
     }
   }
 
-  if (url === "/api/incoming/refresh") {
-    const handler = await getIncomingRouteHandler(server);
+  if (url === "/api/inspection/resolve") {
+    const handler = await getInspectionRouteHandler(server);
     if (await handler(url, request, response)) {
       return;
     }
   }
 
-  if (url.startsWith("/preview/")) {
-    const handler = await getPreviewRouteHandler(server);
+  if (url === "/api/incoming/refresh") {
+    const handler = await getIncomingRouteHandler(server);
     if (await handler(url, request, response)) {
       return;
     }
@@ -126,11 +135,53 @@ async function handleRequest(server: ViteDevServer, request: IncomingMessage, re
 }
 
 export function createStudioServerPlugin(): Plugin {
+  let isolatedPreviewServer: IsolatedPreviewServer | null = null;
+  let previewStartup: Promise<IsolatedPreviewServer> | null = null;
+
+  function getPinnedStudioOrigin(server: ViteDevServer) {
+    const address = server.httpServer?.address();
+    if (!address || typeof address === "string") {
+      return null;
+    }
+    return `http://127.0.0.1:${address.port}`;
+  }
+
+  function ensurePreviewServer(server: ViteDevServer) {
+    if (!previewStartup) {
+      const studioOrigin = getPinnedStudioOrigin(server);
+      if (!studioOrigin) {
+        return null;
+      }
+      previewStartup = startIsolatedPreviewServer({ studioOrigin }).then((previewServer) => {
+        isolatedPreviewServer = previewServer;
+        return previewServer;
+      });
+    }
+    return previewStartup;
+  }
+
   return {
     name: "studio-server",
     configureServer(server) {
+      const startPreviewServer = () => {
+        const startup = ensurePreviewServer(server);
+        if (startup) {
+          void startup.catch(() => undefined);
+        }
+      };
+      if (server.httpServer?.listening) {
+        startPreviewServer();
+      } else {
+        server.httpServer?.once("listening", startPreviewServer);
+      }
+      server.httpServer?.once("close", () => {
+        if (isolatedPreviewServer) {
+          void isolatedPreviewServer.close().catch(() => undefined);
+        }
+      });
       server.middlewares.use((request, response, next) => {
-        void handleRequest(server, request, response, next);
+        startPreviewServer();
+        void handleRequest(server, request, response, next, isolatedPreviewServer);
       });
     }
   };

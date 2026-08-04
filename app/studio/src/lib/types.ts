@@ -17,7 +17,6 @@ export type PreviewLayoutPreferences = {
   compareMode: boolean;
   sidebarOpen: boolean;
   inspectorOpen: boolean;
-  generatorOpen: boolean;
   devices: Record<PreviewMode, DeviceMode>;
   zooms: Record<PreviewMode, number>;
 };
@@ -33,7 +32,6 @@ export type PreviewScrollPosition = {
 };
 
 export type PreviewScrollMap = Record<string, PreviewScrollPosition>;
-export type ScrollSelectorCache = Record<string, string[]>;
 
 export type ReferenceTarget = {
   projectSlug: string;
@@ -169,7 +167,6 @@ export const DEFAULT_LAYOUT_PREFERENCES: PreviewLayoutPreferences = {
   compareMode: true,
   sidebarOpen: true,
   inspectorOpen: false,
-  generatorOpen: false,
   devices: {
     reference: "tablet",
     workspace: "desktop"

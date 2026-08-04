@@ -187,7 +187,7 @@ export function PreviewPane({
               </object>
             </div>
           </div>
-        ) : (
+        ) : previewSrc ? (
           <div className="preview-canvas-shell" data-preview-shell={mode}>
             <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
               <iframe
@@ -201,6 +201,15 @@ export function PreviewPane({
                 aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
                 onLoad={() => onPreviewLoad(mode)}
               />
+            </div>
+          </div>
+        ) : (
+          <div className="preview-canvas-shell" data-preview-shell={mode}>
+            <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
+              <div className="resource-fallback" data-testid={`${mode}-preview-starting`}>
+                <h4>Starting isolated preview</h4>
+                <p>Studio is preparing the local course-preview connection.</p>
+              </div>
             </div>
           </div>
         )}

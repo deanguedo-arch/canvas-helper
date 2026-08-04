@@ -6,6 +6,15 @@ import { fileExists } from "../../../scripts/lib/fs.ts";
 
 import { getPreviewPath, getReferencePreviewPath } from "../lib/preview-paths";
 import { resolveContentType, sendJson } from "../lib/response";
+import {
+  decoratePreviewHtml,
+  decoratePreviewHtmlBuffer,
+  injectPreviewBridgeScript
+} from "../lib/preview-inspection";
+
+export type PreviewRouteOptions = {
+  bridgeScriptPath?: string;
+};
 
 function escapeHtml(value: string) {
   return value
@@ -230,7 +239,34 @@ function applyDetectedCharset(contentType: string, body: Buffer) {
   return contentType;
 }
 
-export async function handlePreviewRoutes(url: string, request: IncomingMessage, response: ServerResponse) {
+function bridgeScriptSource(options: PreviewRouteOptions) {
+  return options.bridgeScriptPath ?? null;
+}
+
+function decorateHtmlResponse(
+  body: string | Buffer,
+  _request: IncomingMessage,
+  options: PreviewRouteOptions
+) {
+  const scriptSource = bridgeScriptSource(options);
+  if (!scriptSource) {
+    return body;
+  }
+
+  const decoration = typeof body === "string" ? decoratePreviewHtml(body) : decoratePreviewHtmlBuffer(body);
+  if (!decoration) {
+    return body;
+  }
+
+  return Buffer.from(injectPreviewBridgeScript(decoration.html, scriptSource), "utf8");
+}
+
+export async function handlePreviewRoutes(
+  url: string,
+  request: IncomingMessage,
+  response: ServerResponse,
+  options: PreviewRouteOptions = {}
+) {
   const previewMatch = url.match(/^\/preview\/(raw|workspace)\/([^/]+)(?:\/(.*))?$/);
   const referencePreviewMatch = url.match(/^\/preview\/references\/(raw|extracted)\/([^/]+)(?:\/(.*))?$/);
 
@@ -246,7 +282,7 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
 
   if (referencePreviewMatch) {
     try {
-      const filePath = getReferencePreviewPath(
+      const filePath = await getReferencePreviewPath(
         referencePreviewMatch[1] as "raw" | "extracted",
         referencePreviewMatch[2],
         referencePreviewMatch[3]
@@ -257,14 +293,16 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
           response.statusCode = 200;
           response.setHeader("Content-Type", "text/html; charset=utf-8");
           response.setHeader("X-Canvas-Helper-Preview-Error", "missing-reference-resource");
-          response.end(
+          response.end(decorateHtmlResponse(
             buildMissingReferencePreview({
               slug: referencePreviewMatch[2],
               resourceRoot: referencePreviewMatch[1] as "raw" | "extracted",
               relativePath: decodeURIComponent(referencePreviewMatch[3] || ""),
               filePath
-            })
-          );
+            }),
+            request,
+            options
+          ));
           return true;
         }
 
@@ -275,7 +313,7 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
       const body = await readFile(filePath);
       const contentType = applyDetectedCharset(resolveContentType(filePath), body);
       response.setHeader("Content-Type", contentType);
-      response.end(body);
+      response.end(contentType.startsWith("text/html") ? decorateHtmlResponse(body, request, options) : body);
     } catch (error) {
       sendJson(response, 403, {
         error: error instanceof Error ? error.message : "Invalid reference preview request."
@@ -290,7 +328,7 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
   }
 
   try {
-    const filePath = getPreviewPath(
+    const filePath = await getPreviewPath(
       previewMatch[1] as "raw" | "workspace",
       previewMatch[2],
       previewMatch[3]
@@ -301,13 +339,15 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
         response.statusCode = 200;
         response.setHeader("Content-Type", "text/html; charset=utf-8");
         response.setHeader("X-Canvas-Helper-Preview-Error", "missing-workspace-resource");
-        response.end(
+        response.end(decorateHtmlResponse(
           buildMissingWorkspacePreview({
             slug: previewMatch[2],
             relativePath: decodeURIComponent(previewMatch[3] || ""),
             filePath
-          })
-        );
+          }),
+          request,
+          options
+        ));
         return true;
       }
 
@@ -318,7 +358,7 @@ export async function handlePreviewRoutes(url: string, request: IncomingMessage,
     const body = await readFile(filePath);
     const contentType = applyDetectedCharset(resolveContentType(filePath), body);
     response.setHeader("Content-Type", contentType);
-    response.end(body);
+    response.end(contentType.startsWith("text/html") ? decorateHtmlResponse(body, request, options) : body);
   } catch (error) {
     sendJson(response, 403, {
       error: error instanceof Error ? error.message : "Invalid preview request."

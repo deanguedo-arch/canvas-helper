@@ -73,6 +73,21 @@ The first build should prove one complete loop, including:
 
 Only then should a reusable Science profile or builder be proposed. The pilot's evidence—not a copied course template—decides what is worth standardizing.
 
+## Inspector Readiness for the First Unit
+
+Do not make a Science workspace inspectable merely by adding a marker to rendered HTML. When the representative unit is approved, its science-specific authoring driver must declare the same ownership contract used by Studio:
+
+- the canonical editable source or recipe;
+- any generated workspace output and exact rebuild command;
+- source resource IDs and contributor paths that are safe to show in a packet;
+- whether a selected block can be `exact`, must remain `bounded`, or must be `unknown`.
+
+Before broad authoring, prove one visible unit block through this loop:
+
+`Inspect -> Copy bounded packet -> review one proposed change -> edit declared source -> rebuild -> verify learner behavior`
+
+Reuse the Inspector contract, not Social or English source ownership. A Science activity may be a simulation, data analysis, lab reflection, or phenomenon explanation; its edit/rebuild path must simply be truthful and testable.
+
 ## Verification
 
 ```bash

@@ -1,5 +1,9 @@
 import type { PreviewRoot, ReferenceTarget } from "./types";
 
+export type PreviewUrlOptions = {
+  origin?: string;
+};
+
 export function uniqueStrings(values: Array<string | undefined>) {
   const seen = new Set<string>();
   const ordered: string[] = [];
@@ -41,21 +45,25 @@ export function toReferenceOptionPath(filePath: string | undefined, rootPrefix: 
   return normalizedFilePath;
 }
 
-export function toPreviewUrl(root: PreviewRoot, slug: string, relativePath: string, rev: number) {
-  const encodedSlug = encodeURIComponent(slug);
-  const encodedPath = relativePath
-    .split("/")
-    .map((part) => encodeURIComponent(part))
-    .join("/");
+function withPreviewOrigin(pathname: string, options: PreviewUrlOptions) {
+  if (!options.origin) {
+    return pathname;
+  }
 
-  return `/preview/${root}/${encodedSlug}/${encodedPath}?rev=${rev}`;
+  return new URL(pathname, options.origin).toString();
 }
 
-export function toReferenceResourcePreviewUrl(
-  root: "raw" | "extracted",
+function previewQuery(rev: number, options: PreviewUrlOptions) {
+  const params = new URLSearchParams({ rev: String(rev) });
+  return params.toString();
+}
+
+export function toPreviewUrl(
+  root: PreviewRoot,
   slug: string,
   relativePath: string,
-  rev: number
+  rev: number,
+  options: PreviewUrlOptions = {}
 ) {
   const encodedSlug = encodeURIComponent(slug);
   const encodedPath = relativePath
@@ -63,7 +71,23 @@ export function toReferenceResourcePreviewUrl(
     .map((part) => encodeURIComponent(part))
     .join("/");
 
-  return `/preview/references/${root}/${encodedSlug}/${encodedPath}?rev=${rev}`;
+  return withPreviewOrigin(`/preview/${root}/${encodedSlug}/${encodedPath}?${previewQuery(rev, options)}`, options);
+}
+
+export function toReferenceResourcePreviewUrl(
+  root: "raw" | "extracted",
+  slug: string,
+  relativePath: string,
+  rev: number,
+  options: PreviewUrlOptions = {}
+) {
+  const encodedSlug = encodeURIComponent(slug);
+  const encodedPath = relativePath
+    .split("/")
+    .map((part) => encodeURIComponent(part))
+    .join("/");
+
+  return withPreviewOrigin(`/preview/references/${root}/${encodedSlug}/${encodedPath}?${previewQuery(rev, options)}`, options);
 }
 
 export function getTargetKey(target: Pick<ReferenceTarget, "projectSlug" | "root" | "htmlPath"> & Partial<ReferenceTarget>) {

@@ -63,8 +63,6 @@ export function loadPreviewLayoutPreferences(): PreviewLayoutPreferences {
       sidebarOpen: typeof parsed.sidebarOpen === "boolean" ? parsed.sidebarOpen : DEFAULT_LAYOUT_PREFERENCES.sidebarOpen,
       inspectorOpen:
         typeof parsed.inspectorOpen === "boolean" ? parsed.inspectorOpen : DEFAULT_LAYOUT_PREFERENCES.inspectorOpen,
-      generatorOpen:
-        typeof parsed.generatorOpen === "boolean" ? parsed.generatorOpen : DEFAULT_LAYOUT_PREFERENCES.generatorOpen,
       devices: {
         reference: deviceModes.includes(parsed.devices?.reference ?? "desktop")
           ? parsed.devices?.reference ?? DEFAULT_LAYOUT_PREFERENCES.devices.reference
