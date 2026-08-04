@@ -20,6 +20,7 @@ const baseResolution: InspectionResolution = {
   artifactRole: "generated-workspace-output",
   generated: true,
   primaryEditTarget: "scripts/build-social30-related-issues.ts",
+  primaryEditLine: null,
   contributors: ["scripts/lib/next-step-course-shell.ts"],
   rebuildCommand: "npx tsx scripts/build-social30-related-issues.ts --only social30-1-related-issue-1-option-2",
   validationCommand: "npm run course:doctor -- --project social30-1-related-issue-1-option-2",
@@ -71,4 +72,18 @@ test("Codex packet omits unsafe paths and labels preview text as untrusted data"
   assert.doesNotMatch(packet, /\/private\/tmp/);
   assert.doesNotMatch(packet, /C:\/Users/);
   assert.doesNotMatch(packet, /\.\.\/outside/);
+});
+
+test("Codex packet includes a validated exact source line", () => {
+  const packet = buildCodexPacket({
+    resolution: {
+      ...baseResolution,
+      generated: false,
+      primaryEditTarget: "projects/forensics35/workspace/index.html",
+      primaryEditLine: 42
+    },
+    teacherNote: "Use the selected source location."
+  });
+
+  assert.match(packet, /Primary edit target: projects\/forensics35\/workspace\/index\.html:42/);
 });

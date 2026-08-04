@@ -2,13 +2,15 @@
 
 - Project: `repo-wide`
 - Task: Implement the API-free Studio Inspector, secure preview boundary, concise Codex handoff, consent-based screenshot annotation, and reusable Science-pilot operating path.
-- Status: implementation complete locally; the first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
+- Status: implementation complete and locally verified; the final independent re-review must inspect the pushed latest commit. The first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
 
 ## Summary
 
 - Removed the unused API Assistant and all model-provider runtime code.
 - Replaced same-origin preview access with a read-only isolated loopback preview service and private MessageChannel bridge.
 - Added Inspect, validated exact/bounded/unknown source ownership, a compact Copy for Codex packet, issue focus, keyboard selection, and a local-only screenshot annotation flow.
+- Direct static workspaces now include a verified current source line in a handoff; generated Social and English workspaces remain source-line-free and rebuild-owned.
+- Fixed a screen-share cleanup race and redacted raw inspection-route errors so malformed requests cannot disclose an absolute local path.
 - Kept Social and English learner artifacts untouched; generated workspaces are still never the suggested edit target.
 - Updated the mobile E2E learner harness to open the isolated preview origin, preserving Social and English project verification.
 - Kept the existing Science source-backed intake/decision-log process and documented the Inspector contract a future Science driver must meet.
@@ -23,10 +25,10 @@
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` (14), `npm run build:studio`, `npm run test:e2e:smoke`, and the Inspector Playwright suite (2).
+- Passed: `npm run test:studio-inspection` (20), `npm run build:studio`, `npm run test:e2e:smoke`, and the Inspector Playwright suite (4).
 - Passed project E2E: `forensics35`, `social30-1-related-issue-1-option-2`, and `ela20-1-modern-play-crucible`.
 - Passed: `npm run course:doctor` for the direct, Social, and English proof projects; `npm run test:science-pilot`; `npm run test:metadata-policy`; and `npm run validate:manifests`.
-- `npm run typecheck` has only its established unrelated baseline errors in legacy ELA, Forensics, Social 20, and English-builder code; no touched-file error remains.
+- `npm run typecheck` has only its established unrelated ten baseline errors in legacy ELA, Forensics, Social 20, and English-builder code; no touched-file error remains.
 
 ## Source of truth
 
@@ -39,6 +41,7 @@
 
 - Screenshot capture requires a real browser permission action. Automated tests intentionally do not accept a capture prompt; manually verify target-browser tab capture before relying on it in a live workflow.
 - A browser cannot force the exact tab choice. Studio validates available surface metadata, crops only the visible preview region, and requires review before download, but the teacher must select the Studio tab in the picker.
+- ChatGPT Pro's first exact-commit green-team pass found two genuine privacy blockers; the local fixes have targeted regression coverage, but its final verdict must be refreshed from the pushed fix commit.
 - A real Science pilot cannot be created until real source ZIPs are available. Do not invent a Science factory or learner workspace to bypass that gate.
 - Existing full-repo typecheck noise is outside this change and should be handled as a separate maintenance task.
 

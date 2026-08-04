@@ -310,6 +310,18 @@ export function usePreviewScrollSync({
     });
   };
 
+  const setPreviewInspectMode = (enabled: boolean) => {
+    stateRef.current = {
+      ...stateRef.current,
+      inspectEnabled: enabled
+    };
+    previewModes.forEach((mode) => {
+      if (previewReadyRefs.current[mode]) {
+        postBridgeCommand(mode, "studio-set-inspect-mode", { enabled });
+      }
+    });
+  };
+
   const registerPreviewFrame = (mode: PreviewMode, node: HTMLIFrameElement | null) => {
     if (!node) {
       persistPreviewScrollPosition(mode);
@@ -343,14 +355,6 @@ export function usePreviewScrollSync({
   };
 
   useEffect(() => {
-    previewModes.forEach((mode) => {
-      if (previewReadyRefs.current[mode]) {
-        postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: inspectEnabled });
-      }
-    });
-  }, [inspectEnabled, previewOrigin]);
-
-  useEffect(() => {
     const handleBeforeUnload = () => persistAllVisibleScrollPositions();
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {
@@ -378,6 +382,7 @@ export function usePreviewScrollSync({
     copyPreviewModeScrollPosition,
     syncFocusModeScrollPosition,
     fitPreviewToWidth,
-    requestCurrentInspectionSelection
+    requestCurrentInspectionSelection,
+    setPreviewInspectMode
   };
 }

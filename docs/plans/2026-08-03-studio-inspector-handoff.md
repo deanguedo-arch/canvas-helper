@@ -13,11 +13,13 @@ The planned workflow is now implemented in the Studio shell without changing a c
 - Preview content runs on a dedicated read-only `127.0.0.1` origin. It has no Studio APIs, rejects traversal and symlink escapes, pins the Studio parent through CSP, and denies screen capture permission.
 - Studio and preview use an early-injected private `MessageChannel`, not a URL or browser-storage nonce. A preview can report bounded opaque facts only; it cannot name a source file or command.
 - Inspect resolves the existing direct, Social, and English ownership patterns as `exact`, `bounded`, or `unknown`; Social and English generated workspaces remain non-edit targets.
+- A direct static workspace can now include its verified current source line in the handoff. Generated Social and English workspaces intentionally keep that field empty because their displayed HTML is not the source of truth.
 - Copy for Codex is a teacher-triggered bounded text packet with an issue focus and note. It contains no full source, absolute path, browser storage, or image data.
-- Screenshot annotation is now an optional, consent-gated extension: Studio asks the browser for one tab frame only after the teacher clicks the control, immediately stops the stream, crops to the visible preview, keeps the working image only in memory, and requires a separate Download or Discard action.
+- Screenshot annotation is now an optional, consent-gated extension: Studio asks the browser for one tab frame only after the teacher clicks the control, registers it for cleanup as soon as permission resolves, immediately stops it even if selection refresh fails, crops to the visible preview, keeps the working image only in memory, and requires a separate Download or Discard action.
+- Inspection failures return a fixed bounded message instead of raw filesystem errors, so a malformed request cannot reveal an absolute local path.
 - The Science intake and decision-log workflow is ready for the first real source-backed unit. Phase 6 cannot honestly be marked complete until real Science source archives and a representative-unit decision exist.
 
-Focused proof currently includes `test:studio-inspection`, the Inspector Playwright suite, Studio production build, direct/Social/English ownership checks, and path/origin negative tests. Repository-wide typecheck retains pre-existing unrelated errors; the implementation adds none.
+Focused proof currently includes 20 Inspector/security tests, four Inspector browser tests, Studio production build, direct/Social/English ownership checks, and path/origin negative tests. Repository-wide typecheck retains pre-existing unrelated errors; the implementation adds none.
 
 ## Historical pre-implementation plan
 
@@ -42,7 +44,9 @@ Screenshot capture and visual annotation are now implemented as a separate, cons
 
 ## Review result that governs this plan
 
-This plan combines local repository evidence with an independent ChatGPT Pro red-team and green-team review. The final decision was green-lighted with two sequencing changes and two cuts:
+This plan combines local repository evidence with an independent ChatGPT Pro red-team and green-team review. The first exact-commit green-team pass identified two real release blockers that have since been fixed and regression-tested locally: a late screen-share cleanup race and raw filesystem-error exposure. A final re-review must be run against the pushed fix commit before calling the review loop green.
+
+The earlier review also established two sequencing changes and two cuts:
 
 - Define the smallest bridge and provenance contracts before moving the preview to a separate origin.
 - Build adapter conformance checks while the provenance adapters are built, not afterward.

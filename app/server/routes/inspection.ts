@@ -45,10 +45,10 @@ export async function handleInspectionRoute(url: string, request: IncomingMessag
     const previewFilePath = await getPreviewPath(body.root, body.projectSlug, body.htmlPath);
     const resolution = await resolvePreviewInspection(body, previewFilePath);
     sendJson(response, 200, resolution);
-  } catch (error) {
-    sendJson(response, 400, {
-      error: error instanceof Error ? error.message : "Inspection resolution failed."
-    });
+  } catch {
+    // Filesystem errors can contain absolute local paths. The Inspector has no
+    // need to expose them, and a bounded request can simply be retried.
+    sendJson(response, 400, { error: "Canvas Helper could not resolve this bounded inspection request." });
   }
 
   return true;

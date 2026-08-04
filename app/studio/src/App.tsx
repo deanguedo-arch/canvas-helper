@@ -198,6 +198,7 @@ export function App() {
         artifactRole: "reference-only",
         generated: false,
         primaryEditTarget: null,
+        primaryEditLine: null,
         contributors: [],
         rebuildCommand: null,
         validationCommand: null,
@@ -233,6 +234,7 @@ export function App() {
         artifactRole: "unknown",
         generated: false,
         primaryEditTarget: null,
+        primaryEditLine: null,
         contributors: [],
         rebuildCommand: null,
         validationCommand: null,
@@ -251,7 +253,8 @@ export function App() {
     syncFocusModeScrollPosition,
     fitPreviewToWidth,
     getPreviewFrame,
-    requestCurrentInspectionSelection
+    requestCurrentInspectionSelection,
+    setPreviewInspectMode
   } = usePreviewScrollSync({
     previewMode,
     layoutPreferences,
@@ -368,7 +371,9 @@ export function App() {
           }
           inspectEnabled={inspectEnabled}
           onToggleInspect={() => {
-            setInspectEnabled((current) => !current);
+            const nextEnabled = !inspectEnabled;
+            setPreviewInspectMode(nextEnabled);
+            setInspectEnabled(nextEnabled);
             setInspectionCopyStatus("");
           }}
           inspectAvailable={Boolean(previewOrigin)}

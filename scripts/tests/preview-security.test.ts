@@ -1,4 +1,6 @@
 import assert from "node:assert/strict";
+import { once } from "node:events";
+import { createServer } from "node:http";
 import type { IncomingMessage } from "node:http";
 import { readFile, symlink } from "node:fs/promises";
 import path from "node:path";
@@ -7,6 +9,7 @@ import test from "node:test";
 import { hasTrustedStudioMutationOrigin } from "../../app/server/lib/request-security.ts";
 import { getPreviewPath } from "../../app/server/lib/preview-paths.ts";
 import { startIsolatedPreviewServer } from "../../app/server/preview-server.ts";
+import { handleInspectionRoute } from "../../app/server/routes/inspection.ts";
 import { isPreviewBridgeMessage } from "../../app/shared/preview-bridge.ts";
 import { ensureDir, removePath } from "../lib/fs.js";
 import { getProjectPaths, repoRoot } from "../lib/paths.js";
@@ -118,13 +121,52 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
   );
 });
 
+test("inspection failures never disclose absolute local paths", async () => {
+  const server = createServer((request, response) => {
+    void handleInspectionRoute(request.url || "", request, response);
+  });
+  server.listen({ host: "127.0.0.1", port: 0 });
+  await once(server, "listening");
+  const address = server.address();
+  assert.ok(address && typeof address !== "string");
+
+  try {
+    const response = await fetch(`http://127.0.0.1:${address.port}/api/inspection/resolve`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        projectSlug: "e2e-fixture",
+        root: "workspace",
+        htmlPath: "does-not-exist.html",
+        selection: {
+          nodeId: "ch1:aaaaaaaaaaaaaaaaaaaaaaaa:1",
+          visibleText: "missing preview",
+          tagName: "section",
+          role: "",
+          testId: "",
+          geometry: { x: 0, y: 0, width: 1, height: 1 }
+        }
+      })
+    });
+    const payload = await response.json() as { error?: string };
+    assert.equal(response.status, 400);
+    assert.equal(payload.error, "Canvas Helper could not resolve this bounded inspection request.");
+    assert.doesNotMatch(JSON.stringify(payload), new RegExp(repoRoot.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+  } finally {
+    server.close();
+    await once(server, "close");
+  }
+});
+
 test("screenshot annotation is local, opt-in, and stops capture tracks", async () => {
   const source = await readFile(path.join(repoRoot, "app/studio/src/hooks/useScreenshotAnnotation.ts"), "utf8");
   assert.match(source, /getDisplayMedia/);
   assert.match(source, /audio:\s*false/);
   assert.match(source, /expectedPreviewUrl/);
   assert.match(source, /displaySurface !== "browser"/);
-  assert.match(source, /stream\?\.getTracks\(\)\.forEach\(\(track\) => track\.stop\(\)\)/);
+  assert.match(source, /stream = availableStream/);
+  assert.match(source, /streamMustStopWhenAvailable/);
+  assert.match(source, /stopStream\(stream\)/);
   assert.match(source, /URL\.createObjectURL/);
   assert.doesNotMatch(source, /fetch\(|\/api\/|navigator\.clipboard|localStorage|sessionStorage/);
 });

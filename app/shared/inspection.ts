@@ -34,6 +34,7 @@ export type InspectionResolution = {
   artifactRole: InspectionArtifactRole;
   generated: boolean;
   primaryEditTarget: string | null;
+  primaryEditLine: number | null;
   contributors: string[];
   rebuildCommand: string | null;
   validationCommand: string | null;

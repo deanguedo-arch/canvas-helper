@@ -79,7 +79,11 @@ export function InspectionPanel({
 
           <p className="inspection-target">
             <strong>Primary target</strong>
-            <code>{resolution.primaryEditTarget ?? "No safe edit target resolved."}</code>
+            <code>
+              {resolution.primaryEditTarget
+                ? `${resolution.primaryEditTarget}${resolution.primaryEditLine ? `:${resolution.primaryEditLine}` : ""}`
+                : "No safe edit target resolved."}
+            </code>
           </p>
           {resolution.rebuildCommand ? (
             <p className="inspection-target">

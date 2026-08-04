@@ -117,9 +117,9 @@ The `course:doctor`, `course:list`, and `context:project` commands form a read-o
 
 ### Studio Inspector and screenshot boundary
 
-The Inspector receives only opaque preview facts (temporary node ID, safe visible text, semantic label, and viewport geometry). The server derives edit targets, contributor paths, and rebuild commands from the selected project's declared authoring driver. A generated Social or English workspace is therefore never promoted into a primary source just because it is visible in the preview.
+The Inspector receives only opaque preview facts (temporary node ID, safe visible text, semantic label, and viewport geometry). The server derives edit targets, contributor paths, and rebuild commands from the selected project's declared authoring driver. A direct static workspace may additionally receive an exact current source line; generated Social and English workspaces deliberately do not. A generated workspace is therefore never promoted into a primary source just because it is visible in the preview.
 
-Optional screenshot annotation uses the Studio document's explicit `getDisplayMedia` permission flow. The isolated preview is denied that capability. Studio refreshes the selected element through the private bridge, captures one approved browser-tab frame, immediately stops all tracks, crops the visible preview area, keeps it only in memory, and does not put pixels, object URLs, or image data into the copied Codex packet. The teacher must explicitly download or discard the image.
+Optional screenshot annotation uses the Studio document's explicit `getDisplayMedia` permission flow. The isolated preview is denied that capability. Studio registers an approved stream for cleanup as soon as permission resolves, so a later failed selection refresh cannot leave it active; it then captures one approved browser-tab frame, immediately stops all tracks, crops the visible preview area, keeps it only in memory, and does not put pixels, object URLs, or image data into the copied Codex packet. Inspection errors use bounded public messages rather than raw filesystem errors. The teacher must explicitly download or discard the image.
 
 ### Intake and Resources
 

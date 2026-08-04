@@ -63,6 +63,7 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await page.getByTestId("inspect-toggle").click();
 
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
   const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
   await learnerControl.focus();
   await learnerControl.press("Enter");
@@ -124,4 +125,59 @@ test("@inspection screenshot capture refreshes the selection and stops the local
   await page.getByTestId("capture-annotated-screenshot").click();
   await expect(page.getByTestId("screenshot-annotation")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stopped", "true");
+});
+
+test("@inspection screenshot capture stops an early stream when selection refresh fails", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await expect(page.getByTestId("inspection-panel")).toBeVisible();
+
+  await page.evaluate(() => {
+    Object.defineProperty(navigator.mediaDevices, "getDisplayMedia", {
+      configurable: true,
+      value: async () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = window.innerWidth * 4;
+        canvas.height = window.innerHeight * 4;
+        const stream = canvas.captureStream(30);
+        const track = stream.getVideoTracks()[0];
+        const stop = track.stop.bind(track);
+        Object.defineProperty(track, "getSettings", {
+          configurable: true,
+          value: () => ({ displaySurface: "browser" })
+        });
+        Object.defineProperty(track, "stop", {
+          configurable: true,
+          value: () => {
+            document.documentElement.setAttribute("data-e2e-capture-stopped-after-failure", "true");
+            stop();
+          }
+        });
+        return stream;
+      }
+    });
+  });
+  await workspaceFrame.locator("html").evaluate(() => {
+    const original = MessagePort.prototype.postMessage;
+    MessagePort.prototype.postMessage = function(message, transfer) {
+      if (message && typeof message === "object" && "type" in message && message.type === "preview-inspect-current") {
+        return;
+      }
+      return original.call(this, message, transfer);
+    };
+  });
+
+  await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stopped-after-failure", "true");
+  await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
 });

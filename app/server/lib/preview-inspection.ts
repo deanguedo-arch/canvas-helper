@@ -32,6 +32,7 @@ export type PreviewInspectionDocument = {
   html: string;
   sourceDigest: string;
   nodeIds: Set<string>;
+  nodeLocations: Map<string, { lineStart: number; lineEnd: number }>;
 };
 
 function sha256(value: string) {
@@ -98,6 +99,30 @@ function createNodeId(sourceDigest: string, ordinal: number) {
   return `${PREVIEW_NODE_ID_PREFIX}:${sourceDigest.slice(0, 24)}:${ordinal}`;
 }
 
+function collectLineStarts(html: string) {
+  const starts = [0];
+  for (let index = 0; index < html.length; index += 1) {
+    if (html[index] === "\n") {
+      starts.push(index + 1);
+    }
+  }
+  return starts;
+}
+
+function lineForOffset(lineStarts: number[], offset: number) {
+  let low = 0;
+  let high = lineStarts.length - 1;
+  while (low <= high) {
+    const middle = Math.floor((low + high) / 2);
+    if (lineStarts[middle] <= offset) {
+      low = middle + 1;
+    } else {
+      high = middle - 1;
+    }
+  }
+  return high + 1;
+}
+
 export function isPreviewInspectionNodeId(value: string | null | undefined) {
   return typeof value === "string" && new RegExp(`^${PREVIEW_NODE_ID_PREFIX}:[a-f0-9]{24}:[1-9][0-9]*$`).test(value);
 }
@@ -118,15 +143,21 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
     return null;
   }
   const nodeIds = new Set<string>();
+  const nodeLocations = new Map<string, { lineStart: number; lineEnd: number }>();
+  const lineStarts = collectLineStarts(html);
   let decorated = html;
 
   for (let index = tags.length - 1; index >= 0; index -= 1) {
     const nodeId = createNodeId(sourceDigest, index + 1);
     decorated = injectNodeAttribute(decorated, tags[index], nodeId);
     nodeIds.add(nodeId);
+    nodeLocations.set(nodeId, {
+      lineStart: lineForOffset(lineStarts, tags[index].start),
+      lineEnd: lineForOffset(lineStarts, tags[index].end)
+    });
   }
 
-  return { html: decorated, sourceDigest, nodeIds };
+  return { html: decorated, sourceDigest, nodeIds, nodeLocations };
 }
 
 export function decoratePreviewHtmlBuffer(body: Buffer) {
@@ -210,6 +241,7 @@ function buildUnknownResolution(
     artifactRole: options.artifactRole ?? (request.root === "raw" ? "reference-only" : "unknown"),
     generated: false,
     primaryEditTarget: null,
+    primaryEditLine: null,
     contributors: [],
     rebuildCommand: null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
@@ -245,6 +277,7 @@ function generatedResolution(
     artifactRole: "generated-workspace-output",
     generated: true,
     primaryEditTarget,
+    primaryEditLine: null,
     contributors: resolveContributors(project, primaryEditTarget),
     rebuildCommand: project.regenerateCommand ?? null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
@@ -257,25 +290,27 @@ function generatedResolution(
 function directResolution(
   request: InspectionResolveRequest,
   previewPath: string,
-  project: ResolvedCourseAuthoringProject
+  project: ResolvedCourseAuthoringProject,
+  selectedLine: number | null
 ): InspectionResolution {
   const primaryEditTarget = project.editableSources.find((entry) => entry.kind === "file" && entry.repoRelative === previewPath)?.repoRelative ?? null;
-  const resolution: InspectionResolutionState = primaryEditTarget ? "exact" : "unknown";
+  const resolution: InspectionResolutionState = primaryEditTarget && selectedLine ? "exact" : "unknown";
   return {
     projectSlug: request.projectSlug,
     previewPath,
     selection: request.selection,
     resolution,
-    freshness: primaryEditTarget ? "current" : "unsupported",
-    artifactRole: primaryEditTarget ? "canonical-editable-source" : "unknown",
+    freshness: resolution === "exact" ? "current" : "unsupported",
+    artifactRole: resolution === "exact" ? "canonical-editable-source" : "unknown",
     generated: false,
-    primaryEditTarget,
-    contributors: primaryEditTarget ? resolveContributors(project, primaryEditTarget) : [],
+    primaryEditTarget: resolution === "exact" ? primaryEditTarget : null,
+    primaryEditLine: resolution === "exact" ? selectedLine : null,
+    contributors: resolution === "exact" && primaryEditTarget ? resolveContributors(project, primaryEditTarget) : [],
     rebuildCommand: project.regenerateCommand ?? null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
-    warnings: primaryEditTarget
+    warnings: resolution === "exact"
       ? []
-      : ["This static preview element is not declared as a canonical editable source." ]
+      : ["This static preview element could not be mapped to a current canonical source line." ]
   };
 }
 
@@ -333,7 +368,7 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
 
   const project = report.project;
   if (project.driverId === "direct-workspace-v1" && project.authoringMode === "direct") {
-    return directResolution(request, previewPath, project);
+    return directResolution(request, previewPath, project, document.nodeLocations.get(requestedNode)?.lineStart ?? null);
   }
 
   if (project.driverId === "english-factory-v1" || project.driverId === "social-related-issues-v1") {

@@ -56,6 +56,10 @@ function hasUnsafeLocalPath(value: string) {
   return /(?:^|[\s"'=])(?:~[\\/]|\/(?!\/)|\\\\|[A-Za-z]:[\\/])/.test(value) || /\bfile:/i.test(value);
 }
 
+function safeLine(value: number | null) {
+  return typeof value === "number" && Number.isInteger(value) && value > 0 && value <= 10_000_000 ? value : null;
+}
+
 function safeCommand(value: string | null) {
   if (!value) {
     return null;
@@ -82,12 +86,14 @@ function appendOptional(lines: string[], omissions: string[], label: string, val
 
 export function buildCodexPacket({ resolution, teacherNote, teacherCategory = "unsure", previewMode = "workspace" }: PacketInput) {
   const primaryEditTarget = repoPath(resolution.primaryEditTarget);
+  const primaryEditLine = safeLine(resolution.primaryEditLine);
   const contributors = resolution.contributors.map(repoPath).filter((value): value is string => Boolean(value)).slice(0, 3);
   const rebuildCommand = safeCommand(resolution.rebuildCommand);
   const validationCommand = safeCommand(resolution.validationCommand);
   const omissions: string[] = [];
 
   if (resolution.primaryEditTarget && !primaryEditTarget) omissions.push("unsafe primary target omitted");
+  if (resolution.primaryEditLine && !primaryEditLine) omissions.push("unsafe primary line omitted");
   if (resolution.rebuildCommand && !rebuildCommand) omissions.push("unsafe rebuild command omitted");
   if (resolution.validationCommand && !validationCommand) omissions.push("unsafe validation command omitted");
 
@@ -103,7 +109,7 @@ export function buildCodexPacket({ resolution, teacherNote, teacherCategory = "u
     `Freshness: ${resolution.freshness}`,
     `Artifact role: ${resolution.artifactRole}`,
     `Generated output: ${resolution.generated ? "yes — do not hand-edit the displayed HTML" : "no"}`,
-    `Primary edit target: ${primaryEditTarget ?? "none — investigate source ownership before editing"}`,
+    `Primary edit target: ${primaryEditTarget ? `${primaryEditTarget}${primaryEditLine ? `:${primaryEditLine}` : ""}` : "none — investigate source ownership before editing"}`,
     `Rebuild: ${rebuildCommand ?? "not declared"}`,
     `Validate: ${validationCommand ?? "not declared"}`,
     "Screenshot: not included — handled separately by the teacher.",

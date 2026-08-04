@@ -41,6 +41,10 @@ function clearCanvas(canvas: HTMLCanvasElement | null) {
   }
 }
 
+function stopStream(stream: MediaStream | null) {
+  stream?.getTracks().forEach((track) => track.stop());
+}
+
 function canvasBlob(canvas: HTMLCanvasElement) {
   return new Promise<Blob>((resolve, reject) => {
     canvas.toBlob((value) => (value ? resolve(value) : reject(new Error("The screenshot could not be encoded."))), "image/png");
@@ -231,12 +235,14 @@ export function useScreenshotAnnotation() {
       const streamPromise = navigator.mediaDevices.getDisplayMedia({
         video: { displaySurface: "browser" } as MediaTrackConstraints,
         audio: false
-      });
-      void streamPromise.then((lateStream) => {
+      }).then((availableStream) => {
+        stream = availableStream;
         if (streamMustStopWhenAvailable) {
-          lateStream.getTracks().forEach((track) => track.stop());
+          stopStream(availableStream);
         }
-      }).catch(() => undefined);
+        return availableStream;
+      });
+      void streamPromise.catch(() => undefined);
 
       const currentSelection = await selection;
       stream = await streamPromise;
@@ -271,7 +277,7 @@ export function useScreenshotAnnotation() {
       streamMustStopWhenAvailable = true;
       clearCanvas(frameCanvas);
       clearCanvas(cropCanvas);
-      stream?.getTracks().forEach((track) => track.stop());
+      stopStream(stream);
     }
   };
 

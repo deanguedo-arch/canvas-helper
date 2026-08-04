@@ -42,6 +42,7 @@ test("direct workspace provenance resolves an exact declared source only for a c
   assert.equal(resolution.resolution, "exact");
   assert.equal(resolution.freshness, "current");
   assert.equal(resolution.primaryEditTarget, "projects/forensics35/workspace/index.html");
+  assert.ok((resolution.primaryEditLine ?? 0) > 0);
   assert.equal(resolution.generated, false);
 });
 
@@ -53,6 +54,7 @@ test("Social provenance never recommends its generated workspace HTML as an edit
   assert.equal(resolution.resolution, "bounded");
   assert.equal(resolution.generated, true);
   assert.equal(resolution.primaryEditTarget, "scripts/build-social30-related-issues.ts");
+  assert.equal(resolution.primaryEditLine, null);
   assert.notEqual(resolution.primaryEditTarget, `projects/${slug}/workspace/index.html`);
   assert.match(resolution.rebuildCommand ?? "", /build-social30-related-issues/);
 });
@@ -65,6 +67,7 @@ test("English provenance routes generated workspace selections to the recipe and
   assert.equal(resolution.resolution, "bounded");
   assert.equal(resolution.generated, true);
   assert.equal(resolution.primaryEditTarget, `projects/${slug}/meta/english-unit.json`);
+  assert.equal(resolution.primaryEditLine, null);
   assert.notEqual(resolution.primaryEditTarget, `projects/${slug}/workspace/index.html`);
   assert.equal(resolution.rebuildCommand, `npm run build:english-unit -- --project ${slug}`);
 });
