@@ -164,9 +164,12 @@ test("screenshot annotation is local, opt-in, and stops capture tracks", async (
   assert.match(source, /audio:\s*false/);
   assert.match(source, /expectedPreviewUrl/);
   assert.match(source, /displaySurface !== "browser"/);
-  assert.match(source, /stream = availableStream/);
-  assert.match(source, /streamMustStopWhenAvailable/);
-  assert.match(source, /stopStream\(stream\)/);
+  assert.match(source, /activeCaptureRef/);
+  assert.match(source, /activeCapture\.stream = availableStream/);
+  assert.match(source, /const cancelCapture/);
+  assert.match(source, /cancelCapture\(\);/);
+  assert.match(source, /useEffect\(\s*\(\) => \(\) => \{\s*cancelCapture\(\);/);
+  assert.match(source, /stopCaptureStream\(activeCapture\)/);
   assert.match(source, /URL\.createObjectURL/);
   assert.doesNotMatch(source, /fetch\(|\/api\/|navigator\.clipboard|localStorage|sessionStorage/);
 });

@@ -288,6 +288,81 @@ test("@inspection changing projects during capture stops the stale stream withou
   await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
 });
 
+test("@inspection a project change stops an already-live capture before a held selection refresh resolves", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await expect(page.getByTestId("inspection-panel")).toBeVisible();
+
+  await page.evaluate(() => {
+    const state = window as typeof window & {
+      releaseHeldSelectionRefresh?: () => void;
+    };
+    const originalPostMessage = MessagePort.prototype.postMessage;
+    MessagePort.prototype.postMessage = function(message, transfer) {
+      if (message && typeof message === "object" && "type" in message && message.type === "studio-request-inspect-current") {
+        document.documentElement.setAttribute("data-e2e-selection-refresh-held", "true");
+        state.releaseHeldSelectionRefresh = () => originalPostMessage.call(this, message, transfer);
+        return;
+      }
+      return originalPostMessage.call(this, message, transfer);
+    };
+
+    Object.defineProperty(navigator.mediaDevices, "getDisplayMedia", {
+      configurable: true,
+      value: async () => {
+        const canvas = document.createElement("canvas");
+        canvas.width = window.innerWidth * 4;
+        canvas.height = window.innerHeight * 4;
+        const stream = canvas.captureStream(30);
+        const track = stream.getVideoTracks()[0];
+        const stop = track.stop.bind(track);
+        Object.defineProperty(track, "getSettings", {
+          configurable: true,
+          value: () => ({ displaySurface: "browser" })
+        });
+        Object.defineProperty(track, "stop", {
+          configurable: true,
+          value: () => {
+            const count = Number(document.documentElement.getAttribute("data-e2e-capture-stop-count") || "0") + 1;
+            document.documentElement.setAttribute("data-e2e-capture-stop-count", String(count));
+            stop();
+          }
+        });
+        document.documentElement.setAttribute("data-e2e-capture-stream-live", "true");
+        return stream;
+      }
+    });
+  });
+
+  await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-selection-refresh-held", "true");
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stream-live", "true");
+
+  const projectSelect = page.getByTestId("workspace-project-select");
+  await projectSelect.selectOption("forensics35");
+  await expect(projectSelect).toHaveValue("forensics35");
+  await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stop-count", "1");
+
+  await page.evaluate(() => {
+    const state = window as typeof window & { releaseHeldSelectionRefresh?: () => void };
+    state.releaseHeldSelectionRefresh?.();
+  });
+  await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
+  await expect(page.getByTestId("inspection-packet")).toHaveCount(0);
+});
+
 test("@inspection screenshot capture stops an early stream when selection refresh fails", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("inspect-toggle").click();

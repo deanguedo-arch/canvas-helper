@@ -23,6 +23,11 @@ type CaptureScreenshotOptions = {
   isCurrent: () => boolean;
 };
 
+type ActiveCapture = {
+  cancelled: boolean;
+  stream: MediaStream | null;
+};
+
 function clamp(value: number, minimum: number, maximum: number) {
   return Math.min(Math.max(value, minimum), maximum);
 }
@@ -186,6 +191,7 @@ async function captureFrameCanvas(stream: MediaStream) {
 
 export function useScreenshotAnnotation() {
   const objectUrlRef = useRef<string | null>(null);
+  const activeCaptureRef = useRef<ActiveCapture | null>(null);
   const [annotation, setAnnotation] = useState<ScreenshotAnnotation | null>(null);
   const [status, setStatus] = useState<"idle" | "capturing" | "ready" | "error">("idle");
   const [error, setError] = useState("");
@@ -197,7 +203,25 @@ export function useScreenshotAnnotation() {
     }
   };
 
+  const stopCaptureStream = (capture: ActiveCapture) => {
+    const stream = capture.stream;
+    capture.stream = null;
+    stopStream(stream);
+  };
+
+  const cancelCapture = (capture: ActiveCapture | null = activeCaptureRef.current) => {
+    if (!capture) {
+      return;
+    }
+    capture.cancelled = true;
+    stopCaptureStream(capture);
+    if (activeCaptureRef.current === capture) {
+      activeCaptureRef.current = null;
+    }
+  };
+
   const clear = () => {
+    cancelCapture();
     releaseObjectUrl();
     setAnnotation(null);
     setStatus("idle");
@@ -205,13 +229,20 @@ export function useScreenshotAnnotation() {
   };
 
   const reportError = (message: string) => {
+    cancelCapture();
     releaseObjectUrl();
     setAnnotation(null);
     setStatus("error");
     setError(message);
   };
 
-  useEffect(() => () => releaseObjectUrl(), []);
+  useEffect(
+    () => () => {
+      cancelCapture();
+      releaseObjectUrl();
+    },
+    []
+  );
 
   const capture = async ({ iframe, selection, expectedPreviewUrl, isCurrent }: CaptureScreenshotOptions) => {
     if (!isCurrent()) {
@@ -229,9 +260,11 @@ export function useScreenshotAnnotation() {
     }
 
     clear();
+    const activeCapture: ActiveCapture = { cancelled: false, stream: null };
+    activeCaptureRef.current = activeCapture;
+    const isActiveCapture = () =>
+      activeCaptureRef.current === activeCapture && !activeCapture.cancelled && isCurrent();
     setStatus("capturing");
-    let stream: MediaStream | null = null;
-    let streamMustStopWhenAvailable = false;
     let frameCanvas: HTMLCanvasElement | null = null;
     let cropCanvas: HTMLCanvasElement | null = null;
     try {
@@ -240,17 +273,17 @@ export function useScreenshotAnnotation() {
         video: { displaySurface: "browser" } as MediaTrackConstraints,
         audio: false
       }).then((availableStream) => {
-        stream = availableStream;
-        if (streamMustStopWhenAvailable) {
-          stopStream(availableStream);
+        activeCapture.stream = availableStream;
+        if (!isActiveCapture()) {
+          cancelCapture(activeCapture);
         }
         return availableStream;
       });
       void streamPromise.catch(() => undefined);
 
       const currentSelection = await selection;
-      stream = await streamPromise;
-      if (!isCurrent()) {
+      const stream = await streamPromise;
+      if (!isActiveCapture()) {
         return;
       }
       const track = stream.getVideoTracks()[0];
@@ -264,20 +297,19 @@ export function useScreenshotAnnotation() {
 
       assertCurrentPreview(iframe, expectedPreviewUrl);
       frameCanvas = await captureFrameCanvas(stream);
-      if (!isCurrent()) {
+      if (!isActiveCapture()) {
         return;
       }
       if (track.readyState !== "live" || track.muted) {
         throw new Error("The selected tab stopped sharing before its screenshot could be captured.");
       }
-      stopStream(stream);
-      stream = null;
+      stopCaptureStream(activeCapture);
       assertCurrentPreview(iframe, expectedPreviewUrl);
       const crop = cropPreviewFrame({ frameCanvas, iframe, geometry: currentSelection.geometry });
       cropCanvas = crop.cropCanvas;
       const blob = await canvasBlob(cropCanvas);
       const imageUrl = URL.createObjectURL(blob);
-      if (!isCurrent()) {
+      if (!isActiveCapture()) {
         URL.revokeObjectURL(imageUrl);
         return;
       }
@@ -285,18 +317,16 @@ export function useScreenshotAnnotation() {
       setAnnotation({ imageUrl, width: cropCanvas.width, height: cropCanvas.height, marker: crop.marker });
       setStatus("ready");
     } catch (captureError) {
-      streamMustStopWhenAvailable = true;
-      if (!isCurrent()) {
+      if (!isActiveCapture()) {
         return;
       }
       releaseObjectUrl();
       setStatus("error");
       setError(captureError instanceof Error ? captureError.message : "Screen capture was canceled or unavailable.");
     } finally {
-      streamMustStopWhenAvailable = true;
       clearCanvas(frameCanvas);
       clearCanvas(cropCanvas);
-      stopStream(stream);
+      cancelCapture(activeCapture);
     }
   };
 
