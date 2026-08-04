@@ -11,13 +11,15 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-navigation",
   "preview-inspect-hover",
   "preview-inspect-selected",
+  "preview-inspect-current",
   "preview-error"
 ] as const;
 
 export const STUDIO_COMMAND_TYPES = [
   "studio-request-state",
   "studio-restore-scroll",
-  "studio-set-inspect-mode"
+  "studio-set-inspect-mode",
+  "studio-request-inspect-current"
 ] as const;
 
 export type PreviewEventType = (typeof PREVIEW_EVENT_TYPES)[number];
@@ -125,6 +127,7 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isRecord(payload) && isBoundedString(payload.href, 2_048);
     case "preview-inspect-hover":
     case "preview-inspect-selected":
+    case "preview-inspect-current":
       return isPreviewInspectPayload(payload);
     case "preview-error":
       return isRecord(payload) && isBoundedString(payload.message, 360);
@@ -134,6 +137,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isPreviewScrollState(payload);
     case "studio-set-inspect-mode":
       return isRecord(payload) && typeof payload.enabled === "boolean";
+    case "studio-request-inspect-current":
+      return isRecord(payload) && isBoundedString(payload.nodeId, 160);
     default:
       return false;
   }

@@ -114,7 +114,7 @@ export async function getPreviewPath(mode: "raw" | "workspace", slug: string, re
   return resolveContainedPreviewPath({
     baseDir,
     trustedRoot: paths.root,
-    relativePath: decodePreviewRelativePath(relativePath, defaultFile)
+    relativePath: decodePreviewRelativePath(relativePath || undefined, defaultFile)
   });
 }
 

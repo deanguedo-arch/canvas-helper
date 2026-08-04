@@ -38,7 +38,7 @@ The first useful version works like this:
 
 There is no API key, automatic model call, hidden network request, automatic code write, or whole-repository context dump in this workflow.
 
-Screenshot capture and visual annotation remain part of the end goal, but they are deliberately deferred until the safe Inspect and Copy loop has proved useful. Browsers do not let a Studio page silently capture pixels from an isolated preview iframe; doing screenshots correctly needs an explicit user-consent capture path. The feature is delayed, not removed.
+Screenshot capture and visual annotation are now implemented as a separate, consent-based extension of the Inspect and Copy loop. Browsers do not let a Studio page silently capture pixels from an isolated preview iframe, so Studio requests a browser-tab capture only from an explicit teacher click, refreshes the selected element's geometry before capture, stops sharing immediately, and keeps the resulting image outside the text packet.
 
 ## Review result that governs this plan
 
@@ -46,7 +46,7 @@ This plan combines local repository evidence with an independent ChatGPT Pro red
 
 - Define the smallest bridge and provenance contracts before moving the preview to a separate origin.
 - Build adapter conformance checks while the provenance adapters are built, not afterward.
-- Do not make screenshots part of the first release.
+- The original V1 excluded screenshots; the later consent-based implementation required a separate review and dedicated browser coverage before it was enabled.
 - Do not build local handoff history until real use proves it is needed.
 
 No implementation decision is considered approved simply because two models express an opinion. A decision is approved when both review paths agree on the exact repository source, risk boundary, verification evidence, and rollback condition. Codex remains responsible for checking all local facts before changing code.
@@ -82,7 +82,7 @@ The browser security reason is concrete: the HTML Standard warns that a same-ori
 - Automatically edit a course, rebuild a course, or make decisions on behalf of the teacher.
 - Become a general-purpose browser developer tool.
 - Create local handoff history in the first release.
-- Capture screenshots in the first release.
+- Capture a screenshot silently, accept a non-tab source, or include pixels in the copied packet.
 
 ## Target architecture and trust boundaries
 

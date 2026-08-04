@@ -194,6 +194,18 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     return count === 1 ? nodeId : null;
   }
 
+  function elementForSourceNodeId(nodeId) {
+    if (typeof nodeId !== "string" || !nodeId) return null;
+    var matches = document.querySelectorAll("[" + NODE_ATTRIBUTE + "]");
+    var found = null;
+    for (var index = 0; index < matches.length; index += 1) {
+      if (matches[index].getAttribute(NODE_ATTRIBUTE) !== nodeId) continue;
+      if (found) return null;
+      found = matches[index];
+    }
+    return found;
+  }
+
   function targetForPointerEvent(event) {
     if (event.target !== shield) return event.target;
     if (!shield) return null;
@@ -288,6 +300,15 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (event.data.type === "studio-request-state" && event.data.payload === null) sendScrollState();
     if (event.data.type === "studio-restore-scroll") restoreScrollState(event.data.payload);
     if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") setInspectMode(event.data.payload.enabled);
+    if (event.data.type === "studio-request-inspect-current" && event.data.payload && typeof event.data.payload.nodeId === "string") {
+      var element = elementForSourceNodeId(event.data.payload.nodeId);
+      var selection = element ? selectionFor(element) : null;
+      if (!selection || selection.nodeId !== event.data.payload.nodeId) {
+        send("preview-error", { message: "The selected preview element is no longer available. Select it again before capturing a screenshot." });
+        return;
+      }
+      send("preview-inspect-current", selection);
+    }
   }
 
   function attachPort(nextPort) {

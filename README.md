@@ -103,9 +103,9 @@ Studio has no model-provider integration and does not write course sources. Use 
 3. Choose the change focus, add a short note, and use **Copy for Codex** to make a bounded text packet.
 4. Give that packet to ChatGPT Pro for a second opinion if useful, then give Codex the packet plus the advice. Codex still verifies the local manifest, canonical source, and rebuild command before changing anything.
 
-The live preview is served from a separate local loopback origin and communicates through a bounded private bridge. The Inspector and packet builder make no external request; a course preview can still load any third-party resources declared by that course.
+The live preview is served from a separate local loopback origin and communicates through a bounded private bridge. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
 
-**Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper captures one local frame, stops sharing immediately, crops it to the visible preview, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet.
+**Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper refreshes the selected element's position, captures one local frame, stops sharing immediately, crops it to the visible preview area, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet, which says so explicitly.
 
 ## Workflow Types
 

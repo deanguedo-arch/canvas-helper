@@ -43,6 +43,13 @@ type BridgeState = Pick<
   "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled"
 >;
 
+type PendingInspectionRequest = {
+  nodeId: string;
+  resolve: (selection: PreviewInspectPayload) => void;
+  reject: (error: Error) => void;
+  timeout: number;
+};
+
 function toScrollPosition(state: PreviewScrollState): PreviewScrollPosition {
   return {
     windowTop: state.windowTop,
@@ -91,6 +98,10 @@ export function usePreviewScrollSync({
     reference: null,
     workspace: null
   });
+  const pendingInspectionRequestRefs = useRef<Record<PreviewMode, PendingInspectionRequest | null>>({
+    reference: null,
+    workspace: null
+  });
   const previewScrollMapRef = useRef<PreviewScrollMap>(loadPreviewScrollMap());
   const latestScrollStateRef = useRef<Record<PreviewMode, PreviewScrollPosition | null>>({
     reference: null,
@@ -120,7 +131,23 @@ export function usePreviewScrollSync({
     return mode === "workspace" ? current.workspaceTarget : current.referenceTarget.projectSlug ? current.referenceTarget : null;
   };
 
-  const postBridgeCommand = (mode: PreviewMode, type: "studio-request-state" | "studio-restore-scroll" | "studio-set-inspect-mode", payload: unknown) => {
+  const clearPendingInspectionRequest = (mode: PreviewMode, error?: Error) => {
+    const pending = pendingInspectionRequestRefs.current[mode];
+    if (!pending) {
+      return;
+    }
+    window.clearTimeout(pending.timeout);
+    pendingInspectionRequestRefs.current[mode] = null;
+    if (error) {
+      pending.reject(error);
+    }
+  };
+
+  const postBridgeCommand = (
+    mode: PreviewMode,
+    type: "studio-request-state" | "studio-restore-scroll" | "studio-set-inspect-mode" | "studio-request-inspect-current",
+    payload: unknown
+  ) => {
     const port = previewPortRefs.current[mode];
     if (!port) {
       return;
@@ -210,6 +237,20 @@ export function usePreviewScrollSync({
       case "preview-inspect-selected":
         inspectionCallbacksRef.current.onInspectSelection(mode, data.payload as PreviewInspectPayload);
         break;
+      case "preview-inspect-current": {
+        const selection = data.payload as PreviewInspectPayload;
+        const pending = pendingInspectionRequestRefs.current[mode];
+        if (!pending || pending.nodeId !== selection.nodeId) {
+          break;
+        }
+        window.clearTimeout(pending.timeout);
+        pendingInspectionRequestRefs.current[mode] = null;
+        pending.resolve(selection);
+        break;
+      }
+      case "preview-error":
+        clearPendingInspectionRequest(mode, new Error("The preview could not refresh the selected element. Select it again before capturing a screenshot."));
+        break;
       default:
         break;
     }
@@ -223,6 +264,7 @@ export function usePreviewScrollSync({
     }
 
     previewReadyRefs.current[mode] = false;
+    clearPendingInspectionRequest(mode, new Error("The preview reloaded before the selected element could be refreshed."));
     previewPortRefs.current[mode]?.close();
 
     const channel = new MessageChannel();
@@ -245,6 +287,27 @@ export function usePreviewScrollSync({
 
   const attachPreviewPersistence = (mode: PreviewMode) => {
     connectPreviewBridge(mode);
+  };
+
+  const requestCurrentInspectionSelection = (mode: PreviewMode, nodeId: string) => {
+    const port = previewPortRefs.current[mode];
+    if (!port || !previewReadyRefs.current[mode]) {
+      return Promise.reject(new Error("The preview bridge is not ready. Select the element again before capturing a screenshot."));
+    }
+
+    clearPendingInspectionRequest(mode, new Error("A newer screenshot request replaced the previous one."));
+    return new Promise<PreviewInspectPayload>((resolve, reject) => {
+      const timeout = window.setTimeout(() => {
+        const pending = pendingInspectionRequestRefs.current[mode];
+        if (pending?.nodeId !== nodeId) {
+          return;
+        }
+        pendingInspectionRequestRefs.current[mode] = null;
+        reject(new Error("The preview did not confirm the selected element. Select it again before capturing a screenshot."));
+      }, 1_500);
+      pendingInspectionRequestRefs.current[mode] = { nodeId, resolve, reject, timeout };
+      postBridgeCommand(mode, "studio-request-inspect-current", { nodeId });
+    });
   };
 
   const registerPreviewFrame = (mode: PreviewMode, node: HTMLIFrameElement | null) => {
@@ -295,6 +358,7 @@ export function usePreviewScrollSync({
       window.removeEventListener("beforeunload", handleBeforeUnload);
       previewModes.forEach((mode) => {
         previewReadyRefs.current[mode] = false;
+        clearPendingInspectionRequest(mode, new Error("The Studio closed before the selected element could be refreshed."));
         previewPortRefs.current[mode]?.close();
         previewPortRefs.current[mode] = null;
       });
@@ -313,6 +377,7 @@ export function usePreviewScrollSync({
     persistAllVisibleScrollPositions,
     copyPreviewModeScrollPosition,
     syncFocusModeScrollPosition,
-    fitPreviewToWidth
+    fitPreviewToWidth,
+    requestCurrentInspectionSelection
   };
 }

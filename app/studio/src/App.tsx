@@ -165,7 +165,8 @@ export function App() {
         packet: buildCodexPacket({
           resolution: inspectionResolution,
           teacherNote: inspectionTeacherNote,
-          teacherCategory: inspectionIssueCategory
+          teacherCategory: inspectionIssueCategory,
+          previewMode: inspectionPreviewMode
         }),
         error: ""
       };
@@ -249,7 +250,8 @@ export function App() {
     copyPreviewModeScrollPosition,
     syncFocusModeScrollPosition,
     fitPreviewToWidth,
-    getPreviewFrame
+    getPreviewFrame,
+    requestCurrentInspectionSelection
   } = usePreviewScrollSync({
     previewMode,
     layoutPreferences,
@@ -289,12 +291,25 @@ export function App() {
   };
 
   const captureInspectionScreenshot = () => {
-    if (!inspectionResolution) {
+    if (!inspectionResolution?.selection.nodeId) {
+      screenshotAnnotation.reportError("Select a source-mapped preview element before capturing a screenshot.");
       return;
     }
+    const iframe = getPreviewFrame(inspectionPreviewMode);
+    iframe?.scrollIntoView({ block: "center", inline: "center", behavior: "auto" });
+    const currentSelection = requestCurrentInspectionSelection(inspectionPreviewMode, inspectionResolution.selection.nodeId);
+    void currentSelection
+      .then((selection) => {
+        setInspectionResolution((current) =>
+          current && current.selection.nodeId === selection.nodeId
+            ? { ...current, selection }
+            : current
+        );
+      })
+      .catch(() => undefined);
     void screenshotAnnotation.capture({
-      iframe: getPreviewFrame(inspectionPreviewMode),
-      geometry: inspectionResolution.selection.geometry,
+      iframe,
+      selection: currentSelection,
       expectedPreviewUrl: inspectionPreviewUrl
     });
   };
@@ -540,6 +555,7 @@ export function App() {
                 inspectionPacketError={inspectionPacketState.error}
                 inspectionCopyStatus={inspectionCopyStatus}
                 screenshotSupported={screenshotAnnotation.isSupported}
+                screenshotCanCapture={Boolean(inspectionResolution?.selection.nodeId)}
                 screenshotStatus={screenshotAnnotation.status}
                 screenshotError={screenshotAnnotation.error}
                 screenshot={screenshotAnnotation.annotation}

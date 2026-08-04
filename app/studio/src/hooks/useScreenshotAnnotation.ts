@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from "react";
 
-import type { PreviewGeometry } from "../../../shared/preview-bridge.js";
+import type { PreviewGeometry, PreviewInspectPayload } from "../../../shared/preview-bridge.js";
 
 export type AnnotationRect = {
   x: number;
@@ -18,7 +18,7 @@ export type ScreenshotAnnotation = {
 
 type CaptureScreenshotOptions = {
   iframe: HTMLIFrameElement | null;
-  geometry: PreviewGeometry;
+  selection: Promise<PreviewInspectPayload>;
   expectedPreviewUrl: string;
 };
 
@@ -64,16 +64,39 @@ function cropPreviewFrame(options: {
     throw new Error("The selected preview is no longer visible. Select it again before capturing a screenshot.");
   }
 
+  const visibleLeft = Math.max(0, frameBounds.left);
+  const visibleTop = Math.max(0, frameBounds.top);
+  const visibleRight = Math.min(window.innerWidth, frameBounds.right);
+  const visibleBottom = Math.min(window.innerHeight, frameBounds.bottom);
+  if (visibleRight <= visibleLeft || visibleBottom <= visibleTop) {
+    throw new Error("The selected preview is no longer visible. Select it again before capturing a screenshot.");
+  }
+
+  const previewScaleX = frameBounds.width / iframe.clientWidth;
+  const previewScaleY = frameBounds.height / iframe.clientHeight;
+  const selectedLeft = frameBounds.left + geometry.x * previewScaleX;
+  const selectedTop = frameBounds.top + geometry.y * previewScaleY;
+  const selectedRight = selectedLeft + geometry.width * previewScaleX;
+  const selectedBottom = selectedTop + geometry.height * previewScaleY;
+  if (
+    selectedLeft < visibleLeft ||
+    selectedTop < visibleTop ||
+    selectedRight > visibleRight ||
+    selectedBottom > visibleBottom
+  ) {
+    throw new Error("Keep the selected element visible in the preview before capturing a screenshot.");
+  }
+
   const captureScaleX = frameCanvas.width / window.innerWidth;
   const captureScaleY = frameCanvas.height / window.innerHeight;
   if (!Number.isFinite(captureScaleX) || !Number.isFinite(captureScaleY) || captureScaleX <= 0 || captureScaleY <= 0) {
     throw new Error("The captured tab has no usable pixel dimensions.");
   }
 
-  const sourceX = Math.round(frameBounds.left * captureScaleX);
-  const sourceY = Math.round(frameBounds.top * captureScaleY);
-  const sourceWidth = Math.round(frameBounds.width * captureScaleX);
-  const sourceHeight = Math.round(frameBounds.height * captureScaleY);
+  const sourceX = Math.round(visibleLeft * captureScaleX);
+  const sourceY = Math.round(visibleTop * captureScaleY);
+  const sourceWidth = Math.round((visibleRight - visibleLeft) * captureScaleX);
+  const sourceHeight = Math.round((visibleBottom - visibleTop) * captureScaleY);
   if (
     sourceWidth <= 0 ||
     sourceHeight <= 0 ||
@@ -82,7 +105,7 @@ function cropPreviewFrame(options: {
     sourceX + sourceWidth > frameCanvas.width ||
     sourceY + sourceHeight > frameCanvas.height
   ) {
-    throw new Error("The selected preview is not fully visible in the captured tab. Keep it visible and try again.");
+    throw new Error("The visible preview area could not be cropped safely. Keep the selected element visible and try again.");
   }
 
   const cropCanvas = document.createElement("canvas");
@@ -95,16 +118,14 @@ function cropPreviewFrame(options: {
   }
   context.drawImage(frameCanvas, sourceX, sourceY, sourceWidth, sourceHeight, 0, 0, sourceWidth, sourceHeight);
 
-  const previewScaleX = sourceWidth / iframe.clientWidth;
-  const previewScaleY = sourceHeight / iframe.clientHeight;
   return {
     cropCanvas,
     marker: normalizeMarker(
       {
-        x: geometry.x * previewScaleX,
-        y: geometry.y * previewScaleY,
-        width: geometry.width * previewScaleX,
-        height: geometry.height * previewScaleY
+        x: (selectedLeft - visibleLeft) * captureScaleX,
+        y: (selectedTop - visibleTop) * captureScaleY,
+        width: geometry.width * previewScaleX * captureScaleX,
+        height: geometry.height * previewScaleY * captureScaleY
       },
       sourceWidth,
       sourceHeight
@@ -178,9 +199,16 @@ export function useScreenshotAnnotation() {
     setError("");
   };
 
+  const reportError = (message: string) => {
+    releaseObjectUrl();
+    setAnnotation(null);
+    setStatus("error");
+    setError(message);
+  };
+
   useEffect(() => () => releaseObjectUrl(), []);
 
-  const capture = async ({ iframe, geometry, expectedPreviewUrl }: CaptureScreenshotOptions) => {
+  const capture = async ({ iframe, selection, expectedPreviewUrl }: CaptureScreenshotOptions) => {
     if (!iframe) {
       setStatus("error");
       setError("The selected preview is no longer available.");
@@ -195,19 +223,29 @@ export function useScreenshotAnnotation() {
     clear();
     setStatus("capturing");
     let stream: MediaStream | null = null;
+    let streamMustStopWhenAvailable = false;
     let frameCanvas: HTMLCanvasElement | null = null;
     let cropCanvas: HTMLCanvasElement | null = null;
     try {
-      stream = await navigator.mediaDevices.getDisplayMedia({
+      assertCurrentPreview(iframe, expectedPreviewUrl);
+      const streamPromise = navigator.mediaDevices.getDisplayMedia({
         video: { displaySurface: "browser" } as MediaTrackConstraints,
         audio: false
       });
+      void streamPromise.then((lateStream) => {
+        if (streamMustStopWhenAvailable) {
+          lateStream.getTracks().forEach((track) => track.stop());
+        }
+      }).catch(() => undefined);
+
+      const currentSelection = await selection;
+      stream = await streamPromise;
       const track = stream.getVideoTracks()[0];
       if (!track || track.readyState !== "live" || track.muted) {
         throw new Error("The selected tab did not provide a live video stream.");
       }
       const displaySurface = (track.getSettings() as MediaTrackSettings & { displaySurface?: string }).displaySurface;
-      if (displaySurface && displaySurface !== "browser") {
+      if (displaySurface !== "browser") {
         throw new Error("Choose the current Studio browser tab in the sharing picker, then try again.");
       }
 
@@ -217,7 +255,7 @@ export function useScreenshotAnnotation() {
         throw new Error("The selected tab stopped sharing before its screenshot could be captured.");
       }
       assertCurrentPreview(iframe, expectedPreviewUrl);
-      const crop = cropPreviewFrame({ frameCanvas, iframe, geometry });
+      const crop = cropPreviewFrame({ frameCanvas, iframe, geometry: currentSelection.geometry });
       cropCanvas = crop.cropCanvas;
       const blob = await canvasBlob(cropCanvas);
       const imageUrl = URL.createObjectURL(blob);
@@ -225,10 +263,12 @@ export function useScreenshotAnnotation() {
       setAnnotation({ imageUrl, width: cropCanvas.width, height: cropCanvas.height, marker: crop.marker });
       setStatus("ready");
     } catch (captureError) {
+      streamMustStopWhenAvailable = true;
       releaseObjectUrl();
       setStatus("error");
       setError(captureError instanceof Error ? captureError.message : "Screen capture was canceled or unavailable.");
     } finally {
+      streamMustStopWhenAvailable = true;
       clearCanvas(frameCanvas);
       clearCanvas(cropCanvas);
       stream?.getTracks().forEach((track) => track.stop());
@@ -293,6 +333,7 @@ export function useScreenshotAnnotation() {
     capture,
     updateMarker,
     download,
-    clear
+    clear,
+    reportError
   };
 }

@@ -34,9 +34,8 @@ function buildMissingReferencePreview(options: {
   slug: string;
   resourceRoot: "raw" | "extracted";
   relativePath: string;
-  filePath: string;
 }) {
-  const { slug, resourceRoot, relativePath, filePath } = options;
+  const { slug, resourceRoot, relativePath } = options;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -106,7 +105,6 @@ function buildMissingReferencePreview(options: {
         </p>
         <p><strong>Project:</strong> <code>${escapeHtml(slug)}</code></p>
         <p><strong>Requested resource:</strong> <code>${escapeHtml(relativePath)}</code></p>
-        <p><strong>Expected local path:</strong> <code>${escapeHtml(filePath)}</code></p>
         <div class="callout">
           <p><strong>Next step</strong></p>
           <p>Restore <code>projects/resources/${escapeHtml(slug)}</code> and then run <code>npm run refs -- --project ${escapeHtml(slug)}</code>.</p>
@@ -120,9 +118,8 @@ function buildMissingReferencePreview(options: {
 function buildMissingWorkspacePreview(options: {
   slug: string;
   relativePath: string;
-  filePath: string;
 }) {
-  const { slug, relativePath, filePath } = options;
+  const { slug, relativePath } = options;
 
   return `<!DOCTYPE html>
 <html lang="en">
@@ -192,7 +189,6 @@ function buildMissingWorkspacePreview(options: {
         </p>
         <p><strong>Project:</strong> <code>${escapeHtml(slug)}</code></p>
         <p><strong>Requested asset:</strong> <code>${escapeHtml(relativePath)}</code></p>
-        <p><strong>Expected local path:</strong> <code>${escapeHtml(filePath)}</code></p>
         <div class="callout">
           <p><strong>Next step</strong></p>
           <p>Restore the missing file under <code>projects/${escapeHtml(slug)}/workspace/assets</code> and then run <code>npm run verify -- --project ${escapeHtml(slug)}</code>.</p>
@@ -297,8 +293,7 @@ export async function handlePreviewRoutes(
             buildMissingReferencePreview({
               slug: referencePreviewMatch[2],
               resourceRoot: referencePreviewMatch[1] as "raw" | "extracted",
-              relativePath: decodeURIComponent(referencePreviewMatch[3] || ""),
-              filePath
+              relativePath: decodeURIComponent(referencePreviewMatch[3] || "")
             }),
             request,
             options
@@ -306,7 +301,7 @@ export async function handlePreviewRoutes(
           return true;
         }
 
-        sendJson(response, 404, { error: `Reference preview file not found: ${filePath}` });
+        sendJson(response, 404, { error: "Reference preview file not found." });
         return true;
       }
 
@@ -314,10 +309,8 @@ export async function handlePreviewRoutes(
       const contentType = applyDetectedCharset(resolveContentType(filePath), body);
       response.setHeader("Content-Type", contentType);
       response.end(contentType.startsWith("text/html") ? decorateHtmlResponse(body, request, options) : body);
-    } catch (error) {
-      sendJson(response, 403, {
-        error: error instanceof Error ? error.message : "Invalid reference preview request."
-      });
+  } catch {
+    sendJson(response, 403, { error: "Invalid reference preview request." });
     }
 
     return true;
@@ -341,17 +334,16 @@ export async function handlePreviewRoutes(
         response.setHeader("X-Canvas-Helper-Preview-Error", "missing-workspace-resource");
         response.end(decorateHtmlResponse(
           buildMissingWorkspacePreview({
-            slug: previewMatch[2],
-            relativePath: decodeURIComponent(previewMatch[3] || ""),
-            filePath
-          }),
+              slug: previewMatch[2],
+              relativePath: decodeURIComponent(previewMatch[3] || "")
+            }),
           request,
           options
         ));
         return true;
       }
 
-      sendJson(response, 404, { error: `Preview file not found: ${filePath}` });
+      sendJson(response, 404, { error: "Preview file not found." });
       return true;
     }
 
@@ -359,10 +351,8 @@ export async function handlePreviewRoutes(
     const contentType = applyDetectedCharset(resolveContentType(filePath), body);
     response.setHeader("Content-Type", contentType);
     response.end(contentType.startsWith("text/html") ? decorateHtmlResponse(body, request, options) : body);
-  } catch (error) {
-    sendJson(response, 403, {
-      error: error instanceof Error ? error.message : "Invalid preview request."
-    });
+  } catch {
+    sendJson(response, 403, { error: "Invalid preview request." });
   }
 
   return true;

@@ -54,6 +54,7 @@ test("missing html reference previews return an in-browser diagnostic instead of
     assert.match(getBody(), /Missing local course resource/i);
     assert.match(getBody(), new RegExp(slug.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
     assert.match(getBody(), /npm run refs -- --project/);
+    assert.equal(getBody().includes(paths.resourceDir), false);
   } finally {
     await removePath(paths.root);
     await removePath(paths.resourceDir);
@@ -84,9 +85,57 @@ test("missing html workspace previews return an in-browser diagnostic instead of
     assert.match(getBody(), /Missing local workspace asset/i);
     assert.match(getBody(), new RegExp(slug.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
     assert.match(getBody(), /workspace\/assets/i);
+    assert.equal(getBody().includes(paths.workspaceDir), false);
   } finally {
     await removePath(paths.root);
     await removePath(paths.resourceDir);
+  }
+});
+
+test("preview failures never disclose absolute local paths", async () => {
+  const slug = `preview-private-path-${Date.now()}`;
+  const paths = getProjectPaths(slug);
+
+  await removePath(paths.root);
+  try {
+    await ensureDir(paths.workspaceDir);
+    const { response, getBody } = createResponseRecorder();
+    const handled = await handlePreviewRoutes(
+      `/preview/workspace/${slug}/assets/missing-assignment.txt`,
+      { method: "GET" } as IncomingMessage,
+      response
+    );
+
+    assert.equal(handled, true);
+    assert.equal(response.statusCode, 404);
+    assert.doesNotMatch(getBody(), new RegExp(paths.workspaceDir.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")));
+    assert.doesNotMatch(getBody(), /\/Users\//);
+    assert.match(getBody(), /Preview file not found/i);
+  } finally {
+    await removePath(paths.root);
+  }
+});
+
+test("a trailing workspace preview URL uses the declared index entry", async () => {
+  const slug = `preview-default-entry-${Date.now()}`;
+  const paths = getProjectPaths(slug);
+
+  await removePath(paths.root);
+  try {
+    await ensureDir(paths.workspaceDir);
+    await (await import("node:fs/promises")).writeFile(paths.workspaceEntrypoint, "<main>Default workspace entry</main>", "utf8");
+    const { response, getBody } = createResponseRecorder();
+    const handled = await handlePreviewRoutes(
+      `/preview/workspace/${slug}/`,
+      { method: "GET" } as IncomingMessage,
+      response
+    );
+
+    assert.equal(handled, true);
+    assert.equal(response.statusCode, 200);
+    assert.match(getBody(), /Default workspace entry/);
+  } finally {
+    await removePath(paths.root);
   }
 });
 

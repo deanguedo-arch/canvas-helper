@@ -12,6 +12,7 @@ type InspectionPanelProps = {
   packetError: string;
   copyStatus: string;
   screenshotSupported: boolean;
+  screenshotCanCapture: boolean;
   screenshotStatus: "idle" | "capturing" | "ready" | "error";
   screenshotError: string;
   screenshot: ScreenshotAnnotationState | null;
@@ -34,6 +35,7 @@ export function InspectionPanel({
   packetError,
   copyStatus,
   screenshotSupported,
+  screenshotCanCapture,
   screenshotStatus,
   screenshotError,
   screenshot,
@@ -117,7 +119,7 @@ export function InspectionPanel({
             <button
               type="button"
               className="ghost-button compact"
-              disabled={!screenshotSupported || screenshotStatus === "capturing"}
+              disabled={!screenshotSupported || !screenshotCanCapture || screenshotStatus === "capturing"}
               onClick={onCaptureScreenshot}
               data-testid="capture-annotated-screenshot"
             >
@@ -126,6 +128,7 @@ export function InspectionPanel({
             <span>Your browser will ask what to share—choose this Studio tab. Canvas Helper captures one frame locally and downloads nothing until you review it.</span>
           </div>
           {!screenshotSupported ? <p className="inspection-warning">This browser does not offer tab screenshot capture.</p> : null}
+          {!screenshotCanCapture ? <p className="inspection-warning">Select a source-mapped preview element before capturing a screenshot.</p> : null}
           {screenshotError ? <p className="inspection-warning">{screenshotError}</p> : null}
           {screenshot ? (
             <ScreenshotAnnotation

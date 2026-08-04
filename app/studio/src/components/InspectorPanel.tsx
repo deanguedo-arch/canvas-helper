@@ -17,6 +17,7 @@ type InspectorPanelProps = {
   inspectionPacketError: string;
   inspectionCopyStatus: string;
   screenshotSupported: boolean;
+  screenshotCanCapture: boolean;
   screenshotStatus: "idle" | "capturing" | "ready" | "error";
   screenshotError: string;
   screenshot: ScreenshotAnnotationState | null;
@@ -42,6 +43,7 @@ export function InspectorPanel({
   inspectionPacketError,
   inspectionCopyStatus,
   screenshotSupported,
+  screenshotCanCapture,
   screenshotStatus,
   screenshotError,
   screenshot,
@@ -65,6 +67,7 @@ export function InspectorPanel({
         packetError={inspectionPacketError}
         copyStatus={inspectionCopyStatus}
         screenshotSupported={screenshotSupported}
+        screenshotCanCapture={screenshotCanCapture}
         screenshotStatus={screenshotStatus}
         screenshotError={screenshotError}
         screenshot={screenshot}
