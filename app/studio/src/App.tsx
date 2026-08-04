@@ -10,7 +10,11 @@ import { WorkspacePicker } from "./components/WorkspacePicker";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
-import { useScreenshotAnnotation } from "./hooks/useScreenshotAnnotation";
+import {
+  downloadScreenshotAnnotation,
+  revokeScreenshotAnnotation,
+  useScreenshotAnnotation
+} from "./hooks/useScreenshotAnnotation";
 import { useProjectCommands } from "./hooks/useProjectCommands";
 import { useProjects } from "./hooks/useProjects";
 import { useReferenceTarget } from "./hooks/useReferenceTarget";
@@ -22,8 +26,38 @@ import {
 } from "./lib/types";
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
 import { buildCodexPacket } from "./lib/codex-packet";
-import type { InspectionIssueCategory, InspectionResolution, InspectionSelection } from "../../shared/inspection.js";
+import {
+  buildReviewSetPacket,
+  createReviewSetItem,
+  hasSameMaterialResolution,
+  REVIEW_SET_MAX_ITEMS,
+  REVIEW_SET_NOTE_MAX_BYTES,
+  reviewSetItemIdentity,
+  utf8ByteLength,
+  type PreparedReviewSetPacket,
+  type ReviewSetItem
+} from "./lib/review-set";
+import type {
+  InspectionIssueCategory,
+  InspectionResolution,
+  InspectionResolveRequest,
+  InspectionSelection
+} from "../../shared/inspection.js";
 import type { PreviewInspectPayload } from "../../shared/preview-bridge.js";
+
+async function resolveInspectionRequest(request: InspectionResolveRequest, signal?: AbortSignal) {
+  const response = await fetch("/api/inspection/resolve", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(request),
+    signal
+  });
+  const payload = (await response.json().catch(() => ({}))) as InspectionResolution & { error?: string };
+  if (!response.ok || !payload.resolution) {
+    throw new Error(payload.error || "Canvas Helper could not resolve the selected element.");
+  }
+  return payload;
+}
 
 export function App() {
   const {
@@ -59,6 +93,7 @@ export function App() {
   const [studioMode, setStudioMode] = useState<"course" | "assessment">("course");
   const [inspectEnabled, setInspectEnabled] = useState(false);
   const [inspectionResolution, setInspectionResolution] = useState<InspectionResolution | null>(null);
+  const [inspectionRequest, setInspectionRequest] = useState<InspectionResolveRequest | null>(null);
   const [inspectionResolving, setInspectionResolving] = useState(false);
   const [inspectionTeacherNote, setInspectionTeacherNote] = useState("");
   const [inspectionIssueCategory, setInspectionIssueCategory] = useState<InspectionIssueCategory>("unsure");
@@ -67,6 +102,16 @@ export function App() {
   const [inspectionPreviewUrl, setInspectionPreviewUrl] = useState("");
   const inspectionScopeVersionRef = useRef(0);
   const screenshotAnnotation = useScreenshotAnnotation();
+  const [reviewSetItems, setReviewSetItems] = useState<ReviewSetItem[]>([]);
+  const reviewSetItemsRef = useRef<ReviewSetItem[]>([]);
+  const reviewSetVersionRef = useRef(0);
+  const reviewSetPreparationAbortRef = useRef<AbortController | null>(null);
+  const reviewSetItemIdRef = useRef(0);
+  const [reviewSetStatus, setReviewSetStatus] = useState("");
+  const [reviewSetPreparing, setReviewSetPreparing] = useState(false);
+  const [preparedReviewSet, setPreparedReviewSet] = useState<PreparedReviewSetPacket | null>(null);
+  const [reviewSetPacketError, setReviewSetPacketError] = useState("");
+  const [reviewSetCopyStatus, setReviewSetCopyStatus] = useState("");
   const selectedProject = useMemo(
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
@@ -172,10 +217,66 @@ export function App() {
   const screenshotClearRef = useRef(screenshotAnnotation.clear);
   screenshotClearRef.current = screenshotAnnotation.clear;
 
+  const replaceReviewSetItems = useCallback((nextItems: ReviewSetItem[]) => {
+    reviewSetItemsRef.current = nextItems;
+    setReviewSetItems(nextItems);
+  }, []);
+
+  const invalidateReviewSetPreparation = useCallback(() => {
+    reviewSetVersionRef.current += 1;
+    reviewSetPreparationAbortRef.current?.abort();
+    reviewSetPreparationAbortRef.current = null;
+    setReviewSetPreparing(false);
+    setPreparedReviewSet(null);
+    setReviewSetPacketError("");
+    setReviewSetCopyStatus("");
+  }, []);
+
+  const clearReviewSet = useCallback(
+    (status = "") => {
+      invalidateReviewSetPreparation();
+      reviewSetItemsRef.current.forEach((item) => revokeScreenshotAnnotation(item.screenshot));
+      replaceReviewSetItems([]);
+      setReviewSetStatus(status);
+    },
+    [invalidateReviewSetPreparation, replaceReviewSetItems]
+  );
+
+  useEffect(
+    () => () => {
+      reviewSetPreparationAbortRef.current?.abort();
+      reviewSetItemsRef.current.forEach((item) => revokeScreenshotAnnotation(item.screenshot));
+    },
+    []
+  );
+
+  useEffect(() => {
+    const firstItem = reviewSetItemsRef.current[0];
+    if (firstItem && (firstItem.request.projectSlug !== selectedSlug || firstItem.previewMode !== previewMode)) {
+      clearReviewSet("Review Set cleared because the course or preview mode changed.");
+    }
+  }, [clearReviewSet, previewMode, selectedSlug]);
+
+  const confirmReviewSetScopeChange = useCallback(
+    (nextProjectSlug: string, nextPreviewMode: PreviewMode) => {
+      const firstItem = reviewSetItemsRef.current[0];
+      if (!firstItem || (firstItem.request.projectSlug === nextProjectSlug && firstItem.previewMode === nextPreviewMode)) {
+        return true;
+      }
+      if (typeof window !== "undefined" && !window.confirm("Switching course or preview mode clears the current Review Set. Continue?")) {
+        return false;
+      }
+      clearReviewSet("Review Set cleared because the course or preview mode changed.");
+      return true;
+    },
+    [clearReviewSet]
+  );
+
   const resetInspection = useCallback(
     (resetTeacherInput = false) => {
       inspectionScopeVersionRef.current += 1;
       setInspectionResolution(null);
+      setInspectionRequest(null);
       setInspectionResolving(false);
       setInspectionCopyStatus("");
       setInspectionPreviewMode(previewMode);
@@ -226,6 +327,7 @@ export function App() {
     screenshotAnnotation.clear();
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
     setInspectionResolution(null);
+    setInspectionRequest(null);
     setInspectionResolving(true);
     setInspectionCopyStatus("");
 
@@ -253,24 +355,18 @@ export function App() {
     }
 
     try {
-      const response = await fetch("/api/inspection/resolve", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          projectSlug: target.projectSlug,
-          root: target.root,
-          htmlPath: target.htmlPath,
-          selection: selectionPayload
-        })
-      });
-      const payload = (await response.json().catch(() => ({}))) as InspectionResolution & { error?: string };
-      if (!response.ok || !payload.resolution) {
-        throw new Error(payload.error || "Canvas Helper could not resolve the selected element.");
-      }
+      const request: InspectionResolveRequest = {
+        projectSlug: target.projectSlug,
+        root: target.root,
+        htmlPath: target.htmlPath,
+        selection: selectionPayload
+      };
+      const payload = await resolveInspectionRequest(request);
       if (!isCurrentRequest()) {
         return;
       }
       setInspectionResolution(payload);
+      setInspectionRequest(request);
     } catch (error) {
       if (!isCurrentRequest()) {
         return;
@@ -331,6 +427,36 @@ export function App() {
       ].filter((filePath): filePath is string => Boolean(filePath))
     : [];
 
+  const reviewSetAddAvailability = useMemo(() => {
+    if (reviewSetPreparing) {
+      return { canAdd: false, reason: "Wait for the current batch check to finish." };
+    }
+    if (!inspectionResolution || !inspectionRequest) {
+      return { canAdd: false, reason: "Select a workspace element first." };
+    }
+    if (
+      inspectionPreviewMode !== "workspace" ||
+      inspectionRequest.root !== "workspace" ||
+      inspectionRequest.projectSlug !== selectedSlug ||
+      inspectionRequest.projectSlug !== inspectionResolution.projectSlug ||
+      !inspectionRequest.selection.nodeId ||
+      inspectionRequest.selection.nodeId !== inspectionResolution.selection.nodeId
+    ) {
+      return { canAdd: false, reason: "Only current source-mapped workspace selections can be saved." };
+    }
+    if (reviewSetItems.length >= REVIEW_SET_MAX_ITEMS) {
+      return { canAdd: false, reason: "This Review Set already has its five saved items." };
+    }
+    const identity = reviewSetItemIdentity(inspectionRequest, inspectionPreviewMode);
+    if (!identity || reviewSetItems.some((item) => item.identity === identity)) {
+      return { canAdd: false, reason: "This exact selection is already saved." };
+    }
+    if (utf8ByteLength(inspectionTeacherNote) > REVIEW_SET_NOTE_MAX_BYTES) {
+      return { canAdd: false, reason: `Keep the teacher note to ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.` };
+    }
+    return { canAdd: true, reason: "" };
+  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, reviewSetItems, reviewSetPreparing, selectedSlug]);
+
   const copyToClipboard = async (value: string) => {
     await navigator.clipboard.writeText(value);
   };
@@ -343,6 +469,167 @@ export function App() {
       .writeText(inspectionPacketState.packet)
       .then(() => setInspectionCopyStatus("Copied. Paste this into a Codex task."))
       .catch(() => setInspectionCopyStatus("Clipboard access was blocked. Select the packet and copy it manually."));
+  };
+
+  const addCurrentInspectionToReviewSet = () => {
+    if (!reviewSetAddAvailability.canAdd || !inspectionResolution || !inspectionRequest) {
+      setReviewSetStatus(reviewSetAddAvailability.reason || "Select a workspace element before saving it to the Review Set.");
+      return;
+    }
+
+    try {
+      const item = createReviewSetItem({
+        id: `review-${Date.now()}-${++reviewSetItemIdRef.current}`,
+        previewMode: inspectionPreviewMode,
+        request: inspectionRequest,
+        resolution: inspectionResolution,
+        issueCategory: inspectionIssueCategory,
+        teacherNote: inspectionTeacherNote,
+        screenshot: screenshotAnnotation.annotation
+      });
+      invalidateReviewSetPreparation();
+      screenshotAnnotation.consume();
+      replaceReviewSetItems([...reviewSetItemsRef.current, item]);
+      setInspectionTeacherNote("");
+      setInspectionIssueCategory("unsure");
+      setReviewSetStatus(`Saved item ${reviewSetItemsRef.current.length}.`);
+    } catch (error) {
+      setReviewSetStatus(error instanceof Error ? error.message : "Could not save this inspection.");
+    }
+  };
+
+  const removeReviewSetItem = (id: string) => {
+    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
+    if (!item) {
+      return;
+    }
+    invalidateReviewSetPreparation();
+    revokeScreenshotAnnotation(item.screenshot);
+    replaceReviewSetItems(reviewSetItemsRef.current.filter((candidate) => candidate.id !== id));
+    setReviewSetStatus("Removed saved item.");
+  };
+
+  const moveReviewSetItem = (id: string, direction: "up" | "down") => {
+    const currentItems = reviewSetItemsRef.current;
+    const currentIndex = currentItems.findIndex((item) => item.id === id);
+    const nextIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
+    if (currentIndex < 0 || nextIndex < 0 || nextIndex >= currentItems.length) {
+      return;
+    }
+    const nextItems = [...currentItems];
+    [nextItems[currentIndex], nextItems[nextIndex]] = [nextItems[nextIndex], nextItems[currentIndex]];
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems(nextItems);
+    setReviewSetStatus("Reordered saved items.");
+  };
+
+  const changeReviewSetTeacherNote = (id: string, teacherNote: string) => {
+    if (utf8ByteLength(teacherNote) > REVIEW_SET_NOTE_MAX_BYTES) {
+      setReviewSetStatus(`Each saved teacher note must be ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.`);
+      return;
+    }
+    if (!reviewSetItemsRef.current.some((item) => item.id === id)) {
+      return;
+    }
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems(
+      reviewSetItemsRef.current.map((item) => (item.id === id ? { ...item, teacherNote } : item))
+    );
+    setReviewSetStatus("");
+  };
+
+  const downloadReviewSetScreenshot = (id: string) => {
+    const screenshot = reviewSetItemsRef.current.find((item) => item.id === id)?.screenshot;
+    if (!screenshot) {
+      return;
+    }
+    void downloadScreenshotAnnotation(screenshot).catch((error) => {
+      setReviewSetStatus(error instanceof Error ? error.message : "The saved annotation could not be downloaded.");
+    });
+  };
+
+  const removeReviewSetScreenshot = (id: string) => {
+    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
+    if (!item?.screenshot) {
+      return;
+    }
+    invalidateReviewSetPreparation();
+    revokeScreenshotAnnotation(item.screenshot);
+    replaceReviewSetItems(
+      reviewSetItemsRef.current.map((candidate) => (candidate.id === id ? { ...candidate, screenshot: null } : candidate))
+    );
+    setReviewSetStatus("Removed saved annotation.");
+  };
+
+  const prepareReviewSet = () => {
+    const savedItems = [...reviewSetItemsRef.current];
+    if (!savedItems.length) {
+      setReviewSetPacketError("Add at least one item before preparing a Review Set handoff.");
+      return;
+    }
+
+    reviewSetPreparationAbortRef.current?.abort();
+    const controller = new AbortController();
+    reviewSetPreparationAbortRef.current = controller;
+    const preparationVersion = reviewSetVersionRef.current;
+    setReviewSetPreparing(true);
+    setPreparedReviewSet(null);
+    setReviewSetPacketError("");
+    setReviewSetCopyStatus("");
+    setReviewSetStatus("Revalidating saved source mappings…");
+
+    void Promise.all(
+      savedItems.map(async (item, index) => {
+        const resolution = await resolveInspectionRequest(item.request, controller.signal);
+        if (resolution.freshness === "stale") {
+          throw new Error(`Item ${index + 1} is stale. Remove it, select it again, and save a new item.`);
+        }
+        if (!hasSameMaterialResolution(item.resolution, resolution)) {
+          throw new Error(`Item ${index + 1} changed source ownership. Remove it, inspect it again, and save a new item.`);
+        }
+        return { item, resolution };
+      })
+    )
+      .then((items) => {
+        if (controller.signal.aborted || reviewSetVersionRef.current !== preparationVersion) {
+          return;
+        }
+        const packet = buildReviewSetPacket({
+          projectSlug: savedItems[0].request.projectSlug,
+          previewMode: savedItems[0].previewMode,
+          items
+        });
+        setPreparedReviewSet(packet);
+        setReviewSetStatus(`Prepared ${items.length} saved item${items.length === 1 ? "" : "s"}.`);
+      })
+      .catch((error) => {
+        if (controller.signal.aborted || reviewSetVersionRef.current !== preparationVersion) {
+          return;
+        }
+        setReviewSetPacketError(error instanceof Error ? error.message : "Could not prepare the Review Set handoff.");
+        setReviewSetStatus("");
+      })
+      .finally(() => {
+        if (reviewSetPreparationAbortRef.current === controller) {
+          reviewSetPreparationAbortRef.current = null;
+          setReviewSetPreparing(false);
+        }
+      });
+  };
+
+  const copyReviewSet = () => {
+    if (!preparedReviewSet || reviewSetPreparing) {
+      return;
+    }
+    const currentIds = reviewSetItemsRef.current.map((item) => item.id);
+    if (preparedReviewSet.itemIds.join("\u001f") !== currentIds.join("\u001f")) {
+      setReviewSetCopyStatus("This Review Set changed. Prepare it again before copying.");
+      return;
+    }
+    void navigator.clipboard
+      .writeText(preparedReviewSet.packet)
+      .then(() => setReviewSetCopyStatus("Copied. Paste this one packet into a Codex task."))
+      .catch(() => setReviewSetCopyStatus("Clipboard access was blocked. Select the packet and copy it manually."));
   };
 
   const captureInspectionScreenshot = () => {
@@ -364,6 +651,11 @@ export function App() {
             ? { ...current, selection }
             : current
         );
+        setInspectionRequest((current) =>
+          current && current.selection.nodeId === selection.nodeId
+            ? { ...current, selection }
+            : current
+        );
       })
       .catch(() => undefined);
     void screenshotAnnotation.capture({
@@ -380,6 +672,9 @@ export function App() {
   };
 
   const handlePreviewModeChange = (nextMode: PreviewMode) => {
+    if (nextMode !== previewMode && !confirmReviewSetScopeChange(selectedSlug, nextMode)) {
+      return;
+    }
     persistAllVisibleScrollPositions();
     syncFocusModeScrollPosition(previewMode, nextMode);
     if (nextMode !== previewMode) {
@@ -578,6 +873,9 @@ export function App() {
                               resolvedWorkspaceHtmlPath={resolvedWorkspaceHtmlPath}
                               workspaceFileOptions={selectedProject.htmlFiles.workspace}
                               onProjectChange={(slug) => {
+                                if (!confirmReviewSetScopeChange(slug, "workspace")) {
+                                  return;
+                                }
                                 persistAllVisibleScrollPositions();
                                 resetInspection(true);
                                 setSelectedSlug(slug);
@@ -644,6 +942,23 @@ export function App() {
                 onScreenshotMarkerChange={screenshotAnnotation.updateMarker}
                 onDownloadScreenshot={() => void screenshotAnnotation.download()}
                 onDiscardScreenshot={screenshotAnnotation.clear}
+                reviewSetItems={reviewSetItems}
+                reviewSetCanAddCurrent={reviewSetAddAvailability.canAdd}
+                reviewSetAddDisabledReason={reviewSetAddAvailability.reason}
+                reviewSetStatus={reviewSetStatus}
+                reviewSetPreparing={reviewSetPreparing}
+                reviewSetPacket={preparedReviewSet?.packet ?? ""}
+                reviewSetPacketError={reviewSetPacketError}
+                reviewSetCopyStatus={reviewSetCopyStatus}
+                onAddCurrentInspectionToReviewSet={addCurrentInspectionToReviewSet}
+                onClearReviewSet={() => clearReviewSet("Cleared saved items.")}
+                onRemoveReviewSetItem={removeReviewSetItem}
+                onMoveReviewSetItem={moveReviewSetItem}
+                onReviewSetTeacherNoteChange={changeReviewSetTeacherNote}
+                onDownloadReviewSetScreenshot={downloadReviewSetScreenshot}
+                onRemoveReviewSetScreenshot={removeReviewSetScreenshot}
+                onPrepareReviewSet={prepareReviewSet}
+                onCopyReviewSet={copyReviewSet}
               />
             ) : null}
           </div>

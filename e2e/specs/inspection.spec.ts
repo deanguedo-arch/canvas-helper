@@ -72,6 +72,74 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
 });
 
+test("@inspection Review Set revalidates multiple saved selections before copying one packet", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await expect(page.getByTestId("add-to-review-set")).toBeEnabled();
+  await page.getByTestId("inspection-teacher-note").fill("Make this opening explanation more direct.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("inspection-packet")).toContainText("Fixture Module");
+  await page.getByTestId("inspection-teacher-note").fill("Explain what happens when learners select this.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(2);
+  await expect(page.getByTestId("add-to-review-set")).toBeDisabled();
+
+  await page.getByTestId("prepare-review-set").click();
+  await expect(page.getByTestId("review-set-packet")).toContainText("Items: 2");
+  await expect(page.getByTestId("review-set-packet")).toContainText("Screenshots: excluded");
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+
+  page.once("dialog", (dialog) => dialog.accept());
+  await page.getByTestId("preview-reference-toggle").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+});
+
+test("@inspection Review Set blocks a stale source recheck instead of copying an old selection", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await expect(page.getByTestId("add-to-review-set")).toBeEnabled();
+  await page.getByTestId("add-to-review-set").click();
+
+  await page.route("**/api/inspection/resolve", async (route) => {
+    const response = await route.fetch();
+    const payload = await response.json();
+    await route.fulfill({ response, json: { ...payload, freshness: "stale" } });
+  });
+  await page.getByTestId("prepare-review-set").click();
+  await expect(page.getByText(/Item 1 is stale/)).toBeVisible();
+  await expect(page.getByTestId("review-set-packet")).toHaveCount(0);
+  await expect(page.getByTestId("copy-review-set")).toBeDisabled();
+});
+
 test("@inspection changing projects clears a handoff and ignores a late source-resolution response", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
@@ -217,6 +285,11 @@ test("@inspection screenshot capture refreshes the selection and stops the local
   await page.getByTestId("capture-annotated-screenshot").click();
   await expect(page.getByTestId("screenshot-annotation")).toBeVisible();
   await expect(page.locator("html")).toHaveAttribute("data-e2e-capture-stopped", "true");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
+  await expect(page.getByTestId("review-set-screenshot")).toBeVisible();
+  await page.getByTestId("prepare-review-set").click();
+  await expect(page.getByTestId("review-set-packet")).not.toContainText("blob:");
 });
 
 test("@inspection changing projects during capture stops the stale stream without keeping an annotation", async ({ page }) => {

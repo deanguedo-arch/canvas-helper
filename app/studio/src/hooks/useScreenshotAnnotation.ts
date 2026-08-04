@@ -57,6 +57,46 @@ function canvasBlob(canvas: HTMLCanvasElement) {
   });
 }
 
+export function revokeScreenshotAnnotation(annotation: ScreenshotAnnotation | null | undefined) {
+  if (annotation?.imageUrl) {
+    URL.revokeObjectURL(annotation.imageUrl);
+  }
+}
+
+export async function downloadScreenshotAnnotation(annotation: ScreenshotAnnotation) {
+  let canvas: HTMLCanvasElement | null = null;
+  try {
+    const image = new Image();
+    image.src = annotation.imageUrl;
+    await image.decode();
+    canvas = document.createElement("canvas");
+    canvas.width = annotation.width;
+    canvas.height = annotation.height;
+    const context = canvas.getContext("2d");
+    if (!context) {
+      clearCanvas(canvas);
+      throw new Error("Canvas is unavailable in this browser.");
+    }
+    context.drawImage(image, 0, 0, annotation.width, annotation.height);
+    context.strokeStyle = "#dc2626";
+    context.lineWidth = Math.max(3, Math.round(Math.min(annotation.width, annotation.height) / 260));
+    context.setLineDash([context.lineWidth * 2, context.lineWidth]);
+    context.strokeRect(annotation.marker.x, annotation.marker.y, annotation.marker.width, annotation.marker.height);
+    const blob = await canvasBlob(canvas);
+    clearCanvas(canvas);
+    canvas = null;
+    const downloadUrl = URL.createObjectURL(blob);
+    const link = document.createElement("a");
+    link.href = downloadUrl;
+    link.download = "canvas-helper-inspection.png";
+    link.click();
+    window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 0);
+  } catch (downloadError) {
+    clearCanvas(canvas);
+    throw downloadError;
+  }
+}
+
 function assertCurrentPreview(iframe: HTMLIFrameElement, expectedPreviewUrl: string) {
   if (!expectedPreviewUrl || iframe.src !== new URL(expectedPreviewUrl, window.location.href).href) {
     throw new Error("The preview changed after selection. Select the element again before capturing a screenshot.");
@@ -192,9 +232,15 @@ async function captureFrameCanvas(stream: MediaStream) {
 export function useScreenshotAnnotation() {
   const objectUrlRef = useRef<string | null>(null);
   const activeCaptureRef = useRef<ActiveCapture | null>(null);
+  const annotationRef = useRef<ScreenshotAnnotation | null>(null);
   const [annotation, setAnnotation] = useState<ScreenshotAnnotation | null>(null);
   const [status, setStatus] = useState<"idle" | "capturing" | "ready" | "error">("idle");
   const [error, setError] = useState("");
+
+  const setCurrentAnnotation = (value: ScreenshotAnnotation | null) => {
+    annotationRef.current = value;
+    setAnnotation(value);
+  };
 
   const releaseObjectUrl = () => {
     if (objectUrlRef.current) {
@@ -223,7 +269,7 @@ export function useScreenshotAnnotation() {
   const clear = () => {
     cancelCapture();
     releaseObjectUrl();
-    setAnnotation(null);
+    setCurrentAnnotation(null);
     setStatus("idle");
     setError("");
   };
@@ -231,7 +277,7 @@ export function useScreenshotAnnotation() {
   const reportError = (message: string) => {
     cancelCapture();
     releaseObjectUrl();
-    setAnnotation(null);
+    setCurrentAnnotation(null);
     setStatus("error");
     setError(message);
   };
@@ -314,7 +360,7 @@ export function useScreenshotAnnotation() {
         return;
       }
       objectUrlRef.current = imageUrl;
-      setAnnotation({ imageUrl, width: cropCanvas.width, height: cropCanvas.height, marker: crop.marker });
+      setCurrentAnnotation({ imageUrl, width: cropCanvas.width, height: cropCanvas.height, marker: crop.marker });
       setStatus("ready");
     } catch (captureError) {
       if (!isActiveCapture()) {
@@ -331,50 +377,43 @@ export function useScreenshotAnnotation() {
   };
 
   const updateMarker = (marker: AnnotationRect) => {
-    setAnnotation((current) =>
-      current
-        ? {
-            ...current,
-            marker: normalizeMarker(marker, current.width, current.height)
-          }
-        : current
-    );
+    const current = annotationRef.current;
+    if (!current) {
+      return;
+    }
+    setCurrentAnnotation({
+      ...current,
+      marker: normalizeMarker(marker, current.width, current.height)
+    });
+  };
+
+  const consume = () => {
+    const current = annotationRef.current;
+    if (!current) {
+      return null;
+    }
+    cancelCapture();
+    if (objectUrlRef.current === current.imageUrl) {
+      objectUrlRef.current = null;
+    }
+    setCurrentAnnotation(null);
+    setStatus("idle");
+    setError("");
+    return {
+      ...current,
+      marker: { ...current.marker }
+    };
   };
 
   const download = async () => {
-    if (!annotation) {
+    const current = annotationRef.current;
+    if (!current) {
       return;
     }
-    let canvas: HTMLCanvasElement | null = null;
     try {
-      const image = new Image();
-      image.src = annotation.imageUrl;
-      await image.decode();
-      canvas = document.createElement("canvas");
-      canvas.width = annotation.width;
-      canvas.height = annotation.height;
-      const context = canvas.getContext("2d");
-      if (!context) {
-        clearCanvas(canvas);
-        throw new Error("Canvas is unavailable in this browser.");
-      }
-      context.drawImage(image, 0, 0, annotation.width, annotation.height);
-      context.strokeStyle = "#dc2626";
-      context.lineWidth = Math.max(3, Math.round(Math.min(annotation.width, annotation.height) / 260));
-      context.setLineDash([context.lineWidth * 2, context.lineWidth]);
-      context.strokeRect(annotation.marker.x, annotation.marker.y, annotation.marker.width, annotation.marker.height);
-      const blob = await canvasBlob(canvas);
-      clearCanvas(canvas);
-      canvas = null;
-      const downloadUrl = URL.createObjectURL(blob);
-      const link = document.createElement("a");
-      link.href = downloadUrl;
-      link.download = "canvas-helper-inspection.png";
-      link.click();
-      window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 0);
+      await downloadScreenshotAnnotation(current);
       clear();
     } catch (downloadError) {
-      clearCanvas(canvas);
       setStatus("error");
       setError(downloadError instanceof Error ? downloadError.message : "The annotated screenshot could not be downloaded.");
     }
@@ -388,6 +427,7 @@ export function useScreenshotAnnotation() {
     capture,
     updateMarker,
     download,
+    consume,
     clear,
     reportError
   };

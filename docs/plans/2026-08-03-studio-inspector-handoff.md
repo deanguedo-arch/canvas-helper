@@ -22,6 +22,12 @@ The planned workflow is now implemented in the Studio shell without changing a c
 
 Focused proof currently includes 20 Inspector/security tests, eight Inspector browser tests, Studio production build, direct/Social/English ownership checks, and path/origin negative tests. Repository-wide typecheck retains pre-existing unrelated errors; the implementation adds none.
 
+## Review Set V1 follow-on — 2026-08-04
+
+The Inspector now has a deliberately small multi-selection follow-on: **Review Set**. It is a volatile, in-memory queue of up to five source-mapped workspace selections that prepares one bounded 5 KB handoff only after replaying every original resolver request. Screenshots can be retained locally per item and individually downloaded, but are excluded from the copied text. It does not change learner content, does not create history, and does not make Social 10 source ownership appear solved; its proposal-only result remains fail-closed until a separate adapter proves a zero-content-diff rebuild path.
+
+The exact Review Set contract, teacher flow, Social 10 boundary, and proof matrix are recorded in `docs/plans/2026-08-04-studio-review-set.md`.
+
 ## Historical pre-implementation plan
 
 The remaining sections record the original vetted rationale, design choices, and phase gates. When they conflict with the implementation record above, the implementation record is current: the nonce design was replaced by a private port handshake, and the later consent-based screenshot phase has now passed its local implementation gate.

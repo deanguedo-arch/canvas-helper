@@ -2,6 +2,13 @@ import assert from "node:assert/strict";
 import test from "node:test";
 
 import { buildCodexPacket } from "../../app/studio/src/lib/codex-packet.ts";
+import {
+  buildReviewSetPacket,
+  createReviewSetItem,
+  REVIEW_SET_MAX_ITEMS,
+  REVIEW_SET_NOTE_MAX_BYTES,
+  utf8ByteLength
+} from "../../app/studio/src/lib/review-set.ts";
 import { INSPECTION_PACKET_MAX_BYTES, type InspectionResolution } from "../../app/shared/inspection.ts";
 
 const baseResolution: InspectionResolution = {
@@ -86,4 +93,141 @@ test("Codex packet includes a validated exact source line", () => {
   });
 
   assert.match(packet, /Primary edit target: projects\/forensics35\/workspace\/index\.html:42/);
+});
+
+function reviewSetItem(id: string, resolution: InspectionResolution, teacherNote = "Clarify the wording for students.") {
+  return createReviewSetItem({
+    id,
+    previewMode: "workspace",
+    request: {
+      projectSlug: resolution.projectSlug,
+      root: "workspace",
+      htmlPath: "index.html",
+      selection: resolution.selection
+    },
+    resolution,
+    issueCategory: "content",
+    teacherNote
+  });
+}
+
+test("Review Set packet keeps multiple inspected items in one bounded, screenshot-free handoff", () => {
+  const first = reviewSetItem("review-1", baseResolution);
+  const secondResolution: InspectionResolution = {
+    ...baseResolution,
+    selection: {
+      ...baseResolution.selection,
+      nodeId: "ch1:1234567890abcdef12345678:2",
+      tagName: "button",
+      visibleText: "Open the source analysis"
+    }
+  };
+  const second = reviewSetItem("review-2", secondResolution, "Make the button purpose more obvious.");
+
+  const prepared = buildReviewSetPacket({
+    projectSlug: baseResolution.projectSlug,
+    previewMode: "workspace",
+    items: [
+      { item: first, resolution: baseResolution },
+      { item: second, resolution: secondResolution }
+    ]
+  });
+
+  assert.ok(prepared.byteLength <= INSPECTION_PACKET_MAX_BYTES);
+  assert.equal(prepared.byteLength, utf8ByteLength(prepared.packet));
+  assert.match(prepared.packet, /^# Canvas Helper Review Set handoff/m);
+  assert.match(prepared.packet, /## Item 1/);
+  assert.match(prepared.packet, /## Item 2/);
+  assert.match(prepared.packet, /Screenshots: excluded — download individual annotations separately/);
+  assert.match(prepared.packet, /Packet bytes: 0*\d+/);
+  assert.doesNotMatch(prepared.packet, /blob:/);
+});
+
+test("Review Set rejects an overlong note instead of shortening it", () => {
+  assert.throws(
+    () => reviewSetItem("review-too-long", baseResolution, "😀".repeat(65)),
+    new RegExp(`${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer`)
+  );
+});
+
+test("Review Set marks an excerpt only when its fixed 256-byte limit shortens it", () => {
+  const longExcerptResolution: InspectionResolution = {
+    ...baseResolution,
+    selection: {
+      ...baseResolution.selection,
+      visibleText: "evidence ".repeat(80)
+    }
+  };
+  const item = reviewSetItem("review-excerpt", longExcerptResolution);
+  const prepared = buildReviewSetPacket({
+    projectSlug: longExcerptResolution.projectSlug,
+    previewMode: "workspace",
+    items: [{ item, resolution: longExcerptResolution }]
+  });
+
+  assert.ok(utf8ByteLength(item.excerpt) <= 256);
+  assert.equal(item.excerptTruncated, true);
+  assert.match(prepared.packet, /Untrusted visible text excerpt \(truncated\):/);
+});
+
+test("Review Set rejects excess items and total packet overflow instead of omitting content", () => {
+  const items = Array.from({ length: REVIEW_SET_MAX_ITEMS + 1 }, (_, index) => {
+    const resolution: InspectionResolution = {
+      ...baseResolution,
+      selection: {
+        ...baseResolution.selection,
+        nodeId: `ch1:1234567890abcdef12345678:${index + 1}`
+      }
+    };
+    return { item: reviewSetItem(`review-${index}`, resolution), resolution };
+  });
+  assert.throws(
+    () => buildReviewSetPacket({ projectSlug: baseResolution.projectSlug, previewMode: "workspace", items }),
+    /at most 5 items/
+  );
+
+  const oversizedItems = Array.from({ length: REVIEW_SET_MAX_ITEMS }, (_, index) => {
+    const resolution: InspectionResolution = {
+      ...baseResolution,
+      selection: {
+        ...baseResolution.selection,
+        nodeId: `ch1:1234567890abcdef12345678:${index + 1}`
+      },
+      warnings: ["Evidence ".repeat(100)]
+    };
+    return { item: reviewSetItem(`review-large-${index}`, resolution), resolution };
+  });
+  assert.throws(
+    () => buildReviewSetPacket({ projectSlug: baseResolution.projectSlug, previewMode: "workspace", items: oversizedItems }),
+    /reduce notes or remove an item/
+  );
+});
+
+test("Review Set preserves the proposal-only diagnostic without inventing a source target", () => {
+  const proposalOnly: InspectionResolution = {
+    ...baseResolution,
+    projectSlug: "social10-1-related-issue-1-option-2",
+    previewPath: "projects/social10-1-related-issue-1-option-2/workspace/index.html",
+    resolution: "unknown",
+    freshness: "current",
+    artifactRole: "unknown",
+    generated: false,
+    primaryEditTarget: null,
+    primaryEditLine: null,
+    contributors: [],
+    rebuildCommand: null,
+    validationCommand: "npm run course:doctor -- --project social10-1-related-issue-1-option-2",
+    warnings: ["This project is proposal-only; an inspect selection cannot safely identify a primary write target."]
+  };
+  const item = reviewSetItem("proposal-only", proposalOnly, "Investigate why this interaction feels confusing.");
+  const prepared = buildReviewSetPacket({
+    projectSlug: proposalOnly.projectSlug,
+    previewMode: "workspace",
+    items: [{ item, resolution: proposalOnly }]
+  });
+
+  assert.match(prepared.packet, /Resolution: unknown/);
+  assert.match(prepared.packet, /Primary edit target: none — investigate source ownership before editing/);
+  assert.match(prepared.packet, /proposal-only/i);
+  assert.doesNotMatch(prepared.packet, /candidate source/i);
 });

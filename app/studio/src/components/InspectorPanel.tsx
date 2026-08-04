@@ -2,7 +2,9 @@ import { toCursorHref } from "../lib/projects";
 import type { ProjectBundle } from "../lib/types";
 import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
 import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
+import type { ReviewSetItem } from "../lib/review-set";
 import { InspectionPanel } from "./InspectionPanel";
+import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
   selectedProject: ProjectBundle | null;
@@ -28,6 +30,23 @@ type InspectorPanelProps = {
   onScreenshotMarkerChange: (marker: AnnotationRect) => void;
   onDownloadScreenshot: () => void;
   onDiscardScreenshot: () => void;
+  reviewSetItems: ReviewSetItem[];
+  reviewSetCanAddCurrent: boolean;
+  reviewSetAddDisabledReason: string;
+  reviewSetStatus: string;
+  reviewSetPreparing: boolean;
+  reviewSetPacket: string;
+  reviewSetPacketError: string;
+  reviewSetCopyStatus: string;
+  onAddCurrentInspectionToReviewSet: () => void;
+  onClearReviewSet: () => void;
+  onRemoveReviewSetItem: (id: string) => void;
+  onMoveReviewSetItem: (id: string, direction: "up" | "down") => void;
+  onReviewSetTeacherNoteChange: (id: string, value: string) => void;
+  onDownloadReviewSetScreenshot: (id: string) => void;
+  onRemoveReviewSetScreenshot: (id: string) => void;
+  onPrepareReviewSet: () => void;
+  onCopyReviewSet: () => void;
 };
 
 export function InspectorPanel({
@@ -53,7 +72,24 @@ export function InspectorPanel({
   onCaptureScreenshot,
   onScreenshotMarkerChange,
   onDownloadScreenshot,
-  onDiscardScreenshot
+  onDiscardScreenshot,
+  reviewSetItems,
+  reviewSetCanAddCurrent,
+  reviewSetAddDisabledReason,
+  reviewSetStatus,
+  reviewSetPreparing,
+  reviewSetPacket,
+  reviewSetPacketError,
+  reviewSetCopyStatus,
+  onAddCurrentInspectionToReviewSet,
+  onClearReviewSet,
+  onRemoveReviewSetItem,
+  onMoveReviewSetItem,
+  onReviewSetTeacherNoteChange,
+  onDownloadReviewSetScreenshot,
+  onRemoveReviewSetScreenshot,
+  onPrepareReviewSet,
+  onCopyReviewSet
 }: InspectorPanelProps) {
   return (
     <section className="inspector">
@@ -78,6 +114,25 @@ export function InspectorPanel({
         onScreenshotMarkerChange={onScreenshotMarkerChange}
         onDownloadScreenshot={onDownloadScreenshot}
         onDiscardScreenshot={onDiscardScreenshot}
+      />
+      <ReviewSetPanel
+        items={reviewSetItems}
+        canAddCurrent={reviewSetCanAddCurrent}
+        addDisabledReason={reviewSetAddDisabledReason}
+        status={reviewSetStatus}
+        preparing={reviewSetPreparing}
+        packet={reviewSetPacket}
+        packetError={reviewSetPacketError}
+        copyStatus={reviewSetCopyStatus}
+        onAddCurrent={onAddCurrentInspectionToReviewSet}
+        onClear={onClearReviewSet}
+        onRemove={onRemoveReviewSetItem}
+        onMove={onMoveReviewSetItem}
+        onTeacherNoteChange={onReviewSetTeacherNoteChange}
+        onDownloadScreenshot={onDownloadReviewSetScreenshot}
+        onRemoveScreenshot={onRemoveReviewSetScreenshot}
+        onPrepare={onPrepareReviewSet}
+        onCopy={onCopyReviewSet}
       />
       <div className="panel-card">
         <div className="section-header">
