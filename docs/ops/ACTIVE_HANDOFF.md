@@ -1,8 +1,8 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Implement the API-free Studio Inspector, secure preview boundary, concise Codex handoff, consent-based screenshot annotation, and reusable Science-pilot operating path.
-- Status: implementation complete, pushed, and independently re-reviewed `GREEN` at `ac9081c12cf26e7d7be7db4001a5d362dabfe0ab`; the first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
+- Task: Implement the API-free Studio Inspector, secure preview boundary, concise Codex handoff, and consent-based screenshot annotation. A real Science pilot is intentionally excluded from this delivery.
+- Status: Studio phases 0–5 are complete, pushed, live red-team tested, and independently re-reviewed `GREEN` at `65282e44636f310ada1a980ebc42e00492b6c876`; the first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
 
 ## Summary
 
@@ -11,6 +11,8 @@
 - Added Inspect, validated exact/bounded/unknown source ownership, a compact Copy for Codex packet, issue focus, keyboard selection, and a local-only screenshot annotation flow.
 - Direct static workspaces now include a verified current source line in a handoff; generated Social and English workspaces remain source-line-free and rebuild-owned.
 - Fixed a screen-share cleanup race, now stop capture before crop/PNG work, and redact raw inspection-route errors so malformed requests cannot disclose an absolute local path.
+- Live red-team checks found and fixed two later timing bugs: an old course handoff could survive a context change, and a fast earlier selection could overwrite the newest one. The current Inspector always clears old context and makes the newest selection authoritative.
+- An active capture now has one owned lifetime. Changing project, preview, source, or selection stops a live stream immediately, stops a late-arriving stream on arrival, and never keeps its image or handoff.
 - Kept Social and English learner artifacts untouched; generated workspaces are still never the suggested edit target.
 - Updated the mobile E2E learner harness to open the isolated preview origin, preserving Social and English project verification.
 - Kept the existing Science source-backed intake/decision-log process and documented the Inspector contract a future Science driver must meet.
@@ -25,7 +27,7 @@
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` (20), `npm run build:studio`, `npm run test:e2e:smoke`, and the Inspector Playwright suite (4).
+- Passed on the final code: `npm run test:studio-inspection` (20), `npm run build:studio`, `npm run test:e2e:smoke`, and the Inspector Playwright suite (8).
 - Passed project E2E: `forensics35`, `social30-1-related-issue-1-option-2`, and `ela20-1-modern-play-crucible`.
 - Passed: `npm run course:doctor` for the direct, Social, and English proof projects; `npm run test:science-pilot`; `npm run test:metadata-policy`; and `npm run validate:manifests`.
 - `npm run typecheck` has only its established unrelated ten baseline errors in legacy ELA, Forensics, Social 20, and English-builder code; no touched-file error remains.
@@ -41,7 +43,7 @@
 
 - Screenshot capture requires a real browser permission action. Automated tests intentionally do not accept a capture prompt; manually verify target-browser tab capture before relying on it in a live workflow.
 - A browser cannot force the exact tab choice. Studio validates available surface metadata, crops only the visible preview region, and requires review before download, but the teacher must select the Studio tab in the picker.
-- ChatGPT Pro's first exact-commit green-team pass found two genuine privacy blockers. The final GitHub-backed re-review of `ac9081c12cf26e7d7be7db4001a5d362dabfe0ab` returned `GREEN` with no remaining must-fix items; browser-owned capture acceptance remains manual.
+- ChatGPT Pro's first exact-commit green-team pass found two genuine privacy blockers. A later live Studio red-team check and the next review found two timing gaps; both are fixed in `5f52fbbd`, `71dd11e6`, and `65282e44`. The final GitHub-backed re-review of `65282e44636f310ada1a980ebc42e00492b6c876` returned `GREEN` with no remaining must-fix items; browser-owned capture acceptance remains manual.
 - A real Science pilot cannot be created until real source ZIPs are available. Do not invent a Science factory or learner workspace to bypass that gate.
 - Existing full-repo typecheck noise is outside this change and should be handled as a separate maintenance task.
 
@@ -56,14 +58,14 @@
 - Branch: `codex/course-readiness-science-pilot`.
 - No current learner-course content was modified by this work.
 - ChatGPT Pro is an adviser with repository context; Codex must verify local sources and tests before implementing advice.
-- To start Science, the user will supply the actual Brightspace and optional teacher-resource ZIPs plus the intended course code/title.
+- Science is outside this delivery. To start it later, the user will supply the actual Brightspace and optional teacher-resource ZIPs plus the intended course code/title.
 
 ## Exact next command
 
 ```bash
-npm run intake:science-pilot -- --project <science-slug> --course-code "SCI 20" --title "Science 20" --mode conversion --brightspace-zip "<absolute-path-to-brightspace.zip>"
+npm run studio:codex
 ```
 
 ## Exact next file to open
 
-`docs/workflows/science-pilot.md`
+`docs/plans/2026-08-03-studio-inspector-handoff.md`

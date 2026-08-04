@@ -1,6 +1,6 @@
 # Studio Inspector and Codex Handoff Implementation Plan
 
-- Status: implemented through the Inspector, private preview bridge, and consent-based screenshot annotation; a real Science course remains intentionally blocked until its source ZIPs are supplied
+- Status: Studio phases 0–5 are implemented through the Inspector, private preview bridge, and consent-based screenshot annotation; final exact-commit review is `GREEN` at `65282e44636f310ada1a980ebc42e00492b6c876`. A real Science course is intentionally excluded from this delivery and remains blocked until its source ZIPs are supplied.
 - Date: 2026-08-03
 - Scope: the Studio shell, preview safety boundary, provenance metadata, and an API-free handoff workflow
 - Explicitly out of scope: changing any current Social or English learner content; editing raw or exported artifacts; inventing a Science factory before real Science source material exists
@@ -16,10 +16,11 @@ The planned workflow is now implemented in the Studio shell without changing a c
 - A direct static workspace can now include its verified current source line in the handoff. Generated Social and English workspaces intentionally keep that field empty because their displayed HTML is not the source of truth.
 - Copy for Codex is a teacher-triggered bounded text packet with an issue focus and note. It contains no full source, absolute path, browser storage, or image data.
 - Screenshot annotation is now an optional, consent-gated extension: Studio asks the browser for one tab frame only after the teacher clicks the control, registers it for cleanup as soon as permission resolves, stops it after the one frame and even if selection refresh fails, crops to the visible preview, keeps the working image only in memory, and requires a separate Download or Discard action.
+- A live red-team audit found two stale-work races after the first implementation: a prior selection could arrive late and replace a newer selection, and a screen share could remain active while an old selection refresh was pending. Inspection now advances its generation for every selection, and screenshot capture owns one cancellable stream lifetime that clears on any context change, error, or unmount.
 - Inspection failures return a fixed bounded message instead of raw filesystem errors, so a malformed request cannot reveal an absolute local path.
 - The Science intake and decision-log workflow is ready for the first real source-backed unit. Phase 6 cannot honestly be marked complete until real Science source archives and a representative-unit decision exist.
 
-Focused proof currently includes 20 Inspector/security tests, four Inspector browser tests, Studio production build, direct/Social/English ownership checks, and path/origin negative tests. Repository-wide typecheck retains pre-existing unrelated errors; the implementation adds none.
+Focused proof currently includes 20 Inspector/security tests, eight Inspector browser tests, Studio production build, direct/Social/English ownership checks, and path/origin negative tests. Repository-wide typecheck retains pre-existing unrelated errors; the implementation adds none.
 
 ## Historical pre-implementation plan
 
@@ -44,7 +45,7 @@ Screenshot capture and visual annotation are now implemented as a separate, cons
 
 ## Review result that governs this plan
 
-This plan combines local repository evidence with an independent ChatGPT Pro red-team and green-team review. The first exact-commit green-team pass identified two real release blockers that were fixed and regression-tested locally: a late screen-share cleanup race and raw filesystem-error exposure. The final GitHub-backed re-review of `ac9081c12cf26e7d7be7db4001a5d362dabfe0ab` returned `GREEN` with no remaining must-fix items; the only remaining gates are the browser-owned manual capture checks described below.
+This plan combines local repository evidence with an independent ChatGPT Pro red-team and green-team review. The first exact-commit green-team pass identified two real release blockers that were fixed and regression-tested locally: a late screen-share cleanup race and raw filesystem-error exposure. A later live Studio audit found a stale-context handoff and a same-preview selection race; the review then found the inverse active-stream race. Those were corrected in `5f52fbbd`, `71dd11e6`, and `65282e44`. The final GitHub-backed re-review of `65282e44636f310ada1a980ebc42e00492b6c876` returned `GREEN` with no remaining must-fix items; the only remaining gates are the browser-owned manual capture checks described below.
 
 The earlier review also established two sequencing changes and two cuts:
 
