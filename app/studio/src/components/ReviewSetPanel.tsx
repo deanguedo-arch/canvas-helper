@@ -1,4 +1,9 @@
-import { utf8ByteLength, REVIEW_SET_NOTE_MAX_BYTES, type ReviewSetItem } from "../lib/review-set";
+import {
+  utf8ByteLength,
+  REVIEW_SET_MAX_ITEMS,
+  REVIEW_SET_NOTE_MAX_BYTES,
+  type ReviewSetItem
+} from "../lib/review-set";
 
 type ReviewSetPanelProps = {
   items: ReviewSetItem[];
@@ -53,7 +58,7 @@ export function ReviewSetPanel({
       <div className="section-header">
         <div>
           <h3>Review Set</h3>
-          <p className="review-set-summary">{items.length}/5 saved · temporary</p>
+          <p className="review-set-summary">{items.length}/{REVIEW_SET_MAX_ITEMS} saved · temporary</p>
         </div>
         <button type="button" className="ghost-button compact" disabled={!items.length || preparing} onClick={onClear}>
           Clear set
