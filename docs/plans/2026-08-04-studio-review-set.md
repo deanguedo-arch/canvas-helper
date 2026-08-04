@@ -1,6 +1,6 @@
 # Studio Review Set V1
 
-- Status: implemented locally; awaiting the final ChatGPT Pro adviser review of the pushed branch.
+- Status: complete and pushed. ChatGPT Pro independently reviewed the pushed branch and returned `GO` with no release blocker.
 - Date: 2026-08-04
 - Scope: a compact, temporary multi-selection handoff inside the existing API-free Studio Inspector.
 - Out of scope: learner-course changes, raw/export edits, persistent handoff history, batch screenshot export, automatic model calls, and Social 10 source-ownership repair.
@@ -16,6 +16,10 @@ ChatGPT Pro red-team and green-team adviser passes converged on a small volatile
 - Changing course or preview mode warns before the current set is cleared.
 - A saved item keeps the original bounded inspection request and its resolver result. After saving, only its note, order, and optional screenshot can change.
 - Exact duplicate means same project, mode, page, and opaque inspection node. Duplicates are rejected rather than merged.
+
+## Final adviser review
+
+ChatGPT Pro independently inspected the pushed `codex/studio-review-set` branch through the GitHub connector. Its final verdict was **GO**: no blocker was found for persistence/privacy leakage, screenshot object-URL lifecycle, stale or late-response races, ownership overclaim, scope clearing, silent packet omission, or workflow complexity. It also confirmed the intended Social 10 boundary: no declared authoring driver means the project remains `unknown` with a proposal-only diagnostic.
 
 ## Teacher workflow
 
