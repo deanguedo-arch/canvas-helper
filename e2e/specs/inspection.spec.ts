@@ -72,6 +72,25 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
 });
 
+test("@inspection standalone preview keeps Studio open and has a return control", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const studioUrl = page.url();
+  const previewPagePromise = page.waitForEvent("popup");
+
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const previewPage = await previewPagePromise;
+  await previewPage.waitForLoadState("domcontentloaded");
+
+  await expect(page).toHaveURL(studioUrl);
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await expect(previewPage).toHaveURL(/\/preview\/workspace\/e2e-fixture\/index\.html/);
+  const returnToStudio = previewPage.locator('[data-canvas-helper-return-to-studio="true"]');
+  await expect(returnToStudio).toHaveText("Return to Studio");
+  await returnToStudio.click();
+  await expect(previewPage).toHaveURL(/http:\/\/127\.0\.0\.1:4173\/?$/);
+  await expect(previewPage.getByTestId("studio-shell")).toBeVisible();
+});
+
 test("@inspection Studio exposes a compact course build brief without loading source contents", async ({ page }) => {
   await openProjectInStudio(page, "forensics35");
 

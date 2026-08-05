@@ -107,6 +107,8 @@ Before a larger change, open **Details** and copy the **Course build brief**. It
 
 **Preview health** is deliberately small: it reports bounded runtime, promise, or asset issues seen during this Studio session. It is not a browser console and is never copied into a handoff.
 
+**Open preview** opens the workspace in a separate tab so Studio stays in place. A standalone preview includes **Return to Studio** as a simple way back if you are already viewing the course directly.
+
 The live preview is served from a separate local loopback origin and communicates through a bounded private bridge. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
 
 **Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper refreshes the selected element's position, captures one local frame, then stops sharing before crop/PNG processing (including if selection refresh fails after permission is granted), crops it to the visible preview area, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet, which says so explicitly.

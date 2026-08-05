@@ -11,6 +11,7 @@ type TopbarProps = {
   inspectAvailable: boolean;
   onToggleInspect: () => void;
   hasWorkspacePreview: boolean;
+  workspacePreviewHref: string;
   onOpenWorkspacePreview: () => void;
 };
 
@@ -25,6 +26,7 @@ export function Topbar({
   inspectAvailable,
   onToggleInspect,
   hasWorkspacePreview,
+  workspacePreviewHref,
   onOpenWorkspacePreview
 }: TopbarProps) {
   return (
@@ -84,16 +86,29 @@ export function Topbar({
         >
           {inspectEnabled ? "Inspecting" : "Inspect"}
         </button>
-        <button
-          type="button"
-          className={hasWorkspacePreview ? "ghost-button compact active-toggle" : "ghost-button compact"}
-          onClick={onOpenWorkspacePreview}
-          disabled={!hasWorkspacePreview}
-          data-testid="open-workspace-preview-toggle"
-          title={hasWorkspacePreview ? "Open direct workspace preview" : "Select a project to open preview"}
-        >
-          Preview
-        </button>
+        {hasWorkspacePreview ? (
+          <a
+            className="ghost-button compact active-toggle"
+            href={workspacePreviewHref}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={onOpenWorkspacePreview}
+            data-testid="open-workspace-preview-toggle"
+            title="Open the workspace preview in a separate tab"
+          >
+            Open preview
+          </a>
+        ) : (
+          <button
+            type="button"
+            className="ghost-button compact"
+            disabled
+            data-testid="open-workspace-preview-toggle"
+            title="Select a project to open preview"
+          >
+            Open preview
+          </button>
+        )}
         <button
           type="button"
           className={layoutPreferences.inspectorOpen ? "ghost-button compact" : "ghost-button compact active-toggle"}

@@ -61,7 +61,11 @@ test("isolated preview pins the Studio origin and exposes no Studio API routes",
     assert.equal(bridgeResponse.status, 200);
     assert.equal(bridgeResponse.headers.get("content-security-policy"), `frame-ancestors ${studioOrigin}`);
     assert.equal(bridgeResponse.headers.get("permissions-policy"), "display-capture=()");
-    assert.match(await bridgeResponse.text(), /var STUDIO_ORIGIN = "http:\/\/127\.0\.0\.1:4173"/);
+    const bridgeSource = await bridgeResponse.text();
+    assert.match(bridgeSource, /var STUDIO_ORIGIN = "http:\/\/127\.0\.0\.1:4173"/);
+    assert.match(bridgeSource, /window\.top !== window/);
+    assert.match(bridgeSource, /data-canvas-helper-return-to-studio/);
+    assert.match(bridgeSource, /window\.location\.replace\(STUDIO_ORIGIN\)/);
 
     const apiResponse = await fetch(`${previewServer.origin}/api/projects`);
     assert.equal(apiResponse.status, 404);

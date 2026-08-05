@@ -1,13 +1,13 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Implement the focused Studio workflow upgrade: a compact course build brief, source workbench, safe Review Set re-check loop, and bounded preview health.
+- Task: Implement the focused Studio workflow upgrade: a compact course build brief, source workbench, safe Review Set re-check loop, bounded preview health, and an exit-safe standalone preview.
 - Status: complete on `codex/studio-workflow-v2`; no learner-course artifact was changed.
 
 ## Files changed
 
 - Shared/preview/server: `app/shared/course-build-brief.ts`, `app/shared/inspection.ts`, `app/shared/preview-bridge.ts`, `app/server/routes/course-build-brief.ts`, `app/server/lib/preview-inspection.ts`, `app/server/preview-bridge-runtime.ts`, `app/server/studio-server.ts`.
-- Studio: `app/studio/src/App.tsx`, `app/studio/src/components/CourseBuildBriefPanel.tsx`, `app/studio/src/components/PreviewHealthPanel.tsx`, `app/studio/src/components/InspectionPanel.tsx`, `app/studio/src/components/InspectorPanel.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/hooks/useCourseBuildBrief.ts`, `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/studio/src/hooks/useProjectCommands.ts`, `app/studio/src/lib/course-build-brief.ts`, `app/studio/src/lib/review-set.ts`, and `app/studio/src/styles.css`.
+- Studio: `app/studio/src/App.tsx`, `app/studio/src/components/Topbar.tsx`, `app/studio/src/components/CourseBuildBriefPanel.tsx`, `app/studio/src/components/PreviewHealthPanel.tsx`, `app/studio/src/components/InspectionPanel.tsx`, `app/studio/src/components/InspectorPanel.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/hooks/useCourseBuildBrief.ts`, `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/studio/src/hooks/useProjectCommands.ts`, `app/studio/src/lib/course-build-brief.ts`, `app/studio/src/lib/review-set.ts`, and `app/studio/src/styles.css`.
 - Verification/docs: `scripts/tests/course-build-brief.test.ts`, Inspector tests, `e2e/specs/inspection.spec.ts`, `docs/plans/2026-08-04-studio-workflow-v2.md`, `ARCHITECTURE.md`, `README.md`, and `docs/ops/FAST_PATHS.md`.
 
 ## What changed
@@ -18,6 +18,7 @@
 - Review Set can reveal a saved selection, request a fresh changed-surface click, confirm only the same safe route, and run Workspace Verify only after that confirmation.
 - A Verify success explicitly remains a workspace command result, not a claim that the learner-facing change is finished.
 - Preview Health records at most six bounded runtime/asset signals locally and never puts them in a packet.
+- **Open preview** now opens a separate tab instead of replacing Studio. A direct standalone preview has a top-level-only **Return to Studio** control; embedded previews remain free of that extra control.
 
 ## Why this changed
 
@@ -26,7 +27,7 @@
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` (29), `npm run build:studio`, `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (13), `npm run test:e2e:smoke`, and `git diff --check`.
+- Passed: `npm run test:studio-inspection` (29), `npm run build:studio`, `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (14), `npm run test:e2e:smoke`, and `git diff --check`.
 - Passed: `npm run course:doctor -- --project forensics35`, `npm run course:doctor -- --project ela20-1-modern-play-crucible`, and `npm run course:doctor -- --project social10-1-related-issue-1-option-2` (proposal-only as intended).
 - `npm run typecheck` still has only the established unrelated legacy errors in ELA, Forensics, Social 20, and English-builder code; no touched-file diagnostic was added.
 - Live Studio check at `http://127.0.0.1:5173/` confirmed the Social 10 build brief visibly reports `proposal-only-v1`, no safe editable source, and the declared rebuild/validation route.

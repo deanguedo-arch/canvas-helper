@@ -29,6 +29,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var lastSelectors = [];
   var overlay = null;
   var shield = null;
+  var returnToStudioControl = null;
 
   function message(type, payload) {
     return { protocol: PROTOCOL, version: VERSION, type: type, payload: payload };
@@ -166,6 +167,35 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   }
 
   function hideOverlay() { if (overlay) overlay.style.display = "none"; }
+
+  function ensureStandaloneReturnToStudioControl() {
+    if (window.top !== window || returnToStudioControl) return;
+    var control = document.createElement("button");
+    control.type = "button";
+    control.textContent = "Return to Studio";
+    control.setAttribute("aria-label", "Return to Canvas Helper Studio");
+    control.setAttribute("data-canvas-helper-return-to-studio", "true");
+    control.style.position = "fixed";
+    control.style.top = "12px";
+    control.style.right = "12px";
+    control.style.zIndex = "2147483645";
+    control.style.padding = "8px 10px";
+    control.style.border = "1px solid #334155";
+    control.style.borderRadius = "6px";
+    control.style.background = "#ffffff";
+    control.style.color = "#18212f";
+    control.style.fontFamily = "system-ui, sans-serif";
+    control.style.fontSize = "14px";
+    control.style.fontWeight = "600";
+    control.style.lineHeight = "1.2";
+    control.style.cursor = "pointer";
+    control.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.18)";
+    control.addEventListener("click", function() {
+      try { window.location.replace(STUDIO_ORIGIN); } catch (_) { window.location.href = STUDIO_ORIGIN; }
+    });
+    (document.body || document.documentElement).appendChild(control);
+    returnToStudioControl = control;
+  }
 
   function focusSourceNode(nodeId) {
     var element = elementForSourceNodeId(nodeId);
@@ -384,7 +414,10 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     sendDiagnostic("unhandled-rejection", message, "A preview promise was rejected.");
   });
 
-  function markReady() { document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true"); }
+  function markReady() {
+    document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true");
+    ensureStandaloneReturnToStudioControl();
+  }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markReady, { once: true }); else markReady();
 })();`;
 }

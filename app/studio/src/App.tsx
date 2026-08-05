@@ -878,12 +878,7 @@ export function App() {
   };
 
   const handleOpenWorkspacePreview = () => {
-    if (!previewSources.workspace || typeof window === "undefined") {
-      return;
-    }
-
     persistAllVisibleScrollPositions();
-    window.location.assign(previewSources.workspace);
   };
 
   const handleDeviceChange = (mode: PreviewMode, device: "desktop" | "tablet" | "mobile") => {
@@ -931,6 +926,7 @@ export function App() {
           }}
           inspectAvailable={Boolean(previewOrigin)}
           hasWorkspacePreview={Boolean(previewSources.workspace)}
+          workspacePreviewHref={previewSources.workspace}
           onOpenWorkspacePreview={handleOpenWorkspacePreview}
         />
 

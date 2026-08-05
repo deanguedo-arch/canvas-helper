@@ -41,6 +41,11 @@ The workflow stays deliberately small and evidence-led:
 - Messages are bounded, deduplicated, redacted for path/link-shaped values, kept in memory only (six maximum), and excluded from every copied packet.
 - This is intentionally not a DevTools-console clone.
 
+### Standalone preview exit
+
+- **Open preview** opens the workspace in a separate tab so Studio remains available for inspection and handoff work.
+- The isolated bridge injects a plain **Return to Studio** control only when the preview is the top-level page. It replaces that preview URL with the trusted Studio origin and never appears inside Studio's embedded iframe.
+
 ## Red-team / green-team boundaries
 
 | Risk | Green rule | Red-team fail condition |
