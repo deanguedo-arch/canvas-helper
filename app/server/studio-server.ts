@@ -15,6 +15,7 @@ let sessionLogRouteHandler: RouteHandler | null = null;
 let incomingRouteHandler: RouteHandler | null = null;
 let assessmentsRouteHandler: RouteHandler | null = null;
 let inspectionRouteHandler: RouteHandler | null = null;
+let courseBuildBriefRouteHandler: RouteHandler | null = null;
 
 async function loadRouteHandler(server: ViteDevServer, moduleName: string, exportName: string) {
   const routeModulePath = path.join(process.cwd(), "app", "server", "routes", `${moduleName}.ts`);
@@ -68,6 +69,13 @@ async function getInspectionRouteHandler(server: ViteDevServer) {
   return inspectionRouteHandler;
 }
 
+async function getCourseBuildBriefRouteHandler(server: ViteDevServer) {
+  if (!courseBuildBriefRouteHandler) {
+    courseBuildBriefRouteHandler = await loadRouteHandler(server, "course-build-brief", "handleCourseBuildBriefRoute");
+  }
+  return courseBuildBriefRouteHandler;
+}
+
 async function handleRequest(
   server: ViteDevServer,
   request: IncomingMessage,
@@ -99,6 +107,11 @@ async function handleRequest(
 
     const sessionHandler = await getSessionLogRouteHandler(server);
     if (await sessionHandler(url, request, response)) {
+      return;
+    }
+
+    const courseBuildBriefHandler = await getCourseBuildBriefRouteHandler(server);
+    if (await courseBuildBriefHandler(url, request, response)) {
       return;
     }
   }

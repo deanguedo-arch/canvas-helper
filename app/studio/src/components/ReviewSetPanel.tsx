@@ -2,6 +2,7 @@ import {
   utf8ByteLength,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
+  type ReviewSetRecheck,
   type ReviewSetItem
 } from "../lib/review-set";
 
@@ -14,6 +15,8 @@ type ReviewSetPanelProps = {
   packet: string;
   packetError: string;
   copyStatus: string;
+  recheck: ReviewSetRecheck | null;
+  anyCommandRunning: boolean;
   onAddCurrent: () => void;
   onClear: () => void;
   onRemove: (id: string) => void;
@@ -21,6 +24,9 @@ type ReviewSetPanelProps = {
   onTeacherNoteChange: (id: string, value: string) => void;
   onDownloadScreenshot: (id: string) => void;
   onRemoveScreenshot: (id: string) => void;
+  onFocusItem: (id: string) => void;
+  onStartRecheck: (id: string) => void;
+  onRunRecheckVerification: (id: string) => void;
   onPrepare: () => void;
   onCopy: () => void;
 };
@@ -43,6 +49,8 @@ export function ReviewSetPanel({
   packet,
   packetError,
   copyStatus,
+  recheck,
+  anyCommandRunning,
   onAddCurrent,
   onClear,
   onRemove,
@@ -50,6 +58,9 @@ export function ReviewSetPanel({
   onTeacherNoteChange,
   onDownloadScreenshot,
   onRemoveScreenshot,
+  onFocusItem,
+  onStartRecheck,
+  onRunRecheckVerification,
   onPrepare,
   onCopy
 }: ReviewSetPanelProps) {
@@ -105,6 +116,21 @@ export function ReviewSetPanel({
                   </button>
                 </div>
               </div>
+
+              <div className="review-set-item-workflow">
+                <button type="button" className="ghost-button compact" disabled={preparing} onClick={() => onFocusItem(item.id)} data-testid="focus-review-set-item">
+                  Show in preview
+                </button>
+                <button type="button" className="ghost-button compact" disabled={preparing || anyCommandRunning} onClick={() => onStartRecheck(item.id)} data-testid="recheck-review-set-item">
+                  Re-check after change
+                </button>
+                {recheck?.itemId === item.id && recheck.status === "route-confirmed" ? (
+                  <button type="button" className="ghost-button compact active-toggle" disabled={anyCommandRunning} onClick={() => onRunRecheckVerification(item.id)} data-testid="verify-review-set-item">
+                    Run Workspace Verify
+                  </button>
+                ) : null}
+              </div>
+              {recheck?.itemId === item.id ? <p className="review-set-recheck-status" role="status" data-testid="review-set-recheck-status">{recheck.message}</p> : null}
 
               <p className="review-set-excerpt">
                 <strong>Selected text</strong>

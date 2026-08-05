@@ -29,10 +29,11 @@ type OpeningTag = {
 };
 
 export type PreviewInspectionDocument = {
+  source: string;
   html: string;
   sourceDigest: string;
   nodeIds: Set<string>;
-  nodeLocations: Map<string, { lineStart: number; lineEnd: number }>;
+  nodeLocations: Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number }>;
 };
 
 function sha256(value: string) {
@@ -143,7 +144,7 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
     return null;
   }
   const nodeIds = new Set<string>();
-  const nodeLocations = new Map<string, { lineStart: number; lineEnd: number }>();
+  const nodeLocations = new Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number }>();
   const lineStarts = collectLineStarts(html);
   let decorated = html;
 
@@ -153,11 +154,13 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
     nodeIds.add(nodeId);
     nodeLocations.set(nodeId, {
       lineStart: lineForOffset(lineStarts, tags[index].start),
-      lineEnd: lineForOffset(lineStarts, tags[index].end)
+      lineEnd: lineForOffset(lineStarts, tags[index].end),
+      sourceStart: tags[index].start,
+      sourceEnd: tags[index].end
     });
   }
 
-  return { html: decorated, sourceDigest, nodeIds, nodeLocations };
+  return { source: html, html: decorated, sourceDigest, nodeIds, nodeLocations };
 }
 
 export function decoratePreviewHtmlBuffer(body: Buffer) {
@@ -242,6 +245,7 @@ function buildUnknownResolution(
     generated: false,
     primaryEditTarget: null,
     primaryEditLine: null,
+    sourceExcerpt: null,
     contributors: [],
     rebuildCommand: null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
@@ -278,6 +282,7 @@ function generatedResolution(
     generated: true,
     primaryEditTarget,
     primaryEditLine: null,
+    sourceExcerpt: null,
     contributors: resolveContributors(project, primaryEditTarget),
     rebuildCommand: project.regenerateCommand ?? null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
@@ -287,12 +292,59 @@ function generatedResolution(
   };
 }
 
+function utf8Slice(value: string, maximumBytes: number) {
+  let output = "";
+  for (const character of value) {
+    if (Buffer.byteLength(output + character, "utf8") > maximumBytes) {
+      break;
+    }
+    output += character;
+  }
+  return output;
+}
+
+function buildSourceExcerpt(
+  source: string,
+  location: { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number } | undefined
+) {
+  if (!location) {
+    return null;
+  }
+
+  const sourceLines = source.split(/\r?\n/);
+  const startLine = Math.max(1, location.lineStart - 1);
+  const endLine = Math.min(sourceLines.length, location.lineEnd + 1);
+  const selectedLine = sourceLines[location.lineStart - 1] ?? "";
+  const context = sourceLines.slice(startLine - 1, endLine);
+  const normalExcerpt = context.map((line, index) => `${startLine + index} | ${line}`).join("\n");
+
+  if (Buffer.byteLength(normalExcerpt, "utf8") <= 1_600) {
+    return { startLine, endLine, text: normalExcerpt, truncated: false };
+  }
+
+  const lineStartOffset = source.lastIndexOf("\n", location.sourceStart - 1) + 1;
+  const selectedColumn = Math.max(0, location.sourceStart - lineStartOffset);
+  const excerptStart = Math.max(0, selectedColumn - 480);
+  const excerptEnd = Math.min(selectedLine.length, selectedColumn + 760);
+  const prefix = excerptStart > 0 ? "…" : "";
+  const suffix = excerptEnd < selectedLine.length ? "…" : "";
+  const clipped = `${prefix}${selectedLine.slice(excerptStart, excerptEnd)}${suffix}`;
+  return {
+    startLine: location.lineStart,
+    endLine: location.lineEnd,
+    text: `${location.lineStart} | ${utf8Slice(clipped, 1_400)}`,
+    truncated: true
+  };
+}
+
 function directResolution(
   request: InspectionResolveRequest,
   previewPath: string,
   project: ResolvedCourseAuthoringProject,
-  selectedLine: number | null
+  document: PreviewInspectionDocument
 ): InspectionResolution {
+  const location = document.nodeLocations.get(request.selection.nodeId ?? "");
+  const selectedLine = location?.lineStart ?? null;
   const primaryEditTarget = project.editableSources.find((entry) => entry.kind === "file" && entry.repoRelative === previewPath)?.repoRelative ?? null;
   const resolution: InspectionResolutionState = primaryEditTarget && selectedLine ? "exact" : "unknown";
   return {
@@ -305,6 +357,7 @@ function directResolution(
     generated: false,
     primaryEditTarget: resolution === "exact" ? primaryEditTarget : null,
     primaryEditLine: resolution === "exact" ? selectedLine : null,
+    sourceExcerpt: resolution === "exact" ? buildSourceExcerpt(document.source, location) : null,
     contributors: resolution === "exact" && primaryEditTarget ? resolveContributors(project, primaryEditTarget) : [],
     rebuildCommand: project.regenerateCommand ?? null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
@@ -368,7 +421,7 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
 
   const project = report.project;
   if (project.driverId === "direct-workspace-v1" && project.authoringMode === "direct") {
-    return directResolution(request, previewPath, project, document.nodeLocations.get(requestedNode)?.lineStart ?? null);
+    return directResolution(request, previewPath, project, document);
   }
 
   if (project.driverId === "english-factory-v1" || project.driverId === "social-related-issues-v1") {

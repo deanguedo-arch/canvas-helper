@@ -78,6 +78,8 @@ test("Studio bridge code posts to a port and never reads preview iframe DOM", as
   assert.match(source, /port\.postMessage/);
   assert.match(source, /studio-request-inspect-current/);
   assert.match(source, /requestCurrentInspectionSelection/);
+  assert.match(source, /studio-focus-inspect-node/);
+  assert.match(source, /focusPreviewInspectionSelection/);
   assert.doesNotMatch(source, /contentDocument/);
   assert.doesNotMatch(source, /contentWindow\?*\.document/);
 });
@@ -116,6 +118,33 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       version: 1,
       type: "studio-request-inspect-current",
       payload: { nodeId: "x".repeat(161) }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "studio-focus-inspect-node",
+      payload: { nodeId: selection.nodeId }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-diagnostic",
+      payload: { kind: "asset-error", message: "img failed to load" }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-diagnostic",
+      payload: { kind: "asset-error", message: "x".repeat(361) }
     }),
     false
   );

@@ -103,6 +103,10 @@ Studio has no model-provider integration and does not write course sources. Use 
 3. Choose the change focus, add a short note, and use **Copy for Codex** to make a bounded text packet.
 4. Give that packet to ChatGPT Pro for a second opinion if useful, then give Codex the packet plus the advice. Codex still verifies the local manifest, canonical source, and rebuild command before changing anything.
 
+Before a larger change, open **Details** and copy the **Course build brief**. It is a small route map—driver, editable sources, rebuild, validation, and any blocker—not a source dump. For a batch, Review Set can keep up to five temporary selections. After Codex changes a course, use **Re-check after change**, click the revised learner surface, then run **Workspace Verify**. Studio confirms a source route and command result only; you still inspect the learner result before calling the work complete.
+
+**Preview health** is deliberately small: it reports bounded runtime, promise, or asset issues seen during this Studio session. It is not a browser console and is never copied into a handoff.
+
 The live preview is served from a separate local loopback origin and communicates through a bounded private bridge. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
 
 **Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper refreshes the selected element's position, captures one local frame, then stops sharing before crop/PNG processing (including if selection refresh fails after permission is granted), crops it to the visible preview area, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet, which says so explicitly.

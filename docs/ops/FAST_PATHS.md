@@ -38,13 +38,20 @@ Read first:
 - `app/server/preview-server.ts`
 - `app/server/lib/preview-inspection.ts`
 - `app/server/routes/inspection.ts`
+- `app/server/routes/course-build-brief.ts`
 - `app/studio/src/hooks/usePreviewScrollSync.ts`
+- `app/studio/src/hooks/useCourseBuildBrief.ts`
 - `app/studio/src/components/InspectionPanel.tsx`
+- `app/studio/src/components/CourseBuildBriefPanel.tsx`
+- `app/studio/src/components/PreviewHealthPanel.tsx`
 
 Rules:
 - Keep preview on the isolated loopback origin; never restore iframe DOM reads, wildcard messaging, or a same-origin preview shortcut.
 - A preview selection is evidence, not source authority. Resolve canonical targets only through the project driver and fail closed as `unknown` when it cannot be proved.
 - Generated Social and English workspaces remain output; packets point to their builder/factory source and rebuild flow.
+- Direct-workspace source excerpts are local UI evidence only; never add them to a copied packet. Proposal-only projects must continue to show no safe editable source.
+- Re-check confirms only a safe source/rebuild route. A successful Workspace Verify is not proof that the learner-facing change is complete.
+- Preview Health is bounded in-memory diagnostic context, not a console capture, and never belongs in a handoff.
 - Screenshot capture is explicit Studio-only browser consent. The preview origin must retain `Permissions-Policy: display-capture=()`; images never enter a Codex packet.
 
 Verification floor:

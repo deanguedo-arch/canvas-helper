@@ -1,81 +1,74 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Implement the API-free Studio Inspector, secure preview boundary, concise Codex handoff, consent-based screenshot annotation, and the temporary multi-item Review Set. A real Science pilot is intentionally excluded from this delivery.
-- Status: Studio phases 0–5 and Review Set V1 are complete and pushed on `codex/studio-review-set`; ChatGPT Pro independently reviewed the final branch and returned `GO`. The first real Science course remains intentionally blocked until its source archives and representative-unit decision are supplied.
-
-## Summary
-
-- Removed the unused API Assistant and all model-provider runtime code.
-- Replaced same-origin preview access with a read-only isolated loopback preview service and private MessageChannel bridge.
-- Added Inspect, validated exact/bounded/unknown source ownership, a compact Copy for Codex packet, issue focus, keyboard selection, and a local-only screenshot annotation flow.
-- Direct static workspaces now include a verified current source line in a handoff; generated Social and English workspaces remain source-line-free and rebuild-owned.
-- Fixed a screen-share cleanup race, now stop capture before crop/PNG work, and redact raw inspection-route errors so malformed requests cannot disclose an absolute local path.
-- Live red-team checks found and fixed two later timing bugs: an old course handoff could survive a context change, and a fast earlier selection could overwrite the newest one. The current Inspector always clears old context and makes the newest selection authoritative.
-- An active capture now has one owned lifetime. Changing project, preview, source, or selection stops a live stream immediately, stops a late-arriving stream on arrival, and never keeps its image or handoff.
-- Kept Social and English learner artifacts untouched; generated workspaces are still never the suggested edit target.
-- Added Review Set V1: save up to five source-mapped workspace selections in browser memory, keep optional annotated screenshots local and individually downloadable, revalidate every saved request before preparing one 5 KB packet, and copy only that frozen packet.
-- Review Set rejects duplicate or oversized items, warns before a project/preview-mode scope clear, blocks stale or materially changed mappings, and has no persistence, history, upload, or automatic model submission.
-- Social 10 remains intentionally `unknown` with its proposal-only diagnostic; this delivery does not claim an unproven builder ownership path or alter learner content.
-- Updated the mobile E2E learner harness to open the isolated preview origin, preserving Social and English project verification.
-- Kept the existing Science source-backed intake/decision-log process and documented the Inspector contract a future Science driver must meet.
+- Task: Implement the focused Studio workflow upgrade: a compact course build brief, source workbench, safe Review Set re-check loop, and bounded preview health.
+- Status: complete on `codex/studio-workflow-v2`; no learner-course artifact was changed.
 
 ## Files changed
 
-- Studio and shared contracts: `app/studio/src/App.tsx`, `app/studio/src/components/`, `app/studio/src/hooks/`, `app/studio/src/lib/`, `app/shared/`.
-- Preview and inspection security: `app/server/preview-server.ts`, `app/server/preview-bridge-runtime.ts`, `app/server/lib/preview-inspection.ts`, `app/server/lib/preview-paths.ts`, `app/server/routes/preview.ts`, `app/server/routes/inspection.ts`, `app/server/studio-server.ts`.
-- Removed Assistant code: `app/server/routes/generate.ts`, `app/studio/src/components/GenerativePanel.tsx`, and `scripts/lib/engine/*` generation files.
-- Verification: `scripts/tests/preview-*.test.ts`, `scripts/tests/codex-packet.test.ts`, `e2e/specs/inspection.spec.ts`, and `e2e/lib/learner-course-assertions.ts`.
-- Review Set implementation: `app/studio/src/lib/review-set.ts`, `app/studio/src/components/ReviewSetPanel.tsx`, and the Review Set state in `app/studio/src/App.tsx`.
-- Operating docs: `README.md`, `ARCHITECTURE.md`, `docs/ops/FAST_PATHS.md`, `docs/workflows/science-pilot.md`, and `docs/plans/2026-08-03-studio-inspector-handoff.md`.
+- Shared/preview/server: `app/shared/course-build-brief.ts`, `app/shared/inspection.ts`, `app/shared/preview-bridge.ts`, `app/server/routes/course-build-brief.ts`, `app/server/lib/preview-inspection.ts`, `app/server/preview-bridge-runtime.ts`, `app/server/studio-server.ts`.
+- Studio: `app/studio/src/App.tsx`, `app/studio/src/components/CourseBuildBriefPanel.tsx`, `app/studio/src/components/PreviewHealthPanel.tsx`, `app/studio/src/components/InspectionPanel.tsx`, `app/studio/src/components/InspectorPanel.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/hooks/useCourseBuildBrief.ts`, `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/studio/src/hooks/useProjectCommands.ts`, `app/studio/src/lib/course-build-brief.ts`, `app/studio/src/lib/review-set.ts`, and `app/studio/src/styles.css`.
+- Verification/docs: `scripts/tests/course-build-brief.test.ts`, Inspector tests, `e2e/specs/inspection.spec.ts`, `docs/plans/2026-08-04-studio-workflow-v2.md`, `ARCHITECTURE.md`, `README.md`, and `docs/ops/FAST_PATHS.md`.
+
+## What changed
+
+- Studio now presents a bounded doctor-derived Course Build Brief before a teacher starts editing or handing off work.
+- Exact direct-workspace selections show a bounded verified source excerpt; generated and proposal-only projects never receive an invented source excerpt or edit target.
+- Inspect can copy the verified target and reveal the selected opaque node in the preview without iframe-DOM access.
+- Review Set can reveal a saved selection, request a fresh changed-surface click, confirm only the same safe route, and run Workspace Verify only after that confirmation.
+- A Verify success explicitly remains a workspace command result, not a claim that the learner-facing change is finished.
+- Preview Health records at most six bounded runtime/asset signals locally and never puts them in a packet.
+
+## Why this changed
+
+- The teacher needs a faster, lower-token route from a visible Studio surface into an evidence-backed Codex task.
+- Existing course drivers already know enough to distinguish direct editing, factory rebuilds, and proposal-only work. The UI now makes that distinction usable without pretending to solve missing ownership.
 
 ## Verification run
 
-- Passed on the final code: `npm run test:studio-inspection` (20), `npm run build:studio`, `npm run test:e2e:smoke`, and the Inspector Playwright suite (8).
-- Passed for Review Set V1: `npm run test:studio-inspection` (25), `npm run build:studio`, all 10 Inspector Playwright tests, `npm run test:e2e:smoke`, and project E2E for `forensics35` and `ela20-1-modern-play-crucible`.
-- Passed: `npm run course:doctor -- --project forensics35`, `npm run course:doctor -- --project ela20-1-modern-play-crucible`, and `npm run course:doctor -- --project social10-1-related-issue-1-option-2` (still proposal-only as intended).
-- Passed project E2E: `forensics35`, `social30-1-related-issue-1-option-2`, and `ela20-1-modern-play-crucible`.
-- Passed: `npm run course:doctor` for the direct, Social, and English proof projects; `npm run test:science-pilot`; `npm run test:metadata-policy`; and `npm run validate:manifests`.
-- `npm run typecheck` has only its established unrelated ten baseline errors in legacy ELA, Forensics, Social 20, and English-builder code; no touched-file error remains.
+- Passed: `npm run test:studio-inspection` (29), `npm run build:studio`, `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (13), `npm run test:e2e:smoke`, and `git diff --check`.
+- Passed: `npm run course:doctor -- --project forensics35`, `npm run course:doctor -- --project ela20-1-modern-play-crucible`, and `npm run course:doctor -- --project social10-1-related-issue-1-option-2` (proposal-only as intended).
+- `npm run typecheck` still has only the established unrelated legacy errors in ELA, Forensics, Social 20, and English-builder code; no touched-file diagnostic was added.
+- Live Studio check at `http://127.0.0.1:5173/` confirmed the Social 10 build brief visibly reports `proposal-only-v1`, no safe editable source, and the declared rebuild/validation route.
 
 ## Source of truth
 
-- Inspector architecture and current implementation record: `docs/plans/2026-08-03-studio-inspector-handoff.md`.
-- Review Set V1 contract and adviser/implementer decision record: `docs/plans/2026-08-04-studio-review-set.md`.
-- Preview security boundary: `app/server/preview-server.ts` and `app/studio/src/hooks/usePreviewScrollSync.ts`.
-- Provenance resolver: `app/server/lib/preview-inspection.ts`.
-- Science onboarding boundary: `docs/workflows/science-pilot.md` and `scripts/lib/science-pilot-intake.ts`.
+- Workflow contract: `docs/plans/2026-08-04-studio-workflow-v2.md`.
+- Course ownership and doctor rules: `scripts/lib/course-authoring/context.ts`.
+- Inspection resolver and bridge boundary: `app/server/lib/preview-inspection.ts`, `app/shared/preview-bridge.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
 
-## Known risks / follow-up
+## Fragile areas / watchouts
 
-- Screenshot capture requires a real browser permission action. Automated tests intentionally do not accept a capture prompt; manually verify target-browser tab capture before relying on it in a live workflow.
-- A browser cannot force the exact tab choice. Studio validates available surface metadata, crops only the visible preview region, and requires review before download, but the teacher must select the Studio tab in the picker.
-- ChatGPT Pro's first exact-commit green-team pass found two genuine privacy blockers. A later live Studio red-team check and the next review found two timing gaps; both are fixed in `5f52fbbd`, `71dd11e6`, and `65282e44`. The final GitHub-backed re-review of `65282e44636f310ada1a980ebc42e00492b6c876` returned `GREEN` with no remaining must-fix items; browser-owned capture acceptance remains manual.
-- A real Science pilot cannot be created until real source ZIPs are available. Do not invent a Science factory or learner workspace to bypass that gate.
-- Existing full-repo typecheck noise is outside this change and should be handled as a separate maintenance task.
-- Review Set remains intentionally volatile. Do not add localStorage, server storage, a history panel, screenshot packet fields, or automatic ChatGPT/Codex submission without a separate privacy review.
-- Do not change Social 10 from proposal-only behavior until a separate ownership adapter passes a zero-learner-content-diff rebuild proof.
+- Preserve the isolated preview origin and private `MessageChannel`; never restore direct iframe DOM reads or wildcard messaging.
+- Source excerpts remain direct-workspace-only, bounded, and excluded from every copied packet.
+- Route re-check does not prove instructional quality. Keep the explicit learner-preview check after Workspace Verify.
 
-## Fragile areas / what might drift
+## Next prompt should assume
 
-- Preserve the separate preview origin, `frame-ancestors`, `Permissions-Policy: display-capture=()`, and private MessageChannel. Do not restore direct iframe DOM reads or wildcard window messaging.
-- The Inspector resolves source ownership from driver metadata, not a visible file. Keep Social/English generated workspace output as output.
-- Review Set preparation is the source-of-truth boundary for a batch: it must replay the original bounded resolver request and reject a stale or materially changed result instead of refreshing it silently.
-- Preview navigation recreates the private channel; future preview changes must keep the iframe load handshake intact.
+- Branch: `codex/studio-workflow-v2`.
+- The existing Social/English patterns remain untouched; current generated workspace output is still not canonical source.
+- ChatGPT Pro may advise from a copied brief or handoff, but Codex verifies the local route and tests before implementation.
 
-## Next prompt assumptions
+## What still needs validation
 
-- Branch: `codex/studio-review-set` at the Review Set V1 delivery commits.
-- No current learner-course content was modified by this work.
-- ChatGPT Pro is an adviser with repository context; Codex must verify local sources and tests before implementing advice.
-- Science is outside this delivery. To start it later, the user will supply the actual Brightspace and optional teacher-resource ZIPs plus the intended course code/title.
+- A teacher should use the new loop on a real direct or factory-backed course change, then decide whether Review Set’s five-item cap is still the right practical boundary.
+- Browser-tab screenshot consent remains a separate browser-owned manual acceptance check from the pre-existing Inspector workflow.
+
+## Known risks
+
+- Social 10 remains proposal-only. Do not make it editable through Studio until a separately verified ownership adapter and zero-learner-content-diff rebuild proof exist.
+- A Science driver still needs real source archives and its representative-unit decision; no generic factory should be inferred from this UI work.
 
 ## Exact next command
 
-```bash
-npm run studio:codex
-```
+`npm run studio:codex`
 
 ## Exact next file to open
 
-`docs/plans/2026-08-04-studio-review-set.md`
+`docs/plans/2026-08-04-studio-workflow-v2.md`
+
+## Do not do next / warnings
+
+- Do not hand-edit `projects/<slug>/workspace/**` when its brief says generated or proposal-only.
+- Do not put source excerpts, screenshots, or Preview Health entries into a ChatGPT/Codex packet.
+- Do not treat a passed Workspace Verify as a substitute for viewing the revised learner experience.

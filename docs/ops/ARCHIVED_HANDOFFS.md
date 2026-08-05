@@ -8126,3 +8126,10 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Status: superseded by the implemented Inspector, private preview bridge, and consent-based screenshot annotation.
 - Source of truth: `docs/plans/2026-08-03-studio-inspector-handoff.md`.
 - Historical boundary preserved: no current Social or English learner artifact was changed; a real Science pilot remains blocked until real source ZIPs and a representative-unit decision exist.
+
+## Archived Active Handoff — 2026-08-04: Studio Inspector + Review Set V1
+
+- Project: `repo-wide`
+- Status: superseded by the focused Course Build Brief, Selection Workbench, Preview Health, and Review Set re-check workflow on `codex/studio-workflow-v2`.
+- Preserved boundary: no learner-course content was changed; Social 10 remains proposal-only and no Science factory was invented.
+- Source of truth: `docs/plans/2026-08-03-studio-inspector-handoff.md` and `docs/plans/2026-08-04-studio-review-set.md`.

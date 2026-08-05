@@ -32,7 +32,7 @@ export function useProjectCommands({ selectedSlug, refreshProjects }: UseProject
 
   const runProjectCommand = async (command: StudioCommandName) => {
     if (!selectedSlug || anyCommandRunning) {
-      return;
+      return false;
     }
 
     setCommandBanner("");
@@ -64,13 +64,14 @@ export function useProjectCommands({ selectedSlug, refreshProjects }: UseProject
         setCommandBanner(`${command} failed (exit ${payload.exitCode}).`);
         setCommandBannerIsError(true);
         setCommandOutputVisible(true);
-        return;
+        return false;
       }
 
       setCommandBanner(`${command} completed for ${selectedSlug}.`);
       if (shouldRefreshProjectsAfterCommand(command)) {
         await refreshProjects();
       }
+      return true;
     } catch (error) {
       setCommandStatus((current) => ({
         ...current,
@@ -79,6 +80,7 @@ export function useProjectCommands({ selectedSlug, refreshProjects }: UseProject
       setCommandBanner(error instanceof Error ? error.message : "Command failed.");
       setCommandBannerIsError(true);
       setCommandOutputVisible(true);
+      return false;
     }
   };
 

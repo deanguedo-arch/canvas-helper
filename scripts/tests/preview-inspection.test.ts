@@ -44,6 +44,9 @@ test("direct workspace provenance resolves an exact declared source only for a c
   assert.equal(resolution.primaryEditTarget, "projects/forensics35/workspace/index.html");
   assert.ok((resolution.primaryEditLine ?? 0) > 0);
   assert.equal(resolution.generated, false);
+  assert.ok(resolution.sourceExcerpt);
+  assert.match(resolution.sourceExcerpt.text, /^\d+ \| /m);
+  assert.ok(Buffer.byteLength(resolution.sourceExcerpt.text, "utf8") <= 1_600);
 });
 
 test("Social provenance never recommends its generated workspace HTML as an edit target", async () => {
@@ -57,6 +60,7 @@ test("Social provenance never recommends its generated workspace HTML as an edit
   assert.equal(resolution.primaryEditLine, null);
   assert.notEqual(resolution.primaryEditTarget, `projects/${slug}/workspace/index.html`);
   assert.match(resolution.rebuildCommand ?? "", /build-social30-related-issues/);
+  assert.equal(resolution.sourceExcerpt, null);
 });
 
 test("English provenance routes generated workspace selections to the recipe and rebuild flow", async () => {
@@ -70,6 +74,7 @@ test("English provenance routes generated workspace selections to the recipe and
   assert.equal(resolution.primaryEditLine, null);
   assert.notEqual(resolution.primaryEditTarget, `projects/${slug}/workspace/index.html`);
   assert.equal(resolution.rebuildCommand, `npm run build:english-unit -- --project ${slug}`);
+  assert.equal(resolution.sourceExcerpt, null);
 });
 
 test("a stale or forged opaque node fails closed", async () => {
@@ -80,4 +85,5 @@ test("a stale or forged opaque node fails closed", async () => {
   assert.equal(resolution.resolution, "unknown");
   assert.equal(resolution.primaryEditTarget, null);
   assert.equal(resolution.freshness, "stale");
+  assert.equal(resolution.sourceExcerpt, null);
 });

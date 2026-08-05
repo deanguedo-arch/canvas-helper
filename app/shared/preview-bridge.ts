@@ -12,6 +12,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-hover",
   "preview-inspect-selected",
   "preview-inspect-current",
+  "preview-diagnostic",
   "preview-error"
 ] as const;
 
@@ -19,7 +20,8 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-request-state",
   "studio-restore-scroll",
   "studio-set-inspect-mode",
-  "studio-request-inspect-current"
+  "studio-request-inspect-current",
+  "studio-focus-inspect-node"
 ] as const;
 
 export type PreviewEventType = (typeof PREVIEW_EVENT_TYPES)[number];
@@ -52,6 +54,11 @@ export type PreviewInspectPayload = {
   role: string;
   testId: string;
   geometry: PreviewGeometry;
+};
+
+export type PreviewDiagnostic = {
+  kind: "runtime-error" | "unhandled-rejection" | "asset-error";
+  message: string;
 };
 
 export type PreviewBridgeMessage = {
@@ -129,6 +136,12 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
     case "preview-inspect-selected":
     case "preview-inspect-current":
       return isPreviewInspectPayload(payload);
+    case "preview-diagnostic":
+      return (
+        isRecord(payload) &&
+        (payload.kind === "runtime-error" || payload.kind === "unhandled-rejection" || payload.kind === "asset-error") &&
+        isBoundedString(payload.message, 360)
+      );
     case "preview-error":
       return isRecord(payload) && isBoundedString(payload.message, 360);
     case "studio-request-state":
@@ -138,6 +151,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
     case "studio-set-inspect-mode":
       return isRecord(payload) && typeof payload.enabled === "boolean";
     case "studio-request-inspect-current":
+      return isRecord(payload) && isBoundedString(payload.nodeId, 160);
+    case "studio-focus-inspect-node":
       return isRecord(payload) && isBoundedString(payload.nodeId, 160);
     default:
       return false;

@@ -19,6 +19,8 @@ type InspectionPanelProps = {
   onTeacherNoteChange: (value: string) => void;
   onIssueCategoryChange: (value: InspectionIssueCategory) => void;
   onCopyPacket: () => void;
+  onCopyTarget: () => void;
+  onShowInPreview: () => void;
   onCaptureScreenshot: () => void;
   onScreenshotMarkerChange: (marker: AnnotationRect) => void;
   onDownloadScreenshot: () => void;
@@ -42,6 +44,8 @@ export function InspectionPanel({
   onTeacherNoteChange,
   onIssueCategoryChange,
   onCopyPacket,
+  onCopyTarget,
+  onShowInPreview,
   onCaptureScreenshot,
   onScreenshotMarkerChange,
   onDownloadScreenshot,
@@ -85,10 +89,54 @@ export function InspectionPanel({
                 : "No safe edit target resolved."}
             </code>
           </p>
+          <div className="inspection-actions inspection-source-actions">
+            <button
+              type="button"
+              className="ghost-button compact"
+              disabled={!resolution.selection.nodeId}
+              onClick={onShowInPreview}
+              data-testid="show-inspection-in-preview"
+            >
+              Show in preview
+            </button>
+            <button
+              type="button"
+              className="ghost-button compact"
+              disabled={!resolution.primaryEditTarget}
+              onClick={onCopyTarget}
+              data-testid="copy-inspection-target"
+            >
+              Copy target
+            </button>
+          </div>
+          {resolution.sourceExcerpt ? (
+            <div className="inspection-source-excerpt">
+              <div className="section-header">
+                <strong>Verified direct source context</strong>
+                <span>{resolution.sourceExcerpt.startLine}–{resolution.sourceExcerpt.endLine}{resolution.sourceExcerpt.truncated ? " · trimmed" : ""}</span>
+              </div>
+              <pre data-testid="inspection-source-excerpt">{resolution.sourceExcerpt.text}</pre>
+              <p>Shown only for an exact, direct workspace match. It is never added to the Codex handoff.</p>
+            </div>
+          ) : resolution.generated && resolution.primaryEditTarget ? (
+            <p className="inspection-source-note">This is generated output. Studio names the rebuild-owned source but does not show generated HTML as editable source context.</p>
+          ) : null}
+          {resolution.contributors.length ? (
+            <div className="inspection-contributors">
+              <strong>Contributing sources</strong>
+              {resolution.contributors.map((contributor) => <code key={contributor}>{contributor}</code>)}
+            </div>
+          ) : null}
           {resolution.rebuildCommand ? (
             <p className="inspection-target">
               <strong>Rebuild</strong>
               <code>{resolution.rebuildCommand}</code>
+            </p>
+          ) : null}
+          {resolution.validationCommand ? (
+            <p className="inspection-target">
+              <strong>Validate</strong>
+              <code>{resolution.validationCommand}</code>
             </p>
           ) : null}
           {resolution.warnings.map((warning) => (

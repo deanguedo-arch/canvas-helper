@@ -48,6 +48,12 @@ export type PreparedReviewSetPacket = {
   itemIds: string[];
 };
 
+export type ReviewSetRecheck = {
+  itemId: string;
+  status: "selecting" | "route-confirmed" | "route-changed" | "verifying" | "verification-passed" | "verification-failed";
+  message: string;
+};
+
 export function utf8ByteLength(value: string) {
   return encoder.encode(value).byteLength;
 }
@@ -155,6 +161,49 @@ function resolutionFacts(resolution: InspectionResolution) {
 
 export function hasSameMaterialResolution(left: InspectionResolution, right: InspectionResolution) {
   return resolutionFacts(left) === resolutionFacts(right);
+}
+
+/**
+ * A post-change inspection can prove that the teacher intentionally clicked a
+ * surface that still leads to the same safe source/rebuild route. It does not
+ * prove that the learner-facing fix is complete, so it deliberately ignores a
+ * source-line shift and never approves an unknown route.
+ */
+export function hasSameSafeReviewRoute(left: InspectionResolution, right: InspectionResolution) {
+  if (
+    left.resolution === "unknown" ||
+    right.resolution === "unknown" ||
+    !left.primaryEditTarget ||
+    !right.primaryEditTarget ||
+    left.freshness === "stale" ||
+    right.freshness === "stale" ||
+    left.freshness === "unsupported" ||
+    right.freshness === "unsupported"
+  ) {
+    return false;
+  }
+
+  return JSON.stringify({
+    projectSlug: left.projectSlug,
+    previewPath: left.previewPath,
+    resolution: left.resolution,
+    artifactRole: left.artifactRole,
+    generated: left.generated,
+    primaryEditTarget: left.primaryEditTarget,
+    contributors: left.contributors,
+    rebuildCommand: left.rebuildCommand,
+    validationCommand: left.validationCommand
+  }) === JSON.stringify({
+    projectSlug: right.projectSlug,
+    previewPath: right.previewPath,
+    resolution: right.resolution,
+    artifactRole: right.artifactRole,
+    generated: right.generated,
+    primaryEditTarget: right.primaryEditTarget,
+    contributors: right.contributors,
+    rebuildCommand: right.rebuildCommand,
+    validationCommand: right.validationCommand
+  });
 }
 
 export function hasProposalOnlyDiagnostic(resolution: InspectionResolution) {

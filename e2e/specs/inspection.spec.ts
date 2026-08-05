@@ -72,6 +72,34 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
 });
 
+test("@inspection Studio exposes a compact course build brief without loading source contents", async ({ page }) => {
+  await openProjectInStudio(page, "forensics35");
+
+  const brief = page.getByTestId("course-build-brief");
+  if (!(await brief.isVisible())) {
+    await page.getByTestId("inspector-toggle").click();
+  }
+  await expect(brief).toBeVisible();
+  await expect(page.getByTestId("course-build-brief-driver")).toHaveText("direct-workspace-v1");
+  await expect(page.getByTestId("course-build-brief-packet")).toContainText("Editable sources:");
+  await expect(page.getByTestId("course-build-brief-packet")).not.toContainText("<!doctype html");
+});
+
+test("@inspection Preview Health records a bounded preview diagnostic instead of opening a console", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+
+  const health = page.getByTestId("preview-health");
+  if (!(await health.isVisible())) {
+    await page.getByTestId("inspector-toggle").click();
+  }
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await workspaceFrame.locator("html").evaluate(() => {
+    window.dispatchEvent(new ErrorEvent("error", { message: "E2E preview diagnostic" }));
+  });
+  await expect(health).toContainText("E2E preview diagnostic");
+  await expect(health).toContainText("not a browser console");
+});
+
 test("@inspection Review Set revalidates multiple saved selections before copying one packet", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
@@ -109,6 +137,32 @@ test("@inspection Review Set revalidates multiple saved selections before copyin
   page.once("dialog", (dialog) => dialog.accept());
   await page.getByTestId("preview-reference-toggle").click();
   await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+});
+
+test("@inspection Review Set can reveal a saved selection and requires a fresh selection before it re-checks a route", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("add-to-review-set")).toBeEnabled();
+  await page.getByTestId("add-to-review-set").click();
+
+  await page.getByTestId("focus-review-set-item").click();
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspection-focus", "true");
+  await page.getByTestId("recheck-review-set-item").click();
+  await expect(page.getByTestId("review-set-recheck-status")).toContainText("Select the revised element");
+
+  // Keyboard inspection exercises the same fresh-selection bridge without
+  // depending on viewport coordinates after the preview-focus scroll.
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("review-set-recheck-status")).toContainText("could not confirm a safe editable route");
 });
 
 test("@inspection Review Set blocks a stale source recheck instead of copying an old selection", async ({ page }) => {

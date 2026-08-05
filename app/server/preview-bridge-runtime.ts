@@ -167,6 +167,32 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function hideOverlay() { if (overlay) overlay.style.display = "none"; }
 
+  function focusSourceNode(nodeId) {
+    var element = elementForSourceNodeId(nodeId);
+    if (!element) return;
+    try {
+      element.scrollIntoView({ block: "center", inline: "nearest", behavior: "auto" });
+    } catch (_) {
+      element.scrollIntoView();
+    }
+    window.requestAnimationFrame(function() {
+      var rect = element.getBoundingClientRect();
+      setOverlay({ left: rect.left, top: rect.top, width: rect.width, height: rect.height });
+      document.documentElement.setAttribute("data-canvas-helper-inspection-focus", "true");
+    });
+  }
+
+  function diagnosticMessage(value, fallback) {
+    var text = boundedString(value || fallback, 240);
+    text = text.replace(/(?:https?|file):\/\/\S+/gi, "[link]");
+    text = text.replace(/(?:[A-Za-z]:)?(?:\\|\/)(?:[^\s]+)/g, "[path]");
+    return boundedString(text || fallback, 240);
+  }
+
+  function sendDiagnostic(kind, value, fallback) {
+    send("preview-diagnostic", { kind: kind, message: diagnosticMessage(value, fallback) });
+  }
+
   function ensureShield() {
     if (shield) return shield;
     shield = document.createElement("div");
@@ -309,6 +335,9 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
       }
       send("preview-inspect-current", selection);
     }
+    if (event.data.type === "studio-focus-inspect-node" && event.data.payload && typeof event.data.payload.nodeId === "string") {
+      focusSourceNode(event.data.payload.nodeId);
+    }
   }
 
   function attachPort(nextPort) {
@@ -340,7 +369,20 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   document.addEventListener("keyup", blockAction, true);
   document.addEventListener("keypress", blockAction, true);
   document.addEventListener("wheel", onInspectWheel, { capture: true, passive: false });
-  window.addEventListener("error", function(event) { send("preview-error", { message: boundedString(event.message || "Preview error", 360) }); });
+  window.addEventListener("error", function(event) {
+    var target = event.target;
+    if (target && target !== window && target instanceof Element) {
+      var tagName = target.tagName ? target.tagName.toLowerCase() : "asset";
+      sendDiagnostic("asset-error", tagName + " failed to load", "A preview asset failed to load.");
+      return;
+    }
+    sendDiagnostic("runtime-error", event.message, "A preview script reported an error.");
+  }, true);
+  window.addEventListener("unhandledrejection", function(event) {
+    var reason = event && event.reason;
+    var message = reason && typeof reason === "object" && typeof reason.message === "string" ? reason.message : String(reason || "");
+    sendDiagnostic("unhandled-rejection", message, "A preview promise was rejected.");
+  });
 
   function markReady() { document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true"); }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markReady, { once: true }); else markReady();

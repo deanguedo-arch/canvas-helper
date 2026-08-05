@@ -1,15 +1,25 @@
 import { toCursorHref } from "../lib/projects";
 import type { ProjectBundle } from "../lib/types";
+import type { CourseBuildBrief } from "../../../shared/course-build-brief.js";
 import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
 import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
-import type { ReviewSetItem } from "../lib/review-set";
+import type { ReviewSetItem, ReviewSetRecheck } from "../lib/review-set";
+import { CourseBuildBriefPanel } from "./CourseBuildBriefPanel";
 import { InspectionPanel } from "./InspectionPanel";
+import { PreviewHealthPanel, type PreviewHealthEntry } from "./PreviewHealthPanel";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
   selectedProject: ProjectBundle | null;
   sourceFiles: string[];
   onCopyToClipboard: (value: string) => Promise<void>;
+  courseBuildBrief: CourseBuildBrief | null;
+  courseBuildBriefLoading: boolean;
+  courseBuildBriefError: string;
+  courseBuildBriefCopyStatus: string;
+  onCopyCourseBuildBrief: (packet: string) => void;
+  previewHealthEntries: PreviewHealthEntry[];
+  onClearPreviewHealth: () => void;
   inspectEnabled: boolean;
   inspectionResolution: InspectionResolution | null;
   inspectionResolving: boolean;
@@ -26,6 +36,8 @@ type InspectorPanelProps = {
   onInspectionTeacherNoteChange: (value: string) => void;
   onInspectionIssueCategoryChange: (value: InspectionIssueCategory) => void;
   onCopyInspectionPacket: () => void;
+  onCopyInspectionTarget: () => void;
+  onShowInspectionInPreview: () => void;
   onCaptureScreenshot: () => void;
   onScreenshotMarkerChange: (marker: AnnotationRect) => void;
   onDownloadScreenshot: () => void;
@@ -38,6 +50,8 @@ type InspectorPanelProps = {
   reviewSetPacket: string;
   reviewSetPacketError: string;
   reviewSetCopyStatus: string;
+  reviewSetRecheck: ReviewSetRecheck | null;
+  anyCommandRunning: boolean;
   onAddCurrentInspectionToReviewSet: () => void;
   onClearReviewSet: () => void;
   onRemoveReviewSetItem: (id: string) => void;
@@ -45,6 +59,9 @@ type InspectorPanelProps = {
   onReviewSetTeacherNoteChange: (id: string, value: string) => void;
   onDownloadReviewSetScreenshot: (id: string) => void;
   onRemoveReviewSetScreenshot: (id: string) => void;
+  onFocusReviewSetItem: (id: string) => void;
+  onStartReviewSetRecheck: (id: string) => void;
+  onRunReviewSetVerification: (id: string) => void;
   onPrepareReviewSet: () => void;
   onCopyReviewSet: () => void;
 };
@@ -53,6 +70,13 @@ export function InspectorPanel({
   selectedProject,
   sourceFiles,
   onCopyToClipboard,
+  courseBuildBrief,
+  courseBuildBriefLoading,
+  courseBuildBriefError,
+  courseBuildBriefCopyStatus,
+  onCopyCourseBuildBrief,
+  previewHealthEntries,
+  onClearPreviewHealth,
   inspectEnabled,
   inspectionResolution,
   inspectionResolving,
@@ -69,6 +93,8 @@ export function InspectorPanel({
   onInspectionTeacherNoteChange,
   onInspectionIssueCategoryChange,
   onCopyInspectionPacket,
+  onCopyInspectionTarget,
+  onShowInspectionInPreview,
   onCaptureScreenshot,
   onScreenshotMarkerChange,
   onDownloadScreenshot,
@@ -81,6 +107,8 @@ export function InspectorPanel({
   reviewSetPacket,
   reviewSetPacketError,
   reviewSetCopyStatus,
+  reviewSetRecheck,
+  anyCommandRunning,
   onAddCurrentInspectionToReviewSet,
   onClearReviewSet,
   onRemoveReviewSetItem,
@@ -88,11 +116,22 @@ export function InspectorPanel({
   onReviewSetTeacherNoteChange,
   onDownloadReviewSetScreenshot,
   onRemoveReviewSetScreenshot,
+  onFocusReviewSetItem,
+  onStartReviewSetRecheck,
+  onRunReviewSetVerification,
   onPrepareReviewSet,
   onCopyReviewSet
 }: InspectorPanelProps) {
   return (
     <section className="inspector">
+      <CourseBuildBriefPanel
+        brief={courseBuildBrief}
+        loading={courseBuildBriefLoading}
+        error={courseBuildBriefError}
+        copyStatus={courseBuildBriefCopyStatus}
+        onCopy={onCopyCourseBuildBrief}
+      />
+      <PreviewHealthPanel entries={previewHealthEntries} onClear={onClearPreviewHealth} />
       <InspectionPanel
         inspectEnabled={inspectEnabled}
         resolution={inspectionResolution}
@@ -110,6 +149,8 @@ export function InspectorPanel({
         onTeacherNoteChange={onInspectionTeacherNoteChange}
         onIssueCategoryChange={onInspectionIssueCategoryChange}
         onCopyPacket={onCopyInspectionPacket}
+        onCopyTarget={onCopyInspectionTarget}
+        onShowInPreview={onShowInspectionInPreview}
         onCaptureScreenshot={onCaptureScreenshot}
         onScreenshotMarkerChange={onScreenshotMarkerChange}
         onDownloadScreenshot={onDownloadScreenshot}
@@ -124,6 +165,8 @@ export function InspectorPanel({
         packet={reviewSetPacket}
         packetError={reviewSetPacketError}
         copyStatus={reviewSetCopyStatus}
+        recheck={reviewSetRecheck}
+        anyCommandRunning={anyCommandRunning}
         onAddCurrent={onAddCurrentInspectionToReviewSet}
         onClear={onClearReviewSet}
         onRemove={onRemoveReviewSetItem}
@@ -131,6 +174,9 @@ export function InspectorPanel({
         onTeacherNoteChange={onReviewSetTeacherNoteChange}
         onDownloadScreenshot={onDownloadReviewSetScreenshot}
         onRemoveScreenshot={onRemoveReviewSetScreenshot}
+        onFocusItem={onFocusReviewSetItem}
+        onStartRecheck={onStartReviewSetRecheck}
+        onRunRecheckVerification={onRunReviewSetVerification}
         onPrepare={onPrepareReviewSet}
         onCopy={onCopyReviewSet}
       />

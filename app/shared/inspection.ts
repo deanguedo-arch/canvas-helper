@@ -25,6 +25,18 @@ export type InspectionResolveRequest = {
   selection: InspectionSelection;
 };
 
+/**
+ * A deliberately small, server-derived view of the exact source line that
+ * created a selected direct-workspace element. It is never supplied by the
+ * preview and is intentionally absent for generated or proposal-only work.
+ */
+export type InspectionSourceExcerpt = {
+  startLine: number;
+  endLine: number;
+  text: string;
+  truncated: boolean;
+};
+
 export type InspectionResolution = {
   projectSlug: string;
   previewPath: string;
@@ -35,6 +47,7 @@ export type InspectionResolution = {
   generated: boolean;
   primaryEditTarget: string | null;
   primaryEditLine: number | null;
+  sourceExcerpt?: InspectionSourceExcerpt | null;
   contributors: string[];
   rebuildCommand: string | null;
   validationCommand: string | null;

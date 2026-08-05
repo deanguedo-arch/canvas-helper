@@ -5,6 +5,7 @@ import { buildCodexPacket } from "../../app/studio/src/lib/codex-packet.ts";
 import {
   buildReviewSetPacket,
   createReviewSetItem,
+  hasSameSafeReviewRoute,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
   utf8ByteLength
@@ -87,12 +88,19 @@ test("Codex packet includes a validated exact source line", () => {
       ...baseResolution,
       generated: false,
       primaryEditTarget: "projects/forensics35/workspace/index.html",
-      primaryEditLine: 42
+      primaryEditLine: 42,
+      sourceExcerpt: {
+        startLine: 41,
+        endLine: 43,
+        text: "41 | private implementation detail\n42 | do not copy this source excerpt\n43 | another line",
+        truncated: false
+      }
     },
     teacherNote: "Use the selected source location."
   });
 
   assert.match(packet, /Primary edit target: projects\/forensics35\/workspace\/index\.html:42/);
+  assert.doesNotMatch(packet, /do not copy this source excerpt/);
 });
 
 function reviewSetItem(id: string, resolution: InspectionResolution, teacherNote = "Clarify the wording for students.") {
@@ -230,4 +238,42 @@ test("Review Set preserves the proposal-only diagnostic without inventing a sour
   assert.match(prepared.packet, /Primary edit target: none — investigate source ownership before editing/);
   assert.match(prepared.packet, /proposal-only/i);
   assert.doesNotMatch(prepared.packet, /candidate source/i);
+});
+
+test("Review Set packets exclude any local source excerpt kept for the visual workbench", () => {
+  const resolution: InspectionResolution = {
+    ...baseResolution,
+    sourceExcerpt: {
+      startLine: 12,
+      endLine: 14,
+      text: "12 | hidden implementation context\n13 | never include this in the handoff\n14 | source only",
+      truncated: false
+    }
+  };
+  const item = reviewSetItem("source-excerpt", resolution);
+  const prepared = buildReviewSetPacket({
+    projectSlug: resolution.projectSlug,
+    previewMode: "workspace",
+    items: [{ item, resolution }]
+  });
+
+  assert.doesNotMatch(prepared.packet, /never include this in the handoff/);
+});
+
+test("post-change route recheck accepts a line shift but never treats an unknown route as fixed", () => {
+  const before: InspectionResolution = {
+    ...baseResolution,
+    generated: false,
+    resolution: "exact",
+    freshness: "current",
+    artifactRole: "canonical-editable-source",
+    primaryEditTarget: "projects/forensics35/workspace/index.html",
+    primaryEditLine: 42,
+    contributors: [],
+    rebuildCommand: null
+  };
+  const after = { ...before, primaryEditLine: 48 };
+  assert.equal(hasSameSafeReviewRoute(before, after), true);
+  assert.equal(hasSameSafeReviewRoute(before, { ...after, resolution: "unknown", primaryEditTarget: null }), false);
+  assert.equal(hasSameSafeReviewRoute(before, { ...after, freshness: "unsupported" }), false);
 });
