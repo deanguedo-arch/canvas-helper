@@ -7,6 +7,12 @@ export const PREVIEW_BRIDGE_BOOTSTRAP_TYPE = "studio-connect";
 export const PREVIEW_STANDALONE_BOOTSTRAP_TYPE = "studio-connect-standalone";
 export const PREVIEW_STANDALONE_SESSION_PARAM = "canvas-helper-inspect-session";
 export const PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH = 128;
+export const PREVIEW_REVIEW_MAX_ITEMS = 5;
+export const PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH = 160;
+export const PREVIEW_REVIEW_NOTE_MAX_LENGTH = 256;
+export const PREVIEW_REVIEW_EXCERPT_MAX_LENGTH = 320;
+export const PREVIEW_REVIEW_STATUS_MAX_LENGTH = 240;
+export const PREVIEW_REVIEW_PACKET_MAX_LENGTH = 6_000;
 
 export const PREVIEW_EVENT_TYPES = [
   "preview-ready",
@@ -16,6 +22,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-selected",
   "preview-inspect-current",
   "preview-inspect-mode",
+  "preview-review-action",
   "preview-diagnostic",
   "preview-error"
 ] as const;
@@ -25,7 +32,10 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-restore-scroll",
   "studio-set-inspect-mode",
   "studio-request-inspect-current",
-  "studio-focus-inspect-node"
+  "studio-focus-inspect-node",
+  "studio-set-review-state",
+  "studio-set-review-packet",
+  "studio-review-action-result"
 ] as const;
 
 export type PreviewEventType = (typeof PREVIEW_EVENT_TYPES)[number];
@@ -65,6 +75,33 @@ export type PreviewDiagnostic = {
   message: string;
 };
 
+export type PreviewReviewAction =
+  | { action: "request-state" }
+  | { action: "add"; selection: PreviewInspectPayload; teacherNote: string }
+  | { action: "remove"; itemId: string }
+  | { action: "update-note"; itemId: string; teacherNote: string }
+  | { action: "clear" };
+
+export type PreviewReviewItemSummary = {
+  id: string;
+  excerpt: string;
+  teacherNote: string;
+};
+
+export type PreviewReviewState = {
+  items: PreviewReviewItemSummary[];
+  preparing: boolean;
+  packetReady: boolean;
+  status: string;
+  error: string;
+};
+
+export type PreviewReviewActionResult = {
+  ok: boolean;
+  message: string;
+  clearDraft: boolean;
+};
+
 export type PreviewBridgeMessage = {
   protocol: typeof PREVIEW_BRIDGE_PROTOCOL;
   version: typeof PREVIEW_BRIDGE_VERSION;
@@ -94,6 +131,10 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 
 function isBoundedString(value: unknown, maximumLength: number) {
   return typeof value === "string" && value.length <= maximumLength;
+}
+
+function isBoundedNonEmptyString(value: unknown, maximumLength: number) {
+  return typeof value === "string" && value.length > 0 && value.length <= maximumLength;
 }
 
 export function isPreviewStandaloneSessionToken(value: unknown): value is string {
@@ -146,6 +187,56 @@ export function isPreviewInspectPayload(value: unknown): value is PreviewInspect
   );
 }
 
+export function isPreviewReviewAction(value: unknown): value is PreviewReviewAction {
+  if (!isRecord(value) || typeof value.action !== "string") {
+    return false;
+  }
+  switch (value.action) {
+    case "request-state":
+    case "clear":
+      return true;
+    case "add":
+      return isPreviewInspectPayload(value.selection) && isBoundedString(value.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH);
+    case "remove":
+      return isBoundedNonEmptyString(value.itemId, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH);
+    case "update-note":
+      return (
+        isBoundedNonEmptyString(value.itemId, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH) &&
+        isBoundedString(value.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH)
+      );
+    default:
+      return false;
+  }
+}
+
+export function isPreviewReviewState(value: unknown): value is PreviewReviewState {
+  return (
+    isRecord(value) &&
+    Array.isArray(value.items) &&
+    value.items.length <= PREVIEW_REVIEW_MAX_ITEMS &&
+    value.items.every(
+      (item) =>
+        isRecord(item) &&
+        isBoundedNonEmptyString(item.id, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH) &&
+        isBoundedString(item.excerpt, PREVIEW_REVIEW_EXCERPT_MAX_LENGTH) &&
+        isBoundedString(item.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH)
+    ) &&
+    typeof value.preparing === "boolean" &&
+    typeof value.packetReady === "boolean" &&
+    isBoundedString(value.status, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
+    isBoundedString(value.error, PREVIEW_REVIEW_STATUS_MAX_LENGTH)
+  );
+}
+
+export function isPreviewReviewActionResult(value: unknown): value is PreviewReviewActionResult {
+  return (
+    isRecord(value) &&
+    typeof value.ok === "boolean" &&
+    isBoundedString(value.message, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
+    typeof value.clearDraft === "boolean"
+  );
+}
+
 function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
   switch (type) {
     case "preview-ready":
@@ -160,6 +251,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isPreviewInspectPayload(payload);
     case "preview-inspect-mode":
       return isRecord(payload) && typeof payload.enabled === "boolean";
+    case "preview-review-action":
+      return isPreviewReviewAction(payload);
     case "preview-diagnostic":
       return (
         isRecord(payload) &&
@@ -178,6 +271,12 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isRecord(payload) && isBoundedString(payload.nodeId, 160);
     case "studio-focus-inspect-node":
       return isRecord(payload) && isBoundedString(payload.nodeId, 160);
+    case "studio-set-review-state":
+      return isPreviewReviewState(payload);
+    case "studio-set-review-packet":
+      return isRecord(payload) && isBoundedString(payload.packet, PREVIEW_REVIEW_PACKET_MAX_LENGTH);
+    case "studio-review-action-result":
+      return isPreviewReviewActionResult(payload);
     default:
       return false;
   }

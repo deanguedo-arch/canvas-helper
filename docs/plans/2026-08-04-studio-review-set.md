@@ -1,20 +1,20 @@
-# Studio Review Set V1
+# Studio Review Set V2
 
-- Status: complete and pushed. ChatGPT Pro independently reviewed the pushed branch and returned `GO` with no release blocker.
+- Status: V2 implemented and locally verified on `codex/studio-workflow-v2`; V1 received the recorded ChatGPT Pro `GO` review.
 - Date: 2026-08-04
-- Scope: a compact, temporary multi-selection handoff inside the existing API-free Studio Inspector.
+- Scope: one compact, temporary annotation set shared by embedded Studio and the full-screen preview.
 - Out of scope: learner-course changes, raw/export edits, persistent handoff history, batch screenshot export, automatic model calls, and Social 10 source-ownership repair.
 
 ## Decision
 
 ChatGPT Pro red-team and green-team adviser passes converged on a small volatile Review Set rather than a history system.
 
-- One project and one preview mode per set; several workspace pages are allowed.
+- One project per set; changing between Reference and Workspace views does not discard saved Workspace annotations.
 - At most five saved source-mapped workspace selections.
 - A final packet is capped at 5,120 UTF-8 bytes.
-- The set lives only in browser memory. Reloading, closing Studio, or switching course/preview mode ends it.
-- Changing course or preview mode warns before the current set is cleared.
-- A saved item keeps the original bounded inspection request and its resolver result. After saving, only its note, order, and optional screenshot can change.
+- The set lives only in browser memory. Reloading, closing Studio, or switching course ends it.
+- Changing course warns before the current set is cleared; changing between Reference and Workspace does not.
+- A saved item keeps the original bounded inspection request and its resolver result. After saving, only its note and optional screenshot can change.
 - Exact duplicate means same project, mode, page, and opaque inspection node. Duplicates are rejected rather than merged.
 
 ## Final adviser review
@@ -25,11 +25,11 @@ ChatGPT Pro independently inspected the pushed `codex/studio-review-set` branch 
 
 1. Turn on **Inspect** and select a workspace element.
 2. Add the current inspection to **Review Set**. Optionally capture one local screenshot annotation first.
-3. Repeat for up to five items. Reorder, remove, or revise the concise teacher note when needed.
-4. Click **Prepare batch handoff**. Studio replays every saved resolver request against the current project state.
-5. If every source mapping is unchanged and current, copy the one frozen packet into a Codex task or ChatGPT Pro review.
+3. Repeat for up to five items. Remove items or revise their concise notes when needed.
+4. Studio automatically replays every saved resolver request after a save or note change.
+5. When **Copy Review Set for Codex** becomes available, copy the one frozen packet into a Codex task or ChatGPT Pro review.
 
-Copy is deliberately disabled until preparation completes. A stale or materially changed mapping stops preparation; Studio never silently refreshes, omits, or rewrites a saved item.
+The same flow is available in a connected full-screen preview. It edits the one Studio-owned set rather than creating a second copy. Copy is deliberately disabled until automatic preparation completes. A stale or materially changed mapping stops preparation; Studio never silently refreshes, omits, or rewrites a saved item.
 
 ## Privacy and token boundary
 
@@ -54,7 +54,7 @@ The proving set remains deliberately mixed:
 | `ela20-1-modern-play-crucible` | English factory | bounded rebuild-owned source remains available |
 | `social10-1-related-issue-1-option-2` | legacy proposal-only | remains unknown; no invented edit target |
 
-Local implementation checks cover the five-item cap, 5 KB byte cap, duplicate blocking, stale revalidation block, screenshot transfer/exclusion, scope-clear warning, and generated/proposal-only source behavior.
+Local implementation checks cover the five-item cap, 5 KB byte cap, duplicate blocking, automatic stale revalidation, screenshot exclusion, project-scope clearing, full-preview synchronization, and generated/proposal-only source behavior.
 
 ## Adviser / implementer roles
 

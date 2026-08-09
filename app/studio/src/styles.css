@@ -388,6 +388,14 @@ pre {
   grid-template-columns: minmax(0, 1fr) 360px;
 }
 
+.inspector > .panel-card {
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 8px 24px rgba(31, 52, 87, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
 .preview-workspace,
 .panel-card {
   border: 1px solid var(--glass-border);
@@ -791,6 +799,8 @@ pre {
 }
 
 .inspection-panel {
+  display: flex;
+  flex-direction: column;
   gap: 0.85rem;
 }
 
@@ -812,6 +822,27 @@ pre {
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
+}
+
+.inspection-selection-summary {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  margin: 0;
+  padding: 0.7rem 0;
+  border-block: 1px solid rgba(89, 116, 162, 0.18);
+}
+
+.inspection-selection-summary strong {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
+.inspection-selection-summary span {
+  color: var(--ink);
+  font-size: 0.86rem;
+  line-height: 1.45;
+  overflow-wrap: anywhere;
 }
 
 .inspection-details dl {
@@ -977,6 +1008,19 @@ pre {
   border: 1px solid rgba(89, 116, 162, 0.2);
   border-radius: 12px;
   background: rgba(233, 240, 255, 0.48);
+}
+
+.inspection-screenshot-option {
+  color: var(--ink-soft);
+  font-size: 0.78rem;
+}
+
+.inspection-screenshot-option > span {
+  font-weight: 650;
+}
+
+.inspection-screenshot-option .inspection-capture {
+  margin-top: 0.55rem;
 }
 
 .inspection-capture span {
@@ -1239,10 +1283,13 @@ pre {
   display: flex;
   flex-direction: column;
   gap: 0.65rem;
-  padding: 0.78rem;
-  border: 1px solid rgba(89, 116, 162, 0.2);
-  border-radius: 12px;
-  background: rgba(250, 252, 255, 0.62);
+  padding: 0.8rem 0;
+  border-top: 1px solid rgba(89, 116, 162, 0.2);
+}
+
+.review-set-item:first-child {
+  border-top: 0;
+  padding-top: 0;
 }
 
 .review-set-item-heading {
@@ -1261,8 +1308,15 @@ pre {
 }
 
 .review-set-item-heading strong {
+  display: -webkit-box;
+  min-width: 0;
+  flex: 1;
   overflow-wrap: anywhere;
   font-size: 0.84rem;
+  line-height: 1.4;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  overflow: hidden;
 }
 
 .review-set-item-heading span {
@@ -1320,6 +1374,15 @@ pre {
   border: 1px solid rgba(89, 116, 162, 0.24);
   border-radius: 9px;
   background: #f1f5f9;
+}
+
+.review-set-screenshot .ghost-button {
+  align-self: flex-start;
+}
+
+.review-set-copy-row {
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(89, 116, 162, 0.2);
 }
 
 .review-set-prepare {

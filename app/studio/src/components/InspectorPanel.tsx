@@ -1,156 +1,86 @@
-import { toCursorHref } from "../lib/projects";
-import type { ProjectBundle } from "../lib/types";
-import type { CourseBuildBrief } from "../../../shared/course-build-brief.js";
-import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
+import type { InspectionResolution } from "../../../shared/inspection.js";
 import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
-import type { ReviewSetItem, ReviewSetRecheck } from "../lib/review-set";
-import { CourseBuildBriefPanel } from "./CourseBuildBriefPanel";
+import type { ReviewSetItem } from "../lib/review-set";
 import { InspectionPanel } from "./InspectionPanel";
-import { PreviewHealthPanel, type PreviewHealthEntry } from "./PreviewHealthPanel";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
-  selectedProject: ProjectBundle | null;
-  sourceFiles: string[];
-  onCopyToClipboard: (value: string) => Promise<void>;
-  courseBuildBrief: CourseBuildBrief | null;
-  courseBuildBriefLoading: boolean;
-  courseBuildBriefError: string;
-  courseBuildBriefCopyStatus: string;
-  onCopyCourseBuildBrief: (packet: string) => void;
-  previewHealthEntries: PreviewHealthEntry[];
-  onClearPreviewHealth: () => void;
   inspectEnabled: boolean;
   inspectionResolution: InspectionResolution | null;
   inspectionResolving: boolean;
   inspectionTeacherNote: string;
-  inspectionIssueCategory: InspectionIssueCategory;
-  inspectionPacket: string;
-  inspectionPacketError: string;
-  inspectionCopyStatus: string;
   screenshotSupported: boolean;
   screenshotCanCapture: boolean;
   screenshotStatus: "idle" | "capturing" | "ready" | "error";
   screenshotError: string;
   screenshot: ScreenshotAnnotationState | null;
   onInspectionTeacherNoteChange: (value: string) => void;
-  onInspectionIssueCategoryChange: (value: InspectionIssueCategory) => void;
-  onCopyInspectionPacket: () => void;
-  onCopyInspectionTarget: () => void;
-  onShowInspectionInPreview: () => void;
+  onSaveCurrentInspection: () => void;
+  reviewSetCanAddCurrent: boolean;
+  reviewSetAddDisabledReason: string;
   onCaptureScreenshot: () => void;
   onScreenshotMarkerChange: (marker: AnnotationRect) => void;
   onDownloadScreenshot: () => void;
   onDiscardScreenshot: () => void;
   reviewSetItems: ReviewSetItem[];
-  reviewSetCanAddCurrent: boolean;
-  reviewSetAddDisabledReason: string;
   reviewSetStatus: string;
   reviewSetPreparing: boolean;
-  reviewSetPacket: string;
+  reviewSetPacketReady: boolean;
   reviewSetPacketError: string;
   reviewSetCopyStatus: string;
-  reviewSetRecheck: ReviewSetRecheck | null;
-  anyCommandRunning: boolean;
-  onAddCurrentInspectionToReviewSet: () => void;
   onClearReviewSet: () => void;
   onRemoveReviewSetItem: (id: string) => void;
-  onMoveReviewSetItem: (id: string, direction: "up" | "down") => void;
   onReviewSetTeacherNoteChange: (id: string, value: string) => void;
-  onDownloadReviewSetScreenshot: (id: string) => void;
   onRemoveReviewSetScreenshot: (id: string) => void;
-  onFocusReviewSetItem: (id: string) => void;
-  onStartReviewSetRecheck: (id: string) => void;
-  onRunReviewSetVerification: (id: string) => void;
-  onPrepareReviewSet: () => void;
   onCopyReviewSet: () => void;
 };
 
 export function InspectorPanel({
-  selectedProject,
-  sourceFiles,
-  onCopyToClipboard,
-  courseBuildBrief,
-  courseBuildBriefLoading,
-  courseBuildBriefError,
-  courseBuildBriefCopyStatus,
-  onCopyCourseBuildBrief,
-  previewHealthEntries,
-  onClearPreviewHealth,
   inspectEnabled,
   inspectionResolution,
   inspectionResolving,
   inspectionTeacherNote,
-  inspectionIssueCategory,
-  inspectionPacket,
-  inspectionPacketError,
-  inspectionCopyStatus,
   screenshotSupported,
   screenshotCanCapture,
   screenshotStatus,
   screenshotError,
   screenshot,
   onInspectionTeacherNoteChange,
-  onInspectionIssueCategoryChange,
-  onCopyInspectionPacket,
-  onCopyInspectionTarget,
-  onShowInspectionInPreview,
+  onSaveCurrentInspection,
+  reviewSetCanAddCurrent,
+  reviewSetAddDisabledReason,
   onCaptureScreenshot,
   onScreenshotMarkerChange,
   onDownloadScreenshot,
   onDiscardScreenshot,
   reviewSetItems,
-  reviewSetCanAddCurrent,
-  reviewSetAddDisabledReason,
   reviewSetStatus,
   reviewSetPreparing,
-  reviewSetPacket,
+  reviewSetPacketReady,
   reviewSetPacketError,
   reviewSetCopyStatus,
-  reviewSetRecheck,
-  anyCommandRunning,
-  onAddCurrentInspectionToReviewSet,
   onClearReviewSet,
   onRemoveReviewSetItem,
-  onMoveReviewSetItem,
   onReviewSetTeacherNoteChange,
-  onDownloadReviewSetScreenshot,
   onRemoveReviewSetScreenshot,
-  onFocusReviewSetItem,
-  onStartReviewSetRecheck,
-  onRunReviewSetVerification,
-  onPrepareReviewSet,
   onCopyReviewSet
 }: InspectorPanelProps) {
   return (
-    <section className="inspector">
-      <CourseBuildBriefPanel
-        brief={courseBuildBrief}
-        loading={courseBuildBriefLoading}
-        error={courseBuildBriefError}
-        copyStatus={courseBuildBriefCopyStatus}
-        onCopy={onCopyCourseBuildBrief}
-      />
-      <PreviewHealthPanel entries={previewHealthEntries} onClear={onClearPreviewHealth} />
+    <aside className="inspector" aria-label="Annotations">
       <InspectionPanel
         inspectEnabled={inspectEnabled}
         resolution={inspectionResolution}
         resolving={inspectionResolving}
         teacherNote={inspectionTeacherNote}
-        issueCategory={inspectionIssueCategory}
-        packet={inspectionPacket}
-        packetError={inspectionPacketError}
-        copyStatus={inspectionCopyStatus}
+        canSave={reviewSetCanAddCurrent}
+        saveDisabledReason={reviewSetAddDisabledReason}
         screenshotSupported={screenshotSupported}
         screenshotCanCapture={screenshotCanCapture}
         screenshotStatus={screenshotStatus}
         screenshotError={screenshotError}
         screenshot={screenshot}
         onTeacherNoteChange={onInspectionTeacherNoteChange}
-        onIssueCategoryChange={onInspectionIssueCategoryChange}
-        onCopyPacket={onCopyInspectionPacket}
-        onCopyTarget={onCopyInspectionTarget}
-        onShowInPreview={onShowInspectionInPreview}
+        onSave={onSaveCurrentInspection}
         onCaptureScreenshot={onCaptureScreenshot}
         onScreenshotMarkerChange={onScreenshotMarkerChange}
         onDownloadScreenshot={onDownloadScreenshot}
@@ -158,103 +88,17 @@ export function InspectorPanel({
       />
       <ReviewSetPanel
         items={reviewSetItems}
-        canAddCurrent={reviewSetCanAddCurrent}
-        addDisabledReason={reviewSetAddDisabledReason}
         status={reviewSetStatus}
         preparing={reviewSetPreparing}
-        packet={reviewSetPacket}
+        packetReady={reviewSetPacketReady}
         packetError={reviewSetPacketError}
         copyStatus={reviewSetCopyStatus}
-        recheck={reviewSetRecheck}
-        anyCommandRunning={anyCommandRunning}
-        onAddCurrent={onAddCurrentInspectionToReviewSet}
         onClear={onClearReviewSet}
         onRemove={onRemoveReviewSetItem}
-        onMove={onMoveReviewSetItem}
         onTeacherNoteChange={onReviewSetTeacherNoteChange}
-        onDownloadScreenshot={onDownloadReviewSetScreenshot}
         onRemoveScreenshot={onRemoveReviewSetScreenshot}
-        onFocusItem={onFocusReviewSetItem}
-        onStartRecheck={onStartReviewSetRecheck}
-        onRunRecheckVerification={onRunReviewSetVerification}
-        onPrepare={onPrepareReviewSet}
         onCopy={onCopyReviewSet}
       />
-      <div className="panel-card">
-        <div className="section-header">
-          <h3>Source Files</h3>
-        </div>
-        {sourceFiles.length === 0 ? <p className="empty-state">No source files available yet.</p> : null}
-        {sourceFiles.map((filePath) => (
-          <div key={filePath} className="file-row">
-            <code>{filePath}</code>
-            <div className="file-actions">
-              <button type="button" className="ghost-button" onClick={() => void onCopyToClipboard(filePath)}>
-                Copy
-              </button>
-              <a className="ghost-button linkish" href={toCursorHref(filePath)}>
-                Cursor
-              </a>
-            </div>
-          </div>
-        ))}
-      </div>
-
-      <div className="panel-card">
-        <div className="section-header">
-          <h3>Sections</h3>
-        </div>
-        {selectedProject?.sectionMap?.sections.length ? (
-          <div className="token-list">
-            {selectedProject.sectionMap.sections.map((section) => (
-              <div key={section.id} className="token-card">
-                <strong>{section.label}</strong>
-                {section.headingText ? <span>{section.headingText}</span> : <span>{section.file}</span>}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="empty-state">No structured sections detected yet.</p>
-        )}
-      </div>
-
-      <div className="panel-card">
-        <div className="section-header">
-          <h3>Resources</h3>
-        </div>
-        {selectedProject?.referenceIndex?.references.length ? (
-          <div className="token-list">
-            {selectedProject.referenceIndex.references.map((reference) => (
-              <div key={reference.id} className="token-card">
-                <strong>{reference.kind}</strong>
-                <span>
-                  {reference.extractionStatus}
-                  {reference.extractionMethod ? ` via ${reference.extractionMethod}` : ""}
-                </span>
-                {reference.extractionIssue ? <span>{reference.extractionIssue}</span> : null}
-              </div>
-            ))}
-          </div>
-        ) : (
-          <p className="empty-state">
-            Drop files into `projects/resources/&lt;project-slug&gt;/`, then use Refresh Intake.
-          </p>
-        )}
-      </div>
-
-      <div className="panel-card">
-        <div className="section-header">
-          <h3>Style Guide</h3>
-        </div>
-        <pre className="document-view">{selectedProject?.styleGuide ?? ""}</pre>
-      </div>
-
-      <div className="panel-card">
-        <div className="section-header">
-          <h3>Import Log</h3>
-        </div>
-        <pre className="document-view">{selectedProject?.importLog ?? ""}</pre>
-      </div>
-    </section>
+    </aside>
   );
 }

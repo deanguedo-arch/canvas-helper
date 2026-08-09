@@ -118,7 +118,7 @@ export function Topbar({
           onClick={onToggleInspector}
           data-testid="inspector-toggle"
         >
-          {layoutPreferences.inspectorOpen ? "Hide Details" : "Details"}
+          {layoutPreferences.inspectorOpen ? "Hide Review Set" : "Review Set"}
         </button>
       </div>
     </header>

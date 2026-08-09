@@ -1,4 +1,4 @@
-import { INSPECTION_ISSUE_CATEGORIES, type InspectionIssueCategory, type InspectionResolution } from "../../../shared/inspection.js";
+import type { InspectionResolution } from "../../../shared/inspection.js";
 import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
 import { ScreenshotAnnotation } from "./ScreenshotAnnotation";
 
@@ -7,180 +7,106 @@ type InspectionPanelProps = {
   resolution: InspectionResolution | null;
   resolving: boolean;
   teacherNote: string;
-  issueCategory: InspectionIssueCategory;
-  packet: string;
-  packetError: string;
-  copyStatus: string;
+  canSave: boolean;
+  saveDisabledReason: string;
   screenshotSupported: boolean;
   screenshotCanCapture: boolean;
   screenshotStatus: "idle" | "capturing" | "ready" | "error";
   screenshotError: string;
   screenshot: ScreenshotAnnotationState | null;
   onTeacherNoteChange: (value: string) => void;
-  onIssueCategoryChange: (value: InspectionIssueCategory) => void;
-  onCopyPacket: () => void;
-  onCopyTarget: () => void;
-  onShowInPreview: () => void;
+  onSave: () => void;
   onCaptureScreenshot: () => void;
   onScreenshotMarkerChange: (marker: AnnotationRect) => void;
   onDownloadScreenshot: () => void;
   onDiscardScreenshot: () => void;
 };
 
+function selectionLabel(resolution: InspectionResolution) {
+  const visibleText = resolution.selection.visibleText.replace(/\s+/g, " ").trim();
+  return visibleText || `Selected ${resolution.selection.tagName || "course element"}`;
+}
+
 export function InspectionPanel({
   inspectEnabled,
   resolution,
   resolving,
   teacherNote,
-  issueCategory,
-  packet,
-  packetError,
-  copyStatus,
+  canSave,
+  saveDisabledReason,
   screenshotSupported,
   screenshotCanCapture,
   screenshotStatus,
   screenshotError,
   screenshot,
   onTeacherNoteChange,
-  onIssueCategoryChange,
-  onCopyPacket,
-  onCopyTarget,
-  onShowInPreview,
+  onSave,
   onCaptureScreenshot,
   onScreenshotMarkerChange,
   onDownloadScreenshot,
   onDiscardScreenshot
 }: InspectionPanelProps) {
   return (
-    <div className="panel-card inspection-panel" data-testid="inspection-panel">
+    <section className="panel-card inspection-panel" data-testid="inspection-panel">
       <div className="section-header">
-        <h3>Inspect for Codex</h3>
+        <h3>New annotation</h3>
         <span className={inspectEnabled ? "inspection-state enabled" : "inspection-state"}>
-          {inspectEnabled ? "Selecting" : "Off"}
+          {inspectEnabled ? "Inspect on" : "Inspect off"}
         </span>
       </div>
 
       {!inspectEnabled ? (
-        <p className="empty-state">Turn on Inspect, then click a course element. Inspect blocks the course action while it is on.</p>
+        <p className="empty-state">Turn on Inspect, then click anything in the course preview.</p>
       ) : null}
-      {resolving ? <p className="empty-state" role="status">Resolving local source ownership…</p> : null}
+      {resolving ? <p className="empty-state" role="status">Getting your selection ready…</p> : null}
+
       {resolution ? (
         <div className="inspection-details">
-          <dl>
-            <div>
-              <dt>Resolution</dt>
-              <dd data-testid="inspection-resolution">{resolution.resolution}</dd>
-            </div>
-            <div>
-              <dt>Freshness</dt>
-              <dd>{resolution.freshness}</dd>
-            </div>
-            <div>
-              <dt>Role</dt>
-              <dd>{resolution.artifactRole}</dd>
-            </div>
-          </dl>
-
-          <p className="inspection-target">
-            <strong>Primary target</strong>
-            <code>
-              {resolution.primaryEditTarget
-                ? `${resolution.primaryEditTarget}${resolution.primaryEditLine ? `:${resolution.primaryEditLine}` : ""}`
-                : "No safe edit target resolved."}
-            </code>
+          <p className="inspection-selection-summary" data-testid="inspection-selection-summary">
+            <strong>Selected</strong>
+            <span>{selectionLabel(resolution)}</span>
           </p>
-          <div className="inspection-actions inspection-source-actions">
-            <button
-              type="button"
-              className="ghost-button compact"
-              disabled={!resolution.selection.nodeId}
-              onClick={onShowInPreview}
-              data-testid="show-inspection-in-preview"
-            >
-              Show in preview
-            </button>
-            <button
-              type="button"
-              className="ghost-button compact"
-              disabled={!resolution.primaryEditTarget}
-              onClick={onCopyTarget}
-              data-testid="copy-inspection-target"
-            >
-              Copy target
-            </button>
-          </div>
-          {resolution.sourceExcerpt ? (
-            <div className="inspection-source-excerpt">
-              <div className="section-header">
-                <strong>Verified direct source context</strong>
-                <span>{resolution.sourceExcerpt.startLine}–{resolution.sourceExcerpt.endLine}{resolution.sourceExcerpt.truncated ? " · trimmed" : ""}</span>
-              </div>
-              <pre data-testid="inspection-source-excerpt">{resolution.sourceExcerpt.text}</pre>
-              <p>Shown only for an exact, direct workspace match. It is never added to the Codex handoff.</p>
-            </div>
-          ) : resolution.generated && resolution.primaryEditTarget ? (
-            <p className="inspection-source-note">This is generated output. Studio names the rebuild-owned source but does not show generated HTML as editable source context.</p>
-          ) : null}
-          {resolution.contributors.length ? (
-            <div className="inspection-contributors">
-              <strong>Contributing sources</strong>
-              {resolution.contributors.map((contributor) => <code key={contributor}>{contributor}</code>)}
-            </div>
-          ) : null}
-          {resolution.rebuildCommand ? (
-            <p className="inspection-target">
-              <strong>Rebuild</strong>
-              <code>{resolution.rebuildCommand}</code>
-            </p>
-          ) : null}
-          {resolution.validationCommand ? (
-            <p className="inspection-target">
-              <strong>Validate</strong>
-              <code>{resolution.validationCommand}</code>
-            </p>
-          ) : null}
-          {resolution.warnings.map((warning) => (
-            <p key={warning} className="inspection-warning">
-              {warning}
-            </p>
-          ))}
-
-          <label className="inspection-category">
-            <span>What kind of change is this?</span>
-            <select value={issueCategory} onChange={(event) => onIssueCategoryChange(event.target.value as InspectionIssueCategory)} data-testid="inspection-category">
-              {INSPECTION_ISSUE_CATEGORIES.map((category) => (
-                <option key={category} value={category}>
-                  {category[0].toUpperCase() + category.slice(1)}
-                </option>
-              ))}
-            </select>
-          </label>
 
           <label className="inspection-note">
-            <span>What should Codex change?</span>
+            <span>What should change?</span>
             <textarea
               value={teacherNote}
               onChange={(event) => onTeacherNoteChange(event.target.value)}
-              placeholder="For example: make this explanation clearer for Grade 11."
+              placeholder="Write your note for Codex…"
               rows={3}
               data-testid="inspection-teacher-note"
             />
           </label>
 
-          <div className="inspection-capture">
+          <div className="inspection-actions">
             <button
               type="button"
-              className="ghost-button compact"
-              disabled={!screenshotSupported || !screenshotCanCapture || screenshotStatus === "capturing"}
-              onClick={onCaptureScreenshot}
-              data-testid="capture-annotated-screenshot"
+              className="ghost-button compact active-toggle"
+              disabled={!canSave}
+              onClick={onSave}
+              data-testid="add-to-review-set"
             >
-              {screenshotStatus === "capturing" ? "Waiting for tab…" : "Screenshot + annotate"}
+              Save annotation
             </button>
-            <span>Your browser will ask what to share—choose this Studio tab. Canvas Helper captures one frame locally and downloads nothing until you review it.</span>
+            {!canSave && saveDisabledReason ? <span className="inspection-copy-status">{saveDisabledReason}</span> : null}
           </div>
-          {!screenshotSupported ? <p className="inspection-warning">This browser does not offer tab screenshot capture.</p> : null}
-          {!screenshotCanCapture ? <p className="inspection-warning">Select a source-mapped preview element before capturing a screenshot.</p> : null}
+
+          <div className="inspection-screenshot-option">
+            <span>Add a screenshot (optional)</span>
+            <div className="inspection-capture">
+              <button
+                type="button"
+                className="ghost-button compact"
+                disabled={!screenshotSupported || !screenshotCanCapture || screenshotStatus === "capturing"}
+                onClick={onCaptureScreenshot}
+                data-testid="capture-annotated-screenshot"
+              >
+                {screenshotStatus === "capturing" ? "Waiting for tab…" : "Screenshot + annotate"}
+              </button>
+              <span>Choose this Studio tab when your browser asks what to share.</span>
+            </div>
+          </div>
+          {!screenshotSupported ? <p className="inspection-warning">Screenshots are not available in this browser.</p> : null}
           {screenshotError ? <p className="inspection-warning">{screenshotError}</p> : null}
           {screenshot ? (
             <ScreenshotAnnotation
@@ -190,23 +116,8 @@ export function InspectionPanel({
               onDiscard={onDiscardScreenshot}
             />
           ) : null}
-
-          {packetError ? <p className="inspection-warning">{packetError}</p> : null}
-          {packet ? <pre className="inspection-packet" data-testid="inspection-packet">{packet}</pre> : null}
-          <div className="inspection-actions">
-            <button
-              type="button"
-              className="ghost-button compact active-toggle"
-              disabled={!packet || Boolean(packetError)}
-              onClick={onCopyPacket}
-              data-testid="copy-for-codex"
-            >
-              Copy for Codex
-            </button>
-            {copyStatus ? <span className="inspection-copy-status" role="status">{copyStatus}</span> : null}
-          </div>
         </div>
       ) : null}
-    </div>
+    </section>
   );
 }

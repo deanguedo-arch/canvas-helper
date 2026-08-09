@@ -75,7 +75,12 @@ test("isolated preview pins the Studio origin and exposes no Studio API routes",
     assert.match(bridgeSource, /studioWindow\.postMessage/);
     assert.match(bridgeSource, /window\.opener = null/);
     assert.match(bridgeSource, /data-canvas-helper-return-to-studio/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-review-toggle/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-review-note/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-review-save/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-review-copy/);
     assert.match(bridgeSource, /window\.location\.replace\(STUDIO_ORIGIN\)/);
+    assert.doesNotThrow(() => new Function(bridgeSource));
 
     const apiResponse = await fetch(`${previewServer.origin}/api/projects`);
     assert.equal(apiResponse.status, 404);
@@ -96,6 +101,7 @@ test("Studio bridge code posts to a port and never reads preview iframe DOM", as
   assert.match(source, /focusPreviewInspectionSelection/);
   assert.match(source, /isPreviewStandaloneBridgeBootstrap/);
   assert.match(source, /standaloneSessionTokenRefs/);
+  assert.match(source, /source === "standalone"/);
   assert.match(source, /event\.origin !== current\.previewOrigin/);
   assert.doesNotMatch(source, /window\.open/);
   assert.doesNotMatch(source, /postMessage\([^\n]+,\s*["']\*["']/);
@@ -182,6 +188,48 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       version: 1,
       type: "preview-diagnostic",
       payload: { kind: "asset-error", message: "x".repeat(361) }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-review-action",
+      payload: { action: "add", selection, teacherNote: "Make this clearer." }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-review-action",
+      payload: { action: "remove", itemId: "" }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "studio-set-review-state",
+      payload: {
+        items: [{ id: "review-1", excerpt: "Current element", teacherNote: "Make this clearer." }],
+        preparing: false,
+        packetReady: true,
+        status: "Review Set ready.",
+        error: ""
+      }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "studio-set-review-packet",
+      payload: { packet: "x".repeat(6_001) }
     }),
     false
   );

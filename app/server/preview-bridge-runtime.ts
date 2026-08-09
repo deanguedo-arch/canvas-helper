@@ -3,6 +3,9 @@ import {
   PREVIEW_BRIDGE_MAX_VISIBLE_TEXT,
   PREVIEW_BRIDGE_PROTOCOL,
   PREVIEW_BRIDGE_VERSION,
+  PREVIEW_REVIEW_MAX_ITEMS,
+  PREVIEW_REVIEW_NOTE_MAX_LENGTH,
+  PREVIEW_REVIEW_PACKET_MAX_LENGTH,
   PREVIEW_STANDALONE_BOOTSTRAP_TYPE,
   PREVIEW_STANDALONE_SESSION_PARAM,
   PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH
@@ -23,6 +26,9 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var NODE_ATTRIBUTE = "${PREVIEW_INSPECT_NODE_ATTRIBUTE}";
   var MAX_TEXT = ${PREVIEW_BRIDGE_MAX_VISIBLE_TEXT};
   var MAX_CONTAINERS = ${PREVIEW_BRIDGE_MAX_CONTAINERS};
+  var MAX_REVIEW_ITEMS = ${PREVIEW_REVIEW_MAX_ITEMS};
+  var MAX_REVIEW_NOTE = ${PREVIEW_REVIEW_NOTE_MAX_LENGTH};
+  var MAX_REVIEW_PACKET = ${PREVIEW_REVIEW_PACKET_MAX_LENGTH};
   var STANDALONE_BOOTSTRAP_TYPE = "${PREVIEW_STANDALONE_BOOTSTRAP_TYPE}";
   var STANDALONE_SESSION_PARAM = "${PREVIEW_STANDALONE_SESSION_PARAM}";
   var MAX_SESSION_TOKEN = ${PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH};
@@ -39,6 +45,20 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var previewControls = null;
   var inspectControl = null;
   var previewStatus = null;
+  var reviewToggle = null;
+  var reviewPanel = null;
+  var reviewSelection = null;
+  var reviewSelectionText = null;
+  var reviewDraft = null;
+  var reviewSave = null;
+  var reviewItems = null;
+  var reviewCopy = null;
+  var reviewClear = null;
+  var reviewMessage = null;
+  var reviewPanelOpen = false;
+  var reviewPacket = "";
+  var reviewLocalMessage = "";
+  var reviewState = { items: [], preparing: false, packetReady: false, status: "", error: "" };
   var standaloneSessionToken = "";
   var standaloneUrl = null;
   try {
@@ -198,6 +218,18 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     control.style.cursor = "pointer";
   }
 
+  function stylePreviewTextArea(control) {
+    control.style.boxSizing = "border-box";
+    control.style.width = "100%";
+    control.style.padding = "8px";
+    control.style.border = "1px solid #cbd5e1";
+    control.style.borderRadius = "6px";
+    control.style.background = "#ffffff";
+    control.style.color = "#18212f";
+    control.style.font = "13px/1.35 system-ui, sans-serif";
+    control.style.resize = "vertical";
+  }
+
   function setStandaloneStatus(value) {
     if (previewStatus) previewStatus.textContent = boundedString(value, 120);
   }
@@ -209,9 +241,122 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     inspectControl.style.background = inspectEnabled ? "#18212f" : "#ffffff";
     inspectControl.style.color = inspectEnabled ? "#ffffff" : "#18212f";
     if (inspectEnabled) {
-      setStandaloneStatus(studioConnected ? "Click a course element. The selection will appear in Studio." : port ? "Connecting to Studio..." : "Click a course element. Open this preview from Studio to send it back.");
+      setStandaloneStatus(studioConnected ? "Click anything in the course to annotate it." : port ? "Connecting to Studio..." : "Open this preview from Studio to save annotations.");
     } else {
-      setStandaloneStatus(studioConnected ? "Connected to Studio." : port ? "Connecting to Studio..." : "Open this preview from Studio to send selections back.");
+      setStandaloneStatus(studioConnected ? "Connected to Studio." : port ? "Connecting to Studio..." : "Open this preview from Studio to save annotations.");
+    }
+    renderReviewPanel();
+  }
+
+  function reviewSelectionExcerpt(selection) {
+    if (!selection) return "No selection yet.";
+    return boundedString(selection.visibleText, 180) || "Selected " + boundedString(selection.tagName || "course element", 48);
+  }
+
+  function sendReviewAction(action) {
+    if (!studioConnected || !port) {
+      reviewLocalMessage = "Open this preview from Studio to save annotations.";
+      renderReviewPanel();
+      return false;
+    }
+    send("preview-review-action", action);
+    return true;
+  }
+
+  function setReviewPanelOpen(open) {
+    reviewPanelOpen = Boolean(open);
+    renderReviewPanel();
+  }
+
+  function renderReviewPanel() {
+    if (!reviewPanel || !reviewToggle) return;
+    reviewToggle.textContent = "Review Set (" + reviewState.items.length + ")";
+    reviewToggle.setAttribute("aria-expanded", reviewPanelOpen ? "true" : "false");
+    reviewPanel.style.display = reviewPanelOpen ? "block" : "none";
+    if (!reviewPanelOpen) return;
+
+    if (reviewSelectionText) reviewSelectionText.textContent = reviewSelectionExcerpt(reviewSelection);
+    if (reviewDraft) reviewDraft.disabled = !reviewSelection;
+    if (reviewSave) {
+      var note = reviewDraft ? boundedString(reviewDraft.value, MAX_REVIEW_NOTE) : "";
+      reviewSave.disabled = !studioConnected || !reviewSelection || !reviewSelection.nodeId || !note || reviewState.items.length >= MAX_REVIEW_ITEMS;
+      reviewSave.style.opacity = reviewSave.disabled ? "0.48" : "1";
+      reviewSave.style.cursor = reviewSave.disabled ? "default" : "pointer";
+    }
+
+    if (reviewItems) {
+      while (reviewItems.firstChild) reviewItems.removeChild(reviewItems.firstChild);
+      if (!reviewState.items.length) {
+        var empty = document.createElement("p");
+        empty.textContent = "No saved annotations yet.";
+        empty.style.margin = "0";
+        empty.style.color = "#64748b";
+        empty.style.fontSize = "12px";
+        reviewItems.appendChild(empty);
+      }
+      reviewState.items.forEach(function(item, index) {
+        var row = document.createElement("div");
+        row.setAttribute("data-canvas-helper-preview-review-item", "true");
+        row.style.padding = "10px 0";
+        row.style.borderTop = index ? "1px solid #e2e8f0" : "0";
+
+        var rowHeading = document.createElement("div");
+        rowHeading.style.display = "flex";
+        rowHeading.style.alignItems = "flex-start";
+        rowHeading.style.justifyContent = "space-between";
+        rowHeading.style.gap = "8px";
+
+        var excerpt = document.createElement("strong");
+        excerpt.textContent = (index + 1) + ". " + (boundedString(item.excerpt, 180) || "Selected element");
+        excerpt.style.font = "600 12px/1.35 system-ui, sans-serif";
+        excerpt.style.overflowWrap = "anywhere";
+
+        var remove = document.createElement("button");
+        remove.type = "button";
+        remove.textContent = "Remove";
+        stylePreviewControlButton(remove);
+        remove.style.padding = "5px 7px";
+        remove.style.fontSize = "11px";
+        remove.addEventListener("click", function() {
+          reviewLocalMessage = "Removing…";
+          renderReviewPanel();
+          sendReviewAction({ action: "remove", itemId: item.id });
+        });
+
+        var noteArea = document.createElement("textarea");
+        noteArea.value = item.teacherNote;
+        noteArea.rows = 2;
+        noteArea.maxLength = MAX_REVIEW_NOTE;
+        noteArea.setAttribute("aria-label", "Change note for annotation " + (index + 1));
+        stylePreviewTextArea(noteArea);
+        noteArea.style.marginTop = "7px";
+        noteArea.addEventListener("change", function() {
+          reviewLocalMessage = "Updating note…";
+          sendReviewAction({ action: "update-note", itemId: item.id, teacherNote: noteArea.value });
+        });
+
+        rowHeading.appendChild(excerpt);
+        rowHeading.appendChild(remove);
+        row.appendChild(rowHeading);
+        row.appendChild(noteArea);
+        reviewItems.appendChild(row);
+      });
+    }
+
+    if (reviewCopy) {
+      reviewCopy.disabled = !studioConnected || reviewState.preparing || !reviewState.packetReady || !reviewPacket;
+      reviewCopy.textContent = reviewState.preparing ? "Getting Review Set ready…" : "Copy Review Set for Codex";
+      reviewCopy.style.opacity = reviewCopy.disabled ? "0.48" : "1";
+      reviewCopy.style.cursor = reviewCopy.disabled ? "default" : "pointer";
+    }
+    if (reviewClear) {
+      reviewClear.disabled = !studioConnected || !reviewState.items.length;
+      reviewClear.style.opacity = reviewClear.disabled ? "0.48" : "1";
+      reviewClear.style.cursor = reviewClear.disabled ? "default" : "pointer";
+    }
+    if (reviewMessage) {
+      reviewMessage.textContent = boundedString(reviewState.error || reviewLocalMessage || reviewState.status, 180);
+      reviewMessage.style.color = reviewState.error ? "#9a3412" : "#475569";
     }
   }
 
@@ -225,7 +370,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     controls.style.top = "12px";
     controls.style.right = "12px";
     controls.style.zIndex = "2147483647";
-    controls.style.width = "min(280px, calc(100vw - 24px))";
+    controls.style.width = "min(340px, calc(100vw - 24px))";
     controls.style.padding = "8px";
     controls.style.border = "1px solid #64748b";
     controls.style.borderRadius = "8px";
@@ -237,6 +382,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     var actions = document.createElement("div");
     actions.style.display = "flex";
     actions.style.gap = "6px";
+    actions.style.flexWrap = "wrap";
 
     var inspectButton = document.createElement("button");
     inspectButton.type = "button";
@@ -244,6 +390,16 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     stylePreviewControlButton(inspectButton);
     inspectButton.addEventListener("click", function() {
       setInspectMode(!inspectEnabled, true);
+    });
+
+    var reviewButton = document.createElement("button");
+    reviewButton.type = "button";
+    reviewButton.setAttribute("data-canvas-helper-preview-review-toggle", "true");
+    reviewButton.setAttribute("aria-controls", "canvas-helper-preview-review-panel");
+    stylePreviewControlButton(reviewButton);
+    reviewButton.addEventListener("click", function() {
+      setReviewPanelOpen(!reviewPanelOpen);
+      if (reviewPanelOpen) sendReviewAction({ action: "request-state" });
     });
 
     var returnButton = document.createElement("button");
@@ -264,14 +420,144 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     status.style.lineHeight = "1.35";
     status.style.color = "#475569";
 
+    var panel = document.createElement("section");
+    panel.id = "canvas-helper-preview-review-panel";
+    panel.setAttribute("data-canvas-helper-preview-review-panel", "true");
+    panel.setAttribute("aria-label", "Review Set");
+    panel.style.display = "none";
+    panel.style.maxHeight = "min(68vh, 620px)";
+    panel.style.marginTop = "9px";
+    panel.style.paddingTop = "10px";
+    panel.style.overflowY = "auto";
+    panel.style.borderTop = "1px solid #e2e8f0";
+
+    var panelTitle = document.createElement("strong");
+    panelTitle.textContent = "New annotation";
+    panelTitle.style.display = "block";
+    panelTitle.style.font = "650 13px/1.3 system-ui, sans-serif";
+
+    var selectedText = document.createElement("p");
+    selectedText.setAttribute("data-canvas-helper-preview-review-selection", "true");
+    selectedText.style.margin = "6px 0";
+    selectedText.style.color = "#475569";
+    selectedText.style.font = "12px/1.35 system-ui, sans-serif";
+
+    var draft = document.createElement("textarea");
+    draft.rows = 3;
+    draft.maxLength = MAX_REVIEW_NOTE;
+    draft.placeholder = "What should Codex change?";
+    draft.setAttribute("aria-label", "What should Codex change?");
+    draft.setAttribute("data-canvas-helper-preview-review-note", "true");
+    stylePreviewTextArea(draft);
+    draft.addEventListener("input", renderReviewPanel);
+
+    var save = document.createElement("button");
+    save.type = "button";
+    save.textContent = "Save annotation";
+    save.setAttribute("data-canvas-helper-preview-review-save", "true");
+    stylePreviewControlButton(save);
+    save.style.marginTop = "7px";
+    save.style.background = "#18212f";
+    save.style.color = "#ffffff";
+    save.addEventListener("click", function() {
+      if (!reviewSelection || !reviewDraft) return;
+      var note = boundedString(reviewDraft.value, MAX_REVIEW_NOTE);
+      if (!note) {
+        reviewLocalMessage = "Add a note before saving.";
+        renderReviewPanel();
+        return;
+      }
+      reviewLocalMessage = "Saving annotation…";
+      renderReviewPanel();
+      sendReviewAction({ action: "add", selection: reviewSelection, teacherNote: note });
+    });
+
+    var savedHeading = document.createElement("div");
+    savedHeading.textContent = "Saved annotations";
+    savedHeading.style.marginTop = "14px";
+    savedHeading.style.paddingTop = "10px";
+    savedHeading.style.borderTop = "1px solid #e2e8f0";
+    savedHeading.style.font = "650 13px/1.3 system-ui, sans-serif";
+
+    var savedItems = document.createElement("div");
+    savedItems.setAttribute("data-canvas-helper-preview-review-items", "true");
+
+    var footer = document.createElement("div");
+    footer.style.display = "flex";
+    footer.style.gap = "6px";
+    footer.style.flexWrap = "wrap";
+    footer.style.paddingTop = "10px";
+    footer.style.borderTop = "1px solid #e2e8f0";
+
+    var copy = document.createElement("button");
+    copy.type = "button";
+    copy.setAttribute("data-canvas-helper-preview-review-copy", "true");
+    stylePreviewControlButton(copy);
+    copy.style.background = "#18212f";
+    copy.style.color = "#ffffff";
+    copy.addEventListener("click", function() {
+      if (!reviewPacket || !navigator.clipboard || typeof navigator.clipboard.writeText !== "function") {
+        reviewLocalMessage = "Clipboard access is not available here.";
+        renderReviewPanel();
+        return;
+      }
+      navigator.clipboard.writeText(reviewPacket).then(function() {
+        reviewLocalMessage = "Copied. Paste the Review Set into Codex.";
+        renderReviewPanel();
+      }).catch(function() {
+        reviewLocalMessage = "Clipboard access was blocked.";
+        renderReviewPanel();
+      });
+    });
+
+    var clear = document.createElement("button");
+    clear.type = "button";
+    clear.textContent = "Clear";
+    clear.setAttribute("data-canvas-helper-preview-review-clear", "true");
+    stylePreviewControlButton(clear);
+    clear.addEventListener("click", function() {
+      reviewLocalMessage = "Clearing…";
+      renderReviewPanel();
+      sendReviewAction({ action: "clear" });
+    });
+
+    var panelMessage = document.createElement("p");
+    panelMessage.setAttribute("role", "status");
+    panelMessage.setAttribute("data-canvas-helper-preview-review-status", "true");
+    panelMessage.style.minHeight = "16px";
+    panelMessage.style.margin = "7px 0 0";
+    panelMessage.style.font = "12px/1.35 system-ui, sans-serif";
+
+    footer.appendChild(copy);
+    footer.appendChild(clear);
+    panel.appendChild(panelTitle);
+    panel.appendChild(selectedText);
+    panel.appendChild(draft);
+    panel.appendChild(save);
+    panel.appendChild(savedHeading);
+    panel.appendChild(savedItems);
+    panel.appendChild(footer);
+    panel.appendChild(panelMessage);
+
     actions.appendChild(inspectButton);
+    actions.appendChild(reviewButton);
     actions.appendChild(returnButton);
     controls.appendChild(actions);
     controls.appendChild(status);
+    controls.appendChild(panel);
     (document.body || document.documentElement).appendChild(controls);
     previewControls = controls;
     inspectControl = inspectButton;
     previewStatus = status;
+    reviewToggle = reviewButton;
+    reviewPanel = panel;
+    reviewSelectionText = selectedText;
+    reviewDraft = draft;
+    reviewSave = save;
+    reviewItems = savedItems;
+    reviewCopy = copy;
+    reviewClear = clear;
+    reviewMessage = panelMessage;
     updateStandaloneControls();
   }
 
@@ -396,7 +682,12 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (!selection) return;
     setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
     send("preview-inspect-selected", selection);
-    setStandaloneStatus(studioConnected ? "Selection sent to Studio." : "Selection highlighted. Open this preview from Studio to send it back.");
+    if (window.top === window) {
+      reviewSelection = selection;
+      reviewLocalMessage = selection.nodeId ? "Add a note, then save this annotation." : "Choose a more specific course element.";
+      setReviewPanelOpen(true);
+    }
+    setStandaloneStatus(studioConnected ? "Selection ready." : "Selection highlighted. Open this preview from Studio to save it.");
   }
 
   function onInspectKeydown(event) {
@@ -413,7 +704,12 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (!selection) return;
     setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
     send("preview-inspect-selected", selection);
-    setStandaloneStatus(studioConnected ? "Selection sent to Studio." : "Selection highlighted. Open this preview from Studio to send it back.");
+    if (window.top === window) {
+      reviewSelection = selection;
+      reviewLocalMessage = selection.nodeId ? "Add a note, then save this annotation." : "Choose a more specific course element.";
+      setReviewPanelOpen(true);
+    }
+    setStandaloneStatus(studioConnected ? "Selection ready." : "Selection highlighted. Open this preview from Studio to save it.");
   }
 
   function onInspectWheel(event) {
@@ -445,6 +741,18 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     return data && typeof data === "object" && data.protocol === PROTOCOL && data.version === VERSION && data.type === "studio-connect" && data.payload === null;
   }
 
+  function isReviewState(value) {
+    if (!value || typeof value !== "object" || !Array.isArray(value.items) || value.items.length > MAX_REVIEW_ITEMS) return false;
+    if (typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240) return false;
+    return value.items.every(function(item) {
+      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE;
+    });
+  }
+
+  function isReviewActionResult(value) {
+    return value && typeof value === "object" && typeof value.ok === "boolean" && typeof value.message === "string" && value.message.length <= 240 && typeof value.clearDraft === "boolean";
+  }
+
   function handlePortMessage(event) {
     if (!isCommand(event.data)) return;
     studioConnected = true;
@@ -464,6 +772,22 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (event.data.type === "studio-focus-inspect-node" && event.data.payload && typeof event.data.payload.nodeId === "string") {
       focusSourceNode(event.data.payload.nodeId);
     }
+    if (event.data.type === "studio-set-review-state" && isReviewState(event.data.payload)) {
+      reviewState = event.data.payload;
+      renderReviewPanel();
+    }
+    if (event.data.type === "studio-set-review-packet" && event.data.payload && typeof event.data.payload.packet === "string" && event.data.payload.packet.length <= MAX_REVIEW_PACKET) {
+      reviewPacket = event.data.payload.packet;
+      renderReviewPanel();
+    }
+    if (event.data.type === "studio-review-action-result" && isReviewActionResult(event.data.payload)) {
+      reviewLocalMessage = event.data.payload.message;
+      if (event.data.payload.clearDraft) {
+        reviewSelection = null;
+        if (reviewDraft) reviewDraft.value = "";
+      }
+      renderReviewPanel();
+    }
   }
 
   function attachPort(nextPort) {
@@ -476,6 +800,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (typeof port.start === "function") port.start();
     send("preview-ready", { href: location.href });
     sendScrollState();
+    if (window.top === window) send("preview-review-action", { action: "request-state" });
     updateStandaloneControls();
   }
 

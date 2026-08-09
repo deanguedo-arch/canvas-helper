@@ -38,21 +38,17 @@ Read first:
 - `app/server/preview-server.ts`
 - `app/server/lib/preview-inspection.ts`
 - `app/server/routes/inspection.ts`
-- `app/server/routes/course-build-brief.ts`
 - `app/studio/src/hooks/usePreviewScrollSync.ts`
-- `app/studio/src/hooks/useCourseBuildBrief.ts`
 - `app/studio/src/components/InspectionPanel.tsx`
-- `app/studio/src/components/CourseBuildBriefPanel.tsx`
-- `app/studio/src/components/PreviewHealthPanel.tsx`
+- `app/studio/src/components/ReviewSetPanel.tsx`
 
 Rules:
 - Keep preview on the isolated loopback origin; never restore iframe DOM reads, wildcard messaging, or a same-origin preview shortcut.
 - A preview selection is evidence, not source authority. Resolve canonical targets only through the project driver and fail closed as `unknown` when it cannot be proved.
 - Generated Social and English workspaces remain output; packets point to their builder/factory source and rebuild flow.
-- Direct-workspace source excerpts are local UI evidence only; never add them to a copied packet. Proposal-only projects must continue to show no safe editable source.
-- Re-check confirms only a safe source/rebuild route. A successful Workspace Verify is not proof that the learner-facing change is complete.
-- Preview Health is bounded in-memory diagnostic context, not a console capture, and never belongs in a handoff.
-- A standalone workspace preview must preserve the Studio tab and expose its mini inspector plus trusted return control only at the top level, never inside the embedded iframe preview. The early-injected bridge must clear the popup opener before course scripts execute and use the one-time-token private `MessageChannel`; do not replace it with wildcard messaging, iframe DOM reads, URL-carried selection text, or persistent browser storage.
+- Keep source routes, file paths, commands, packet text, and preview diagnostics out of the normal annotation UI. They remain resolver-owned data inside the copied Review Set packet.
+- Review Set preparation is automatic after each save or note edit. Copy must stay disabled until every saved route has been revalidated against current repository state.
+- A standalone workspace preview must preserve the Studio tab and expose Inspect, the shared Review Set, and the trusted return control only at the top level, never inside the embedded iframe preview. The early-injected bridge must clear the popup opener before course scripts execute and use the one-time-token private `MessageChannel`; do not replace it with wildcard messaging, iframe DOM reads, URL-carried selection text, or persistent browser storage.
 - Screenshot capture is explicit Studio-only browser consent. The preview origin must retain `Permissions-Policy: display-capture=()`; images never enter a Codex packet.
 
 Verification floor:

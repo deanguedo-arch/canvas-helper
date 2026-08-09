@@ -8143,3 +8143,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `docs/plans/2026-08-04-studio-workflow-v2.md`, `scripts/lib/course-authoring/context.ts`, `app/server/lib/preview-inspection.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
 - Preserved boundary: no learner-course artifact changed; generated and proposal-only work still cannot be presented as a direct editable source.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-09: standalone mini inspector
+
+- Project: `repo-wide`.
+- Task: Add a compact top-level Inspect workflow to the standalone workspace preview and connect selections to Studio's existing resolver and Review Set.
+- Status: complete on `codex/studio-workflow-v2`; superseded by the simplified shared annotation workflow.
+- Verification: Studio build, 30 focused inspection tests, 14 inspection E2E tests, smoke E2E, and live in-app-browser connection checks passed.
+- Source of truth: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Preserved boundary: no learner-course artifact changed; standalone controls remained top-level-only and the private one-time-token channel retained exact-origin checks.
+- Next command at archival time: `npm run studio:codex`.

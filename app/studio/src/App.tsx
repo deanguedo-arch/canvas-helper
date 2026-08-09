@@ -7,16 +7,10 @@ import { ReferencePicker } from "./components/ReferencePicker";
 import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
 import { Topbar } from "./components/Topbar";
 import { WorkspacePicker } from "./components/WorkspacePicker";
-import type { PreviewHealthEntry } from "./components/PreviewHealthPanel";
-import { useCourseBuildBrief } from "./hooks/useCourseBuildBrief";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
-import {
-  downloadScreenshotAnnotation,
-  revokeScreenshotAnnotation,
-  useScreenshotAnnotation
-} from "./hooks/useScreenshotAnnotation";
+import { revokeScreenshotAnnotation, useScreenshotAnnotation } from "./hooks/useScreenshotAnnotation";
 import { useProjectCommands } from "./hooks/useProjectCommands";
 import { useProjects } from "./hooks/useProjects";
 import { useReferenceTarget } from "./hooks/useReferenceTarget";
@@ -27,27 +21,27 @@ import {
   type PreviewMode
 } from "./lib/types";
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
-import { buildCodexPacket } from "./lib/codex-packet";
 import {
   buildReviewSetPacket,
   createReviewSetItem,
-  hasSameSafeReviewRoute,
   hasSameMaterialResolution,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
   reviewSetItemIdentity,
   utf8ByteLength,
   type PreparedReviewSetPacket,
-  type ReviewSetRecheck,
   type ReviewSetItem
 } from "./lib/review-set";
 import type {
-  InspectionIssueCategory,
   InspectionResolution,
   InspectionResolveRequest,
   InspectionSelection
 } from "../../shared/inspection.js";
-import type { PreviewDiagnostic, PreviewInspectPayload } from "../../shared/preview-bridge.js";
+import type {
+  PreviewInspectPayload,
+  PreviewReviewAction,
+  PreviewReviewState
+} from "../../shared/preview-bridge.js";
 
 async function resolveInspectionRequest(request: InspectionResolveRequest, signal?: AbortSignal) {
   const response = await fetch("/api/inspection/resolve", {
@@ -77,7 +71,6 @@ export function App() {
   const { layoutPreferences, setLayoutPreferences, paneControlsVisible, setPaneControlsVisible } =
     useLayoutPreferences();
   const { previewOrigin, previewError } = usePreviewRuntime();
-  const { brief: courseBuildBrief, loading: courseBuildBriefLoading, error: courseBuildBriefError } = useCourseBuildBrief(selectedSlug);
   const { referenceTarget, setReferenceTarget, resolvedReference, selectedResourceExtractedPath } =
     useReferenceTarget(projects, selectedSlug);
   const {
@@ -101,13 +94,8 @@ export function App() {
   const [inspectionRequest, setInspectionRequest] = useState<InspectionResolveRequest | null>(null);
   const [inspectionResolving, setInspectionResolving] = useState(false);
   const [inspectionTeacherNote, setInspectionTeacherNote] = useState("");
-  const [inspectionIssueCategory, setInspectionIssueCategory] = useState<InspectionIssueCategory>("unsure");
-  const [inspectionCopyStatus, setInspectionCopyStatus] = useState("");
   const [inspectionPreviewMode, setInspectionPreviewMode] = useState<PreviewMode>("workspace");
   const [inspectionPreviewUrl, setInspectionPreviewUrl] = useState("");
-  const [courseBuildBriefCopyStatus, setCourseBuildBriefCopyStatus] = useState("");
-  const [previewHealthEntries, setPreviewHealthEntries] = useState<PreviewHealthEntry[]>([]);
-  const previewHealthIdRef = useRef(0);
   const inspectionScopeVersionRef = useRef(0);
   const screenshotAnnotation = useScreenshotAnnotation();
   const [reviewSetItems, setReviewSetItems] = useState<ReviewSetItem[]>([]);
@@ -120,8 +108,8 @@ export function App() {
   const [preparedReviewSet, setPreparedReviewSet] = useState<PreparedReviewSetPacket | null>(null);
   const [reviewSetPacketError, setReviewSetPacketError] = useState("");
   const [reviewSetCopyStatus, setReviewSetCopyStatus] = useState("");
-  const [reviewSetRecheck, setReviewSetRecheck] = useState<ReviewSetRecheck | null>(null);
-  const reviewSetRecheckRef = useRef<ReviewSetRecheck | null>(null);
+  const standaloneReviewActionRef = useRef<(mode: PreviewMode, action: PreviewReviewAction) => void>(() => undefined);
+  const prepareReviewSetRef = useRef<() => void>(() => undefined);
   const selectedProject = useMemo(
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
@@ -158,6 +146,8 @@ export function App() {
       htmlPath: resolvedWorkspaceHtmlPath
     };
   }, [resolvedWorkspaceHtmlPath, selectedProject]);
+  const reviewScopeRef = useRef({ selectedSlug, workspaceTarget });
+  reviewScopeRef.current = { selectedSlug, workspaceTarget };
 
   const referenceRevision = resolvedReference.project
     ? resolvedReference.target.source === "html"
@@ -227,62 +217,6 @@ export function App() {
   const screenshotClearRef = useRef(screenshotAnnotation.clear);
   screenshotClearRef.current = screenshotAnnotation.clear;
 
-  const setReviewSetRecheckState = useCallback((next: ReviewSetRecheck | null) => {
-    reviewSetRecheckRef.current = next;
-    setReviewSetRecheck(next);
-  }, []);
-
-  const recordPreviewDiagnostic = useCallback((mode: PreviewMode, diagnostic: PreviewDiagnostic) => {
-    const message = diagnostic.message.trim();
-    if (!message) {
-      return;
-    }
-    setPreviewHealthEntries((current) => {
-      if (current.some((entry) => entry.mode === mode && entry.kind === diagnostic.kind && entry.message === message)) {
-        return current;
-      }
-      const nextEntry: PreviewHealthEntry = {
-        id: `preview-health-${++previewHealthIdRef.current}`,
-        mode,
-        kind: diagnostic.kind,
-        message
-      };
-      return [...current, nextEntry].slice(-6);
-    });
-  }, []);
-
-  const completeReviewSetRecheck = useCallback((
-    mode: PreviewMode,
-    request: InspectionResolveRequest,
-    resolution: InspectionResolution
-  ) => {
-    const active = reviewSetRecheckRef.current;
-    if (active?.status !== "selecting" || mode !== "workspace" || request.root !== "workspace") {
-      return;
-    }
-    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === active.itemId);
-    if (!item || item.request.projectSlug !== request.projectSlug) {
-      return;
-    }
-
-    if (hasSameSafeReviewRoute(item.resolution, resolution)) {
-      setReviewSetRecheckState({
-        itemId: item.id,
-        status: "route-confirmed",
-        message: "This selected surface still uses the same safe source/rebuild route. Run Workspace Verify, then inspect the learner result before calling it fixed."
-      });
-      return;
-    }
-
-    setReviewSetRecheckState({
-      itemId: item.id,
-      status: "route-changed",
-      message: resolution.primaryEditTarget
-        ? "This selection now follows a different source/rebuild route. Review it before editing; Studio has not called the change fixed."
-        : "Studio could not confirm a safe editable route for this selection. It has not called the change fixed."
-    });
-  }, [setReviewSetRecheckState]);
-
   const replaceReviewSetItems = useCallback((nextItems: ReviewSetItem[]) => {
     reviewSetItemsRef.current = nextItems;
     setReviewSetItems(nextItems);
@@ -301,12 +235,11 @@ export function App() {
   const clearReviewSet = useCallback(
     (status = "") => {
       invalidateReviewSetPreparation();
-      setReviewSetRecheckState(null);
       reviewSetItemsRef.current.forEach((item) => revokeScreenshotAnnotation(item.screenshot));
       replaceReviewSetItems([]);
       setReviewSetStatus(status);
     },
-    [invalidateReviewSetPreparation, replaceReviewSetItems, setReviewSetRecheckState]
+    [invalidateReviewSetPreparation, replaceReviewSetItems]
   );
 
   useEffect(
@@ -319,21 +252,21 @@ export function App() {
 
   useEffect(() => {
     const firstItem = reviewSetItemsRef.current[0];
-    if (firstItem && (firstItem.request.projectSlug !== selectedSlug || firstItem.previewMode !== previewMode)) {
-      clearReviewSet("Review Set cleared because the course or preview mode changed.");
+    if (firstItem && firstItem.request.projectSlug !== selectedSlug) {
+      clearReviewSet("Review Set cleared because the course changed.");
     }
-  }, [clearReviewSet, previewMode, selectedSlug]);
+  }, [clearReviewSet, selectedSlug]);
 
   const confirmReviewSetScopeChange = useCallback(
-    (nextProjectSlug: string, nextPreviewMode: PreviewMode) => {
+    (nextProjectSlug: string, _nextPreviewMode: PreviewMode) => {
       const firstItem = reviewSetItemsRef.current[0];
-      if (!firstItem || (firstItem.request.projectSlug === nextProjectSlug && firstItem.previewMode === nextPreviewMode)) {
+      if (!firstItem || firstItem.request.projectSlug === nextProjectSlug) {
         return true;
       }
-      if (typeof window !== "undefined" && !window.confirm("Switching course or preview mode clears the current Review Set. Continue?")) {
+      if (typeof window !== "undefined" && !window.confirm("Switching courses clears the current Review Set. Continue?")) {
         return false;
       }
-      clearReviewSet("Review Set cleared because the course or preview mode changed.");
+      clearReviewSet("Review Set cleared because the course changed.");
       return true;
     },
     [clearReviewSet]
@@ -345,12 +278,10 @@ export function App() {
       setInspectionResolution(null);
       setInspectionRequest(null);
       setInspectionResolving(false);
-      setInspectionCopyStatus("");
       setInspectionPreviewMode(previewMode);
       setInspectionPreviewUrl("");
       if (resetTeacherInput) {
         setInspectionTeacherNote("");
-        setInspectionIssueCategory("unsure");
       }
       screenshotClearRef.current();
     },
@@ -360,34 +291,6 @@ export function App() {
   useEffect(() => {
     resetInspection(true);
   }, [inspectionContextKey, resetInspection]);
-
-  useEffect(() => {
-    setPreviewHealthEntries([]);
-    setCourseBuildBriefCopyStatus("");
-    setReviewSetRecheckState(null);
-  }, [previewSources.reference, previewSources.workspace, selectedSlug, setReviewSetRecheckState]);
-
-  const inspectionPacketState = useMemo(() => {
-    if (!inspectionResolution) {
-      return { packet: "", error: "" };
-    }
-    try {
-      return {
-        packet: buildCodexPacket({
-          resolution: inspectionResolution,
-          teacherNote: inspectionTeacherNote,
-          teacherCategory: inspectionIssueCategory,
-          previewMode: inspectionPreviewMode
-        }),
-        error: ""
-      };
-    } catch (error) {
-      return {
-        packet: "",
-        error: error instanceof Error ? error.message : "Could not build the Codex handoff packet."
-      };
-    }
-  }, [inspectionIssueCategory, inspectionResolution, inspectionTeacherNote]);
 
   const resolveInspection = async (mode: PreviewMode, selection: PreviewInspectPayload) => {
     const requestScopeVersion = inspectionScopeVersionRef.current + 1;
@@ -402,7 +305,6 @@ export function App() {
     setInspectionResolution(null);
     setInspectionRequest(null);
     setInspectionResolving(true);
-    setInspectionCopyStatus("");
 
     if (!target?.projectSlug || (mode === "reference" && resolvedReference.target.source !== "html")) {
       if (!isCurrentRequest()) {
@@ -442,7 +344,6 @@ export function App() {
       }
       setInspectionResolution(payload);
       setInspectionRequest(request);
-      completeReviewSetRecheck(mode, request, payload);
     } catch (error) {
       if (!isCurrentRequest()) {
         return;
@@ -471,7 +372,6 @@ export function App() {
         selection: selectionPayload
       };
       setInspectionRequest(request);
-      completeReviewSetRecheck(mode, request, unresolvedResolution);
     } finally {
       if (isCurrentRequest()) {
         setInspectionResolving(false);
@@ -490,7 +390,8 @@ export function App() {
     prepareStandalonePreview,
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
-    focusPreviewInspectionSelection
+    syncStandaloneReviewSet,
+    sendStandaloneReviewActionResult
   } = usePreviewScrollSync({
     previewMode,
     layoutPreferences,
@@ -505,31 +406,18 @@ export function App() {
       setInspectEnabled(enabled);
       if (!enabled) {
         resetInspection(true);
-      } else {
-        setInspectionCopyStatus("");
       }
     },
-    onPreviewDiagnostic: recordPreviewDiagnostic
+    onPreviewReviewAction: (mode, action) => standaloneReviewActionRef.current(mode, action)
   });
 
   const referenceFileOptions = resolvedReference.options.html;
   const referenceResourceOptions = resolvedReference.options.resourcesActive;
   const visiblePreviewModes = layoutPreferences.compareMode ? [...previewModes] : [previewMode];
-  const sourceFiles = selectedProject
-    ? [
-        selectedProject.paths.rawEntrypoint,
-        selectedProject.paths.workspaceEntrypoint,
-        selectedProject.paths.workspaceScript,
-        selectedProject.paths.workspaceStyles
-      ].filter((filePath): filePath is string => Boolean(filePath))
-    : [];
 
   const reviewSetAddAvailability = useMemo(() => {
-    if (reviewSetPreparing) {
-      return { canAdd: false, reason: "Wait for the current batch check to finish." };
-    }
     if (!inspectionResolution || !inspectionRequest) {
-      return { canAdd: false, reason: "Select a workspace element first." };
+      return { canAdd: false, reason: "Select something in the preview first." };
     }
     if (
       inspectionPreviewMode !== "workspace" ||
@@ -547,59 +435,16 @@ export function App() {
     }
     const identity = reviewSetItemIdentity(inspectionRequest, inspectionPreviewMode);
     if (!identity || reviewSetItems.some((item) => item.identity === identity)) {
-      return { canAdd: false, reason: "This exact selection is already saved." };
+      return { canAdd: false, reason: "This selection is already saved." };
+    }
+    if (!inspectionTeacherNote.trim()) {
+      return { canAdd: false, reason: "Add a note before saving." };
     }
     if (utf8ByteLength(inspectionTeacherNote) > REVIEW_SET_NOTE_MAX_BYTES) {
       return { canAdd: false, reason: `Keep the teacher note to ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.` };
     }
     return { canAdd: true, reason: "" };
-  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetItems, reviewSetPreparing, selectedSlug]);
-
-  const copyToClipboard = async (value: string) => {
-    await navigator.clipboard.writeText(value);
-  };
-
-  const copyInspectionPacket = () => {
-    if (!inspectionPacketState.packet) {
-      return;
-    }
-    void navigator.clipboard
-      .writeText(inspectionPacketState.packet)
-      .then(() => setInspectionCopyStatus("Copied. Paste this into a Codex task."))
-      .catch(() => setInspectionCopyStatus("Clipboard access was blocked. Select the packet and copy it manually."));
-  };
-
-  const copyCourseBuildBrief = (packet: string) => {
-    void navigator.clipboard
-      .writeText(packet)
-      .then(() => setCourseBuildBriefCopyStatus("Copied. Paste this at the start of a Codex task."))
-      .catch(() => setCourseBuildBriefCopyStatus("Clipboard access was blocked. Select the brief and copy it manually."));
-  };
-
-  const copyInspectionTarget = () => {
-    if (!inspectionResolution?.primaryEditTarget) {
-      return;
-    }
-    const target = `${inspectionResolution.primaryEditTarget}${inspectionResolution.primaryEditLine ? `:${inspectionResolution.primaryEditLine}` : ""}`;
-    void navigator.clipboard
-      .writeText(target)
-      .then(() => setInspectionCopyStatus("Copied the verified edit target."))
-      .catch(() => setInspectionCopyStatus("Clipboard access was blocked. Copy the target manually."));
-  };
-
-  const showInspectionInPreview = () => {
-    const nodeId = inspectionResolution?.selection.nodeId;
-    if (!nodeId) {
-      return;
-    }
-    getPreviewFrame(inspectionPreviewMode)?.scrollIntoView({ block: "center", inline: "center", behavior: "auto" });
-    const focused = focusPreviewInspectionSelection(inspectionPreviewMode, nodeId);
-    setInspectionCopyStatus(
-      focused
-        ? "Highlighted the selected element in the preview."
-        : "The preview is still loading. Try Show in preview again once it is ready."
-    );
-  };
+  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetItems, selectedSlug]);
 
   const addCurrentInspectionToReviewSet = () => {
     if (!reviewSetAddAvailability.canAdd || !inspectionResolution || !inspectionRequest) {
@@ -613,7 +458,7 @@ export function App() {
         previewMode: inspectionPreviewMode,
         request: inspectionRequest,
         resolution: inspectionResolution,
-        issueCategory: inspectionIssueCategory,
+        issueCategory: "unsure",
         teacherNote: inspectionTeacherNote,
         screenshot: screenshotAnnotation.annotation
       });
@@ -621,8 +466,7 @@ export function App() {
       screenshotAnnotation.consume();
       replaceReviewSetItems([...reviewSetItemsRef.current, item]);
       setInspectionTeacherNote("");
-      setInspectionIssueCategory("unsure");
-      setReviewSetStatus(`Saved item ${reviewSetItemsRef.current.length}.`);
+      setReviewSetStatus("Annotation saved.");
     } catch (error) {
       setReviewSetStatus(error instanceof Error ? error.message : "Could not save this inspection.");
     }
@@ -634,26 +478,9 @@ export function App() {
       return;
     }
     invalidateReviewSetPreparation();
-    if (reviewSetRecheckRef.current?.itemId === id) {
-      setReviewSetRecheckState(null);
-    }
     revokeScreenshotAnnotation(item.screenshot);
     replaceReviewSetItems(reviewSetItemsRef.current.filter((candidate) => candidate.id !== id));
-    setReviewSetStatus("Removed saved item.");
-  };
-
-  const moveReviewSetItem = (id: string, direction: "up" | "down") => {
-    const currentItems = reviewSetItemsRef.current;
-    const currentIndex = currentItems.findIndex((item) => item.id === id);
-    const nextIndex = direction === "up" ? currentIndex - 1 : currentIndex + 1;
-    if (currentIndex < 0 || nextIndex < 0 || nextIndex >= currentItems.length) {
-      return;
-    }
-    const nextItems = [...currentItems];
-    [nextItems[currentIndex], nextItems[nextIndex]] = [nextItems[nextIndex], nextItems[currentIndex]];
-    invalidateReviewSetPreparation();
-    replaceReviewSetItems(nextItems);
-    setReviewSetStatus("Reordered saved items.");
+    setReviewSetStatus("Annotation removed.");
   };
 
   const changeReviewSetTeacherNote = (id: string, teacherNote: string) => {
@@ -671,16 +498,6 @@ export function App() {
     setReviewSetStatus("");
   };
 
-  const downloadReviewSetScreenshot = (id: string) => {
-    const screenshot = reviewSetItemsRef.current.find((item) => item.id === id)?.screenshot;
-    if (!screenshot) {
-      return;
-    }
-    void downloadScreenshotAnnotation(screenshot).catch((error) => {
-      setReviewSetStatus(error instanceof Error ? error.message : "The saved annotation could not be downloaded.");
-    });
-  };
-
   const removeReviewSetScreenshot = (id: string) => {
     const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
     if (!item?.screenshot) {
@@ -691,83 +508,19 @@ export function App() {
     replaceReviewSetItems(
       reviewSetItemsRef.current.map((candidate) => (candidate.id === id ? { ...candidate, screenshot: null } : candidate))
     );
-    setReviewSetStatus("Removed saved annotation.");
-  };
-
-  const focusReviewSetItem = (id: string) => {
-    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
-    const nodeId = item?.request.selection.nodeId;
-    if (!item || !nodeId) {
-      setReviewSetStatus("This saved selection no longer has a preview node. Inspect it again before continuing.");
-      return;
-    }
-    getPreviewFrame(item.previewMode)?.scrollIntoView({ block: "center", inline: "center", behavior: "auto" });
-    const focused = focusPreviewInspectionSelection(item.previewMode, nodeId);
-    setReviewSetStatus(
-      focused
-        ? "Highlighted the saved selection in the preview."
-        : "The workspace preview is still loading. Try Show in preview again once it is ready."
-    );
-  };
-
-  const startReviewSetRecheck = (id: string) => {
-    if (reviewSetPreparing || anyCommandRunning) {
-      return;
-    }
-    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
-    const nodeId = item?.request.selection.nodeId;
-    if (!item || !nodeId) {
-      setReviewSetStatus("This saved selection no longer has a preview node. Inspect it again before continuing.");
-      return;
-    }
-
-    const selecting: ReviewSetRecheck = {
-      itemId: item.id,
-      status: "selecting",
-      message: "Select the revised element in the Workspace preview. Studio will re-check the source route, not declare the learner fix complete."
-    };
-    setReviewSetRecheckState(selecting);
-    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
-    setPreviewInspectMode(true);
-    setInspectEnabled(true);
-    getPreviewFrame(item.previewMode)?.scrollIntoView({ block: "center", inline: "center", behavior: "auto" });
-    if (!focusPreviewInspectionSelection(item.previewMode, nodeId)) {
-      setReviewSetRecheckState({
-        ...selecting,
-        message: "The workspace preview is still loading. Once it is ready, select the revised element to re-check its route."
-      });
-    }
-  };
-
-  const runReviewSetVerification = (id: string) => {
-    const active = reviewSetRecheckRef.current;
-    if (!active || active.itemId !== id || active.status !== "route-confirmed" || anyCommandRunning) {
-      return;
-    }
-    setReviewSetRecheckState({
-      ...active,
-      status: "verifying",
-      message: "Running Workspace Verify…"
-    });
-    void runProjectCommand("verify").then((passed) => {
-      const current = reviewSetRecheckRef.current;
-      if (!current || current.itemId !== id || current.status !== "verifying") {
-        return;
-      }
-      setReviewSetRecheckState({
-        ...current,
-        status: passed ? "verification-passed" : "verification-failed",
-        message: passed
-          ? "Workspace verification passed. Inspect the learner experience before calling this change complete."
-          : "Workspace verification failed. Review the command output and the learner preview before continuing."
-      });
-    });
+    setReviewSetStatus("Screenshot removed.");
   };
 
   const prepareReviewSet = () => {
     const savedItems = [...reviewSetItemsRef.current];
     if (!savedItems.length) {
-      setReviewSetPacketError("Add at least one item before preparing a Review Set handoff.");
+      setReviewSetPacketError("");
+      return;
+    }
+    if (savedItems.some((item) => !item.teacherNote.trim())) {
+      setPreparedReviewSet(null);
+      setReviewSetPacketError("Add a note to every annotation before copying.");
+      setReviewSetStatus("");
       return;
     }
 
@@ -779,16 +532,16 @@ export function App() {
     setPreparedReviewSet(null);
     setReviewSetPacketError("");
     setReviewSetCopyStatus("");
-    setReviewSetStatus("Revalidating saved source mappings…");
+    setReviewSetStatus("Getting your Review Set ready…");
 
     void Promise.all(
       savedItems.map(async (item, index) => {
         const resolution = await resolveInspectionRequest(item.request, controller.signal);
         if (resolution.freshness === "stale") {
-          throw new Error(`Item ${index + 1} is stale. Remove it, select it again, and save a new item.`);
+          throw new Error(`Annotation ${index + 1} changed. Remove it and select it again.`);
         }
         if (!hasSameMaterialResolution(item.resolution, resolution)) {
-          throw new Error(`Item ${index + 1} changed source ownership. Remove it, inspect it again, and save a new item.`);
+          throw new Error(`Annotation ${index + 1} changed. Remove it and select it again.`);
         }
         return { item, resolution };
       })
@@ -803,13 +556,13 @@ export function App() {
           items
         });
         setPreparedReviewSet(packet);
-        setReviewSetStatus(`Prepared ${items.length} saved item${items.length === 1 ? "" : "s"}.`);
+        setReviewSetStatus("Review Set ready.");
       })
       .catch((error) => {
         if (controller.signal.aborted || reviewSetVersionRef.current !== preparationVersion) {
           return;
         }
-        setReviewSetPacketError(error instanceof Error ? error.message : "Could not prepare the Review Set handoff.");
+        setReviewSetPacketError(error instanceof Error ? error.message : "Could not get the Review Set ready.");
         setReviewSetStatus("");
       })
       .finally(() => {
@@ -820,8 +573,44 @@ export function App() {
       });
   };
 
+  prepareReviewSetRef.current = prepareReviewSet;
+  useEffect(() => {
+    if (!reviewSetItems.length) {
+      return;
+    }
+    const timer = window.setTimeout(() => prepareReviewSetRef.current(), 350);
+    return () => window.clearTimeout(timer);
+  }, [reviewSetItems]);
+
+  const reviewSetPacketReady = useMemo(() => {
+    if (!preparedReviewSet || reviewSetPreparing || reviewSetPacketError) {
+      return false;
+    }
+    return preparedReviewSet.itemIds.join("\u001f") === reviewSetItems.map((item) => item.id).join("\u001f");
+  }, [preparedReviewSet, reviewSetItems, reviewSetPacketError, reviewSetPreparing]);
+
+  const previewReviewState = useMemo<PreviewReviewState>(() => ({
+    items: reviewSetItems.map((item) => ({
+      id: item.id,
+      excerpt: item.excerpt,
+      teacherNote: item.teacherNote
+    })),
+    preparing: reviewSetPreparing,
+    packetReady: reviewSetPacketReady,
+    status: reviewSetStatus.slice(0, 240),
+    error: reviewSetPacketError.slice(0, 240)
+  }), [reviewSetItems, reviewSetPacketError, reviewSetPacketReady, reviewSetPreparing, reviewSetStatus]);
+
+  useEffect(() => {
+    syncStandaloneReviewSet(
+      "workspace",
+      previewReviewState,
+      reviewSetPacketReady ? preparedReviewSet?.packet ?? "" : ""
+    );
+  }, [preparedReviewSet, previewReviewState, reviewSetPacketReady, syncStandaloneReviewSet]);
+
   const copyReviewSet = () => {
-    if (!preparedReviewSet || reviewSetPreparing) {
+    if (!preparedReviewSet || !reviewSetPacketReady) {
       return;
     }
     const currentIds = reviewSetItemsRef.current.map((item) => item.id);
@@ -833,6 +622,126 @@ export function App() {
       .writeText(preparedReviewSet.packet)
       .then(() => setReviewSetCopyStatus("Copied. Paste this one packet into a Codex task."))
       .catch(() => setReviewSetCopyStatus("Clipboard access was blocked. Select the packet and copy it manually."));
+  };
+
+  const addStandaloneReviewItem = async (
+    mode: PreviewMode,
+    selection: PreviewInspectPayload,
+    teacherNote: string
+  ) => {
+    const note = teacherNote.trim();
+    const scope = reviewScopeRef.current;
+    const target = scope.workspaceTarget;
+    const expectedVersion = reviewSetVersionRef.current;
+    if (mode !== "workspace" || !target || target.projectSlug !== scope.selectedSlug) {
+      throw new Error("Open a Workspace preview from Studio before saving annotations.");
+    }
+    if (!selection.nodeId) {
+      throw new Error("Select a course element before saving.");
+    }
+    if (!note) {
+      throw new Error("Add a note before saving.");
+    }
+    if (utf8ByteLength(note) > REVIEW_SET_NOTE_MAX_BYTES) {
+      throw new Error(`Keep the note to ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.`);
+    }
+
+    const request: InspectionResolveRequest = {
+      projectSlug: target.projectSlug,
+      root: "workspace",
+      htmlPath: target.htmlPath,
+      selection: {
+        ...selection,
+        geometry: { ...selection.geometry }
+      }
+    };
+    const resolution = await resolveInspectionRequest(request);
+    const currentScope = reviewScopeRef.current;
+    if (
+      reviewSetVersionRef.current !== expectedVersion ||
+      currentScope.selectedSlug !== request.projectSlug ||
+      currentScope.workspaceTarget?.htmlPath !== request.htmlPath
+    ) {
+      throw new Error("The Review Set changed while this was saving. Select it again.");
+    }
+    const currentItems = reviewSetItemsRef.current;
+    if (currentItems.length >= REVIEW_SET_MAX_ITEMS) {
+      throw new Error("The Review Set already has five annotations.");
+    }
+    const identity = reviewSetItemIdentity(request, mode);
+    if (!identity || currentItems.some((item) => item.identity === identity)) {
+      throw new Error("This selection is already saved.");
+    }
+
+    const item = createReviewSetItem({
+      id: `review-${Date.now()}-${++reviewSetItemIdRef.current}`,
+      previewMode: mode,
+      request,
+      resolution,
+      issueCategory: "unsure",
+      teacherNote: note,
+      screenshot: null
+    });
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems([...currentItems, item]);
+    setReviewSetStatus("Annotation saved.");
+  };
+
+  standaloneReviewActionRef.current = (mode, action) => {
+    if (action.action === "request-state") {
+      syncStandaloneReviewSet(
+        mode,
+        previewReviewState,
+        reviewSetPacketReady ? preparedReviewSet?.packet ?? "" : ""
+      );
+      return;
+    }
+    if (mode !== "workspace") {
+      sendStandaloneReviewActionResult(mode, {
+        ok: false,
+        message: "Annotations can be saved from the Workspace preview.",
+        clearDraft: false
+      });
+      return;
+    }
+    if (action.action === "add") {
+      void addStandaloneReviewItem(mode, action.selection, action.teacherNote)
+        .then(() => sendStandaloneReviewActionResult(mode, {
+          ok: true,
+          message: "Annotation saved.",
+          clearDraft: true
+        }))
+        .catch((error) => sendStandaloneReviewActionResult(mode, {
+          ok: false,
+          message: error instanceof Error ? error.message : "Could not save the annotation.",
+          clearDraft: false
+        }));
+      return;
+    }
+    if (action.action === "remove") {
+      if (!reviewSetItemsRef.current.some((item) => item.id === action.itemId)) {
+        sendStandaloneReviewActionResult(mode, { ok: false, message: "That annotation is no longer saved.", clearDraft: false });
+        return;
+      }
+      removeReviewSetItem(action.itemId);
+      sendStandaloneReviewActionResult(mode, { ok: true, message: "Annotation removed.", clearDraft: false });
+      return;
+    }
+    if (action.action === "update-note") {
+      if (!reviewSetItemsRef.current.some((item) => item.id === action.itemId)) {
+        sendStandaloneReviewActionResult(mode, { ok: false, message: "That annotation is no longer saved.", clearDraft: false });
+        return;
+      }
+      if (utf8ByteLength(action.teacherNote) > REVIEW_SET_NOTE_MAX_BYTES) {
+        sendStandaloneReviewActionResult(mode, { ok: false, message: "That note is too long.", clearDraft: false });
+        return;
+      }
+      changeReviewSetTeacherNote(action.itemId, action.teacherNote);
+      sendStandaloneReviewActionResult(mode, { ok: true, message: "Note updated.", clearDraft: false });
+      return;
+    }
+    clearReviewSet("Review Set cleared.");
+    sendStandaloneReviewActionResult(mode, { ok: true, message: "Review Set cleared.", clearDraft: true });
   };
 
   const captureInspectionScreenshot = () => {
@@ -896,7 +805,7 @@ export function App() {
       event.currentTarget.referrerPolicy = "no-referrer";
     } else {
       event.preventDefault();
-      setInspectionCopyStatus("The full preview could not open because its isolated preview address is unavailable.");
+      setReviewSetStatus("The full preview could not open yet. Try again once the preview finishes loading.");
     }
   };
 
@@ -939,8 +848,6 @@ export function App() {
             setInspectEnabled(nextEnabled);
             if (!nextEnabled) {
               resetInspection(true);
-            } else {
-              setInspectionCopyStatus("");
             }
           }}
           inspectAvailable={Boolean(previewOrigin)}
@@ -1128,34 +1035,17 @@ export function App() {
 
             {layoutPreferences.inspectorOpen ? (
               <InspectorPanel
-                selectedProject={selectedProject}
-                sourceFiles={sourceFiles}
-                onCopyToClipboard={copyToClipboard}
-                courseBuildBrief={courseBuildBrief}
-                courseBuildBriefLoading={courseBuildBriefLoading}
-                courseBuildBriefError={courseBuildBriefError}
-                courseBuildBriefCopyStatus={courseBuildBriefCopyStatus}
-                onCopyCourseBuildBrief={copyCourseBuildBrief}
-                previewHealthEntries={previewHealthEntries}
-                onClearPreviewHealth={() => setPreviewHealthEntries([])}
                 inspectEnabled={inspectEnabled}
                 inspectionResolution={inspectionResolution}
                 inspectionResolving={inspectionResolving}
                 inspectionTeacherNote={inspectionTeacherNote}
-                inspectionIssueCategory={inspectionIssueCategory}
-                inspectionPacket={inspectionPacketState.packet}
-                inspectionPacketError={inspectionPacketState.error}
-                inspectionCopyStatus={inspectionCopyStatus}
                 screenshotSupported={screenshotAnnotation.isSupported}
                 screenshotCanCapture={Boolean(inspectionResolution?.selection.nodeId)}
                 screenshotStatus={screenshotAnnotation.status}
                 screenshotError={screenshotAnnotation.error}
                 screenshot={screenshotAnnotation.annotation}
                 onInspectionTeacherNoteChange={setInspectionTeacherNote}
-                onInspectionIssueCategoryChange={setInspectionIssueCategory}
-                onCopyInspectionPacket={copyInspectionPacket}
-                onCopyInspectionTarget={copyInspectionTarget}
-                onShowInspectionInPreview={showInspectionInPreview}
+                onSaveCurrentInspection={addCurrentInspectionToReviewSet}
                 onCaptureScreenshot={captureInspectionScreenshot}
                 onScreenshotMarkerChange={screenshotAnnotation.updateMarker}
                 onDownloadScreenshot={() => void screenshotAnnotation.download()}
@@ -1165,22 +1055,13 @@ export function App() {
                 reviewSetAddDisabledReason={reviewSetAddAvailability.reason}
                 reviewSetStatus={reviewSetStatus}
                 reviewSetPreparing={reviewSetPreparing}
-                reviewSetPacket={preparedReviewSet?.packet ?? ""}
+                reviewSetPacketReady={reviewSetPacketReady}
                 reviewSetPacketError={reviewSetPacketError}
                 reviewSetCopyStatus={reviewSetCopyStatus}
-                reviewSetRecheck={reviewSetRecheck}
-                anyCommandRunning={anyCommandRunning}
-                onAddCurrentInspectionToReviewSet={addCurrentInspectionToReviewSet}
                 onClearReviewSet={() => clearReviewSet("Cleared saved items.")}
                 onRemoveReviewSetItem={removeReviewSetItem}
-                onMoveReviewSetItem={moveReviewSetItem}
                 onReviewSetTeacherNoteChange={changeReviewSetTeacherNote}
-                onDownloadReviewSetScreenshot={downloadReviewSetScreenshot}
                 onRemoveReviewSetScreenshot={removeReviewSetScreenshot}
-                onFocusReviewSetItem={focusReviewSetItem}
-                onStartReviewSetRecheck={startReviewSetRecheck}
-                onRunReviewSetVerification={runReviewSetVerification}
-                onPrepareReviewSet={prepareReviewSet}
                 onCopyReviewSet={copyReviewSet}
               />
             ) : null}

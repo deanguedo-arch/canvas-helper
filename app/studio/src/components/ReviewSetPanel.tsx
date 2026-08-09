@@ -1,67 +1,35 @@
-import {
-  utf8ByteLength,
-  REVIEW_SET_MAX_ITEMS,
-  REVIEW_SET_NOTE_MAX_BYTES,
-  type ReviewSetRecheck,
-  type ReviewSetItem
-} from "../lib/review-set";
+import { REVIEW_SET_MAX_ITEMS, type ReviewSetItem } from "../lib/review-set";
 
 type ReviewSetPanelProps = {
   items: ReviewSetItem[];
-  canAddCurrent: boolean;
-  addDisabledReason: string;
   status: string;
   preparing: boolean;
-  packet: string;
+  packetReady: boolean;
   packetError: string;
   copyStatus: string;
-  recheck: ReviewSetRecheck | null;
-  anyCommandRunning: boolean;
-  onAddCurrent: () => void;
   onClear: () => void;
   onRemove: (id: string) => void;
-  onMove: (id: string, direction: "up" | "down") => void;
   onTeacherNoteChange: (id: string, value: string) => void;
-  onDownloadScreenshot: (id: string) => void;
   onRemoveScreenshot: (id: string) => void;
-  onFocusItem: (id: string) => void;
-  onStartRecheck: (id: string) => void;
-  onRunRecheckVerification: (id: string) => void;
-  onPrepare: () => void;
   onCopy: () => void;
 };
 
-function labelForCategory(category: string) {
-  return category[0].toUpperCase() + category.slice(1);
-}
-
 function itemTitle(item: ReviewSetItem, position: number) {
   const text = item.excerpt || item.resolution.selection.tagName || "Selected element";
-  return `Item ${position}: ${text}`;
+  return `${position}. ${text}`;
 }
 
 export function ReviewSetPanel({
   items,
-  canAddCurrent,
-  addDisabledReason,
   status,
   preparing,
-  packet,
+  packetReady,
   packetError,
   copyStatus,
-  recheck,
-  anyCommandRunning,
-  onAddCurrent,
   onClear,
   onRemove,
-  onMove,
   onTeacherNoteChange,
-  onDownloadScreenshot,
   onRemoveScreenshot,
-  onFocusItem,
-  onStartRecheck,
-  onRunRecheckVerification,
-  onPrepare,
   onCopy
 }: ReviewSetPanelProps) {
   return (
@@ -69,133 +37,60 @@ export function ReviewSetPanel({
       <div className="section-header">
         <div>
           <h3>Review Set</h3>
-          <p className="review-set-summary">{items.length}/{REVIEW_SET_MAX_ITEMS} saved · temporary</p>
+          <p className="review-set-summary">{items.length} of {REVIEW_SET_MAX_ITEMS} saved</p>
         </div>
-        <button type="button" className="ghost-button compact" disabled={!items.length || preparing} onClick={onClear}>
-          Clear set
+        <button type="button" className="ghost-button compact" disabled={!items.length} onClick={onClear}>
+          Clear
         </button>
       </div>
-
-      <p className="review-set-intro">
-        Save up to five source-mapped workspace selections, then prepare one bounded handoff. The set stays only in this Studio session and clears when you reload, close Studio, or switch course or preview mode.
-      </p>
-      <div className="inspection-actions">
-        <button
-          type="button"
-          className="ghost-button compact active-toggle"
-          disabled={!canAddCurrent || preparing}
-          onClick={onAddCurrent}
-          data-testid="add-to-review-set"
-        >
-          Add current inspection
-        </button>
-        {!canAddCurrent ? <span className="inspection-copy-status">{addDisabledReason}</span> : null}
-      </div>
-      {status ? <p className="review-set-status" role="status">{status}</p> : null}
 
       {items.length ? (
         <ol className="review-set-items" data-testid="review-set-items">
           {items.map((item, index) => (
             <li key={item.id} className="review-set-item" data-testid="review-set-item">
               <div className="review-set-item-heading">
-                <div>
-                  <strong>{itemTitle(item, index + 1)}</strong>
-                  <span>
-                    {item.resolution.resolution} · {item.resolution.selection.tagName} · {item.request.htmlPath}
-                  </span>
-                </div>
-                <div className="review-set-item-actions">
-                  <button type="button" className="ghost-button compact" disabled={index === 0 || preparing} onClick={() => onMove(item.id, "up")}>
-                    Up
-                  </button>
-                  <button type="button" className="ghost-button compact" disabled={index === items.length - 1 || preparing} onClick={() => onMove(item.id, "down")}>
-                    Down
-                  </button>
-                  <button type="button" className="ghost-button compact danger" disabled={preparing} onClick={() => onRemove(item.id)}>
-                    Remove
-                  </button>
-                </div>
-              </div>
-
-              <div className="review-set-item-workflow">
-                <button type="button" className="ghost-button compact" disabled={preparing} onClick={() => onFocusItem(item.id)} data-testid="focus-review-set-item">
-                  Show in preview
+                <strong>{itemTitle(item, index + 1)}</strong>
+                <button type="button" className="ghost-button compact danger" onClick={() => onRemove(item.id)}>
+                  Remove
                 </button>
-                <button type="button" className="ghost-button compact" disabled={preparing || anyCommandRunning} onClick={() => onStartRecheck(item.id)} data-testid="recheck-review-set-item">
-                  Re-check after change
-                </button>
-                {recheck?.itemId === item.id && recheck.status === "route-confirmed" ? (
-                  <button type="button" className="ghost-button compact active-toggle" disabled={anyCommandRunning} onClick={() => onRunRecheckVerification(item.id)} data-testid="verify-review-set-item">
-                    Run Workspace Verify
-                  </button>
-                ) : null}
               </div>
-              {recheck?.itemId === item.id ? <p className="review-set-recheck-status" role="status" data-testid="review-set-recheck-status">{recheck.message}</p> : null}
-
-              <p className="review-set-excerpt">
-                <strong>Selected text</strong>
-                <span>{item.excerpt || "No visible text was available."}{item.excerptTruncated ? " (shortened)" : ""}</span>
-              </p>
-
-              <p className="review-set-excerpt">
-                <strong>Change focus</strong>
-                <span>{labelForCategory(item.issueCategory)}</span>
-              </p>
 
               <label className="inspection-note">
-                <span>Teacher note ({utf8ByteLength(item.teacherNote)}/{REVIEW_SET_NOTE_MAX_BYTES} bytes)</span>
+                <span>What should change?</span>
                 <textarea
                   value={item.teacherNote}
-                  disabled={preparing}
                   onChange={(event) => onTeacherNoteChange(item.id, event.target.value)}
-                  placeholder="What should Codex change here?"
+                  placeholder="Write your note for Codex…"
                   rows={2}
                 />
               </label>
 
               {item.screenshot ? (
                 <div className="review-set-screenshot" data-testid="review-set-screenshot">
-                  <img src={item.screenshot.imageUrl} alt={`Saved annotation for ${itemTitle(item, index + 1)}`} />
-                  <div className="inspection-actions">
-                    <button type="button" className="ghost-button compact" disabled={preparing} onClick={() => onDownloadScreenshot(item.id)}>
-                      Download annotation
-                    </button>
-                    <button type="button" className="ghost-button compact danger" disabled={preparing} onClick={() => onRemoveScreenshot(item.id)}>
-                      Remove annotation
-                    </button>
-                  </div>
+                  <img src={item.screenshot.imageUrl} alt={`Screenshot for annotation ${index + 1}`} />
+                  <button type="button" className="ghost-button compact danger" onClick={() => onRemoveScreenshot(item.id)}>
+                    Remove screenshot
+                  </button>
                 </div>
               ) : null}
             </li>
           ))}
         </ol>
       ) : (
-        <p className="empty-state">No saved selections yet.</p>
+        <p className="empty-state">Your saved annotations will appear here.</p>
       )}
 
-      <div className="review-set-prepare">
-        <button
-          type="button"
-          className="ghost-button compact active-toggle"
-          disabled={!items.length || preparing}
-          onClick={onPrepare}
-          data-testid="prepare-review-set"
-        >
-          {preparing ? "Revalidating saved selections…" : "Prepare batch handoff"}
-        </button>
-        <span>Preparing rechecks every saved source mapping before it creates text to copy.</span>
-      </div>
+      {status ? <p className="review-set-status" role="status">{status}</p> : null}
       {packetError ? <p className="inspection-warning">{packetError}</p> : null}
-      {packet ? <pre className="inspection-packet" data-testid="review-set-packet">{packet}</pre> : null}
-      <div className="inspection-actions">
+      <div className="inspection-actions review-set-copy-row">
         <button
           type="button"
           className="ghost-button compact active-toggle"
-          disabled={!packet || Boolean(packetError) || preparing}
+          disabled={!packetReady || preparing}
           onClick={onCopy}
           data-testid="copy-review-set"
         >
-          Copy Review Set for Codex
+          {preparing ? "Getting Review Set ready…" : "Copy Review Set for Codex"}
         </button>
         {copyStatus ? <span className="inspection-copy-status" role="status">{copyStatus}</span> : null}
       </div>

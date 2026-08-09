@@ -6,40 +6,37 @@
 
 ## Decision
 
-The workflow stays deliberately small and evidence-led:
+The visible workflow stays deliberately small and evidence-led:
 
-1. Open a course in Studio and read its **Course build brief** before editing.
-2. Use **Inspect** to select the learner-facing surface and receive a server-derived source route.
-3. Collect several notes in **Review Set** only when a batch handoff is useful.
-4. After an edit, use **Re-check after change** to click the revised surface again. Studio checks only whether the safe source/rebuild route still matches.
-5. Run **Workspace Verify** when that route is confirmed, then inspect the learner experience yourself. A passing command is never presented as a completed instructional fix.
+1. Use **Inspect** to select the learner-facing surface.
+2. Write the requested change and save the annotation.
+3. Repeat when useful, then copy the automatically prepared Review Set into Codex.
+4. Inspect the learner experience after Codex makes and verifies the change; the copied route is evidence, not an automatic claim that the work is complete.
 
 ## Implemented changes
 
-### Course build brief
+### Hidden routing engine
 
 - `GET /api/projects/<slug>/authoring-brief` turns the existing doctor result into a small, source-free brief.
-- The brief names driver, authoring mode, allowed editable and shared source paths, rebuild command, validation command, and route problems.
-- Its copied form is capped at 3 KB and contains no file bodies. Proposal-only projects visibly report that no safe editable source is declared.
+- The route and resolver still derive driver, safe source paths, rebuild command, validation command, and blockers.
+- Those developer details no longer occupy the teacher-facing annotation rail. The final copied Review Set includes only the bounded facts Codex needs.
 
-### Selection workbench
+### Simple annotation rail
 
-- Exact direct-workspace selections show a server-derived, bounded source excerpt around the selected tag.
-- Generated Social and English workspaces never show their generated HTML as source context; their existing rebuild ownership remains visible instead.
-- **Copy target** and **Show in preview** reduce the back-and-forth when moving from Studio into Codex.
-- Source context remains local UI evidence. It is deliberately excluded from both single-inspection and Review Set handoffs.
+- The current selection shows only a short learner-facing excerpt, one note field, **Save annotation**, and optional screenshot controls.
+- Source paths, ownership labels, source excerpts, commands, and raw packet text are not rendered.
+- Generated Social and English workspaces still never become edit targets; their existing rebuild ownership remains resolver-owned packet data.
 
-### Review lane and proof loop
+### Automatic Review Set
 
-- Each saved Review Set item can be revealed in the preview without reading the iframe DOM.
-- **Re-check after change** turns on Inspect and requires a fresh click. It confirms only the same safe route, allowing a direct-file line shift but rejecting unknown, stale, or changed ownership.
-- **Run Workspace Verify** appears only after route confirmation. Its completion text explicitly says to inspect the learner result before calling the change done.
+- The set renders only each selected excerpt, its editable note, optional screenshot, and remove control.
+- Saving or editing automatically revalidates every resolver request. Copy remains disabled while checking or when a route changed.
+- The packet is frozen only after the current set passes revalidation; no raw packet preview or manual preparation step is shown.
 
-### Bounded preview health
+### Diagnostic boundary
 
 - The isolated preview may report only runtime errors, unhandled promise rejections, or asset-load failures.
-- Messages are bounded, deduplicated, redacted for path/link-shaped values, kept in memory only (six maximum), and excluded from every copied packet.
-- This is intentionally not a DevTools-console clone.
+- Those messages remain bounded and redacted at the bridge, but the annotation rail does not render a Preview Health panel or copy diagnostics into a handoff.
 
 ### Standalone preview exit
 
@@ -48,8 +45,9 @@ The workflow stays deliberately small and evidence-led:
 
 ### Standalone mini inspector
 
-- The full-page preview now includes a compact **Inspect** toggle beside **Return to Studio**.
-- A selection made there travels over a one-time-token private `MessageChannel` into the same Studio resolver, Inspector, and Review Set used by the embedded preview.
+- The full-page preview includes **Inspect**, a collapsible shared **Review Set**, and **Return to Studio**.
+- A teacher can select, write a note, save, edit, remove, clear, and copy without leaving the full preview.
+- Every action travels over a one-time-token private `MessageChannel` into the same Studio-owned resolver and Review Set used by the embedded preview.
 - The early-injected preview bridge transfers its channel only to the exact Studio origin, clears the popup opener before course scripts execute, and never exposes the preview DOM to Studio.
 - A preview opened directly can highlight an element locally, but it cannot claim or write into a Studio session.
 
@@ -59,8 +57,8 @@ The workflow stays deliberately small and evidence-led:
 | --- | --- | --- |
 | Wrong edit file | Doctor-derived route only | A visible workspace file becomes a target without driver proof |
 | Generated output | Builder/factory remains the owner | Generated Social/English HTML appears as editable source |
-| False completion | Route check and Verify are separate evidence | UI says the learner fix is complete from one command |
-| Token bloat | Brief and packets are bounded and source-free | Source snippets, screenshots, or console logs enter copied text |
+| False completion | The copied route is implementation evidence only | UI or packet says the learner fix is complete |
+| Token bloat | Packets are bounded and source-free | Source snippets, screenshots, or console logs enter copied text |
 | Preview trust boundary | Private `MessageChannel` only; standalone channel uses a one-time token and cleared opener | Studio reads preview DOM, retains an untrusted opener, or uses wildcard messaging |
 | Social 10 / Science drift | Proposal-only stays visible | A source adapter or factory is guessed without source/rebuild proof |
 

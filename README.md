@@ -98,16 +98,13 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 
 Studio has no model-provider integration and does not write course sources. Use **Inspect** when one visible course element needs a focused change:
 
-1. Open the project, turn on Inspect, and select the learner-facing element. In a full-page preview, use the small **Inspect** control there; the selection returns to the already-open Studio.
-2. Studio reports `exact`, `bounded`, or `unknown` ownership. Treat generated Social and English workspace HTML as display output, not the place to edit.
-3. Choose the change focus, add a short note, and use **Copy for Codex** to make a bounded text packet.
-4. Give that packet to ChatGPT Pro for a second opinion if useful, then give Codex the packet plus the advice. Codex still verifies the local manifest, canonical source, and rebuild command before changing anything.
+1. Open the project, turn on **Inspect**, and select the learner-facing element.
+2. Write what should change and choose **Save annotation**.
+3. Repeat for up to five items, then choose **Copy Review Set for Codex** and paste the one handoff into a Codex task.
 
-Before a larger change, open **Details** and copy the **Course build brief**. It is a small route map—driver, editable sources, rebuild, validation, and any blocker—not a source dump. For a batch, Review Set can keep up to five temporary selections. After Codex changes a course, use **Re-check after change**, click the revised learner surface, then run **Workspace Verify**. Studio confirms a source route and command result only; you still inspect the learner result before calling the work complete.
+The right rail deliberately shows only the current annotation and the Review Set. Studio still resolves the canonical source, rebuild route, and validation command behind the scenes, then includes those details in the bounded copied handoff. Generated Social and English workspace HTML remains display output rather than an editable source.
 
-**Preview health** is deliberately small: it reports bounded runtime, promise, or asset issues seen during this Studio session. It is not a browser console and is never copied into a handoff.
-
-**Open preview** opens the workspace in a separate tab so Studio stays in place. Its compact preview toolbar can turn on Inspect, send a selected course element back to Studio, and return you with **Return to Studio**. Open the full preview from Studio for the connected flow; a directly opened preview can still highlight locally but cannot claim a Studio session.
+**Open preview** opens the workspace in a separate tab so Studio stays in place. The full preview has the same simple annotation workflow: **Inspect**, select an element, add a note, save it to the shared Review Set, and copy the complete set without returning to Studio. **Return to Studio** is always available. A directly opened preview can still highlight locally but cannot save or copy a Studio Review Set.
 
 The live preview is served from a separate local loopback origin and communicates through bounded private bridges. Embedded frames use a private `MessageChannel`; a full preview receives a one-time session token, and the early-injected bridge transfers a separate private channel before clearing `window.opener` ahead of course scripts. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
 
