@@ -23,6 +23,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-current",
   "preview-inspect-mode",
   "preview-review-action",
+  "preview-return-to-studio",
   "preview-diagnostic",
   "preview-error"
 ] as const;
@@ -253,6 +254,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isRecord(payload) && typeof payload.enabled === "boolean";
     case "preview-review-action":
       return isPreviewReviewAction(payload);
+    case "preview-return-to-studio":
+      return payload === null;
     case "preview-diagnostic":
       return (
         isRecord(payload) &&

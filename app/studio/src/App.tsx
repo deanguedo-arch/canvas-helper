@@ -408,7 +408,11 @@ export function App() {
         resetInspection(true);
       }
     },
-    onPreviewReviewAction: (mode, action) => standaloneReviewActionRef.current(mode, action)
+    onPreviewReviewAction: (mode, action) => standaloneReviewActionRef.current(mode, action),
+    onStandaloneReturn: () => {
+      setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+      window.focus();
+    }
   });
 
   const referenceFileOptions = resolvedReference.options.html;

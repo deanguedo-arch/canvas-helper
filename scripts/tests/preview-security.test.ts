@@ -79,6 +79,9 @@ test("isolated preview pins the Studio origin and exposes no Studio API routes",
     assert.match(bridgeSource, /data-canvas-helper-preview-review-note/);
     assert.match(bridgeSource, /data-canvas-helper-preview-review-save/);
     assert.match(bridgeSource, /data-canvas-helper-preview-review-copy/);
+    assert.match(bridgeSource, /send\("preview-return-to-studio", null\)/);
+    assert.match(bridgeSource, /window\.close\(\)/);
+    assert.match(bridgeSource, /if \(!event\.isTrusted\) return/);
     assert.match(bridgeSource, /window\.location\.replace\(STUDIO_ORIGIN\)/);
     assert.doesNotThrow(() => new Function(bridgeSource));
 
@@ -206,6 +209,24 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       version: 1,
       type: "preview-review-action",
       payload: { action: "remove", itemId: "" }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-return-to-studio",
+      payload: null
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-return-to-studio",
+      payload: { href: "http://example.com" }
     }),
     false
   );

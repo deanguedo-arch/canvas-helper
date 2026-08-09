@@ -1,68 +1,68 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Replace Studio's technical Inspector dashboard with one simple annotation workflow shared by embedded and full-screen previews.
+- Task: Preserve Studio's temporary Review Set when a teacher enters and exits the standalone full preview.
 - Status: complete on `codex/studio-workflow-v2`; no learner-course artifact was changed.
 
 ## Files changed
 
-- Protocol and preview runtime: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`.
-- Studio state and bridge: `app/studio/src/App.tsx`, `app/studio/src/hooks/usePreviewScrollSync.ts`.
-- Studio UI: `app/studio/src/components/InspectionPanel.tsx`, `app/studio/src/components/InspectorPanel.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/components/Topbar.tsx`, `app/studio/src/styles.css`.
+- Return protocol and preview behavior: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`.
+- Studio bridge and focus behavior: `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/studio/src/App.tsx`.
 - Verification: `scripts/tests/preview-security.test.ts`, `e2e/specs/inspection.spec.ts`.
-- Documentation: `README.md`, `ARCHITECTURE.md`, `docs/ops/FAST_PATHS.md`, `docs/plans/2026-08-04-studio-review-set.md`, `docs/plans/2026-08-04-studio-workflow-v2.md`, `docs/ops/ACTIVE_HANDOFF.md`, `docs/ops/ARCHIVED_HANDOFFS.md`.
+- Documentation: `README.md`, `ARCHITECTURE.md`, `docs/ops/FAST_PATHS.md`, `docs/plans/2026-08-04-studio-workflow-v2.md`, `docs/ops/ACTIVE_HANDOFF.md`, `docs/ops/ARCHIVED_HANDOFFS.md`.
 
 ## What changed
 
-- The right rail now contains only **New annotation** and **Review Set**. Course Build Brief, Preview Health, Source Files, ownership labels, commands, and raw packet text are no longer rendered there.
-- The teacher flow is now: Inspect, select, write a note, save, repeat, then copy the complete Review Set.
-- Review Set preparation is automatic after a save or note edit. Copy remains disabled until current repository-side source routes pass revalidation.
-- The standalone preview now exposes the same shared Review Set: note, save, edit, remove, clear, and copy are available without returning to Studio.
-- Studio remains the only Review Set owner. The preview receives bounded summaries and the prepared packet through the existing private channel; it receives no filesystem access or write authority.
+- **Return to Studio** no longer replaces a connected preview tab with a second fresh Studio page.
+- The standalone preview sends one bounded `preview-return-to-studio` event, asks the existing Studio window to focus, and closes itself.
+- The original Studio instance therefore keeps its in-memory Review Set. Reopening the full preview resynchronizes the same saved annotations.
+- If browser policy prevents the auxiliary tab from closing, the preview tells the teacher to close it manually; it does not navigate away and discard the visible route back to the original session.
+- A directly opened preview with no Studio connection retains the trusted-origin navigation fallback.
 
 ## Why this changed
 
-- The teacher uses Studio as a visual annotation surface, not a developer dashboard. Source-routing details are useful to Codex in the copied handoff but were noise in the normal course-review workflow.
+- Navigating the preview tab to Studio created a second empty Studio instance. Returning to the already-open owner preserves annotation continuity without adding permanent storage or expanding the preview's authority.
 
 ## Source of truth
 
-- Review Set state, automatic revalidation, and packet creation: `app/studio/src/App.tsx` and `app/studio/src/lib/review-set.ts`.
-- Bounded cross-origin message contract: `app/shared/preview-bridge.ts`.
-- Top-level full-preview controls: `app/server/preview-bridge-runtime.ts`.
-- Visible teacher workflow: `app/studio/src/components/InspectionPanel.tsx` and `app/studio/src/components/ReviewSetPanel.tsx`.
+- Temporary Review Set state and packet preparation: `app/studio/src/App.tsx` and `app/studio/src/lib/review-set.ts`.
+- Bounded return event validation: `app/shared/preview-bridge.ts`.
+- Top-level return control and close fallback: `app/server/preview-bridge-runtime.ts`.
+- Standalone-only event handling: `app/studio/src/hooks/usePreviewScrollSync.ts`.
 - Course content remains owned by each project's declared canonical sources and build driver. No file under `projects/**` changed.
 
 ## Fragile areas / watchouts
 
-- Keep bridge injection ahead of course scripts so the one-time opener can be cleared before untrusted course code runs.
-- Keep full-preview Review Set actions standalone-only; an embedded course iframe must not be able to invoke them.
-- Keep exact-origin checks, private `MessageChannel` ports, bounded validators, and top-level-only controls.
-- Do not expose source paths or raw packet text in the visible annotation UI; those details belong only in the bounded copied handoff.
+- The Review Set is intentionally session-temporary. It survives opening and closing full previews while the original Studio tab stays open, but not a Studio reload or browser restart.
+- Keep `preview-return-to-studio` standalone-only and `payload: null`; embedded course content must not be able to trigger Studio focus behavior.
+- Keep exact-origin checks, the private one-time-token `MessageChannel`, early opener clearing, and top-level-only controls.
+- Do not replace the close flow with persistent browser storage or navigate a connected preview into a second Studio instance.
 
 ## Next prompt should assume
 
 - Branch: `codex/studio-workflow-v2`.
-- Studio is running at `http://127.0.0.1:5173/` through `npm run studio:codex`.
-- Embedded and standalone previews share one temporary Review Set with a five-item cap and automatic route revalidation.
-- Social 10 remains proposal-only; its generated workspace was not modified or promoted to canonical source.
+- Studio runs at `http://127.0.0.1:5173/` through `npm run studio:codex`.
+- A connected full preview can save annotations, return to the original Studio with those items intact, and receive the same items when reopened.
+- Review Set history remains deliberately temporary and Studio-owned.
 
 ## What still needs validation
 
-- Optional teacher acceptance: open the full preview from Studio, collect the first real multi-item Review Set, paste it into a Codex task, and confirm the resulting edits match the selected surfaces.
+- Optional teacher acceptance: collect several real course annotations, return to Studio, reopen the preview, and confirm the same set matches the expected teacher workflow.
 
 ## Known risks
 
-- Repository-wide `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, LLM dependency, and English-builder files. The Studio build and touched inspection boundary pass.
-- Opening a newer standalone workspace preview replaces the previous standalone connection for that mode; the older page remains viewable but cannot update the shared set.
-- Screenshot capture remains Studio-only because the isolated preview retains `Permissions-Policy: display-capture=()`.
+- Repository-wide `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, LLM dependency, and English-builder files. No touched-file diagnostic was reported.
+- A browser that refuses script-closing an auxiliary tab leaves the original Studio state safe but requires the teacher to close the preview tab manually.
+- Opening a newer standalone workspace preview still replaces the previous standalone connection for that mode; the older page remains viewable but cannot update the shared set.
 
 ## Verification run
 
 - Passed: `npm run build:studio`.
 - Passed: `npm run test:studio-inspection` (30 tests).
-- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (13 tests).
+- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (13 tests), including save, return, retained Studio item, reopen, and resynchronized preview item.
 - Passed: `npm run test:e2e:smoke` (1 test).
-- Passed: live in-app-browser inspection on Social 10: select, note, save, automatic preparation, and simplified visible rail.
+- Passed: `git diff --check`.
+- Passed: live in-app-browser load of the updated Studio and its connected top-level E2E preview controls.
 - Baseline only: `npm run typecheck` reports the established unrelated errors listed above.
 
 ## Exact next command
@@ -71,10 +71,10 @@
 
 ## Exact next file to open
 
-`app/studio/src/App.tsx`
+`app/server/preview-bridge-runtime.ts`
 
 ## Do not do next / warnings
 
+- Do not add persistence merely to preserve preview open/close continuity; the existing Studio owner already provides that boundary.
 - Do not hand-edit generated `projects/<slug>/workspace/**` as part of this Studio feature.
-- Do not add the Review Set controls inside embedded course iframes.
-- Do not treat a visual selection as proof that generated output is a safe primary edit target; keep using the resolver and project metadata.
+- Do not add return or Review Set controls inside embedded course iframes.

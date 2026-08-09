@@ -44,6 +44,7 @@ type UsePreviewScrollSyncOptions = {
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload) => void;
   onInspectModeChange?: (enabled: boolean) => void;
   onPreviewReviewAction?: (mode: PreviewMode, action: PreviewReviewAction) => void;
+  onStandaloneReturn?: (mode: PreviewMode) => void;
   onPreviewDiagnostic?: (mode: PreviewMode, diagnostic: PreviewDiagnostic) => void;
 };
 
@@ -96,6 +97,7 @@ export function usePreviewScrollSync({
   onInspectHover,
   onInspectModeChange,
   onPreviewReviewAction,
+  onStandaloneReturn,
   onPreviewDiagnostic
 }: UsePreviewScrollSyncOptions) {
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
@@ -135,7 +137,7 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled
   });
-  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewReviewAction, onPreviewDiagnostic });
+  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic });
   stateRef.current = {
     previewMode,
     selectedProject,
@@ -144,7 +146,7 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled
   };
-  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewReviewAction, onPreviewDiagnostic };
+  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic };
 
   const getModeTarget = (mode: PreviewMode) => {
     const current = stateRef.current;
@@ -314,6 +316,11 @@ export function usePreviewScrollSync({
       case "preview-review-action":
         if (source === "standalone") {
           inspectionCallbacksRef.current.onPreviewReviewAction?.(mode, data.payload as PreviewReviewAction);
+        }
+        break;
+      case "preview-return-to-studio":
+        if (source === "standalone") {
+          inspectionCallbacksRef.current.onStandaloneReturn?.(mode);
         }
         break;
       case "preview-diagnostic":

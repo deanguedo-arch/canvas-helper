@@ -408,7 +408,19 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     returnButton.setAttribute("aria-label", "Return to Canvas Helper Studio");
     returnButton.setAttribute("data-canvas-helper-return-to-studio", "true");
     stylePreviewControlButton(returnButton);
-    returnButton.addEventListener("click", function() {
+    returnButton.addEventListener("click", function(event) {
+      if (!event.isTrusted) return;
+      if (studioConnected && port) {
+        send("preview-return-to-studio", null);
+        setStandaloneStatus("Returning to Studio…");
+        window.setTimeout(function() {
+          if (!window.closed) {
+            setStandaloneStatus("Studio is ready in the original tab. Close this preview tab to return.");
+          }
+        }, 400);
+        try { window.close(); } catch (_) {}
+        return;
+      }
       try { window.location.replace(STUDIO_ORIGIN); } catch (_) { window.location.href = STUDIO_ORIGIN; }
     });
 

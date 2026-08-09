@@ -121,9 +121,23 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
 
   const returnToStudio = previewPage.locator('[data-canvas-helper-return-to-studio="true"]');
   await expect(returnToStudio).toHaveText("Return to Studio");
+  const previewClosed = previewPage.waitForEvent("close");
   await returnToStudio.click();
-  await expect(previewPage).toHaveURL(/http:\/\/127\.0\.0\.1:4173\/?$/);
-  await expect(previewPage.getByTestId("studio-shell")).toBeVisible();
+  await previewClosed;
+  await expect(page).toHaveURL(studioUrl);
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await expect(page.getByTestId("review-set")).toBeVisible();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+
+  const reopenedPreviewPromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const reopenedPreview = await reopenedPreviewPromise;
+  await reopenedPreview.waitForLoadState("domcontentloaded");
+  await expect(reopenedPreview.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  await reopenedPreview.locator('[data-canvas-helper-preview-review-toggle="true"]').click();
+  await expect(reopenedPreview.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(1);
+  await reopenedPreview.close();
 });
 
 test("@inspection annotation rail hides the technical dashboard panels", async ({ page }) => {

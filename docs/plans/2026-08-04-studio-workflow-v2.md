@@ -41,7 +41,9 @@ The visible workflow stays deliberately small and evidence-led:
 ### Standalone preview exit
 
 - **Open preview** opens the workspace in a separate tab so Studio remains available for inspection and handoff work.
-- The isolated bridge injects a plain **Return to Studio** control only when the preview is the top-level page. It replaces that preview URL with the trusted Studio origin and never appears inside Studio's embedded iframe.
+- The isolated bridge injects a plain **Return to Studio** control only when the preview is the top-level page and never inside Studio's embedded iframe.
+- When connected, the control asks the existing Studio session to focus and closes the auxiliary preview tab. This preserves the Studio-owned temporary Review Set across repeated preview open/return cycles without persistent browser storage.
+- A directly opened preview has no Studio session to preserve, so its return control falls back to navigating to the trusted Studio origin.
 
 ### Standalone mini inspector
 

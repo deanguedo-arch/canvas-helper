@@ -8153,3 +8153,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
 - Preserved boundary: no learner-course artifact changed; standalone controls remained top-level-only and the private one-time-token channel retained exact-origin checks.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-09: simplified shared annotation workflow
+
+- Project: `repo-wide`.
+- Task: Replace Studio's technical Inspector dashboard with one simple annotation workflow shared by embedded and full-screen previews.
+- Status: complete on `codex/studio-workflow-v2`; superseded by the preview-return continuity handoff.
+- Verification: Studio build, 30 focused inspection tests, 13 inspection E2E tests, smoke E2E, and live Social 10 Studio review passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/App.tsx`, `app/studio/src/lib/review-set.ts`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
+- Preserved boundary: no learner-course artifact changed; Studio remained the sole temporary Review Set owner and generated course workspaces remained output.
+- Next command at archival time: `npm run studio:codex`.
