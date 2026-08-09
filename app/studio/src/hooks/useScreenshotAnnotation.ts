@@ -63,7 +63,7 @@ export function revokeScreenshotAnnotation(annotation: ScreenshotAnnotation | nu
   }
 }
 
-export async function downloadScreenshotAnnotation(annotation: ScreenshotAnnotation) {
+export async function renderScreenshotAnnotationBlob(annotation: ScreenshotAnnotation) {
   let canvas: HTMLCanvasElement | null = null;
   try {
     const image = new Image();
@@ -85,6 +85,16 @@ export async function downloadScreenshotAnnotation(annotation: ScreenshotAnnotat
     const blob = await canvasBlob(canvas);
     clearCanvas(canvas);
     canvas = null;
+    return blob;
+  } catch (renderError) {
+    clearCanvas(canvas);
+    throw renderError;
+  }
+}
+
+export async function downloadScreenshotAnnotation(annotation: ScreenshotAnnotation) {
+  try {
+    const blob = await renderScreenshotAnnotationBlob(annotation);
     const downloadUrl = URL.createObjectURL(blob);
     const link = document.createElement("a");
     link.href = downloadUrl;
@@ -92,7 +102,6 @@ export async function downloadScreenshotAnnotation(annotation: ScreenshotAnnotat
     link.click();
     window.setTimeout(() => URL.revokeObjectURL(downloadUrl), 0);
   } catch (downloadError) {
-    clearCanvas(canvas);
     throw downloadError;
   }
 }

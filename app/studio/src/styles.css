@@ -1380,6 +1380,18 @@ pre {
   align-self: flex-start;
 }
 
+.review-set-screenshot-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.review-set-screenshot-footer span {
+  color: var(--ink-soft);
+  font-size: 0.72rem;
+}
+
 .review-set-copy-row {
   padding-top: 0.8rem;
   border-top: 1px solid rgba(89, 116, 162, 0.2);

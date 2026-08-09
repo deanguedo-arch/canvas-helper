@@ -236,7 +236,7 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       version: 1,
       type: "studio-set-review-state",
       payload: {
-        items: [{ id: "review-1", excerpt: "Current element", teacherNote: "Make this clearer." }],
+        items: [{ id: "review-1", excerpt: "Current element", teacherNote: "Make this clearer.", hasScreenshot: true }],
         preparing: false,
         packetReady: true,
         status: "Review Set ready.",
@@ -244,6 +244,21 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       }
     }),
     true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "studio-set-review-state",
+      payload: {
+        items: [{ id: "review-1", excerpt: "Current element", teacherNote: "Make this clearer." }],
+        preparing: false,
+        packetReady: true,
+        status: "Review Set ready.",
+        error: ""
+      }
+    }),
+    false
   );
   assert.equal(
     isPreviewBridgeMessage({

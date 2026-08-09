@@ -32,12 +32,15 @@ export function ReviewSetPanel({
   onRemoveScreenshot,
   onCopy
 }: ReviewSetPanelProps) {
+  const screenshotCount = items.filter((item) => Boolean(item.screenshot)).length;
   return (
     <section className="panel-card review-set-panel" data-testid="review-set">
       <div className="section-header">
         <div>
           <h3>Review Set</h3>
-          <p className="review-set-summary">{items.length} of {REVIEW_SET_MAX_ITEMS} saved</p>
+          <p className="review-set-summary">
+            {items.length} of {REVIEW_SET_MAX_ITEMS} saved · {screenshotCount} screenshot{screenshotCount === 1 ? "" : "s"}
+          </p>
         </div>
         <button type="button" className="ghost-button compact" disabled={!items.length} onClick={onClear}>
           Clear
@@ -68,9 +71,12 @@ export function ReviewSetPanel({
               {item.screenshot ? (
                 <div className="review-set-screenshot" data-testid="review-set-screenshot">
                   <img src={item.screenshot.imageUrl} alt={`Screenshot for annotation ${index + 1}`} />
-                  <button type="button" className="ghost-button compact danger" onClick={() => onRemoveScreenshot(item.id)}>
-                    Remove screenshot
-                  </button>
+                  <div className="review-set-screenshot-footer">
+                    <span>Included in the Codex handoff</span>
+                    <button type="button" className="ghost-button compact danger" onClick={() => onRemoveScreenshot(item.id)}>
+                      Remove screenshot
+                    </button>
+                  </div>
                 </div>
               ) : null}
             </li>

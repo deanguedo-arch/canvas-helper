@@ -103,7 +103,7 @@ export function InspectionPanel({
               >
                 {screenshotStatus === "capturing" ? "Waiting for tab…" : "Screenshot + annotate"}
               </button>
-              <span>Choose this Studio tab when your browser asks what to share.</span>
+              <span>Choose this Studio tab. Save the annotation to include its screenshot, then repeat for other items.</span>
             </div>
           </div>
           {!screenshotSupported ? <p className="inspection-warning">Screenshots are not available in this browser.</p> : null}

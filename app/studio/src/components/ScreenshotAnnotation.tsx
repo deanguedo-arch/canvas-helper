@@ -50,9 +50,9 @@ export function ScreenshotAnnotation({ annotation, onMarkerChange, onDownload, o
     <section className="screenshot-annotation" data-testid="screenshot-annotation">
       <div className="section-header">
         <h4>Screenshot annotation</h4>
-        <span>Local only</span>
+        <span>Ready to save</span>
       </div>
-      <p className="screenshot-annotation-copy">Drag a new box if the first marker needs adjustment. The image is not included when you copy the Codex packet.</p>
+      <p className="screenshot-annotation-copy">Drag a new box if the marker needs adjustment. Saving the annotation keeps this marked PNG with the Review Set for Codex.</p>
       <div
         className="screenshot-annotation-canvas"
         role="img"

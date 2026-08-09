@@ -49,7 +49,7 @@ Rules:
 - Keep source routes, file paths, commands, packet text, and preview diagnostics out of the normal annotation UI. They remain resolver-owned data inside the copied Review Set packet.
 - Review Set preparation is automatic after each save or note edit. Copy must stay disabled until every saved route has been revalidated against current repository state.
 - A standalone workspace preview must preserve the original Studio session and expose Inspect, the shared Review Set, and the trusted return control only at the top level, never inside the embedded iframe preview. A connected return must signal and close the auxiliary preview so the Studio-owned temporary Review Set survives preview open/close cycles; only a directly opened, disconnected preview may navigate to the trusted Studio origin. The early-injected bridge must clear the popup opener before course scripts execute and use the one-time-token private `MessageChannel`; do not replace it with wildcard messaging, iframe DOM reads, URL-carried selection text, or persistent browser storage.
-- Screenshot capture is explicit Studio-only browser consent. The preview origin must retain `Permissions-Policy: display-capture=()`; images never enter a Codex packet.
+- Screenshot capture is explicit Studio-only browser consent. The preview origin must retain `Permissions-Policy: display-capture=()`. Save at most one marked PNG per Review Set item through the bounded exact-origin screenshot route; copied text may contain only its safe `.runtime/studio-review-sets/` path, never pixels, base64, blob URLs, or absolute paths.
 
 Verification floor:
 - `npm run test:studio-inspection`

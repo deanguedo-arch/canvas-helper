@@ -32,6 +32,7 @@ The visible workflow stays deliberately small and evidence-led:
 - The set renders only each selected excerpt, its editable note, optional screenshot, and remove control.
 - Saving or editing automatically revalidates every resolver request. Copy remains disabled while checking or when a route changed.
 - The packet is frozen only after the current set passes revalidation; no raw packet preview or manual preparation step is shown.
+- Each item may keep one marked PNG in the ignored local screenshot cache. The packet lists its safe repo-relative path so Codex can open up to five screenshots without embedding image bytes in copied text.
 
 ### Diagnostic boundary
 
@@ -60,7 +61,7 @@ The visible workflow stays deliberately small and evidence-led:
 | Wrong edit file | Doctor-derived route only | A visible workspace file becomes a target without driver proof |
 | Generated output | Builder/factory remains the owner | Generated Social/English HTML appears as editable source |
 | False completion | The copied route is implementation evidence only | UI or packet says the learner fix is complete |
-| Token bloat | Packets are bounded and source-free | Source snippets, screenshots, or console logs enter copied text |
+| Token bloat | Packets are bounded and source-free; screenshots are path references | Source snippets, image bytes/base64, blob URLs, or console logs enter copied text |
 | Preview trust boundary | Private `MessageChannel` only; standalone channel uses a one-time token and cleared opener | Studio reads preview DOM, retains an untrusted opener, or uses wildcard messaging |
 | Social 10 / Science drift | Proposal-only stays visible | A source adapter or factory is guessed without source/rebuild proof |
 

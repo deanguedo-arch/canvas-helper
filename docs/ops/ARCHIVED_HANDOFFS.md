@@ -8163,3 +8163,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `app/studio/src/App.tsx`, `app/studio/src/lib/review-set.ts`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
 - Preserved boundary: no learner-course artifact changed; Studio remained the sole temporary Review Set owner and generated course workspaces remained output.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-09: preview-return continuity
+
+- Project: `repo-wide`.
+- Task: Preserve Studio's temporary Review Set when a teacher enters and exits the standalone full preview.
+- Status: complete on `codex/studio-workflow-v2`; superseded by the multi-screenshot Review Set handoff.
+- Verification: Studio build, 30 focused inspection tests, 13 inspection E2E tests, smoke E2E, and live in-app-browser checks passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/App.tsx`, `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
+- Preserved boundary: no learner-course artifact changed; Review Set ownership stayed with the original Studio tab and connected previews retained the private exact-origin bridge.
+- Next command at archival time: `npm run studio:codex`.

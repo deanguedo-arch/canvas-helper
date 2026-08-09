@@ -15,6 +15,7 @@ let sessionLogRouteHandler: RouteHandler | null = null;
 let incomingRouteHandler: RouteHandler | null = null;
 let assessmentsRouteHandler: RouteHandler | null = null;
 let inspectionRouteHandler: RouteHandler | null = null;
+let reviewScreenshotRouteHandler: RouteHandler | null = null;
 let courseBuildBriefRouteHandler: RouteHandler | null = null;
 
 async function loadRouteHandler(server: ViteDevServer, moduleName: string, exportName: string) {
@@ -67,6 +68,13 @@ async function getInspectionRouteHandler(server: ViteDevServer) {
     inspectionRouteHandler = await loadRouteHandler(server, "inspection", "handleInspectionRoute");
   }
   return inspectionRouteHandler;
+}
+
+async function getReviewScreenshotRouteHandler(server: ViteDevServer) {
+  if (!reviewScreenshotRouteHandler) {
+    reviewScreenshotRouteHandler = await loadRouteHandler(server, "review-screenshots", "handleReviewScreenshotRoute");
+  }
+  return reviewScreenshotRouteHandler;
 }
 
 async function getCourseBuildBriefRouteHandler(server: ViteDevServer) {
@@ -132,6 +140,13 @@ async function handleRequest(
 
   if (url === "/api/inspection/resolve") {
     const handler = await getInspectionRouteHandler(server);
+    if (await handler(url, request, response)) {
+      return;
+    }
+  }
+
+  if (url === "/api/inspection/screenshots") {
+    const handler = await getReviewScreenshotRouteHandler(server);
     if (await handler(url, request, response)) {
       return;
     }

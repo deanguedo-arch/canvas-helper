@@ -87,6 +87,7 @@ export type PreviewReviewItemSummary = {
   id: string;
   excerpt: string;
   teacherNote: string;
+  hasScreenshot: boolean;
 };
 
 export type PreviewReviewState = {
@@ -220,7 +221,8 @@ export function isPreviewReviewState(value: unknown): value is PreviewReviewStat
         isRecord(item) &&
         isBoundedNonEmptyString(item.id, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH) &&
         isBoundedString(item.excerpt, PREVIEW_REVIEW_EXCERPT_MAX_LENGTH) &&
-        isBoundedString(item.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH)
+        isBoundedString(item.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH) &&
+        typeof item.hasScreenshot === "boolean"
     ) &&
     typeof value.preparing === "boolean" &&
     typeof value.packetReady === "boolean" &&

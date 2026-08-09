@@ -100,7 +100,7 @@ Studio has no model-provider integration and does not write course sources. Use 
 
 1. Open the project, turn on **Inspect**, and select the learner-facing element.
 2. Write what should change and choose **Save annotation**.
-3. Repeat for up to five items, then choose **Copy Review Set for Codex** and paste the one handoff into a Codex task.
+3. Repeat for up to five items—with one optional screenshot per item—then choose **Copy Review Set for Codex** and paste the one handoff into a Codex task.
 
 The right rail deliberately shows only the current annotation and the Review Set. Studio still resolves the canonical source, rebuild route, and validation command behind the scenes, then includes those details in the bounded copied handoff. Generated Social and English workspace HTML remains display output rather than an editable source.
 
@@ -108,7 +108,7 @@ The right rail deliberately shows only the current annotation and the Review Set
 
 The live preview is served from a separate local loopback origin and communicates through bounded private bridges. Embedded frames use a private `MessageChannel`; a full preview receives a one-time session token, and the early-injected bridge transfers a separate private channel before clearing `window.opener` ahead of course scripts. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
 
-**Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper refreshes the selected element's position, captures one local frame, then stops sharing before crop/PNG processing (including if selection refresh fails after permission is granted), crops it to the visible preview area, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet, which says so explicitly.
+**Screenshot + annotate** is optional for every saved annotation. Your browser asks what to share each time; choose the current Studio tab. Canvas Helper refreshes the selected element's position, captures one local frame, stops sharing before crop/PNG processing, and draws the marker into a bounded PNG. Saving the annotation keeps that PNG under the ignored `.runtime/studio-review-sets/` cache and adds its repo-relative path to the copied Review Set, so Codex can open all included screenshots. The packet never contains base64 pixels or blob URLs, and stale screenshot sessions are removed during later captures after seven days.
 
 ## Workflow Types
 

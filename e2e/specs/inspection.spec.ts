@@ -1,3 +1,6 @@
+import { readFile } from "node:fs/promises";
+import path from "node:path";
+
 import { expect, test } from "@playwright/test";
 
 import { openProjectInStudio, waitForWorkspacePreviewReady } from "../lib/project-open";
@@ -185,7 +188,7 @@ test("@inspection Review Set automatically prepares multiple annotations for one
   await page.getByTestId("copy-review-set").click();
   const copied = await page.evaluate(() => navigator.clipboard.readText());
   expect(copied).toContain("Items: 2");
-  expect(copied).toContain("Screenshots: excluded");
+  expect(copied).toContain("Screenshots: 0 local PNGs");
   await expect(page.getByTestId("review-set-packet")).toHaveCount(0);
 
   await page.getByTestId("preview-reference-toggle").click();
@@ -333,6 +336,7 @@ test("@inspection a late first selection cannot overwrite a newer selection in t
 });
 
 test("@inspection screenshot capture refreshes the selection and stops the local stream", async ({ page }) => {
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
   await page.getByTestId("preview-workspace-toggle").click();
@@ -388,8 +392,31 @@ test("@inspection screenshot capture refreshes the selection and stops the local
   await page.getByTestId("inspection-teacher-note").fill("Use the screenshot to clarify this heading.");
   await page.getByTestId("add-to-review-set").click();
   await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
-  await expect(page.getByTestId("review-set-screenshot")).toBeVisible();
+  await expect(page.getByTestId("review-set-screenshot")).toHaveCount(1);
+
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
+  await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.getByTestId("screenshot-annotation")).toBeVisible();
+  await page.getByTestId("inspection-teacher-note").fill("Use a second screenshot to clarify this control.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
+  await expect(page.getByTestId("review-set-screenshot")).toHaveCount(2);
+  await expect(page.getByTestId("review-set")).toContainText("2 screenshots");
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await page.getByTestId("copy-review-set").click();
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain("Schema: review-set-v2");
+  expect(copied).toContain("Screenshots: 2 local PNGs");
+  const screenshotPaths = [...copied.matchAll(/^Screenshot: (\.runtime\/studio-review-sets\/[^\s]+\.png)$/gm)]
+    .map((match) => match[1]);
+  expect(screenshotPaths).toHaveLength(2);
+  for (const screenshotPath of screenshotPaths) {
+    const png = await readFile(path.resolve(screenshotPath));
+    expect(png.subarray(0, 8).toString("hex")).toBe("89504e470d0a1a0a");
+  }
   await expect(page.getByTestId("review-set-packet")).toHaveCount(0);
 });
 

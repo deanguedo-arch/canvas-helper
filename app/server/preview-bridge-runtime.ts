@@ -338,6 +338,14 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
         rowHeading.appendChild(excerpt);
         rowHeading.appendChild(remove);
         row.appendChild(rowHeading);
+        if (item.hasScreenshot) {
+          var screenshotIncluded = document.createElement("div");
+          screenshotIncluded.textContent = "Screenshot included";
+          screenshotIncluded.style.marginTop = "5px";
+          screenshotIncluded.style.color = "#475569";
+          screenshotIncluded.style.fontSize = "11px";
+          row.appendChild(screenshotIncluded);
+        }
         row.appendChild(noteArea);
         reviewItems.appendChild(row);
       });
@@ -757,7 +765,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (!value || typeof value !== "object" || !Array.isArray(value.items) || value.items.length > MAX_REVIEW_ITEMS) return false;
     if (typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240) return false;
     return value.items.every(function(item) {
-      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE;
+      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && typeof item.hasScreenshot === "boolean";
     });
   }
 

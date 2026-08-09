@@ -10,7 +10,11 @@ import { WorkspacePicker } from "./components/WorkspacePicker";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
-import { revokeScreenshotAnnotation, useScreenshotAnnotation } from "./hooks/useScreenshotAnnotation";
+import {
+  renderScreenshotAnnotationBlob,
+  revokeScreenshotAnnotation,
+  useScreenshotAnnotation
+} from "./hooks/useScreenshotAnnotation";
 import { useProjectCommands } from "./hooks/useProjectCommands";
 import { useProjects } from "./hooks/useProjects";
 import { useReferenceTarget } from "./hooks/useReferenceTarget";
@@ -32,6 +36,7 @@ import {
   type PreparedReviewSetPacket,
   type ReviewSetItem
 } from "./lib/review-set";
+import { createReviewScreenshotSessionId, persistReviewScreenshot } from "./lib/review-screenshots";
 import type {
   InspectionResolution,
   InspectionResolveRequest,
@@ -103,7 +108,12 @@ export function App() {
   const reviewSetVersionRef = useRef(0);
   const reviewSetPreparationAbortRef = useRef<AbortController | null>(null);
   const reviewSetItemIdRef = useRef(0);
+  const reviewScreenshotSessionIdRef = useRef("");
+  if (!reviewScreenshotSessionIdRef.current) {
+    reviewScreenshotSessionIdRef.current = createReviewScreenshotSessionId();
+  }
   const [reviewSetStatus, setReviewSetStatus] = useState("");
+  const [reviewSetSaving, setReviewSetSaving] = useState(false);
   const [reviewSetPreparing, setReviewSetPreparing] = useState(false);
   const [preparedReviewSet, setPreparedReviewSet] = useState<PreparedReviewSetPacket | null>(null);
   const [reviewSetPacketError, setReviewSetPacketError] = useState("");
@@ -236,6 +246,7 @@ export function App() {
     (status = "") => {
       invalidateReviewSetPreparation();
       reviewSetItemsRef.current.forEach((item) => revokeScreenshotAnnotation(item.screenshot));
+      reviewScreenshotSessionIdRef.current = createReviewScreenshotSessionId();
       replaceReviewSetItems([]);
       setReviewSetStatus(status);
     },
@@ -420,6 +431,9 @@ export function App() {
   const visiblePreviewModes = layoutPreferences.compareMode ? [...previewModes] : [previewMode];
 
   const reviewSetAddAvailability = useMemo(() => {
+    if (reviewSetSaving) {
+      return { canAdd: false, reason: "Saving this annotation…" };
+    }
     if (!inspectionResolution || !inspectionRequest) {
       return { canAdd: false, reason: "Select something in the preview first." };
     }
@@ -448,31 +462,69 @@ export function App() {
       return { canAdd: false, reason: `Keep the teacher note to ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.` };
     }
     return { canAdd: true, reason: "" };
-  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetItems, selectedSlug]);
+  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetItems, reviewSetSaving, selectedSlug]);
 
-  const addCurrentInspectionToReviewSet = () => {
+  const addCurrentInspectionToReviewSet = async () => {
     if (!reviewSetAddAvailability.canAdd || !inspectionResolution || !inspectionRequest) {
       setReviewSetStatus(reviewSetAddAvailability.reason || "Select a workspace element before saving it to the Review Set.");
       return;
     }
 
+    const inspectionVersion = inspectionScopeVersionRef.current;
+    const reviewVersion = reviewSetVersionRef.current;
+    const itemId = `review-${Date.now()}-${++reviewSetItemIdRef.current}`;
+    const capturedScreenshot = screenshotAnnotation.annotation;
+    let savedScreenshot: ReviewSetItem["screenshot"] = null;
+    setReviewSetSaving(true);
     try {
+      if (capturedScreenshot) {
+        setReviewSetStatus("Saving the marked screenshot…");
+        const markedPng = await renderScreenshotAnnotationBlob(capturedScreenshot);
+        const persisted = await persistReviewScreenshot({
+          sessionId: reviewScreenshotSessionIdRef.current,
+          projectSlug: inspectionRequest.projectSlug,
+          itemId,
+          png: markedPng
+        });
+        savedScreenshot = {
+          ...capturedScreenshot,
+          imageUrl: URL.createObjectURL(markedPng),
+          filePath: persisted.path,
+          byteLength: persisted.byteLength,
+          marker: { ...capturedScreenshot.marker }
+        };
+      }
+
+      if (inspectionScopeVersionRef.current !== inspectionVersion || reviewSetVersionRef.current !== reviewVersion) {
+        throw new Error("The selection or Review Set changed while the screenshot was saving. Select it again.");
+      }
+      const currentItems = reviewSetItemsRef.current;
+      const identity = reviewSetItemIdentity(inspectionRequest, inspectionPreviewMode);
+      if (!identity || currentItems.some((item) => item.identity === identity) || currentItems.length >= REVIEW_SET_MAX_ITEMS) {
+        throw new Error("This selection can no longer be added to the current Review Set.");
+      }
       const item = createReviewSetItem({
-        id: `review-${Date.now()}-${++reviewSetItemIdRef.current}`,
+        id: itemId,
         previewMode: inspectionPreviewMode,
         request: inspectionRequest,
         resolution: inspectionResolution,
         issueCategory: "unsure",
         teacherNote: inspectionTeacherNote,
-        screenshot: screenshotAnnotation.annotation
+        screenshot: savedScreenshot
       });
       invalidateReviewSetPreparation();
-      screenshotAnnotation.consume();
-      replaceReviewSetItems([...reviewSetItemsRef.current, item]);
+      screenshotAnnotation.clear();
+      replaceReviewSetItems([...currentItems, item]);
       setInspectionTeacherNote("");
-      setReviewSetStatus("Annotation saved.");
+      setReviewSetStatus(savedScreenshot ? "Annotation and screenshot saved." : "Annotation saved.");
     } catch (error) {
+      revokeScreenshotAnnotation(savedScreenshot);
+      if (savedScreenshot) {
+        reviewScreenshotSessionIdRef.current = createReviewScreenshotSessionId();
+      }
       setReviewSetStatus(error instanceof Error ? error.message : "Could not save this inspection.");
+    } finally {
+      setReviewSetSaving(false);
     }
   };
 
@@ -483,6 +535,9 @@ export function App() {
     }
     invalidateReviewSetPreparation();
     revokeScreenshotAnnotation(item.screenshot);
+    if (item.screenshot) {
+      reviewScreenshotSessionIdRef.current = createReviewScreenshotSessionId();
+    }
     replaceReviewSetItems(reviewSetItemsRef.current.filter((candidate) => candidate.id !== id));
     setReviewSetStatus("Annotation removed.");
   };
@@ -509,6 +564,7 @@ export function App() {
     }
     invalidateReviewSetPreparation();
     revokeScreenshotAnnotation(item.screenshot);
+    reviewScreenshotSessionIdRef.current = createReviewScreenshotSessionId();
     replaceReviewSetItems(
       reviewSetItemsRef.current.map((candidate) => (candidate.id === id ? { ...candidate, screenshot: null } : candidate))
     );
@@ -597,7 +653,8 @@ export function App() {
     items: reviewSetItems.map((item) => ({
       id: item.id,
       excerpt: item.excerpt,
-      teacherNote: item.teacherNote
+      teacherNote: item.teacherNote,
+      hasScreenshot: Boolean(item.screenshot)
     })),
     preparing: reviewSetPreparing,
     packetReady: reviewSetPacketReady,
@@ -624,7 +681,11 @@ export function App() {
     }
     void navigator.clipboard
       .writeText(preparedReviewSet.packet)
-      .then(() => setReviewSetCopyStatus("Copied. Paste this one packet into a Codex task."))
+      .then(() => setReviewSetCopyStatus(
+        preparedReviewSet.screenshotCount
+          ? `Copied with ${preparedReviewSet.screenshotCount} screenshot path${preparedReviewSet.screenshotCount === 1 ? "" : "s"}. Paste this into a Codex task.`
+          : "Copied. Paste this one packet into a Codex task."
+      ))
       .catch(() => setReviewSetCopyStatus("Clipboard access was blocked. Select the packet and copy it manually."));
   };
 
