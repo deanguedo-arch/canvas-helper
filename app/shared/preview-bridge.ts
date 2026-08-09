@@ -4,6 +4,9 @@ export const PREVIEW_BRIDGE_MAX_MESSAGE_BYTES = 8_192;
 export const PREVIEW_BRIDGE_MAX_VISIBLE_TEXT = 320;
 export const PREVIEW_BRIDGE_MAX_CONTAINERS = 8;
 export const PREVIEW_BRIDGE_BOOTSTRAP_TYPE = "studio-connect";
+export const PREVIEW_STANDALONE_BOOTSTRAP_TYPE = "studio-connect-standalone";
+export const PREVIEW_STANDALONE_SESSION_PARAM = "canvas-helper-inspect-session";
+export const PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH = 128;
 
 export const PREVIEW_EVENT_TYPES = [
   "preview-ready",
@@ -12,6 +15,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-hover",
   "preview-inspect-selected",
   "preview-inspect-current",
+  "preview-inspect-mode",
   "preview-diagnostic",
   "preview-error"
 ] as const;
@@ -75,12 +79,30 @@ export type PreviewBridgeBootstrap = {
   payload: null;
 };
 
+export type PreviewStandaloneBridgeBootstrap = {
+  protocol: typeof PREVIEW_BRIDGE_PROTOCOL;
+  version: typeof PREVIEW_BRIDGE_VERSION;
+  type: typeof PREVIEW_STANDALONE_BOOTSTRAP_TYPE;
+  payload: {
+    sessionToken: string;
+  };
+};
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
 function isBoundedString(value: unknown, maximumLength: number) {
   return typeof value === "string" && value.length <= maximumLength;
+}
+
+export function isPreviewStandaloneSessionToken(value: unknown): value is string {
+  return (
+    typeof value === "string" &&
+    value.length >= 16 &&
+    value.length <= PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH &&
+    /^[A-Za-z0-9-]+$/.test(value)
+  );
 }
 
 function isFiniteNumber(value: unknown): value is number {
@@ -136,6 +158,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
     case "preview-inspect-selected":
     case "preview-inspect-current":
       return isPreviewInspectPayload(payload);
+    case "preview-inspect-mode":
+      return isRecord(payload) && typeof payload.enabled === "boolean";
     case "preview-diagnostic":
       return (
         isRecord(payload) &&
@@ -187,6 +211,17 @@ export function isPreviewBridgeBootstrap(value: unknown): value is PreviewBridge
   );
 }
 
+export function isPreviewStandaloneBridgeBootstrap(value: unknown): value is PreviewStandaloneBridgeBootstrap {
+  return (
+    isRecord(value) &&
+    value.protocol === PREVIEW_BRIDGE_PROTOCOL &&
+    value.version === PREVIEW_BRIDGE_VERSION &&
+    value.type === PREVIEW_STANDALONE_BOOTSTRAP_TYPE &&
+    isRecord(value.payload) &&
+    isPreviewStandaloneSessionToken(value.payload.sessionToken)
+  );
+}
+
 export function isPreviewEventMessage(message: PreviewBridgeMessage): message is PreviewBridgeMessage & { type: PreviewEventType } {
   return PREVIEW_EVENT_TYPES.includes(message.type as PreviewEventType);
 }
@@ -213,6 +248,18 @@ export function createPreviewBridgeBootstrap(): PreviewBridgeBootstrap {
     version: PREVIEW_BRIDGE_VERSION,
     type: PREVIEW_BRIDGE_BOOTSTRAP_TYPE,
     payload: null
+  };
+}
+
+export function createPreviewStandaloneBridgeBootstrap(sessionToken: string): PreviewStandaloneBridgeBootstrap {
+  if (!isPreviewStandaloneSessionToken(sessionToken)) {
+    throw new Error("Standalone preview inspection requires a valid session token.");
+  }
+  return {
+    protocol: PREVIEW_BRIDGE_PROTOCOL,
+    version: PREVIEW_BRIDGE_VERSION,
+    type: PREVIEW_STANDALONE_BOOTSTRAP_TYPE,
+    payload: { sessionToken }
   };
 }
 

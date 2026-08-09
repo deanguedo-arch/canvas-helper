@@ -1,64 +1,69 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Implement the focused Studio workflow upgrade: a compact course build brief, source workbench, safe Review Set re-check loop, bounded preview health, and an exit-safe standalone preview.
+- Task: Add a compact Inspect workflow to the standalone workspace preview and connect selections to Studio's existing Inspector and Review Set.
 - Status: complete on `codex/studio-workflow-v2`; no learner-course artifact was changed.
 
 ## Files changed
 
-- Shared/preview/server: `app/shared/course-build-brief.ts`, `app/shared/inspection.ts`, `app/shared/preview-bridge.ts`, `app/server/routes/course-build-brief.ts`, `app/server/lib/preview-inspection.ts`, `app/server/preview-bridge-runtime.ts`, `app/server/studio-server.ts`.
-- Studio: `app/studio/src/App.tsx`, `app/studio/src/components/Topbar.tsx`, `app/studio/src/components/CourseBuildBriefPanel.tsx`, `app/studio/src/components/PreviewHealthPanel.tsx`, `app/studio/src/components/InspectionPanel.tsx`, `app/studio/src/components/InspectorPanel.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/hooks/useCourseBuildBrief.ts`, `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/studio/src/hooks/useProjectCommands.ts`, `app/studio/src/lib/course-build-brief.ts`, `app/studio/src/lib/review-set.ts`, and `app/studio/src/styles.css`.
-- Verification/docs: `scripts/tests/course-build-brief.test.ts`, Inspector tests, `e2e/specs/inspection.spec.ts`, `docs/plans/2026-08-04-studio-workflow-v2.md`, `ARCHITECTURE.md`, `README.md`, and `docs/ops/FAST_PATHS.md`.
+- Bridge and server: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`.
+- Studio: `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/studio/src/App.tsx`, `app/studio/src/components/Topbar.tsx`.
+- Verification: `scripts/tests/preview-security.test.ts`, `e2e/specs/inspection.spec.ts`.
+- Documentation: `README.md`, `ARCHITECTURE.md`, `docs/ops/FAST_PATHS.md`, `docs/plans/2026-08-04-studio-workflow-v2.md`, `docs/ops/ACTIVE_HANDOFF.md`, and `docs/ops/ARCHIVED_HANDOFFS.md`.
 
 ## What changed
 
-- Studio now presents a bounded doctor-derived Course Build Brief before a teacher starts editing or handing off work.
-- Exact direct-workspace selections show a bounded verified source excerpt; generated and proposal-only projects never receive an invented source excerpt or edit target.
-- Inspect can copy the verified target and reveal the selected opaque node in the preview without iframe-DOM access.
-- Review Set can reveal a saved selection, request a fresh changed-surface click, confirm only the same safe route, and run Workspace Verify only after that confirmation.
-- A Verify success explicitly remains a workspace command result, not a claim that the learner-facing change is finished.
-- Preview Health records at most six bounded runtime/asset signals locally and never puts them in a packet.
-- **Open preview** now opens a separate tab instead of replacing Studio. A direct standalone preview has a top-level-only **Return to Studio** control; embedded previews remain free of that extra control.
+- **Open preview** still uses the browser's normal separate-tab behavior, so Studio remains open and the in-app browser does not need to allow a scripted popup.
+- A standalone workspace preview now shows a compact top-level-only toolbar with **Inspect** and **Return to Studio**. Embedded Studio previews do not receive this toolbar.
+- Inspect mode stays synchronized between Studio and the full preview. A selected course element travels into the existing repository-side resolver, Inspector, and Review Set; no second handoff format was introduced.
+- Each connected preview receives one short-lived session token. The early-injected bridge removes the token from the visible URL, transfers a private `MessageChannel` only to the exact Studio origin, and clears `window.opener` before course scripts execute.
+- A directly opened preview can still highlight an element locally, but its status no longer claims a Studio connection until Studio acknowledges the private channel.
 
 ## Why this changed
 
-- The teacher needs a faster, lower-token route from a visible Studio surface into an evidence-backed Codex task.
-- Existing course drivers already know enough to distinguish direct editing, factory rebuilds, and proposal-only work. The UI now makes that distinction usable without pretending to solve missing ownership.
-
-## Verification run
-
-- Passed: `npm run test:studio-inspection` (29), `npm run build:studio`, `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (14), `npm run test:e2e:smoke`, and `git diff --check`.
-- Passed: `npm run course:doctor -- --project forensics35`, `npm run course:doctor -- --project ela20-1-modern-play-crucible`, and `npm run course:doctor -- --project social10-1-related-issue-1-option-2` (proposal-only as intended).
-- `npm run typecheck` still has only the established unrelated legacy errors in ELA, Forensics, Social 20, and English-builder code; no touched-file diagnostic was added.
-- Live Studio check at `http://127.0.0.1:5173/` confirmed the Social 10 build brief visibly reports `proposal-only-v1`, no safe editable source, and the declared rebuild/validation route.
+- The teacher needs the larger full-page course view for visual review while retaining the source-aware Inspect and multi-annotation workflow already built into Studio.
+- The first scripted-popup implementation passed Chromium automation but was blocked by the Codex in-app browser. Preserving the native link action fixes that compatibility problem without weakening the preview boundary.
 
 ## Source of truth
 
+- Protocol and bounded message validation: `app/shared/preview-bridge.ts`.
+- Early-injected preview behavior and standalone controls: `app/server/preview-bridge-runtime.ts`.
+- Studio connection, mode synchronization, and selection routing: `app/studio/src/hooks/usePreviewScrollSync.ts`.
 - Workflow contract: `docs/plans/2026-08-04-studio-workflow-v2.md`.
-- Course ownership and doctor rules: `scripts/lib/course-authoring/context.ts`.
-- Inspection resolver and bridge boundary: `app/server/lib/preview-inspection.ts`, `app/shared/preview-bridge.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Course content remains owned by each project's declared canonical sources and build driver. No file under `projects/**` changed.
 
 ## Fragile areas / watchouts
 
-- Preserve the isolated preview origin and private `MessageChannel`; never restore direct iframe DOM reads or wildcard messaging.
-- Source excerpts remain direct-workspace-only, bounded, and excluded from every copied packet.
-- Route re-check does not prove instructional quality. Keep the explicit learner-preview check after Workspace Verify.
+- `app/server/lib/preview-inspection.ts` must continue injecting the bridge before every course script. The short-lived opener is safe only because the bridge transfers the channel and clears it before course code runs.
+- The successful link click deliberately changes `rel` from the safe fallback to `opener` for that one tokenized navigation. Do not remove this without an equivalent browser-compatible handshake.
+- Keep exact loopback-origin checks, bounded message validators, the one-time token, and private ports. Do not introduce wildcard messaging, iframe DOM reads, URL-carried selection text, or persistent token storage.
+- The toolbar must remain top-level-only so it never covers the embedded Studio preview.
 
 ## Next prompt should assume
 
 - Branch: `codex/studio-workflow-v2`.
-- The existing Social/English patterns remain untouched; current generated workspace output is still not canonical source.
-- ChatGPT Pro may advise from a copied brief or handoff, but Codex verifies the local route and tests before implementation.
+- The standalone mini inspector is implemented and connected to the same Inspector and Review Set as embedded inspection.
+- Social and English learner artifacts were not modified. Social 10 remains proposal-only and generated workspace output remains non-canonical.
+- The Studio development server is available through `npm run studio:codex`.
 
 ## What still needs validation
 
-- A teacher should use the new loop on a real direct or factory-backed course change, then decide whether Review Set’s five-item cap is still the right practical boundary.
-- Browser-tab screenshot consent remains a separate browser-owned manual acceptance check from the pre-existing Inspector workflow.
+- Optional teacher acceptance: in the live full preview, click **Inspect**, select a real course element, return to Studio, and confirm the resolved target and Review Set note match the intended surface.
+- Browser-owned screenshot consent remains a separate manual step; the mini inspector does not silently capture screenshots.
 
 ## Known risks
 
-- Social 10 remains proposal-only. Do not make it editable through Studio until a separately verified ownership adapter and zero-learner-content-diff rebuild proof exist.
-- A Science driver still needs real source archives and its representative-unit decision; no generic factory should be inferred from this UI work.
+- Repository-wide `npm run typecheck` remains blocked by established unrelated errors in legacy ELA, Forensics, Social 20, LLM dependency, and English-builder files. No touched-file diagnostic was added.
+- Opening a newer standalone workspace preview replaces the previous standalone connection for that preview mode; the older page remains usable but no longer sends selections to Studio.
+
+## Verification run
+
+- Passed: `npm run build:studio`.
+- Passed: `npm run test:studio-inspection` (30 tests).
+- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` (14 tests), including selection transfer and Return to Studio.
+- Passed: `npm run test:e2e:smoke` (1 test).
+- Passed: focused `git diff --check`.
+- Live Codex in-app-browser acceptance passed: native separate-tab opening, token removal, connected toolbar, and Studio-to-preview Inspect synchronization. No new app-origin console error appeared after a clean reload.
 
 ## Exact next command
 
@@ -66,10 +71,10 @@
 
 ## Exact next file to open
 
-`docs/plans/2026-08-04-studio-workflow-v2.md`
+`app/server/preview-bridge-runtime.ts`
 
 ## Do not do next / warnings
 
-- Do not hand-edit `projects/<slug>/workspace/**` when its brief says generated or proposal-only.
-- Do not put source excerpts, screenshots, or Preview Health entries into a ChatGPT/Codex packet.
-- Do not treat a passed Workspace Verify as a substitute for viewing the revised learner experience.
+- Do not hand-edit generated `projects/<slug>/workspace/**` as part of this Studio feature.
+- Do not add the mini toolbar to embedded iframe previews.
+- Do not treat a visual selection as proof that a generated artifact is a safe primary edit target; keep using the resolver and project metadata.

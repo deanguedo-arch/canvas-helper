@@ -72,7 +72,7 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await expect(page.getByTestId("inspection-packet")).toContainText("Untrusted visible text excerpt: Fixture Module");
 });
 
-test("@inspection standalone preview keeps Studio open and has a return control", async ({ page }) => {
+test("@inspection standalone preview keeps Studio open and sends mini-inspector selections back", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   const studioUrl = page.url();
   const previewPagePromise = page.waitForEvent("popup");
@@ -84,6 +84,29 @@ test("@inspection standalone preview keeps Studio open and has a return control"
   await expect(page).toHaveURL(studioUrl);
   await expect(page.getByTestId("studio-shell")).toBeVisible();
   await expect(previewPage).toHaveURL(/\/preview\/workspace\/e2e-fixture\/index\.html/);
+  await expect(previewPage).not.toHaveURL(/canvas-helper-inspect-session/);
+  const previewTools = previewPage.locator('[data-canvas-helper-preview-controls="true"]');
+  const previewInspect = previewPage.locator('[data-canvas-helper-preview-inspect="true"]');
+  const previewStatus = previewPage.locator('[data-canvas-helper-preview-inspect-status="true"]');
+  await expect(previewTools).toBeVisible();
+  await expect(previewStatus).toContainText("Connected to Studio");
+  await expect(previewInspect).toHaveAttribute("aria-pressed", "false");
+  await previewInspect.click();
+  await expect(previewInspect).toHaveAttribute("aria-pressed", "true");
+  await expect(previewPage.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  await expect(page.getByTestId("inspect-toggle")).toHaveText("Inspecting");
+
+  const standaloneHeading = previewPage.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const standaloneHeadingBounds = await standaloneHeading.boundingBox();
+  expect(standaloneHeadingBounds).toBeTruthy();
+  await previewPage.mouse.click(
+    (standaloneHeadingBounds?.x ?? 0) + (standaloneHeadingBounds?.width ?? 0) / 2,
+    (standaloneHeadingBounds?.y ?? 0) + (standaloneHeadingBounds?.height ?? 0) / 2
+  );
+  await expect(previewStatus).toContainText("Selection sent to Studio");
+  await expect(page.getByTestId("inspection-panel")).toBeVisible();
+  await expect(page.getByTestId("inspection-packet")).toContainText("E2E Fixture Workspace");
+
   const returnToStudio = previewPage.locator('[data-canvas-helper-return-to-studio="true"]');
   await expect(returnToStudio).toHaveText("Return to Studio");
   await returnToStudio.click();

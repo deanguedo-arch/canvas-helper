@@ -1,3 +1,5 @@
+import type { MouseEvent } from "react";
+
 import type { PreviewLayoutPreferences, PreviewMode } from "../lib/types";
 
 type TopbarProps = {
@@ -12,7 +14,7 @@ type TopbarProps = {
   onToggleInspect: () => void;
   hasWorkspacePreview: boolean;
   workspacePreviewHref: string;
-  onOpenWorkspacePreview: () => void;
+  onOpenWorkspacePreview: (event: MouseEvent<HTMLAnchorElement>) => void;
 };
 
 export function Topbar({
@@ -92,6 +94,7 @@ export function Topbar({
             href={workspacePreviewHref}
             target="_blank"
             rel="noopener noreferrer"
+            referrerPolicy="no-referrer"
             onClick={onOpenWorkspacePreview}
             data-testid="open-workspace-preview-toggle"
             title="Open the workspace preview in a separate tab"

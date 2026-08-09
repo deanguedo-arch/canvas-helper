@@ -5,7 +5,9 @@ import {
   createPreviewBridgeMessage,
   isPreviewBridgeMessage,
   isPreviewEventMessage,
+  isPreviewStandaloneBridgeBootstrap,
   PREVIEW_BRIDGE_MAX_MESSAGE_BYTES,
+  PREVIEW_STANDALONE_SESSION_PARAM,
   previewBridgeMessageByteLength,
   type PreviewDiagnostic,
   type PreviewInspectPayload,
@@ -37,6 +39,7 @@ type UsePreviewScrollSyncOptions = {
   inspectEnabled: boolean;
   onInspectSelection: (mode: PreviewMode, selection: PreviewInspectPayload) => void;
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload) => void;
+  onInspectModeChange?: (enabled: boolean) => void;
   onPreviewDiagnostic?: (mode: PreviewMode, diagnostic: PreviewDiagnostic) => void;
 };
 
@@ -87,6 +90,7 @@ export function usePreviewScrollSync({
   inspectEnabled,
   onInspectSelection,
   onInspectHover,
+  onInspectModeChange,
   onPreviewDiagnostic
 }: UsePreviewScrollSyncOptions) {
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
@@ -100,6 +104,14 @@ export function usePreviewScrollSync({
   const previewPortRefs = useRef<Record<PreviewMode, MessagePort | null>>({
     reference: null,
     workspace: null
+  });
+  const standalonePreviewPortRefs = useRef<Record<PreviewMode, MessagePort | null>>({
+    reference: null,
+    workspace: null
+  });
+  const standaloneSessionTokenRefs = useRef<Record<PreviewMode, string>>({
+    reference: "",
+    workspace: ""
   });
   const pendingInspectionRequestRefs = useRef<Record<PreviewMode, PendingInspectionRequest | null>>({
     reference: null,
@@ -118,7 +130,7 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled
   });
-  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onPreviewDiagnostic });
+  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewDiagnostic });
   stateRef.current = {
     previewMode,
     selectedProject,
@@ -127,7 +139,7 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled
   };
-  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onPreviewDiagnostic };
+  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewDiagnostic };
 
   const getModeTarget = (mode: PreviewMode) => {
     const current = stateRef.current;
@@ -146,6 +158,17 @@ export function usePreviewScrollSync({
     }
   };
 
+  const postToPort = (port: MessagePort | null, message: ReturnType<typeof createPreviewBridgeMessage>) => {
+    if (!port) {
+      return;
+    }
+    try {
+      port.postMessage(message);
+    } catch {
+      // A preview navigation or closed standalone tab can invalidate the port between checks.
+    }
+  };
+
   const postBridgeCommand = (
     mode: PreviewMode,
     type:
@@ -156,8 +179,9 @@ export function usePreviewScrollSync({
       | "studio-focus-inspect-node",
     payload: unknown
   ) => {
-    const port = previewPortRefs.current[mode];
-    if (!port) {
+    const framePort = previewPortRefs.current[mode];
+    const standalonePort = standalonePreviewPortRefs.current[mode];
+    if (!framePort && !standalonePort) {
       return;
     }
 
@@ -166,10 +190,9 @@ export function usePreviewScrollSync({
       return;
     }
 
-    try {
-      port.postMessage(message);
-    } catch {
-      // A preview navigation can close a port between readiness and dispatch.
+    postToPort(framePort, message);
+    if (standalonePort !== framePort) {
+      postToPort(standalonePort, message);
     }
   };
 
@@ -256,6 +279,18 @@ export function usePreviewScrollSync({
         pending.resolve(selection);
         break;
       }
+      case "preview-inspect-mode": {
+        const enabled = Boolean((data.payload as { enabled?: boolean }).enabled);
+        stateRef.current = {
+          ...stateRef.current,
+          inspectEnabled: enabled
+        };
+        previewModes.forEach((targetMode) => {
+          postBridgeCommand(targetMode, "studio-set-inspect-mode", { enabled });
+        });
+        inspectionCallbacksRef.current.onInspectModeChange?.(enabled);
+        break;
+      }
       case "preview-diagnostic":
         inspectionCallbacksRef.current.onPreviewDiagnostic?.(mode, data.payload as PreviewDiagnostic);
         break;
@@ -296,13 +331,44 @@ export function usePreviewScrollSync({
     }
   };
 
+  const prepareStandalonePreview = (mode: PreviewMode, previewUrl: string) => {
+    const current = stateRef.current;
+    if (!previewUrl || !current.previewOrigin) {
+      return null;
+    }
+
+    let targetUrl: URL;
+    try {
+      targetUrl = new URL(previewUrl, window.location.href);
+    } catch {
+      return null;
+    }
+    if (targetUrl.origin !== current.previewOrigin) {
+      return null;
+    }
+
+    const sessionToken = typeof window.crypto.randomUUID === "function"
+      ? window.crypto.randomUUID()
+      : Array.from(window.crypto.getRandomValues(new Uint32Array(4)), (value) => value.toString(16).padStart(8, "0")).join("");
+    targetUrl.searchParams.set(PREVIEW_STANDALONE_SESSION_PARAM, sessionToken);
+    standaloneSessionTokenRefs.current[mode] = sessionToken;
+    window.setTimeout(() => {
+      if (standaloneSessionTokenRefs.current[mode] === sessionToken) {
+        standaloneSessionTokenRefs.current[mode] = "";
+      }
+    }, 15_000);
+    return targetUrl.toString();
+  };
+
   const attachPreviewPersistence = (mode: PreviewMode) => {
     connectPreviewBridge(mode);
   };
 
   const requestCurrentInspectionSelection = (mode: PreviewMode, nodeId: string) => {
-    const port = previewPortRefs.current[mode];
-    if (!port || !previewReadyRefs.current[mode]) {
+    const hasReadyPort = Boolean(
+      (previewPortRefs.current[mode] && previewReadyRefs.current[mode]) || standalonePreviewPortRefs.current[mode]
+    );
+    if (!hasReadyPort) {
       return Promise.reject(new Error("The preview bridge is not ready. Select the element again before capturing a screenshot."));
     }
 
@@ -327,14 +393,17 @@ export function usePreviewScrollSync({
       inspectEnabled: enabled
     };
     previewModes.forEach((mode) => {
-      if (previewReadyRefs.current[mode]) {
+      if (previewReadyRefs.current[mode] || standalonePreviewPortRefs.current[mode]) {
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled });
       }
     });
   };
 
   const focusPreviewInspectionSelection = (mode: PreviewMode, nodeId: string) => {
-    if (!nodeId || !previewReadyRefs.current[mode] || !previewPortRefs.current[mode]) {
+    const hasReadyPort = Boolean(
+      (previewPortRefs.current[mode] && previewReadyRefs.current[mode]) || standalonePreviewPortRefs.current[mode]
+    );
+    if (!nodeId || !hasReadyPort) {
       return false;
     }
     postBridgeCommand(mode, "studio-focus-inspect-node", { nodeId });
@@ -374,6 +443,43 @@ export function usePreviewScrollSync({
   };
 
   useEffect(() => {
+    const receiveStandaloneBridge = (event: MessageEvent) => {
+      const current = stateRef.current;
+      if (
+        !current.previewOrigin ||
+        event.origin !== current.previewOrigin ||
+        !event.ports ||
+        event.ports.length !== 1 ||
+        !isPreviewStandaloneBridgeBootstrap(event.data)
+      ) {
+        return;
+      }
+
+      const mode = previewModes.find(
+        (candidate) => standaloneSessionTokenRefs.current[candidate] === event.data.payload.sessionToken
+      );
+      if (!mode) {
+        return;
+      }
+
+      event.stopImmediatePropagation();
+      standaloneSessionTokenRefs.current[mode] = "";
+      standalonePreviewPortRefs.current[mode]?.close();
+      const nextPort = event.ports[0];
+      standalonePreviewPortRefs.current[mode] = nextPort;
+      nextPort.onmessage = (portEvent) => {
+        if (standalonePreviewPortRefs.current[mode] === nextPort) {
+          handleBridgeMessage(mode, portEvent.data);
+        }
+      };
+      nextPort.start();
+    };
+
+    window.addEventListener("message", receiveStandaloneBridge, true);
+    return () => window.removeEventListener("message", receiveStandaloneBridge, true);
+  }, []);
+
+  useEffect(() => {
     const handleBeforeUnload = () => persistAllVisibleScrollPositions();
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => {
@@ -384,6 +490,9 @@ export function usePreviewScrollSync({
         clearPendingInspectionRequest(mode, new Error("The Studio closed before the selected element could be refreshed."));
         previewPortRefs.current[mode]?.close();
         previewPortRefs.current[mode] = null;
+        standalonePreviewPortRefs.current[mode]?.close();
+        standalonePreviewPortRefs.current[mode] = null;
+        standaloneSessionTokenRefs.current[mode] = "";
       });
     };
   }, []);
@@ -401,6 +510,7 @@ export function usePreviewScrollSync({
     copyPreviewModeScrollPosition,
     syncFocusModeScrollPosition,
     fitPreviewToWidth,
+    prepareStandalonePreview,
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
     focusPreviewInspectionSelection

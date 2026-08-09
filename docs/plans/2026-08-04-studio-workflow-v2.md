@@ -46,6 +46,13 @@ The workflow stays deliberately small and evidence-led:
 - **Open preview** opens the workspace in a separate tab so Studio remains available for inspection and handoff work.
 - The isolated bridge injects a plain **Return to Studio** control only when the preview is the top-level page. It replaces that preview URL with the trusted Studio origin and never appears inside Studio's embedded iframe.
 
+### Standalone mini inspector
+
+- The full-page preview now includes a compact **Inspect** toggle beside **Return to Studio**.
+- A selection made there travels over a one-time-token private `MessageChannel` into the same Studio resolver, Inspector, and Review Set used by the embedded preview.
+- The early-injected preview bridge transfers its channel only to the exact Studio origin, clears the popup opener before course scripts execute, and never exposes the preview DOM to Studio.
+- A preview opened directly can highlight an element locally, but it cannot claim or write into a Studio session.
+
 ## Red-team / green-team boundaries
 
 | Risk | Green rule | Red-team fail condition |
@@ -54,7 +61,7 @@ The workflow stays deliberately small and evidence-led:
 | Generated output | Builder/factory remains the owner | Generated Social/English HTML appears as editable source |
 | False completion | Route check and Verify are separate evidence | UI says the learner fix is complete from one command |
 | Token bloat | Brief and packets are bounded and source-free | Source snippets, screenshots, or console logs enter copied text |
-| Preview trust boundary | Private `MessageChannel` only | Studio reads iframe DOM or uses wildcard messaging |
+| Preview trust boundary | Private `MessageChannel` only; standalone channel uses a one-time token and cleared opener | Studio reads preview DOM, retains an untrusted opener, or uses wildcard messaging |
 | Social 10 / Science drift | Proposal-only stays visible | A source adapter or factory is guessed without source/rebuild proof |
 
 ## Verification

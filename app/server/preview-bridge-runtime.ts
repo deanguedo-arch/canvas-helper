@@ -2,7 +2,10 @@ import {
   PREVIEW_BRIDGE_MAX_CONTAINERS,
   PREVIEW_BRIDGE_MAX_VISIBLE_TEXT,
   PREVIEW_BRIDGE_PROTOCOL,
-  PREVIEW_BRIDGE_VERSION
+  PREVIEW_BRIDGE_VERSION,
+  PREVIEW_STANDALONE_BOOTSTRAP_TYPE,
+  PREVIEW_STANDALONE_SESSION_PARAM,
+  PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH
 } from "../shared/preview-bridge.js";
 import { PREVIEW_INSPECT_NODE_ATTRIBUTE } from "./lib/preview-inspection.js";
 
@@ -20,16 +23,33 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var NODE_ATTRIBUTE = "${PREVIEW_INSPECT_NODE_ATTRIBUTE}";
   var MAX_TEXT = ${PREVIEW_BRIDGE_MAX_VISIBLE_TEXT};
   var MAX_CONTAINERS = ${PREVIEW_BRIDGE_MAX_CONTAINERS};
+  var STANDALONE_BOOTSTRAP_TYPE = "${PREVIEW_STANDALONE_BOOTSTRAP_TYPE}";
+  var STANDALONE_SESSION_PARAM = "${PREVIEW_STANDALONE_SESSION_PARAM}";
+  var MAX_SESSION_TOKEN = ${PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH};
   var STUDIO_ORIGIN = ${serializedStudioOrigin};
 
   var port = null;
+  var studioConnected = false;
   var inspectEnabled = false;
   var hoverHandle = 0;
   var scrollHandle = 0;
   var lastSelectors = [];
   var overlay = null;
   var shield = null;
-  var returnToStudioControl = null;
+  var previewControls = null;
+  var inspectControl = null;
+  var previewStatus = null;
+  var standaloneSessionToken = "";
+  var standaloneUrl = null;
+  try {
+    standaloneUrl = new URL(location.href);
+    standaloneSessionToken = standaloneUrl.searchParams.get(STANDALONE_SESSION_PARAM) || "";
+  } catch (_) {}
+  if (standaloneSessionToken.length < 16 || standaloneSessionToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneSessionToken)) standaloneSessionToken = "";
+  if (standaloneSessionToken && standaloneUrl) {
+    standaloneUrl.searchParams.delete(STANDALONE_SESSION_PARAM);
+    try { history.replaceState(history.state, "", standaloneUrl.pathname + standaloneUrl.search + standaloneUrl.hash); } catch (_) {}
+  }
 
   function message(type, payload) {
     return { protocol: PROTOCOL, version: VERSION, type: type, payload: payload };
@@ -148,7 +168,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     overlay.setAttribute("aria-hidden", "true");
     overlay.style.position = "fixed";
     overlay.style.pointerEvents = "none";
-    overlay.style.zIndex = "2147483647";
+    overlay.style.zIndex = "2147483645";
     overlay.style.border = "2px solid #2563eb";
     overlay.style.background = "rgba(37, 99, 235, 0.10)";
     overlay.style.borderRadius = "3px";
@@ -168,33 +188,91 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function hideOverlay() { if (overlay) overlay.style.display = "none"; }
 
-  function ensureStandaloneReturnToStudioControl() {
-    if (window.top !== window || returnToStudioControl) return;
-    var control = document.createElement("button");
-    control.type = "button";
-    control.textContent = "Return to Studio";
-    control.setAttribute("aria-label", "Return to Canvas Helper Studio");
-    control.setAttribute("data-canvas-helper-return-to-studio", "true");
-    control.style.position = "fixed";
-    control.style.top = "12px";
-    control.style.right = "12px";
-    control.style.zIndex = "2147483645";
-    control.style.padding = "8px 10px";
-    control.style.border = "1px solid #334155";
+  function stylePreviewControlButton(control) {
+    control.style.padding = "7px 9px";
+    control.style.border = "1px solid #64748b";
     control.style.borderRadius = "6px";
     control.style.background = "#ffffff";
     control.style.color = "#18212f";
-    control.style.fontFamily = "system-ui, sans-serif";
-    control.style.fontSize = "14px";
-    control.style.fontWeight = "600";
-    control.style.lineHeight = "1.2";
+    control.style.font = "600 13px/1.2 system-ui, sans-serif";
     control.style.cursor = "pointer";
-    control.style.boxShadow = "0 2px 6px rgba(0, 0, 0, 0.18)";
-    control.addEventListener("click", function() {
+  }
+
+  function setStandaloneStatus(value) {
+    if (previewStatus) previewStatus.textContent = boundedString(value, 120);
+  }
+
+  function updateStandaloneControls() {
+    if (!inspectControl) return;
+    inspectControl.textContent = inspectEnabled ? "Inspecting" : "Inspect";
+    inspectControl.setAttribute("aria-pressed", inspectEnabled ? "true" : "false");
+    inspectControl.style.background = inspectEnabled ? "#18212f" : "#ffffff";
+    inspectControl.style.color = inspectEnabled ? "#ffffff" : "#18212f";
+    if (inspectEnabled) {
+      setStandaloneStatus(studioConnected ? "Click a course element. The selection will appear in Studio." : port ? "Connecting to Studio..." : "Click a course element. Open this preview from Studio to send it back.");
+    } else {
+      setStandaloneStatus(studioConnected ? "Connected to Studio." : port ? "Connecting to Studio..." : "Open this preview from Studio to send selections back.");
+    }
+  }
+
+  function ensureStandalonePreviewControls() {
+    if (window.top !== window || previewControls) return;
+    var controls = document.createElement("div");
+    controls.setAttribute("data-canvas-helper-preview-controls", "true");
+    controls.setAttribute("role", "toolbar");
+    controls.setAttribute("aria-label", "Canvas Helper preview tools");
+    controls.style.position = "fixed";
+    controls.style.top = "12px";
+    controls.style.right = "12px";
+    controls.style.zIndex = "2147483647";
+    controls.style.width = "min(280px, calc(100vw - 24px))";
+    controls.style.padding = "8px";
+    controls.style.border = "1px solid #64748b";
+    controls.style.borderRadius = "8px";
+    controls.style.background = "#ffffff";
+    controls.style.color = "#18212f";
+    controls.style.fontFamily = "system-ui, sans-serif";
+    controls.style.boxShadow = "0 2px 8px rgba(15, 23, 42, 0.18)";
+
+    var actions = document.createElement("div");
+    actions.style.display = "flex";
+    actions.style.gap = "6px";
+
+    var inspectButton = document.createElement("button");
+    inspectButton.type = "button";
+    inspectButton.setAttribute("data-canvas-helper-preview-inspect", "true");
+    stylePreviewControlButton(inspectButton);
+    inspectButton.addEventListener("click", function() {
+      setInspectMode(!inspectEnabled, true);
+    });
+
+    var returnButton = document.createElement("button");
+    returnButton.type = "button";
+    returnButton.textContent = "Return to Studio";
+    returnButton.setAttribute("aria-label", "Return to Canvas Helper Studio");
+    returnButton.setAttribute("data-canvas-helper-return-to-studio", "true");
+    stylePreviewControlButton(returnButton);
+    returnButton.addEventListener("click", function() {
       try { window.location.replace(STUDIO_ORIGIN); } catch (_) { window.location.href = STUDIO_ORIGIN; }
     });
-    (document.body || document.documentElement).appendChild(control);
-    returnToStudioControl = control;
+
+    var status = document.createElement("div");
+    status.setAttribute("data-canvas-helper-preview-inspect-status", "true");
+    status.setAttribute("role", "status");
+    status.style.marginTop = "7px";
+    status.style.fontSize = "12px";
+    status.style.lineHeight = "1.35";
+    status.style.color = "#475569";
+
+    actions.appendChild(inspectButton);
+    actions.appendChild(returnButton);
+    controls.appendChild(actions);
+    controls.appendChild(status);
+    (document.body || document.documentElement).appendChild(controls);
+    previewControls = controls;
+    inspectControl = inspectButton;
+    previewStatus = status;
+    updateStandaloneControls();
   }
 
   function focusSourceNode(nodeId) {
@@ -271,6 +349,11 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     return target;
   }
 
+  function isPreviewControlTarget(target) {
+    var element = target instanceof Element ? target : null;
+    return Boolean(element && element.closest("[data-canvas-helper-preview-controls]"));
+  }
+
   function selectionFor(target) {
     var element = target instanceof Element ? target : null;
     if (!element) return null;
@@ -288,7 +371,9 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function onPointerMove(event) {
     if (!inspectEnabled || !event.isTrusted) return;
-    var selection = selectionFor(targetForPointerEvent(event));
+    var target = targetForPointerEvent(event);
+    if (isPreviewControlTarget(target)) return;
+    var selection = selectionFor(target);
     if (!selection) return;
     setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
     if (hoverHandle) return;
@@ -297,21 +382,26 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function blockAction(event) {
     if (!inspectEnabled || !event.isTrusted) return;
+    if (isPreviewControlTarget(event.target)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
   }
 
   function onInspectPointerDown(event) {
     if (!inspectEnabled || !event.isTrusted) return;
-    var selection = selectionFor(targetForPointerEvent(event));
+    var target = targetForPointerEvent(event);
+    if (isPreviewControlTarget(target)) return;
+    var selection = selectionFor(target);
     blockAction(event);
     if (!selection) return;
     setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
     send("preview-inspect-selected", selection);
+    setStandaloneStatus(studioConnected ? "Selection sent to Studio." : "Selection highlighted. Open this preview from Studio to send it back.");
   }
 
   function onInspectKeydown(event) {
     if (!inspectEnabled || !event.isTrusted) return;
+    if (isPreviewControlTarget(event.target)) return;
     if (event.key === "Tab") return;
     blockAction(event);
     if (event.key === "Escape") {
@@ -323,16 +413,18 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (!selection) return;
     setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
     send("preview-inspect-selected", selection);
+    setStandaloneStatus(studioConnected ? "Selection sent to Studio." : "Selection highlighted. Open this preview from Studio to send it back.");
   }
 
   function onInspectWheel(event) {
     if (!inspectEnabled || !event.isTrusted) return;
+    if (isPreviewControlTarget(event.target)) return;
     event.preventDefault();
     event.stopImmediatePropagation();
     window.scrollBy({ left: event.deltaX, top: event.deltaY, behavior: "auto" });
   }
 
-  function setInspectMode(enabled) {
+  function setInspectMode(enabled, notifyStudio) {
     inspectEnabled = Boolean(enabled);
     document.documentElement.setAttribute("data-canvas-helper-inspect-active", inspectEnabled ? "true" : "false");
     var element = ensureShield();
@@ -341,6 +433,8 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (!inspectEnabled) {
       hideOverlay();
     }
+    updateStandaloneControls();
+    if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
   }
 
   function isCommand(data) {
@@ -353,9 +447,11 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function handlePortMessage(event) {
     if (!isCommand(event.data)) return;
+    studioConnected = true;
+    updateStandaloneControls();
     if (event.data.type === "studio-request-state" && event.data.payload === null) sendScrollState();
     if (event.data.type === "studio-restore-scroll") restoreScrollState(event.data.payload);
-    if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") setInspectMode(event.data.payload.enabled);
+    if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") setInspectMode(event.data.payload.enabled, false);
     if (event.data.type === "studio-request-inspect-current" && event.data.payload && typeof event.data.payload.nodeId === "string") {
       var element = elementForSourceNodeId(event.data.payload.nodeId);
       var selection = element ? selectionFor(element) : null;
@@ -374,17 +470,53 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     if (!nextPort || typeof nextPort.postMessage !== "function") return;
     if (port) { try { port.close(); } catch (_) {} }
     port = nextPort;
+    studioConnected = false;
     port.onmessage = handlePortMessage;
+    port.onmessageerror = function() { studioConnected = false; updateStandaloneControls(); };
     if (typeof port.start === "function") port.start();
     send("preview-ready", { href: location.href });
     sendScrollState();
+    updateStandaloneControls();
+  }
+
+  function connectStandalonePreview() {
+    if (window.top !== window) return;
+    var studioWindow = window.opener;
+    if (!standaloneSessionToken || !studioWindow || typeof MessageChannel !== "function") {
+      try { window.opener = null; } catch (_) {}
+      return;
+    }
+
+    var channel = new MessageChannel();
+    try {
+      studioWindow.postMessage(
+        message(STANDALONE_BOOTSTRAP_TYPE, { sessionToken: standaloneSessionToken }),
+        STUDIO_ORIGIN,
+        [channel.port2]
+      );
+      attachPort(channel.port1);
+    } catch (_) {
+      try { channel.port1.close(); } catch (_) {}
+      try { channel.port2.close(); } catch (_) {}
+    } finally {
+      standaloneSessionToken = "";
+      try { window.opener = null; } catch (_) {}
+    }
   }
 
   window.addEventListener("message", function(event) {
-    if (event.origin !== STUDIO_ORIGIN || event.source !== window.parent || !isBootstrap(event.data) || !event.ports || event.ports.length !== 1) return;
+    if (
+      window.top === window ||
+      event.origin !== STUDIO_ORIGIN ||
+      event.source !== window.parent ||
+      !event.ports ||
+      event.ports.length !== 1 ||
+      !isBootstrap(event.data)
+    ) return;
     event.stopImmediatePropagation();
     attachPort(event.ports[0]);
   }, true);
+  connectStandalonePreview();
 
   window.addEventListener("scroll", scheduleScrollState, { passive: true });
   document.addEventListener("scroll", scheduleScrollState, true);
@@ -416,7 +548,7 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function markReady() {
     document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true");
-    ensureStandaloneReturnToStudioControl();
+    ensureStandalonePreviewControls();
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markReady, { once: true }); else markReady();
 })();`;

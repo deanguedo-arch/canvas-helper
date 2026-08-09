@@ -10,7 +10,11 @@ import { hasTrustedStudioMutationOrigin } from "../../app/server/lib/request-sec
 import { getPreviewPath } from "../../app/server/lib/preview-paths.ts";
 import { startIsolatedPreviewServer } from "../../app/server/preview-server.ts";
 import { handleInspectionRoute } from "../../app/server/routes/inspection.ts";
-import { isPreviewBridgeMessage } from "../../app/shared/preview-bridge.ts";
+import {
+  createPreviewStandaloneBridgeBootstrap,
+  isPreviewBridgeMessage,
+  isPreviewStandaloneBridgeBootstrap
+} from "../../app/shared/preview-bridge.ts";
 import { ensureDir, removePath } from "../lib/fs.js";
 import { getProjectPaths, repoRoot } from "../lib/paths.js";
 
@@ -64,6 +68,12 @@ test("isolated preview pins the Studio origin and exposes no Studio API routes",
     const bridgeSource = await bridgeResponse.text();
     assert.match(bridgeSource, /var STUDIO_ORIGIN = "http:\/\/127\.0\.0\.1:4173"/);
     assert.match(bridgeSource, /window\.top !== window/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-controls/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-inspect/);
+    assert.match(bridgeSource, /studio-connect-standalone/);
+    assert.match(bridgeSource, /canvas-helper-inspect-session/);
+    assert.match(bridgeSource, /studioWindow\.postMessage/);
+    assert.match(bridgeSource, /window\.opener = null/);
     assert.match(bridgeSource, /data-canvas-helper-return-to-studio/);
     assert.match(bridgeSource, /window\.location\.replace\(STUDIO_ORIGIN\)/);
 
@@ -84,6 +94,11 @@ test("Studio bridge code posts to a port and never reads preview iframe DOM", as
   assert.match(source, /requestCurrentInspectionSelection/);
   assert.match(source, /studio-focus-inspect-node/);
   assert.match(source, /focusPreviewInspectionSelection/);
+  assert.match(source, /isPreviewStandaloneBridgeBootstrap/);
+  assert.match(source, /standaloneSessionTokenRefs/);
+  assert.match(source, /event\.origin !== current\.previewOrigin/);
+  assert.doesNotMatch(source, /window\.open/);
+  assert.doesNotMatch(source, /postMessage\([^\n]+,\s*["']\*["']/);
   assert.doesNotMatch(source, /contentDocument/);
   assert.doesNotMatch(source, /contentWindow\?*\.document/);
 });
@@ -106,6 +121,24 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       payload: { nodeId: selection.nodeId }
     }),
     true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-inspect-mode",
+      payload: { enabled: true }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-inspect-mode",
+      payload: { enabled: "yes" }
+    }),
+    false
   );
   assert.equal(
     isPreviewBridgeMessage({
@@ -152,6 +185,20 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
     }),
     false
   );
+});
+
+test("standalone preview bootstrap requires a bounded one-time session token", () => {
+  const sessionToken = "12345678-1234-1234-1234-123456789abc";
+  const bootstrap = createPreviewStandaloneBridgeBootstrap(sessionToken);
+  assert.equal(isPreviewStandaloneBridgeBootstrap(bootstrap), true);
+  assert.equal(
+    isPreviewStandaloneBridgeBootstrap({
+      ...bootstrap,
+      payload: { sessionToken: "too-short" }
+    }),
+    false
+  );
+  assert.throws(() => createPreviewStandaloneBridgeBootstrap("not valid spaces"), /valid session token/i);
 });
 
 test("inspection failures never disclose absolute local paths", async () => {

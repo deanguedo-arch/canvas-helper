@@ -98,7 +98,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 
 Studio has no model-provider integration and does not write course sources. Use **Inspect** when one visible course element needs a focused change:
 
-1. Open the project, turn on Inspect, and select the learner-facing element.
+1. Open the project, turn on Inspect, and select the learner-facing element. In a full-page preview, use the small **Inspect** control there; the selection returns to the already-open Studio.
 2. Studio reports `exact`, `bounded`, or `unknown` ownership. Treat generated Social and English workspace HTML as display output, not the place to edit.
 3. Choose the change focus, add a short note, and use **Copy for Codex** to make a bounded text packet.
 4. Give that packet to ChatGPT Pro for a second opinion if useful, then give Codex the packet plus the advice. Codex still verifies the local manifest, canonical source, and rebuild command before changing anything.
@@ -107,9 +107,9 @@ Before a larger change, open **Details** and copy the **Course build brief**. It
 
 **Preview health** is deliberately small: it reports bounded runtime, promise, or asset issues seen during this Studio session. It is not a browser console and is never copied into a handoff.
 
-**Open preview** opens the workspace in a separate tab so Studio stays in place. A standalone preview includes **Return to Studio** as a simple way back if you are already viewing the course directly.
+**Open preview** opens the workspace in a separate tab so Studio stays in place. Its compact preview toolbar can turn on Inspect, send a selected course element back to Studio, and return you with **Return to Studio**. Open the full preview from Studio for the connected flow; a directly opened preview can still highlight locally but cannot claim a Studio session.
 
-The live preview is served from a separate local loopback origin and communicates through a bounded private bridge. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
+The live preview is served from a separate local loopback origin and communicates through bounded private bridges. Embedded frames use a private `MessageChannel`; a full preview receives a one-time session token, and the early-injected bridge transfers a separate private channel before clearing `window.opener` ahead of course scripts. The Inspector and packet builder make no external request; selected course text is explicitly marked as untrusted content in the packet, and a course preview can still load any third-party resources declared by that course.
 
 **Screenshot + annotate** is optional. Your browser asks what to share; choose the current Studio tab. Canvas Helper refreshes the selected element's position, captures one local frame, then stops sharing before crop/PNG processing (including if selection refresh fails after permission is granted), crops it to the visible preview area, and downloads nothing until you review and explicitly choose **Download annotated PNG**. The image is not added to the copied packet, which says so explicitly.
 

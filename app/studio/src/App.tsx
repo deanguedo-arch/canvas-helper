@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from "react";
+import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } from "react";
 
 import { CommandToolbar } from "./components/CommandToolbar";
 import { InspectorPanel } from "./components/InspectorPanel";
@@ -487,6 +487,7 @@ export function App() {
     syncFocusModeScrollPosition,
     fitPreviewToWidth,
     getPreviewFrame,
+    prepareStandalonePreview,
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
     focusPreviewInspectionSelection
@@ -500,6 +501,14 @@ export function App() {
     previewOrigin,
     inspectEnabled,
     onInspectSelection: (mode, selection) => void resolveInspection(mode, selection),
+    onInspectModeChange: (enabled) => {
+      setInspectEnabled(enabled);
+      if (!enabled) {
+        resetInspection(true);
+      } else {
+        setInspectionCopyStatus("");
+      }
+    },
     onPreviewDiagnostic: recordPreviewDiagnostic
   });
 
@@ -877,8 +886,18 @@ export function App() {
     setPreviewMode(nextMode);
   };
 
-  const handleOpenWorkspacePreview = () => {
+  const handleOpenWorkspacePreview = (event: MouseEvent<HTMLAnchorElement>) => {
     persistAllVisibleScrollPositions();
+    event.currentTarget.rel = "noopener noreferrer";
+    const connectedHref = prepareStandalonePreview("workspace", previewSources.workspace);
+    if (connectedHref) {
+      event.currentTarget.href = connectedHref;
+      event.currentTarget.rel = "opener";
+      event.currentTarget.referrerPolicy = "no-referrer";
+    } else {
+      event.preventDefault();
+      setInspectionCopyStatus("The full preview could not open because its isolated preview address is unavailable.");
+    }
   };
 
   const handleDeviceChange = (mode: PreviewMode, device: "desktop" | "tablet" | "mobile") => {

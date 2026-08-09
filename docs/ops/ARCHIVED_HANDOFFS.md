@@ -8133,3 +8133,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Status: superseded by the focused Course Build Brief, Selection Workbench, Preview Health, and Review Set re-check workflow on `codex/studio-workflow-v2`.
 - Preserved boundary: no learner-course content was changed; Social 10 remains proposal-only and no Science factory was invented.
 - Source of truth: `docs/plans/2026-08-03-studio-inspector-handoff.md` and `docs/plans/2026-08-04-studio-review-set.md`.
+
+## Archived Active Handoff — 2026-08-09: focused Studio workflow V2
+
+- Project: `repo-wide`
+- Task: Implement the compact Course Build Brief, source workbench, safe Review Set re-check loop, bounded Preview Health, and exit-safe standalone preview.
+- Status: complete on `codex/studio-workflow-v2`; superseded by the standalone mini-inspector handoff.
+- Verification: Studio inspection tests, Studio build, inspection E2E, smoke E2E, three representative `course:doctor` runs, and live Social 10 Studio review passed. Repository-wide typecheck retained only its established unrelated baseline errors.
+- Source of truth: `docs/plans/2026-08-04-studio-workflow-v2.md`, `scripts/lib/course-authoring/context.ts`, `app/server/lib/preview-inspection.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Preserved boundary: no learner-course artifact changed; generated and proposal-only work still cannot be presented as a direct editable source.
+- Next command at archival time: `npm run studio:codex`.
