@@ -10,6 +10,7 @@ export function useStudioSelection(projects: ProjectBundle[]) {
   const [previewMode, setPreviewMode] = useState<PreviewMode>(initialSelection.previewMode);
 
   useEffect(() => {
+    if (projects.length === 0) return;
     const orderedSlugs = orderProjectSlugs(projects.map((project) => project.manifest.slug));
     const fallbackSlug =
       selectedSlug && projects.some((project) => project.manifest.slug === selectedSlug)

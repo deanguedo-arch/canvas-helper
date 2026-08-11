@@ -443,7 +443,7 @@ test("blocked browser storage never crashes Review Set load, save, or clear", ()
     const loaded = loadStoredReviewSet();
     assert.deepEqual(loaded?.items, []);
     assert.match(loaded?.persistenceError ?? "", /browser storage/i);
-    assert.equal(saveStoredReviewSet("12345678-1234-1234-1234-123456789abc", []), false);
+    assert.equal(saveStoredReviewSet("e2e-fixture", "12345678-1234-1234-1234-123456789abc", []), false);
     assert.equal(clearStoredReviewSet(), false);
   } finally {
     if (originalWindow) Object.defineProperty(globalThis, "window", originalWindow);

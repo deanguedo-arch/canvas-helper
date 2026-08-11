@@ -4,6 +4,7 @@ import { CommandToolbar } from "./components/CommandToolbar";
 import { AnnotationModeBar } from "./components/AnnotationModeBar";
 import { CourseToolbar } from "./components/CourseToolbar";
 import { InspectorPanel } from "./components/InspectorPanel";
+import { NewProjectPanel } from "./components/NewProjectPanel";
 import { PreviewPane } from "./components/PreviewPane";
 import { ReferencePicker } from "./components/ReferencePicker";
 import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
@@ -19,6 +20,7 @@ import {
   useScreenshotAnnotation
 } from "./hooks/useScreenshotAnnotation";
 import { useProjectCommands } from "./hooks/useProjectCommands";
+import { useProjectLibrary } from "./hooks/useProjectLibrary";
 import { useProjects } from "./hooks/useProjects";
 import { useReferenceTarget } from "./hooks/useReferenceTarget";
 import { useStudioSelection } from "./hooks/useStudioSelection";
@@ -50,6 +52,7 @@ import {
   type ReviewScreenshotOwner
 } from "./lib/review-screenshots";
 import { clearStoredReviewSet, loadStoredReviewSet, saveStoredReviewSet } from "./lib/review-set-storage";
+import { loadWorkspacePageSelections, saveWorkspacePageSelection } from "./lib/storage";
 import { hasSamePreviewPageRoute, runWithCurrentPreviewSelection } from "./lib/current-preview-selection";
 import {
   REVIEW_SCREENSHOT_MAX_PER_ITEM,
@@ -178,9 +181,10 @@ export function App() {
     incomingRefreshIsError
   } = useProjects();
   const { selectedSlug, setSelectedSlug, previewMode, setPreviewMode } = useStudioSelection(projects);
+  const { favoriteSlugs, recentSlugs, toggleFavorite } = useProjectLibrary(selectedSlug);
   const { layoutPreferences, setLayoutPreferences, paneControlsVisible, setPaneControlsVisible } =
     useLayoutPreferences(selectedSlug);
-  const { previewOrigin, previewError } = usePreviewRuntime();
+  const { previewOrigin, previewError, previewStatus, retryPreview } = usePreviewRuntime();
   const previewCapabilityTokensRef = useRef(new Map<string, string>());
   const previewCapabilityFor = useCallback((scope: string) => {
     const key = `${previewOrigin}:${scope}`;
@@ -206,9 +210,10 @@ export function App() {
     refreshProjects
   });
 
-  const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>({});
+  const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>(loadWorkspacePageSelections);
   const [studioMode, setStudioMode] = useState<"course" | "assessment">("course");
   const [toolsOpen, setToolsOpen] = useState(false);
+  const [newProjectOpen, setNewProjectOpen] = useState(false);
   const [inspectEnabled, setInspectEnabled] = useState(false);
   const [inspectionResolution, setInspectionResolution] = useState<InspectionResolution | null>(null);
   const [inspectionRequest, setInspectionRequest] = useState<InspectionResolveRequest | null>(null);
@@ -218,10 +223,10 @@ export function App() {
   const inspectionSourceRef = useRef<"embedded" | "standalone">("embedded");
   const inspectionScopeVersionRef = useRef(0);
   const screenshotAnnotation = useScreenshotAnnotation();
-  const [initialReviewSet] = useState(loadStoredReviewSet);
-  const restoredReviewScopePendingRef = useRef(Boolean(initialReviewSet?.items.length));
+  const [initialReviewSet] = useState(() => selectedSlug ? loadStoredReviewSet(selectedSlug) : null);
   const [reviewSetItems, setReviewSetItems] = useState<ReviewSetItem[]>(() => initialReviewSet?.items ?? []);
   const reviewSetItemsRef = useRef<ReviewSetItem[]>(initialReviewSet?.items ?? []);
+  const activeReviewProjectSlugRef = useRef(selectedSlug);
   const reviewSetVersionRef = useRef(0);
   const reviewSetPreparationAbortRef = useRef<AbortController | null>(null);
   const reviewSetItemIdRef = useRef(0);
@@ -389,11 +394,13 @@ export function App() {
   const replaceReviewSetItems = useCallback((nextItems: ReviewSetItem[]) => {
     reviewSetItemsRef.current = nextItems;
     setReviewSetItems(nextItems);
+    const activeProjectSlug = activeReviewProjectSlugRef.current;
+    if (!activeProjectSlug) return;
     if (nextItems.length) {
-      const persisted = saveStoredReviewSet(reviewScreenshotSessionIdRef.current, nextItems);
+      const persisted = saveStoredReviewSet(activeProjectSlug, reviewScreenshotSessionIdRef.current, nextItems);
       setReviewSetPersistenceError(persisted ? "" : "This Review Set is still open, but Canvas Helper could not keep it across a reload.");
     } else {
-      const cleared = clearStoredReviewSet();
+      const cleared = clearStoredReviewSet(activeProjectSlug);
       setReviewSetPersistenceError(cleared ? "" : "Canvas Helper could not access browser storage. This Review Set will stay open only until this tab closes.");
     }
   }, []);
@@ -468,32 +475,6 @@ export function App() {
     }
   }, [reclaimReviewScreenshotPaths]);
 
-  useEffect(() => {
-    if (!restoredReviewScopePendingRef.current || !projects.length) {
-      return;
-    }
-    restoredReviewScopePendingRef.current = false;
-    const restoredSlug = reviewSetItemsRef.current[0]?.request.projectSlug;
-    if (restoredSlug && projects.some((project) => project.manifest.slug === restoredSlug) && selectedSlug !== restoredSlug) {
-      setSelectedSlug(restoredSlug);
-    }
-  }, [projects, selectedSlug, setSelectedSlug]);
-
-  const confirmReviewSetScopeChange = useCallback(
-    (nextProjectSlug: string, _nextPreviewMode: PreviewMode) => {
-      const firstItem = reviewSetItemsRef.current[0];
-      if (!firstItem || firstItem.request.projectSlug === nextProjectSlug) {
-        return true;
-      }
-      if (typeof window !== "undefined" && !window.confirm("Switching courses clears the current Review Set. Continue?")) {
-        return false;
-      }
-      clearReviewSet("Review Set cleared because the course changed.");
-      return true;
-    },
-    [clearReviewSet]
-  );
-
   const resetInspection = useCallback(
     (resetTeacherInput = false) => {
       inspectionScopeVersionRef.current += 1;
@@ -509,6 +490,32 @@ export function App() {
     },
     [previewMode]
   );
+
+  useEffect(() => {
+    if (activeReviewProjectSlugRef.current === selectedSlug) return;
+    disposeReviewUndo(true);
+    reviewSetPreparationAbortRef.current?.abort();
+    reviewSetPreparationAbortRef.current = null;
+    reviewItemCaptureAbortRef.current?.abort();
+    reviewItemCaptureAbortRef.current = null;
+    reviewCaptureBusyRef.current = false;
+    reviewSetSavingRef.current = false;
+    setReviewSetSaving(false);
+    setReviewSetPreparing(false);
+    setPreparedReviewSet(null);
+    setReviewSetPacketError("");
+    setManualCopyVisible(false);
+    setReviewSetCaptureItemId("");
+    screenshotClearRef.current();
+
+    activeReviewProjectSlugRef.current = selectedSlug;
+    const stored = selectedSlug ? loadStoredReviewSet(selectedSlug) : null;
+    reviewScreenshotSessionIdRef.current = stored?.sessionId || createReviewScreenshotSessionId();
+    reviewSetItemsRef.current = stored?.items ?? [];
+    setReviewSetItems(stored?.items ?? []);
+    setReviewSetPersistenceError(stored?.persistenceError ?? "");
+    setReviewSetStatus(stored?.items.length ? "Review Set restored for this course." : "");
+  }, [disposeReviewUndo, selectedSlug, setReviewSetStatus]);
 
   useEffect(() => {
     resetInspection(true);
@@ -1442,7 +1449,7 @@ export function App() {
     announce = true
   ) => {
     const item = reviewSetItemsRef.current.find((candidate) => candidate.id === itemId);
-    if (!item?.request.selection.nodeId) {
+    if (!item?.request.selection.nodeId || item.request.projectSlug !== selectedSlug) {
       return false;
     }
     const feedbackSequence = announce ? setReviewSetStatus("Showing the saved annotation…", "progress") : 0;
@@ -1451,6 +1458,7 @@ export function App() {
       ...current,
       [item.request.projectSlug]: item.request.htmlPath
     }));
+    saveWorkspacePageSelection(item.request.projectSlug, item.request.htmlPath);
     if (previewMode !== "workspace") {
       setPreviewMode("workspace");
     }
@@ -1489,9 +1497,6 @@ export function App() {
   };
 
   const handlePreviewModeChange = (nextMode: PreviewMode) => {
-    if (nextMode !== previewMode && !confirmReviewSetScopeChange(selectedSlug, nextMode)) {
-      return;
-    }
     persistAllVisibleScrollPositions();
     syncFocusModeScrollPosition(previewMode, nextMode);
     if (nextMode !== previewMode) {
@@ -1535,9 +1540,6 @@ export function App() {
   };
 
   const handleWorkspaceProjectChange = (slug: string) => {
-    if (!confirmReviewSetScopeChange(slug, "workspace")) {
-      return;
-    }
     persistAllVisibleScrollPositions();
     resetInspection(true);
     setSelectedSlug(slug);
@@ -1549,6 +1551,7 @@ export function App() {
       ...current,
       [selectedSlug]: htmlPath
     }));
+    saveWorkspacePageSelection(selectedSlug, htmlPath);
   };
 
   const handleStudioModeChange = (nextMode: "course" | "assessment") => {
@@ -1591,9 +1594,24 @@ export function App() {
           studioMode={studioMode}
           projects={projects}
           selectedSlug={selectedSlug}
-          previewConnected={Boolean(previewOrigin)}
+          favoriteSlugs={favoriteSlugs}
+          recentSlugs={recentSlugs}
+          previewStatus={previewStatus}
+          previewMessage={previewError}
           onStudioModeChange={handleStudioModeChange}
           onProjectChange={handleWorkspaceProjectChange}
+          onToggleFavorite={toggleFavorite}
+          onNewProject={() => setNewProjectOpen(true)}
+          onRetryPreview={retryPreview}
+        />
+
+        <NewProjectPanel
+          open={newProjectOpen}
+          running={incomingRefreshRunning}
+          message={incomingRefreshMessage}
+          isError={incomingRefreshIsError}
+          onClose={() => setNewProjectOpen(false)}
+          onScan={() => void refreshIncoming()}
         />
 
         {studioMode === "course" ? (
@@ -1635,7 +1653,12 @@ export function App() {
         ) : null}
 
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
-        {previewError ? <div className="error-banner">{previewError}</div> : null}
+        {previewError ? (
+          <div className="error-banner connection-error" role="alert">
+            <span>{previewError}</span>
+            <button type="button" onClick={retryPreview}>Reconnect preview</button>
+          </div>
+        ) : null}
 
         {studioMode === "assessment" ? (
           <AssessmentLibraryMode />

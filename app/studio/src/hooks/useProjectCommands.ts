@@ -6,7 +6,7 @@ import type { StudioCommandName, StudioCommandResult, StudioCommandStatus } from
 
 type UseProjectCommandsOptions = {
   selectedSlug: string;
-  refreshProjects: () => Promise<void>;
+  refreshProjects: () => Promise<unknown>;
 };
 
 export function useProjectCommands({ selectedSlug, refreshProjects }: UseProjectCommandsOptions) {

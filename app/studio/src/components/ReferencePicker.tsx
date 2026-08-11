@@ -1,4 +1,4 @@
-import { getProjectLabel, getProjectSubjectGroups } from "../lib/project-display";
+import { getProjectLabel, getProjectMetadataGroups } from "../lib/project-display";
 import type { ProjectBundle, ReferenceTarget } from "../lib/types";
 
 type ReferencePickerProps = {
@@ -34,7 +34,7 @@ export function ReferencePicker({
   onResourcePathChange,
   onRefreshIntake
 }: ReferencePickerProps) {
-  const projectGroups = getProjectSubjectGroups(projects);
+  const projectGroups = getProjectMetadataGroups(projects);
 
   return (
     <div className="picker-stack">
@@ -46,7 +46,7 @@ export function ReferencePicker({
               <optgroup key={group.label} label={group.label}>
                 {group.projects.map((project) => (
                   <option key={project.manifest.id} value={project.manifest.slug}>
-                    {getProjectLabel(project.manifest.slug)}
+                    {getProjectLabel(project)}
                   </option>
                 ))}
               </optgroup>

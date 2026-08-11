@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useState } from "react";
 
 type PreviewConfigResponse = {
   origin?: string;
@@ -9,12 +9,23 @@ type PreviewConfigResponse = {
 export function usePreviewRuntime() {
   const [previewOrigin, setPreviewOrigin] = useState("");
   const [previewError, setPreviewError] = useState("");
+  const [previewStatus, setPreviewStatus] = useState<"starting" | "ready" | "error">("starting");
+  const [retryVersion, setRetryVersion] = useState(0);
+
+  const retryPreview = useCallback(() => {
+    setPreviewOrigin("");
+    setPreviewError("");
+    setPreviewStatus("starting");
+    setRetryVersion((current) => current + 1);
+  }, []);
 
   useEffect(() => {
     const controller = new AbortController();
     let retryTimer = 0;
+    let attempts = 0;
 
     const load = async () => {
+      attempts += 1;
       try {
         const response = await fetch("/api/preview-config", {
           cache: "no-store",
@@ -29,22 +40,24 @@ export function usePreviewRuntime() {
         ) {
           setPreviewOrigin(payload.origin);
           setPreviewError("");
+          setPreviewStatus("ready");
           return;
         }
 
-        if (response.status === 503) {
+        if (response.status === 503 && attempts < 40) {
           retryTimer = window.setTimeout(() => void load(), 150);
           return;
         }
 
-        setPreviewError(
-          payload.studioOrigin && payload.studioOrigin !== window.location.origin
-            ? `Studio must be opened at ${payload.studioOrigin} to use the isolated preview.`
-            : payload.error || "The isolated preview server could not start."
-        );
+        const message = payload.studioOrigin && payload.studioOrigin !== window.location.origin
+          ? `Studio must be opened at ${payload.studioOrigin} to use the isolated preview.`
+          : payload.error || "The local preview is unavailable. Reconnect when the Studio server is ready.";
+        setPreviewError(message);
+        setPreviewStatus("error");
       } catch (error) {
         if (!controller.signal.aborted) {
           setPreviewError(error instanceof Error ? error.message : "The isolated preview server could not start.");
+          setPreviewStatus("error");
         }
       }
     };
@@ -54,7 +67,7 @@ export function usePreviewRuntime() {
       controller.abort();
       window.clearTimeout(retryTimer);
     };
-  }, []);
+  }, [retryVersion]);
 
-  return { previewOrigin, previewError };
+  return { previewOrigin, previewError, previewStatus, retryPreview };
 }

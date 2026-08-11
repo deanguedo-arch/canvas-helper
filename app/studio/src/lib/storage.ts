@@ -12,6 +12,8 @@ const STUDIO_SELECTION_STORAGE_KEY = "canvas-helper/studio-selection";
 const STUDIO_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout";
 const STUDIO_PROJECT_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout-by-project-v1";
 const STUDIO_PROJECT_LAYOUT_MAX_ENTRIES = 100;
+const STUDIO_PROJECT_PAGE_STORAGE_KEY = "canvas-helper/studio-page-by-project-v1";
+const STUDIO_PROJECT_PAGE_MAX_ENTRIES = 100;
 const STUDIO_REFERENCE_STORAGE_KEY = "canvas-helper/studio-reference";
 const PREVIEW_SCROLL_STORAGE_KEY = "canvas-helper/preview-scroll";
 const STUDIO_COMMAND_OUTPUT_VISIBLE_KEY = "canvas-helper/studio-command-output-visible";
@@ -140,6 +142,69 @@ export function savePreviewLayoutPreferences(preferences: PreviewLayoutPreferenc
     window.localStorage.setItem(STUDIO_PROJECT_LAYOUT_STORAGE_KEY, JSON.stringify(next));
   } catch {
     // Layout preferences remain usable for this tab when browser storage is unavailable.
+  }
+}
+
+type StoredProjectPage = {
+  updatedAt: number;
+  htmlPath: string;
+};
+
+function isSafeWorkspaceHtmlPath(value: unknown): value is string {
+  return (
+    typeof value === "string" &&
+    value.length > 0 &&
+    value.length <= 512 &&
+    /\.html?$/i.test(value) &&
+    !/[\u0000-\u001f\\]/.test(value) &&
+    !value.startsWith("/") &&
+    !value.split("/").some((segment) => !segment || segment === "." || segment === "..")
+  );
+}
+
+export function loadWorkspacePageSelections(): Record<string, string> {
+  if (typeof window === "undefined") return {};
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(STUDIO_PROJECT_PAGE_STORAGE_KEY) ?? "null") as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+    const entries = Object.entries(parsed as Record<string, unknown>)
+      .filter(([slug, value]) => (
+        slug.length > 0 &&
+        slug.length <= 160 &&
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Number.isFinite((value as { updatedAt?: unknown }).updatedAt) &&
+        isSafeWorkspaceHtmlPath((value as { htmlPath?: unknown }).htmlPath)
+      ))
+      .sort(([, left], [, right]) => (
+        Number((right as { updatedAt: number }).updatedAt) - Number((left as { updatedAt: number }).updatedAt)
+      ))
+      .slice(0, STUDIO_PROJECT_PAGE_MAX_ENTRIES)
+      .map(([slug, value]) => [slug, (value as StoredProjectPage).htmlPath] as const);
+    return Object.fromEntries(entries);
+  } catch {
+    return {};
+  }
+}
+
+export function saveWorkspacePageSelection(projectSlug: string, htmlPath: string) {
+  if (typeof window === "undefined" || !projectSlug || projectSlug.length > 160 || !isSafeWorkspaceHtmlPath(htmlPath)) {
+    return false;
+  }
+  try {
+    const selections = loadWorkspacePageSelections();
+    const stored = Object.fromEntries(
+      Object.entries(selections)
+        .filter(([slug]) => slug !== projectSlug)
+        .slice(0, STUDIO_PROJECT_PAGE_MAX_ENTRIES - 1)
+        .map(([slug, path]) => [slug, { updatedAt: Date.now() - 1, htmlPath: path }])
+    );
+    stored[projectSlug] = { updatedAt: Date.now(), htmlPath };
+    window.localStorage.setItem(STUDIO_PROJECT_PAGE_STORAGE_KEY, JSON.stringify(stored));
+    return true;
+  } catch {
+    return false;
   }
 }
 

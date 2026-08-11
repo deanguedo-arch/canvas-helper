@@ -1,5 +1,5 @@
 import type { ProjectBundle } from "../lib/types";
-import { getProjectLabel, getProjectSubjectGroups } from "../lib/project-display";
+import { getProjectLabel, getProjectMetadataGroups } from "../lib/project-display";
 
 type WorkspacePickerProps = {
   selectedSlug: string;
@@ -20,7 +20,7 @@ export function WorkspacePicker({
   onHtmlChange,
   onRefresh
 }: WorkspacePickerProps) {
-  const projectGroups = getProjectSubjectGroups(projects);
+  const projectGroups = getProjectMetadataGroups(projects);
 
   const pageLabel = (file: string) => {
     if (file === "index.html") return "Course overview";
@@ -44,7 +44,7 @@ export function WorkspacePicker({
             <optgroup key={group.label} label={group.label}>
               {group.projects.map((project) => (
                 <option key={project.manifest.id} value={project.manifest.slug}>
-                  {getProjectLabel(project.manifest.slug)}
+                  {getProjectLabel(project)}
                 </option>
               ))}
             </optgroup>

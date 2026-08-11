@@ -21,18 +21,27 @@ import {
   reviewScreenshotImageUrl
 } from "./review-screenshots";
 
-const STORAGE_KEY = "canvas-helper/review-set-v6";
-const LEGACY_STORAGE_KEYS = ["canvas-helper/review-set-v5", "canvas-helper/review-set-v4", "canvas-helper/review-set-v3"];
-const STORAGE_VERSION = 6;
+const STORAGE_KEY = "canvas-helper/review-sets-by-project-v7";
+const LEGACY_SINGLE_SET_STORAGE_KEY = "canvas-helper/review-set-v6";
+const OBSOLETE_STORAGE_KEYS = ["canvas-helper/review-set-v5", "canvas-helper/review-set-v4", "canvas-helper/review-set-v3"];
+const STORAGE_VERSION = 7;
 const STORAGE_TTL_MS = 7 * 24 * 60 * 60 * 1_000;
-const STORAGE_MAX_CHARACTERS = 160_000;
+const STORAGE_MAX_PROJECTS = 40;
+const STORAGE_MAX_SET_CHARACTERS = 160_000;
+const STORAGE_MAX_CHARACTERS = 1_200_000;
 
-type StoredReviewSet = {
-  version: typeof STORAGE_VERSION;
+type StoredReviewSetEntry = {
   updatedAt: number;
   sessionId: string;
   items: unknown[];
 };
+
+type StoredReviewSetCollection = {
+  version: typeof STORAGE_VERSION;
+  projects: Record<string, StoredReviewSetEntry>;
+};
+
+type LegacyStoredReviewSet = StoredReviewSetEntry & { version: 6 };
 
 export type HydratedReviewSet = {
   sessionId: string;
@@ -195,10 +204,14 @@ function hydrateItem(value: unknown, sessionId: string): ReviewSetItem | null {
   }
 }
 
-function removeStoredKeys() {
+function isSafeProjectSlug(value: unknown): value is string {
+  return typeof value === "string" && /^[A-Za-z0-9][A-Za-z0-9._-]{0,159}$/.test(value);
+}
+
+function removeObsoleteStoredKeys() {
   try {
-    window.localStorage.removeItem(STORAGE_KEY);
-    LEGACY_STORAGE_KEYS.forEach((key) => window.localStorage.removeItem(key));
+    window.localStorage.removeItem(LEGACY_SINGLE_SET_STORAGE_KEY);
+    OBSOLETE_STORAGE_KEYS.forEach((key) => window.localStorage.removeItem(key));
     return true;
   } catch {
     return false;
@@ -209,21 +222,84 @@ function storageUnavailable(): HydratedReviewSet {
   return { sessionId: "", items: [], persistenceError: STORAGE_UNAVAILABLE_MESSAGE };
 }
 
-export function loadStoredReviewSet(): HydratedReviewSet | null {
-  if (typeof window === "undefined") {
-    return null;
-  }
-  try {
-    LEGACY_STORAGE_KEYS.forEach((key) => window.localStorage.removeItem(key));
-    const serialized = window.localStorage.getItem(STORAGE_KEY);
-    if (!serialized || serialized.length > STORAGE_MAX_CHARACTERS) {
-      if (serialized && !removeStoredKeys()) return storageUnavailable();
-      return null;
+function emptyCollection(): StoredReviewSetCollection {
+  return { version: STORAGE_VERSION, projects: {} };
+}
+
+function serializeItems(items: ReviewSetItem[]) {
+  return items.map((item) => ({
+    ...item,
+    screenshots: item.screenshots.map(({ imageUrl: _imageUrl, ...screenshot }) => screenshot)
+  }));
+}
+
+function readCollection(): StoredReviewSetCollection {
+  const serialized = window.localStorage.getItem(STORAGE_KEY);
+  if (serialized) {
+    if (serialized.length > STORAGE_MAX_CHARACTERS) {
+      window.localStorage.removeItem(STORAGE_KEY);
+      return emptyCollection();
     }
-    const stored = JSON.parse(serialized) as StoredReviewSet;
+    const parsed = JSON.parse(serialized) as unknown;
+    if (isRecord(parsed) && parsed.version === STORAGE_VERSION && isRecord(parsed.projects)) {
+      return { version: STORAGE_VERSION, projects: parsed.projects as Record<string, StoredReviewSetEntry> };
+    }
+    window.localStorage.removeItem(STORAGE_KEY);
+  }
+
+  const legacySerialized = window.localStorage.getItem(LEGACY_SINGLE_SET_STORAGE_KEY);
+  if (!legacySerialized || legacySerialized.length > STORAGE_MAX_SET_CHARACTERS) {
+    removeObsoleteStoredKeys();
+    return emptyCollection();
+  }
+  const legacy = JSON.parse(legacySerialized) as LegacyStoredReviewSet;
+  const firstItem = Array.isArray(legacy.items) && isRecord(legacy.items[0]) && isRecord(legacy.items[0].request)
+    ? legacy.items[0].request.projectSlug
+    : "";
+  const collection = emptyCollection();
+  if (
+    legacy.version === 6 &&
+    isSafeProjectSlug(firstItem) &&
+    Number.isFinite(legacy.updatedAt) &&
+    isReviewScreenshotSessionId(legacy.sessionId) &&
+    Array.isArray(legacy.items) &&
+    legacy.items.length <= REVIEW_SET_MAX_ITEMS
+  ) {
+    collection.projects[firstItem] = {
+      updatedAt: legacy.updatedAt,
+      sessionId: legacy.sessionId,
+      items: legacy.items
+    };
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(collection));
+  }
+  removeObsoleteStoredKeys();
+  return collection;
+}
+
+function writeCollection(collection: StoredReviewSetCollection) {
+  const serialized = JSON.stringify(collection);
+  if (serialized.length > STORAGE_MAX_CHARACTERS) return false;
+  window.localStorage.setItem(STORAGE_KEY, serialized);
+  return true;
+}
+
+function removeProjectEntry(collection: StoredReviewSetCollection, projectSlug: string) {
+  delete collection.projects[projectSlug];
+  writeCollection(collection);
+}
+
+export function loadStoredReviewSet(projectSlug = ""): HydratedReviewSet | null {
+  if (typeof window === "undefined") return null;
+  try {
+    const collection = readCollection();
+    const selectedSlug = isSafeProjectSlug(projectSlug)
+      ? projectSlug
+      : Object.entries(collection.projects)
+          .sort(([, left], [, right]) => Number(right.updatedAt) - Number(left.updatedAt))[0]?.[0] ?? "";
+    if (!selectedSlug) return null;
+    const stored = collection.projects[selectedSlug];
+    if (!stored) return null;
     if (
-      !isRecord(stored) ||
-      stored.version !== STORAGE_VERSION ||
       !Number.isFinite(stored.updatedAt) ||
       stored.updatedAt > Date.now() ||
       Date.now() - stored.updatedAt > STORAGE_TTL_MS ||
@@ -231,45 +307,66 @@ export function loadStoredReviewSet(): HydratedReviewSet | null {
       !Array.isArray(stored.items) ||
       stored.items.length > REVIEW_SET_MAX_ITEMS
     ) {
-      if (!removeStoredKeys()) return storageUnavailable();
+      removeProjectEntry(collection, selectedSlug);
       return null;
     }
     const items = stored.items.map((item) => hydrateItem(item, stored.sessionId));
-    if (items.some((item) => item === null)) {
-      if (!removeStoredKeys()) return storageUnavailable();
+    if (
+      items.some((item) => item === null) ||
+      items.some((item) => item?.request.projectSlug !== selectedSlug)
+    ) {
+      removeProjectEntry(collection, selectedSlug);
       return null;
     }
     return { sessionId: stored.sessionId, items: items as ReviewSetItem[] };
   } catch {
-    return removeStoredKeys() ? null : storageUnavailable();
+    return storageUnavailable();
   }
 }
 
-export function saveStoredReviewSet(sessionId: string, items: ReviewSetItem[]) {
-  if (typeof window === "undefined" || !isReviewScreenshotSessionId(sessionId) || items.length > REVIEW_SET_MAX_ITEMS) {
+export function saveStoredReviewSet(projectSlug: string, sessionId: string, items: ReviewSetItem[]) {
+  if (
+    typeof window === "undefined" ||
+    !isSafeProjectSlug(projectSlug) ||
+    !isReviewScreenshotSessionId(sessionId) ||
+    items.length > REVIEW_SET_MAX_ITEMS ||
+    items.some((item) => item.request.projectSlug !== projectSlug)
+  ) {
     return false;
   }
   try {
-    const stored: StoredReviewSet = {
-      version: STORAGE_VERSION,
+    const entry: StoredReviewSetEntry = {
       updatedAt: Date.now(),
       sessionId,
-      items: items.map((item) => ({
-        ...item,
-        screenshots: item.screenshots.map(({ imageUrl: _imageUrl, ...screenshot }) => screenshot)
-      }))
+      items: serializeItems(items)
     };
-    const serialized = JSON.stringify(stored);
-    if (serialized.length > STORAGE_MAX_CHARACTERS) {
-      return false;
-    }
-    window.localStorage.setItem(STORAGE_KEY, serialized);
-    return true;
+    if (JSON.stringify(entry).length > STORAGE_MAX_SET_CHARACTERS) return false;
+    const collection = readCollection();
+    const projects = Object.fromEntries(
+      Object.entries(collection.projects)
+        .filter(([slug]) => slug !== projectSlug)
+        .sort(([, left], [, right]) => Number(right.updatedAt) - Number(left.updatedAt))
+        .slice(0, STORAGE_MAX_PROJECTS - 1)
+    );
+    projects[projectSlug] = entry;
+    return writeCollection({ version: STORAGE_VERSION, projects });
   } catch {
     return false;
   }
 }
 
-export function clearStoredReviewSet() {
-  return typeof window === "undefined" ? true : removeStoredKeys();
+export function clearStoredReviewSet(projectSlug = "") {
+  if (typeof window === "undefined") return true;
+  try {
+    if (!projectSlug) {
+      window.localStorage.removeItem(STORAGE_KEY);
+      return removeObsoleteStoredKeys();
+    }
+    if (!isSafeProjectSlug(projectSlug)) return false;
+    const collection = readCollection();
+    delete collection.projects[projectSlug];
+    return writeCollection(collection);
+  } catch {
+    return false;
+  }
 }

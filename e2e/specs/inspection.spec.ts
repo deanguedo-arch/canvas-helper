@@ -213,6 +213,7 @@ test("@inspection Assessments is a separate workspace and preserves a paused cou
   await page.getByTestId("inspect-toggle").click();
 
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
   const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
   await learnerControl.focus();
   await learnerControl.press("Enter");
@@ -458,7 +459,7 @@ test("@inspection Review Set blocks a stale source recheck instead of copying an
   await expect(page.getByTestId("copy-review-set")).toBeDisabled();
 });
 
-test("@inspection changing projects clears a handoff and ignores a late source-resolution response", async ({ page }) => {
+test("@inspection changing projects ignores a late source-resolution response", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
   await page.getByTestId("preview-workspace-toggle").click();
@@ -501,6 +502,8 @@ test("@inspection changing projects clears a handoff and ignores a late source-r
 
 test("@inspection each project restores its own layout, device, zoom, and Review Set visibility", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
+  const htmlSelect = page.getByTestId("workspace-html-select");
+  await htmlSelect.selectOption("alternate.html");
   await page.getByTestId("layout-split-toggle").click();
   await page.getByRole("combobox", { name: "Preview device" }).selectOption("mobile");
   await page.getByRole("combobox", { name: "Preview zoom" }).selectOption("75");
@@ -521,6 +524,95 @@ test("@inspection each project restores its own layout, device, zoom, and Review
   await expect(page.getByRole("combobox", { name: "Preview device" })).toHaveValue("mobile");
   await expect(page.getByRole("combobox", { name: "Preview zoom" })).toHaveValue("75");
   await expect(page.getByTestId("review-set")).toBeVisible();
+  await expect(htmlSelect).toHaveValue("alternate.html");
+});
+
+test("@inspection each project keeps its own temporary Review Set", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await page.getByTestId("inspection-teacher-note").fill("Keep this note with the fixture course.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+
+  const projectSelect = page.getByTestId("workspace-project-select");
+  await projectSelect.selectOption("forensics35");
+  await waitForWorkspacePreviewReady(page, "forensics35");
+  await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+
+  await projectSelect.selectOption("e2e-fixture");
+  await waitForWorkspacePreviewReady(page, "e2e-fixture");
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await expect(page.getByTestId("review-set-item").locator("textarea")).toHaveValue(
+    "Keep this note with the fixture course."
+  );
+});
+
+test("@inspection course finder supports search, favorites, and recents", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("course-search-input").focus();
+  await page.getByTestId("course-search-input").fill("E2E Fixture");
+  await page.getByRole("button", { name: /Add E2E Fixture.*to favorites/i }).click();
+  await page.keyboard.press("Escape");
+
+  await page.keyboard.press(process.platform === "darwin" ? "Meta+K" : "Control+K");
+  await page.getByTestId("course-search-input").fill("Forensics35");
+  await page.getByTestId("course-result-forensics35").click();
+  await waitForWorkspacePreviewReady(page, "forensics35");
+  await expect(page.getByTestId("workspace-project-select")).toHaveValue("forensics35");
+
+  await page.getByTestId("course-search-input").focus();
+  await expect(page.getByTestId("course-finder").getByRole("heading", { name: "Favorites" })).toBeVisible();
+  await expect(page.getByTestId("course-result-e2e-fixture")).toBeVisible();
+  await expect(page.getByTestId("course-finder").getByRole("heading", { name: "Recent" })).toBeVisible();
+});
+
+test("@inspection New Project routes to the existing local intake scan", async ({ page }) => {
+  await page.route("**/api/incoming/refresh", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        startedAt: new Date().toISOString(),
+        finishedAt: new Date().toISOString(),
+        mode: "all",
+        importedProjects: [],
+        skippedProjects: [],
+        syncedReferences: [],
+        failures: [],
+        archivedPaths: []
+      })
+    });
+  });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("topbar-new-project").click();
+  await expect(page.getByTestId("new-project-panel")).toBeVisible();
+  await page.getByTestId("scan-intake-button").click();
+  await expect(page.getByTestId("new-project-panel").getByRole("status")).toContainText("No incoming items were ready");
+});
+
+test("@inspection preview connection failure exposes a working reconnect action", async ({ page }) => {
+  let unavailable = true;
+  await page.route("**/api/preview-config", async (route) => {
+    if (unavailable) {
+      await route.fulfill({ status: 500, contentType: "application/json", body: JSON.stringify({ error: "Preview paused for test." }) });
+      return;
+    }
+    await route.continue();
+  });
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("preview-connection")).toContainText("Reconnect preview");
+  unavailable = false;
+  await page.getByTestId("preview-connection").click();
+  await expect(page.getByTestId("preview-connection")).toContainText("Preview ready");
 });
 
 test("@inspection a late first selection cannot overwrite a newer selection in the same preview", async ({ page }) => {
@@ -764,19 +856,20 @@ test("@inspection tampered persisted screenshot metadata cannot enable Copy", as
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
 
   const cleanupScreenshots = await page.evaluate(() => {
-    const key = "canvas-helper/review-set-v6";
+    const key = "canvas-helper/review-sets-by-project-v7";
     const stored = JSON.parse(localStorage.getItem(key) || "null");
-    if (!stored?.items?.[0]?.screenshots?.[0]) throw new Error("missing stored screenshot");
-    const item = stored.items[0];
+    const project = stored?.projects?.["e2e-fixture"];
+    if (!project?.items?.[0]?.screenshots?.[0]) throw new Error("missing stored screenshot");
+    const item = project.items[0];
     const screenshot = item.screenshots[0];
     const cleanup = [{
       repoRelativePath: screenshot.filePath,
-      sessionId: stored.sessionId,
+      sessionId: project.sessionId,
       projectSlug: item.request.projectSlug,
       itemId: item.id,
       ownerNodeId: item.request.selection.nodeId
     }];
-    stored.items[0].screenshots[0].filePath = `.runtime/studio-review-sets/${stored.sessionId}/forged.png`;
+    project.items[0].screenshots[0].filePath = `.runtime/studio-review-sets/${project.sessionId}/forged.png`;
     localStorage.setItem(key, JSON.stringify(stored));
     return cleanup;
   });

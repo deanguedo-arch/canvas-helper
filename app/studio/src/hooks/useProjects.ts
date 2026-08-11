@@ -11,9 +11,15 @@ export function useProjects() {
   const [incomingRefreshIsError, setIncomingRefreshIsError] = useState(false);
 
   const refreshProjects = async () => {
-    const bundles = await fetchProjects();
-    setProjects(bundles);
-    setErrorMessage("");
+    try {
+      const bundles = await fetchProjects();
+      setProjects(bundles);
+      setErrorMessage("");
+      return true;
+    } catch (error) {
+      setErrorMessage(error instanceof Error ? error.message : "Failed to load projects.");
+      return false;
+    }
   };
 
   const toIncomingRefreshMessage = (summary: IncomingRefreshSummary) => {
@@ -58,7 +64,8 @@ export function useProjects() {
 
     try {
       const summary = await refreshIncomingIntake();
-      await refreshProjects();
+      const refreshed = await refreshProjects();
+      if (!refreshed) throw new Error("The intake scan finished, but Studio could not refresh the course list.");
       setIncomingRefreshMessage(toIncomingRefreshMessage(summary));
       setIncomingRefreshIsError(summary.failures.length > 0);
       return summary;

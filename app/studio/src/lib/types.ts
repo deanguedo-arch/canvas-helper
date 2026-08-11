@@ -113,7 +113,15 @@ export type ProjectBundle = {
   manifest: {
     id: string;
     slug: string;
+    title?: string;
     sourcePath: string;
+    projectType?: "conversion" | "generated-course" | "hybrid";
+    preferredWorkflows?: Array<"conversion" | "generated-course" | "injection/integration">;
+    authoringStatus?: "active" | "blocked" | "ready-for-export" | "reference-only" | "archived";
+    authoring?: {
+      driverId: "direct-workspace-v1" | "english-factory-v1" | "social-related-issues-v1" | "proposal-only-v1";
+      familyId?: string;
+    };
     createdAt: string;
     updatedAt: string;
   };
