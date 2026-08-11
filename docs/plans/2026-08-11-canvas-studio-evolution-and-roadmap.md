@@ -2,12 +2,13 @@
 
 - Snapshot date: 2026-08-11
 - Repository: `canvas-helper`
-- Current branch: `codex/studio-workflow-v2`
+- Current branch: `codex/studio-roadmap-phases`
+- Precision-shell baseline: `741b5282` (`feat(studio): establish precision review shell`)
 - Pre-publish baseline commit: `24a32079` (`feat(studio): include screenshots in review handoff`)
 - Intended reader: ChatGPT Pro / Terra Max acting as an independent product, usability, architecture, and security auditor
 - Primary subject: Canvas Studio itself—not the design or readiness of any particular course
 
-> Audit visibility warning: the implementation described here was developed after baseline commit `24a32079` and is published with this document on `codex/studio-workflow-v2`. An auditor using the GitHub connector must still state the exact branch and commit it can inspect. If the connector reports `24a32079`, it is seeing the stale baseline and must not treat this document's current-state claims as independently verified.
+> Audit visibility warning: the implementation described here was developed after baseline commit `24a32079` and is published on `codex/studio-roadmap-phases`. An auditor using the GitHub connector must still state the exact branch and commit it can inspect. If the connector does not include precision-shell commit `741b5282`, it is seeing a stale baseline and must not treat this document's current-state claims as independently verified.
 
 ## Purpose
 

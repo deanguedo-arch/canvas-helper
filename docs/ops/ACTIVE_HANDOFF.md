@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Rebuild Canvas Studio's front-facing shell as a high-end precision review workstation without changing course content or weakening the existing review workflow.
-- Status: ready for teacher validation; implementation and automated verification are complete locally on `codex/studio-workflow-v2`.
+- Status: Phase A/B2 baseline is complete, committed, verified, and published on `codex/studio-roadmap-phases`; teacher visual acceptance remains useful but is not an implementation blocker.
 
 ## Summary
 
@@ -80,9 +80,9 @@
 
 ## Next prompt should assume
 
-- Branch: `codex/studio-workflow-v2`.
-- The precision-editor work is currently uncommitted.
-- The local branch was already one commit ahead of `origin/codex/studio-workflow-v2` before this visual pass; that pre-existing commit is outside this task and must not be rewritten or pushed accidentally.
+- Branch: `codex/studio-roadmap-phases`.
+- Precision-shell implementation commit: `741b5282` (`feat(studio): establish precision review shell`).
+- The unrelated oversized commit remains isolated on `codex/studio-workflow-v2` and is not present in this roadmap branch.
 - The teacher should validate the visual feel in the running Studio; implementation, security, and interaction gates already pass.
 - Course content was not redesigned and should not be changed as part of Studio-shell polish.
 
@@ -110,4 +110,4 @@
 - Do not restyle generated course HTML to match the Studio mockups.
 - Do not reintroduce an API-backed assistant or expose source paths in the teacher-facing shell.
 - Do not weaken preview isolation, Review Set bounds, screenshot ownership, or canonical-source resolution for visual convenience.
-- Do not commit or push the pre-existing unrelated local commit as though it belongs to this redesign.
+- Do not merge `codex/studio-workflow-v2` into this roadmap branch merely to recover the isolated oversized commit.
