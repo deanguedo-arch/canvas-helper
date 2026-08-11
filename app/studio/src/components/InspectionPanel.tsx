@@ -49,7 +49,7 @@ export function InspectionPanel({
       <div className="section-header">
         <h3>New annotation</h3>
         <span className={inspectEnabled ? "inspection-state enabled" : "inspection-state"}>
-          {inspectEnabled ? "Annotating" : "Off"}
+          {inspectEnabled ? "Annotating" : resolution ? "Draft paused" : "Off"}
         </span>
       </div>
 

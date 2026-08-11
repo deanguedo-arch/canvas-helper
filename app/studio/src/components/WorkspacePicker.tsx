@@ -22,10 +22,18 @@ export function WorkspacePicker({
 }: WorkspacePickerProps) {
   const projectGroups = getProjectSubjectGroups(projects);
 
+  const pageLabel = (file: string) => {
+    if (file === "index.html") return "Course overview";
+    const stem = file.replace(/\.html?$/i, "").split("/").pop() ?? file;
+    return stem
+      .replace(/[-_]+/g, " ")
+      .replace(/\b\w/g, (letter) => letter.toUpperCase());
+  };
+
   return (
-    <div className="reference-picker workspace-picker">
+    <div className="workspace-picker">
       <label className="mini-field">
-        <span>Project</span>
+        <span>Course</span>
         <select
           className="mini-select"
           value={selectedSlug}
@@ -44,15 +52,8 @@ export function WorkspacePicker({
         </select>
       </label>
 
-      <label className="mini-field">
-        <span>Root</span>
-        <select className="mini-select" value="workspace" disabled>
-          <option value="workspace">workspace</option>
-        </select>
-      </label>
-
-      <label className="mini-field mini-field-wide">
-        <span>HTML</span>
+      <label className="mini-field page-field">
+        <span>Page</span>
         <select
           className="mini-select"
           value={resolvedWorkspaceHtmlPath}
@@ -61,23 +62,27 @@ export function WorkspacePicker({
         >
           {workspaceFileOptions.length ? (
             workspaceFileOptions.map((file) => (
-              <option key={file} value={file}>
-                {file}
+              <option key={file} value={file} title={file}>
+                {pageLabel(file)}
               </option>
             ))
           ) : (
-            <option value={resolvedWorkspaceHtmlPath}>{resolvedWorkspaceHtmlPath}</option>
+            <option value={resolvedWorkspaceHtmlPath}>{pageLabel(resolvedWorkspaceHtmlPath)}</option>
           )}
         </select>
       </label>
 
       <button
-        className="ghost-button compact picker-refresh"
+        className="picker-refresh"
         type="button"
         onClick={onRefresh}
         data-testid="workspace-refresh-button"
+        aria-label="Refresh course list"
+        title="Refresh course list"
       >
-        Refresh
+        <svg viewBox="0 0 20 20" aria-hidden="true" focusable="false">
+          <path d="M15.2 7A5.75 5.75 0 1 0 16 11M15.2 7V3.8M15.2 7H12" />
+        </svg>
       </button>
     </div>
   );

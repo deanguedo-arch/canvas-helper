@@ -73,26 +73,30 @@ export function InspectorPanel({
   onRemoveReviewSetScreenshot,
   onCopyReviewSet
 }: InspectorPanelProps) {
+  const showComposer = inspectEnabled || Boolean(inspectionResolution) || screenshots.length > 0;
+
   return (
     <aside className="inspector" aria-label="Annotations">
-      <InspectionPanel
-        inspectEnabled={inspectEnabled}
-        resolution={inspectionResolution}
-        resolving={inspectionResolving}
-        teacherNote={inspectionTeacherNote}
-        canSave={reviewSetCanAddCurrent}
-        saveDisabledReason={reviewSetAddDisabledReason}
-        screenshotSupported={screenshotSupported}
-        screenshotCanCapture={screenshotCanCapture}
-        screenshotStatus={screenshotStatus}
-        screenshotError={screenshotError}
-        screenshots={screenshots}
-        onTeacherNoteChange={onInspectionTeacherNoteChange}
-        onSave={onSaveCurrentInspection}
-        onCaptureScreenshot={onCaptureScreenshot}
-        onDownloadScreenshot={onDownloadScreenshot}
-        onDiscardScreenshot={onDiscardScreenshot}
-      />
+      {showComposer ? (
+        <InspectionPanel
+          inspectEnabled={inspectEnabled}
+          resolution={inspectionResolution}
+          resolving={inspectionResolving}
+          teacherNote={inspectionTeacherNote}
+          canSave={reviewSetCanAddCurrent}
+          saveDisabledReason={reviewSetAddDisabledReason}
+          screenshotSupported={screenshotSupported}
+          screenshotCanCapture={screenshotCanCapture}
+          screenshotStatus={screenshotStatus}
+          screenshotError={screenshotError}
+          screenshots={screenshots}
+          onTeacherNoteChange={onInspectionTeacherNoteChange}
+          onSave={onSaveCurrentInspection}
+          onCaptureScreenshot={onCaptureScreenshot}
+          onDownloadScreenshot={onDownloadScreenshot}
+          onDiscardScreenshot={onDiscardScreenshot}
+        />
+      ) : null}
       <ReviewSetPanel
         items={reviewSetItems}
         status={reviewSetStatus}

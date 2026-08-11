@@ -185,6 +185,24 @@ The user-facing goal is simple:
 
 This work was tested against a varied set of legacy and modern project structures. Those projects are evidence for the universal preview layer, not special cases in the Studio interface.
 
+### 11. Precision review workstation visual foundation
+
+The Studio shell was rebuilt around the proven review workflow instead of styled as a collection of equally weighted cards:
+
+- one matte global header now separates **Courses** and **Assessments** as product-level workspaces;
+- project search, including `Command/Ctrl + K`, is available without opening another panel;
+- course, page, Focus/Split, Original/Current, device, zoom, Annotate, Full preview, Review Set, and Tools now form one contextual control layer;
+- Focus is the clean default and pane-level controls stay hidden until requested;
+- the annotation state keeps one compact blue mode bar and a solid inspector rather than translucent floating panels;
+- operational commands moved behind **Tools**, leaving the course as the dominant surface;
+- unfinished annotation drafts survive leaving annotation mode and a temporary visit to Assessments;
+- neutral surfaces, restrained borders, one blue action color, limited radii, and low shadows replace gradients, glass effects, oversized pills, and decorative blur;
+- responsive toolbars wrap before labels become truncated, and scrolling controls no longer cover course interactions.
+
+The redesign intentionally does not restyle course content inside the isolated iframe. Studio is a professional review frame around each course, not a universal theme imposed on learner artifacts.
+
+**Usability gain:** Studio now reads as a focused desktop review product while retaining the exact persistence, screenshot, source-safety, and Codex handoff system already proven underneath it.
+
 ## Current feature inventory
 
 | Feature | What it does for the teacher | Current strength | Remaining friction |
@@ -372,7 +390,7 @@ The current local implementation has been exercised through:
 
 - 51 focused Studio inspection, preview, screenshot, packet, and security tests;
 - a successful Studio production build;
-- 15 focused end-to-end annotation tests;
+- 16 focused end-to-end annotation tests;
 - platform and project-contract smoke tests;
 - live checks of embedded and full-preview annotation;
 - persistence through reload, preview opening, preview exit, and page restoration;
@@ -401,9 +419,9 @@ Exit condition: local, GitHub, and auditor evidence all describe the same implem
 
 Goal: make the common path feel as direct as Codex Browser while retaining Studio's persistence advantages.
 
-- simplify the top-level control hierarchy;
+- **Completed foundation:** matte global navigation, a contextual course toolbar, course-first Focus default, explicit Courses/Assessments separation, consolidated responsive controls, Review Set count, hidden operational tools, and a compact annotation mode bar;
+- **Completed continuity:** stopping annotation or visiting Assessments pauses an unfinished draft instead of silently deleting it;
 - keep one unmistakable Annotate state in embedded and full preview;
-- show annotation and screenshot counts in the primary toolbar;
 - unify progress, success, warning, and failure messages;
 - prevent stale messages from replacing newer outcomes;
 - add undo for the most recent save/remove action;
@@ -515,7 +533,7 @@ The recommended order is:
 6. complete accessibility and performance work;
 7. refactor only where tests show the product boundary is stable.
 
-Do not start with a broad visual redesign or a new AI feature. The current product has the right center: preview, annotate, collect, hand off, verify.
+The visual foundation is now established. Do not replace it with another broad redesign or a new embedded AI feature. Continue refining the proven center: preview, annotate, collect, hand off, verify.
 
 ## Product acceptance criteria
 

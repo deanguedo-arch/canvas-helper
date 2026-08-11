@@ -8184,3 +8184,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course artifact changed; Review Set V2 kept at most one consent-based browser-tab screenshot per annotation and copied only safe local PNG paths.
 - Known limitation at archival time: metadata was memory-only and disappeared on Studio reload; screenshot capture used the browser's tab-sharing picker.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-11: universal Studio review workflow and preview hardening
+
+- Project: `repo-wide`.
+- Task: Deliver the persistent Codex-like annotation workflow, multi-screenshot Review Set, full-preview continuity, and project-independent secure preview compatibility.
+- Status: complete on `codex/studio-workflow-v2`; superseded by the Precision Review Workstation visual-foundation handoff.
+- Verification: 51 focused Studio tests, Studio build, 15 inspection E2E tests, platform and project-contract smoke tests, live embedded/full-preview checks, and the affected legacy-course rendering matrix passed; repository typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/App.tsx`, `app/studio/src/lib/review-set.ts`, `app/server/lib/preview-capture.ts`, `app/server/lib/preview-runtime-relay.ts`, and `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`.
+- Preserved boundary: no learner-course artifact changed; Review Set evidence remained temporary and generated course workspaces remained non-canonical.
+- Next command at archival time: `npm run studio:codex`.

@@ -164,7 +164,7 @@ export const DEVICE_PRESETS: Record<DeviceMode, { label: string; width: string }
 };
 
 export const DEFAULT_LAYOUT_PREFERENCES: PreviewLayoutPreferences = {
-  compareMode: true,
+  compareMode: false,
   sidebarOpen: true,
   inspectorOpen: false,
   devices: {

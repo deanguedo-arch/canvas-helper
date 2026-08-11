@@ -196,6 +196,30 @@ test("@inspection annotation rail hides the technical dashboard panels", async (
   await expect(page.getByRole("heading", { name: "Source Files" })).toHaveCount(0);
 });
 
+test("@inspection Assessments is a separate workspace and preserves a paused course draft", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await page.getByTestId("inspection-teacher-note").fill("Keep this unfinished note when I check assessments.");
+
+  await page.getByTestId("assessment-studio-tab").click();
+  await expect(page.getByRole("region", { name: "Course preview controls" })).toHaveCount(0);
+  await expect(page.getByTestId("inspect-toggle")).toHaveCount(0);
+  await expect(page.getByRole("heading", { name: "Assessment Library", exact: true })).toBeVisible();
+
+  await page.getByTestId("course-studio-tab").click();
+  await expect(page.getByTestId("inspect-toggle")).toHaveText("Annotate");
+  await expect(page.getByTestId("inspection-panel")).toContainText("Draft paused");
+  await expect(page.getByTestId("inspection-teacher-note")).toHaveValue(
+    "Keep this unfinished note when I check assessments."
+  );
+  await expect(workspaceFrame.locator("html")).not.toHaveAttribute("data-canvas-helper-inspect-active", "true");
+});
+
 test("@inspection Review Set automatically prepares multiple annotations for one copy", async ({ page }) => {
   await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
   await openProjectInStudio(page, "e2e-fixture");

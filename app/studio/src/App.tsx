@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } fr
 
 import { CommandToolbar } from "./components/CommandToolbar";
 import { AnnotationModeBar } from "./components/AnnotationModeBar";
+import { CourseToolbar } from "./components/CourseToolbar";
 import { InspectorPanel } from "./components/InspectorPanel";
 import { PreviewPane } from "./components/PreviewPane";
 import { ReferencePicker } from "./components/ReferencePicker";
@@ -180,6 +181,7 @@ export function App() {
 
   const [workspaceHtmlSelections, setWorkspaceHtmlSelections] = useState<Record<string, string>>({});
   const [studioMode, setStudioMode] = useState<"course" | "assessment">("course");
+  const [toolsOpen, setToolsOpen] = useState(false);
   const [inspectEnabled, setInspectEnabled] = useState(false);
   const [inspectionResolution, setInspectionResolution] = useState<InspectionResolution | null>(null);
   const [inspectionRequest, setInspectionRequest] = useState<InspectionResolveRequest | null>(null);
@@ -539,9 +541,6 @@ export function App() {
     onInspectSelection: (mode, selection, source) => void resolveInspection(mode, selection, source),
     onInspectModeChange: (enabled) => {
       setInspectEnabled(enabled);
-      if (!enabled) {
-        resetInspection(true);
-      }
     },
     onPreviewNavigation: (mode) => {
       if (mode === "workspace") {
@@ -558,8 +557,7 @@ export function App() {
   const stopAnnotationMode = useCallback(() => {
     setPreviewInspectMode(false);
     setInspectEnabled(false);
-    resetInspection(true);
-  }, [resetInspection, setPreviewInspectMode]);
+  }, [setPreviewInspectMode]);
 
   useEffect(() => {
     if (!inspectEnabled) {
@@ -1315,37 +1313,92 @@ export function App() {
     }));
   };
 
+  const handleWorkspaceProjectChange = (slug: string) => {
+    if (!confirmReviewSetScopeChange(slug, "workspace")) {
+      return;
+    }
+    persistAllVisibleScrollPositions();
+    resetInspection(true);
+    setSelectedSlug(slug);
+  };
+
+  const handleWorkspaceHtmlChange = (htmlPath: string) => {
+    resetInspection(true);
+    setWorkspaceHtmlSelections((current) => ({
+      ...current,
+      [selectedSlug]: htmlPath
+    }));
+  };
+
+  const handleStudioModeChange = (nextMode: "course" | "assessment") => {
+    if (nextMode === studioMode) return;
+    if (nextMode === "assessment" && inspectEnabled) {
+      stopAnnotationMode();
+    }
+    setStudioMode(nextMode);
+  };
+
+  const toggleAnnotationMode = () => {
+    if (inspectEnabled) {
+      stopAnnotationMode();
+      return;
+    }
+    if (previewMode !== "workspace") {
+      handlePreviewModeChange("workspace");
+    }
+    setPreviewInspectMode(true);
+    setInspectEnabled(true);
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+  };
+
+  const workspacePicker = selectedProject ? (
+    <WorkspacePicker
+      selectedSlug={selectedSlug}
+      projects={projects}
+      resolvedWorkspaceHtmlPath={resolvedWorkspaceHtmlPath}
+      workspaceFileOptions={selectedProject.htmlFiles.workspace}
+      onProjectChange={handleWorkspaceProjectChange}
+      onHtmlChange={handleWorkspaceHtmlChange}
+      onRefresh={() => void refreshProjects()}
+    />
+  ) : null;
+
   return (
     <div className="shell" data-testid="studio-shell">
       <main className="main-panel">
         <Topbar
-          layoutPreferences={layoutPreferences}
-          previewMode={previewMode}
-          learnerMode={learnerModeDisplay}
-          onSetCompareMode={setCompareMode}
-          onSetPreviewMode={handlePreviewModeChange}
-          onToggleInspector={() =>
-            setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }))
-          }
-          inspectEnabled={inspectEnabled}
-          onToggleInspect={() => {
-            const nextEnabled = !inspectEnabled;
-            if (!nextEnabled) {
-              stopAnnotationMode();
-              return;
-            }
-            if (previewMode !== "workspace") {
-              handlePreviewModeChange("workspace");
-            }
-            setPreviewInspectMode(true);
-            setInspectEnabled(true);
-            setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
-          }}
-          inspectAvailable={Boolean(previewOrigin)}
-          hasWorkspacePreview={Boolean(previewSources.workspace)}
-          workspacePreviewHref={previewSources.workspace}
-          onOpenWorkspacePreview={handleOpenWorkspacePreview}
+          studioMode={studioMode}
+          projects={projects}
+          selectedSlug={selectedSlug}
+          previewConnected={Boolean(previewOrigin)}
+          onStudioModeChange={handleStudioModeChange}
+          onProjectChange={handleWorkspaceProjectChange}
         />
+
+        {studioMode === "course" ? (
+          <CourseToolbar
+            picker={workspacePicker}
+            layoutPreferences={layoutPreferences}
+            previewMode={previewMode}
+            learnerMode={learnerModeDisplay}
+            inspectEnabled={inspectEnabled}
+            inspectAvailable={Boolean(previewOrigin)}
+            hasWorkspacePreview={Boolean(previewSources.workspace)}
+            workspacePreviewHref={previewSources.workspace}
+            reviewSetCount={reviewSetItems.length}
+            toolsOpen={toolsOpen}
+            onSetCompareMode={setCompareMode}
+            onSetPreviewMode={handlePreviewModeChange}
+            onDeviceChange={handleDeviceChange}
+            onZoomChange={handleZoomChange}
+            onToggleInspect={toggleAnnotationMode}
+            onToggleInspector={() =>
+              setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }))
+            }
+            onToggleTools={() => setToolsOpen((current) => !current)}
+            onOpenWorkspacePreview={handleOpenWorkspacePreview}
+          />
+        ) : null}
 
         {inspectEnabled && studioMode === "course" ? (
           <AnnotationModeBar
@@ -1362,30 +1415,32 @@ export function App() {
         {errorMessage ? <div className="error-banner">{errorMessage}</div> : null}
         {previewError ? <div className="error-banner">{previewError}</div> : null}
 
-        <div className="studio-mode-switch" role="tablist" aria-label="Studio mode" data-testid="studio-mode-switch">
-          <button
-            type="button"
-            className={studioMode === "course" ? "active" : ""}
-            onClick={() => setStudioMode("course")}
-            data-testid="course-studio-tab"
-          >
-            Course Studio
-          </button>
-          <button
-            type="button"
-            className={studioMode === "assessment" ? "active" : ""}
-            onClick={() => setStudioMode("assessment")}
-            data-testid="assessment-studio-tab"
-          >
-            Assessment Library
-          </button>
-        </div>
-
         {studioMode === "assessment" ? (
           <AssessmentLibraryMode />
         ) : (
           <div className={layoutPreferences.inspectorOpen ? "workspace-grid inspector-open" : "workspace-grid"}>
             <section className="preview-workspace" data-testid="preview-workspace">
+              {toolsOpen && selectedProject ? (
+                <section className="course-tools-panel" id="course-tools-panel" aria-label="Course tools">
+                  <div className="course-tools-heading">
+                    <div>
+                      <strong>Course tools</strong>
+                      <span>Run project checks and exports when you need them.</span>
+                    </div>
+                    <button type="button" className="ghost-button compact" onClick={() => setToolsOpen(false)}>Close</button>
+                  </div>
+                  <CommandToolbar
+                    commandStatus={commandStatus}
+                    commandOutputVisible={commandOutputVisible}
+                    commandBanner={commandBanner}
+                    commandBannerIsError={commandBannerIsError}
+                    commandLog={commandLog}
+                    anyCommandRunning={anyCommandRunning}
+                    onRunCommand={(command) => void runProjectCommand(command)}
+                    onToggleOutput={() => setCommandOutputVisible((current) => !current)}
+                  />
+                </section>
+              ) : null}
               {selectedProject ? (
                 <div
                   className={layoutPreferences.compareMode ? "preview-deck split" : "preview-deck focus"}
@@ -1485,44 +1540,7 @@ export function App() {
                               }}
                               onRefreshIntake={() => void refreshIncoming()}
                             />
-                          ) : (
-                            <WorkspacePicker
-                              selectedSlug={selectedSlug}
-                              projects={projects}
-                              resolvedWorkspaceHtmlPath={resolvedWorkspaceHtmlPath}
-                              workspaceFileOptions={selectedProject.htmlFiles.workspace}
-                              onProjectChange={(slug) => {
-                                if (!confirmReviewSetScopeChange(slug, "workspace")) {
-                                  return;
-                                }
-                                persistAllVisibleScrollPositions();
-                                resetInspection(true);
-                                setSelectedSlug(slug);
-                              }}
-                              onHtmlChange={(htmlPath) => {
-                                resetInspection(true);
-                                setWorkspaceHtmlSelections((current) => ({
-                                  ...current,
-                                  [selectedSlug]: htmlPath
-                                }));
-                              }}
-                              onRefresh={() => void refreshProjects()}
-                            />
-                          )
-                        }
-                        toolbar={
-                          mode === "workspace" ? (
-                            <CommandToolbar
-                              commandStatus={commandStatus}
-                              commandOutputVisible={commandOutputVisible}
-                              commandBanner={commandBanner}
-                              commandBannerIsError={commandBannerIsError}
-                              commandLog={commandLog}
-                              anyCommandRunning={anyCommandRunning}
-                              onRunCommand={(command) => void runProjectCommand(command)}
-                              onToggleOutput={() => setCommandOutputVisible((current) => !current)}
-                            />
-                          ) : undefined
+                          ) : null
                         }
                         resourcePreview={resourcePreview}
                       />

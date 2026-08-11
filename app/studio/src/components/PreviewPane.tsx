@@ -16,8 +16,7 @@ type PreviewPaneProps = {
   registerPreviewFrame: (mode: PreviewMode, node: HTMLIFrameElement | null) => void;
   onPreviewLoad: (mode: PreviewMode) => void;
   previewSrc: string;
-  picker: ReactNode;
-  toolbar?: ReactNode;
+  picker?: ReactNode;
   resourcePreview?: {
     resourcePath: string;
     resourceRoot: "raw" | "extracted";
@@ -42,7 +41,6 @@ export function PreviewPane({
   onPreviewLoad,
   previewSrc,
   picker,
-  toolbar,
   resourcePreview
 }: PreviewPaneProps) {
   const devicePreset = DEVICE_PRESETS[layoutPreferences.devices[mode]];
@@ -52,7 +50,7 @@ export function PreviewPane({
     "--zoom-scale": String(zoomScale)
   } as CSSProperties;
 
-  const title = mode === "workspace" ? "Workspace" : "Reference";
+  const title = mode === "workspace" ? "Current course" : "Original reference";
   const resourceRenderMode = resourcePreview
     ? getReferenceResourceRenderMode(resourcePreview.resourcePath, resourcePreview.resourceRoot)
     : "fallback";
@@ -215,7 +213,6 @@ export function PreviewPane({
         )}
       </div>
 
-      {toolbar}
     </article>
   );
 }

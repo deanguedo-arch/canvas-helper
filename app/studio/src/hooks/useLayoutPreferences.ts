@@ -8,8 +8,8 @@ export function useLayoutPreferences() {
     loadPreviewLayoutPreferences()
   );
   const [paneControlsVisible, setPaneControlsVisible] = useState<Record<PreviewMode, boolean>>({
-    reference: true,
-    workspace: true
+    reference: false,
+    workspace: false
   });
 
   useEffect(() => {
