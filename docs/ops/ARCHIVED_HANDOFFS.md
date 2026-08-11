@@ -8173,3 +8173,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `app/studio/src/App.tsx`, `app/studio/src/hooks/usePreviewScrollSync.ts`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
 - Preserved boundary: no learner-course artifact changed; Review Set ownership stayed with the original Studio tab and connected previews retained the private exact-origin bridge.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-09: Review Set V2 screenshot paths
+
+- Project: `repo-wide`.
+- Task: Include several marked screenshots in one Studio Review Set handoff for Codex.
+- Status: complete on `codex/studio-workflow-v2`; superseded by the course-only persistent Annotation Workflow V3.
+- Verification: 35 focused inspection tests, Studio build, 13 inspection E2E tests, smoke E2E, and diff checks passed; typecheck retained only established unrelated baseline errors.
+- Source of truth at archival time: `app/studio/src/App.tsx`, `app/studio/src/hooks/useScreenshotAnnotation.ts`, `app/studio/src/lib/review-set.ts`, `app/server/lib/review-screenshots.ts`, and `app/server/routes/review-screenshots.ts`.
+- Preserved boundary: no learner-course artifact changed; Review Set V2 kept at most one consent-based browser-tab screenshot per annotation and copied only safe local PNG paths.
+- Known limitation at archival time: metadata was memory-only and disappeared on Studio reload; screenshot capture used the browser's tab-sharing picker.
+- Next command at archival time: `npm run studio:codex`.

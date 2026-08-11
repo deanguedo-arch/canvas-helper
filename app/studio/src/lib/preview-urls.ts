@@ -2,7 +2,10 @@ import type { PreviewRoot, ReferenceTarget } from "./types";
 
 export type PreviewUrlOptions = {
   origin?: string;
+  capabilityToken?: string;
 };
+
+const SAFE_PREVIEW_CAPABILITY = /^[A-Za-z0-9-]{16,80}$/;
 
 export function uniqueStrings(values: Array<string | undefined>) {
   const seen = new Set<string>();
@@ -46,11 +49,14 @@ export function toReferenceOptionPath(filePath: string | undefined, rootPrefix: 
 }
 
 function withPreviewOrigin(pathname: string, options: PreviewUrlOptions) {
+  const capabilityPath = options.capabilityToken && SAFE_PREVIEW_CAPABILITY.test(options.capabilityToken)
+    ? `/_canvas-helper/p/${options.capabilityToken}${pathname}`
+    : pathname;
   if (!options.origin) {
-    return pathname;
+    return capabilityPath;
   }
 
-  return new URL(pathname, options.origin).toString();
+  return new URL(capabilityPath, options.origin).toString();
 }
 
 function previewQuery(rev: number, options: PreviewUrlOptions) {

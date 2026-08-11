@@ -1,8 +1,8 @@
 # Studio Workflow V2: focused course-change loop
 
-- Status: implemented and locally verified on `codex/studio-workflow-v2`.
+- Status: implemented and superseded by the persistent annotation workflow in `docs/plans/2026-08-09-studio-annotation-workflow-v3.md`.
 - Scope: make the existing side-by-side Studio more useful for the real teacher → ChatGPT adviser → Codex implementer loop, without changing learner-course content or adding API model calls.
-- Explicitly out of scope: a Social 10 ownership adapter, a Science factory, persistent handoff history, full DevTools console capture, automatic edits, or automatic model submission.
+- Explicitly out of scope: a Social 10 ownership adapter, a Science factory, permanent handoff history, full DevTools console capture, automatic edits, or automatic model submission.
 
 ## Decision
 
@@ -41,18 +41,18 @@ The visible workflow stays deliberately small and evidence-led:
 
 ### Standalone preview exit
 
-- **Open preview** opens the workspace in a separate tab so Studio remains available for inspection and handoff work.
-- The isolated bridge injects a plain **Return to Studio** control only when the preview is the top-level page and never inside Studio's embedded iframe.
+- **Open preview** opens a trusted Studio-origin host in a separate tab so Studio remains available for inspection and handoff work; the course stays inside a capability-scoped cross-origin iframe.
+- The host bridge renders a plain **Return to Studio** control at the top level and never injects it into the course iframe.
 - When connected, the control asks the existing Studio session to focus and closes the auxiliary preview tab. This preserves the Studio-owned temporary Review Set across repeated preview open/return cycles without persistent browser storage.
 - A directly opened preview has no Studio session to preserve, so its return control falls back to navigating to the trusted Studio origin.
 
 ### Standalone mini inspector
 
-- The full-page preview includes **Inspect**, a collapsible shared **Review Set**, and **Return to Studio**.
+- The full-page host includes **Annotate**, a collapsible shared **Review Set**, and **Return to Studio**.
 - A teacher can select, write a note, save, edit, remove, clear, and copy without leaving the full preview.
-- Every action travels over a one-time-token private `MessageChannel` into the same Studio-owned resolver and Review Set used by the embedded preview.
-- The early-injected preview bridge transfers its channel only to the exact Studio origin, clears the popup opener before course scripts execute, and never exposes the preview DOM to Studio.
-- A preview opened directly can highlight an element locally, but it cannot claim or write into a Studio session.
+- Every action travels over a private `MessageChannel` into the same Studio-owned resolver and Review Set used by the embedded preview. One-time bootstrap and bounded rejoin tokens preserve the connection after Studio reload.
+- The trusted host retains only the exact Studio `WindowProxy` needed for bounded rejoin; the cross-origin course receives neither that opener nor the Studio channel, and Studio never reads the course DOM.
+- An unscoped or directly opened course URL cannot claim a Studio session or read another project's preview capability.
 
 ## Red-team / green-team boundaries
 

@@ -18,7 +18,10 @@ function requestFor(slug: string, nodeId: string): InspectionResolveRequest {
       tagName: "h1",
       role: "",
       testId: "",
-      geometry: { x: 0, y: 0, width: 120, height: 24 }
+      geometry: { x: 0, y: 0, width: 120, height: 24 },
+      viewport: { width: 1280, height: 720 },
+      scroll: { windowTop: 0, windowLeft: 0, containers: [] },
+      pageHref: `http://127.0.0.1:61234/preview/workspace/${slug}/index.html`
     }
   };
 }

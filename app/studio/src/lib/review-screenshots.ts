@@ -1,4 +1,8 @@
-import { REVIEW_SCREENSHOT_MAX_BYTES } from "../../../shared/inspection.js";
+import {
+  REVIEW_SCREENSHOT_MAX_BYTES,
+  REVIEW_SCREENSHOT_MAX_DIMENSION,
+  REVIEW_SCREENSHOT_MAX_PIXELS
+} from "../../../shared/inspection.js";
 
 export type PersistedReviewScreenshot = {
   path: string;
@@ -6,6 +10,28 @@ export type PersistedReviewScreenshot = {
   width: number;
   height: number;
 };
+
+export type ReviewScreenshotOwner = {
+  sessionId: string;
+  projectSlug: string;
+  itemId: string;
+  ownerNodeId: string;
+};
+
+export type OwnedReviewScreenshotPath = ReviewScreenshotOwner & {
+  repoRelativePath: string;
+};
+
+const SAFE_REVIEW_SCREENSHOT_PATH = /^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/;
+const SAFE_REVIEW_SCREENSHOT_SESSION = /^[A-Za-z0-9-]{16,80}$/;
+
+export function isReviewScreenshotPath(value: unknown): value is string {
+  return typeof value === "string" && SAFE_REVIEW_SCREENSHOT_PATH.test(value);
+}
+
+export function isReviewScreenshotSessionId(value: unknown): value is string {
+  return typeof value === "string" && SAFE_REVIEW_SCREENSHOT_SESSION.test(value);
+}
 
 export function createReviewScreenshotSessionId() {
   if (typeof window.crypto.randomUUID === "function") {
@@ -21,7 +47,7 @@ function isPersistedReviewScreenshot(value: unknown): value is PersistedReviewSc
   const result = value as Record<string, unknown>;
   return (
     typeof result.path === "string" &&
-    /^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/.test(result.path) &&
+    isReviewScreenshotPath(result.path) &&
     typeof result.byteLength === "number" &&
     Number.isInteger(result.byteLength) &&
     result.byteLength > 0 &&
@@ -29,16 +55,41 @@ function isPersistedReviewScreenshot(value: unknown): value is PersistedReviewSc
     typeof result.width === "number" &&
     Number.isInteger(result.width) &&
     result.width > 0 &&
+    result.width <= REVIEW_SCREENSHOT_MAX_DIMENSION &&
     typeof result.height === "number" &&
     Number.isInteger(result.height) &&
-    result.height > 0
+    result.height > 0 &&
+    result.height <= REVIEW_SCREENSHOT_MAX_DIMENSION &&
+    result.width * result.height <= REVIEW_SCREENSHOT_MAX_PIXELS
   );
+}
+
+export function reviewScreenshotImageUrl(filePath: string, owner: ReviewScreenshotOwner) {
+  if (
+    !isReviewScreenshotPath(filePath) ||
+    !isReviewScreenshotSessionId(owner.sessionId) ||
+    !owner.projectSlug ||
+    !owner.itemId ||
+    !owner.ownerNodeId
+  ) {
+    throw new Error("Screenshot path is not a safe Review Set image path.");
+  }
+  const params = new URLSearchParams({
+    path: filePath,
+    sessionId: owner.sessionId,
+    projectSlug: owner.projectSlug,
+    itemId: owner.itemId,
+    ownerNodeId: owner.ownerNodeId
+  });
+  return `/api/inspection/screenshots?${params.toString()}`;
 }
 
 export async function persistReviewScreenshot(input: {
   sessionId: string;
   projectSlug: string;
   itemId: string;
+  screenshotId: string;
+  ownerNodeId: string;
   png: Blob;
 }) {
   if (input.png.type !== "image/png" || input.png.size <= 0 || input.png.size > REVIEW_SCREENSHOT_MAX_BYTES) {
@@ -50,7 +101,9 @@ export async function persistReviewScreenshot(input: {
       "Content-Type": "image/png",
       "X-Canvas-Helper-Review-Session": input.sessionId,
       "X-Canvas-Helper-Project": input.projectSlug,
-      "X-Canvas-Helper-Review-Item": input.itemId
+      "X-Canvas-Helper-Review-Item": input.itemId,
+      "X-Canvas-Helper-Review-Screenshot": input.screenshotId,
+      "X-Canvas-Helper-Inspection-Node": input.ownerNodeId
     },
     body: input.png
   });
@@ -59,4 +112,43 @@ export async function persistReviewScreenshot(input: {
     throw new Error("Canvas Helper could not keep this screenshot with the Review Set.");
   }
   return payload;
+}
+
+export async function verifyReviewScreenshots(input: {
+  sessionId: string;
+  projectSlug: string;
+  itemId: string;
+  ownerNodeId: string;
+  paths: string[];
+}) {
+  const response = await fetch("/api/inspection/screenshots/verify", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(input)
+  });
+  const payload = await response.json().catch(() => null) as { screenshots?: unknown[]; error?: string } | null;
+  if (
+    !response.ok ||
+    !payload ||
+    !Array.isArray(payload.screenshots) ||
+    payload.screenshots.length !== input.paths.length ||
+    !payload.screenshots.every(isPersistedReviewScreenshot)
+  ) {
+    throw new Error(payload?.error || "Canvas Helper could not verify the saved screenshots.");
+  }
+  return payload.screenshots as PersistedReviewScreenshot[];
+}
+
+export async function deleteReviewScreenshotPaths(screenshots: OwnedReviewScreenshotPath[]) {
+  if (!screenshots.length) {
+    return;
+  }
+  const response = await fetch("/api/inspection/screenshots", {
+    method: "DELETE",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ screenshots })
+  });
+  if (!response.ok) {
+    throw new Error("Canvas Helper could not reclaim the removed screenshots yet.");
+  }
 }

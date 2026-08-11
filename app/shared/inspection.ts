@@ -1,10 +1,16 @@
-import type { PreviewGeometry } from "./preview-bridge.js";
+import {
+  PREVIEW_REVIEW_MAX_SCREENSHOTS,
+  type PreviewGeometry,
+  type PreviewScrollState,
+  type PreviewViewport
+} from "./preview-bridge.js";
 
-export const INSPECTION_PACKET_MAX_BYTES = 5_120;
+export const INSPECTION_PACKET_MAX_BYTES = 7_500;
 export const REVIEW_SCREENSHOT_MAX_BYTES = 5 * 1024 * 1024;
 export const REVIEW_SCREENSHOT_MAX_DIMENSION = 8_192;
 export const REVIEW_SCREENSHOT_MAX_PIXELS = 32_000_000;
-export const REVIEW_SCREENSHOT_MAX_FILES_PER_SESSION = 5;
+export const REVIEW_SCREENSHOT_MAX_PER_ITEM = PREVIEW_REVIEW_MAX_SCREENSHOTS;
+export const REVIEW_SCREENSHOT_MAX_FILES_PER_SESSION = 15;
 export const INSPECTION_ISSUE_CATEGORIES = ["content", "layout", "interaction", "accessibility", "unsure"] as const;
 
 export type InspectionIssueCategory = (typeof INSPECTION_ISSUE_CATEGORIES)[number];
@@ -20,6 +26,9 @@ export type InspectionSelection = {
   role: string;
   testId: string;
   geometry: PreviewGeometry;
+  viewport: PreviewViewport;
+  scroll: PreviewScrollState;
+  pageHref: string;
 };
 
 export type InspectionResolveRequest = {

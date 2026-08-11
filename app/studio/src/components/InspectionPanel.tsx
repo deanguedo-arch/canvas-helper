@@ -1,5 +1,5 @@
 import type { InspectionResolution } from "../../../shared/inspection.js";
-import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
+import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
 import { ScreenshotAnnotation } from "./ScreenshotAnnotation";
 
 type InspectionPanelProps = {
@@ -13,13 +13,12 @@ type InspectionPanelProps = {
   screenshotCanCapture: boolean;
   screenshotStatus: "idle" | "capturing" | "ready" | "error";
   screenshotError: string;
-  screenshot: ScreenshotAnnotationState | null;
+  screenshots: ScreenshotDraft[];
   onTeacherNoteChange: (value: string) => void;
   onSave: () => void;
   onCaptureScreenshot: () => void;
-  onScreenshotMarkerChange: (marker: AnnotationRect) => void;
-  onDownloadScreenshot: () => void;
-  onDiscardScreenshot: () => void;
+  onDownloadScreenshot: (id: string) => void;
+  onDiscardScreenshot: (id: string) => void;
 };
 
 function selectionLabel(resolution: InspectionResolution) {
@@ -38,11 +37,10 @@ export function InspectionPanel({
   screenshotCanCapture,
   screenshotStatus,
   screenshotError,
-  screenshot,
+  screenshots,
   onTeacherNoteChange,
   onSave,
   onCaptureScreenshot,
-  onScreenshotMarkerChange,
   onDownloadScreenshot,
   onDiscardScreenshot
 }: InspectionPanelProps) {
@@ -51,12 +49,12 @@ export function InspectionPanel({
       <div className="section-header">
         <h3>New annotation</h3>
         <span className={inspectEnabled ? "inspection-state enabled" : "inspection-state"}>
-          {inspectEnabled ? "Inspect on" : "Inspect off"}
+          {inspectEnabled ? "Annotating" : "Off"}
         </span>
       </div>
 
       {!inspectEnabled ? (
-        <p className="empty-state">Turn on Inspect, then click anything in the course preview.</p>
+        <p className="empty-state">Turn on Annotate, then click an element or drag over an area in the course.</p>
       ) : null}
       {resolving ? <p className="empty-state" role="status">Getting your selection ready…</p> : null}
 
@@ -92,7 +90,7 @@ export function InspectionPanel({
           </div>
 
           <div className="inspection-screenshot-option">
-            <span>Add a screenshot (optional)</span>
+            <span>Add screenshots (optional)</span>
             <div className="inspection-capture">
               <button
                 type="button"
@@ -101,17 +99,16 @@ export function InspectionPanel({
                 onClick={onCaptureScreenshot}
                 data-testid="capture-annotated-screenshot"
               >
-                {screenshotStatus === "capturing" ? "Waiting for tab…" : "Screenshot + annotate"}
+                {screenshotStatus === "capturing" ? "Capturing course…" : "Capture screenshot"}
               </button>
-              <span>Choose this Studio tab. Save the annotation to include its screenshot, then repeat for other items.</span>
+              <span>Captures only this course preview and marks the selected area. You can attach up to three.</span>
             </div>
           </div>
           {!screenshotSupported ? <p className="inspection-warning">Screenshots are not available in this browser.</p> : null}
           {screenshotError ? <p className="inspection-warning">{screenshotError}</p> : null}
-          {screenshot ? (
+          {screenshots.length ? (
             <ScreenshotAnnotation
-              annotation={screenshot}
-              onMarkerChange={onScreenshotMarkerChange}
+              drafts={screenshots}
               onDownload={onDownloadScreenshot}
               onDiscard={onDiscardScreenshot}
             />

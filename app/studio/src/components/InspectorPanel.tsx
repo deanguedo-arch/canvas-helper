@@ -1,5 +1,5 @@
 import type { InspectionResolution } from "../../../shared/inspection.js";
-import type { AnnotationRect, ScreenshotAnnotation as ScreenshotAnnotationState } from "../hooks/useScreenshotAnnotation";
+import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
 import type { ReviewSetItem } from "../lib/review-set";
 import { InspectionPanel } from "./InspectionPanel";
 import { ReviewSetPanel } from "./ReviewSetPanel";
@@ -13,25 +13,29 @@ type InspectorPanelProps = {
   screenshotCanCapture: boolean;
   screenshotStatus: "idle" | "capturing" | "ready" | "error";
   screenshotError: string;
-  screenshot: ScreenshotAnnotationState | null;
+  screenshots: ScreenshotDraft[];
   onInspectionTeacherNoteChange: (value: string) => void;
   onSaveCurrentInspection: () => void;
   reviewSetCanAddCurrent: boolean;
   reviewSetAddDisabledReason: string;
   onCaptureScreenshot: () => void;
-  onScreenshotMarkerChange: (marker: AnnotationRect) => void;
-  onDownloadScreenshot: () => void;
-  onDiscardScreenshot: () => void;
+  onDownloadScreenshot: (id: string) => void;
+  onDiscardScreenshot: (id: string) => void;
   reviewSetItems: ReviewSetItem[];
   reviewSetStatus: string;
   reviewSetPreparing: boolean;
   reviewSetPacketReady: boolean;
   reviewSetPacketError: string;
   reviewSetCopyStatus: string;
+  reviewSetManualPacket: string;
+  reviewSetPersistenceError: string;
+  reviewSetCaptureItemId: string;
   onClearReviewSet: () => void;
   onRemoveReviewSetItem: (id: string) => void;
+  onFocusReviewSetItem: (id: string) => void;
   onReviewSetTeacherNoteChange: (id: string, value: string) => void;
-  onRemoveReviewSetScreenshot: (id: string) => void;
+  onAddReviewSetScreenshot: (id: string) => void;
+  onRemoveReviewSetScreenshot: (itemId: string, screenshotId: string) => void;
   onCopyReviewSet: () => void;
 };
 
@@ -44,13 +48,12 @@ export function InspectorPanel({
   screenshotCanCapture,
   screenshotStatus,
   screenshotError,
-  screenshot,
+  screenshots,
   onInspectionTeacherNoteChange,
   onSaveCurrentInspection,
   reviewSetCanAddCurrent,
   reviewSetAddDisabledReason,
   onCaptureScreenshot,
-  onScreenshotMarkerChange,
   onDownloadScreenshot,
   onDiscardScreenshot,
   reviewSetItems,
@@ -59,9 +62,14 @@ export function InspectorPanel({
   reviewSetPacketReady,
   reviewSetPacketError,
   reviewSetCopyStatus,
+  reviewSetManualPacket,
+  reviewSetPersistenceError,
+  reviewSetCaptureItemId,
   onClearReviewSet,
   onRemoveReviewSetItem,
+  onFocusReviewSetItem,
   onReviewSetTeacherNoteChange,
+  onAddReviewSetScreenshot,
   onRemoveReviewSetScreenshot,
   onCopyReviewSet
 }: InspectorPanelProps) {
@@ -78,11 +86,10 @@ export function InspectorPanel({
         screenshotCanCapture={screenshotCanCapture}
         screenshotStatus={screenshotStatus}
         screenshotError={screenshotError}
-        screenshot={screenshot}
+        screenshots={screenshots}
         onTeacherNoteChange={onInspectionTeacherNoteChange}
         onSave={onSaveCurrentInspection}
         onCaptureScreenshot={onCaptureScreenshot}
-        onScreenshotMarkerChange={onScreenshotMarkerChange}
         onDownloadScreenshot={onDownloadScreenshot}
         onDiscardScreenshot={onDiscardScreenshot}
       />
@@ -93,9 +100,14 @@ export function InspectorPanel({
         packetReady={reviewSetPacketReady}
         packetError={reviewSetPacketError}
         copyStatus={reviewSetCopyStatus}
+        manualPacket={reviewSetManualPacket}
+        persistenceError={reviewSetPersistenceError}
+        captureItemId={reviewSetCaptureItemId}
         onClear={onClearReviewSet}
         onRemove={onRemoveReviewSetItem}
+        onFocus={onFocusReviewSetItem}
         onTeacherNoteChange={onReviewSetTeacherNoteChange}
+        onAddScreenshot={onAddReviewSetScreenshot}
         onRemoveScreenshot={onRemoveReviewSetScreenshot}
         onCopy={onCopyReviewSet}
       />

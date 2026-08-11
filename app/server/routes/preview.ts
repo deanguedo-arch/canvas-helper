@@ -11,9 +11,17 @@ import {
   decoratePreviewHtmlBuffer,
   injectPreviewBridgeScript
 } from "../lib/preview-inspection";
+import {
+  MAX_PREVIEW_LOCAL_SCRIPT_PARSE_BYTES,
+  rewritePreviewHtmlRuntimeScripts,
+  rewritePreviewRuntimeJavaScript,
+  type PreviewRuntimeSourceRegistrar
+} from "../lib/preview-runtime-relay";
 
 export type PreviewRouteOptions = {
   bridgeScriptPath?: string;
+  publicPathPrefix?: string;
+  registerRuntimeSource?: PreviewRuntimeSourceRegistrar;
 };
 
 function escapeHtml(value: string) {
@@ -254,7 +262,41 @@ function decorateHtmlResponse(
     return body;
   }
 
-  return Buffer.from(injectPreviewBridgeScript(decoration.html, scriptSource), "utf8");
+  const withBridge = injectPreviewBridgeScript(decoration.html, scriptSource);
+  const withCompatibleRuntime = options.publicPathPrefix
+    ? rewritePreviewHtmlRuntimeScripts(
+        withBridge,
+        options.publicPathPrefix,
+        options.registerRuntimeSource
+      )
+    : withBridge;
+  return Buffer.from(withCompatibleRuntime, "utf8");
+}
+
+function decorateJavaScriptResponse(
+  body: Buffer,
+  filePath: string,
+  contentType: string,
+  options: PreviewRouteOptions
+) {
+  if (
+    !options.publicPathPrefix ||
+    body.length > MAX_PREVIEW_LOCAL_SCRIPT_PARSE_BYTES ||
+    detectBomCharset(body).startsWith("utf-16") ||
+    !/\.(?:c?js|mjs|jsx)$/i.test(filePath) ||
+    !/(?:javascript|ecmascript)/i.test(contentType)
+  ) {
+    return body;
+  }
+  return Buffer.from(
+    rewritePreviewRuntimeJavaScript(
+      body.toString("utf8"),
+      options.publicPathPrefix,
+      undefined,
+      options.registerRuntimeSource
+    ),
+    "utf8"
+  );
 }
 
 export async function handlePreviewRoutes(
@@ -263,6 +305,7 @@ export async function handlePreviewRoutes(
   response: ServerResponse,
   options: PreviewRouteOptions = {}
 ) {
+  const headOnly = (request.method || "GET").toUpperCase() === "HEAD";
   const previewMatch = url.match(/^\/preview\/(raw|workspace)\/([^/]+)(?:\/(.*))?$/);
   const referencePreviewMatch = url.match(/^\/preview\/references\/(raw|extracted)\/([^/]+)(?:\/(.*))?$/);
 
@@ -271,7 +314,7 @@ export async function handlePreviewRoutes(
     const queryIndex = originalUrl.indexOf("?");
     const querySuffix = queryIndex >= 0 ? originalUrl.slice(queryIndex) : "";
     response.statusCode = 308;
-    response.setHeader("Location", `${url}/${querySuffix}`);
+    response.setHeader("Location", `${options.publicPathPrefix ?? ""}${url}/${querySuffix}`);
     response.end();
     return true;
   }
@@ -289,6 +332,10 @@ export async function handlePreviewRoutes(
           response.statusCode = 200;
           response.setHeader("Content-Type", "text/html; charset=utf-8");
           response.setHeader("X-Canvas-Helper-Preview-Error", "missing-reference-resource");
+          if (headOnly) {
+            response.end();
+            return true;
+          }
           response.end(decorateHtmlResponse(
             buildMissingReferencePreview({
               slug: referencePreviewMatch[2],
@@ -301,14 +348,30 @@ export async function handlePreviewRoutes(
           return true;
         }
 
-        sendJson(response, 404, { error: "Reference preview file not found." });
+        if (headOnly) {
+          response.statusCode = 404;
+          response.setHeader("Content-Type", "application/json; charset=utf-8");
+          response.end();
+        } else {
+          sendJson(response, 404, { error: "Reference preview file not found." });
+        }
+        return true;
+      }
+
+      if (headOnly) {
+        response.setHeader("Content-Type", resolveContentType(filePath));
+        response.end();
         return true;
       }
 
       const body = await readFile(filePath);
       const contentType = applyDetectedCharset(resolveContentType(filePath), body);
       response.setHeader("Content-Type", contentType);
-      response.end(contentType.startsWith("text/html") ? decorateHtmlResponse(body, request, options) : body);
+      response.end(
+        contentType.startsWith("text/html")
+          ? decorateHtmlResponse(body, request, options)
+          : decorateJavaScriptResponse(body, filePath, contentType, options)
+      );
   } catch {
     sendJson(response, 403, { error: "Invalid reference preview request." });
     }
@@ -332,6 +395,10 @@ export async function handlePreviewRoutes(
         response.statusCode = 200;
         response.setHeader("Content-Type", "text/html; charset=utf-8");
         response.setHeader("X-Canvas-Helper-Preview-Error", "missing-workspace-resource");
+        if (headOnly) {
+          response.end();
+          return true;
+        }
         response.end(decorateHtmlResponse(
           buildMissingWorkspacePreview({
               slug: previewMatch[2],
@@ -343,14 +410,30 @@ export async function handlePreviewRoutes(
         return true;
       }
 
-      sendJson(response, 404, { error: "Preview file not found." });
+      if (headOnly) {
+        response.statusCode = 404;
+        response.setHeader("Content-Type", "application/json; charset=utf-8");
+        response.end();
+      } else {
+        sendJson(response, 404, { error: "Preview file not found." });
+      }
+      return true;
+    }
+
+    if (headOnly) {
+      response.setHeader("Content-Type", resolveContentType(filePath));
+      response.end();
       return true;
     }
 
     const body = await readFile(filePath);
     const contentType = applyDetectedCharset(resolveContentType(filePath), body);
     response.setHeader("Content-Type", contentType);
-    response.end(contentType.startsWith("text/html") ? decorateHtmlResponse(body, request, options) : body);
+    response.end(
+      contentType.startsWith("text/html")
+        ? decorateHtmlResponse(body, request, options)
+        : decorateJavaScriptResponse(body, filePath, contentType, options)
+    );
   } catch {
     sendJson(response, 403, { error: "Invalid preview request." });
   }

@@ -84,9 +84,9 @@ export function Topbar({
           onClick={onToggleInspect}
           disabled={!inspectAvailable}
           data-testid="inspect-toggle"
-          title={inspectAvailable ? "Select a course element and prepare a bounded Codex handoff" : "Starting isolated preview"}
+          title={inspectAvailable ? "Click or drag in the course to collect annotations for Codex" : "Starting isolated preview"}
         >
-          {inspectEnabled ? "Inspecting" : "Inspect"}
+          {inspectEnabled ? "Annotating" : "Annotate"}
         </button>
         {hasWorkspacePreview ? (
           <a

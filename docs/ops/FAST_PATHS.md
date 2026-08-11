@@ -34,22 +34,32 @@ Do not start by searching the whole repo. The shared command contract is the sou
 
 Read first:
 - `app/shared/preview-bridge.ts`
+- `app/shared/preview-path.ts`
 - `app/shared/inspection.ts`
 - `app/server/preview-server.ts`
+- `app/server/lib/preview-runtime-relay.ts`
 - `app/server/lib/preview-inspection.ts`
 - `app/server/routes/inspection.ts`
+- `app/server/lib/preview-capture.ts`
+- `app/server/routes/preview-capture.ts`
+- `app/server/lib/review-screenshots.ts`
+- `app/server/routes/review-screenshots.ts`
 - `app/studio/src/hooks/usePreviewScrollSync.ts`
+- `app/studio/src/hooks/useScreenshotAnnotation.ts`
+- `app/studio/src/lib/review-set-storage.ts`
 - `app/studio/src/components/InspectionPanel.tsx`
 - `app/studio/src/components/ReviewSetPanel.tsx`
 
 Rules:
-- Keep preview on the isolated loopback origin; never restore iframe DOM reads, wildcard messaging, or a same-origin preview shortcut.
+- Keep preview on the isolated loopback origin with one scope-bound capability per project/root. A workspace capability may read only same-project `raw`/`extracted` references; raw/reference capabilities cannot enter a workspace and no capability can cross projects. Every preview resource request must validate that capability; never restore unscoped `/preview/**` access, iframe DOM reads, wildcard messaging, or a same-origin course shortcut.
+- Preserve live course fidelity: allow presentation-only HTTPS styles, fonts, images, media, and frames in the isolated preview CSP. Keep arbitrary external scripts, form submissions, and nonlocal browser data connections blocked. Legacy script/module compatibility belongs only in the capability-scoped runtime relay: use exact versioned library/path/query allowlists, per-capability declared/transitive source binding, JavaScript-only MIME handling, no credentials, revalidated bounded redirects, pinned known unversioned runtimes, bounded concurrency/response/timeout/cache/parser limits, syntax-aware rewriting, and regression tests. Local/reference `HEAD` must exit before reads or transformation, relay `HEAD` must remain cache-only, local scripts over 512 KiB must remain untouched, and approved ESM over 2 MiB must be rejected. Never loosen `script-src` to `https:` or turn the relay into a general proxy.
 - A preview selection is evidence, not source authority. Resolve canonical targets only through the project driver and fail closed as `unknown` when it cannot be proved.
 - Generated Social and English workspaces remain output; packets point to their builder/factory source and rebuild flow.
 - Keep source routes, file paths, commands, packet text, and preview diagnostics out of the normal annotation UI. They remain resolver-owned data inside the copied Review Set packet.
 - Review Set preparation is automatic after each save or note edit. Copy must stay disabled until every saved route has been revalidated against current repository state.
-- A standalone workspace preview must preserve the original Studio session and expose Inspect, the shared Review Set, and the trusted return control only at the top level, never inside the embedded iframe preview. A connected return must signal and close the auxiliary preview so the Studio-owned temporary Review Set survives preview open/close cycles; only a directly opened, disconnected preview may navigate to the trusted Studio origin. The early-injected bridge must clear the popup opener before course scripts execute and use the one-time-token private `MessageChannel`; do not replace it with wildcard messaging, iframe DOM reads, URL-carried selection text, or persistent browser storage.
-- Screenshot capture is explicit Studio-only browser consent. The preview origin must retain `Permissions-Policy: display-capture=()`. Save at most one marked PNG per Review Set item through the bounded exact-origin screenshot route; copied text may contain only its safe `.runtime/studio-review-sets/` path, never pixels, base64, blob URLs, or absolute paths.
+- A standalone workspace preview must preserve the original Studio session and expose Annotate, the shared Review Set, and the trusted return control only in the Studio-origin host, never inside the cross-origin course iframe. Keep one-time bootstrap, bounded reload rejoin, and focus-acknowledgement flows. Do not replace them with wildcard messaging, iframe DOM reads, URL-carried selection text, course-owned opener access, or preview-owned persistent storage.
+- The strict versioned Studio-local Review Set may persist for seven days. Rehydrate only validated source requests and owner-bound `.runtime/studio-review-sets/` paths, restore the saved course scope, fail visibly without throwing when storage is denied, and clear on an approved course switch. Never trust arbitrary local-storage fields as source authority.
+- Screenshot capture must remain deterministic and course-only. Keep `Permissions-Policy: display-capture=()` and never reintroduce `getDisplayMedia`. Validate the exact capability-scoped workspace path plus query/hash identity, invalidate active selections on course navigation, use fresh selected-element geometry, block outside HTTP, WebSocket, WebRTC, service-worker, and dedicated/shared-worker traffic, and verify those guards in the main document plus every runnable local, `about:`, `data:`, or `blob:` child frame. Skip only empty, uncommitted, or browser-generated blocked-error frames so remote-iframe-heavy courses cannot stall capture. Serialize capture with a hard cancellation deadline, and allow no more than three marked PNGs per item and fifteen per active session. Bind display, verify, and delete to the exact session/project/annotation/node owner; retain the global cache ceiling and copy only safe repo-relative paths—never pixels, base64, blob URLs, or absolute paths.
 
 Verification floor:
 - `npm run test:studio-inspection`

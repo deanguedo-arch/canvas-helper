@@ -4,9 +4,13 @@ import {
   PREVIEW_BRIDGE_PROTOCOL,
   PREVIEW_BRIDGE_VERSION,
   PREVIEW_REVIEW_MAX_ITEMS,
+  PREVIEW_REVIEW_MAX_SCREENSHOTS,
   PREVIEW_REVIEW_NOTE_MAX_LENGTH,
   PREVIEW_REVIEW_PACKET_MAX_LENGTH,
   PREVIEW_STANDALONE_BOOTSTRAP_TYPE,
+  PREVIEW_STANDALONE_HOST_BOOTSTRAP_TYPE,
+  PREVIEW_STANDALONE_HOST_REJOIN_TYPE,
+  PREVIEW_STANDALONE_REJOIN_PARAM,
   PREVIEW_STANDALONE_SESSION_PARAM,
   PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH
 } from "../shared/preview-bridge.js";
@@ -16,8 +20,12 @@ import { PREVIEW_INSPECT_NODE_ATTRIBUTE } from "./lib/preview-inspection.js";
  * This runs inside an untrusted course preview. Keep it intentionally small:
  * it reports opaque browser evidence and never knows repository source paths.
  */
-export function buildPreviewBridgeRuntime(studioOrigin: string) {
+export function buildPreviewBridgeRuntime(
+  studioOrigin: string,
+  options: { hostPreviewOrigin?: string } = {}
+) {
   const serializedStudioOrigin = JSON.stringify(studioOrigin);
+  const serializedPreviewOrigin = JSON.stringify(options.hostPreviewOrigin ?? "");
 
   return String.raw`(function canvasHelperPreviewBridge() {
   "use strict";
@@ -28,11 +36,17 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var MAX_CONTAINERS = ${PREVIEW_BRIDGE_MAX_CONTAINERS};
   var MAX_REVIEW_ITEMS = ${PREVIEW_REVIEW_MAX_ITEMS};
   var MAX_REVIEW_NOTE = ${PREVIEW_REVIEW_NOTE_MAX_LENGTH};
+  var MAX_REVIEW_SCREENSHOTS = ${PREVIEW_REVIEW_MAX_SCREENSHOTS};
   var MAX_REVIEW_PACKET = ${PREVIEW_REVIEW_PACKET_MAX_LENGTH};
   var STANDALONE_BOOTSTRAP_TYPE = "${PREVIEW_STANDALONE_BOOTSTRAP_TYPE}";
+  var STANDALONE_HOST_BOOTSTRAP_TYPE = "${PREVIEW_STANDALONE_HOST_BOOTSTRAP_TYPE}";
+  var STANDALONE_HOST_REJOIN_TYPE = "${PREVIEW_STANDALONE_HOST_REJOIN_TYPE}";
   var STANDALONE_SESSION_PARAM = "${PREVIEW_STANDALONE_SESSION_PARAM}";
+  var STANDALONE_REJOIN_PARAM = "${PREVIEW_STANDALONE_REJOIN_PARAM}";
+  var CAPTURE_PARAM = "canvas-helper-capture";
   var MAX_SESSION_TOKEN = ${PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH};
   var STUDIO_ORIGIN = ${serializedStudioOrigin};
+  var PREVIEW_ORIGIN = ${serializedPreviewOrigin};
 
   var port = null;
   var studioConnected = false;
@@ -42,6 +56,8 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var lastSelectors = [];
   var overlay = null;
   var shield = null;
+  var dragStart = null;
+  var dragging = false;
   var previewControls = null;
   var inspectControl = null;
   var previewStatus = null;
@@ -50,26 +66,53 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   var reviewSelection = null;
   var reviewSelectionText = null;
   var reviewDraft = null;
+  var reviewCapture = null;
   var reviewSave = null;
   var reviewItems = null;
   var reviewCopy = null;
   var reviewClear = null;
   var reviewMessage = null;
+  var reviewPacketFallback = null;
+  var reviewLightbox = null;
   var reviewPanelOpen = false;
   var reviewPacket = "";
   var reviewLocalMessage = "";
-  var reviewState = { items: [], preparing: false, packetReady: false, status: "", error: "" };
+  var reviewCapturePending = false;
+  var reviewSavePending = false;
+  var reviewState = { sessionId: "", items: [], draftScreenshotCount: 0, captureItemId: "", saving: false, preparing: false, packetReady: false, status: "", error: "" };
   var standaloneSessionToken = "";
+  var standaloneRejoinToken = "";
   var standaloneUrl = null;
+  var captureMode = false;
+  var hostMode = false;
+  var trustedStudioWindow = null;
+  var hostedCourseFrame = null;
+  var hostedCoursePort = null;
+  var hostedCourseReadyHref = "";
+  var hostedFocusRequest = null;
+  var reconnectTimer = 0;
+  var reconnectAttempts = 0;
+  var lastNavigationIdentity = "";
+  var navigationReportTimer = 0;
   try {
     standaloneUrl = new URL(location.href);
     standaloneSessionToken = standaloneUrl.searchParams.get(STANDALONE_SESSION_PARAM) || "";
+    standaloneRejoinToken = standaloneUrl.searchParams.get(STANDALONE_REJOIN_PARAM) || "";
+    captureMode = standaloneUrl.searchParams.get(CAPTURE_PARAM) === "1";
+    hostMode = Boolean(PREVIEW_ORIGIN && location.origin === STUDIO_ORIGIN && standaloneUrl.pathname === "/standalone-preview");
   } catch (_) {}
   if (standaloneSessionToken.length < 16 || standaloneSessionToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneSessionToken)) standaloneSessionToken = "";
-  if (standaloneSessionToken && standaloneUrl) {
+  if (standaloneRejoinToken.length < 16 || standaloneRejoinToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneRejoinToken)) standaloneRejoinToken = "";
+  if ((standaloneSessionToken || standaloneRejoinToken) && standaloneUrl) {
     standaloneUrl.searchParams.delete(STANDALONE_SESSION_PARAM);
+    standaloneUrl.searchParams.delete(STANDALONE_REJOIN_PARAM);
     try { history.replaceState(history.state, "", standaloneUrl.pathname + standaloneUrl.search + standaloneUrl.hash); } catch (_) {}
   }
+  if (captureMode && standaloneUrl) {
+    standaloneUrl.searchParams.delete(CAPTURE_PARAM);
+    try { history.replaceState(history.state, "", standaloneUrl.pathname + standaloneUrl.search + standaloneUrl.hash); } catch (_) {}
+  }
+  if (hostMode) trustedStudioWindow = window.opener;
 
   function message(type, payload) {
     return { protocol: PROTOCOL, version: VERSION, type: type, payload: payload };
@@ -80,9 +123,143 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     try { port.postMessage(message(type, payload)); } catch (_) {}
   }
 
+  function sendHostedCourse(type, payload) {
+    if (!hostedCoursePort) return false;
+    try {
+      hostedCoursePort.postMessage(message(type, payload));
+      return true;
+    } catch (_) {
+      return false;
+    }
+  }
+
   function boundedString(value, maximum) {
     var text = String(value || "").replace(/\s+/g, " ").trim();
     return text.length > maximum ? text.slice(0, maximum) : text;
+  }
+
+  function boundedCourseUrl(value) {
+    var serialized = value instanceof URL ? value.toString() : value;
+    if (typeof serialized !== "string" || serialized.length < 1 || serialized.length > 2048) return null;
+    try {
+      var url = new URL(serialized, hostMode ? PREVIEW_ORIGIN : location.origin);
+      var match = url.pathname.match(/^\/_canvas-helper\/p\/([A-Za-z0-9-]{16,80})(\/preview\/workspace\/([^/]+)(?:\/.*)?)$/);
+      if (url.protocol !== "http:" || url.hostname !== "127.0.0.1" || !match) return null;
+      url.searchParams.delete(STANDALONE_SESSION_PARAM);
+      url.searchParams.delete(STANDALONE_REJOIN_PARAM);
+      url.searchParams.delete(CAPTURE_PARAM);
+      return {
+        url: url,
+        publicPrefix: "/_canvas-helper/p/" + match[1],
+        previewPath: match[2],
+        scope: match[3]
+      };
+    } catch (_) {
+      return null;
+    }
+  }
+
+  function pageIdentity(value) {
+    var parsed = boundedCourseUrl(value);
+    return parsed ? parsed.url.toString() : "";
+  }
+
+  function rebaseCourseUrl(value, currentValue, requiredOrigin) {
+    var saved = boundedCourseUrl(value);
+    var current = boundedCourseUrl(currentValue);
+    if (!saved || !current || current.url.origin !== requiredOrigin || saved.scope !== current.scope) return null;
+    saved.url.protocol = current.url.protocol;
+    saved.url.host = current.url.host;
+    saved.url.pathname = current.publicPrefix + saved.previewPath;
+    return saved.url;
+  }
+
+  function isReviewScreenshotPath(value) {
+    return typeof value === "string" && /^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/.test(value);
+  }
+
+  function reviewScreenshotUrl(filePath, item) {
+    if (
+      !isReviewScreenshotPath(filePath) ||
+      !/^[A-Za-z0-9-]{16,80}$/.test(reviewState.sessionId) ||
+      !item ||
+      typeof item.projectSlug !== "string" ||
+      typeof item.id !== "string" ||
+      typeof item.nodeId !== "string"
+    ) return "";
+    var params = new URLSearchParams({
+      path: filePath,
+      sessionId: reviewState.sessionId,
+      projectSlug: item.projectSlug,
+      itemId: item.id,
+      ownerNodeId: item.nodeId
+    });
+    return STUDIO_ORIGIN + "/api/inspection/screenshots?" + params.toString();
+  }
+
+  function closeReviewLightbox() {
+    if (!reviewLightbox) return;
+    var trigger = reviewLightbox.__canvasHelperTrigger;
+    try { reviewLightbox.remove(); } catch (_) {}
+    reviewLightbox = null;
+    if (trigger && typeof trigger.focus === "function") window.setTimeout(function() { trigger.focus(); }, 0);
+  }
+
+  function openReviewLightbox(filePath, label, trigger, item) {
+    var imageUrl = reviewScreenshotUrl(filePath, item);
+    if (!imageUrl) return;
+    closeReviewLightbox();
+    var dialog = document.createElement("div");
+    dialog.setAttribute("data-canvas-helper-preview-controls", "true");
+    dialog.setAttribute("role", "dialog");
+    dialog.setAttribute("aria-modal", "true");
+    dialog.setAttribute("aria-label", label);
+    dialog.style.position = "fixed";
+    dialog.style.inset = "0";
+    dialog.style.zIndex = "2147483647";
+    dialog.style.display = "grid";
+    dialog.style.placeItems = "center";
+    dialog.style.padding = "24px";
+    dialog.style.background = "rgba(15, 23, 42, 0.72)";
+    dialog.__canvasHelperTrigger = trigger;
+
+    var content = document.createElement("div");
+    content.style.width = "min(980px, 100%)";
+    content.style.maxHeight = "calc(100vh - 48px)";
+    content.style.padding = "12px";
+    content.style.overflow = "auto";
+    content.style.borderRadius = "8px";
+    content.style.background = "#ffffff";
+
+    var close = document.createElement("button");
+    close.type = "button";
+    close.textContent = "Close";
+    close.setAttribute("aria-label", "Close screenshot preview");
+    stylePreviewControlButton(close);
+    close.style.display = "block";
+    close.style.margin = "0 0 8px auto";
+    close.addEventListener("click", closeReviewLightbox);
+
+    var image = document.createElement("img");
+    image.src = imageUrl;
+    image.alt = label;
+    image.style.display = "block";
+    image.style.width = "100%";
+    image.style.height = "auto";
+
+    content.appendChild(close);
+    content.appendChild(image);
+    dialog.appendChild(content);
+    dialog.addEventListener("click", function(event) { if (event.target === dialog) closeReviewLightbox(); });
+    dialog.addEventListener("keydown", function(event) {
+      if (event.key === "Tab") {
+        event.preventDefault();
+        close.focus();
+      }
+    });
+    (document.body || document.documentElement).appendChild(dialog);
+    reviewLightbox = dialog;
+    close.focus();
   }
 
   function isFiniteCoordinate(value) {
@@ -236,12 +413,26 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function updateStandaloneControls() {
     if (!inspectControl) return;
-    inspectControl.textContent = inspectEnabled ? "Inspecting" : "Inspect";
+    inspectControl.textContent = inspectEnabled ? "Annotating" : "Annotate";
     inspectControl.setAttribute("aria-pressed", inspectEnabled ? "true" : "false");
-    inspectControl.style.background = inspectEnabled ? "#18212f" : "#ffffff";
-    inspectControl.style.color = inspectEnabled ? "#ffffff" : "#18212f";
+    inspectControl.style.background = inspectEnabled ? "#ffffff" : "#ffffff";
+    inspectControl.style.color = inspectEnabled ? "#1473e6" : "#18212f";
+    if (previewControls) {
+      previewControls.style.background = inspectEnabled ? "#1473e6" : "#ffffff";
+      previewControls.style.borderColor = inspectEnabled ? "#0f63cc" : "#64748b";
+      previewControls.style.color = inspectEnabled ? "#ffffff" : "#18212f";
+    }
+    if (previewStatus) previewStatus.style.color = inspectEnabled ? "#ffffff" : "#475569";
     if (inspectEnabled) {
-      setStandaloneStatus(studioConnected ? "Click anything in the course to annotate it." : port ? "Connecting to Studio..." : "Open this preview from Studio to save annotations.");
+      setStandaloneStatus(
+        studioConnected
+          ? reviewSelection
+            ? "Selection ready."
+            : "Click anything in the course to annotate it."
+          : port
+            ? "Connecting to Studio..."
+            : "Open this preview from Studio to save annotations."
+      );
     } else {
       setStandaloneStatus(studioConnected ? "Connected to Studio." : port ? "Connecting to Studio..." : "Open this preview from Studio to save annotations.");
     }
@@ -277,9 +468,19 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
     if (reviewSelectionText) reviewSelectionText.textContent = reviewSelectionExcerpt(reviewSelection);
     if (reviewDraft) reviewDraft.disabled = !reviewSelection;
+    if (reviewCapture) {
+      reviewCapture.disabled = !studioConnected || reviewCapturePending || !reviewSelection || !reviewSelection.nodeId || reviewState.draftScreenshotCount >= MAX_REVIEW_SCREENSHOTS;
+      reviewCapture.textContent = reviewCapturePending
+        ? "Capturing course…"
+        : reviewState.draftScreenshotCount
+        ? "Screenshot (" + reviewState.draftScreenshotCount + "/" + MAX_REVIEW_SCREENSHOTS + ")"
+        : "Screenshot";
+      reviewCapture.style.opacity = reviewCapture.disabled ? "0.48" : "1";
+      reviewCapture.style.cursor = reviewCapture.disabled ? "default" : "pointer";
+    }
     if (reviewSave) {
       var note = reviewDraft ? boundedString(reviewDraft.value, MAX_REVIEW_NOTE) : "";
-      reviewSave.disabled = !studioConnected || !reviewSelection || !reviewSelection.nodeId || !note || reviewState.items.length >= MAX_REVIEW_ITEMS;
+      reviewSave.disabled = !studioConnected || reviewSavePending || reviewState.saving || !reviewSelection || !reviewSelection.nodeId || !note || reviewState.items.length >= MAX_REVIEW_ITEMS;
       reviewSave.style.opacity = reviewSave.disabled ? "0.48" : "1";
       reviewSave.style.cursor = reviewSave.disabled ? "default" : "pointer";
     }
@@ -323,6 +524,24 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
           sendReviewAction({ action: "remove", itemId: item.id });
         });
 
+        var show = document.createElement("button");
+        show.type = "button";
+        show.textContent = "Show";
+        stylePreviewControlButton(show);
+        show.style.padding = "5px 7px";
+        show.style.fontSize = "11px";
+        show.addEventListener("click", function() {
+          reviewLocalMessage = "Showing annotation…";
+          renderReviewPanel();
+          sendReviewAction({ action: "focus-item", itemId: item.id });
+        });
+
+        var rowActions = document.createElement("div");
+        rowActions.style.display = "flex";
+        rowActions.style.gap = "5px";
+        rowActions.appendChild(show);
+        rowActions.appendChild(remove);
+
         var noteArea = document.createElement("textarea");
         noteArea.value = item.teacherNote;
         noteArea.rows = 2;
@@ -336,17 +555,89 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
         });
 
         rowHeading.appendChild(excerpt);
-        rowHeading.appendChild(remove);
+        rowHeading.appendChild(rowActions);
         row.appendChild(rowHeading);
-        if (item.hasScreenshot) {
-          var screenshotIncluded = document.createElement("div");
-          screenshotIncluded.textContent = "Screenshot included";
-          screenshotIncluded.style.marginTop = "5px";
-          screenshotIncluded.style.color = "#475569";
-          screenshotIncluded.style.fontSize = "11px";
-          row.appendChild(screenshotIncluded);
+        if (item.screenshots.length) {
+          var screenshotGrid = document.createElement("div");
+          screenshotGrid.style.display = "grid";
+          screenshotGrid.style.gridTemplateColumns = "repeat(3, minmax(0, 1fr))";
+          screenshotGrid.style.gap = "6px";
+          screenshotGrid.style.marginTop = "7px";
+          item.screenshots.forEach(function(screenshot, screenshotIndex) {
+            var screenshotCell = document.createElement("div");
+            screenshotCell.style.position = "relative";
+
+            var screenshotPreview = document.createElement("button");
+            screenshotPreview.type = "button";
+            screenshotPreview.setAttribute("aria-label", "Open screenshot " + (screenshotIndex + 1) + " for annotation " + (index + 1));
+            screenshotPreview.style.display = "block";
+            screenshotPreview.style.width = "100%";
+            screenshotPreview.style.padding = "0";
+            screenshotPreview.style.overflow = "hidden";
+            screenshotPreview.style.border = "1px solid #cbd5e1";
+            screenshotPreview.style.borderRadius = "6px";
+            screenshotPreview.style.background = "#f8fafc";
+            screenshotPreview.style.cursor = "pointer";
+            var thumbnail = document.createElement("img");
+            thumbnail.src = reviewScreenshotUrl(screenshot.filePath, item);
+            thumbnail.alt = "";
+            thumbnail.style.display = "block";
+            thumbnail.style.width = "100%";
+            thumbnail.style.aspectRatio = "16 / 10";
+            thumbnail.style.objectFit = "cover";
+            screenshotPreview.appendChild(thumbnail);
+            screenshotPreview.addEventListener("click", function() {
+              openReviewLightbox(screenshot.filePath, "Screenshot " + (screenshotIndex + 1) + " for annotation " + (index + 1), screenshotPreview, item);
+            });
+
+            var removeScreenshot = document.createElement("button");
+            removeScreenshot.type = "button";
+            removeScreenshot.textContent = "×";
+            removeScreenshot.setAttribute("aria-label", "Remove screenshot " + (screenshotIndex + 1));
+            removeScreenshot.style.position = "absolute";
+            removeScreenshot.style.top = "3px";
+            removeScreenshot.style.right = "3px";
+            removeScreenshot.style.width = "22px";
+            removeScreenshot.style.height = "22px";
+            removeScreenshot.style.padding = "0";
+            removeScreenshot.style.border = "1px solid rgba(15, 23, 42, 0.22)";
+            removeScreenshot.style.borderRadius = "11px";
+            removeScreenshot.style.background = "rgba(255, 255, 255, 0.94)";
+            removeScreenshot.style.cursor = "pointer";
+            removeScreenshot.addEventListener("click", function() {
+              reviewLocalMessage = "Removing screenshot…";
+              renderReviewPanel();
+              sendReviewAction({ action: "remove-screenshot", itemId: item.id, screenshotId: screenshot.id });
+            });
+
+            screenshotCell.appendChild(screenshotPreview);
+            screenshotCell.appendChild(removeScreenshot);
+            screenshotGrid.appendChild(screenshotCell);
+          });
+          row.appendChild(screenshotGrid);
         }
         row.appendChild(noteArea);
+        var addScreenshot = document.createElement("button");
+        addScreenshot.type = "button";
+        addScreenshot.textContent = reviewState.captureItemId === item.id
+          ? "Capturing course…"
+          : item.screenshots.length >= MAX_REVIEW_SCREENSHOTS ? MAX_REVIEW_SCREENSHOTS + " screenshots attached" : "Add screenshot";
+        stylePreviewControlButton(addScreenshot);
+        addScreenshot.style.marginTop = "7px";
+        addScreenshot.style.padding = "5px 7px";
+        addScreenshot.style.fontSize = "11px";
+        addScreenshot.disabled = !studioConnected || reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS;
+        addScreenshot.style.opacity = addScreenshot.disabled ? "0.48" : "1";
+        addScreenshot.addEventListener("click", function() {
+          reviewCapturePending = true;
+          reviewLocalMessage = "Capturing the course preview…";
+          renderReviewPanel();
+          if (!sendReviewAction({ action: "capture-item", itemId: item.id })) {
+            reviewCapturePending = false;
+            renderReviewPanel();
+          }
+        });
+        row.appendChild(addScreenshot);
         reviewItems.appendChild(row);
       });
     }
@@ -369,16 +660,17 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   }
 
   function ensureStandalonePreviewControls() {
-    if (window.top !== window || previewControls) return;
+    if (captureMode || window.top !== window || previewControls) return;
     var controls = document.createElement("div");
     controls.setAttribute("data-canvas-helper-preview-controls", "true");
     controls.setAttribute("role", "toolbar");
     controls.setAttribute("aria-label", "Canvas Helper preview tools");
     controls.style.position = "fixed";
-    controls.style.top = "12px";
-    controls.style.right = "12px";
+    controls.style.bottom = "12px";
+    controls.style.left = "50%";
+    controls.style.transform = "translateX(-50%)";
     controls.style.zIndex = "2147483647";
-    controls.style.width = "min(340px, calc(100vw - 24px))";
+    controls.style.width = "min(680px, calc(100vw - 24px))";
     controls.style.padding = "8px";
     controls.style.border = "1px solid #64748b";
     controls.style.borderRadius = "8px";
@@ -445,11 +737,18 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     panel.setAttribute("data-canvas-helper-preview-review-panel", "true");
     panel.setAttribute("aria-label", "Review Set");
     panel.style.display = "none";
+    panel.style.position = "absolute";
+    panel.style.right = "0";
+    panel.style.bottom = "calc(100% + 8px)";
+    panel.style.width = "min(420px, calc(100vw - 24px))";
     panel.style.maxHeight = "min(68vh, 620px)";
     panel.style.marginTop = "9px";
-    panel.style.paddingTop = "10px";
+    panel.style.padding = "12px";
     panel.style.overflowY = "auto";
-    panel.style.borderTop = "1px solid #e2e8f0";
+    panel.style.border = "1px solid #dbe4ef";
+    panel.style.borderRadius = "8px";
+    panel.style.background = "#ffffff";
+    panel.style.color = "#18212f";
 
     var panelTitle = document.createElement("strong");
     panelTitle.textContent = "New annotation";
@@ -480,16 +779,37 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     save.style.background = "#18212f";
     save.style.color = "#ffffff";
     save.addEventListener("click", function() {
-      if (!reviewSelection || !reviewDraft) return;
+      if (!reviewSelection || !reviewDraft || reviewSavePending) return;
       var note = boundedString(reviewDraft.value, MAX_REVIEW_NOTE);
       if (!note) {
         reviewLocalMessage = "Add a note before saving.";
         renderReviewPanel();
         return;
       }
+      reviewSavePending = true;
       reviewLocalMessage = "Saving annotation…";
       renderReviewPanel();
-      sendReviewAction({ action: "add", selection: reviewSelection, teacherNote: note });
+      if (!sendReviewAction({ action: "add", selection: reviewSelection, teacherNote: note })) {
+        reviewSavePending = false;
+        renderReviewPanel();
+      }
+    });
+
+    var capture = document.createElement("button");
+    capture.type = "button";
+    capture.setAttribute("data-canvas-helper-preview-review-capture", "true");
+    stylePreviewControlButton(capture);
+    capture.style.marginTop = "7px";
+    capture.style.marginRight = "6px";
+    capture.addEventListener("click", function() {
+      if (!reviewSelection || reviewCapturePending) return;
+      reviewCapturePending = true;
+      reviewLocalMessage = "Capturing the course preview…";
+      renderReviewPanel();
+      if (!sendReviewAction({ action: "capture-draft", selection: reviewSelection })) {
+        reviewCapturePending = false;
+        renderReviewPanel();
+      }
     });
 
     var savedHeading = document.createElement("div");
@@ -517,15 +837,28 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     copy.style.color = "#ffffff";
     copy.addEventListener("click", function() {
       if (!reviewPacket || !navigator.clipboard || typeof navigator.clipboard.writeText !== "function") {
-        reviewLocalMessage = "Clipboard access is not available here.";
+        reviewLocalMessage = "Clipboard access is not available. Copy the packet shown below.";
+        if (reviewPacketFallback) {
+          reviewPacketFallback.value = reviewPacket;
+          reviewPacketFallback.style.display = "block";
+          reviewPacketFallback.focus();
+          reviewPacketFallback.select();
+        }
         renderReviewPanel();
         return;
       }
       navigator.clipboard.writeText(reviewPacket).then(function() {
         reviewLocalMessage = "Copied. Paste the Review Set into Codex.";
+        if (reviewPacketFallback) reviewPacketFallback.style.display = "none";
         renderReviewPanel();
       }).catch(function() {
-        reviewLocalMessage = "Clipboard access was blocked.";
+        reviewLocalMessage = "Clipboard access was blocked. Copy the packet shown below.";
+        if (reviewPacketFallback) {
+          reviewPacketFallback.value = reviewPacket;
+          reviewPacketFallback.style.display = "block";
+          reviewPacketFallback.focus();
+          reviewPacketFallback.select();
+        }
         renderReviewPanel();
       });
     });
@@ -548,15 +881,26 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     panelMessage.style.margin = "7px 0 0";
     panelMessage.style.font = "12px/1.35 system-ui, sans-serif";
 
+    var packetFallback = document.createElement("textarea");
+    packetFallback.readOnly = true;
+    packetFallback.rows = 8;
+    packetFallback.setAttribute("aria-label", "Review Set packet for manual copy");
+    packetFallback.setAttribute("data-canvas-helper-preview-review-packet", "true");
+    stylePreviewTextArea(packetFallback);
+    packetFallback.style.display = "none";
+    packetFallback.style.marginTop = "8px";
+
     footer.appendChild(copy);
     footer.appendChild(clear);
     panel.appendChild(panelTitle);
     panel.appendChild(selectedText);
     panel.appendChild(draft);
+    panel.appendChild(capture);
     panel.appendChild(save);
     panel.appendChild(savedHeading);
     panel.appendChild(savedItems);
     panel.appendChild(footer);
+    panel.appendChild(packetFallback);
     panel.appendChild(panelMessage);
 
     actions.appendChild(inspectButton);
@@ -573,17 +917,22 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     reviewPanel = panel;
     reviewSelectionText = selectedText;
     reviewDraft = draft;
+    reviewCapture = capture;
     reviewSave = save;
     reviewItems = savedItems;
     reviewCopy = copy;
     reviewClear = clear;
+    reviewPacketFallback = packetFallback;
     reviewMessage = panelMessage;
     updateStandaloneControls();
   }
 
-  function focusSourceNode(nodeId) {
+  function focusSourceNode(nodeId, requestId) {
     var element = elementForSourceNodeId(nodeId);
-    if (!element) return;
+    if (!element) {
+      if (requestId) send("preview-inspect-focused", { requestId: requestId, nodeId: nodeId, focused: false });
+      return false;
+    }
     try {
       element.scrollIntoView({ block: "center", inline: "nearest", behavior: "auto" });
     } catch (_) {
@@ -593,7 +942,9 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
       var rect = element.getBoundingClientRect();
       setOverlay({ left: rect.left, top: rect.top, width: rect.width, height: rect.height });
       document.documentElement.setAttribute("data-canvas-helper-inspection-focus", "true");
+      if (requestId) send("preview-inspect-focused", { requestId: requestId, nodeId: nodeId, focused: true });
     });
+    return true;
   }
 
   function diagnosticMessage(value, fallback) {
@@ -671,12 +1022,69 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
       tagName: boundedString(element.tagName ? element.tagName.toLowerCase() : "", 48),
       role: boundedString(element.getAttribute("role") || "", 80),
       testId: boundedString(element.getAttribute("data-testid") || "", 120),
-      geometry: { x: Math.round(rect.x), y: Math.round(rect.y), width: Math.round(Math.max(0, rect.width)), height: Math.round(Math.max(0, rect.height)) }
+      geometry: { x: Math.round(rect.x), y: Math.round(rect.y), width: Math.round(Math.max(0, rect.width)), height: Math.round(Math.max(0, rect.height)) },
+      viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
+      scroll: captureScrollState(),
+      pageHref: boundedString(location.href, 2048)
     };
+  }
+
+  function commonMappedOwner(startTarget, endTarget) {
+    var start = startTarget instanceof Element ? startTarget : null;
+    var end = endTarget instanceof Element ? endTarget : null;
+    var current = start;
+    while (current) {
+      if (
+        current !== document.documentElement &&
+        current !== document.body &&
+        end &&
+        current.contains(end) &&
+        uniqueSourceNodeId(current)
+      ) return current;
+      current = current.parentElement;
+    }
+    return null;
+  }
+
+  function visualAreaSelection(rect) {
+    return {
+      nodeId: null,
+      visibleText: "",
+      tagName: "area",
+      role: "",
+      testId: "",
+      geometry: rect,
+      viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
+      scroll: captureScrollState(),
+      pageHref: boundedString(location.href, 2048)
+    };
+  }
+
+  function selectInspection(selection) {
+    if (!selection) return;
+    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+    send("preview-inspect-selected", selection);
+    if (window.top === window) {
+      reviewSelection = selection;
+      reviewLocalMessage = selection.nodeId ? "Add a note or screenshot, then save this annotation." : "Choose a more specific course element.";
+      setReviewPanelOpen(true);
+    }
+    setStandaloneStatus(studioConnected ? "Selection ready." : "Selection highlighted. Open this preview from Studio to save it.");
   }
 
   function onPointerMove(event) {
     if (!inspectEnabled || !event.isTrusted) return;
+    if (dragStart) {
+      var dragRect = {
+        left: Math.min(dragStart.x, event.clientX),
+        top: Math.min(dragStart.y, event.clientY),
+        width: Math.abs(event.clientX - dragStart.x),
+        height: Math.abs(event.clientY - dragStart.y)
+      };
+      dragging = dragging || dragRect.width > 6 || dragRect.height > 6;
+      if (dragging) setOverlay(dragRect);
+      return;
+    }
     var target = targetForPointerEvent(event);
     if (isPreviewControlTarget(target)) return;
     var selection = selectionFor(target);
@@ -700,36 +1108,54 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     var selection = selectionFor(target);
     blockAction(event);
     if (!selection) return;
-    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
-    send("preview-inspect-selected", selection);
-    if (window.top === window) {
-      reviewSelection = selection;
-      reviewLocalMessage = selection.nodeId ? "Add a note, then save this annotation." : "Choose a more specific course element.";
-      setReviewPanelOpen(true);
+    dragStart = { x: event.clientX, y: event.clientY, selection: selection, target: target };
+    dragging = false;
+  }
+
+  function onInspectPointerUp(event) {
+    if (!inspectEnabled || !event.isTrusted || !dragStart) return;
+    blockAction(event);
+    var selection = dragStart.selection;
+    if (dragging) {
+      var areaRect = {
+        x: Math.round(Math.min(dragStart.x, event.clientX)),
+        y: Math.round(Math.min(dragStart.y, event.clientY)),
+        width: Math.round(Math.abs(event.clientX - dragStart.x)),
+        height: Math.round(Math.abs(event.clientY - dragStart.y))
+      };
+      var endTarget = targetForPointerEvent(event);
+      var owner = commonMappedOwner(dragStart.target, endTarget);
+      selection = owner ? selectionFor(owner) : visualAreaSelection(areaRect);
     }
-    setStandaloneStatus(studioConnected ? "Selection ready." : "Selection highlighted. Open this preview from Studio to save it.");
+    dragStart = null;
+    dragging = false;
+    selectInspection(selection);
+  }
+
+  function onInspectPointerCancel() {
+    dragStart = null;
+    dragging = false;
   }
 
   function onInspectKeydown(event) {
+    if (reviewLightbox && event.key === "Escape") {
+      event.preventDefault();
+      event.stopImmediatePropagation();
+      closeReviewLightbox();
+      return;
+    }
     if (!inspectEnabled || !event.isTrusted) return;
     if (isPreviewControlTarget(event.target)) return;
     if (event.key === "Tab") return;
     blockAction(event);
     if (event.key === "Escape") {
-      hideOverlay();
+      setInspectMode(false, true);
       return;
     }
     if (event.key !== "Enter" && event.key !== " ") return;
     var selection = selectionFor(document.activeElement);
     if (!selection) return;
-    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
-    send("preview-inspect-selected", selection);
-    if (window.top === window) {
-      reviewSelection = selection;
-      reviewLocalMessage = selection.nodeId ? "Add a note, then save this annotation." : "Choose a more specific course element.";
-      setReviewPanelOpen(true);
-    }
-    setStandaloneStatus(studioConnected ? "Selection ready." : "Selection highlighted. Open this preview from Studio to save it.");
+    selectInspection(selection);
   }
 
   function onInspectWheel(event) {
@@ -741,16 +1167,50 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   }
 
   function setInspectMode(enabled, notifyStudio) {
-    inspectEnabled = Boolean(enabled);
+    var nextInspectEnabled = Boolean(enabled);
+    var inspectModeChanged = inspectEnabled !== nextInspectEnabled;
+    inspectEnabled = nextInspectEnabled;
     document.documentElement.setAttribute("data-canvas-helper-inspect-active", inspectEnabled ? "true" : "false");
+    if (hostMode) {
+      sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled });
+      if (inspectModeChanged) updateStandaloneControls(); else renderReviewPanel();
+      if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
+      return;
+    }
     var element = ensureShield();
     element.style.display = inspectEnabled ? "block" : "none";
     element.style.pointerEvents = inspectEnabled ? "auto" : "none";
     if (!inspectEnabled) {
       hideOverlay();
+      dragStart = null;
+      dragging = false;
     }
-    updateStandaloneControls();
+    // Studio echoes the active mode back to every preview surface. Preserve a
+    // useful local status such as "Selection ready" when that echo does not
+    // actually change this preview's mode.
+    if (inspectModeChanged) updateStandaloneControls(); else renderReviewPanel();
     if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
+  }
+
+  function reportNavigationIfChanged() {
+    navigationReportTimer = 0;
+    if (hostMode) return;
+    var nextIdentity = pageIdentity(location.href);
+    if (!nextIdentity || nextIdentity === lastNavigationIdentity) return;
+    lastNavigationIdentity = nextIdentity;
+    reviewSelection = null;
+    reviewLocalMessage = "The course page changed. Select an element again.";
+    dragStart = null;
+    dragging = false;
+    hideOverlay();
+    renderReviewPanel();
+    send("preview-navigation", { href: location.href });
+    scheduleScrollState();
+  }
+
+  function scheduleNavigationReport() {
+    if (navigationReportTimer) return;
+    navigationReportTimer = window.setTimeout(reportNavigationIfChanged, 0);
   }
 
   function isCommand(data) {
@@ -763,9 +1223,11 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   function isReviewState(value) {
     if (!value || typeof value !== "object" || !Array.isArray(value.items) || value.items.length > MAX_REVIEW_ITEMS) return false;
-    if (typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240) return false;
+    if (typeof value.sessionId !== "string" || !/^[A-Za-z0-9-]{16,80}$/.test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > 160 || typeof value.saving !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240) return false;
     return value.items.every(function(item) {
-      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && typeof item.hasScreenshot === "boolean";
+      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.projectSlug === "string" && item.projectSlug.length > 0 && item.projectSlug.length <= 160 && typeof item.nodeId === "string" && item.nodeId.length > 0 && item.nodeId.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && Array.isArray(item.screenshots) && item.screenshots.length <= MAX_REVIEW_SCREENSHOTS && item.screenshots.every(function(screenshot) {
+        return screenshot && typeof screenshot === "object" && typeof screenshot.id === "string" && screenshot.id.length > 0 && screenshot.id.length <= 160 && isReviewScreenshotPath(screenshot.filePath);
+      });
     });
   }
 
@@ -773,34 +1235,211 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     return value && typeof value === "object" && typeof value.ok === "boolean" && typeof value.message === "string" && value.message.length <= 240 && typeof value.clearDraft === "boolean";
   }
 
+  function hostedTargetUrl(value) {
+    if (!hostMode) return null;
+    var currentHref = hostedCourseReadyHref || (hostedCourseFrame && hostedCourseFrame.src) || "";
+    var rebased = currentHref ? rebaseCourseUrl(value, currentHref, PREVIEW_ORIGIN) : null;
+    if (rebased) return rebased;
+    var parsed = boundedCourseUrl(value);
+    return parsed && parsed.url.origin === PREVIEW_ORIGIN ? parsed.url : null;
+  }
+
+  function flushHostedFocusRequest() {
+    if (!hostedFocusRequest || !hostedCourseReadyHref) return;
+    var target = hostedTargetUrl(hostedFocusRequest.pageHref);
+    if (!target || pageIdentity(target) !== pageIdentity(hostedCourseReadyHref)) return;
+    sendHostedCourse("studio-focus-inspect-node", {
+      requestId: hostedFocusRequest.requestId,
+      nodeId: hostedFocusRequest.nodeId
+    });
+  }
+
+  function showHostedCourseNode(payload) {
+    if (
+      !hostMode ||
+      !payload ||
+      typeof payload.requestId !== "string" ||
+      !payload.requestId ||
+      payload.requestId.length > 80 ||
+      typeof payload.nodeId !== "string" ||
+      !payload.nodeId ||
+      payload.nodeId.length > 160
+    ) return;
+    var target = hostedTargetUrl(payload.pageHref);
+    if (!target || !hostedCourseFrame) {
+      send("preview-inspect-focused", { requestId: payload.requestId, nodeId: payload.nodeId, focused: false });
+      return;
+    }
+    hostedFocusRequest = {
+      requestId: payload.requestId,
+      nodeId: payload.nodeId,
+      pageHref: target.toString()
+    };
+    if (pageIdentity(hostedCourseReadyHref) === pageIdentity(target)) {
+      flushHostedFocusRequest();
+      return;
+    }
+    hostedCourseReadyHref = "";
+    hostedCourseFrame.src = target.toString();
+  }
+
+  function showCurrentCourseNode(payload) {
+    if (
+      hostMode ||
+      !payload ||
+      typeof payload.requestId !== "string" ||
+      !payload.requestId ||
+      payload.requestId.length > 80 ||
+      typeof payload.nodeId !== "string" ||
+      !payload.nodeId ||
+      payload.nodeId.length > 160
+    ) return;
+    var target = rebaseCourseUrl(payload.pageHref, location.href, location.origin);
+    if (!target) {
+      send("preview-inspect-focused", { requestId: payload.requestId, nodeId: payload.nodeId, focused: false });
+      return;
+    }
+    if (pageIdentity(location.href) !== pageIdentity(target)) {
+      try {
+        location.assign(target.toString());
+      } catch (_) {
+        send("preview-inspect-focused", { requestId: payload.requestId, nodeId: payload.nodeId, focused: false });
+      }
+      return;
+    }
+    focusSourceNode(payload.nodeId, payload.requestId);
+  }
+
+  function handleHostedCourseMessage(event) {
+    if (!isCommand(event.data)) return;
+    var data = event.data;
+    if (data.type === "preview-ready" && data.payload && typeof data.payload.href === "string") {
+      hostedCourseReadyHref = data.payload.href;
+      send("preview-ready", data.payload);
+      sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled });
+      flushHostedFocusRequest();
+      return;
+    }
+    if (data.type === "preview-navigation" && data.payload && typeof data.payload.href === "string") {
+      hostedCourseReadyHref = data.payload.href;
+      reviewSelection = null;
+      reviewLocalMessage = "The course page changed. Select an element again.";
+      renderReviewPanel();
+      flushHostedFocusRequest();
+    }
+    if (data.type === "preview-inspect-selected") {
+      reviewSelection = data.payload;
+      reviewLocalMessage = data.payload && data.payload.nodeId ? "Add a note or screenshot, then save this annotation." : "Choose a more specific course element.";
+      setReviewPanelOpen(true);
+      setStandaloneStatus("Selection ready.");
+    }
+    if (data.type === "preview-inspect-mode" && data.payload && typeof data.payload.enabled === "boolean") {
+      inspectEnabled = Boolean(data.payload.enabled);
+      updateStandaloneControls();
+    }
+    if (data.type === "preview-inspect-focused" && hostedFocusRequest && data.payload && data.payload.requestId === hostedFocusRequest.requestId) {
+      hostedFocusRequest = null;
+    }
+    if (
+      data.type === "preview-scroll-state" ||
+      data.type === "preview-navigation" ||
+      data.type === "preview-inspect-hover" ||
+      data.type === "preview-inspect-selected" ||
+      data.type === "preview-inspect-current" ||
+      data.type === "preview-inspect-focused" ||
+      data.type === "preview-inspect-mode" ||
+      data.type === "preview-diagnostic" ||
+      data.type === "preview-error"
+    ) send(data.type, data.payload);
+  }
+
+  function connectHostedCourse() {
+    if (!hostMode || typeof MessageChannel !== "function") return;
+    hostedCourseFrame = document.querySelector("[data-canvas-helper-standalone-course]");
+    if (!hostedCourseFrame || !hostedCourseFrame.contentWindow) return;
+    if (hostedCoursePort) { try { hostedCoursePort.close(); } catch (_) {} }
+    var channel = new MessageChannel();
+    hostedCoursePort = channel.port1;
+    channel.port1.onmessage = handleHostedCourseMessage;
+    if (typeof channel.port1.start === "function") channel.port1.start();
+    try {
+      hostedCourseFrame.contentWindow.postMessage(message("studio-connect", null), PREVIEW_ORIGIN, [channel.port2]);
+    } catch (_) {
+      try { channel.port1.close(); } catch (_) {}
+      try { channel.port2.close(); } catch (_) {}
+      hostedCoursePort = null;
+    }
+  }
+
   function handlePortMessage(event) {
     if (!isCommand(event.data)) return;
     studioConnected = true;
+    reconnectAttempts = 0;
+    if (reconnectTimer) { window.clearTimeout(reconnectTimer); reconnectTimer = 0; }
     updateStandaloneControls();
-    if (event.data.type === "studio-request-state" && event.data.payload === null) sendScrollState();
-    if (event.data.type === "studio-restore-scroll") restoreScrollState(event.data.payload);
+    if (event.data.type === "studio-request-state" && event.data.payload === null) {
+      if (hostMode) sendHostedCourse("studio-request-state", null); else sendScrollState();
+    }
+    if (event.data.type === "studio-restore-scroll") {
+      if (hostMode) sendHostedCourse("studio-restore-scroll", event.data.payload); else restoreScrollState(event.data.payload);
+    }
     if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") setInspectMode(event.data.payload.enabled, false);
-    if (event.data.type === "studio-request-inspect-current" && event.data.payload && typeof event.data.payload.nodeId === "string") {
+    if (
+      event.data.type === "studio-request-inspect-current" &&
+      event.data.payload &&
+      typeof event.data.payload.requestId === "string" &&
+      event.data.payload.requestId.length > 0 &&
+      event.data.payload.requestId.length <= 80 &&
+      typeof event.data.payload.nodeId === "string"
+    ) {
+      if (hostMode) {
+        sendHostedCourse("studio-request-inspect-current", event.data.payload);
+        return;
+      }
       var element = elementForSourceNodeId(event.data.payload.nodeId);
       var selection = element ? selectionFor(element) : null;
       if (!selection || selection.nodeId !== event.data.payload.nodeId) {
-        send("preview-error", { message: "The selected preview element is no longer available. Select it again before capturing a screenshot." });
+        send("preview-error", { requestId: event.data.payload.requestId, message: "The selected preview element is no longer available. Select it again before capturing a screenshot." });
         return;
       }
-      send("preview-inspect-current", selection);
+      send("preview-inspect-current", { requestId: event.data.payload.requestId, selection: selection });
     }
-    if (event.data.type === "studio-focus-inspect-node" && event.data.payload && typeof event.data.payload.nodeId === "string") {
-      focusSourceNode(event.data.payload.nodeId);
+    if (
+      event.data.type === "studio-focus-inspect-node" &&
+      event.data.payload &&
+      typeof event.data.payload.requestId === "string" &&
+      typeof event.data.payload.nodeId === "string"
+    ) {
+      if (hostMode) sendHostedCourse("studio-focus-inspect-node", event.data.payload);
+      else focusSourceNode(event.data.payload.nodeId, event.data.payload.requestId);
+    }
+    if (event.data.type === "studio-show-inspect-node") {
+      if (hostMode) showHostedCourseNode(event.data.payload);
+      else showCurrentCourseNode(event.data.payload);
+    }
+    if (event.data.type === "studio-disconnect-standalone" && hostMode) {
+      studioConnected = false;
+      if (port) { try { port.close(); } catch (_) {} }
+      port = null;
+      updateStandaloneControls();
+      scheduleStandaloneReconnect();
+      return;
     }
     if (event.data.type === "studio-set-review-state" && isReviewState(event.data.payload)) {
       reviewState = event.data.payload;
+      if (!reviewState.captureItemId && reviewState.draftScreenshotCount >= 0 && reviewCapturePending && reviewLocalMessage !== "Capturing the course preview…") {
+        reviewCapturePending = false;
+      }
       renderReviewPanel();
     }
     if (event.data.type === "studio-set-review-packet" && event.data.payload && typeof event.data.payload.packet === "string" && event.data.payload.packet.length <= MAX_REVIEW_PACKET) {
       reviewPacket = event.data.payload.packet;
+      if (reviewPacketFallback && reviewPacketFallback.style.display !== "none") reviewPacketFallback.value = reviewPacket;
       renderReviewPanel();
     }
     if (event.data.type === "studio-review-action-result" && isReviewActionResult(event.data.payload)) {
+      reviewCapturePending = false;
+      reviewSavePending = false;
       reviewLocalMessage = event.data.payload.message;
       if (event.data.payload.clearDraft) {
         reviewSelection = null;
@@ -816,18 +1455,51 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     port = nextPort;
     studioConnected = false;
     port.onmessage = handlePortMessage;
-    port.onmessageerror = function() { studioConnected = false; updateStandaloneControls(); };
+    port.onmessageerror = function() {
+      studioConnected = false;
+      updateStandaloneControls();
+      if (hostMode) scheduleStandaloneReconnect();
+    };
     if (typeof port.start === "function") port.start();
-    send("preview-ready", { href: location.href });
-    sendScrollState();
+    if (hostMode) {
+      if (hostedCourseReadyHref) send("preview-ready", { href: hostedCourseReadyHref });
+      sendHostedCourse("studio-request-state", null);
+    } else {
+      send("preview-ready", { href: location.href });
+      sendScrollState();
+    }
     if (window.top === window) send("preview-review-action", { action: "request-state" });
     updateStandaloneControls();
   }
 
+  function scheduleStandaloneReconnect() {
+    if (!hostMode || studioConnected || reconnectTimer || !standaloneRejoinToken || !trustedStudioWindow || reconnectAttempts >= 120) return;
+    reconnectTimer = window.setTimeout(function() {
+      reconnectTimer = 0;
+      if (studioConnected || !trustedStudioWindow || trustedStudioWindow.closed || typeof MessageChannel !== "function") return;
+      reconnectAttempts += 1;
+      var channel = new MessageChannel();
+      try {
+        trustedStudioWindow.postMessage(
+          message(STANDALONE_HOST_REJOIN_TYPE, { rejoinToken: standaloneRejoinToken }),
+          STUDIO_ORIGIN,
+          [channel.port2]
+        );
+        attachPort(channel.port1);
+      } catch (_) {
+        try { channel.port1.close(); } catch (_) {}
+        try { channel.port2.close(); } catch (_) {}
+      }
+      window.setTimeout(function() {
+        if (!studioConnected) scheduleStandaloneReconnect();
+      }, 800);
+    }, 500);
+  }
+
   function connectStandalonePreview() {
-    if (window.top !== window) return;
-    var studioWindow = window.opener;
-    if (!standaloneSessionToken || !studioWindow || typeof MessageChannel !== "function") {
+    if (captureMode || window.top !== window) return;
+    var studioWindow = hostMode ? trustedStudioWindow : window.opener;
+    if (!standaloneSessionToken || !studioWindow || typeof MessageChannel !== "function" || (hostMode && !standaloneRejoinToken)) {
       try { window.opener = null; } catch (_) {}
       return;
     }
@@ -835,7 +1507,9 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
     var channel = new MessageChannel();
     try {
       studioWindow.postMessage(
-        message(STANDALONE_BOOTSTRAP_TYPE, { sessionToken: standaloneSessionToken }),
+        hostMode
+          ? message(STANDALONE_HOST_BOOTSTRAP_TYPE, { sessionToken: standaloneSessionToken, rejoinToken: standaloneRejoinToken })
+          : message(STANDALONE_BOOTSTRAP_TYPE, { sessionToken: standaloneSessionToken }),
         STUDIO_ORIGIN,
         [channel.port2]
       );
@@ -845,8 +1519,9 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
       try { channel.port2.close(); } catch (_) {}
     } finally {
       standaloneSessionToken = "";
-      try { window.opener = null; } catch (_) {}
+      if (!hostMode) try { window.opener = null; } catch (_) {}
     }
+    if (hostMode) window.setTimeout(function() { if (!studioConnected) scheduleStandaloneReconnect(); }, 800);
   }
 
   window.addEventListener("message", function(event) {
@@ -865,17 +1540,36 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
 
   window.addEventListener("scroll", scheduleScrollState, { passive: true });
   document.addEventListener("scroll", scheduleScrollState, true);
-  window.addEventListener("hashchange", function() { send("preview-navigation", { href: location.href }); scheduleScrollState(); });
-  window.addEventListener("popstate", function() { send("preview-navigation", { href: location.href }); scheduleScrollState(); });
-  document.addEventListener("pointermove", onPointerMove, true);
-  document.addEventListener("pointerdown", onInspectPointerDown, true);
-  ["pointerup", "pointercancel", "click", "dblclick", "auxclick", "contextmenu", "dragstart", "drag", "dragend", "drop", "submit", "beforeinput", "input", "change", "touchstart", "touchend"].forEach(function(type) {
-    document.addEventListener(type, blockAction, true);
-  });
+  if (!hostMode) {
+    lastNavigationIdentity = pageIdentity(location.href);
+    ["pushState", "replaceState"].forEach(function(methodName) {
+      var original = history[methodName];
+      if (typeof original !== "function") return;
+      try {
+        history[methodName] = function() {
+          var result = original.apply(history, arguments);
+          scheduleNavigationReport();
+          return result;
+        };
+      } catch (_) {}
+    });
+    window.addEventListener("hashchange", scheduleNavigationReport);
+    window.addEventListener("popstate", scheduleNavigationReport);
+    window.setInterval(reportNavigationIfChanged, 100);
+  }
+  if (!hostMode) {
+    document.addEventListener("pointermove", onPointerMove, true);
+    document.addEventListener("pointerdown", onInspectPointerDown, true);
+    document.addEventListener("pointerup", onInspectPointerUp, true);
+    document.addEventListener("pointercancel", onInspectPointerCancel, true);
+    ["click", "dblclick", "auxclick", "contextmenu", "dragstart", "drag", "dragend", "drop", "submit", "beforeinput", "input", "change", "touchstart", "touchend"].forEach(function(type) {
+      document.addEventListener(type, blockAction, true);
+    });
+    document.addEventListener("keyup", blockAction, true);
+    document.addEventListener("keypress", blockAction, true);
+    document.addEventListener("wheel", onInspectWheel, { capture: true, passive: false });
+  }
   document.addEventListener("keydown", onInspectKeydown, true);
-  document.addEventListener("keyup", blockAction, true);
-  document.addEventListener("keypress", blockAction, true);
-  document.addEventListener("wheel", onInspectWheel, { capture: true, passive: false });
   window.addEventListener("error", function(event) {
     var target = event.target;
     if (target && target !== window && target instanceof Element) {
@@ -894,6 +1588,11 @@ export function buildPreviewBridgeRuntime(studioOrigin: string) {
   function markReady() {
     document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true");
     ensureStandalonePreviewControls();
+    if (hostMode) {
+      hostedCourseFrame = document.querySelector("[data-canvas-helper-standalone-course]");
+      if (hostedCourseFrame) hostedCourseFrame.addEventListener("load", connectHostedCourse);
+      connectHostedCourse();
+    }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markReady, { once: true }); else markReady();
 })();`;

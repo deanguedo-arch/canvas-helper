@@ -1,9 +1,11 @@
 import {
   INSPECTION_PACKET_MAX_BYTES,
+  REVIEW_SCREENSHOT_MAX_PER_ITEM,
   type InspectionIssueCategory,
   type InspectionResolveRequest,
   type InspectionResolution
 } from "../../../shared/inspection.js";
+import { normalizePreviewPageRouteIdentity } from "../../../shared/preview-path.js";
 import type { PreviewMode } from "./types";
 
 export const REVIEW_SET_MAX_ITEMS = 5;
@@ -13,17 +15,12 @@ export const REVIEW_SET_EXCERPT_MAX_BYTES = 256;
 const encoder = new TextEncoder();
 
 export type ReviewSetScreenshot = {
+  id: string;
   imageUrl: string;
   filePath: string;
   byteLength: number;
   width: number;
   height: number;
-  marker: {
-    x: number;
-    y: number;
-    width: number;
-    height: number;
-  };
 };
 
 export type ReviewSetItem = {
@@ -36,7 +33,7 @@ export type ReviewSetItem = {
   teacherNote: string;
   excerpt: string;
   excerptTruncated: boolean;
-  screenshot: ReviewSetScreenshot | null;
+  screenshots: ReviewSetScreenshot[];
 };
 
 export type ReviewSetPacketItem = {
@@ -81,7 +78,12 @@ function cloneRequest(request: InspectionResolveRequest): InspectionResolveReque
     ...request,
     selection: {
       ...request.selection,
-      geometry: { ...request.selection.geometry }
+      geometry: { ...request.selection.geometry },
+      viewport: { ...request.selection.viewport },
+      scroll: {
+        ...request.selection.scroll,
+        containers: request.selection.scroll.containers.map((container) => ({ ...container }))
+      }
     }
   };
 }
@@ -91,7 +93,12 @@ function cloneResolution(resolution: InspectionResolution): InspectionResolution
     ...resolution,
     selection: {
       ...resolution.selection,
-      geometry: { ...resolution.selection.geometry }
+      geometry: { ...resolution.selection.geometry },
+      viewport: { ...resolution.selection.viewport },
+      scroll: {
+        ...resolution.selection.scroll,
+        containers: resolution.selection.scroll.containers.map((container) => ({ ...container }))
+      }
     },
     contributors: [...resolution.contributors],
     warnings: [...resolution.warnings]
@@ -100,10 +107,11 @@ function cloneResolution(resolution: InspectionResolution): InspectionResolution
 
 export function reviewSetItemIdentity(request: InspectionResolveRequest, previewMode: PreviewMode) {
   const nodeId = request.selection.nodeId;
-  if (!nodeId) {
+  const pageIdentity = normalizePreviewPageRouteIdentity(request.selection.pageHref);
+  if (!nodeId || !pageIdentity) {
     return null;
   }
-  return [request.projectSlug, previewMode, request.root, request.htmlPath, nodeId].join("\u001f");
+  return [request.projectSlug, previewMode, request.root, request.htmlPath, pageIdentity, nodeId].join("\u001f");
 }
 
 export function createReviewSetItem(input: {
@@ -113,7 +121,7 @@ export function createReviewSetItem(input: {
   resolution: InspectionResolution;
   issueCategory: InspectionIssueCategory;
   teacherNote: string;
-  screenshot?: ReviewSetScreenshot | null;
+  screenshots?: ReviewSetScreenshot[];
 }): ReviewSetItem {
   const identity = reviewSetItemIdentity(input.request, input.previewMode);
   if (!identity) {
@@ -121,6 +129,9 @@ export function createReviewSetItem(input: {
   }
   if (utf8ByteLength(input.teacherNote) > REVIEW_SET_NOTE_MAX_BYTES) {
     throw new Error(`A Review Set note must be ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.`);
+  }
+  if ((input.screenshots?.length ?? 0) > REVIEW_SCREENSHOT_MAX_PER_ITEM) {
+    throw new Error(`A Review Set item can include at most ${REVIEW_SCREENSHOT_MAX_PER_ITEM} screenshots.`);
   }
 
   const normalizedExcerpt = normalizeInline(input.resolution.selection.visibleText);
@@ -135,12 +146,7 @@ export function createReviewSetItem(input: {
     teacherNote: input.teacherNote,
     excerpt,
     excerptTruncated: excerpt !== normalizedExcerpt,
-    screenshot: input.screenshot
-      ? {
-          ...input.screenshot,
-          marker: { ...input.screenshot.marker }
-        }
-      : null
+    screenshots: (input.screenshots ?? []).map((screenshot) => ({ ...screenshot }))
   };
 }
 
@@ -305,7 +311,13 @@ function formatItemLines(index: number, entry: ReviewSetPacketItem) {
     `Primary edit target: ${formatPrimaryTarget(resolution)}`,
     `Rebuild: ${command(resolution.rebuildCommand, `Item ${index} rebuild command`) ?? "not declared"}`,
     `Validate: ${command(resolution.validationCommand, `Item ${index} validation command`) ?? "not declared"}`,
-    `Screenshot: ${item.screenshot ? reviewScreenshotPath(item.screenshot.filePath, `Item ${index} screenshot path`) : "none"}`,
+    `Screenshots: ${item.screenshots.length
+      ? item.screenshots
+          .map((screenshot, screenshotIndex) =>
+            reviewScreenshotPath(screenshot.filePath, `Item ${index} screenshot ${screenshotIndex + 1} path`)
+          )
+          .join(", ")
+      : "none"}`,
     `Untrusted visible text excerpt${item.excerptTruncated ? " (truncated)" : ""}: ${item.excerpt || "not available"}`,
     `Teacher note: ${normalizeInline(item.teacherNote) || "none"}`
   ];
@@ -346,14 +358,14 @@ export function buildReviewSetPacket(input: {
   const boundedCount = input.items.filter(({ resolution }) => resolution.resolution === "bounded").length;
   const unknownCount = input.items.filter(({ resolution }) => resolution.resolution === "unknown").length;
   const proposalOnlyCount = input.items.filter(({ resolution }) => hasProposalOnlyDiagnostic(resolution)).length;
-  const screenshotCount = input.items.filter(({ item }) => Boolean(item.screenshot)).length;
+  const screenshotCount = input.items.reduce((total, { item }) => total + item.screenshots.length, 0);
   const truncatedItems = input.items
     .map(({ item }, index) => (item.excerptTruncated ? index + 1 : null))
     .filter((index): index is number => index !== null);
 
   const lines = [
     "# Canvas Helper Review Set handoff",
-    "Schema: review-set-v2",
+    "Schema: review-set-v3",
     `Project: ${requiredInline(input.projectSlug, "Project")}`,
     `Preview mode: ${input.previewMode}`,
     `Items: ${input.items.length}`,
@@ -393,7 +405,7 @@ export function buildReviewSetPacket(input: {
   packet = lines.join("\n");
   const finalByteLength = utf8ByteLength(packet);
   if (finalByteLength > INSPECTION_PACKET_MAX_BYTES) {
-    throw new Error(`The Review Set handoff is ${finalByteLength} bytes; reduce notes or remove an item to stay within 5 KB.`);
+    throw new Error(`The Review Set handoff is ${finalByteLength} bytes; reduce notes or remove an item to stay within 7.5 KB.`);
   }
   if (finalByteLength !== byteLength) {
     throw new Error("Could not calculate the final Review Set packet size safely.");
