@@ -8216,3 +8216,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
 - Implementation commits: `ccdb916d` and `6c824f42`.
 - Next command at archival time: `rg -n "selectedSlug|Review Set|project" app/studio/src app/shared scripts/tests e2e/specs/inspection.spec.ts`.
+
+## Archived Active Handoff — 2026-08-11: Phase C project continuity
+
+- Project: `repo-wide`.
+- Task: Complete Canvas Studio roadmap Phase C: project finding, per-project continuity, local intake entry, and preview reconnection.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the Phase D review-workbench handoff.
+- Verification: 54 focused Studio tests, Studio build, 22 inspection E2E tests, platform smoke, and the strict project contract passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/components/Topbar.tsx`, `app/studio/src/hooks/useProjectLibrary.ts`, `app/studio/src/lib/project-library.ts`, `app/studio/src/lib/review-set-storage.ts`, and `app/studio/src/lib/storage.ts`.
+- Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
+- Implementation commits: `cddc6142` and `3b119710`.
+- Next command at archival time: `sed -n '1,280p' app/studio/src/components/ReviewSetPanel.tsx`.

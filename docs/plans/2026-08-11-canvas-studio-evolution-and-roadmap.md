@@ -5,6 +5,8 @@
 - Current branch: `codex/studio-roadmap-phases`
 - Precision-shell baseline: `741b5282` (`feat(studio): establish precision review shell`)
 - Core review-loop implementation: `ccdb916d` (`feat(studio): complete core review loop`)
+- Project-continuity implementation: `cddc6142` (`feat(studio): add project continuity workspace`)
+- Review-workbench implementation: `a7501627` (`feat(studio): add bounded review workbench`)
 - Pre-publish baseline commit: `24a32079` (`feat(studio): include screenshots in review handoff`)
 - Intended reader: ChatGPT Pro / Terra Max acting as an independent product, usability, architecture, and security auditor
 - Primary subject: Canvas Studio itself—not the design or readiness of any particular course
@@ -456,18 +458,18 @@ Status: complete in `cddc6142`, with 54 focused Studio tests, 22 annotation E2E 
 
 Goal: support longer reviews without creating oversized Codex prompts.
 
-- named local review sessions;
-- one bounded active set at a time, with additional sets queued locally;
-- reorder annotations and screenshots;
-- add optional priority or short labels;
-- duplicate, move, or merge items only when packet limits remain valid;
-- show when an item is ready, stale, missing a screenshot, or missing a note;
-- export a human-readable Markdown handoff;
-- optionally export/import a strictly validated local JSON backup;
-- show estimated packet size before copy;
-- keep screenshot files local and ownership-checked.
+- **Completed named sessions:** each project can keep up to eight named local Review Sets, with one active set and the others queued;
+- **Completed bounded operations:** annotations can be duplicated, moved, or merged only when the five-item and packet-byte limits remain valid;
+- **Completed ordering:** annotations and their screenshots can be reordered without losing note or source evidence;
+- **Completed organization:** optional short labels and normal, high, or low priority travel with the item and its handoff;
+- **Completed readiness states:** every item reports ready, stale, needs relinking, needs a screenshot, or needs a note in plain language;
+- **Completed handoffs:** the active set can be copied for Codex, downloaded as readable Markdown, or backed up and restored through strictly validated JSON;
+- **Completed capacity feedback:** Studio shows the active packet's item count and byte size before copy;
+- **Completed local ownership:** queued sets share one bounded project screenshot session, and restored screenshot paths must pass project, session, annotation, and node ownership checks.
 
 Exit condition: the teacher can review a large body of work in several small, organized implementation batches.
+
+Status: complete in `a7501627`, with 55 focused Studio tests, 23 annotation E2E tests, the platform smoke, the strict project contract, and the Studio production build passing.
 
 ### Phase E — Strengthen annotation precision and recovery
 
