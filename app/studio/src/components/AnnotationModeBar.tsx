@@ -6,6 +6,7 @@ type AnnotationModeBarProps = {
   draftScreenshotCount: number;
   capturing: boolean;
   onCapture: () => void;
+  onCancelCapture: () => void;
   onOpenReviewSet: () => void;
   onDone: () => void;
 };
@@ -16,6 +17,7 @@ export function AnnotationModeBar({
   draftScreenshotCount,
   capturing,
   onCapture,
+  onCancelCapture,
   onOpenReviewSet,
   onDone
 }: AnnotationModeBarProps) {
@@ -28,12 +30,12 @@ export function AnnotationModeBar({
       <div className="annotation-mode-actions">
         <button
           type="button"
-          disabled={!selectionReady || capturing || draftScreenshotCount >= REVIEW_SCREENSHOT_MAX_PER_ITEM}
-          onClick={onCapture}
+          disabled={!capturing && (!selectionReady || draftScreenshotCount >= REVIEW_SCREENSHOT_MAX_PER_ITEM)}
+          onClick={capturing ? onCancelCapture : onCapture}
           data-testid="annotation-bar-capture"
         >
           {capturing
-            ? "Capturing…"
+            ? "Cancel capture"
             : `Screenshot${draftScreenshotCount ? ` (${draftScreenshotCount}/${REVIEW_SCREENSHOT_MAX_PER_ITEM})` : ""}`}
         </button>
         <button type="button" onClick={onOpenReviewSet}>

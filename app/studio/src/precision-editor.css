@@ -961,6 +961,66 @@ pre {
   font-size: 11px;
 }
 
+.inspection-capture-status {
+  margin: 0;
+  color: #166534;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.review-feedback {
+  display: flex;
+  min-height: 34px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-left: 3px solid #98a2b3;
+  border-radius: 6px;
+  color: #475467;
+  background: #f8fafc;
+  font-size: 11px;
+  line-height: 1.4;
+}
+
+.review-feedback.progress {
+  border-left-color: var(--accent);
+  color: #184e96;
+  background: #f5f8ff;
+}
+
+.review-feedback.success {
+  border-left-color: var(--success);
+  color: #166534;
+  background: #f6fbf7;
+}
+
+.review-feedback.warning {
+  border-left-color: #d68a00;
+  color: #805100;
+  background: #fffaf0;
+}
+
+.review-feedback.error {
+  border-left-color: var(--danger);
+  color: #991b1b;
+  background: #fff7f7;
+}
+
+.review-feedback-undo {
+  flex: 0 0 auto;
+  padding: 2px 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  border-radius: 0;
+  color: inherit;
+  background: transparent;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 650;
+}
+
 .review-set-items {
   gap: 0;
 }

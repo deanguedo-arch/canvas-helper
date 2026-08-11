@@ -63,6 +63,9 @@ test("@inspection Studio uses an isolated preview origin and keeps annotation de
   await expect(page.getByTestId("add-to-review-set")).toBeDisabled();
   await page.getByTestId("inspection-teacher-note").fill("Make this heading clearer.");
   await expect(page.getByTestId("add-to-review-set")).toBeEnabled();
+  await page.getByTestId("annotation-mode-bar").getByRole("button", { name: "Done" }).click();
+  await expect(page.getByTestId("inspect-toggle")).toHaveText("Annotate");
+  await expect(workspaceFrame.locator("html")).not.toHaveAttribute("data-canvas-helper-inspect-active", "true");
 });
 
 test("@inspection keyboard selection creates a handoff without activating the learner control", async ({ page }) => {
@@ -77,6 +80,9 @@ test("@inspection keyboard selection creates a handoff without activating the le
 
   await expect(page.getByTestId("inspection-panel")).toBeVisible();
   await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
+  await learnerControl.press("Escape");
+  await expect(page.getByTestId("inspect-toggle")).toHaveText("Annotate");
+  await expect(workspaceFrame.locator("html")).not.toHaveAttribute("data-canvas-helper-inspect-active", "true");
 });
 
 test("@inspection standalone preview can collect and copy the shared Review Set", async ({ page }) => {
@@ -143,6 +149,12 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await expect(previewReviewPanel.locator("img")).toHaveCount(2);
   await previewReviewPanel.getByRole("button", { name: "Remove screenshot 2" }).click();
   await expect(previewReviewPanel.locator("img")).toHaveCount(1);
+  await previewReviewPanel.getByRole("button", { name: "Remove", exact: true }).click();
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(0);
+  const previewUndo = previewPage.locator('[data-canvas-helper-preview-review-undo="true"]');
+  await expect(previewUndo).toHaveText("Undo remove");
+  await previewUndo.click();
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(1);
   await previewReviewPanel.getByRole("button", { name: "Show", exact: true }).click();
   await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-inspection-focus", "true");
   const previewCopy = previewPage.locator('[data-canvas-helper-preview-review-copy="true"]');
@@ -261,7 +273,7 @@ test("@inspection Review Set automatically prepares multiple annotations for one
   await expect(page.getByTestId("review-set-item")).toHaveCount(2);
 });
 
-test("@inspection saved annotations can be edited and removed without technical controls", async ({ page }) => {
+test("@inspection saved annotations can be undone, edited, removed, and restored", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
   await page.getByTestId("preview-workspace-toggle").click();
@@ -274,12 +286,55 @@ test("@inspection saved annotations can be edited and removed without technical 
   await learnerControl.press("Enter");
   await page.getByTestId("inspection-teacher-note").fill("Clarify this button.");
   await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await page.getByTestId("review-feedback").getByRole("button", { name: "Undo save" }).click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await page.getByTestId("inspection-teacher-note").fill("Clarify this button.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
 
   const savedNote = page.getByTestId("review-set-item").locator("textarea");
   await savedNote.fill("Use a clearer action label.");
   await expect(savedNote).toHaveValue("Use a clearer action label.");
   await page.getByTestId("review-set-item").getByRole("button", { name: "Remove", exact: true }).click();
   await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+  await page.getByTestId("review-feedback").getByRole("button", { name: "Undo remove" }).click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await expect(page.getByTestId("review-set-item").locator("textarea")).toHaveValue("Use a clearer action label.");
+});
+
+test("@inspection screenshot capture can be canceled and retried without losing the annotation", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
+
+  let releaseCapture = () => undefined;
+  const heldCapture = new Promise<void>((resolve) => { releaseCapture = resolve; });
+  await page.route("**/api/inspection/capture", async (route) => {
+    await heldCapture;
+    await route.abort().catch(() => undefined);
+  });
+  const capture = page.getByTestId("capture-annotated-screenshot");
+  await capture.evaluate((button: HTMLButtonElement) => button.click());
+  await expect(capture).toHaveText("Cancel capture");
+  await capture.evaluate((button: HTMLButtonElement) => button.click());
+  releaseCapture();
+  await expect(capture).toHaveText("Capture screenshot");
+  await expect(page.getByTestId("review-feedback")).toContainText("Screenshot capture canceled");
+  await expect(page.getByTestId("screenshot-draft")).toHaveCount(0);
+
+  await page.unroute("**/api/inspection/capture");
+  await capture.click();
+  await expect(page.getByTestId("screenshot-draft")).toHaveCount(1);
+  await expect(page.getByText("Screenshot ready to save.")).toBeVisible();
 });
 
 test("@inspection Show restores the saved workspace HTML page before focusing the annotation", async ({ page }) => {
@@ -332,15 +387,12 @@ test("@inspection Show restores the saved query and hash state on the same cours
   const currentState = () => workspaceFrame.locator("html").evaluate(() => `${location.search}${location.hash}`);
   await workspaceFrame.locator("html").evaluate(() => history.replaceState(null, "", "?lesson=one#part-a"));
   await expect.poll(currentState).toBe("?lesson=one#part-a");
+  await page.waitForTimeout(100); // Let the preview-navigation bridge settle before annotation mode starts.
 
   await page.getByTestId("inspect-toggle").click();
-  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
-  const bounds = await heading.boundingBox();
-  expect(bounds).toBeTruthy();
-  await page.mouse.click(
-    (bounds?.x ?? 0) + (bounds?.width ?? 0) / 2,
-    (bounds?.y ?? 0) + (bounds?.height ?? 0) / 2
-  );
+  const archiveControl = workspaceFrame.getByRole("button", { name: "Show archive" });
+  await archiveControl.focus();
+  await archiveControl.press("Enter");
   await page.getByTestId("inspection-teacher-note").fill("Keep this note attached to lesson one.");
   await page.getByTestId("add-to-review-set").click();
   await expect(page.getByTestId("review-set-item")).toHaveCount(1);
@@ -445,6 +497,30 @@ test("@inspection changing projects clears a handoff and ignores a late source-r
   await waitForWorkspacePreviewReady(page, "forensics35");
 
   await expect(page.getByTestId("inspection-selection-summary")).toHaveCount(0);
+});
+
+test("@inspection each project restores its own layout, device, zoom, and Review Set visibility", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-split-toggle").click();
+  await page.getByRole("combobox", { name: "Preview device" }).selectOption("mobile");
+  await page.getByRole("combobox", { name: "Preview zoom" }).selectOption("75");
+  await page.getByTestId("inspector-toggle").click();
+  await expect(page.getByTestId("review-set")).toBeVisible();
+
+  const projectSelect = page.getByTestId("workspace-project-select");
+  await projectSelect.selectOption("forensics35");
+  await waitForWorkspacePreviewReady(page, "forensics35");
+  await expect(page.getByTestId("layout-focus-toggle")).toHaveClass(/active/);
+  await expect(page.getByRole("combobox", { name: "Preview device" })).toHaveValue("desktop");
+  await expect(page.getByRole("combobox", { name: "Preview zoom" })).toHaveValue("100");
+  await expect(page.getByTestId("review-set")).toHaveCount(0);
+
+  await projectSelect.selectOption("e2e-fixture");
+  await waitForWorkspacePreviewReady(page, "e2e-fixture");
+  await expect(page.getByTestId("layout-split-toggle")).toHaveClass(/active/);
+  await expect(page.getByRole("combobox", { name: "Preview device" })).toHaveValue("mobile");
+  await expect(page.getByRole("combobox", { name: "Preview zoom" })).toHaveValue("75");
+  await expect(page.getByTestId("review-set")).toBeVisible();
 });
 
 test("@inspection a late first selection cannot overwrite a newer selection in the same preview", async ({ page }) => {
@@ -626,6 +702,7 @@ test("@inspection a failed second screenshot save keeps every draft and reclaims
     (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
   );
   await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.getByTestId("screenshot-draft")).toHaveCount(1);
   await page.getByTestId("capture-annotated-screenshot").click();
   await expect(page.getByTestId("screenshot-draft")).toHaveCount(2);
 

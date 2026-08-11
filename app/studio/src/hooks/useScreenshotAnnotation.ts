@@ -96,8 +96,13 @@ export function useScreenshotAnnotation() {
   };
 
   const cancelCapture = () => {
-    activeCaptureRef.current?.abort();
+    const active = activeCaptureRef.current;
+    if (!active) return false;
+    active.abort();
     activeCaptureRef.current = null;
+    setStatus(draftsRef.current.length ? "ready" : "idle");
+    setError("");
+    return true;
   };
 
   const clear = () => {
@@ -191,6 +196,7 @@ export function useScreenshotAnnotation() {
     error,
     isSupported: typeof window !== "undefined" && typeof window.fetch === "function",
     capture,
+    cancel: cancelCapture,
     remove,
     download,
     clear,

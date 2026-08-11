@@ -19,24 +19,29 @@ type InspectorPanelProps = {
   reviewSetCanAddCurrent: boolean;
   reviewSetAddDisabledReason: string;
   onCaptureScreenshot: () => void;
+  onCancelScreenshot: () => void;
   onDownloadScreenshot: (id: string) => void;
   onDiscardScreenshot: (id: string) => void;
   reviewSetItems: ReviewSetItem[];
   reviewSetStatus: string;
+  reviewSetStatusTone: "neutral" | "progress" | "success" | "warning" | "error";
   reviewSetPreparing: boolean;
   reviewSetPacketReady: boolean;
   reviewSetPacketError: string;
-  reviewSetCopyStatus: string;
   reviewSetManualPacket: string;
+  reviewSetManualCopyVisible: boolean;
   reviewSetPersistenceError: string;
   reviewSetCaptureItemId: string;
+  reviewSetUndoLabel: string;
   onClearReviewSet: () => void;
   onRemoveReviewSetItem: (id: string) => void;
   onFocusReviewSetItem: (id: string) => void;
   onReviewSetTeacherNoteChange: (id: string, value: string) => void;
   onAddReviewSetScreenshot: (id: string) => void;
+  onCancelReviewSetScreenshotCapture: () => void;
   onRemoveReviewSetScreenshot: (itemId: string, screenshotId: string) => void;
   onCopyReviewSet: () => void;
+  onUndoReviewSet: () => void;
 };
 
 export function InspectorPanel({
@@ -54,24 +59,29 @@ export function InspectorPanel({
   reviewSetCanAddCurrent,
   reviewSetAddDisabledReason,
   onCaptureScreenshot,
+  onCancelScreenshot,
   onDownloadScreenshot,
   onDiscardScreenshot,
   reviewSetItems,
   reviewSetStatus,
+  reviewSetStatusTone,
   reviewSetPreparing,
   reviewSetPacketReady,
   reviewSetPacketError,
-  reviewSetCopyStatus,
   reviewSetManualPacket,
+  reviewSetManualCopyVisible,
   reviewSetPersistenceError,
   reviewSetCaptureItemId,
+  reviewSetUndoLabel,
   onClearReviewSet,
   onRemoveReviewSetItem,
   onFocusReviewSetItem,
   onReviewSetTeacherNoteChange,
   onAddReviewSetScreenshot,
+  onCancelReviewSetScreenshotCapture,
   onRemoveReviewSetScreenshot,
-  onCopyReviewSet
+  onCopyReviewSet,
+  onUndoReviewSet
 }: InspectorPanelProps) {
   const showComposer = inspectEnabled || Boolean(inspectionResolution) || screenshots.length > 0;
 
@@ -93,6 +103,7 @@ export function InspectorPanel({
           onTeacherNoteChange={onInspectionTeacherNoteChange}
           onSave={onSaveCurrentInspection}
           onCaptureScreenshot={onCaptureScreenshot}
+          onCancelScreenshot={onCancelScreenshot}
           onDownloadScreenshot={onDownloadScreenshot}
           onDiscardScreenshot={onDiscardScreenshot}
         />
@@ -100,20 +111,24 @@ export function InspectorPanel({
       <ReviewSetPanel
         items={reviewSetItems}
         status={reviewSetStatus}
+        statusTone={reviewSetStatusTone}
         preparing={reviewSetPreparing}
         packetReady={reviewSetPacketReady}
         packetError={reviewSetPacketError}
-        copyStatus={reviewSetCopyStatus}
         manualPacket={reviewSetManualPacket}
+        manualCopyVisible={reviewSetManualCopyVisible}
         persistenceError={reviewSetPersistenceError}
         captureItemId={reviewSetCaptureItemId}
+        undoLabel={reviewSetUndoLabel}
         onClear={onClearReviewSet}
         onRemove={onRemoveReviewSetItem}
         onFocus={onFocusReviewSetItem}
         onTeacherNoteChange={onReviewSetTeacherNoteChange}
         onAddScreenshot={onAddReviewSetScreenshot}
+        onCancelScreenshotCapture={onCancelReviewSetScreenshotCapture}
         onRemoveScreenshot={onRemoveReviewSetScreenshot}
         onCopy={onCopyReviewSet}
+        onUndo={onUndoReviewSet}
       />
     </aside>
   );

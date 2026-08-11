@@ -71,6 +71,7 @@ export function buildPreviewBridgeRuntime(
   var reviewItems = null;
   var reviewCopy = null;
   var reviewClear = null;
+  var reviewUndo = null;
   var reviewMessage = null;
   var reviewPacketFallback = null;
   var reviewLightbox = null;
@@ -79,7 +80,9 @@ export function buildPreviewBridgeRuntime(
   var reviewLocalMessage = "";
   var reviewCapturePending = false;
   var reviewSavePending = false;
-  var reviewState = { sessionId: "", items: [], draftScreenshotCount: 0, captureItemId: "", saving: false, preparing: false, packetReady: false, status: "", error: "" };
+  var reviewActionSequence = 0;
+  var latestReviewActionId = "";
+  var reviewState = { sessionId: "", items: [], draftScreenshotCount: 0, captureItemId: "", saving: false, preparing: false, packetReady: false, status: "", error: "", undoLabel: "" };
   var standaloneSessionToken = "";
   var standaloneRejoinToken = "";
   var standaloneUrl = null;
@@ -450,6 +453,10 @@ export function buildPreviewBridgeRuntime(
       renderReviewPanel();
       return false;
     }
+    if (action.action !== "request-state") {
+      latestReviewActionId = "review-" + (++reviewActionSequence);
+      action = Object.assign({}, action, { requestId: latestReviewActionId });
+    }
     send("preview-review-action", action);
     return true;
   }
@@ -469,9 +476,9 @@ export function buildPreviewBridgeRuntime(
     if (reviewSelectionText) reviewSelectionText.textContent = reviewSelectionExcerpt(reviewSelection);
     if (reviewDraft) reviewDraft.disabled = !reviewSelection;
     if (reviewCapture) {
-      reviewCapture.disabled = !studioConnected || reviewCapturePending || !reviewSelection || !reviewSelection.nodeId || reviewState.draftScreenshotCount >= MAX_REVIEW_SCREENSHOTS;
+      reviewCapture.disabled = !studioConnected || (!reviewCapturePending && (!reviewSelection || !reviewSelection.nodeId || reviewState.draftScreenshotCount >= MAX_REVIEW_SCREENSHOTS));
       reviewCapture.textContent = reviewCapturePending
-        ? "Capturing course…"
+        ? "Cancel capture"
         : reviewState.draftScreenshotCount
         ? "Screenshot (" + reviewState.draftScreenshotCount + "/" + MAX_REVIEW_SCREENSHOTS + ")"
         : "Screenshot";
@@ -620,15 +627,21 @@ export function buildPreviewBridgeRuntime(
         var addScreenshot = document.createElement("button");
         addScreenshot.type = "button";
         addScreenshot.textContent = reviewState.captureItemId === item.id
-          ? "Capturing course…"
+          ? "Cancel capture"
           : item.screenshots.length >= MAX_REVIEW_SCREENSHOTS ? MAX_REVIEW_SCREENSHOTS + " screenshots attached" : "Add screenshot";
         stylePreviewControlButton(addScreenshot);
         addScreenshot.style.marginTop = "7px";
         addScreenshot.style.padding = "5px 7px";
         addScreenshot.style.fontSize = "11px";
-        addScreenshot.disabled = !studioConnected || reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS;
+        addScreenshot.disabled = !studioConnected || (reviewState.captureItemId !== item.id && (reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS));
         addScreenshot.style.opacity = addScreenshot.disabled ? "0.48" : "1";
         addScreenshot.addEventListener("click", function() {
+          if (reviewState.captureItemId === item.id) {
+            reviewLocalMessage = "Canceling screenshot capture…";
+            renderReviewPanel();
+            sendReviewAction({ action: "cancel-capture" });
+            return;
+          }
           reviewCapturePending = true;
           reviewLocalMessage = "Capturing the course preview…";
           renderReviewPanel();
@@ -652,6 +665,11 @@ export function buildPreviewBridgeRuntime(
       reviewClear.disabled = !studioConnected || !reviewState.items.length;
       reviewClear.style.opacity = reviewClear.disabled ? "0.48" : "1";
       reviewClear.style.cursor = reviewClear.disabled ? "default" : "pointer";
+    }
+    if (reviewUndo) {
+      reviewUndo.style.display = reviewState.undoLabel ? "inline-flex" : "none";
+      reviewUndo.textContent = reviewState.undoLabel || "Undo";
+      reviewUndo.disabled = !studioConnected || !reviewState.undoLabel;
     }
     if (reviewMessage) {
       reviewMessage.textContent = boundedString(reviewState.error || reviewLocalMessage || reviewState.status, 180);
@@ -802,7 +820,13 @@ export function buildPreviewBridgeRuntime(
     capture.style.marginTop = "7px";
     capture.style.marginRight = "6px";
     capture.addEventListener("click", function() {
-      if (!reviewSelection || reviewCapturePending) return;
+      if (reviewCapturePending) {
+        reviewLocalMessage = "Canceling screenshot capture…";
+        renderReviewPanel();
+        sendReviewAction({ action: "cancel-capture" });
+        return;
+      }
+      if (!reviewSelection) return;
       reviewCapturePending = true;
       reviewLocalMessage = "Capturing the course preview…";
       renderReviewPanel();
@@ -874,6 +898,17 @@ export function buildPreviewBridgeRuntime(
       sendReviewAction({ action: "clear" });
     });
 
+    var undo = document.createElement("button");
+    undo.type = "button";
+    undo.setAttribute("data-canvas-helper-preview-review-undo", "true");
+    stylePreviewControlButton(undo);
+    undo.style.display = "none";
+    undo.addEventListener("click", function() {
+      reviewLocalMessage = "Undoing last change…";
+      renderReviewPanel();
+      sendReviewAction({ action: "undo" });
+    });
+
     var panelMessage = document.createElement("p");
     panelMessage.setAttribute("role", "status");
     panelMessage.setAttribute("data-canvas-helper-preview-review-status", "true");
@@ -891,6 +926,7 @@ export function buildPreviewBridgeRuntime(
     packetFallback.style.marginTop = "8px";
 
     footer.appendChild(copy);
+    footer.appendChild(undo);
     footer.appendChild(clear);
     panel.appendChild(panelTitle);
     panel.appendChild(selectedText);
@@ -922,6 +958,7 @@ export function buildPreviewBridgeRuntime(
     reviewItems = savedItems;
     reviewCopy = copy;
     reviewClear = clear;
+    reviewUndo = undo;
     reviewPacketFallback = packetFallback;
     reviewMessage = panelMessage;
     updateStandaloneControls();
@@ -1223,7 +1260,7 @@ export function buildPreviewBridgeRuntime(
 
   function isReviewState(value) {
     if (!value || typeof value !== "object" || !Array.isArray(value.items) || value.items.length > MAX_REVIEW_ITEMS) return false;
-    if (typeof value.sessionId !== "string" || !/^[A-Za-z0-9-]{16,80}$/.test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > 160 || typeof value.saving !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240) return false;
+    if (typeof value.sessionId !== "string" || !/^[A-Za-z0-9-]{16,80}$/.test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > 160 || typeof value.saving !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240 || (value.undoLabel !== undefined && (typeof value.undoLabel !== "string" || value.undoLabel.length > 80))) return false;
     return value.items.every(function(item) {
       return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.projectSlug === "string" && item.projectSlug.length > 0 && item.projectSlug.length <= 160 && typeof item.nodeId === "string" && item.nodeId.length > 0 && item.nodeId.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && Array.isArray(item.screenshots) && item.screenshots.length <= MAX_REVIEW_SCREENSHOTS && item.screenshots.every(function(screenshot) {
         return screenshot && typeof screenshot === "object" && typeof screenshot.id === "string" && screenshot.id.length > 0 && screenshot.id.length <= 160 && isReviewScreenshotPath(screenshot.filePath);
@@ -1232,7 +1269,7 @@ export function buildPreviewBridgeRuntime(
   }
 
   function isReviewActionResult(value) {
-    return value && typeof value === "object" && typeof value.ok === "boolean" && typeof value.message === "string" && value.message.length <= 240 && typeof value.clearDraft === "boolean";
+    return value && typeof value === "object" && typeof value.ok === "boolean" && typeof value.message === "string" && value.message.length <= 240 && typeof value.clearDraft === "boolean" && (value.requestId === undefined || (typeof value.requestId === "string" && value.requestId.length > 0 && value.requestId.length <= 80));
   }
 
   function hostedTargetUrl(value) {
@@ -1438,6 +1475,7 @@ export function buildPreviewBridgeRuntime(
       renderReviewPanel();
     }
     if (event.data.type === "studio-review-action-result" && isReviewActionResult(event.data.payload)) {
+      if (event.data.payload.requestId && latestReviewActionId && event.data.payload.requestId !== latestReviewActionId) return;
       reviewCapturePending = false;
       reviewSavePending = false;
       reviewLocalMessage = event.data.payload.message;

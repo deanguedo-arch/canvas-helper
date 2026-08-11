@@ -10,6 +10,8 @@ import {
 
 const STUDIO_SELECTION_STORAGE_KEY = "canvas-helper/studio-selection";
 const STUDIO_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout";
+const STUDIO_PROJECT_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout-by-project-v1";
+const STUDIO_PROJECT_LAYOUT_MAX_ENTRIES = 100;
 const STUDIO_REFERENCE_STORAGE_KEY = "canvas-helper/studio-reference";
 const PREVIEW_SCROLL_STORAGE_KEY = "canvas-helper/preview-scroll";
 const STUDIO_COMMAND_OUTPUT_VISIBLE_KEY = "canvas-helper/studio-command-output-visible";
@@ -46,19 +48,9 @@ export function saveStudioSelection(selectedSlug: string, previewMode: StudioSel
   );
 }
 
-export function loadPreviewLayoutPreferences(): PreviewLayoutPreferences {
-  if (typeof window === "undefined") {
-    return DEFAULT_LAYOUT_PREFERENCES;
-  }
-
-  try {
-    const savedValue = window.localStorage.getItem(STUDIO_LAYOUT_STORAGE_KEY);
-    if (!savedValue) {
-      return DEFAULT_LAYOUT_PREFERENCES;
-    }
-
-    const parsed = JSON.parse(savedValue) as Partial<PreviewLayoutPreferences>;
-    return {
+function normalizePreviewLayoutPreferences(value: unknown): PreviewLayoutPreferences {
+  const parsed = value && typeof value === "object" ? value as Partial<PreviewLayoutPreferences> : {};
+  return {
       compareMode: typeof parsed.compareMode === "boolean" ? parsed.compareMode : DEFAULT_LAYOUT_PREFERENCES.compareMode,
       sidebarOpen: typeof parsed.sidebarOpen === "boolean" ? parsed.sidebarOpen : DEFAULT_LAYOUT_PREFERENCES.sidebarOpen,
       inspectorOpen:
@@ -80,17 +72,75 @@ export function loadPreviewLayoutPreferences(): PreviewLayoutPreferences {
         )
       }
     };
+}
+
+type StoredProjectLayout = {
+  updatedAt: number;
+  preferences: PreviewLayoutPreferences;
+};
+
+function loadProjectLayoutMap(): Record<string, StoredProjectLayout> {
+  try {
+    const parsed = JSON.parse(window.localStorage.getItem(STUDIO_PROJECT_LAYOUT_STORAGE_KEY) ?? "null") as unknown;
+    if (!parsed || typeof parsed !== "object" || Array.isArray(parsed)) return {};
+    const entries = Object.entries(parsed as Record<string, unknown>)
+      .filter(([slug, value]) => (
+        slug.length > 0 &&
+        slug.length <= 160 &&
+        value &&
+        typeof value === "object" &&
+        !Array.isArray(value) &&
+        Number.isFinite((value as { updatedAt?: unknown }).updatedAt)
+      ))
+      .slice(-STUDIO_PROJECT_LAYOUT_MAX_ENTRIES)
+      .map(([slug, value]) => [slug, {
+        updatedAt: Number((value as { updatedAt: number }).updatedAt),
+        preferences: normalizePreviewLayoutPreferences((value as { preferences?: unknown }).preferences)
+      }] as const);
+    return Object.fromEntries(entries);
+  } catch {
+    return {};
+  }
+}
+
+export function loadPreviewLayoutPreferences(projectSlug = ""): PreviewLayoutPreferences {
+  if (typeof window === "undefined") {
+    return DEFAULT_LAYOUT_PREFERENCES;
+  }
+
+  try {
+    if (projectSlug) {
+      const projectLayout = loadProjectLayoutMap()[projectSlug];
+      if (projectLayout) return projectLayout.preferences;
+    }
+    const savedValue = window.localStorage.getItem(STUDIO_LAYOUT_STORAGE_KEY);
+    return savedValue ? normalizePreviewLayoutPreferences(JSON.parse(savedValue)) : DEFAULT_LAYOUT_PREFERENCES;
   } catch {
     return DEFAULT_LAYOUT_PREFERENCES;
   }
 }
 
-export function savePreviewLayoutPreferences(preferences: PreviewLayoutPreferences) {
+export function savePreviewLayoutPreferences(preferences: PreviewLayoutPreferences, projectSlug = "") {
   if (typeof window === "undefined") {
     return;
   }
-
-  window.localStorage.setItem(STUDIO_LAYOUT_STORAGE_KEY, JSON.stringify(preferences));
+  try {
+    if (!projectSlug) {
+      window.localStorage.setItem(STUDIO_LAYOUT_STORAGE_KEY, JSON.stringify(preferences));
+      return;
+    }
+    const entries = Object.entries(loadProjectLayoutMap())
+      .filter(([slug]) => slug !== projectSlug)
+      .sort(([, left], [, right]) => right.updatedAt - left.updatedAt)
+      .slice(0, STUDIO_PROJECT_LAYOUT_MAX_ENTRIES - 1);
+    const next = Object.fromEntries([
+      ...entries,
+      [projectSlug, { updatedAt: Date.now(), preferences: normalizePreviewLayoutPreferences(preferences) }]
+    ]);
+    window.localStorage.setItem(STUDIO_PROJECT_LAYOUT_STORAGE_KEY, JSON.stringify(next));
+  } catch {
+    // Layout preferences remain usable for this tab when browser storage is unavailable.
+  }
 }
 
 export function loadReferenceTarget(): ReferenceTarget {

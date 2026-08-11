@@ -17,6 +17,7 @@ type InspectionPanelProps = {
   onTeacherNoteChange: (value: string) => void;
   onSave: () => void;
   onCaptureScreenshot: () => void;
+  onCancelScreenshot: () => void;
   onDownloadScreenshot: (id: string) => void;
   onDiscardScreenshot: (id: string) => void;
 };
@@ -41,6 +42,7 @@ export function InspectionPanel({
   onTeacherNoteChange,
   onSave,
   onCaptureScreenshot,
+  onCancelScreenshot,
   onDownloadScreenshot,
   onDiscardScreenshot
 }: InspectionPanelProps) {
@@ -95,17 +97,20 @@ export function InspectionPanel({
               <button
                 type="button"
                 className="ghost-button compact"
-                disabled={!screenshotSupported || !screenshotCanCapture || screenshotStatus === "capturing"}
-                onClick={onCaptureScreenshot}
+                disabled={screenshotStatus !== "capturing" && (!screenshotSupported || !screenshotCanCapture)}
+                onClick={screenshotStatus === "capturing" ? onCancelScreenshot : onCaptureScreenshot}
                 data-testid="capture-annotated-screenshot"
               >
-                {screenshotStatus === "capturing" ? "Capturing course…" : "Capture screenshot"}
+                {screenshotStatus === "capturing"
+                  ? "Cancel capture"
+                  : screenshotStatus === "error" ? "Retry screenshot" : "Capture screenshot"}
               </button>
               <span>Captures only this course preview and marks the selected area. You can attach up to three.</span>
             </div>
           </div>
           {!screenshotSupported ? <p className="inspection-warning">Screenshots are not available in this browser.</p> : null}
           {screenshotError ? <p className="inspection-warning">{screenshotError}</p> : null}
+          {screenshotStatus === "ready" ? <p className="inspection-capture-status" role="status">Screenshot ready to save.</p> : null}
           {screenshots.length ? (
             <ScreenshotAnnotation
               drafts={screenshots}

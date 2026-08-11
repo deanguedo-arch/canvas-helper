@@ -24,6 +24,10 @@ import {
   loadStoredReviewSet,
   saveStoredReviewSet
 } from "../../app/studio/src/lib/review-set-storage.ts";
+import {
+  loadPreviewLayoutPreferences,
+  savePreviewLayoutPreferences
+} from "../../app/studio/src/lib/storage.ts";
 import { runWithCurrentPreviewSelection } from "../../app/studio/src/lib/current-preview-selection.ts";
 import {
   createPreviewStandaloneBridgeBootstrap,
@@ -447,6 +451,57 @@ test("blocked browser storage never crashes Review Set load, save, or clear", ()
   }
 });
 
+test("Studio layout preferences remain separate per project and tolerate blocked storage", () => {
+  const originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+  const values = new Map<string, string>();
+  const localStorage = {
+    getItem(key: string) { return values.get(key) ?? null; },
+    setItem(key: string, value: string) { values.set(key, value); },
+    removeItem(key: string) { values.delete(key); }
+  };
+  Object.defineProperty(globalThis, "window", {
+    configurable: true,
+    value: { localStorage }
+  });
+  try {
+    const alpha = {
+      ...loadPreviewLayoutPreferences("alpha"),
+      compareMode: true,
+      inspectorOpen: true,
+      devices: { reference: "mobile" as const, workspace: "tablet" as const },
+      zooms: { reference: 75, workspace: 125 }
+    };
+    const beta = {
+      ...loadPreviewLayoutPreferences("beta"),
+      compareMode: false,
+      inspectorOpen: false,
+      devices: { reference: "tablet" as const, workspace: "mobile" as const },
+      zooms: { reference: 90, workspace: 80 }
+    };
+    savePreviewLayoutPreferences(alpha, "alpha");
+    savePreviewLayoutPreferences(beta, "beta");
+    assert.deepEqual(loadPreviewLayoutPreferences("alpha"), alpha);
+    assert.deepEqual(loadPreviewLayoutPreferences("beta"), beta);
+    assert.equal(loadPreviewLayoutPreferences("gamma").compareMode, false);
+
+    Object.defineProperty(globalThis, "window", {
+      configurable: true,
+      value: {
+        localStorage: {
+          getItem() { throw new Error("storage denied"); },
+          setItem() { throw new Error("storage denied"); },
+          removeItem() { throw new Error("storage denied"); }
+        }
+      }
+    });
+    assert.doesNotThrow(() => savePreviewLayoutPreferences(alpha, "alpha"));
+    assert.equal(loadPreviewLayoutPreferences("alpha").compareMode, false);
+  } finally {
+    if (originalWindow) Object.defineProperty(globalThis, "window", originalWindow);
+    else Reflect.deleteProperty(globalThis, "window");
+  }
+});
+
 test("preview paths reject encoded separators, traversal, and symlink escapes", async () => {
   await assert.rejects(
     getPreviewPath("workspace", "forensics35", "assets%2F..%2Findex.html"),
@@ -506,6 +561,9 @@ test("isolated preview pins the Studio origin and exposes no Studio API routes",
     assert.match(bridgeSource, /data-canvas-helper-preview-review-note/);
     assert.match(bridgeSource, /data-canvas-helper-preview-review-save/);
     assert.match(bridgeSource, /data-canvas-helper-preview-review-copy/);
+    assert.match(bridgeSource, /data-canvas-helper-preview-review-undo/);
+    assert.match(bridgeSource, /latestReviewActionId/);
+    assert.match(bridgeSource, /requestId !== latestReviewActionId/);
     assert.match(bridgeSource, /send\("preview-return-to-studio", null\)/);
     assert.match(bridgeSource, /window\.close\(\)/);
     assert.match(bridgeSource, /if \(!event\.isTrusted\) return/);
@@ -712,6 +770,24 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
     isPreviewBridgeMessage({
       protocol: "canvas-helper.preview",
       version: 1,
+      type: "preview-review-action",
+      payload: { action: "undo", requestId: "review-12" }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-review-action",
+      payload: { action: "cancel-capture", requestId: "x".repeat(81) }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
       type: "preview-inspect-mode",
       payload: { enabled: true }
     }),
@@ -849,10 +925,29 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
         preparing: false,
         packetReady: true,
         status: "Review Set ready.",
-        error: ""
+        error: "",
+        undoLabel: "Undo remove"
       }
     }),
     true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "studio-review-action-result",
+      payload: { ok: true, message: "Undone.", clearDraft: false, requestId: "review-12" }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "studio-review-action-result",
+      payload: { ok: true, message: "Undone.", clearDraft: false, requestId: "x".repeat(81) }
+    }),
+    false
   );
   assert.equal(
     isPreviewBridgeMessage({

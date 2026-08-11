@@ -103,8 +103,10 @@ export type PreviewDiagnostic = {
   message: string;
 };
 
-export type PreviewReviewAction =
+export type PreviewReviewAction = (
   | { action: "request-state" }
+  | { action: "undo" }
+  | { action: "cancel-capture" }
   | { action: "add"; selection: PreviewInspectPayload; teacherNote: string }
   | { action: "capture-draft"; selection: PreviewInspectPayload }
   | { action: "capture-item"; itemId: string }
@@ -112,7 +114,8 @@ export type PreviewReviewAction =
   | { action: "remove"; itemId: string }
   | { action: "remove-screenshot"; itemId: string; screenshotId: string }
   | { action: "update-note"; itemId: string; teacherNote: string }
-  | { action: "clear" };
+  | { action: "clear" }
+) & { requestId?: string };
 
 export type PreviewReviewScreenshotSummary = {
   id: string;
@@ -138,12 +141,14 @@ export type PreviewReviewState = {
   packetReady: boolean;
   status: string;
   error: string;
+  undoLabel?: string;
 };
 
 export type PreviewReviewActionResult = {
   ok: boolean;
   message: string;
   clearDraft: boolean;
+  requestId?: string;
 };
 
 export type PreviewBridgeMessage = {
@@ -280,9 +285,14 @@ export function isPreviewReviewAction(value: unknown): value is PreviewReviewAct
   if (!isRecord(value) || typeof value.action !== "string") {
     return false;
   }
+  if (value.requestId !== undefined && !isBoundedNonEmptyString(value.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH)) {
+    return false;
+  }
   switch (value.action) {
     case "request-state":
     case "clear":
+    case "undo":
+    case "cancel-capture":
       return true;
     case "add":
       return isPreviewInspectPayload(value.selection) && isBoundedString(value.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH);
@@ -339,7 +349,8 @@ export function isPreviewReviewState(value: unknown): value is PreviewReviewStat
     typeof value.preparing === "boolean" &&
     typeof value.packetReady === "boolean" &&
     isBoundedString(value.status, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
-    isBoundedString(value.error, PREVIEW_REVIEW_STATUS_MAX_LENGTH)
+    isBoundedString(value.error, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
+    (value.undoLabel === undefined || isBoundedString(value.undoLabel, 80))
   );
 }
 
@@ -348,7 +359,8 @@ export function isPreviewReviewActionResult(value: unknown): value is PreviewRev
     isRecord(value) &&
     typeof value.ok === "boolean" &&
     isBoundedString(value.message, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
-    typeof value.clearDraft === "boolean"
+    typeof value.clearDraft === "boolean" &&
+    (value.requestId === undefined || isBoundedNonEmptyString(value.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH))
   );
 }
 

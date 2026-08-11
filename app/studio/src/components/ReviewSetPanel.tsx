@@ -6,20 +6,24 @@ import { REVIEW_SET_MAX_ITEMS, type ReviewSetItem, type ReviewSetScreenshot } fr
 type ReviewSetPanelProps = {
   items: ReviewSetItem[];
   status: string;
+  statusTone: "neutral" | "progress" | "success" | "warning" | "error";
   preparing: boolean;
   packetReady: boolean;
   packetError: string;
-  copyStatus: string;
   manualPacket: string;
+  manualCopyVisible: boolean;
   persistenceError: string;
   captureItemId: string;
+  undoLabel: string;
   onClear: () => void;
   onRemove: (id: string) => void;
   onFocus: (id: string) => void;
   onTeacherNoteChange: (id: string, value: string) => void;
   onAddScreenshot: (id: string) => void;
+  onCancelScreenshotCapture: () => void;
   onRemoveScreenshot: (itemId: string, screenshotId: string) => void;
   onCopy: () => void;
+  onUndo: () => void;
 };
 
 function itemTitle(item: ReviewSetItem, position: number) {
@@ -30,20 +34,24 @@ function itemTitle(item: ReviewSetItem, position: number) {
 export function ReviewSetPanel({
   items,
   status,
+  statusTone,
   preparing,
   packetReady,
   packetError,
-  copyStatus,
   manualPacket,
+  manualCopyVisible,
   persistenceError,
   captureItemId,
+  undoLabel,
   onClear,
   onRemove,
   onFocus,
   onTeacherNoteChange,
   onAddScreenshot,
+  onCancelScreenshotCapture,
   onRemoveScreenshot,
-  onCopy
+  onCopy,
+  onUndo
 }: ReviewSetPanelProps) {
   const [expandedScreenshot, setExpandedScreenshot] = useState<{
     screenshot: ReviewSetScreenshot;
@@ -165,11 +173,11 @@ export function ReviewSetPanel({
                 <button
                   type="button"
                   className="ghost-button compact review-set-add-screenshot"
-                  disabled={captureRunning || anotherCaptureRunning || item.screenshots.length >= REVIEW_SCREENSHOT_MAX_PER_ITEM}
-                  onClick={() => onAddScreenshot(item.id)}
+                  disabled={anotherCaptureRunning || (!captureRunning && item.screenshots.length >= REVIEW_SCREENSHOT_MAX_PER_ITEM)}
+                  onClick={captureRunning ? onCancelScreenshotCapture : () => onAddScreenshot(item.id)}
                 >
                   {captureRunning
-                    ? "Capturing course…"
+                    ? "Cancel capture"
                     : item.screenshots.length >= REVIEW_SCREENSHOT_MAX_PER_ITEM
                       ? "3 screenshots attached"
                       : "Add screenshot"}
@@ -182,9 +190,19 @@ export function ReviewSetPanel({
         <p className="empty-state">Select something in the course, add a note, and save it here.</p>
       )}
 
-      {status ? <p className="review-set-status" role="status">{status}</p> : null}
-      {persistenceError ? <p className="inspection-warning" role="status">{persistenceError}</p> : null}
-      {packetError ? <p className="inspection-warning">{packetError}</p> : null}
+      {packetError || persistenceError || status || undoLabel ? (
+        <div
+          className={`review-feedback ${status ? statusTone : packetError || persistenceError ? "error" : "neutral"}`}
+          role="status"
+          aria-live="polite"
+          data-testid="review-feedback"
+        >
+          <span>{status || packetError || persistenceError || "Last Review Set change can be undone."}</span>
+          {undoLabel && !packetError && !persistenceError ? (
+            <button type="button" className="review-feedback-undo" onClick={onUndo}>{undoLabel}</button>
+          ) : null}
+        </div>
+      ) : null}
       <div className="inspection-actions review-set-copy-row">
         <button
           type="button"
@@ -195,9 +213,8 @@ export function ReviewSetPanel({
         >
           {preparing ? "Getting Review Set ready…" : "Copy Review Set for Codex"}
         </button>
-        {copyStatus ? <span className="inspection-copy-status" role="status">{copyStatus}</span> : null}
       </div>
-      {manualPacket && /blocked/i.test(copyStatus) ? (
+      {manualPacket && manualCopyVisible ? (
         <label className="review-set-manual-copy">
           <span>Review Set packet</span>
           <textarea readOnly value={manualPacket} rows={8} data-testid="review-set-manual-packet" />
