@@ -4,6 +4,7 @@
 - Repository: `canvas-helper`
 - Current branch: `codex/studio-roadmap-phases`
 - Precision-shell baseline: `741b5282` (`feat(studio): establish precision review shell`)
+- Core review-loop implementation: `ccdb916d` (`feat(studio): complete core review loop`)
 - Pre-publish baseline commit: `24a32079` (`feat(studio): include screenshots in review handoff`)
 - Intended reader: ChatGPT Pro / Terra Max acting as an independent product, usability, architecture, and security auditor
 - Primary subject: Canvas Studio itself—not the design or readiness of any particular course
@@ -389,9 +390,9 @@ The teacher-facing interface should not mirror this architecture. It should tran
 
 The current local implementation has been exercised through:
 
-- 51 focused Studio inspection, preview, screenshot, packet, and security tests;
+- 52 focused Studio inspection, preview, screenshot, packet, and security tests;
 - a successful Studio production build;
-- 16 focused end-to-end annotation tests;
+- 18 focused end-to-end annotation tests;
 - platform and project-contract smoke tests;
 - live checks of embedded and full-preview annotation;
 - persistence through reload, preview opening, preview exit, and page restoration;
@@ -422,15 +423,17 @@ Goal: make the common path feel as direct as Codex Browser while retaining Studi
 
 - **Completed foundation:** matte global navigation, a contextual course toolbar, course-first Focus default, explicit Courses/Assessments separation, consolidated responsive controls, Review Set count, hidden operational tools, and a compact annotation mode bar;
 - **Completed continuity:** stopping annotation or visiting Assessments pauses an unfinished draft instead of silently deleting it;
-- keep one unmistakable Annotate state in embedded and full preview;
-- unify progress, success, warning, and failure messages;
-- prevent stale messages from replacing newer outcomes;
-- add undo for the most recent save/remove action;
-- remember Focus/Split, device size, zoom, and panel visibility per project;
-- make capture progress, retry, cancellation, and completion obvious;
-- ensure **Done**, `Escape`, and **Return to Studio** always work.
+- **Completed mode parity:** embedded and full preview share one unmistakable Annotate state and the same Review Set actions;
+- **Completed feedback model:** progress, success, warning, and failure use one teacher-facing status surface;
+- **Completed ordering safety:** action sequence IDs prevent older asynchronous full-preview results from replacing newer outcomes;
+- **Completed recovery:** the most recent annotation save or removal can be undone from Studio or full preview;
+- **Completed per-project layout memory:** Focus/Split, device size, zoom, and Review Set visibility restore separately for each project;
+- **Completed capture states:** capture, retry, cancellation, and completion are explicit for draft and saved-item screenshots;
+- **Completed exit coverage:** **Done**, `Escape`, and **Return to Studio** are covered by end-to-end tests.
 
 Exit condition: a new user can complete the full review-to-copy journey without seeing instructions about repository files or development terminology.
+
+Status: complete in `ccdb916d`, with 52 focused tests, 18 annotation E2E tests, the platform smoke, the strict project contract, and the Studio production build passing.
 
 ### Phase C — Improve project finding and continuity
 

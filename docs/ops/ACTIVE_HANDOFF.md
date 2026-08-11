@@ -1,113 +1,90 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Rebuild Canvas Studio's front-facing shell as a high-end precision review workstation without changing course content or weakening the existing review workflow.
-- Status: Phase A/B2 baseline is complete, committed, verified, and published on `codex/studio-roadmap-phases`; teacher visual acceptance remains useful but is not an implementation blocker.
+- Task: Complete Canvas Studio roadmap Phase B: polish the core review loop while preserving the verified precision shell and course boundaries.
+- Status: complete, committed as `ccdb916d`, and pushed to `origin/codex/studio-roadmap-phases`.
 
 ## Summary
 
-- The ChatGPT Pro visual audit was implemented as a Studio-shell redesign, not as a theme applied to learner courses.
-- Studio now has four clear layers: global product navigation, contextual course controls, the course canvas, and the optional Review Set inspector.
-- **Courses** and **Assessments** are separate top-level workspaces. Course-only controls disappear in Assessments.
-- Focus is the default review layout. Split, Original/Current, device, zoom, Annotate, Full preview, Review Set, and Tools are consolidated into one responsive contextual toolbar.
-- The shell now uses matte neutral surfaces, crisp borders, restrained shadows and radii, one blue action color, system typography, and no decorative gradients or glass effects.
-- Project search is functional and supports `Command/Ctrl + K`.
-- Operational commands are hidden behind **Tools** so they do not compete with visual review.
-- Ending annotation or visiting Assessments pauses an unfinished note and screenshots instead of deleting the draft.
-- Sticky global controls were removed after they exposed an iframe click-geometry race. Annotation and inspector affordances remain available while course interaction tests are now stable.
-- No file under `projects/<slug>/workspace`, `raw`, or `exports` was changed.
+- Studio and full preview now share explicit capture, cancel, retry, save, remove, undo, show, and copy feedback.
+- The latest asynchronous action owns the visible outcome, so an older full-preview response cannot replace newer teacher feedback.
+- The latest annotation save or removal can be undone for ten seconds; screenshot files are retained only while a removed item remains recoverable.
+- Focus/Split, device, zoom, and Review Set visibility now persist separately for each project.
+- Screenshot capture can be canceled for a draft or a saved annotation, and error states expose a clear retry action.
+- **Done**, `Escape`, full-preview **Return to Studio**, and Review Set continuity are covered by browser tests.
+- No learner-course file under `projects/<slug>/workspace`, `raw`, or `exports` changed.
 
 ## Files changed
 
 - `app/studio/src/App.tsx`
-- `app/studio/src/components/CourseToolbar.tsx`
+- `app/studio/src/components/AnnotationModeBar.tsx`
 - `app/studio/src/components/InspectionPanel.tsx`
 - `app/studio/src/components/InspectorPanel.tsx`
-- `app/studio/src/components/PreviewPane.tsx`
-- `app/studio/src/components/Topbar.tsx`
-- `app/studio/src/components/WorkspacePicker.tsx`
+- `app/studio/src/components/ReviewSetPanel.tsx`
 - `app/studio/src/hooks/useLayoutPreferences.ts`
-- `app/studio/src/lib/types.ts`
-- `app/studio/src/main.tsx`
+- `app/studio/src/hooks/useScreenshotAnnotation.ts`
+- `app/studio/src/lib/storage.ts`
 - `app/studio/src/precision-editor.css`
-- `app/studio/src/styles.css`
+- `app/shared/preview-bridge.ts`
+- `app/server/preview-bridge-runtime.ts`
+- `scripts/tests/preview-security.test.ts`
 - `e2e/specs/inspection.spec.ts`
 - `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
-## What changed
+## Verification run
 
-- Replaced the prototype-like all-in-one top area with a global `Topbar` and dedicated `CourseToolbar`.
-- Added real course search, friendly Course/Page labels, explicit preview connection state, responsive wrapping, and a compact Tools drawer.
-- Changed pane names from technical **Reference/Workspace** to teacher-facing **Original reference/Current course**.
-- Defaulted new layout preferences to Focus and hid pane controls until requested.
-- Simplified the empty inspector to Review Set only; the New annotation composer appears when annotation is active or a draft exists.
-- Added an E2E regression proving Assessments is isolated and an unfinished course annotation returns as **Draft paused**.
-- Added a visual-foundation record to the Studio evolution and roadmap document.
-
-## Why this changed
-
-- The workflow had become substantially stronger than its visual presentation. Excessive translucent cards, pills, shadows, duplicated controls, and technical labels made the product feel like a prototype.
-- The teacher's dominant task is reviewing course output, annotating it, collecting evidence, and handing one bounded set to Codex. The shell now makes that hierarchy visible.
+- Passed: `npm run test:studio-inspection` — 52/52.
+- Passed: `npm run build:studio`.
+- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 18/18.
+- Passed: `npm run test:e2e:smoke` — 1/1.
+- Passed: `npm run test:e2e:project -- --project e2e-fixture` — 1/1.
+- Passed: `git diff --check`.
+- Baseline only: `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, and English-builder files; no diagnostic points into a Phase B file.
 
 ## Source of truth
 
-- Product-level navigation and search: `app/studio/src/components/Topbar.tsx`.
-- Course review controls: `app/studio/src/components/CourseToolbar.tsx`.
-- Studio state and workflow orchestration: `app/studio/src/App.tsx`.
-- Precision visual system and responsive behavior: `app/studio/src/precision-editor.css`.
-- Review Set and source-safety contracts remain in their existing Studio/server modules; this pass did not replace them.
-- Learner-course appearance and behavior remain owned by each project's declared canonical source or builder, not by Studio CSS.
+- Review-loop orchestration and latest-action feedback: `app/studio/src/App.tsx`.
+- Per-project layout persistence: `app/studio/src/hooks/useLayoutPreferences.ts` and `app/studio/src/lib/storage.ts`.
+- Teacher-facing Review Set feedback and undo controls: `app/studio/src/components/ReviewSetPanel.tsx`.
+- Shared full-preview action contract: `app/shared/preview-bridge.ts`.
+- Full-preview toolbar and stale-result guard: `app/server/preview-bridge-runtime.ts`.
+- Screenshot ownership, packet bounds, and canonical source-resolution rules remain in their existing server and shared modules.
 
-## Verification run
+## Fragile areas / what might drift
 
-- Passed: `npm run test:studio-inspection` — 51/51.
-- Passed: `npm run build:studio`.
-- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 16/16.
-- Passed three consecutive times: `npm run test:e2e:smoke`.
-- Passed: `npm run test:e2e:project -- --project e2e-fixture`.
-- Live browser QA passed for Focus, Split, Annotate, Review Set, Tools, and the separate Assessments workspace at responsive desktop widths.
-- Baseline only: `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, LLM dependency, and English-builder files; no diagnostic points into a touched Studio file.
+- Keep the bridge request ID bounded and echoed by Studio; removing it would reintroduce stale full-preview feedback.
+- Removed screenshots are intentionally reclaimed only after undo expires or a later undo replaces the pending one.
+- Per-project layout entries are browser-local, bounded to 100 projects, and fall back safely when storage is blocked.
+- Do not move course state into Studio storage or style inside the isolated course iframe.
+- Untracked `projects/processed/**/source 2/` folders remain unrelated local intake artifacts and were deliberately excluded from both Phase B commits.
 
-## Fragile areas / watchouts
+## Known risks / follow-up
 
-- Keep global and course toolbars in normal document flow unless a future sticky implementation has explicit iframe-interaction coverage. A moving overlay can intercept course controls during browser-driven scrolling.
-- Keep `precision-editor.css` loaded after the legacy stylesheet until old declarations are deliberately retired; import order currently makes the visual migration low-risk.
-- Preserve existing `data-testid` attributes and exact Courses/Assessments separation because the critical E2E workflow depends on those stable contracts.
-- Do not style or inspect across the isolated iframe boundary. The Studio shell must remain independent of course subject, framework, and theme.
-- The 1520-pixel toolbar breakpoint intentionally wraps before Course/Page or zoom values truncate.
+- Undo currently covers annotation save/remove, not note edits or individual screenshot removal; broader history belongs in the bounded Review Set workbench phase.
+- The repository-wide typecheck baseline remains noisy and is not evidence of a Phase B regression.
+- Phase C must replace destructive cross-project Review Set switching with separate per-project temporary sets before adding recents and favorites.
 
-## Next prompt should assume
+## Next prompt assumptions
 
 - Branch: `codex/studio-roadmap-phases`.
-- Precision-shell implementation commit: `741b5282` (`feat(studio): establish precision review shell`).
-- The unrelated oversized commit remains isolated on `codex/studio-workflow-v2` and is not present in this roadmap branch.
-- The teacher should validate the visual feel in the running Studio; implementation, security, and interaction gates already pass.
-- Course content was not redesigned and should not be changed as part of Studio-shell polish.
-
-## What still needs validation
-
-- Teacher acceptance of the information density and two-row toolbar at medium desktop widths.
-- Optional future accessibility audit for the complete shell, beyond the keyboard and semantic behavior covered by current tests.
-
-## Known risks
-
-- The new visual layer still overrides a legacy stylesheet. Consolidating those styles would reduce maintenance cost but would be a separate, larger refactor.
-- Native `<select>` rendering varies slightly by operating system, although labels now wrap before available width becomes too narrow.
-- Repository-wide typecheck is not a clean release gate until its unrelated baseline failures are resolved.
+- Phase A/B2 implementation: `741b5282`.
+- Phase B implementation: `ccdb916d`.
+- The next roadmap boundary is Phase C: project finding and per-project continuity.
+- Keep the `uncodixfy` matte, restrained visual foundation; do not add gradients, glass effects, excessive pills, or subject-specific UI.
 
 ## Exact next command
 
-`npm run studio:codex`
+`rg -n "selectedSlug|Review Set|project" app/studio/src app/shared scripts/tests e2e/specs/inspection.spec.ts`
 
 ## Exact next file to open
 
-`app/studio/src/precision-editor.css`
+`app/studio/src/components/Topbar.tsx`
 
 ## Do not do next / warnings
 
-- Do not restyle generated course HTML to match the Studio mockups.
-- Do not reintroduce an API-backed assistant or expose source paths in the teacher-facing shell.
-- Do not weaken preview isolation, Review Set bounds, screenshot ownership, or canonical-source resolution for visual convenience.
-- Do not merge `codex/studio-workflow-v2` into this roadmap branch merely to recover the isolated oversized commit.
+- Do not touch learner-course source or generated output for Studio roadmap work.
+- Do not restore a single global Review Set once Phase C introduces per-project sets.
+- Do not expose repository paths or source-resolution jargon in the teacher-facing project picker.
+- Do not stage or delete unrelated untracked intake snapshots.
