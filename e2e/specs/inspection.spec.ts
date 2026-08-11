@@ -75,8 +75,10 @@ test("@inspection keyboard selection creates a handoff without activating the le
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
   await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
   const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
   await learnerControl.focus();
   await learnerControl.press("Enter");
+  await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
 
   await expect(page.getByTestId("inspection-panel")).toBeVisible();
   await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
@@ -556,6 +558,73 @@ test("@inspection each project keeps its own temporary Review Set", async ({ pag
   );
 });
 
+test("@inspection named review sessions organize, move, merge, export, and import bounded work", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await page.getByTestId("inspection-teacher-note").fill("Make the opening heading more direct.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
+  await page.getByTestId("inspection-teacher-note").fill("Clarify what this module control opens.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(2);
+
+  const firstItem = page.getByTestId("review-set-item").first();
+  await firstItem.getByLabel("Short label").fill("Opening heading");
+  await firstItem.getByLabel("Priority").selectOption("high");
+  await page.getByRole("button", { name: "Move annotation 2 up" }).click();
+  await expect(page.getByTestId("review-set-item").first()).toContainText("Fixture Module");
+  await page.getByText("Session tools", { exact: true }).click();
+  await page.getByLabel("Review session name").fill("Homepage polish");
+
+  await page.getByTestId("review-session-bar").getByRole("button", { name: "New", exact: true }).click();
+  const reviewSessionSelect = page.getByLabel("Review session", { exact: true });
+  await expect(reviewSessionSelect).toContainText("Review 2");
+  await reviewSessionSelect.selectOption({ label: "Homepage polish · 2/5" });
+  await expect(page.getByTestId("review-set-item")).toHaveCount(2);
+  await page.getByTestId("review-set-item").first().getByLabel(/Move annotation 1 to another review/).selectOption({ label: "Review 2" });
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+
+  await reviewSessionSelect.selectOption({ label: "Review 2 · 1/5" });
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await page.getByTestId("review-set-item").getByRole("button", { name: "Duplicate", exact: true }).click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(2);
+  await page.getByLabel("Queued review to merge").selectOption({ label: "Homepage polish · 1 items" });
+  await page.getByRole("button", { name: "Merge", exact: true }).click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(3);
+  await expect(reviewSessionSelect.locator("option")).toHaveCount(1);
+
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await expect(page.getByTestId("review-packet-size")).toContainText(/KB packet|B packet/);
+  const markdownDownload = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Export Markdown" }).click();
+  expect((await markdownDownload).suggestedFilename()).toMatch(/\.md$/);
+
+  const jsonDownload = page.waitForEvent("download");
+  await page.getByRole("button", { name: "Backup JSON" }).click();
+  const backup = await jsonDownload;
+  const backupPath = await backup.path();
+  expect(backupPath).toBeTruthy();
+  await page.getByTestId("review-set-import").setInputFiles(backupPath as string);
+  await expect(reviewSessionSelect.locator("option")).toHaveCount(2);
+  await expect(reviewSessionSelect).toContainText("Review 2 import");
+});
+
 test("@inspection course finder supports search, favorites, and recents", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("course-search-input").focus();
@@ -703,6 +772,11 @@ test("@inspection course-only capture supports drag selection, three screenshots
   await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
   await expect(page.getByTestId("review-set-screenshot")).toHaveCount(3);
   await expect(page.getByTestId("review-set")).toContainText("3 screenshots");
+  const firstScreenshotSource = await page.getByTestId("review-set-screenshot").first().locator("img").getAttribute("src");
+  const secondScreenshotSource = await page.getByTestId("review-set-screenshot").nth(1).locator("img").getAttribute("src");
+  await page.getByRole("button", { name: "Move screenshot 2 left" }).click();
+  await expect(page.getByTestId("review-set-screenshot").first().locator("img")).toHaveAttribute("src", secondScreenshotSource as string);
+  await expect(page.getByTestId("review-set-screenshot").nth(1).locator("img")).toHaveAttribute("src", firstScreenshotSource as string);
   const studioScreenshotTrigger = page.getByRole("button", { name: "Open screenshot 1 for annotation 1" });
   await studioScreenshotTrigger.click();
   await expect(page.getByRole("dialog", { name: "Screenshot preview" })).toBeVisible();
@@ -856,20 +930,21 @@ test("@inspection tampered persisted screenshot metadata cannot enable Copy", as
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
 
   const cleanupScreenshots = await page.evaluate(() => {
-    const key = "canvas-helper/review-sets-by-project-v7";
+    const key = "canvas-helper/review-workbench-v8";
     const stored = JSON.parse(localStorage.getItem(key) || "null");
     const project = stored?.projects?.["e2e-fixture"];
-    if (!project?.items?.[0]?.screenshots?.[0]) throw new Error("missing stored screenshot");
-    const item = project.items[0];
+    const review = project?.sets?.find((candidate: { id?: string }) => candidate.id === project.activeSetId);
+    if (!review?.items?.[0]?.screenshots?.[0]) throw new Error("missing stored screenshot");
+    const item = review.items[0];
     const screenshot = item.screenshots[0];
     const cleanup = [{
       repoRelativePath: screenshot.filePath,
-      sessionId: project.sessionId,
+      sessionId: project.screenshotSessionId,
       projectSlug: item.request.projectSlug,
       itemId: item.id,
       ownerNodeId: item.request.selection.nodeId
     }];
-    project.items[0].screenshots[0].filePath = `.runtime/studio-review-sets/${project.sessionId}/forged.png`;
+    review.items[0].screenshots[0].filePath = `.runtime/studio-review-sets/${project.screenshotSessionId}/forged.png`;
     localStorage.setItem(key, JSON.stringify(stored));
     return cleanup;
   });

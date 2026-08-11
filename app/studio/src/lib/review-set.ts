@@ -11,6 +11,10 @@ import type { PreviewMode } from "./types";
 export const REVIEW_SET_MAX_ITEMS = 5;
 export const REVIEW_SET_NOTE_MAX_BYTES = 256;
 export const REVIEW_SET_EXCERPT_MAX_BYTES = 256;
+export const REVIEW_SET_LABEL_MAX_BYTES = 64;
+export const REVIEW_SET_PRIORITIES = ["normal", "high", "low"] as const;
+
+export type ReviewSetPriority = (typeof REVIEW_SET_PRIORITIES)[number];
 
 const encoder = new TextEncoder();
 
@@ -30,6 +34,8 @@ export type ReviewSetItem = {
   request: InspectionResolveRequest;
   resolution: InspectionResolution;
   issueCategory: InspectionIssueCategory;
+  shortLabel: string;
+  priority: ReviewSetPriority;
   teacherNote: string;
   excerpt: string;
   excerptTruncated: boolean;
@@ -120,6 +126,8 @@ export function createReviewSetItem(input: {
   request: InspectionResolveRequest;
   resolution: InspectionResolution;
   issueCategory: InspectionIssueCategory;
+  shortLabel?: string;
+  priority?: ReviewSetPriority;
   teacherNote: string;
   screenshots?: ReviewSetScreenshot[];
 }): ReviewSetItem {
@@ -130,6 +138,11 @@ export function createReviewSetItem(input: {
   if (utf8ByteLength(input.teacherNote) > REVIEW_SET_NOTE_MAX_BYTES) {
     throw new Error(`A Review Set note must be ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.`);
   }
+  const shortLabel = normalizeInline(input.shortLabel ?? "");
+  if (utf8ByteLength(shortLabel) > REVIEW_SET_LABEL_MAX_BYTES) {
+    throw new Error(`A Review Set label must be ${REVIEW_SET_LABEL_MAX_BYTES} bytes or fewer.`);
+  }
+  const priority = REVIEW_SET_PRIORITIES.includes(input.priority ?? "normal") ? input.priority ?? "normal" : "normal";
   if ((input.screenshots?.length ?? 0) > REVIEW_SCREENSHOT_MAX_PER_ITEM) {
     throw new Error(`A Review Set item can include at most ${REVIEW_SCREENSHOT_MAX_PER_ITEM} screenshots.`);
   }
@@ -143,6 +156,8 @@ export function createReviewSetItem(input: {
     request: cloneRequest(input.request),
     resolution: cloneResolution(input.resolution),
     issueCategory: input.issueCategory,
+    shortLabel,
+    priority,
     teacherNote: input.teacherNote,
     excerpt,
     excerptTruncated: excerpt !== normalizedExcerpt,
@@ -303,6 +318,8 @@ function formatItemLines(index: number, entry: ReviewSetPacketItem) {
     `Page: ${repoPath(resolution.previewPath, `Item ${index} preview path`)}`,
     `Inspection node: ${requiredInline(resolution.selection.nodeId ?? "", `Item ${index} inspection node`)}`,
     `Selected element: ${requiredInline(resolution.selection.tagName, `Item ${index} selected element`)}${testId}`,
+    `Label: ${item.shortLabel || "none"}`,
+    `Priority: ${item.priority}`,
     `Change focus: ${item.issueCategory}`,
     `Resolution: ${resolution.resolution}`,
     `Freshness: ${resolution.freshness}`,

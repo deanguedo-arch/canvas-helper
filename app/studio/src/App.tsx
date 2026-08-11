@@ -34,8 +34,10 @@ import {
   buildReviewSetPacket,
   createReviewSetItem,
   hasSameMaterialResolution,
+  REVIEW_SET_LABEL_MAX_BYTES,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
+  type ReviewSetPriority,
   reviewSetItemIdentity,
   utf8ByteLength,
   type PreparedReviewSetPacket,
@@ -51,7 +53,18 @@ import {
   type OwnedReviewScreenshotPath,
   type ReviewScreenshotOwner
 } from "./lib/review-screenshots";
-import { clearStoredReviewSet, loadStoredReviewSet, saveStoredReviewSet } from "./lib/review-set-storage";
+import {
+  createReviewSetBackup,
+  createReviewSetSessionId,
+  deleteStoredReviewSet,
+  listStoredReviewSets,
+  loadStoredReviewSet,
+  parseReviewSetBackup,
+  REVIEW_SET_MAX_SESSIONS,
+  saveStoredReviewSet,
+  type HydratedReviewSet,
+  type ReviewSetSessionSummary
+} from "./lib/review-set-storage";
 import { loadWorkspacePageSelections, saveWorkspacePageSelection } from "./lib/storage";
 import { hasSamePreviewPageRoute, runWithCurrentPreviewSelection } from "./lib/current-preview-selection";
 import {
@@ -144,6 +157,15 @@ function ownedScreenshotPaths(
   }));
 }
 
+function downloadTextFile(fileName: string, content: string, type: string) {
+  const url = URL.createObjectURL(new Blob([content], { type }));
+  const link = document.createElement("a");
+  link.href = url;
+  link.download = fileName;
+  link.click();
+  window.setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
 type ReviewFeedbackTone = "neutral" | "progress" | "success" | "warning" | "error";
 
 type ReviewFeedback = {
@@ -227,6 +249,17 @@ export function App() {
   const [reviewSetItems, setReviewSetItems] = useState<ReviewSetItem[]>(() => initialReviewSet?.items ?? []);
   const reviewSetItemsRef = useRef<ReviewSetItem[]>(initialReviewSet?.items ?? []);
   const activeReviewProjectSlugRef = useRef(selectedSlug);
+  const reviewSessionIdRef = useRef(initialReviewSet?.reviewSessionId || createReviewSetSessionId());
+  const reviewSessionNameRef = useRef(initialReviewSet?.name || "Review 1");
+  const [reviewSessionName, setReviewSessionName] = useState(reviewSessionNameRef.current);
+  const [reviewSessions, setReviewSessions] = useState<ReviewSetSessionSummary[]>(() => initialReviewSet?.sessions ?? [{
+    id: reviewSessionIdRef.current,
+    name: reviewSessionNameRef.current,
+    updatedAt: Date.now(),
+    itemCount: initialReviewSet?.items.length ?? 0,
+    screenshotCount: initialReviewSet?.items.reduce((count, item) => count + item.screenshots.length, 0) ?? 0,
+    active: true
+  }]);
   const reviewSetVersionRef = useRef(0);
   const reviewSetPreparationAbortRef = useRef<AbortController | null>(null);
   const reviewSetItemIdRef = useRef(0);
@@ -396,13 +429,15 @@ export function App() {
     setReviewSetItems(nextItems);
     const activeProjectSlug = activeReviewProjectSlugRef.current;
     if (!activeProjectSlug) return;
-    if (nextItems.length) {
-      const persisted = saveStoredReviewSet(activeProjectSlug, reviewScreenshotSessionIdRef.current, nextItems);
-      setReviewSetPersistenceError(persisted ? "" : "This Review Set is still open, but Canvas Helper could not keep it across a reload.");
-    } else {
-      const cleared = clearStoredReviewSet(activeProjectSlug);
-      setReviewSetPersistenceError(cleared ? "" : "Canvas Helper could not access browser storage. This Review Set will stay open only until this tab closes.");
-    }
+    const persisted = saveStoredReviewSet(
+      activeProjectSlug,
+      reviewSessionIdRef.current,
+      reviewSessionNameRef.current,
+      reviewScreenshotSessionIdRef.current,
+      nextItems
+    );
+    setReviewSetPersistenceError(persisted ? "" : "This Review Set is still open, but Canvas Helper could not keep it across a reload.");
+    if (persisted) setReviewSessions(listStoredReviewSets(activeProjectSlug));
   }, []);
 
   const invalidateReviewSetPreparation = useCallback(() => {
@@ -457,7 +492,6 @@ export function App() {
       reclaimReviewScreenshotPaths(
         reviewSetItemsRef.current.flatMap((item) => ownedScreenshotPaths(reviewScreenshotSessionIdRef.current, item))
       );
-      reviewScreenshotSessionIdRef.current = createReviewScreenshotSessionId();
       replaceReviewSetItems([]);
       setReviewSetCaptureItemId("");
       setReviewSetStatus(status);
@@ -510,9 +544,20 @@ export function App() {
 
     activeReviewProjectSlugRef.current = selectedSlug;
     const stored = selectedSlug ? loadStoredReviewSet(selectedSlug) : null;
+    reviewSessionIdRef.current = stored?.reviewSessionId || createReviewSetSessionId();
+    reviewSessionNameRef.current = stored?.name || "Review 1";
     reviewScreenshotSessionIdRef.current = stored?.sessionId || createReviewScreenshotSessionId();
     reviewSetItemsRef.current = stored?.items ?? [];
     setReviewSetItems(stored?.items ?? []);
+    setReviewSessionName(reviewSessionNameRef.current);
+    setReviewSessions(stored?.sessions ?? [{
+      id: reviewSessionIdRef.current,
+      name: reviewSessionNameRef.current,
+      updatedAt: Date.now(),
+      itemCount: 0,
+      screenshotCount: 0,
+      active: true
+    }]);
     setReviewSetPersistenceError(stored?.persistenceError ?? "");
     setReviewSetStatus(stored?.items.length ? "Review Set restored for this course." : "");
   }, [disposeReviewUndo, selectedSlug, setReviewSetStatus]);
@@ -852,6 +897,272 @@ export function App() {
       reviewSetItemsRef.current.map((item) => (item.id === id ? { ...item, teacherNote } : item))
     );
     setReviewSetStatus("");
+  };
+
+  const activateReviewSession = (stored: HydratedReviewSet, status: string) => {
+    disposeReviewUndo(true);
+    invalidateReviewSetPreparation();
+    reviewItemCaptureAbortRef.current?.abort();
+    reviewItemCaptureAbortRef.current = null;
+    reviewCaptureBusyRef.current = false;
+    setReviewSetCaptureItemId("");
+    reviewSessionIdRef.current = stored.reviewSessionId;
+    reviewSessionNameRef.current = stored.name;
+    reviewScreenshotSessionIdRef.current = stored.sessionId || reviewScreenshotSessionIdRef.current;
+    reviewSetItemsRef.current = stored.items;
+    setReviewSetItems(stored.items);
+    setReviewSessionName(stored.name);
+    setReviewSessions(stored.sessions);
+    setReviewSetPersistenceError(stored.persistenceError ?? "");
+    setReviewSetStatus(status, "success");
+  };
+
+  const switchReviewSession = (reviewSessionId: string) => {
+    if (!selectedSlug || reviewSessionId === reviewSessionIdRef.current) return;
+    const stored = loadStoredReviewSet(selectedSlug, reviewSessionId);
+    if (!stored) {
+      setReviewSetStatus("That review session is no longer available.", "warning");
+      setReviewSessions(listStoredReviewSets(selectedSlug));
+      return;
+    }
+    activateReviewSession(stored, `${stored.name} opened.`);
+  };
+
+  const createReviewSession = () => {
+    if (!selectedSlug) return;
+    const persistedCurrent = saveStoredReviewSet(
+      selectedSlug,
+      reviewSessionIdRef.current,
+      reviewSessionNameRef.current,
+      reviewScreenshotSessionIdRef.current,
+      reviewSetItemsRef.current
+    );
+    const currentSessions = persistedCurrent ? listStoredReviewSets(selectedSlug) : reviewSessions;
+    if (currentSessions.length >= REVIEW_SET_MAX_SESSIONS) {
+      setReviewSetStatus(`Keep at most ${REVIEW_SET_MAX_SESSIONS} local review sessions for one course.`, "warning");
+      return;
+    }
+    const reviewSessionId = createReviewSetSessionId();
+    const name = `Review ${currentSessions.length + 1}`;
+    const saved = saveStoredReviewSet(
+      selectedSlug,
+      reviewSessionId,
+      name,
+      reviewScreenshotSessionIdRef.current,
+      []
+    );
+    if (!saved) {
+      setReviewSetStatus("Canvas Helper could not create another local review session.", "error");
+      return;
+    }
+    const stored = loadStoredReviewSet(selectedSlug, reviewSessionId);
+    if (stored) activateReviewSession(stored, `${name} created.`);
+  };
+
+  const renameReviewSession = (name: string) => {
+    const normalized = name.replace(/\s+/g, " ").trim();
+    if (!normalized || utf8ByteLength(normalized) > 80) {
+      setReviewSetStatus("Use a review name between 1 and 80 bytes.", "warning");
+      setReviewSessionName(reviewSessionNameRef.current);
+      return;
+    }
+    reviewSessionNameRef.current = normalized;
+    setReviewSessionName(normalized);
+    const saved = saveStoredReviewSet(
+      selectedSlug,
+      reviewSessionIdRef.current,
+      normalized,
+      reviewScreenshotSessionIdRef.current,
+      reviewSetItemsRef.current
+    );
+    setReviewSessions(saved ? listStoredReviewSets(selectedSlug) : reviewSessions);
+    setReviewSetStatus(saved ? "Review session renamed." : "The review name could not be saved.", saved ? "success" : "error");
+  };
+
+  const deleteReviewSession = () => {
+    if (!selectedSlug) return;
+    if (reviewSessions.length <= 1) {
+      clearReviewSet("Cleared the current review session.");
+      return;
+    }
+    const deletedName = reviewSessionNameRef.current;
+    if (!deleteStoredReviewSet(selectedSlug, reviewSessionIdRef.current)) {
+      setReviewSetStatus("Canvas Helper could not remove this local review session.", "error");
+      return;
+    }
+    const next = loadStoredReviewSet(selectedSlug);
+    if (next) activateReviewSession(next, `${deletedName} removed. Screenshots will expire from local storage.`);
+  };
+
+  const reorderReviewSetItem = (id: string, direction: -1 | 1) => {
+    const current = [...reviewSetItemsRef.current];
+    const index = current.findIndex((item) => item.id === id);
+    const target = index + direction;
+    if (index < 0 || target < 0 || target >= current.length) return;
+    [current[index], current[target]] = [current[target], current[index]];
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems(current);
+    setReviewSetStatus("Annotation order updated.", "success");
+  };
+
+  const reorderReviewSetScreenshot = (itemId: string, screenshotId: string, direction: -1 | 1) => {
+    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === itemId);
+    if (!item) return;
+    const screenshots = [...item.screenshots];
+    const index = screenshots.findIndex((screenshot) => screenshot.id === screenshotId);
+    const target = index + direction;
+    if (index < 0 || target < 0 || target >= screenshots.length) return;
+    [screenshots[index], screenshots[target]] = [screenshots[target], screenshots[index]];
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems(reviewSetItemsRef.current.map((candidate) => candidate.id === itemId ? { ...candidate, screenshots } : candidate));
+    setReviewSetStatus("Screenshot order updated.", "success");
+  };
+
+  const changeReviewSetMetadata = (id: string, input: { shortLabel?: string; priority?: ReviewSetPriority }) => {
+    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
+    if (!item) return;
+    const shortLabel = input.shortLabel === undefined ? item.shortLabel : input.shortLabel.replace(/\s+/g, " ");
+    if (utf8ByteLength(shortLabel.trim()) > REVIEW_SET_LABEL_MAX_BYTES) {
+      setReviewSetStatus(`Keep the short label to ${REVIEW_SET_LABEL_MAX_BYTES} bytes or fewer.`, "warning");
+      return;
+    }
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems(reviewSetItemsRef.current.map((candidate) => candidate.id === id ? {
+      ...candidate,
+      shortLabel,
+      priority: input.priority ?? candidate.priority
+    } : candidate));
+    setReviewSetStatus("");
+  };
+
+  const reviewItemsFitPacket = (items: ReviewSetItem[]) => {
+    if (!items.length) return true;
+    try {
+      buildReviewSetPacket({
+        projectSlug: items[0].request.projectSlug,
+        previewMode: items[0].previewMode,
+        items: items.map((item) => ({ item, resolution: item.resolution }))
+      });
+      return true;
+    } catch {
+      return false;
+    }
+  };
+
+  const duplicateReviewSetItem = (id: string) => {
+    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
+    if (!item || reviewSetItemsRef.current.length >= REVIEW_SET_MAX_ITEMS) {
+      setReviewSetStatus("This review session does not have room for a duplicate.", "warning");
+      return;
+    }
+    const duplicate = createReviewSetItem({
+      id: `review-${Date.now()}-${++reviewSetItemIdRef.current}`,
+      previewMode: item.previewMode,
+      request: item.request,
+      resolution: item.resolution,
+      issueCategory: item.issueCategory,
+      shortLabel: "Copy",
+      priority: item.priority,
+      teacherNote: item.teacherNote,
+      screenshots: []
+    });
+    if (!reviewItemsFitPacket([...reviewSetItemsRef.current, duplicate])) {
+      setReviewSetStatus("That duplicate would exceed the bounded Codex packet.", "warning");
+      return;
+    }
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems([...reviewSetItemsRef.current, duplicate]);
+    setReviewSetStatus("Annotation duplicated without sharing its screenshots.", "success");
+  };
+
+  const moveReviewSetItem = (id: string, targetReviewSessionId: string) => {
+    if (!selectedSlug || targetReviewSessionId === reviewSessionIdRef.current) return;
+    const item = reviewSetItemsRef.current.find((candidate) => candidate.id === id);
+    const target = loadStoredReviewSet(selectedSlug, targetReviewSessionId, false);
+    if (!item || !target) {
+      setReviewSetStatus("The destination review session is no longer available.", "warning");
+      return;
+    }
+    if (
+      target.items.length >= REVIEW_SET_MAX_ITEMS ||
+      target.items.some((candidate) => candidate.id === item.id) ||
+      !reviewItemsFitPacket([...target.items, item])
+    ) {
+      setReviewSetStatus(`${target.name} does not have room for this annotation.`, "warning");
+      return;
+    }
+    if (!saveStoredReviewSet(selectedSlug, target.reviewSessionId, target.name, target.sessionId, [...target.items, item], false)) {
+      setReviewSetStatus("Canvas Helper could not move this annotation.", "error");
+      return;
+    }
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems(reviewSetItemsRef.current.filter((candidate) => candidate.id !== id));
+    setReviewSetStatus(`Annotation moved to ${target.name}.`, "success");
+  };
+
+  const mergeReviewSession = (sourceReviewSessionId: string) => {
+    if (!selectedSlug || sourceReviewSessionId === reviewSessionIdRef.current) return;
+    const source = loadStoredReviewSet(selectedSlug, sourceReviewSessionId, false);
+    if (!source) {
+      setReviewSetStatus("That queued review session is no longer available.", "warning");
+      return;
+    }
+    const current = reviewSetItemsRef.current;
+    if (
+      current.length + source.items.length > REVIEW_SET_MAX_ITEMS ||
+      source.items.some((item) => current.some((candidate) => candidate.id === item.id || candidate.identity === item.identity)) ||
+      !reviewItemsFitPacket([...current, ...source.items])
+    ) {
+      setReviewSetStatus("These sessions cannot merge within the five-item packet limit without duplicates.", "warning");
+      return;
+    }
+    invalidateReviewSetPreparation();
+    replaceReviewSetItems([...current, ...source.items]);
+    deleteStoredReviewSet(selectedSlug, sourceReviewSessionId);
+    setReviewSessions(listStoredReviewSets(selectedSlug));
+    setReviewSetStatus(`${source.name} merged into ${reviewSessionNameRef.current}.`, "success");
+  };
+
+  const exportReviewSetMarkdown = () => {
+    if (!preparedReviewSet || !reviewSetPacketReady) {
+      setReviewSetStatus("Wait until this Review Set is ready before exporting it.", "warning");
+      return;
+    }
+    downloadTextFile(`${selectedSlug}-${reviewSessionNameRef.current.replace(/[^A-Za-z0-9_-]+/g, "-")}.md`, preparedReviewSet.packet, "text/markdown;charset=utf-8");
+    setReviewSetStatus("Markdown handoff exported.", "success");
+  };
+
+  const exportReviewSetJson = () => {
+    try {
+      const backup = createReviewSetBackup({
+        projectSlug: selectedSlug,
+        reviewSessionId: reviewSessionIdRef.current,
+        name: reviewSessionNameRef.current,
+        screenshotSessionId: reviewScreenshotSessionIdRef.current,
+        items: reviewSetItemsRef.current
+      });
+      downloadTextFile(`${selectedSlug}-${reviewSessionNameRef.current.replace(/[^A-Za-z0-9_-]+/g, "-")}.review.json`, backup, "application/json;charset=utf-8");
+      setReviewSetStatus("Validated local backup exported.", "success");
+    } catch (error) {
+      setReviewSetStatus(error instanceof Error ? error.message : "Could not export this Review Set backup.", "error");
+    }
+  };
+
+  const importReviewSetJson = async (file: File) => {
+    try {
+      if (reviewSessions.length >= REVIEW_SET_MAX_SESSIONS) throw new Error(`Remove a queued review before importing another one.`);
+      const parsed = parseReviewSetBackup(await file.text(), selectedSlug, reviewScreenshotSessionIdRef.current);
+      const reviewSessionId = createReviewSetSessionId();
+      const name = `${parsed.name} import`.slice(0, 80);
+      if (!saveStoredReviewSet(selectedSlug, reviewSessionId, name, reviewScreenshotSessionIdRef.current, parsed.items)) {
+        throw new Error("Canvas Helper could not save this imported review.");
+      }
+      const stored = loadStoredReviewSet(selectedSlug, reviewSessionId);
+      if (!stored) throw new Error("The imported review could not be reopened safely.");
+      activateReviewSession(stored, `${name} imported.`);
+    } catch (error) {
+      setReviewSetStatus(error instanceof Error ? error.message : "This Review Set backup could not be imported.", "error");
+    }
   };
 
   const removeReviewSetScreenshot = (itemId: string, screenshotId: string) => {
@@ -1817,6 +2128,10 @@ export function App() {
                 onDownloadScreenshot={screenshotAnnotation.download}
                 onDiscardScreenshot={screenshotAnnotation.remove}
                 reviewSetItems={reviewSetItems}
+                reviewSessionName={reviewSessionName}
+                activeReviewSessionId={reviewSessionIdRef.current}
+                reviewSessions={reviewSessions}
+                reviewSetPacketByteLength={reviewSetPacketReady ? preparedReviewSet?.byteLength ?? 0 : 0}
                 reviewSetCanAddCurrent={reviewSetAddAvailability.canAdd}
                 reviewSetAddDisabledReason={reviewSetAddAvailability.reason}
                 reviewSetStatus={reviewFeedback.message}
@@ -1833,11 +2148,24 @@ export function App() {
                 onRemoveReviewSetItem={removeReviewSetItem}
                 onFocusReviewSetItem={focusReviewSetItem}
                 onReviewSetTeacherNoteChange={changeReviewSetTeacherNote}
+                onReviewSetMetadataChange={changeReviewSetMetadata}
+                onReorderReviewSetItem={reorderReviewSetItem}
+                onDuplicateReviewSetItem={duplicateReviewSetItem}
+                onMoveReviewSetItem={moveReviewSetItem}
                 onAddReviewSetScreenshot={(id) => void addScreenshotToReviewSetItem(id)}
                 onCancelReviewSetScreenshotCapture={cancelReviewCapture}
                 onRemoveReviewSetScreenshot={removeReviewSetScreenshot}
+                onReorderReviewSetScreenshot={reorderReviewSetScreenshot}
                 onCopyReviewSet={copyReviewSet}
                 onUndoReviewSet={undoLastReviewChange}
+                onReviewSessionChange={switchReviewSession}
+                onNewReviewSession={createReviewSession}
+                onRenameReviewSession={renameReviewSession}
+                onDeleteReviewSession={deleteReviewSession}
+                onMergeReviewSession={mergeReviewSession}
+                onExportReviewSetMarkdown={exportReviewSetMarkdown}
+                onExportReviewSetJson={exportReviewSetJson}
+                onImportReviewSetJson={(file) => void importReviewSetJson(file)}
               />
             ) : null}
           </div>

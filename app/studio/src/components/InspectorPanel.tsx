@@ -1,6 +1,7 @@
 import type { InspectionResolution } from "../../../shared/inspection.js";
 import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
-import type { ReviewSetItem } from "../lib/review-set";
+import type { ReviewSetItem, ReviewSetPriority } from "../lib/review-set";
+import type { ReviewSetSessionSummary } from "../lib/review-set-storage";
 import { InspectionPanel } from "./InspectionPanel";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
@@ -23,6 +24,10 @@ type InspectorPanelProps = {
   onDownloadScreenshot: (id: string) => void;
   onDiscardScreenshot: (id: string) => void;
   reviewSetItems: ReviewSetItem[];
+  reviewSessionName: string;
+  activeReviewSessionId: string;
+  reviewSessions: ReviewSetSessionSummary[];
+  reviewSetPacketByteLength: number;
   reviewSetStatus: string;
   reviewSetStatusTone: "neutral" | "progress" | "success" | "warning" | "error";
   reviewSetPreparing: boolean;
@@ -37,11 +42,24 @@ type InspectorPanelProps = {
   onRemoveReviewSetItem: (id: string) => void;
   onFocusReviewSetItem: (id: string) => void;
   onReviewSetTeacherNoteChange: (id: string, value: string) => void;
+  onReviewSetMetadataChange: (id: string, input: { shortLabel?: string; priority?: ReviewSetPriority }) => void;
+  onReorderReviewSetItem: (id: string, direction: -1 | 1) => void;
+  onDuplicateReviewSetItem: (id: string) => void;
+  onMoveReviewSetItem: (id: string, sessionId: string) => void;
   onAddReviewSetScreenshot: (id: string) => void;
   onCancelReviewSetScreenshotCapture: () => void;
   onRemoveReviewSetScreenshot: (itemId: string, screenshotId: string) => void;
+  onReorderReviewSetScreenshot: (itemId: string, screenshotId: string, direction: -1 | 1) => void;
   onCopyReviewSet: () => void;
   onUndoReviewSet: () => void;
+  onReviewSessionChange: (sessionId: string) => void;
+  onNewReviewSession: () => void;
+  onRenameReviewSession: (name: string) => void;
+  onDeleteReviewSession: () => void;
+  onMergeReviewSession: (sessionId: string) => void;
+  onExportReviewSetMarkdown: () => void;
+  onExportReviewSetJson: () => void;
+  onImportReviewSetJson: (file: File) => void;
 };
 
 export function InspectorPanel({
@@ -63,6 +81,10 @@ export function InspectorPanel({
   onDownloadScreenshot,
   onDiscardScreenshot,
   reviewSetItems,
+  reviewSessionName,
+  activeReviewSessionId,
+  reviewSessions,
+  reviewSetPacketByteLength,
   reviewSetStatus,
   reviewSetStatusTone,
   reviewSetPreparing,
@@ -77,11 +99,24 @@ export function InspectorPanel({
   onRemoveReviewSetItem,
   onFocusReviewSetItem,
   onReviewSetTeacherNoteChange,
+  onReviewSetMetadataChange,
+  onReorderReviewSetItem,
+  onDuplicateReviewSetItem,
+  onMoveReviewSetItem,
   onAddReviewSetScreenshot,
   onCancelReviewSetScreenshotCapture,
   onRemoveReviewSetScreenshot,
+  onReorderReviewSetScreenshot,
   onCopyReviewSet,
-  onUndoReviewSet
+  onUndoReviewSet,
+  onReviewSessionChange,
+  onNewReviewSession,
+  onRenameReviewSession,
+  onDeleteReviewSession,
+  onMergeReviewSession,
+  onExportReviewSetMarkdown,
+  onExportReviewSetJson,
+  onImportReviewSetJson
 }: InspectorPanelProps) {
   const showComposer = inspectEnabled || Boolean(inspectionResolution) || screenshots.length > 0;
 
@@ -110,6 +145,10 @@ export function InspectorPanel({
       ) : null}
       <ReviewSetPanel
         items={reviewSetItems}
+        sessionName={reviewSessionName}
+        activeSessionId={activeReviewSessionId}
+        sessions={reviewSessions}
+        packetByteLength={reviewSetPacketByteLength}
         status={reviewSetStatus}
         statusTone={reviewSetStatusTone}
         preparing={reviewSetPreparing}
@@ -124,11 +163,24 @@ export function InspectorPanel({
         onRemove={onRemoveReviewSetItem}
         onFocus={onFocusReviewSetItem}
         onTeacherNoteChange={onReviewSetTeacherNoteChange}
+        onMetadataChange={onReviewSetMetadataChange}
+        onReorderItem={onReorderReviewSetItem}
+        onDuplicateItem={onDuplicateReviewSetItem}
+        onMoveItem={onMoveReviewSetItem}
         onAddScreenshot={onAddReviewSetScreenshot}
         onCancelScreenshotCapture={onCancelReviewSetScreenshotCapture}
         onRemoveScreenshot={onRemoveReviewSetScreenshot}
+        onReorderScreenshot={onReorderReviewSetScreenshot}
         onCopy={onCopyReviewSet}
         onUndo={onUndoReviewSet}
+        onSessionChange={onReviewSessionChange}
+        onNewSession={onNewReviewSession}
+        onRenameSession={onRenameReviewSession}
+        onDeleteSession={onDeleteReviewSession}
+        onMergeSession={onMergeReviewSession}
+        onExportMarkdown={onExportReviewSetMarkdown}
+        onExportJson={onExportReviewSetJson}
+        onImportJson={onImportReviewSetJson}
       />
     </aside>
   );
