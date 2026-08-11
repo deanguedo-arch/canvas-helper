@@ -8,6 +8,7 @@ import {
   isReviewScreenshotSessionId,
   deleteReviewScreenshots,
   readReviewScreenshot,
+  replaceReviewScreenshot,
   saveReviewScreenshot,
   verifyReviewScreenshot
 } from "../lib/review-screenshots";
@@ -182,7 +183,7 @@ export function createReviewScreenshotRouteHandler(options: ReviewScreenshotRout
       }
       return true;
     }
-    if (request.method !== "POST") {
+    if (request.method !== "POST" && request.method !== "PUT") {
       sendJson(response, 405, { error: "Method not allowed." });
       return true;
     }
@@ -205,14 +206,20 @@ export function createReviewScreenshotRouteHandler(options: ReviewScreenshotRout
     }
 
     try {
-      const result = await saveReviewScreenshot({
+      const screenshotInput = {
         sessionId,
         projectSlug: projectSlug as string,
         itemId,
         screenshotId,
         ownerNodeId,
         png: await readBoundedPng(request)
-      }, options);
+      };
+      const result = request.method === "PUT"
+        ? await replaceReviewScreenshot({
+            ...screenshotInput,
+            repoRelativePath: requestUrl.searchParams.get("path") ?? ""
+          }, options)
+        : await saveReviewScreenshot(screenshotInput, options);
       sendJson(response, 200, {
         path: result.path,
         byteLength: result.byteLength,

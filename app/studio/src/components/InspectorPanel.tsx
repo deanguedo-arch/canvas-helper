@@ -1,4 +1,4 @@
-import type { InspectionResolution } from "../../../shared/inspection.js";
+import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
 import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
 import type { ReviewSetItem, ReviewSetPriority } from "../lib/review-set";
 import type { ReviewSetSessionSummary } from "../lib/review-set-storage";
@@ -10,17 +10,20 @@ type InspectorPanelProps = {
   inspectionResolution: InspectionResolution | null;
   inspectionResolving: boolean;
   inspectionTeacherNote: string;
+  inspectionIssueCategory: InspectionIssueCategory;
   screenshotSupported: boolean;
   screenshotCanCapture: boolean;
-  screenshotStatus: "idle" | "capturing" | "ready" | "error";
+  screenshotStatus: "idle" | "capturing" | "processing" | "ready" | "error";
   screenshotError: string;
   screenshots: ScreenshotDraft[];
   onInspectionTeacherNoteChange: (value: string) => void;
+  onInspectionIssueCategoryChange: (value: InspectionIssueCategory) => void;
   onSaveCurrentInspection: () => void;
   reviewSetCanAddCurrent: boolean;
   reviewSetAddDisabledReason: string;
   onCaptureScreenshot: () => void;
   onCancelScreenshot: () => void;
+  onCropScreenshot: (id: string) => void;
   onDownloadScreenshot: (id: string) => void;
   onDiscardScreenshot: (id: string) => void;
   reviewSetItems: ReviewSetItem[];
@@ -37,19 +40,25 @@ type InspectorPanelProps = {
   reviewSetManualCopyVisible: boolean;
   reviewSetPersistenceError: string;
   reviewSetCaptureItemId: string;
+  reviewSetRelinkItemId: string;
   reviewSetUndoLabel: string;
   onClearReviewSet: () => void;
   onRemoveReviewSetItem: (id: string) => void;
   onFocusReviewSetItem: (id: string) => void;
   onReviewSetTeacherNoteChange: (id: string, value: string) => void;
-  onReviewSetMetadataChange: (id: string, input: { shortLabel?: string; priority?: ReviewSetPriority }) => void;
+  onReviewSetMetadataChange: (id: string, input: { shortLabel?: string; priority?: ReviewSetPriority; issueCategory?: InspectionIssueCategory }) => void;
   onReorderReviewSetItem: (id: string, direction: -1 | 1) => void;
   onDuplicateReviewSetItem: (id: string) => void;
   onMoveReviewSetItem: (id: string, sessionId: string) => void;
   onAddReviewSetScreenshot: (id: string) => void;
+  onRetakeReviewSetScreenshot: (itemId: string, screenshotId: string) => void;
+  onCropReviewSetScreenshot: (itemId: string, screenshotId: string) => void;
   onCancelReviewSetScreenshotCapture: () => void;
   onRemoveReviewSetScreenshot: (itemId: string, screenshotId: string) => void;
   onReorderReviewSetScreenshot: (itemId: string, screenshotId: string, direction: -1 | 1) => void;
+  onRelinkReviewSetItem: (id: string) => void;
+  onRetryReviewSetAnchor: (id: string) => void;
+  onToggleReviewSetResolved: (id: string) => void;
   onCopyReviewSet: () => void;
   onUndoReviewSet: () => void;
   onReviewSessionChange: (sessionId: string) => void;
@@ -67,17 +76,20 @@ export function InspectorPanel({
   inspectionResolution,
   inspectionResolving,
   inspectionTeacherNote,
+  inspectionIssueCategory,
   screenshotSupported,
   screenshotCanCapture,
   screenshotStatus,
   screenshotError,
   screenshots,
   onInspectionTeacherNoteChange,
+  onInspectionIssueCategoryChange,
   onSaveCurrentInspection,
   reviewSetCanAddCurrent,
   reviewSetAddDisabledReason,
   onCaptureScreenshot,
   onCancelScreenshot,
+  onCropScreenshot,
   onDownloadScreenshot,
   onDiscardScreenshot,
   reviewSetItems,
@@ -94,6 +106,7 @@ export function InspectorPanel({
   reviewSetManualCopyVisible,
   reviewSetPersistenceError,
   reviewSetCaptureItemId,
+  reviewSetRelinkItemId,
   reviewSetUndoLabel,
   onClearReviewSet,
   onRemoveReviewSetItem,
@@ -104,9 +117,14 @@ export function InspectorPanel({
   onDuplicateReviewSetItem,
   onMoveReviewSetItem,
   onAddReviewSetScreenshot,
+  onRetakeReviewSetScreenshot,
+  onCropReviewSetScreenshot,
   onCancelReviewSetScreenshotCapture,
   onRemoveReviewSetScreenshot,
   onReorderReviewSetScreenshot,
+  onRelinkReviewSetItem,
+  onRetryReviewSetAnchor,
+  onToggleReviewSetResolved,
   onCopyReviewSet,
   onUndoReviewSet,
   onReviewSessionChange,
@@ -128,6 +146,7 @@ export function InspectorPanel({
           resolution={inspectionResolution}
           resolving={inspectionResolving}
           teacherNote={inspectionTeacherNote}
+          issueCategory={inspectionIssueCategory}
           canSave={reviewSetCanAddCurrent}
           saveDisabledReason={reviewSetAddDisabledReason}
           screenshotSupported={screenshotSupported}
@@ -136,9 +155,11 @@ export function InspectorPanel({
           screenshotError={screenshotError}
           screenshots={screenshots}
           onTeacherNoteChange={onInspectionTeacherNoteChange}
+          onIssueCategoryChange={onInspectionIssueCategoryChange}
           onSave={onSaveCurrentInspection}
           onCaptureScreenshot={onCaptureScreenshot}
           onCancelScreenshot={onCancelScreenshot}
+          onCropScreenshot={onCropScreenshot}
           onDownloadScreenshot={onDownloadScreenshot}
           onDiscardScreenshot={onDiscardScreenshot}
         />
@@ -158,6 +179,7 @@ export function InspectorPanel({
         manualCopyVisible={reviewSetManualCopyVisible}
         persistenceError={reviewSetPersistenceError}
         captureItemId={reviewSetCaptureItemId}
+        relinkItemId={reviewSetRelinkItemId}
         undoLabel={reviewSetUndoLabel}
         onClear={onClearReviewSet}
         onRemove={onRemoveReviewSetItem}
@@ -168,9 +190,14 @@ export function InspectorPanel({
         onDuplicateItem={onDuplicateReviewSetItem}
         onMoveItem={onMoveReviewSetItem}
         onAddScreenshot={onAddReviewSetScreenshot}
+        onRetakeScreenshot={onRetakeReviewSetScreenshot}
+        onCropScreenshot={onCropReviewSetScreenshot}
         onCancelScreenshotCapture={onCancelReviewSetScreenshotCapture}
         onRemoveScreenshot={onRemoveReviewSetScreenshot}
         onReorderScreenshot={onReorderReviewSetScreenshot}
+        onRelinkItem={onRelinkReviewSetItem}
+        onRetryAnchor={onRetryReviewSetAnchor}
+        onToggleResolved={onToggleReviewSetResolved}
         onCopy={onCopyReviewSet}
         onUndo={onUndoReviewSet}
         onSessionChange={onReviewSessionChange}

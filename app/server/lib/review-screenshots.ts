@@ -254,6 +254,54 @@ export async function saveReviewScreenshot(input: {
   });
 }
 
+export async function replaceReviewScreenshot(input: {
+  repoRelativePath: string;
+  sessionId: string;
+  projectSlug: string;
+  itemId: string;
+  screenshotId: string;
+  ownerNodeId: string;
+  png: Buffer;
+}, options: SaveReviewScreenshotOptions = {}) {
+  assertReviewScreenshotOwner(input);
+  if (!isReviewScreenshotItemId(input.screenshotId)) {
+    throw new Error("Invalid replacement screenshot identity.");
+  }
+  const dimensions = inspectPng(input.png);
+  const match = input.repoRelativePath.match(SAFE_SCREENSHOT_PATH);
+  const expectedName = `${input.projectSlug}-${screenshotOwnerHash(input)}-${screenshotIdentityHash(input.screenshotId)}.png`;
+  if (!match || match[1] !== input.sessionId || match[2] !== expectedName) {
+    throw new Error("The replacement screenshot does not match its existing owner.");
+  }
+  const rootDir = options.rootDir ?? reviewScreenshotRoot;
+  return withReviewScreenshotMutation(async () => {
+    await cleanupExpiredReviewScreenshotSessions({ rootDir, now: options.now });
+    const absolutePath = path.join(rootDir, match[1], match[2]);
+    const [resolvedRoot, resolvedFile] = await Promise.all([realpath(rootDir), realpath(absolutePath)]);
+    if (!isPathInside(resolvedRoot, resolvedFile) || resolvedRoot === resolvedFile) {
+      throw new Error("Review Set screenshot replacement escaped its local cache boundary.");
+    }
+    const [budget, existing] = await Promise.all([inspectReviewScreenshotBudget(resolvedRoot), stat(resolvedFile)]);
+    if (budget.byteLength - existing.size + input.png.length > REVIEW_SCREENSHOT_MAX_TOTAL_BYTES) {
+      throw new Error("Review Set screenshot storage has reached its bounded local limit.");
+    }
+    const temporaryPath = path.join(path.dirname(resolvedFile), `.${path.basename(resolvedFile)}.${randomUUID()}.tmp`);
+    try {
+      await writeFile(temporaryPath, input.png, { flag: "wx", mode: 0o600 });
+      await rename(temporaryPath, resolvedFile);
+    } catch (error) {
+      await rm(temporaryPath, { force: true });
+      throw error;
+    }
+    return {
+      absolutePath: resolvedFile,
+      path: input.repoRelativePath,
+      byteLength: input.png.length,
+      ...dimensions
+    };
+  });
+}
+
 export async function readReviewScreenshot(repoRelativePath: string, options: SaveReviewScreenshotOptions = {}) {
   const match = repoRelativePath.match(SAFE_SCREENSHOT_PATH);
   if (!match) {

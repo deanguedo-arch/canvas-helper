@@ -77,6 +77,7 @@ export type PreviewViewport = {
 
 export type PreviewInspectPayload = {
   nodeId: string | null;
+  selectionKind?: "element" | "area";
   visibleText: string;
   tagName: string;
   role: string;
@@ -270,6 +271,7 @@ export function isPreviewInspectPayload(value: unknown): value is PreviewInspect
   return (
     isRecord(value) &&
     (value.nodeId === null || isBoundedString(value.nodeId, 160)) &&
+    (value.selectionKind === undefined || value.selectionKind === "element" || value.selectionKind === "area") &&
     isBoundedString(value.visibleText, PREVIEW_BRIDGE_MAX_VISIBLE_TEXT) &&
     isBoundedString(value.tagName, 48) &&
     isBoundedString(value.role, 80) &&

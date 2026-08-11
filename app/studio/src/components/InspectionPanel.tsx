@@ -1,4 +1,4 @@
-import type { InspectionResolution } from "../../../shared/inspection.js";
+import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
 import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
 import { ScreenshotAnnotation } from "./ScreenshotAnnotation";
 
@@ -7,17 +7,20 @@ type InspectionPanelProps = {
   resolution: InspectionResolution | null;
   resolving: boolean;
   teacherNote: string;
+  issueCategory: InspectionIssueCategory;
   canSave: boolean;
   saveDisabledReason: string;
   screenshotSupported: boolean;
   screenshotCanCapture: boolean;
-  screenshotStatus: "idle" | "capturing" | "ready" | "error";
+  screenshotStatus: "idle" | "capturing" | "processing" | "ready" | "error";
   screenshotError: string;
   screenshots: ScreenshotDraft[];
   onTeacherNoteChange: (value: string) => void;
+  onIssueCategoryChange: (value: InspectionIssueCategory) => void;
   onSave: () => void;
   onCaptureScreenshot: () => void;
   onCancelScreenshot: () => void;
+  onCropScreenshot: (id: string) => void;
   onDownloadScreenshot: (id: string) => void;
   onDiscardScreenshot: (id: string) => void;
 };
@@ -32,6 +35,7 @@ export function InspectionPanel({
   resolution,
   resolving,
   teacherNote,
+  issueCategory,
   canSave,
   saveDisabledReason,
   screenshotSupported,
@@ -40,9 +44,11 @@ export function InspectionPanel({
   screenshotError,
   screenshots,
   onTeacherNoteChange,
+  onIssueCategoryChange,
   onSave,
   onCaptureScreenshot,
   onCancelScreenshot,
+  onCropScreenshot,
   onDownloadScreenshot,
   onDiscardScreenshot
 }: InspectionPanelProps) {
@@ -63,7 +69,7 @@ export function InspectionPanel({
       {resolution ? (
         <div className="inspection-details">
           <p className="inspection-selection-summary" data-testid="inspection-selection-summary">
-            <strong>Selected</strong>
+            <strong>Selected {resolution.selection.selectionKind === "area" ? "area" : "element"}</strong>
             <span>{selectionLabel(resolution)}</span>
           </p>
 
@@ -76,6 +82,17 @@ export function InspectionPanel({
               rows={3}
               data-testid="inspection-teacher-note"
             />
+          </label>
+
+          <label className="inspection-concern">
+            <span>Concern</span>
+            <select value={issueCategory} onChange={(event) => onIssueCategoryChange(event.target.value as InspectionIssueCategory)}>
+              <option value="content">Content</option>
+              <option value="interaction">Interaction</option>
+              <option value="layout">Responsive layout</option>
+              <option value="accessibility">Accessibility</option>
+              <option value="unsure">General</option>
+            </select>
           </label>
 
           <div className="inspection-actions">
@@ -97,12 +114,13 @@ export function InspectionPanel({
               <button
                 type="button"
                 className="ghost-button compact"
-                disabled={screenshotStatus !== "capturing" && (!screenshotSupported || !screenshotCanCapture)}
+                disabled={screenshotStatus === "processing" || (screenshotStatus !== "capturing" && (!screenshotSupported || !screenshotCanCapture))}
                 onClick={screenshotStatus === "capturing" ? onCancelScreenshot : onCaptureScreenshot}
                 data-testid="capture-annotated-screenshot"
               >
                 {screenshotStatus === "capturing"
                   ? "Cancel capture"
+                  : screenshotStatus === "processing" ? "Cropping…"
                   : screenshotStatus === "error" ? "Retry screenshot" : "Capture screenshot"}
               </button>
               <span>Captures only this course preview and marks the selected area. You can attach up to three.</span>
@@ -114,6 +132,7 @@ export function InspectionPanel({
           {screenshots.length ? (
             <ScreenshotAnnotation
               drafts={screenshots}
+              onCrop={onCropScreenshot}
               onDownload={onDownloadScreenshot}
               onDiscard={onDiscardScreenshot}
             />

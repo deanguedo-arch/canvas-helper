@@ -21,6 +21,7 @@ export type InspectionArtifactRole = "canonical-editable-source" | "generated-wo
 
 export type InspectionSelection = {
   nodeId: string | null;
+  selectionKind?: "element" | "area";
   visibleText: string;
   tagName: string;
   role: string;

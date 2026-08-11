@@ -15,6 +15,7 @@ export const REVIEW_SET_LABEL_MAX_BYTES = 64;
 export const REVIEW_SET_PRIORITIES = ["normal", "high", "low"] as const;
 
 export type ReviewSetPriority = (typeof REVIEW_SET_PRIORITIES)[number];
+export type ReviewSetAnchorState = "ready" | "changed" | "missing";
 
 const encoder = new TextEncoder();
 
@@ -25,6 +26,13 @@ export type ReviewSetScreenshot = {
   byteLength: number;
   width: number;
   height: number;
+  ownerNodeId: string;
+  cropped: boolean;
+};
+
+type ReviewSetScreenshotInput = Omit<ReviewSetScreenshot, "ownerNodeId" | "cropped"> & {
+  ownerNodeId?: string;
+  cropped?: boolean;
 };
 
 export type ReviewSetItem = {
@@ -36,6 +44,8 @@ export type ReviewSetItem = {
   issueCategory: InspectionIssueCategory;
   shortLabel: string;
   priority: ReviewSetPriority;
+  anchorState: ReviewSetAnchorState;
+  resolved: boolean;
   teacherNote: string;
   excerpt: string;
   excerptTruncated: boolean;
@@ -128,8 +138,10 @@ export function createReviewSetItem(input: {
   issueCategory: InspectionIssueCategory;
   shortLabel?: string;
   priority?: ReviewSetPriority;
+  anchorState?: ReviewSetAnchorState;
+  resolved?: boolean;
   teacherNote: string;
-  screenshots?: ReviewSetScreenshot[];
+  screenshots?: ReviewSetScreenshotInput[];
 }): ReviewSetItem {
   const identity = reviewSetItemIdentity(input.request, input.previewMode);
   if (!identity) {
@@ -143,6 +155,13 @@ export function createReviewSetItem(input: {
     throw new Error(`A Review Set label must be ${REVIEW_SET_LABEL_MAX_BYTES} bytes or fewer.`);
   }
   const priority = REVIEW_SET_PRIORITIES.includes(input.priority ?? "normal") ? input.priority ?? "normal" : "normal";
+  const anchorState = input.anchorState && ["ready", "changed", "missing"].includes(input.anchorState)
+    ? input.anchorState
+    : input.resolution.freshness === "stale"
+      ? "changed"
+      : input.resolution.freshness === "unsupported"
+        ? "missing"
+        : "ready";
   if ((input.screenshots?.length ?? 0) > REVIEW_SCREENSHOT_MAX_PER_ITEM) {
     throw new Error(`A Review Set item can include at most ${REVIEW_SCREENSHOT_MAX_PER_ITEM} screenshots.`);
   }
@@ -158,10 +177,16 @@ export function createReviewSetItem(input: {
     issueCategory: input.issueCategory,
     shortLabel,
     priority,
+    anchorState,
+    resolved: Boolean(input.resolved),
     teacherNote: input.teacherNote,
     excerpt,
     excerptTruncated: excerpt !== normalizedExcerpt,
-    screenshots: (input.screenshots ?? []).map((screenshot) => ({ ...screenshot }))
+    screenshots: (input.screenshots ?? []).map((screenshot) => ({
+      ...screenshot,
+      ownerNodeId: screenshot.ownerNodeId || input.request.selection.nodeId || "",
+      cropped: Boolean(screenshot.cropped)
+    }))
   };
 }
 
@@ -318,9 +343,11 @@ function formatItemLines(index: number, entry: ReviewSetPacketItem) {
     `Page: ${repoPath(resolution.previewPath, `Item ${index} preview path`)}`,
     `Inspection node: ${requiredInline(resolution.selection.nodeId ?? "", `Item ${index} inspection node`)}`,
     `Selected element: ${requiredInline(resolution.selection.tagName, `Item ${index} selected element`)}${testId}`,
+    `Selection type: ${resolution.selection.selectionKind === "area" ? "area" : "element"}`,
     `Label: ${item.shortLabel || "none"}`,
     `Priority: ${item.priority}`,
-    `Change focus: ${item.issueCategory}`,
+    `Concern: ${item.issueCategory === "layout" ? "responsive layout" : item.issueCategory === "unsure" ? "general" : item.issueCategory}`,
+    `Review status: ${item.resolved ? "resolved" : "open"}`,
     `Resolution: ${resolution.resolution}`,
     `Freshness: ${resolution.freshness}`,
     `Artifact role: ${resolution.artifactRole}`,

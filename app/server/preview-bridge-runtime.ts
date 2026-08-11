@@ -369,8 +369,9 @@ export function buildPreviewBridgeRuntime(
     overlay.style.position = "fixed";
     overlay.style.pointerEvents = "none";
     overlay.style.zIndex = "2147483645";
-    overlay.style.border = "2px solid #2563eb";
-    overlay.style.background = "rgba(37, 99, 235, 0.10)";
+    overlay.style.border = "2px solid #1473e6";
+    overlay.style.background = "rgba(20, 115, 230, 0.08)";
+    overlay.style.boxShadow = "0 0 0 1px rgba(255,255,255,0.9), 0 0 0 4px rgba(20,115,230,0.18)";
     overlay.style.borderRadius = "3px";
     overlay.style.display = "none";
     (document.documentElement || document.body).appendChild(overlay);
@@ -1055,6 +1056,7 @@ export function buildPreviewBridgeRuntime(
     var isFormControl = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
     return {
       nodeId: uniqueSourceNodeId(element),
+      selectionKind: "element",
       visibleText: isFormControl ? "" : boundedString(element.textContent || "", MAX_TEXT),
       tagName: boundedString(element.tagName ? element.tagName.toLowerCase() : "", 48),
       role: boundedString(element.getAttribute("role") || "", 80),
@@ -1086,6 +1088,7 @@ export function buildPreviewBridgeRuntime(
   function visualAreaSelection(rect) {
     return {
       nodeId: null,
+      selectionKind: "area",
       visibleText: "",
       tagName: "area",
       role: "",
@@ -1163,6 +1166,10 @@ export function buildPreviewBridgeRuntime(
       var endTarget = targetForPointerEvent(event);
       var owner = commonMappedOwner(dragStart.target, endTarget);
       selection = owner ? selectionFor(owner) : visualAreaSelection(areaRect);
+      if (owner && selection) {
+        selection.selectionKind = "area";
+        selection.geometry = areaRect;
+      }
     }
     dragStart = null;
     dragging = false;

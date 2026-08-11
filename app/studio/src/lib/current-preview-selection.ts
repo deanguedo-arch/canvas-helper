@@ -7,6 +7,18 @@ export function hasSamePreviewPageRoute(leftHref: string, rightHref: string) {
   return left !== null && left === right;
 }
 
+export function preserveVisualSelection(
+  expected: PreviewInspectPayload,
+  current: PreviewInspectPayload
+): PreviewInspectPayload {
+  if (expected.selectionKind !== "area") return current;
+  return {
+    ...current,
+    selectionKind: "area",
+    geometry: { ...expected.geometry }
+  };
+}
+
 export async function runWithCurrentPreviewSelection<Result>(input: {
   expected: Pick<PreviewInspectPayload, "nodeId" | "pageHref">;
   requestCurrent: () => Promise<PreviewInspectPayload>;
@@ -21,5 +33,9 @@ export async function runWithCurrentPreviewSelection<Result>(input: {
   ) {
     throw new Error(input.changedMessage);
   }
-  return input.run(selection);
+  return input.run(
+    "selectionKind" in input.expected && "geometry" in input.expected
+      ? preserveVisualSelection(input.expected as PreviewInspectPayload, selection)
+      : selection
+  );
 }

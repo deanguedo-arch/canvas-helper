@@ -1301,6 +1301,25 @@ pre {
   line-height: 1.45;
 }
 
+.inspection-concern {
+  display: grid;
+  gap: 5px;
+  color: #475467;
+  font-size: 11px;
+  font-weight: 620;
+}
+
+.inspection-concern select {
+  width: 100%;
+  min-height: 34px;
+  padding: 0 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 7px;
+  color: #1d2939;
+  background: #ffffff;
+  font-size: 11px;
+}
+
 .inspection-note textarea:hover,
 .inspection-note textarea:focus,
 .assessment-card input:hover,
@@ -1523,6 +1542,32 @@ pre {
   gap: 5px;
 }
 
+.review-item-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px;
+}
+
+.review-selection-kind {
+  padding: 2px 5px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: #475467;
+  background: #ffffff;
+  font-size: 9px;
+  font-weight: 650;
+}
+
+.review-set-item.resolved {
+  border-left: 2px solid #5d9467;
+  padding-left: 9px;
+}
+
+.review-set-item.resolved .inspection-note,
+.review-set-item.resolved .review-item-metadata {
+  opacity: 0.68;
+}
+
 .review-item-readiness {
   padding: 2px 5px;
   border-radius: 4px;
@@ -1570,7 +1615,7 @@ pre {
 
 .review-item-metadata {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 94px;
+  grid-template-columns: minmax(0, 1fr) 112px 82px;
   gap: 7px;
 }
 
@@ -1594,13 +1639,14 @@ pre {
 }
 
 .review-screenshot-order {
-  position: absolute;
-  right: 3px;
-  bottom: 3px;
-  left: 3px;
+  position: relative;
+  z-index: 2;
   display: flex;
+  align-self: center;
   justify-content: center;
   gap: 2px;
+  margin-top: -34px;
+  margin-bottom: 5px;
 }
 
 .review-screenshot-order button {
@@ -1619,6 +1665,33 @@ pre {
 
 .review-screenshot-order button:disabled {
   opacity: 0.35;
+}
+
+.review-screenshot-tools {
+  display: flex;
+  gap: 3px;
+}
+
+.review-screenshot-tools button {
+  flex: 1;
+  min-width: 0;
+  padding: 3px 2px;
+  border: 1px solid var(--line);
+  border-radius: 4px;
+  color: #475467;
+  background: #ffffff;
+  cursor: pointer;
+  font-size: 9px;
+}
+
+.review-screenshot-tools button:hover:not(:disabled) {
+  border-color: #98a2b3;
+  color: var(--accent);
+}
+
+.review-screenshot-tools button:disabled {
+  cursor: default;
+  opacity: 0.48;
 }
 
 .review-set-screenshot-remove {
@@ -2054,6 +2127,10 @@ pre {
 
   .assessment-choice-row,
   .assessment-matching-row {
+    grid-template-columns: 1fr;
+  }
+
+  .review-item-metadata {
     grid-template-columns: 1fr;
   }
 }

@@ -754,17 +754,31 @@ test("@inspection course-only capture supports drag selection, three screenshots
     x: (headingBounds?.x ?? 0) + Math.max(12, (headingBounds?.width ?? 0) - 4),
     y: (headingBounds?.y ?? 0) + Math.max(12, (headingBounds?.height ?? 0) - 4)
   };
+  const areaResolutionRequest = page.waitForRequest((request) =>
+    request.url().endsWith("/api/inspection/resolve") && request.method() === "POST"
+  );
   await page.mouse.move(dragStart.x, dragStart.y);
   await page.mouse.down();
   await page.mouse.move(dragEnd.x, dragEnd.y, { steps: 4 });
   await page.mouse.up();
+  const areaRequestPayload = (await areaResolutionRequest).postDataJSON() as {
+    selection: { selectionKind?: string; geometry: { width: number; height: number } };
+  };
+  expect(areaRequestPayload.selection.selectionKind).toBe("area");
+  expect(Math.abs(areaRequestPayload.selection.geometry.width - Math.round(dragEnd.x - dragStart.x))).toBeLessThanOrEqual(2);
+  expect(Math.abs(areaRequestPayload.selection.geometry.height - Math.round(dragEnd.y - dragStart.y))).toBeLessThanOrEqual(2);
   await expect(page.getByTestId("inspection-panel")).toBeVisible();
+  await expect(page.getByTestId("inspection-selection-summary")).toContainText("Selected area");
   await expect(page.getByTestId("annotation-mode-bar")).toBeVisible();
   await expect(page.getByTestId("annotation-mode-bar")).toHaveCSS("background-color", "rgb(20, 115, 230)");
 
   for (let expectedCount = 1; expectedCount <= 3; expectedCount += 1) {
     await page.getByTestId("capture-annotated-screenshot").click();
     await expect(page.getByTestId("screenshot-draft")).toHaveCount(expectedCount);
+    if (expectedCount === 1) {
+      await page.getByTestId("screenshot-draft").getByRole("button", { name: "Crop to selection" }).click();
+      await expect(page.getByTestId("screenshot-draft").getByRole("button", { name: "Cropped" })).toBeDisabled();
+    }
   }
   await expect(page.getByTestId("capture-annotated-screenshot")).toBeDisabled();
   await page.getByTestId("inspection-teacher-note").fill("Use these screenshots to clarify this heading.");
@@ -772,6 +786,35 @@ test("@inspection course-only capture supports drag selection, three screenshots
   await expect(page.getByTestId("screenshot-annotation")).toHaveCount(0);
   await expect(page.getByTestId("review-set-screenshot")).toHaveCount(3);
   await expect(page.getByTestId("review-set")).toContainText("3 screenshots");
+  await expect(page.getByTestId("review-set-screenshot").first().getByRole("button", { name: "Cropped" })).toBeDisabled();
+  const retakenImage = page.getByTestId("review-set-screenshot").nth(1).locator("img");
+  const beforeRetakeSource = await retakenImage.getAttribute("src");
+  let releaseReplacement = () => undefined;
+  let reportReplacementStarted = () => undefined;
+  const replacementHeld = new Promise<void>((resolve) => { releaseReplacement = resolve; });
+  const replacementStarted = new Promise<void>((resolve) => { reportReplacementStarted = resolve; });
+  await page.route("**/api/inspection/screenshots?path=*", async (route) => {
+    if (route.request().method() !== "PUT") {
+      await route.continue();
+      return;
+    }
+    reportReplacementStarted();
+    await replacementHeld;
+    await route.continue();
+  });
+  const screenshotReplaced = page.waitForResponse((response) =>
+    response.url().includes("/api/inspection/screenshots?path=") && response.request().method() === "PUT"
+  );
+  await page.getByTestId("review-set-screenshot").nth(1).getByRole("button", { name: "Retake" }).click();
+  await replacementStarted;
+  await expect(page.getByTestId("review-set-item").getByRole("button", { name: "Relink" })).toBeDisabled();
+  await expect(page.getByTestId("review-set-item").getByRole("button", { name: "Remove", exact: true })).toBeDisabled();
+  await expect(page.getByRole("combobox", { name: "Review session" })).toBeDisabled();
+  await expect(page.getByTestId("copy-review-set")).toBeDisabled();
+  releaseReplacement();
+  expect((await screenshotReplaced).ok()).toBe(true);
+  await page.unroute("**/api/inspection/screenshots?path=*");
+  await expect(retakenImage).not.toHaveAttribute("src", beforeRetakeSource as string);
   const firstScreenshotSource = await page.getByTestId("review-set-screenshot").first().locator("img").getAttribute("src");
   const secondScreenshotSource = await page.getByTestId("review-set-screenshot").nth(1).locator("img").getAttribute("src");
   await page.getByRole("button", { name: "Move screenshot 2 left" }).click();
@@ -790,6 +833,7 @@ test("@inspection course-only capture supports drag selection, three screenshots
   await page.getByTestId("copy-review-set").click();
   const copied = await page.evaluate(() => navigator.clipboard.readText());
   expect(copied).toContain("Schema: review-set-v3");
+  expect(copied).toContain("Selection type: area");
   expect(copied).toContain("Screenshots: 3 local PNGs");
   const screenshotPaths = [...copied.matchAll(/\.runtime\/studio-review-sets\/[A-Za-z0-9-]+\/[A-Za-z0-9._-]+\.png/g)]
     .map((match) => match[0]);
@@ -810,6 +854,82 @@ test("@inspection course-only capture supports drag selection, three screenshots
   );
   await page.getByTestId("review-set").getByRole("button", { name: "Clear" }).click();
   expect((await screenshotsReclaimed).ok()).toBe(true);
+  await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+});
+
+test("@inspection relink preserves evidence while completed annotations stay out of the Codex handoff", async ({ page }) => {
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-focus-toggle").click();
+  await page.getByTestId("preview-workspace-toggle").click();
+  await page.getByTestId("inspect-toggle").click();
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  const newAnnotation = page.getByTestId("inspection-panel");
+  await newAnnotation.getByLabel("Concern").selectOption("layout");
+  await page.getByTestId("inspection-teacher-note").fill("Keep this note and its evidence when the target moves.");
+  await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.getByTestId("screenshot-draft")).toHaveCount(1);
+  await page.getByTestId("add-to-review-set").click();
+
+  const firstItem = page.getByTestId("review-set-item").first();
+  await expect(firstItem.locator("textarea")).toHaveValue("Keep this note and its evidence when the target moves.");
+  await expect(firstItem.getByLabel("Concern")).toHaveValue("layout");
+  await expect(firstItem.getByTestId("review-set-screenshot")).toHaveCount(1);
+  await firstItem.getByRole("button", { name: "Relink", exact: true }).click();
+  await expect(page.getByTestId("review-feedback")).toContainText("Select the replacement element");
+
+  const learnerControl = workspaceFrame.getByRole("button", { name: "Fixture Module" });
+  await learnerControl.focus();
+  await learnerControl.press("Enter");
+  await expect(page.getByTestId("review-feedback")).toContainText("Selection relinked");
+  await expect(firstItem).toContainText("Fixture Module");
+  await expect(firstItem.locator("textarea")).toHaveValue("Keep this note and its evidence when the target moves.");
+  await expect(firstItem.getByLabel("Concern")).toHaveValue("layout");
+  await expect(firstItem.getByTestId("review-set-screenshot")).toHaveCount(1);
+  await expect(firstItem.getByRole("button", { name: "Crop", exact: true })).toBeDisabled();
+  await expect(firstItem.getByRole("button", { name: "Retake", exact: true })).toBeDisabled();
+
+  const relinkedHeadingBounds = await heading.boundingBox();
+  expect(relinkedHeadingBounds).toBeTruthy();
+  await page.mouse.click(
+    (relinkedHeadingBounds?.x ?? 0) + (relinkedHeadingBounds?.width ?? 0) / 2,
+    (relinkedHeadingBounds?.y ?? 0) + (relinkedHeadingBounds?.height ?? 0) / 2
+  );
+  await newAnnotation.getByLabel("Concern").selectOption("content");
+  await page.getByTestId("inspection-teacher-note").fill("Keep this second open annotation in the handoff.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("review-set-item")).toHaveCount(2);
+
+  await firstItem.getByRole("button", { name: "Mark resolved" }).click();
+  await expect(firstItem).toContainText("Resolved");
+  await expect(page.getByTestId("review-set")).toContainText("1 open");
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await page.getByTestId("copy-review-set").click();
+  const copied = await page.evaluate(() => navigator.clipboard.readText());
+  expect(copied).toContain("Items: 1");
+  expect(copied).toContain("Selection type: element");
+  expect(copied).toContain("Concern: content");
+  expect(copied).toContain("Review status: open");
+  expect(copied).toContain("Keep this second open annotation in the handoff.");
+  expect(copied).not.toContain("Keep this note and its evidence when the target moves.");
+
+  await firstItem.getByRole("button", { name: "Reopen" }).click();
+  await expect(firstItem).not.toContainText("Resolved");
+  await expect(page.getByTestId("review-set")).toContainText("2 open");
+
+  const screenshotReclaimed = page.waitForResponse((response) =>
+    response.url().endsWith("/api/inspection/screenshots") && response.request().method() === "DELETE"
+  );
+  await page.getByTestId("review-set").getByRole("button", { name: "Clear" }).click();
+  expect((await screenshotReclaimed).ok()).toBe(true);
   await expect(page.getByTestId("review-set-item")).toHaveCount(0);
 });
 
@@ -930,7 +1050,7 @@ test("@inspection tampered persisted screenshot metadata cannot enable Copy", as
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
 
   const cleanupScreenshots = await page.evaluate(() => {
-    const key = "canvas-helper/review-workbench-v8";
+    const key = "canvas-helper/review-workbench-v9";
     const stored = JSON.parse(localStorage.getItem(key) || "null");
     const project = stored?.projects?.["e2e-fixture"];
     const review = project?.sets?.find((candidate: { id?: string }) => candidate.id === project.activeSetId);

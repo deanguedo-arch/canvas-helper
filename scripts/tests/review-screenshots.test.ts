@@ -12,6 +12,7 @@ import {
   cleanupExpiredReviewScreenshotSessions,
   deleteReviewScreenshots,
   readReviewScreenshot,
+  replaceReviewScreenshot,
   REVIEW_SCREENSHOT_RETENTION_MS,
   saveReviewScreenshot,
   verifyReviewScreenshot
@@ -283,6 +284,46 @@ test("Review Set screenshots are verified against their annotation owner and can
   }
 });
 
+test("Review Set screenshots can be atomically replaced only by their exact owner", async () => {
+  const rootDir = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-review-replace-"));
+  try {
+    const original = await saveReviewScreenshot({
+      sessionId,
+      projectSlug: "e2e-fixture",
+      itemId: "review-replace-1",
+      screenshotId: "shot-replace-1",
+      ownerNodeId,
+      png: boundedPng(640, 480)
+    }, { rootDir });
+    const replaced = await replaceReviewScreenshot({
+      repoRelativePath: original.path,
+      sessionId,
+      projectSlug: "e2e-fixture",
+      itemId: "review-replace-1",
+      screenshotId: "shot-replace-1",
+      ownerNodeId,
+      png: boundedPng(320, 240)
+    }, { rootDir });
+    assert.equal(replaced.path, original.path);
+    assert.equal(replaced.width, 320);
+    assert.equal((await readReviewScreenshot(original.path, { rootDir })).height, 240);
+    await assert.rejects(
+      replaceReviewScreenshot({
+        repoRelativePath: original.path,
+        sessionId,
+        projectSlug: "e2e-fixture",
+        itemId: "review-replace-1",
+        screenshotId: "different-shot",
+        ownerNodeId,
+        png: boundedPng(200, 100)
+      }, { rootDir }),
+      /does not match|identity/i
+    );
+  } finally {
+    await rm(rootDir, { recursive: true, force: true });
+  }
+});
+
 test("Review Set screenshot storage rejects invalid dimensions and more than fifteen files per session", async () => {
   const rootDir = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-review-screenshots-"));
   try {
@@ -416,6 +457,24 @@ test("the screenshot route accepts only a bounded PNG with safe Review Set ident
     assert.equal(restored.status, 200);
     assert.equal(restored.headers.get("content-type"), "image/png");
     assert.deepEqual(Buffer.from(await restored.arrayBuffer()), boundedPng());
+
+    const replacement = await fetch(
+      `http://127.0.0.1:${address.port}/api/inspection/screenshots?path=${encodeURIComponent(payload.path ?? "")}`,
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "image/png",
+          "X-Canvas-Helper-Review-Session": sessionId,
+          "X-Canvas-Helper-Project": "e2e-fixture",
+          "X-Canvas-Helper-Review-Item": "review-route",
+          "X-Canvas-Helper-Review-Screenshot": "shot-route",
+          "X-Canvas-Helper-Inspection-Node": ownerNodeId
+        },
+        body: boundedPng(320, 240)
+      }
+    );
+    assert.equal(replacement.status, 200);
+    assert.equal((await replacement.json() as { width?: number }).width, 320);
     assert.equal((await fetch(
       `http://127.0.0.1:${address.port}/api/inspection/screenshots?path=${encodeURIComponent(payload.path ?? "")}`
     )).status, 400);

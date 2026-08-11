@@ -641,6 +641,10 @@ export function usePreviewScrollSync({
     });
   };
 
+  const restorePreviewLocation = (mode: PreviewMode, scroll: PreviewScrollState) => {
+    postBridgeCommand(mode, "studio-restore-scroll", scroll);
+  };
+
   const syncStandaloneReviewSet = (mode: PreviewMode, state: PreviewReviewState, packet: string) => {
     postStandaloneBridgeCommand(mode, "studio-set-review-state", state);
     postStandaloneBridgeCommand(mode, "studio-set-review-packet", { packet });
@@ -781,6 +785,7 @@ export function usePreviewScrollSync({
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
     focusPreviewInspectionSelection,
+    restorePreviewLocation,
     syncStandaloneReviewSet,
     sendStandaloneReviewActionResult
   };

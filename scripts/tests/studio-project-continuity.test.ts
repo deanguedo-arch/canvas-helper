@@ -153,3 +153,112 @@ test("review workbench keeps named queued sessions and validates local JSON back
     assert.equal(listStoredReviewSets("alpha").length, 1);
   });
 });
+
+test("review workbench preserves recovery state and immutable screenshot ownership through v8 migration", () => {
+  withLocalStorage((values) => {
+    const screenshotSessionId = "44444444-4444-4444-8444-444444444444";
+    const reviewSessionId = "eeeeeeee-eeee-4eee-8eee-eeeeeeeeeeee";
+    const resolution: InspectionResolution = {
+      projectSlug: "alpha",
+      previewPath: "projects/alpha/workspace/index.html",
+      selection: {
+        nodeId: "ch1:1234567890abcdef12345678:2",
+        selectionKind: "area",
+        visibleText: "Replacement heading",
+        tagName: "h2",
+        role: "",
+        testId: "",
+        geometry: { x: 10, y: 20, width: 200, height: 60 },
+        viewport: { width: 1280, height: 720 },
+        scroll: { windowTop: 120, windowLeft: 0, containers: [] },
+        pageHref: "http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/alpha/index.html"
+      },
+      resolution: "exact",
+      freshness: "current",
+      artifactRole: "canonical-editable-source",
+      generated: false,
+      primaryEditTarget: "projects/alpha/workspace/index.html",
+      primaryEditLine: 2,
+      contributors: [],
+      rebuildCommand: null,
+      validationCommand: "npm run course:doctor -- --project alpha",
+      warnings: []
+    };
+    const item = createReviewSetItem({
+      id: "review-alpha-relinked",
+      previewMode: "workspace",
+      request: { projectSlug: "alpha", root: "workspace", htmlPath: "index.html", selection: resolution.selection },
+      resolution,
+      issueCategory: "layout",
+      anchorState: "changed",
+      resolved: true,
+      teacherNote: "Keep the original evidence after relinking.",
+      screenshots: [{
+        id: "shot-before-relink",
+        imageUrl: "blob:shot-before-relink",
+        filePath: `.runtime/studio-review-sets/${screenshotSessionId}/shot-before-relink.png`,
+        byteLength: 1_024,
+        width: 640,
+        height: 480,
+        ownerNodeId: "ch1:1234567890abcdef12345678:1",
+        cropped: true
+      }]
+    });
+
+    assert.equal(saveStoredReviewSet("alpha", reviewSessionId, "Recovery check", screenshotSessionId, [item]), true);
+    const current = loadStoredReviewSet("alpha");
+    assert.equal(current?.items[0]?.anchorState, "changed");
+    assert.equal(current?.items[0]?.resolved, true);
+    assert.equal(current?.items[0]?.request.selection.selectionKind, "area");
+    assert.equal(current?.items[0]?.screenshots[0]?.ownerNodeId, "ch1:1234567890abcdef12345678:1");
+    assert.equal(current?.items[0]?.screenshots[0]?.cropped, true);
+
+    const serialized = values.get("canvas-helper/review-workbench-v9");
+    assert.ok(serialized);
+    const legacy = JSON.parse(serialized as string) as { version: number };
+    legacy.version = 8;
+    values.delete("canvas-helper/review-workbench-v9");
+    values.set("canvas-helper/review-workbench-v8", JSON.stringify(legacy));
+
+    const migrated = loadStoredReviewSet("alpha");
+    assert.equal(migrated?.items[0]?.anchorState, "changed");
+    assert.equal(migrated?.items[0]?.resolved, true);
+    assert.equal(migrated?.items[0]?.screenshots[0]?.ownerNodeId, "ch1:1234567890abcdef12345678:1");
+    assert.equal(values.has("canvas-helper/review-workbench-v9"), true);
+    assert.equal(values.has("canvas-helper/review-workbench-v8"), false);
+  });
+});
+
+test("review workbench discards corrupt current and v8 storage before accepting new work", () => {
+  withLocalStorage((values) => {
+    values.set("canvas-helper/review-workbench-v8", "{not-json");
+    assert.equal(loadStoredReviewSet("alpha"), null);
+    assert.equal(values.has("canvas-helper/review-workbench-v8"), false);
+    assert.equal(
+      saveStoredReviewSet(
+        "alpha",
+        "ffffffff-ffff-4fff-8fff-ffffffffffff",
+        "Recovered review",
+        "55555555-5555-4555-8555-555555555555",
+        []
+      ),
+      true
+    );
+    assert.equal(loadStoredReviewSet("alpha")?.name, "Recovered review");
+
+    values.set("canvas-helper/review-workbench-v9", "[also-not-json");
+    assert.equal(loadStoredReviewSet("alpha"), null);
+    assert.equal(values.has("canvas-helper/review-workbench-v9"), false);
+    assert.equal(
+      saveStoredReviewSet(
+        "alpha",
+        "99999999-9999-4999-8999-999999999999",
+        "Clean review",
+        "66666666-6666-4666-8666-666666666666",
+        []
+      ),
+      true
+    );
+    assert.equal(loadStoredReviewSet("alpha")?.name, "Clean review");
+  });
+});

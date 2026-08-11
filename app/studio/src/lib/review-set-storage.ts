@@ -24,11 +24,12 @@ import {
   reviewScreenshotImageUrl
 } from "./review-screenshots";
 
-const STORAGE_KEY = "canvas-helper/review-workbench-v8";
+const STORAGE_KEY = "canvas-helper/review-workbench-v9";
+const LEGACY_WORKBENCH_STORAGE_KEY = "canvas-helper/review-workbench-v8";
 const LEGACY_PROJECT_SETS_STORAGE_KEY = "canvas-helper/review-sets-by-project-v7";
 const LEGACY_SINGLE_SET_STORAGE_KEY = "canvas-helper/review-set-v6";
 const OBSOLETE_STORAGE_KEYS = ["canvas-helper/review-set-v5", "canvas-helper/review-set-v4", "canvas-helper/review-set-v3"];
-const STORAGE_VERSION = 8;
+const STORAGE_VERSION = 9;
 const BACKUP_VERSION = 1;
 const STORAGE_TTL_MS = 7 * 24 * 60 * 60 * 1_000;
 const STORAGE_MAX_PROJECTS = 40;
@@ -160,6 +161,9 @@ function hydrateScreenshot(
   owner: { sessionId: string; projectSlug: string; itemId: string; ownerNodeId: string }
 ): ReviewSetScreenshot | null {
   if (!isRecord(value)) return null;
+  const ownerNodeId = isSafeInline(value.ownerNodeId, 160) && value.ownerNodeId
+    ? value.ownerNodeId
+    : owner.ownerNodeId;
   if (
     !isSafeInline(value.id, 160) ||
     !value.id ||
@@ -181,7 +185,9 @@ function hydrateScreenshot(
     byteLength: Number(value.byteLength),
     width: Number(value.width),
     height: Number(value.height),
-    imageUrl: reviewScreenshotImageUrl(value.filePath, owner)
+    ownerNodeId,
+    cropped: value.cropped === true,
+    imageUrl: reviewScreenshotImageUrl(value.filePath, { ...owner, ownerNodeId })
   };
 }
 
@@ -250,6 +256,8 @@ function hydrateItem(value: unknown, sessionId: string, expectedProjectSlug: str
       issueCategory: value.issueCategory as (typeof INSPECTION_ISSUE_CATEGORIES)[number],
       shortLabel,
       priority,
+      anchorState: value.anchorState === "changed" || value.anchorState === "missing" ? value.anchorState : "ready",
+      resolved: value.resolved === true,
       teacherNote: value.teacherNote,
       screenshots: screenshots as ReviewSetScreenshot[]
     });
@@ -277,6 +285,7 @@ function emptyWorkbench(): StoredReviewWorkbench {
 
 function removeLegacyKeys() {
   try {
+    window.localStorage.removeItem(LEGACY_WORKBENCH_STORAGE_KEY);
     window.localStorage.removeItem(LEGACY_PROJECT_SETS_STORAGE_KEY);
     window.localStorage.removeItem(LEGACY_SINGLE_SET_STORAGE_KEY);
     OBSOLETE_STORAGE_KEYS.forEach((key) => window.localStorage.removeItem(key));
@@ -290,11 +299,29 @@ function migrationSetId(updatedAt: number, position = 0) {
   return `review-migrated-${Math.max(0, Math.floor(updatedAt))}-${position}`.slice(0, 80);
 }
 
+function parseStoredJson(serialized: string) {
+  try {
+    return JSON.parse(serialized) as unknown;
+  } catch {
+    return null;
+  }
+}
+
 function migrateLegacy(): StoredReviewWorkbench {
   const workbench = emptyWorkbench();
+  const workbenchSerialized = window.localStorage.getItem(LEGACY_WORKBENCH_STORAGE_KEY);
+  if (workbenchSerialized && workbenchSerialized.length <= STORAGE_MAX_CHARACTERS) {
+    const parsed = parseStoredJson(workbenchSerialized);
+    if (isRecord(parsed) && parsed.version === 8 && isRecord(parsed.projects)) {
+      const migrated = { version: STORAGE_VERSION, projects: parsed.projects as Record<string, StoredReviewProject> } satisfies StoredReviewWorkbench;
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+      removeLegacyKeys();
+      return migrated;
+    }
+  }
   const projectSerialized = window.localStorage.getItem(LEGACY_PROJECT_SETS_STORAGE_KEY);
   if (projectSerialized && projectSerialized.length <= STORAGE_MAX_CHARACTERS) {
-    const parsed = JSON.parse(projectSerialized) as unknown;
+    const parsed = parseStoredJson(projectSerialized);
     if (isRecord(parsed) && parsed.version === 7 && isRecord(parsed.projects)) {
       let position = 0;
       for (const [slug, rawEntry] of Object.entries(parsed.projects)) {
@@ -310,14 +337,16 @@ function migrateLegacy(): StoredReviewWorkbench {
         };
       }
     }
-  } else {
+  }
+  if (!Object.keys(workbench.projects).length) {
     const singleSerialized = window.localStorage.getItem(LEGACY_SINGLE_SET_STORAGE_KEY);
     if (singleSerialized && singleSerialized.length <= STORAGE_MAX_SET_CHARACTERS) {
-      const entry = JSON.parse(singleSerialized) as LegacyStoredReviewSetEntry & { version?: unknown };
-      const firstItem = Array.isArray(entry.items) && isRecord(entry.items[0]) && isRecord(entry.items[0].request)
+      const entry = parseStoredJson(singleSerialized) as (LegacyStoredReviewSetEntry & { version?: unknown }) | null;
+      const firstItem = entry && Array.isArray(entry.items) && isRecord(entry.items[0]) && isRecord(entry.items[0].request)
         ? entry.items[0].request.projectSlug
         : "";
       if (
+        entry &&
         entry.version === 6 &&
         isSafeProjectSlug(firstItem) &&
         Number.isFinite(entry.updatedAt) &&
@@ -348,7 +377,7 @@ function readWorkbench(): StoredReviewWorkbench {
     window.localStorage.removeItem(STORAGE_KEY);
     return emptyWorkbench();
   }
-  const parsed = JSON.parse(serialized) as unknown;
+  const parsed = parseStoredJson(serialized);
   if (isRecord(parsed) && parsed.version === STORAGE_VERSION && isRecord(parsed.projects)) {
     return { version: STORAGE_VERSION, projects: parsed.projects as Record<string, StoredReviewProject> };
   }

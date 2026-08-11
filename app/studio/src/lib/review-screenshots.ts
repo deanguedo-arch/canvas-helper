@@ -114,6 +114,44 @@ export async function persistReviewScreenshot(input: {
   return payload;
 }
 
+export async function replaceReviewScreenshot(input: {
+  sessionId: string;
+  projectSlug: string;
+  itemId: string;
+  screenshotId: string;
+  ownerNodeId: string;
+  repoRelativePath: string;
+  png: Blob;
+  signal?: AbortSignal;
+}) {
+  if (
+    !isReviewScreenshotPath(input.repoRelativePath) ||
+    input.png.type !== "image/png" ||
+    input.png.size <= 0 ||
+    input.png.size > REVIEW_SCREENSHOT_MAX_BYTES
+  ) {
+    throw new Error("The replacement screenshot is not a valid bounded PNG.");
+  }
+  const response = await fetch(`/api/inspection/screenshots?path=${encodeURIComponent(input.repoRelativePath)}`, {
+    method: "PUT",
+    headers: {
+      "Content-Type": "image/png",
+      "X-Canvas-Helper-Review-Session": input.sessionId,
+      "X-Canvas-Helper-Project": input.projectSlug,
+      "X-Canvas-Helper-Review-Item": input.itemId,
+      "X-Canvas-Helper-Review-Screenshot": input.screenshotId,
+      "X-Canvas-Helper-Inspection-Node": input.ownerNodeId
+    },
+    body: input.png,
+    signal: input.signal
+  });
+  const payload = await response.json().catch(() => null) as unknown;
+  if (!response.ok || !isPersistedReviewScreenshot(payload) || (payload as PersistedReviewScreenshot).path !== input.repoRelativePath) {
+    throw new Error("Canvas Helper could not safely replace this screenshot.");
+  }
+  return payload as PersistedReviewScreenshot;
+}
+
 export async function verifyReviewScreenshots(input: {
   sessionId: string;
   projectSlug: string;

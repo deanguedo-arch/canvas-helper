@@ -9,6 +9,7 @@ export type ScreenshotDraft = {
   png: Blob;
   width: number;
   height: number;
+  cropped: boolean;
 };
 
 type CaptureScreenshotOptions = {
@@ -25,13 +26,57 @@ function createDraftId() {
   return Array.from(window.crypto.getRandomValues(new Uint32Array(2)), (value) => value.toString(16).padStart(8, "0")).join("");
 }
 
-function imageDimensions(imageUrl: string) {
-  return new Promise<{ width: number; height: number }>((resolve, reject) => {
+function loadImage(imageUrl: string) {
+  return new Promise<HTMLImageElement>((resolve, reject) => {
     const image = new Image();
-    image.onload = () => resolve({ width: image.naturalWidth, height: image.naturalHeight });
+    image.onload = () => resolve(image);
     image.onerror = () => reject(new Error("The captured screenshot could not be opened."));
     image.src = imageUrl;
   });
+}
+
+function canvasPng(canvas: HTMLCanvasElement) {
+  return new Promise<Blob>((resolve, reject) => {
+    canvas.toBlob((blob) => {
+      if (!blob || blob.type !== "image/png" || blob.size <= 0 || blob.size > REVIEW_SCREENSHOT_MAX_BYTES) {
+        reject(new Error("The cropped screenshot is not a valid bounded PNG."));
+        return;
+      }
+      resolve(blob);
+    }, "image/png");
+  });
+}
+
+export async function cropScreenshotPng(png: Blob, selection: PreviewInspectPayload, padding = 24) {
+  if (png.type !== "image/png" || png.size <= 0 || png.size > REVIEW_SCREENSHOT_MAX_BYTES) {
+    throw new Error("The screenshot is not a valid bounded PNG.");
+  }
+  const sourceUrl = URL.createObjectURL(png);
+  try {
+    const image = await loadImage(sourceUrl);
+    const { viewport, geometry } = selection;
+    if (viewport.width <= 0 || viewport.height <= 0 || geometry.width <= 0 || geometry.height <= 0) {
+      throw new Error("This selection does not have a crop area.");
+    }
+    const scaleX = image.naturalWidth / viewport.width;
+    const scaleY = image.naturalHeight / viewport.height;
+    const sourceX = Math.max(0, Math.floor((geometry.x - padding) * scaleX));
+    const sourceY = Math.max(0, Math.floor((geometry.y - padding) * scaleY));
+    const sourceRight = Math.min(image.naturalWidth, Math.ceil((geometry.x + geometry.width + padding) * scaleX));
+    const sourceBottom = Math.min(image.naturalHeight, Math.ceil((geometry.y + geometry.height + padding) * scaleY));
+    const width = sourceRight - sourceX;
+    const height = sourceBottom - sourceY;
+    if (width < 24 || height < 24) throw new Error("This selection is too small to crop safely.");
+    const canvas = document.createElement("canvas");
+    canvas.width = width;
+    canvas.height = height;
+    const context = canvas.getContext("2d", { alpha: false });
+    if (!context) throw new Error("This browser could not prepare the crop.");
+    context.drawImage(image, sourceX, sourceY, width, height, 0, 0, width, height);
+    return { png: await canvasPng(canvas), width, height };
+  } finally {
+    URL.revokeObjectURL(sourceUrl);
+  }
 }
 
 export function releaseScreenshotDraft(draft: ScreenshotDraft | null | undefined) {
@@ -70,12 +115,14 @@ export async function capturePreviewScreenshot(
   }
   const imageUrl = URL.createObjectURL(png);
   try {
-    const dimensions = await imageDimensions(imageUrl);
+    const image = await loadImage(imageUrl);
     return {
       id: createDraftId(),
       imageUrl,
       png,
-      ...dimensions
+      width: image.naturalWidth,
+      height: image.naturalHeight,
+      cropped: false
     } satisfies ScreenshotDraft;
   } catch (error) {
     URL.revokeObjectURL(imageUrl);
@@ -87,7 +134,7 @@ export function useScreenshotAnnotation() {
   const draftsRef = useRef<ScreenshotDraft[]>([]);
   const activeCaptureRef = useRef<AbortController | null>(null);
   const [drafts, setDrafts] = useState<ScreenshotDraft[]>([]);
-  const [status, setStatus] = useState<"idle" | "capturing" | "ready" | "error">("idle");
+  const [status, setStatus] = useState<"idle" | "capturing" | "processing" | "ready" | "error">("idle");
   const [error, setError] = useState("");
 
   const replaceDrafts = (next: ScreenshotDraft[]) => {
@@ -179,6 +226,30 @@ export function useScreenshotAnnotation() {
     setError("");
   };
 
+  const crop = async (id: string, selection: PreviewInspectPayload) => {
+    const existing = draftsRef.current.find((draft) => draft.id === id);
+    if (!existing || existing.cropped || status === "capturing" || status === "processing") return false;
+    setStatus("processing");
+    setError("");
+    try {
+      const cropped = await cropScreenshotPng(existing.png, selection);
+      const imageUrl = URL.createObjectURL(cropped.png);
+      replaceDrafts(draftsRef.current.map((draft) => draft.id === id ? {
+        ...draft,
+        ...cropped,
+        imageUrl,
+        cropped: true
+      } : draft));
+      URL.revokeObjectURL(existing.imageUrl);
+      setStatus("ready");
+      return true;
+    } catch (cropError) {
+      setStatus("error");
+      setError(cropError instanceof Error ? cropError.message : "Canvas Helper could not crop the screenshot.");
+      return false;
+    }
+  };
+
   const download = (id: string) => {
     const draft = draftsRef.current.find((candidate) => candidate.id === id);
     if (!draft) {
@@ -198,6 +269,7 @@ export function useScreenshotAnnotation() {
     capture,
     cancel: cancelCapture,
     remove,
+    crop,
     download,
     clear,
     reportError

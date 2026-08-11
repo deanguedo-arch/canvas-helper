@@ -28,7 +28,7 @@ import {
   loadPreviewLayoutPreferences,
   savePreviewLayoutPreferences
 } from "../../app/studio/src/lib/storage.ts";
-import { runWithCurrentPreviewSelection } from "../../app/studio/src/lib/current-preview-selection.ts";
+import { preserveVisualSelection, runWithCurrentPreviewSelection } from "../../app/studio/src/lib/current-preview-selection.ts";
 import {
   createPreviewStandaloneBridgeBootstrap,
   createPreviewStandaloneHostBridgeBootstrap,
@@ -426,6 +426,31 @@ test("full-preview draft capture never runs after the refreshed SPA route change
   assert.equal(captureCalls, 0);
   const appSource = await readFile(path.join(repoRoot, "app/studio/src/App.tsx"), "utf8");
   assert.match(appSource, /action\.action === "capture-draft"[\s\S]{0,1800}runWithCurrentPreviewSelection/);
+});
+
+test("current-selection refresh keeps a teacher-drawn area while accepting current page state", () => {
+  const expected = {
+    nodeId: "ch1:1234567890abcdef12345678:1",
+    selectionKind: "area" as const,
+    visibleText: "Course heading",
+    tagName: "h1",
+    role: "",
+    testId: "",
+    geometry: { x: 20, y: 30, width: 160, height: 70 },
+    viewport: { width: 1280, height: 720 },
+    scroll: { windowTop: 0, windowLeft: 0, containers: [] },
+    pageHref: "http://127.0.0.1:61234/preview/workspace/e2e-fixture/index.html"
+  };
+  const current = {
+    ...expected,
+    selectionKind: "element" as const,
+    geometry: { x: 10, y: 10, width: 400, height: 120 },
+    scroll: { windowTop: 80, windowLeft: 0, containers: [] }
+  };
+  const preserved = preserveVisualSelection(expected, current);
+  assert.equal(preserved.selectionKind, "area");
+  assert.deepEqual(preserved.geometry, expected.geometry);
+  assert.deepEqual(preserved.scroll, current.scroll);
 });
 
 test("blocked browser storage never crashes Review Set load, save, or clear", () => {
