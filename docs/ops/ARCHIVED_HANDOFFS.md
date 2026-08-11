@@ -8205,3 +8205,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; the unrelated oversized workflow commit remained isolated on `codex/studio-workflow-v2`.
 - Implementation commits: `741b5282` and `fbd74fc3`.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-11: Phase B core review loop
+
+- Project: `repo-wide`.
+- Task: Complete Canvas Studio roadmap Phase B while preserving the precision shell and course boundaries.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the Phase C project-continuity handoff.
+- Verification: 52 focused Studio tests, Studio build, 18 inspection E2E tests, platform smoke, and the strict project contract passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/App.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
+- Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
+- Implementation commits: `ccdb916d` and `6c824f42`.
+- Next command at archival time: `rg -n "selectedSlug|Review Set|project" app/studio/src app/shared scripts/tests e2e/specs/inspection.spec.ts`.

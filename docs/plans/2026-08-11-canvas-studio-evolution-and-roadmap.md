@@ -439,16 +439,18 @@ Status: complete in `ccdb916d`, with 52 focused tests, 18 annotation E2E tests, 
 
 Goal: keep Studio fast as the project library grows.
 
-- searchable project picker;
-- recent projects;
-- optional favorites;
-- metadata-based grouping rather than hard-coded subject rules;
-- remember the last page and viewport state per project;
-- keep a separate temporary Review Set per project;
-- show a simple reconnect/restart state when local services are unavailable;
-- add a clear **New Project** entry point that routes to the existing intake workflow.
+- **Completed project finder:** search by course title or slug, use `⌘/Ctrl+K`, and open a result without navigating away from Studio;
+- **Completed recents and favorites:** browser-local, bounded, project-neutral lists are visible in the same finder;
+- **Completed metadata grouping:** course selectors group by declared project type and show declared authoring status instead of subject-name rules;
+- **Completed per-project continuity:** the last HTML page, scroll state, Focus/Split choice, device, zoom, and Review Set visibility restore per project;
+- **Completed Review Set isolation:** each project owns a separate temporary Review Set and screenshot session, so switching projects no longer clears unrelated review work;
+- **Completed reconnect state:** preview startup has bounded retry, an explicit unavailable state, and a teacher-facing reconnect action;
+- **Completed New Project entry:** the global header and course finder open the existing local intake scan in a short guided panel;
+- **Completed initialization safety:** Studio waits for the project catalogue before applying a fallback, preventing reload from overwriting the remembered project.
 
 Exit condition: switching among active projects is quick and does not risk losing unrelated review work.
+
+Status: complete in `cddc6142`, with 54 focused Studio tests, 22 annotation E2E tests, the platform smoke, the strict project contract, and the Studio production build passing.
 
 ### Phase D — Turn Review Set into a stronger local workbench
 

@@ -1,90 +1,96 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Complete Canvas Studio roadmap Phase B: polish the core review loop while preserving the verified precision shell and course boundaries.
-- Status: complete, committed as `ccdb916d`, and pushed to `origin/codex/studio-roadmap-phases`.
+- Task: Complete Canvas Studio roadmap Phase C: project finding, per-project continuity, local intake entry, and preview reconnection.
+- Status: complete, committed as `cddc6142`, and pushed to `origin/codex/studio-roadmap-phases`.
 
 ## Summary
 
-- Studio and full preview now share explicit capture, cancel, retry, save, remove, undo, show, and copy feedback.
-- The latest asynchronous action owns the visible outcome, so an older full-preview response cannot replace newer teacher feedback.
-- The latest annotation save or removal can be undone for ten seconds; screenshot files are retained only while a removed item remains recoverable.
-- Focus/Split, device, zoom, and Review Set visibility now persist separately for each project.
-- Screenshot capture can be canceled for a draft or a saved annotation, and error states expose a clear retry action.
-- **Done**, `Escape`, full-preview **Return to Studio**, and Review Set continuity are covered by browser tests.
+- Studio now has a real searchable course finder with keyboard access, metadata status, recents, and optional favorites.
+- Project selectors use declared metadata groups rather than subject-name rules.
+- The selected HTML page and existing viewport state restore separately for each project.
+- Every project now owns a separate temporary Review Set and screenshot session; switching courses no longer destroys unrelated review work.
+- Preview startup exposes a bounded starting, ready, or unavailable state with an explicit reconnect action.
+- **New Project** opens a short local-intake flow wired to the existing safe intake scan.
+- Reload no longer replaces the remembered project while the course catalogue is still loading.
 - No learner-course file under `projects/<slug>/workspace`, `raw`, or `exports` changed.
 
 ## Files changed
 
 - `app/studio/src/App.tsx`
-- `app/studio/src/components/AnnotationModeBar.tsx`
-- `app/studio/src/components/InspectionPanel.tsx`
-- `app/studio/src/components/InspectorPanel.tsx`
-- `app/studio/src/components/ReviewSetPanel.tsx`
-- `app/studio/src/hooks/useLayoutPreferences.ts`
-- `app/studio/src/hooks/useScreenshotAnnotation.ts`
+- `app/studio/src/components/NewProjectPanel.tsx`
+- `app/studio/src/components/ReferencePicker.tsx`
+- `app/studio/src/components/Topbar.tsx`
+- `app/studio/src/components/WorkspacePicker.tsx`
+- `app/studio/src/hooks/usePreviewRuntime.ts`
+- `app/studio/src/hooks/useProjectCommands.ts`
+- `app/studio/src/hooks/useProjectLibrary.ts`
+- `app/studio/src/hooks/useProjects.ts`
+- `app/studio/src/hooks/useStudioSelection.ts`
+- `app/studio/src/lib/project-display.ts`
+- `app/studio/src/lib/project-library.ts`
+- `app/studio/src/lib/review-set-storage.ts`
 - `app/studio/src/lib/storage.ts`
+- `app/studio/src/lib/types.ts`
 - `app/studio/src/precision-editor.css`
-- `app/shared/preview-bridge.ts`
-- `app/server/preview-bridge-runtime.ts`
-- `scripts/tests/preview-security.test.ts`
 - `e2e/specs/inspection.spec.ts`
+- `scripts/tests/studio-project-continuity.test.ts`
+- `scripts/tests/preview-security.test.ts`
+- `package.json`
 - `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` — 52/52.
+- Passed: `npm run test:studio-inspection` — 54/54.
 - Passed: `npm run build:studio`.
-- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 18/18.
+- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 22/22.
 - Passed: `npm run test:e2e:smoke` — 1/1.
 - Passed: `npm run test:e2e:project -- --project e2e-fixture` — 1/1.
 - Passed: `git diff --check`.
-- Baseline only: `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, and English-builder files; no diagnostic points into a Phase B file.
+- Baseline only: `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, and English-builder files; no diagnostic points into a Phase C file.
 
 ## Source of truth
 
-- Review-loop orchestration and latest-action feedback: `app/studio/src/App.tsx`.
-- Per-project layout persistence: `app/studio/src/hooks/useLayoutPreferences.ts` and `app/studio/src/lib/storage.ts`.
-- Teacher-facing Review Set feedback and undo controls: `app/studio/src/components/ReviewSetPanel.tsx`.
-- Shared full-preview action contract: `app/shared/preview-bridge.ts`.
-- Full-preview toolbar and stale-result guard: `app/server/preview-bridge-runtime.ts`.
-- Screenshot ownership, packet bounds, and canonical source-resolution rules remain in their existing server and shared modules.
+- Project finder and teacher-facing connection state: `app/studio/src/components/Topbar.tsx`.
+- Recents and favorites contract: `app/studio/src/lib/project-library.ts`.
+- Per-project Review Set storage and migration: `app/studio/src/lib/review-set-storage.ts`.
+- Last-page and viewport continuity: `app/studio/src/lib/storage.ts` and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Existing local intake contract: `app/studio/src/hooks/useProjects.ts` and `app/studio/src/lib/projects.ts`.
 
 ## Fragile areas / what might drift
 
-- Keep the bridge request ID bounded and echoed by Studio; removing it would reintroduce stale full-preview feedback.
-- Removed screenshots are intentionally reclaimed only after undo expires or a later undo replaces the pending one.
-- Per-project layout entries are browser-local, bounded to 100 projects, and fall back safely when storage is blocked.
-- Do not move course state into Studio storage or style inside the isolated course iframe.
-- Untracked `projects/processed/**/source 2/` folders remain unrelated local intake artifacts and were deliberately excluded from both Phase B commits.
+- Keep Review Sets keyed by project; restoring a single global set would reintroduce destructive course switching.
+- Do not apply a project fallback until the project catalogue has loaded.
+- Search grouping must continue to use project metadata, not course or subject naming conventions.
+- Review Set storage is browser-local, bounded to 40 projects, and expires after seven days.
+- Untracked `projects/processed/**/source 2/` folders remain unrelated local intake artifacts and were deliberately excluded.
 
 ## Known risks / follow-up
 
-- Undo currently covers annotation save/remove, not note edits or individual screenshot removal; broader history belongs in the bounded Review Set workbench phase.
-- The repository-wide typecheck baseline remains noisy and is not evidence of a Phase B regression.
-- Phase C must replace destructive cross-project Review Set switching with separate per-project temporary sets before adding recents and favorites.
+- Favorites, recents, page choices, and temporary Review Sets are intentionally local to this browser profile.
+- The New Project flow scans the existing local intake folder; it does not yet provide an operating-system file picker.
+- Phase D is responsible for named and queued Review Set sessions, richer organization, and export/import.
 
 ## Next prompt assumptions
 
 - Branch: `codex/studio-roadmap-phases`.
-- Phase A/B2 implementation: `741b5282`.
-- Phase B implementation: `ccdb916d`.
-- The next roadmap boundary is Phase C: project finding and per-project continuity.
-- Keep the `uncodixfy` matte, restrained visual foundation; do not add gradients, glass effects, excessive pills, or subject-specific UI.
+- Phases A, B, and C are implemented and pushed.
+- Phase C implementation commit: `cddc6142`.
+- The next roadmap boundary is Phase D: the stronger local Review Set workbench.
+- Keep the matte, restrained visual foundation and project-neutral information architecture.
 
 ## Exact next command
 
-`rg -n "selectedSlug|Review Set|project" app/studio/src app/shared scripts/tests e2e/specs/inspection.spec.ts`
+`sed -n '1,280p' app/studio/src/components/ReviewSetPanel.tsx`
 
 ## Exact next file to open
 
-`app/studio/src/components/Topbar.tsx`
+`app/studio/src/components/ReviewSetPanel.tsx`
 
 ## Do not do next / warnings
 
 - Do not touch learner-course source or generated output for Studio roadmap work.
-- Do not restore a single global Review Set once Phase C introduces per-project sets.
-- Do not expose repository paths or source-resolution jargon in the teacher-facing project picker.
+- Do not remove existing packet-size, screenshot-ownership, or source-recheck safety checks while adding sessions.
 - Do not stage or delete unrelated untracked intake snapshots.
