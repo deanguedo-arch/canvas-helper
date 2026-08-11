@@ -475,17 +475,21 @@ Status: complete in `a7501627`, with 55 focused Studio tests, 23 annotation E2E 
 
 Goal: keep saved evidence useful after navigation and rebuilds.
 
-- clearer hover target and selected-target treatment;
-- keyboard selection path;
-- retake and replace screenshot;
-- optional crop after secure capture;
-- detect changed or missing anchors;
-- return to the nearest valid page location;
-- offer **Relink selection** while preserving the original note and screenshots;
-- distinguish element, area, interaction, content, and responsive-layout concerns using plain labels;
-- add a completed/resolved state after Codex changes are verified.
+- **Completed target treatment:** hover, selected-element, and teacher-drawn-area states use a restrained blue outline without changing course behavior;
+- **Completed keyboard path:** focused course controls can be selected with Enter or Space while annotation mode blocks the learner action;
+- **Completed screenshot recovery:** saved screenshots can be retaken through exact-owner atomic replacement, and replacement locks conflicting review changes until it finishes;
+- **Completed optional crop:** a secure course-only capture can be cropped to the selected element or preserved teacher-drawn rectangle before or after saving;
+- **Completed anchor checks:** current, changed, and missing anchors are detected before copy, including clear stale-page language;
+- **Completed location fallback:** a missing element returns the preview to its nearest saved page and scroll location;
+- **Completed relinking:** **Relink** moves the annotation to a different current workspace selection while preserving its note, metadata, and original screenshots;
+- **Completed plain labels:** Review Set distinguishes Element and Area selections plus Content, Interaction, Responsive layout, Accessibility, and General concerns;
+- **Completed review state:** annotations can be marked resolved, are retained locally, and stay out of the next bounded Codex handoff until reopened;
+- **Completed migration safety:** recovery metadata and immutable screenshot ownership survive reload and v8 migration, while corrupt v8 or v9 values are discarded safely;
+- **Completed red-team closure:** an independent Terra review found and then cleared area-geometry, post-relink evidence, replacement-race, and corrupt-storage findings.
 
 Exit condition: a Review Set remains understandable even when the underlying page changes.
+
+Status: complete in `a1abbb56`, with 59 focused Studio tests, 24 annotation E2E tests, the platform smoke, the strict project contract, and the Studio production build passing.
 
 ### Phase F — Make preview failures recoverable
 

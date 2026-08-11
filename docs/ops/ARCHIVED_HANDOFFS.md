@@ -8227,3 +8227,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
 - Implementation commits: `cddc6142` and `3b119710`.
 - Next command at archival time: `sed -n '1,280p' app/studio/src/components/ReviewSetPanel.tsx`.
+
+## Archived Active Handoff — 2026-08-11: Phase D review workbench
+
+- Project: `repo-wide`.
+- Task: Complete Canvas Studio roadmap Phase D with named, bounded local Review Set sessions.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the Phase E annotation-recovery handoff.
+- Verification: 55 focused Studio tests, Studio build, 23 inspection E2E tests, platform smoke, and the strict project contract passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/lib/review-set-storage.ts`, `app/studio/src/lib/review-set.ts`, `app/studio/src/components/ReviewSetPanel.tsx`, and `app/studio/src/App.tsx`.
+- Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
+- Implementation commits: `a7501627` and `3cc61308`.
+- Next command at archival time: `sed -n '1,320p' app/studio/src/hooks/useScreenshotAnnotation.ts`.
