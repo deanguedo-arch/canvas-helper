@@ -8292,3 +8292,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md` and commit `673182a3`.
 - Preserved boundary: no learner-course source, workspace, or generated export changed; unrelated local intake and test-result snapshots remained unstaged.
 - Next command at archival time: `rg -n "course-toolbar|review-set-panel|buildReviewSetPacket|resolved" app/studio/src app/shared app/server scripts/tests e2e/specs/inspection.spec.ts`.
+
+## Archived Active Handoff — 2026-08-12: Studio visual and first-use refinement
+
+- Project: `repo-wide`.
+- Task: Refine Canvas Studio usability and visual hierarchy before changing handoff semantics.
+- Status: complete and pushed on `codex/studio-roadmap-phases`; superseded by compact Codex handoffs.
+- Verification: 86 focused Studio contracts, production build, platform smoke, browser visual inspection, and diff checks passed.
+- Source of truth: `app/studio/src/components/CourseToolbar.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/lib/project-display.ts`, and `app/studio/src/precision-editor.css`.
+- Preserved boundary: no learner-course source, workspace, or generated export changed; unrelated local intake and test-result snapshots remained unstaged.
+- Implementation commit: `a5145515`.
+- Next command at archival time: `rg -n "buildReviewSetPacket|preparedReviewSet|copyReviewSet" app/studio/src/lib/review-set.ts app/studio/src/App.tsx scripts/tests/codex-packet.test.ts`.

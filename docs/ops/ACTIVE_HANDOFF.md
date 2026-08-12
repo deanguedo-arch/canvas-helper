@@ -1,83 +1,89 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Refine Canvas Studio usability and visual hierarchy before changing handoff semantics.
-- Status: complete; visual hierarchy, first-use guidance, and readable display titles are ready and verified.
+- Task: Add a compact default Codex handoff while preserving an explicit full diagnostic packet.
+- Status: complete; both handoff details are implemented and verified.
 
 ## Files changed
 
 - `app/studio/src/App.tsx`
-- `app/studio/src/components/CourseToolbar.tsx`
+- `app/studio/src/components/InspectorPanel.tsx`
 - `app/studio/src/components/ReviewSetPanel.tsx`
 - `app/studio/src/lib/project-display.ts`
+- `app/studio/src/lib/review-set.ts`
+- `app/studio/src/lib/review-workbench.ts`
 - `app/studio/src/precision-editor.css`
+- `e2e/specs/inspection.spec.ts`
+- `scripts/tests/codex-packet.test.ts`
 - `scripts/tests/studio-project-continuity.test.ts`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
 ## What changed
 
-- Grouped preview controls separately from the Annotate, Full preview, Review Set, and Tools workflow actions.
-- Removed the internal learner-policy label from the primary course toolbar.
-- Made Annotate and Review Set clearer workflow actions while keeping Tools visually secondary.
-- Replaced raw or awkward slug labels with readable course names such as `Social 10-1`, `ELA 20-1`, `Forensics 35`, and `CALM 3 New`, while preserving curated manifest titles.
-- Replaced the empty Review Set's diagnostic-looking state with a concise three-step first-use guide and a neutral disabled handoff state.
-- Increased the desktop Review Set rail width slightly without changing the course-first layout.
+- Made `review-set-v4` compact handoffs the default.
+- Moved repeated edit target, source status, rebuild command, validation command, related sources, and safety notes into one shared implementation block when all changes use the same route.
+- Kept each compact change focused on the teacher request, page, selected target, concern, priority, screenshots, and bounded untrusted page text.
+- Added an explicit `Full diagnostics` option that preserves inspection node, selection type, resolution, freshness, artifact role, generated-output status, review status, and packet diagnostics.
+- Added UI copy explaining what each handoff detail includes.
+- Corrected the readable-title formatter so `e2e-fixture` remains `E2E Fixture`.
+- Restored useful empty-set error/progress feedback while keeping ordinary empty-state noise hidden.
 
 ## Why this changed
 
-- The completed A-H system was functionally strong but still made too many controls look equally important.
-- New users needed an obvious path from Annotate to a saved Review Set and Codex handoff.
-- Repository slugs are implementation identifiers, not polished product names.
+- Most teacher handoffs repeated repository details for every annotation, increasing copy size and visual noise without adding implementation value.
+- Codex still needs safe source ownership, rebuild, validation, screenshot, and untrusted-content boundaries, so compact mode deduplicates rather than removes them.
+- Full diagnostics remains available for ambiguous source ownership or deeper debugging.
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` — 86/86.
+- Passed: `npm run test:studio-inspection` — 87/87.
 - Passed: `npm run build:studio`.
-- Passed: `npm run test:e2e:smoke` — 1/1.
+- Passed targeted E2E for compact/full packet switching, capture cancellation, course finder naming, and failed screenshot rollback — 4/4.
+- Broad `inspection.spec.ts` run: 47/50 initially passed; the three failures exposed the empty-feedback and `E2E Fixture` naming regressions, which were fixed and then passed in the targeted rerun.
 - Passed: `git diff --check`.
-- Browser verified at `http://127.0.0.1:5186/`: course preview remained dominant; toolbar hierarchy, empty Review Set guidance, disabled handoff state, and representative display names rendered correctly.
 
 ## Source of truth
 
-- Shared Studio presentation: `app/studio/src/precision-editor.css`.
-- Course toolbar behavior: `app/studio/src/components/CourseToolbar.tsx`.
-- Review Set first-use state: `app/studio/src/components/ReviewSetPanel.tsx`.
-- Course display names: `app/studio/src/lib/project-display.ts`.
+- Packet schemas and safety validation: `app/studio/src/lib/review-set.ts`.
+- Handoff-detail UI: `app/studio/src/components/ReviewSetPanel.tsx`.
+- Preparation and clipboard orchestration: `app/studio/src/App.tsx`.
+- End-to-end contract: `e2e/specs/inspection.spec.ts`.
 
 ## Fragile areas / watchouts
 
-- Keep course content inside isolated iframes; do not style learner courses through Studio CSS.
-- Preserve `data-testid` selectors and the Focus/Split, Original/Current, and Full preview behaviors.
-- Display formatting may need another generic token rule for future unconventional slugs; curated manifest titles remain authoritative.
+- Compact mode must never omit safe source ownership, rebuild, validation, screenshot paths, or untrusted-content boundaries.
+- The copied packet must match the selected detail; stale prepared packets are rejected.
+- Full Preview receives the currently prepared packet through the bounded bridge; it does not expose the handoff-detail selector itself.
 - Unrelated local intake, resource, and duplicate test-result folders remain unstaged.
 
 ## Next prompt should assume
 
-- Visual refinement phase is complete and should be committed before handoff-packet work begins.
-- The next phase adds a compact default Codex handoff plus an explicit full-diagnostics option.
-- Learner-course sources and generated outputs remain outside the change boundary.
+- Visual refinement and compact/full handoff phases are complete and independently commit-ready.
+- The next phase adds a persistent sent-to-Codex lifecycle with Verify Changes, Accept, Reopen, and follow-up handoffs.
+- Existing manual Resolve behavior must migrate safely rather than being silently reinterpreted.
 
 ## What still needs validation
 
-- The final combined release candidate still requires the full `npm run test:studio-release` gate after the compact handoff and Verify Changes phases.
-- Narrow-screen and full annotation interaction coverage will run again in the final release gate.
+- The complete 50-test inspection suite and final `npm run test:studio-release` gate will run after Verify Changes is implemented.
+- Full Preview lifecycle parity must be tested once handoff-state fields cross the preview bridge.
 
 ## Known risks
 
-- The active Studio on port 5173 may still be an older server until it is restarted; the verified implementation ran through the current branch on port 5186.
-- This phase does not yet change what gets copied to Codex or add post-handoff verification states.
+- Adding lifecycle fields requires a backward-compatible Review Set storage migration and backup parser update.
+- A follow-up handoff must include reopened/new work, not already accepted items or changes still awaiting teacher verification.
 
 ## Exact next command
 
-`rg -n "buildReviewSetPacket|preparedReviewSet|copyReviewSet" app/studio/src/lib/review-set.ts app/studio/src/App.tsx scripts/tests/codex-packet.test.ts`
+`sed -n '1,420p' app/studio/src/lib/review-set-storage.ts`
 
 ## Exact next file to open
 
-`app/studio/src/lib/review-set.ts`
+`app/studio/src/lib/review-set-storage.ts`
 
 ## Do not do next / warnings
 
-- Do not remove bounded safety, source ownership, rebuild, validation, or screenshot-path evidence from compact handoffs.
-- Do not make full diagnostics the default.
-- Do not edit learner-course workspace, raw, or export files for shared Studio behavior.
+- Do not use a transient component-only flag for sent/accepted/reopened state; it must survive reload and Full Preview transitions.
+- Do not mark work sent until clipboard copy succeeds.
+- Do not make accepted items reappear in a follow-up handoff unless the teacher reopens them.
+- Do not edit learner-course source, workspace, raw, or export files.

@@ -4,6 +4,7 @@ import { REVIEW_SCREENSHOT_MAX_PER_ITEM } from "../../../shared/inspection.js";
 import type { InspectionIssueCategory } from "../../../shared/inspection.js";
 import {
   REVIEW_SET_MAX_ITEMS,
+  type ReviewSetHandoffDetail,
   type ReviewSetItem,
   type ReviewSetPriority,
   type ReviewSetScreenshot,
@@ -17,6 +18,7 @@ type ReviewSetPanelProps = {
   activeSessionId: string;
   sessions: ReviewSetSessionSummary[];
   packetByteLength: number;
+  handoffDetail: ReviewSetHandoffDetail;
   status: string;
   statusTone: "neutral" | "progress" | "success" | "warning" | "error";
   preparing: boolean;
@@ -45,6 +47,7 @@ type ReviewSetPanelProps = {
   onRelinkItem: (id: string) => void;
   onRetryAnchor: (id: string) => void;
   onToggleResolved: (id: string) => void;
+  onHandoffDetailChange: (detail: ReviewSetHandoffDetail) => void;
   onCopy: () => void;
   onUndo: () => void;
   onSessionChange: (sessionId: string) => void;
@@ -84,6 +87,7 @@ export function ReviewSetPanel({
   activeSessionId,
   sessions,
   packetByteLength,
+  handoffDetail,
   status,
   statusTone,
   preparing,
@@ -112,6 +116,7 @@ export function ReviewSetPanel({
   onRelinkItem,
   onRetryAnchor,
   onToggleResolved,
+  onHandoffDetailChange,
   onCopy,
   onUndo,
   onSessionChange,
@@ -400,7 +405,7 @@ export function ReviewSetPanel({
         </div>
       )}
 
-      {packetError || persistenceError || (items.length ? status : "") || undoLabel ? (
+      {packetError || persistenceError || status || undoLabel ? (
         <div className={`review-feedback ${status ? statusTone : packetError || persistenceError ? "error" : "neutral"}`} role="status" aria-live="polite" data-testid="review-feedback">
           <span>{status || packetError || persistenceError || "Last Review Set change can be undone."}</span>
           {undoLabel && !packetError && !persistenceError ? (
@@ -410,9 +415,27 @@ export function ReviewSetPanel({
       ) : null}
 
       {items.length ? (
+        <label className="review-handoff-detail">
+          <span>Codex handoff</span>
+          <select
+            value={handoffDetail}
+            onChange={(event) => onHandoffDetailChange(event.target.value as ReviewSetHandoffDetail)}
+            disabled={mutationLocked || preparing}
+            data-testid="review-handoff-detail"
+          >
+            <option value="compact">Compact · recommended</option>
+            <option value="diagnostic">Full diagnostics</option>
+          </select>
+          <small>{handoffDetail === "compact"
+            ? "Keeps your requests, screenshots, safe edit routes, and validation steps concise."
+            : "Adds complete selection, provenance, status, and diagnostic evidence."}</small>
+        </label>
+      ) : null}
+
+      {items.length ? (
         <div className="review-packet-summary" data-testid="review-packet-size">
           <span>{formatPacketSize(packetByteLength)}</span>
-          <span>{packetReady ? "Ready for Codex" : preparing ? "Checking sources…" : "Needs review"}</span>
+          <span>{packetReady ? `${handoffDetail === "compact" ? "Compact" : "Diagnostic"} · ready` : preparing ? "Checking sources…" : "Needs review"}</span>
         </div>
       ) : (
         <p className="review-copy-hint" data-testid="review-packet-size">Save an annotation to create a Codex handoff.</p>

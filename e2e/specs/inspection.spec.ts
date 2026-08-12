@@ -703,10 +703,22 @@ test("@inspection Review Set automatically prepares multiple annotations for one
   await expect(page.getByTestId("inspection-selection-summary")).toHaveCount(0);
 
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await expect(page.getByTestId("review-handoff-detail")).toHaveValue("compact");
   await page.getByTestId("copy-review-set").click();
-  const copied = await page.evaluate(() => navigator.clipboard.readText());
-  expect(copied).toContain("Items: 2");
-  expect(copied).toContain("Screenshots: 0 local PNGs");
+  const compactPacket = await page.evaluate(() => navigator.clipboard.readText());
+  expect(compactPacket).toContain("Schema: review-set-v4");
+  expect(compactPacket).toContain("Detail: compact");
+  expect(compactPacket).toContain("Items: 2");
+  expect(compactPacket).toContain("Screenshots: 0 local PNGs");
+  expect(compactPacket).not.toContain("Inspection node:");
+
+  await page.getByTestId("review-handoff-detail").selectOption("diagnostic");
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await page.getByTestId("copy-review-set").click();
+  const diagnosticPacket = await page.evaluate(() => navigator.clipboard.readText());
+  expect(diagnosticPacket).toContain("Detail: full diagnostics");
+  expect(diagnosticPacket).toContain("Inspection node:");
+  expect(diagnosticPacket.length).toBeGreaterThan(compactPacket.length);
   await expect(page.getByTestId("review-set-packet")).toHaveCount(0);
 
   await page.getByTestId("preview-reference-toggle").click();
@@ -1601,8 +1613,9 @@ test("@inspection course-only capture supports drag selection, three screenshots
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
   await page.getByTestId("copy-review-set").click();
   const copied = await page.evaluate(() => navigator.clipboard.readText());
-  expect(copied).toContain("Schema: review-set-v3");
-  expect(copied).toContain("Selection type: area");
+  expect(copied).toContain("Schema: review-set-v4");
+  expect(copied).toContain("Detail: compact");
+  expect(copied).toContain(" · area");
   expect(copied).toContain("Screenshots: 3 local PNGs");
   const screenshotPaths = [...copied.matchAll(/\.runtime\/studio-review-sets\/[A-Za-z0-9-]+\/[A-Za-z0-9._-]+\.png/g)]
     .map((match) => match[0]);
@@ -1684,9 +1697,8 @@ test("@inspection relink preserves evidence while completed annotations stay out
   await page.getByTestId("copy-review-set").click();
   const copied = await page.evaluate(() => navigator.clipboard.readText());
   expect(copied).toContain("Items: 1");
-  expect(copied).toContain("Selection type: element");
-  expect(copied).toContain("Concern: content");
-  expect(copied).toContain("Review status: open");
+  expect(copied).toContain(" · element");
+  expect(copied).toContain("Concern: content · Priority: normal");
   expect(copied).toContain("Keep this second open annotation in the handoff.");
   expect(copied).not.toContain("Keep this note and its evidence when the target moves.");
 

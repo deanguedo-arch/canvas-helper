@@ -2146,6 +2146,39 @@ pre {
   font-size: 10px;
 }
 
+.review-handoff-detail {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 5px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.review-handoff-detail > span {
+  color: #344054;
+  font-size: 10px;
+  font-weight: 680;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+
+.review-handoff-detail select {
+  width: 100%;
+  min-height: 32px;
+  padding: 0 9px;
+  border: 1px solid var(--line-strong);
+  border-radius: 6px;
+  color: #1d2939;
+  background: #ffffff;
+  font-size: 11px;
+}
+
+.review-handoff-detail small {
+  color: #667085;
+  font-size: 10px;
+  line-height: 1.4;
+}
+
 .review-packet-summary span:last-child {
   color: #344054;
   font-weight: 650;

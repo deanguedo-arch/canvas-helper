@@ -68,6 +68,7 @@ test("Studio turns repository slugs into readable course names without replacing
   assert.equal(formatProjectSlugLabel("ela20-1-modern-play"), "ELA 20-1 Modern Play");
   assert.equal(formatProjectSlugLabel("forensics35"), "Forensics 35");
   assert.equal(formatProjectSlugLabel("calm3new"), "CALM 3 New");
+  assert.equal(formatProjectSlugLabel("e2e-fixture"), "E2E Fixture");
 
   const slugTitleProject = {
     manifest: {

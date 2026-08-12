@@ -1,6 +1,7 @@
 import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
 import type {
   ReviewSetItem,
+  ReviewSetHandoffDetail,
   ReviewSetPriority,
   ReviewSetSessionSummary,
   ScreenshotDraft
@@ -34,6 +35,7 @@ type InspectorPanelProps = {
   activeReviewSessionId: string;
   reviewSessions: ReviewSetSessionSummary[];
   reviewSetPacketByteLength: number;
+  reviewSetHandoffDetail: ReviewSetHandoffDetail;
   reviewSetStatus: string;
   reviewSetStatusTone: "neutral" | "progress" | "success" | "warning" | "error";
   reviewSetPreparing: boolean;
@@ -62,6 +64,7 @@ type InspectorPanelProps = {
   onRelinkReviewSetItem: (id: string) => void;
   onRetryReviewSetAnchor: (id: string) => void;
   onToggleReviewSetResolved: (id: string) => void;
+  onReviewSetHandoffDetailChange: (detail: ReviewSetHandoffDetail) => void;
   onCopyReviewSet: () => void;
   onUndoReviewSet: () => void;
   onReviewSessionChange: (sessionId: string) => void;
@@ -100,6 +103,7 @@ export function InspectorPanel({
   activeReviewSessionId,
   reviewSessions,
   reviewSetPacketByteLength,
+  reviewSetHandoffDetail,
   reviewSetStatus,
   reviewSetStatusTone,
   reviewSetPreparing,
@@ -128,6 +132,7 @@ export function InspectorPanel({
   onRelinkReviewSetItem,
   onRetryReviewSetAnchor,
   onToggleReviewSetResolved,
+  onReviewSetHandoffDetailChange,
   onCopyReviewSet,
   onUndoReviewSet,
   onReviewSessionChange,
@@ -173,6 +178,7 @@ export function InspectorPanel({
         activeSessionId={activeReviewSessionId}
         sessions={reviewSessions}
         packetByteLength={reviewSetPacketByteLength}
+        handoffDetail={reviewSetHandoffDetail}
         status={reviewSetStatus}
         statusTone={reviewSetStatusTone}
         preparing={reviewSetPreparing}
@@ -201,6 +207,7 @@ export function InspectorPanel({
         onRelinkItem={onRelinkReviewSetItem}
         onRetryAnchor={onRetryReviewSetAnchor}
         onToggleResolved={onToggleReviewSetResolved}
+        onHandoffDetailChange={onReviewSetHandoffDetailChange}
         onCopy={onCopyReviewSet}
         onUndo={onUndoReviewSet}
         onSessionChange={onReviewSessionChange}

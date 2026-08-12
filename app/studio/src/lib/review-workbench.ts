@@ -71,10 +71,12 @@ export const reviewWorkbench = Object.freeze({
 });
 
 export {
+  REVIEW_SET_HANDOFF_DETAILS,
   REVIEW_SET_LABEL_MAX_BYTES,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
   type PreparedReviewSetPacket,
+  type ReviewSetHandoffDetail,
   type ReviewSetItem,
   type ReviewSetPriority,
   type ReviewSetScreenshot

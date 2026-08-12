@@ -38,6 +38,7 @@ import {
   type HydratedReviewSet,
   type OwnedReviewScreenshotPath,
   type PreparedReviewSetPacket,
+  type ReviewSetHandoffDetail,
   type ReviewSetItem,
   type ReviewScreenshotOwner,
   type ReviewSetScreenshot,
@@ -315,6 +316,7 @@ export function App() {
   const reviewSetSavingRef = useRef(false);
   const [reviewSetPreparing, setReviewSetPreparing] = useState(false);
   const [preparedReviewSet, setPreparedReviewSet] = useState<PreparedReviewSetPacket | null>(null);
+  const [reviewSetHandoffDetail, setReviewSetHandoffDetail] = useState<ReviewSetHandoffDetail>("compact");
   const [reviewSetPacketError, setReviewSetPacketError] = useState("");
   const [manualCopyVisible, setManualCopyVisible] = useState(false);
   const [reviewSetCaptureItemId, setReviewSetCaptureItemId] = useState("");
@@ -1716,7 +1718,8 @@ export function App() {
         const packet = buildReviewSetPacket({
           projectSlug: savedItems[0].request.projectSlug,
           previewMode: savedItems[0].previewMode,
-          items: items.map(({ item, resolution }) => ({ item, resolution }))
+          items: items.map(({ item, resolution }) => ({ item, resolution })),
+          detail: reviewSetHandoffDetail
         });
         setPreparedReviewSet(packet);
         completeReviewSetStatus(feedbackSequence, "Review Set ready.", "success");
@@ -1747,14 +1750,15 @@ export function App() {
     }
     const timer = window.setTimeout(() => prepareReviewSetRef.current(), 350);
     return () => window.clearTimeout(timer);
-  }, [reviewSetItems]);
+  }, [reviewSetHandoffDetail, reviewSetItems]);
 
   const reviewSetPacketReady = useMemo(() => {
     if (!preparedReviewSet || reviewSetPreparing || reviewSetPacketError) {
       return false;
     }
-    return preparedReviewSet.itemIds.join("\u001f") === reviewSetItems.filter((item) => !item.resolved).map((item) => item.id).join("\u001f");
-  }, [preparedReviewSet, reviewSetItems, reviewSetPacketError, reviewSetPreparing]);
+    return preparedReviewSet.detail === reviewSetHandoffDetail
+      && preparedReviewSet.itemIds.join("\u001f") === reviewSetItems.filter((item) => !item.resolved).map((item) => item.id).join("\u001f");
+  }, [preparedReviewSet, reviewSetHandoffDetail, reviewSetItems, reviewSetPacketError, reviewSetPreparing]);
 
   const previewReviewState = useMemo<PreviewReviewState>(() => ({
     sessionId: reviewScreenshotSessionIdRef.current,
@@ -2600,6 +2604,7 @@ export function App() {
                 activeReviewSessionId={reviewSessionIdRef.current}
                 reviewSessions={reviewSessions}
                 reviewSetPacketByteLength={reviewSetPacketReady ? preparedReviewSet?.byteLength ?? 0 : 0}
+                reviewSetHandoffDetail={reviewSetHandoffDetail}
                 reviewSetCanAddCurrent={reviewSetAddAvailability.canAdd}
                 reviewSetAddDisabledReason={reviewSetAddAvailability.reason}
                 reviewSetStatus={reviewFeedback.message}
@@ -2630,6 +2635,11 @@ export function App() {
                 onRelinkReviewSetItem={relinkReviewSetItem}
                 onRetryReviewSetAnchor={retryReviewSetAnchor}
                 onToggleReviewSetResolved={toggleReviewSetResolved}
+                onReviewSetHandoffDetailChange={(detail) => {
+                  invalidateReviewSetPreparation();
+                  setReviewSetHandoffDetail(detail);
+                  setReviewSetStatus(detail === "compact" ? "Compact Codex handoff selected." : "Full diagnostic handoff selected.", "neutral");
+                }}
                 onCopyReviewSet={copyReviewSet}
                 onUndoReviewSet={undoLastReviewChange}
                 onReviewSessionChange={switchReviewSession}

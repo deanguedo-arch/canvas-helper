@@ -17,6 +17,7 @@ function titleCaseProjectWord(word: string) {
 }
 
 function formatProjectToken(token: string) {
+  if (/^[a-z]\d[a-z]$/i.test(token)) return token.toUpperCase();
   const parts = token.match(/[a-z]+|\d+/gi) ?? [token];
   return parts.map((part) => /^\d+$/.test(part) ? part : titleCaseProjectWord(part)).join(" ");
 }
