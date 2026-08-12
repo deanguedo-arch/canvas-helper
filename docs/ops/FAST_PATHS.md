@@ -73,6 +73,15 @@ Verification floor:
 - `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts`
 - `npm run build:studio`
 
+For a release candidate, replace the separate commands above with `npm run test:studio-release`. Its owned-port runner is the authoritative complete gate; inspect `.runtime/studio-release-report.json` for branch, commit, dirty-tree status, exact source fingerprint, versions, timing, counts, and the first failure. A source change during the run fails the gate.
+
+Phase H ownership shortcuts:
+- inspection draft lifecycle and cancellation: `app/studio/src/hooks/useInspectionDraft.ts` and `app/studio/src/lib/inspection-draft.ts`
+- Review Workbench facade: `app/studio/src/lib/review-workbench.ts`
+- all cross-boundary limits: `app/shared/studio-quality.ts`
+- current release content: `app/studio/src/lib/studio-release-notes.ts`
+- release orchestration: `scripts/run-studio-release.ts`, `scripts/lib/studio-release.ts`, and `e2e/playwright.release.config.ts`
+
 ## E2E Platform Work
 
 Read first:

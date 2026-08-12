@@ -1,4 +1,4 @@
-import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
+import type { ScreenshotDraft } from "../lib/review-workbench";
 
 type ScreenshotAnnotationProps = {
   drafts: ScreenshotDraft[];

@@ -8,19 +8,20 @@ import {
   REVIEW_SCREENSHOT_MAX_FILES_PER_SESSION,
   REVIEW_SCREENSHOT_MAX_PIXELS
 } from "../../shared/inspection.js";
+import { STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
 import { repoRoot } from "../../../scripts/lib/paths.ts";
 
 import { isPathInside, isSafeProjectSlug } from "./validation";
 
-export const REVIEW_SCREENSHOT_RETENTION_MS = 7 * 24 * 60 * 60 * 1_000;
+export const REVIEW_SCREENSHOT_RETENTION_MS = STUDIO_REVIEW_LIMITS.ttlDays * 24 * 60 * 60 * 1_000;
 export const reviewScreenshotRoot = path.join(repoRoot, ".runtime", "studio-review-sets");
-export const REVIEW_SCREENSHOT_MAX_TOTAL_FILES = 150;
-export const REVIEW_SCREENSHOT_MAX_TOTAL_BYTES = 100 * 1024 * 1024;
+export const REVIEW_SCREENSHOT_MAX_TOTAL_FILES = STUDIO_REVIEW_LIMITS.screenshotTotalFiles;
+export const REVIEW_SCREENSHOT_MAX_TOTAL_BYTES = STUDIO_REVIEW_LIMITS.screenshotTotalBytes;
 
 const PNG_SIGNATURE = Buffer.from([0x89, 0x50, 0x4e, 0x47, 0x0d, 0x0a, 0x1a, 0x0a]);
-const SAFE_SESSION = /^[A-Za-z0-9-]{16,80}$/;
-const SAFE_ITEM = /^[A-Za-z0-9-]{1,160}$/;
-const SAFE_SCREENSHOT_PATH = /^\.runtime\/studio-review-sets\/([A-Za-z0-9-]{16,80})\/([A-Za-z0-9._-]+\.png)$/;
+const SAFE_SESSION = new RegExp(`^[A-Za-z0-9-]{${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits},${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits}}$`);
+const SAFE_ITEM = new RegExp(`^[A-Za-z0-9-]{1,${STUDIO_REVIEW_LIMITS.identifierCodeUnits}}$`);
+const SAFE_SCREENSHOT_PATH = new RegExp(`^\\.runtime/studio-review-sets/([A-Za-z0-9-]{${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits},${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits}})/([A-Za-z0-9._-]+\\.png)$`);
 let reviewScreenshotMutationTail = Promise.resolve();
 
 type SaveReviewScreenshotOptions = {
@@ -54,7 +55,7 @@ export function isReviewScreenshotPath(value: unknown): value is string {
 }
 
 function isReviewScreenshotNodeId(value: unknown): value is string {
-  return typeof value === "string" && value.length > 0 && value.length <= 160 && !/[\u0000-\u001f]/.test(value);
+  return typeof value === "string" && value.length > 0 && value.length <= STUDIO_REVIEW_LIMITS.identifierCodeUnits && !/[\u0000-\u001f]/.test(value);
 }
 
 function screenshotOwnerHash(input: { sessionId: string; projectSlug: string; itemId: string; ownerNodeId: string }) {
@@ -79,7 +80,7 @@ function assertReviewScreenshotOwner(input: {
     !isReviewScreenshotPath(input.repoRelativePath) ||
     !isReviewScreenshotSessionId(input.sessionId) ||
     !isSafeProjectSlug(input.projectSlug) ||
-    input.projectSlug.length > 160 ||
+    input.projectSlug.length > STUDIO_REVIEW_LIMITS.identifierCodeUnits ||
     !isReviewScreenshotItemId(input.itemId) ||
     !isReviewScreenshotNodeId(input.ownerNodeId)
   ) {
@@ -199,7 +200,7 @@ export async function saveReviewScreenshot(input: {
   if (
     !isReviewScreenshotSessionId(input.sessionId) ||
     !isSafeProjectSlug(input.projectSlug) ||
-    input.projectSlug.length > 160 ||
+    input.projectSlug.length > STUDIO_REVIEW_LIMITS.identifierCodeUnits ||
     !isReviewScreenshotItemId(input.itemId) ||
     !isReviewScreenshotItemId(input.screenshotId) ||
     !isReviewScreenshotNodeId(input.ownerNodeId)

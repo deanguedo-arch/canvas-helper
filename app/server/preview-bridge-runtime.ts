@@ -14,6 +14,7 @@ import {
   PREVIEW_STANDALONE_SESSION_PARAM,
   PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH
 } from "../shared/preview-bridge.js";
+import { STUDIO_BRIDGE_LIMITS, STUDIO_REVIEW_LIMITS } from "../shared/studio-quality.js";
 import { PREVIEW_INSPECT_NODE_ATTRIBUTE } from "./lib/preview-inspection.js";
 
 /**
@@ -38,6 +39,21 @@ export function buildPreviewBridgeRuntime(
   var MAX_REVIEW_NOTE = ${PREVIEW_REVIEW_NOTE_MAX_LENGTH};
   var MAX_REVIEW_SCREENSHOTS = ${PREVIEW_REVIEW_MAX_SCREENSHOTS};
   var MAX_REVIEW_PACKET = ${PREVIEW_REVIEW_PACKET_MAX_LENGTH};
+  var MAX_REVIEW_ITEM_ID = ${STUDIO_BRIDGE_LIMITS.reviewItemIdCodeUnits};
+  var MAX_REVIEW_EXCERPT = ${STUDIO_BRIDGE_LIMITS.reviewExcerptCodeUnits};
+  var MAX_REVIEW_STATUS = ${STUDIO_BRIDGE_LIMITS.reviewStatusCodeUnits};
+  var MAX_REQUEST_ID = ${STUDIO_BRIDGE_LIMITS.inspectRequestIdCodeUnits};
+  var MAX_SESSION_NAME = ${STUDIO_BRIDGE_LIMITS.reviewSessionNameCodeUnits};
+  var MIN_STANDALONE_SESSION_TOKEN = ${STUDIO_BRIDGE_LIMITS.standaloneSessionTokenMinCodeUnits};
+  var MIN_REVIEW_SESSION_ID = ${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits};
+  var MAX_REVIEW_SESSION_ID = ${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits};
+  var MIN_PREVIEW_CAPABILITY_TOKEN = ${STUDIO_BRIDGE_LIMITS.previewCapabilityTokenMinCodeUnits};
+  var MAX_PREVIEW_CAPABILITY_TOKEN = ${STUDIO_BRIDGE_LIMITS.previewCapabilityTokenMaxCodeUnits};
+  var MAX_COURSE_URL = ${STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits};
+  var MAX_ELEMENT_TAG = ${STUDIO_BRIDGE_LIMITS.elementTagCodeUnits};
+  var MAX_ELEMENT_ROLE = ${STUDIO_BRIDGE_LIMITS.elementRoleCodeUnits};
+  var MAX_ELEMENT_TEST_ID = ${STUDIO_BRIDGE_LIMITS.elementTestIdCodeUnits};
+  var MAX_SCROLL_SELECTOR = ${STUDIO_BRIDGE_LIMITS.scrollSelectorCodeUnits};
   var STANDALONE_BOOTSTRAP_TYPE = "${PREVIEW_STANDALONE_BOOTSTRAP_TYPE}";
   var STANDALONE_HOST_BOOTSTRAP_TYPE = "${PREVIEW_STANDALONE_HOST_BOOTSTRAP_TYPE}";
   var STANDALONE_HOST_REJOIN_TYPE = "${PREVIEW_STANDALONE_HOST_REJOIN_TYPE}";
@@ -124,8 +140,8 @@ export function buildPreviewBridgeRuntime(
     captureMode = standaloneUrl.searchParams.get(CAPTURE_PARAM) === "1";
     hostMode = Boolean(PREVIEW_ORIGIN && location.origin === STUDIO_ORIGIN && standaloneUrl.pathname === "/standalone-preview");
   } catch (_) {}
-  if (standaloneSessionToken.length < 16 || standaloneSessionToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneSessionToken)) standaloneSessionToken = "";
-  if (standaloneRejoinToken.length < 16 || standaloneRejoinToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneRejoinToken)) standaloneRejoinToken = "";
+  if (standaloneSessionToken.length < MIN_STANDALONE_SESSION_TOKEN || standaloneSessionToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneSessionToken)) standaloneSessionToken = "";
+  if (standaloneRejoinToken.length < MIN_STANDALONE_SESSION_TOKEN || standaloneRejoinToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneRejoinToken)) standaloneRejoinToken = "";
   if ((standaloneSessionToken || standaloneRejoinToken) && standaloneUrl) {
     standaloneUrl.searchParams.delete(STANDALONE_SESSION_PARAM);
     standaloneUrl.searchParams.delete(STANDALONE_REJOIN_PARAM);
@@ -163,10 +179,10 @@ export function buildPreviewBridgeRuntime(
 
   function boundedCourseUrl(value) {
     var serialized = value instanceof URL ? value.toString() : value;
-    if (typeof serialized !== "string" || serialized.length < 1 || serialized.length > 2048) return null;
+    if (typeof serialized !== "string" || serialized.length < 1 || serialized.length > MAX_COURSE_URL) return null;
     try {
       var url = new URL(serialized, hostMode ? PREVIEW_ORIGIN : location.origin);
-      var match = url.pathname.match(/^\/_canvas-helper\/p\/([A-Za-z0-9-]{16,80})(\/preview\/workspace\/([^/]+)(?:\/.*)?)$/);
+    var match = url.pathname.match(new RegExp("^/_canvas-helper/p/([A-Za-z0-9-]{" + MIN_PREVIEW_CAPABILITY_TOKEN + "," + MAX_PREVIEW_CAPABILITY_TOKEN + "})(/preview/workspace/([^/]+)(?:/.*)?)$"));
       if (url.protocol !== "http:" || url.hostname !== "127.0.0.1" || !match) return null;
       url.searchParams.delete(STANDALONE_SESSION_PARAM);
       url.searchParams.delete(STANDALONE_REJOIN_PARAM);
@@ -198,13 +214,13 @@ export function buildPreviewBridgeRuntime(
   }
 
   function isReviewScreenshotPath(value) {
-    return typeof value === "string" && /^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/.test(value);
+    return typeof value === "string" && new RegExp("^\\.runtime/studio-review-sets/[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}/[A-Za-z0-9._-]+\\.png$").test(value);
   }
 
   function reviewScreenshotUrl(filePath, item) {
     if (
       !isReviewScreenshotPath(filePath) ||
-      !/^[A-Za-z0-9-]{16,80}$/.test(reviewState.sessionId) ||
+      !(new RegExp("^[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}$")).test(reviewState.sessionId) ||
       !item ||
       typeof item.projectSlug !== "string" ||
       typeof item.id !== "string" ||
@@ -293,7 +309,7 @@ export function buildPreviewBridgeRuntime(
   function isScrollState(value) {
     if (!value || typeof value !== "object" || !isFiniteCoordinate(value.windowTop) || !isFiniteCoordinate(value.windowLeft) || !Array.isArray(value.containers) || value.containers.length > MAX_CONTAINERS) return false;
     return value.containers.every(function(container) {
-      return container && typeof container.selector === "string" && container.selector.length <= 260 && isFiniteCoordinate(container.top) && isFiniteCoordinate(container.left);
+      return container && typeof container.selector === "string" && container.selector.length <= MAX_SCROLL_SELECTOR && isFiniteCoordinate(container.top) && isFiniteCoordinate(container.left);
     });
   }
 
@@ -1159,13 +1175,13 @@ export function buildPreviewBridgeRuntime(
       nodeId: uniqueSourceNodeId(element),
       selectionKind: "element",
       visibleText: isFormControl ? "" : boundedString(element.textContent || "", MAX_TEXT),
-      tagName: boundedString(element.tagName ? element.tagName.toLowerCase() : "", 48),
-      role: boundedString(element.getAttribute("role") || "", 80),
-      testId: boundedString(element.getAttribute("data-testid") || "", 120),
+      tagName: boundedString(element.tagName ? element.tagName.toLowerCase() : "", MAX_ELEMENT_TAG),
+      role: boundedString(element.getAttribute("role") || "", MAX_ELEMENT_ROLE),
+      testId: boundedString(element.getAttribute("data-testid") || "", MAX_ELEMENT_TEST_ID),
       geometry: { x: Math.round(rect.x), y: Math.round(rect.y), width: Math.round(Math.max(0, rect.width)), height: Math.round(Math.max(0, rect.height)) },
       viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
       scroll: includeScroll === false ? { windowTop: window.scrollY, windowLeft: window.scrollX, containers: [] } : captureScrollState(),
-      pageHref: boundedString(location.href, 2048),
+      pageHref: boundedString(location.href, MAX_COURSE_URL),
       interactionStartedAt: typeof interactionStartedAt === "number" ? interactionStartedAt : undefined
     };
   }
@@ -1198,7 +1214,7 @@ export function buildPreviewBridgeRuntime(
       geometry: rect,
       viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
       scroll: captureScrollState(),
-      pageHref: boundedString(location.href, 2048),
+      pageHref: boundedString(location.href, MAX_COURSE_URL),
       interactionStartedAt: typeof interactionStartedAt === "number" ? interactionStartedAt : undefined
     };
   }
@@ -1487,16 +1503,16 @@ export function buildPreviewBridgeRuntime(
 
   function isReviewState(value) {
     if (!value || typeof value !== "object" || !Array.isArray(value.items) || value.items.length > MAX_REVIEW_ITEMS) return false;
-    if (typeof value.sessionId !== "string" || !/^[A-Za-z0-9-]{16,80}$/.test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > 160 || typeof value.saving !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > 240 || typeof value.error !== "string" || value.error.length > 240 || (value.undoLabel !== undefined && (typeof value.undoLabel !== "string" || value.undoLabel.length > 80))) return false;
+    if (typeof value.sessionId !== "string" || !(new RegExp("^[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}$")).test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > MAX_REVIEW_ITEM_ID || typeof value.saving !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > MAX_REVIEW_STATUS || typeof value.error !== "string" || value.error.length > MAX_REVIEW_STATUS || (value.undoLabel !== undefined && (typeof value.undoLabel !== "string" || value.undoLabel.length > MAX_SESSION_NAME))) return false;
     return value.items.every(function(item) {
-      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= 160 && typeof item.projectSlug === "string" && item.projectSlug.length > 0 && item.projectSlug.length <= 160 && typeof item.nodeId === "string" && item.nodeId.length > 0 && item.nodeId.length <= 160 && typeof item.excerpt === "string" && item.excerpt.length <= 320 && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && Array.isArray(item.screenshots) && item.screenshots.length <= MAX_REVIEW_SCREENSHOTS && item.screenshots.every(function(screenshot) {
-        return screenshot && typeof screenshot === "object" && typeof screenshot.id === "string" && screenshot.id.length > 0 && screenshot.id.length <= 160 && isReviewScreenshotPath(screenshot.filePath);
+      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= MAX_REVIEW_ITEM_ID && typeof item.projectSlug === "string" && item.projectSlug.length > 0 && item.projectSlug.length <= MAX_REVIEW_ITEM_ID && typeof item.nodeId === "string" && item.nodeId.length > 0 && item.nodeId.length <= MAX_REVIEW_ITEM_ID && typeof item.excerpt === "string" && item.excerpt.length <= MAX_REVIEW_EXCERPT && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && Array.isArray(item.screenshots) && item.screenshots.length <= MAX_REVIEW_SCREENSHOTS && item.screenshots.every(function(screenshot) {
+        return screenshot && typeof screenshot === "object" && typeof screenshot.id === "string" && screenshot.id.length > 0 && screenshot.id.length <= MAX_REVIEW_ITEM_ID && isReviewScreenshotPath(screenshot.filePath);
       });
     });
   }
 
   function isReviewActionResult(value) {
-    return value && typeof value === "object" && typeof value.ok === "boolean" && typeof value.message === "string" && value.message.length <= 240 && typeof value.clearDraft === "boolean" && (value.requestId === undefined || (typeof value.requestId === "string" && value.requestId.length > 0 && value.requestId.length <= 80));
+    return value && typeof value === "object" && typeof value.ok === "boolean" && typeof value.message === "string" && value.message.length <= MAX_REVIEW_STATUS && typeof value.clearDraft === "boolean" && (value.requestId === undefined || (typeof value.requestId === "string" && value.requestId.length > 0 && value.requestId.length <= MAX_REQUEST_ID));
   }
 
   function hostedTargetUrl(value) {
@@ -1524,10 +1540,10 @@ export function buildPreviewBridgeRuntime(
       !payload ||
       typeof payload.requestId !== "string" ||
       !payload.requestId ||
-      payload.requestId.length > 80 ||
+      payload.requestId.length > MAX_REQUEST_ID ||
       typeof payload.nodeId !== "string" ||
       !payload.nodeId ||
-      payload.nodeId.length > 160
+      payload.nodeId.length > MAX_REVIEW_ITEM_ID
     ) return;
     var target = hostedTargetUrl(payload.pageHref);
     if (!target || !hostedCourseFrame) {
@@ -1553,10 +1569,10 @@ export function buildPreviewBridgeRuntime(
       !payload ||
       typeof payload.requestId !== "string" ||
       !payload.requestId ||
-      payload.requestId.length > 80 ||
+      payload.requestId.length > MAX_REQUEST_ID ||
       typeof payload.nodeId !== "string" ||
       !payload.nodeId ||
-      payload.nodeId.length > 160
+      payload.nodeId.length > MAX_REVIEW_ITEM_ID
     ) return;
     var target = rebaseCourseUrl(payload.pageHref, location.href, location.origin);
     if (!target) {
@@ -1681,7 +1697,7 @@ export function buildPreviewBridgeRuntime(
       event.data.payload &&
       typeof event.data.payload.requestId === "string" &&
       event.data.payload.requestId.length > 0 &&
-      event.data.payload.requestId.length <= 80 &&
+      event.data.payload.requestId.length <= MAX_REQUEST_ID &&
       typeof event.data.payload.nodeId === "string"
     ) {
       if (hostMode) {

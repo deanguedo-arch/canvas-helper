@@ -11,13 +11,19 @@ function urlWithoutHash(value: string) {
 }
 
 export function workspacePreviewPathMatchesProject(pathname: string, slug: string) {
-  let decodedPathname = pathname;
+  if (!/^[A-Za-z0-9][A-Za-z0-9._-]{0,159}$/.test(slug)) return false;
+  let decodedPathname: string;
   try {
     decodedPathname = decodeURIComponent(pathname);
   } catch {
-    // Keep the original pathname so malformed escaping fails the exact segment check.
+    return false;
   }
-  return decodedPathname.includes(`/preview/workspace/${slug}/`);
+  const segments = decodedPathname.split("/").filter(Boolean);
+  return segments.some((segment, index) => (
+    segment === "preview" &&
+    segments[index + 1] === "workspace" &&
+    segments[index + 2] === slug
+  ));
 }
 
 async function waitForStudioRender(page: Page) {

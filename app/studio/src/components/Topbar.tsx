@@ -23,6 +23,7 @@ type TopbarProps = {
   onProjectChange: (slug: string) => void;
   onToggleFavorite: (slug: string) => void;
   onNewProject: () => void;
+  onOpenWhatsNew: () => void;
   onRetryPreview: () => void;
 };
 
@@ -75,6 +76,7 @@ export function Topbar({
   onProjectChange,
   onToggleFavorite,
   onNewProject,
+  onOpenWhatsNew,
   onRetryPreview
 }: TopbarProps) {
   const [searchValue, setSearchValue] = useState("");
@@ -263,9 +265,14 @@ export function Topbar({
         ) : null}
       </div>
 
-      <button type="button" className="topbar-new-project" onClick={onNewProject} data-testid="topbar-new-project">
-        <span aria-hidden="true">+</span> New Project
-      </button>
+      <div className="topbar-utility-actions">
+        <button type="button" className="topbar-whats-new" onClick={onOpenWhatsNew} data-testid="open-whats-new">
+          What’s new
+        </button>
+        <button type="button" className="topbar-new-project" onClick={onNewProject} data-testid="topbar-new-project">
+          <span aria-hidden="true">+</span> New Project
+        </button>
+      </div>
 
       <button
         type="button"

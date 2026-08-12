@@ -1,7 +1,10 @@
 import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
-import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
-import type { ReviewSetItem, ReviewSetPriority } from "../lib/review-set";
-import type { ReviewSetSessionSummary } from "../lib/review-set-storage";
+import type {
+  ReviewSetItem,
+  ReviewSetPriority,
+  ReviewSetSessionSummary,
+  ScreenshotDraft
+} from "../lib/review-workbench";
 import { InspectionPanel } from "./InspectionPanel";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 

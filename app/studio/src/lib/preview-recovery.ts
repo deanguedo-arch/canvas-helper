@@ -2,8 +2,9 @@ import type { PreviewDiagnostic } from "../../../shared/preview-bridge.js";
 import type { PreviewPreflightCode, PreviewRuntimeFamily } from "../../../shared/preview-health.js";
 import type { PreviewMode } from "./types";
 import { normalizePreviewPageIdentity } from "../../../shared/preview-path.js";
+import { STUDIO_PACKET_LIMITS } from "../../../shared/studio-quality.js";
 
-export const PREVIEW_ISSUE_PACKET_MAX_BYTES = 6_000;
+export const PREVIEW_ISSUE_PACKET_MAX_BYTES = STUDIO_PACKET_LIMITS.previewIssueUtf8Bytes;
 
 export type PreviewRecoveryPhase = "idle" | "preflight" | "loading" | "checking" | "ready" | "warning" | "error";
 

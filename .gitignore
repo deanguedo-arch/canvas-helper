@@ -13,6 +13,10 @@ projects/**/exports/**
 .runtime/pattern-bank/
 .runtime/incoming-watch-state.json
 .runtime/studio-review-sets/
+.runtime/studio-release-report.json
+.runtime/studio-release-playwright*.json
+.runtime/red-team-*.json
+e2e/.runtime/
 
 # Optional local STAX sidecar state
 .stax/

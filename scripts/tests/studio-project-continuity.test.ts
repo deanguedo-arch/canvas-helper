@@ -23,6 +23,43 @@ import {
   loadWorkspacePageSelections,
   saveWorkspacePageSelection
 } from "../../app/studio/src/lib/storage.js";
+import { workspacePreviewPathMatchesProject } from "../../e2e/lib/project-open.ts";
+import { STUDIO_FIXTURES } from "../../e2e/lib/studio-fixtures.ts";
+
+test("Studio fixture descriptors are neutral, distinct, and exact-path matched", () => {
+  assert.notEqual(STUDIO_FIXTURES.primary.slug, STUDIO_FIXTURES.secondary.slug);
+  assert.ok(STUDIO_FIXTURES.primary.heading);
+  assert.ok(STUDIO_FIXTURES.secondary.heading);
+  assert.equal(
+    workspacePreviewPathMatchesProject(
+      `/_canvas-helper/p/1234567890123456/preview/workspace/${STUDIO_FIXTURES.secondary.slug}/index.html`,
+      STUDIO_FIXTURES.secondary.slug
+    ),
+    true
+  );
+  assert.equal(
+    workspacePreviewPathMatchesProject(
+      `/_canvas-helper/p/1234567890123456/preview/workspace/${STUDIO_FIXTURES.secondary.slug}-copy/index.html`,
+      STUDIO_FIXTURES.secondary.slug
+    ),
+    false
+  );
+  assert.equal(
+    workspacePreviewPathMatchesProject(
+      `/_canvas-helper/p/1234567890123456/preview/workspace/e2e%2Dstudio%2Dsecondary/index.html`,
+      STUDIO_FIXTURES.secondary.slug
+    ),
+    true
+  );
+  assert.equal(
+    workspacePreviewPathMatchesProject(
+      `/_canvas-helper/p/1234567890123456/preview/workspace/e2e%2Fstudio-secondary/index.html`,
+      STUDIO_FIXTURES.secondary.slug
+    ),
+    false
+  );
+  assert.equal(workspacePreviewPathMatchesProject("/preview/workspace/%ZZ/index.html", "%ZZ"), false);
+});
 
 function withLocalStorage(run: (values: Map<string, string>) => void) {
   const originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");

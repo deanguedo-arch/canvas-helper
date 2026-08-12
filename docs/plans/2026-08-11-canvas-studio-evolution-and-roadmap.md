@@ -7,6 +7,7 @@
 - Core review-loop implementation: `ccdb916d` (`feat(studio): complete core review loop`)
 - Project-continuity implementation: `cddc6142` (`feat(studio): add project continuity workspace`)
 - Review-workbench implementation: `a7501627` (`feat(studio): add bounded review workbench`)
+- Accessibility/performance implementation: `c71e524c` (`feat(studio): complete accessibility and performance phase`)
 - Pre-publish baseline commit: `24a32079` (`feat(studio): include screenshots in review handoff`)
 - Intended reader: ChatGPT Pro / Terra Max acting as an independent product, usability, architecture, and security auditor
 - Primary subject: Canvas Studio itself—not the design or readiness of any particular course
@@ -538,7 +539,18 @@ Goal: keep a simple interface from resting on fragile implementation coupling.
 - add release notes and a concise in-product **What's new** view;
 - maintain focused E2E gates for every critical interaction state.
 
+Delivered:
+
+- `useInspectionDraft` now owns atomic selection state, stale-run invalidation, abortable source resolution, and visible-feedback measurement;
+- `review-workbench.ts` is the single App-facing facade over item, persistence, packet, capture, and screenshot contracts;
+- `studio-quality.ts` is the single numeric contract, explicitly distinguishing persisted/copied UTF-8 bytes from DOM/bridge/storage code units;
+- neutral descriptor-driven fixtures cover cross-project switching and exact encoded-path behavior without branching on a real course;
+- the header’s concise, keyboard-contained **What’s new** dialog is sourced from a tested static release manifest and mirrored in `docs/releases/`;
+- `npm run test:studio-release` owns an isolated port, invokes local installed tools, forbids focused Playwright tests, runs all critical gates in order, stops on first failure, and records a machine-readable report with a stable-tree source fingerprint.
+
 Exit condition: new Studio features can be added without destabilizing preview, annotation, persistence, or capture.
+
+Status: complete. The isolated release gate passes 85 focused Studio contracts, the production build, 50/50 inspection E2E tests, the platform smoke, and the strict neutral-project contract. Its stable-tree report identifies the exact 499-file source state with SHA-256 and rejects source drift during the run. Independent Terra Max red-team review returned PASS after its limit-ownership and release-provenance findings were corrected. No learner-course source or generated course output is part of this phase.
 
 ## Recommended order
 

@@ -6,12 +6,14 @@ import {
   type InspectionResolution
 } from "../../../shared/inspection.js";
 import { normalizePreviewPageRouteIdentity } from "../../../shared/preview-path.js";
+import { STUDIO_REVIEW_LIMITS } from "../../../shared/studio-quality.js";
+import { isReviewScreenshotPath } from "./review-screenshots";
 import type { PreviewMode } from "./types";
 
-export const REVIEW_SET_MAX_ITEMS = 5;
-export const REVIEW_SET_NOTE_MAX_BYTES = 256;
-export const REVIEW_SET_EXCERPT_MAX_BYTES = 256;
-export const REVIEW_SET_LABEL_MAX_BYTES = 64;
+export const REVIEW_SET_MAX_ITEMS = STUDIO_REVIEW_LIMITS.itemsPerSession;
+export const REVIEW_SET_NOTE_MAX_BYTES = STUDIO_REVIEW_LIMITS.noteUtf8Bytes;
+export const REVIEW_SET_EXCERPT_MAX_BYTES = STUDIO_REVIEW_LIMITS.excerptUtf8Bytes;
+export const REVIEW_SET_LABEL_MAX_BYTES = STUDIO_REVIEW_LIMITS.labelUtf8Bytes;
 export const REVIEW_SET_PRIORITIES = ["normal", "high", "low"] as const;
 
 export type ReviewSetPriority = (typeof REVIEW_SET_PRIORITIES)[number];
@@ -279,7 +281,7 @@ function repoPath(value: string | null, label: string) {
 
 function reviewScreenshotPath(value: string, label: string) {
   const normalized = repoPath(value, label);
-  if (!normalized || !/^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/.test(normalized)) {
+  if (!normalized || !isReviewScreenshotPath(normalized)) {
     throw new Error(`${label} is not a safe Review Set screenshot path.`);
   }
   return normalized;

@@ -6,9 +6,10 @@ import {
   REVIEW_SET_MAX_ITEMS,
   type ReviewSetItem,
   type ReviewSetPriority,
-  type ReviewSetScreenshot
-} from "../lib/review-set";
-import type { ReviewSetSessionSummary } from "../lib/review-set-storage";
+  type ReviewSetScreenshot,
+  type ReviewSetSessionSummary
+} from "../lib/review-workbench";
+import { STUDIO_BRIDGE_LIMITS } from "../../../shared/studio-quality.js";
 
 type ReviewSetPanelProps = {
   items: ReviewSetItem[];
@@ -209,7 +210,7 @@ export function ReviewSetPanel({
           <input
             disabled={mutationLocked}
             value={sessionName}
-            maxLength={80}
+            maxLength={STUDIO_BRIDGE_LIMITS.reviewSessionNameCodeUnits}
             onChange={(event) => onRenameSession(event.target.value)}
             aria-label="Review session name"
           />
@@ -270,7 +271,7 @@ export function ReviewSetPanel({
                     <input
                       disabled={mutationLocked}
                       value={item.shortLabel}
-                      maxLength={64}
+                      maxLength={STUDIO_BRIDGE_LIMITS.reviewLabelCodeUnits}
                       onChange={(event) => onMetadataChange(item.id, { shortLabel: event.target.value })}
                       placeholder="Optional label"
                     />

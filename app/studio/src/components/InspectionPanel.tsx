@@ -1,5 +1,6 @@
 import type { InspectionIssueCategory, InspectionResolution } from "../../../shared/inspection.js";
-import type { ScreenshotDraft } from "../hooks/useScreenshotAnnotation";
+import { STUDIO_BRIDGE_LIMITS } from "../../../shared/studio-quality.js";
+import type { ScreenshotDraft } from "../lib/review-workbench";
 import { ScreenshotAnnotation } from "./ScreenshotAnnotation";
 
 type InspectionPanelProps = {
@@ -93,7 +94,7 @@ export function InspectionPanel({
               onChange={(event) => onTeacherNoteChange(event.target.value)}
               placeholder="Write your note for Codex…"
               rows={3}
-              maxLength={256}
+              maxLength={STUDIO_BRIDGE_LIMITS.reviewNoteCodeUnits}
               data-testid="inspection-teacher-note"
             />
           </label>

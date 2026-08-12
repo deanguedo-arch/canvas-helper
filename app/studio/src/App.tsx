@@ -9,18 +9,13 @@ import { PreviewPane } from "./components/PreviewPane";
 import { ReferencePicker } from "./components/ReferencePicker";
 import { AssessmentLibraryMode } from "./components/AssessmentLibraryMode";
 import { Topbar } from "./components/Topbar";
+import { WhatsNewPanel } from "./components/WhatsNewPanel";
 import { WorkspacePicker } from "./components/WorkspacePicker";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
+import { useInspectionDraft } from "./hooks/useInspectionDraft";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
 import { usePreviewRecovery } from "./hooks/usePreviewRecovery";
-import {
-  capturePreviewScreenshot,
-  cropScreenshotPng,
-  releaseScreenshotDraft,
-  type ScreenshotDraft,
-  useScreenshotAnnotation
-} from "./hooks/useScreenshotAnnotation";
 import { useProjectCommands } from "./hooks/useProjectCommands";
 import { useProjectLibrary } from "./hooks/useProjectLibrary";
 import { useProjects } from "./hooks/useProjects";
@@ -34,41 +29,22 @@ import {
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
 import { buildPreviewIssuePacket } from "./lib/preview-recovery";
 import {
-  buildReviewSetPacket,
-  createReviewSetItem,
-  hasSameMaterialResolution,
+  reviewWorkbench,
   REVIEW_SET_LABEL_MAX_BYTES,
   REVIEW_SET_MAX_ITEMS,
+  REVIEW_SET_MAX_SESSIONS,
   REVIEW_SET_NOTE_MAX_BYTES,
   type ReviewSetPriority,
-  reviewSetItemIdentity,
-  utf8ByteLength,
+  type HydratedReviewSet,
+  type OwnedReviewScreenshotPath,
   type PreparedReviewSetPacket,
   type ReviewSetItem,
-  type ReviewSetScreenshot
-} from "./lib/review-set";
-import {
-  createReviewScreenshotSessionId,
-  deleteReviewScreenshotPaths,
-  persistReviewScreenshot,
-  replaceReviewScreenshot,
-  reviewScreenshotImageUrl,
-  verifyReviewScreenshots,
-  type OwnedReviewScreenshotPath,
-  type ReviewScreenshotOwner
-} from "./lib/review-screenshots";
-import {
-  createReviewSetBackup,
-  createReviewSetSessionId,
-  deleteStoredReviewSet,
-  listStoredReviewSets,
-  loadStoredReviewSet,
-  parseReviewSetBackup,
-  REVIEW_SET_MAX_SESSIONS,
-  saveStoredReviewSet,
-  type HydratedReviewSet,
-  type ReviewSetSessionSummary
-} from "./lib/review-set-storage";
+  type ReviewScreenshotOwner,
+  type ReviewSetScreenshot,
+  type ReviewSetSessionSummary,
+  type ScreenshotDraft,
+  useScreenshotAnnotation
+} from "./lib/review-workbench";
 import { loadWorkspacePageSelections, saveWorkspacePageSelection } from "./lib/storage";
 import { hasSamePreviewPageRoute, preserveVisualSelection } from "./lib/current-preview-selection";
 import {
@@ -85,7 +61,39 @@ import type {
   PreviewReviewActionResult,
   PreviewReviewState
 } from "../../shared/preview-bridge.js";
-import { beginStudioPerformanceMeasure } from "./lib/studio-performance";
+import { STUDIO_BRIDGE_LIMITS, STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
+
+const {
+  items: {
+    create: createReviewSetItem,
+    identity: reviewSetItemIdentity,
+    hasSameMaterialResolution
+  },
+  packet: { build: buildReviewSetPacket },
+  storage: {
+    createBackup: createReviewSetBackup,
+    createSessionId: createReviewSetSessionId,
+    delete: deleteStoredReviewSet,
+    list: listStoredReviewSets,
+    load: loadStoredReviewSet,
+    parseBackup: parseReviewSetBackup,
+    save: saveStoredReviewSet
+  },
+  screenshots: {
+    createSessionId: createReviewScreenshotSessionId,
+    deletePaths: deleteReviewScreenshotPaths,
+    imageUrl: reviewScreenshotImageUrl,
+    persist: persistReviewScreenshot,
+    replace: replaceReviewScreenshot,
+    verify: verifyReviewScreenshots
+  },
+  capture: {
+    capture: capturePreviewScreenshot,
+    crop: cropScreenshotPng,
+    releaseDraft: releaseScreenshotDraft
+  },
+  text: { byteLength: utf8ByteLength }
+} = reviewWorkbench;
 
 async function resolveInspectionRequest(request: InspectionResolveRequest, signal?: AbortSignal) {
   const response = await fetch("/api/inspection/resolve", {
@@ -260,16 +268,20 @@ export function App() {
   const [studioMode, setStudioMode] = useState<"course" | "assessment">("course");
   const [toolsOpen, setToolsOpen] = useState(false);
   const [newProjectOpen, setNewProjectOpen] = useState(false);
+  const [whatsNewOpen, setWhatsNewOpen] = useState(false);
+  const whatsNewTriggerRef = useRef<HTMLElement | null>(null);
   const [inspectEnabled, setInspectEnabled] = useState(false);
-  const [inspectionResolution, setInspectionResolution] = useState<InspectionResolution | null>(null);
-  const [inspectionRequest, setInspectionRequest] = useState<InspectionResolveRequest | null>(null);
-  const [inspectionResolving, setInspectionResolving] = useState(false);
-  const [inspectionTeacherNote, setInspectionTeacherNote] = useState("");
-  const [inspectionIssueCategory, setInspectionIssueCategory] = useState<InspectionIssueCategory>("unsure");
-  const [inspectionPreviewMode, setInspectionPreviewMode] = useState<PreviewMode>("workspace");
-  const inspectionSourceRef = useRef<"embedded" | "standalone">("embedded");
-  const inspectionScopeVersionRef = useRef(0);
-  const selectionPerformanceRef = useRef<ReturnType<typeof beginStudioPerformanceMeasure> | null>(null);
+  const inspectionDraft = useInspectionDraft(previewMode);
+  const {
+    resolution: inspectionResolution,
+    request: inspectionRequest,
+    resolving: inspectionResolving,
+    teacherNote: inspectionTeacherNote,
+    issueCategory: inspectionIssueCategory,
+    previewMode: inspectionPreviewMode,
+    setTeacherNote: setInspectionTeacherNote,
+    setIssueCategory: setInspectionIssueCategory
+  } = inspectionDraft;
   const screenshotAnnotation = useScreenshotAnnotation();
   const [initialReviewSet] = useState(() => selectedSlug ? loadStoredReviewSet(selectedSlug) : null);
   const [reviewSetItems, setReviewSetItems] = useState<ReviewSetItem[]>(() => initialReviewSet?.items ?? []);
@@ -557,21 +569,10 @@ export function App() {
 
   const resetInspection = useCallback(
     (resetTeacherInput = false) => {
-      selectionPerformanceRef.current?.cancel();
-      selectionPerformanceRef.current = null;
-      inspectionScopeVersionRef.current += 1;
-      setInspectionResolution(null);
-      setInspectionRequest(null);
-      setInspectionResolving(false);
-      setInspectionPreviewMode(previewMode);
-      inspectionSourceRef.current = "embedded";
-      if (resetTeacherInput) {
-        setInspectionTeacherNote("");
-        setInspectionIssueCategory("unsure");
-      }
+      inspectionDraft.reset(previewMode, resetTeacherInput);
       screenshotClearRef.current();
     },
-    [previewMode]
+    [inspectionDraft.reset, previewMode]
   );
 
   useEffect(() => {
@@ -622,21 +623,13 @@ export function App() {
     selection: PreviewInspectPayload,
     source: "embedded" | "standalone"
   ) => {
-    selectionPerformanceRef.current?.cancel();
-    const selectionPerformance = beginStudioPerformanceMeasure("selection-feedback", selection.interactionStartedAt);
-    selectionPerformanceRef.current = selectionPerformance;
-    const requestScopeVersion = inspectionScopeVersionRef.current + 1;
-    inspectionScopeVersionRef.current = requestScopeVersion;
-    const isCurrentRequest = () => inspectionScopeVersionRef.current === requestScopeVersion;
+    const inspectionRun = inspectionDraft.begin(mode, source, selection);
+    const requestScopeVersion = inspectionRun.scopeVersion;
+    const isCurrentRequest = inspectionRun.isCurrent;
     const target = mode === "workspace" ? workspaceTarget : resolvedReference.target;
     const selectionPayload: InspectionSelection = selection;
-    setInspectionPreviewMode(mode);
-    inspectionSourceRef.current = source;
     screenshotAnnotation.clear();
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
-    setInspectionResolution(null);
-    setInspectionRequest(null);
-    setInspectionResolving(true);
 
     if (!target?.projectSlug || (mode === "reference" && resolvedReference.target.source !== "html")) {
       if (!isCurrentRequest()) {
@@ -658,8 +651,7 @@ export function App() {
         validationCommand: null,
         warnings: ["This reference resource can be inspected visually, but it is not a course source edit target."]
       };
-      setInspectionResolution(unsupportedResolution);
-      setInspectionResolving(false);
+      inspectionDraft.commit(requestScopeVersion, null, unsupportedResolution);
       return;
     }
 
@@ -670,7 +662,7 @@ export function App() {
         htmlPath: target.htmlPath,
         selection: selectionPayload
       };
-      const payload = await resolveInspectionRequest(request);
+      const payload = await resolveInspectionRequest(request, inspectionRun.signal);
       if (!isCurrentRequest()) {
         return;
       }
@@ -708,11 +700,9 @@ export function App() {
           reviewSetRelinkItemIdRef.current = "";
           reviewSetRelinkReadyRef.current = false;
           setReviewSetRelinkItemId("");
-          setInspectionResolution(null);
-          setInspectionRequest(null);
+          inspectionDraft.clearResult(requestScopeVersion);
           setReviewSetStatus("Selection relinked. The original note and screenshots were preserved.", "success");
-          selectionPerformance.cancel();
-          selectionPerformanceRef.current = null;
+          inspectionRun.performance.cancel();
           return;
         }
         setReviewSetStatus(
@@ -722,8 +712,7 @@ export function App() {
           "warning"
         );
       }
-      setInspectionResolution(payload);
-      setInspectionRequest(request);
+      inspectionDraft.commit(requestScopeVersion, request, payload);
     } catch (error) {
       if (!isCurrentRequest()) {
         return;
@@ -744,18 +733,15 @@ export function App() {
         validationCommand: null,
         warnings: [error instanceof Error ? error.message : "Canvas Helper could not resolve the selected element."]
       };
-      setInspectionResolution(unresolvedResolution);
       const request: InspectionResolveRequest = {
         projectSlug: target.projectSlug,
         root: target.root,
         htmlPath: target.htmlPath,
         selection: selectionPayload
       };
-      setInspectionRequest(request);
+      inspectionDraft.commit(requestScopeVersion, request, unresolvedResolution);
     } finally {
-      if (isCurrentRequest()) {
-        setInspectionResolving(false);
-      }
+      inspectionDraft.finish(requestScopeVersion);
     }
   };
 
@@ -916,7 +902,7 @@ export function App() {
       return;
     }
 
-    const inspectionVersion = inspectionScopeVersionRef.current;
+    const inspectionVersion = inspectionDraft.currentScopeVersion();
     const reviewVersion = reviewSetVersionRef.current;
     const itemId = `review-${Date.now()}-${++reviewSetItemIdRef.current}`;
     const capturedDrafts = [...screenshotAnnotation.drafts];
@@ -929,7 +915,7 @@ export function App() {
       const currentSelection = await requestCurrentInspectionSelection(
         inspectionPreviewMode,
         inspectionRequest.selection.nodeId as string,
-        inspectionSourceRef.current
+        inspectionDraft.currentSource()
       );
       if (
         currentSelection.nodeId !== inspectionRequest.selection.nodeId ||
@@ -952,7 +938,7 @@ export function App() {
         });
       }
 
-      if (inspectionScopeVersionRef.current !== inspectionVersion || reviewSetVersionRef.current !== reviewVersion) {
+      if (!inspectionDraft.isCurrentScope(inspectionVersion) || reviewSetVersionRef.current !== reviewVersion) {
         throw new Error("The selection or Review Set changed while the screenshot was saving. Select it again.");
       }
       const currentItems = reviewSetItemsRef.current;
@@ -1354,7 +1340,7 @@ export function App() {
       if (reviewSessions.length >= REVIEW_SET_MAX_SESSIONS) throw new Error(`Remove a queued review before importing another one.`);
       const parsed = parseReviewSetBackup(await file.text(), selectedSlug, reviewScreenshotSessionIdRef.current);
       const reviewSessionId = createReviewSetSessionId();
-      const name = `${parsed.name} import`.slice(0, 80);
+      const name = `${parsed.name} import`.slice(0, STUDIO_REVIEW_LIMITS.sessionNameCodeUnits);
       if (!saveStoredReviewSet(selectedSlug, reviewSessionId, name, reviewScreenshotSessionIdRef.current, parsed.items)) {
         throw new Error("Canvas Helper could not save this imported review.");
       }
@@ -1790,8 +1776,8 @@ export function App() {
     saving: reviewSetSaving,
     preparing: reviewSetPreparing,
     packetReady: reviewSetPacketReady,
-    status: (reviewFeedback.tone === "error" ? "" : reviewFeedback.message).slice(0, 240),
-    error: (reviewSetPacketError || reviewSetPersistenceError || (reviewFeedback.tone === "error" ? reviewFeedback.message : "")).slice(0, 240),
+    status: (reviewFeedback.tone === "error" ? "" : reviewFeedback.message).slice(0, STUDIO_BRIDGE_LIMITS.reviewStatusCodeUnits),
+    error: (reviewSetPacketError || reviewSetPersistenceError || (reviewFeedback.tone === "error" ? reviewFeedback.message : "")).slice(0, STUDIO_BRIDGE_LIMITS.reviewStatusCodeUnits),
     undoLabel: reviewUndo?.label ?? ""
   }), [reviewFeedback, reviewSetCaptureItemId, reviewSetItems, reviewSetPacketError, reviewSetPacketReady, reviewSetPersistenceError, reviewSetPreparing, reviewSetSaving, reviewUndo, screenshotAnnotation.drafts.length]);
 
@@ -2013,13 +1999,13 @@ export function App() {
         respond({ ok: false, message: "Select a course element before capturing a screenshot.", clearDraft: false });
         return;
       }
-      const scopeVersion = inspectionScopeVersionRef.current;
+      const scopeVersion = inspectionDraft.currentScopeVersion();
       reviewCaptureBusyRef.current = true;
       void screenshotAnnotation.capture({
         projectSlug: selectedSlug,
         selection: action.selection,
         markerNumber: reviewSetItemsRef.current.length + 1,
-        isCurrent: () => inspectionScopeVersionRef.current === scopeVersion,
+        isCurrent: () => inspectionDraft.isCurrentScope(scopeVersion),
         prepareSelection: async (signal) => {
           const current = await requestCurrentInspectionSelection(mode, action.selection.nodeId as string, "standalone", signal);
           if (signal.aborted) throw new DOMException("Capture canceled", "AbortError");
@@ -2110,39 +2096,30 @@ export function App() {
       screenshotAnnotation.reportError("A screenshot is already being captured.");
       return;
     }
-    const captureScopeVersion = inspectionScopeVersionRef.current;
+    const captureScopeVersion = inspectionDraft.currentScopeVersion();
     const captureRequest = inspectionRequest;
     reviewCaptureBusyRef.current = true;
     void screenshotAnnotation.capture({
       projectSlug: captureRequest.projectSlug,
       selection: captureRequest.selection,
       markerNumber: reviewSetItemsRef.current.length + 1,
-      isCurrent: () => inspectionScopeVersionRef.current === captureScopeVersion,
+      isCurrent: () => inspectionDraft.isCurrentScope(captureScopeVersion),
       prepareSelection: async (signal) => {
         const selection = await requestCurrentInspectionSelection(
           inspectionPreviewMode,
           captureRequest.selection.nodeId as string,
-          inspectionSourceRef.current,
+          inspectionDraft.currentSource(),
           signal
         );
         if (signal.aborted) throw new DOMException("Capture canceled", "AbortError");
-        if (inspectionScopeVersionRef.current !== captureScopeVersion) {
+        if (!inspectionDraft.isCurrentScope(captureScopeVersion)) {
           throw new DOMException("Capture canceled", "AbortError");
         }
         if (!hasSamePreviewPageRoute(selection.pageHref, captureRequest.selection.pageHref)) {
           throw new Error("The course page changed. Select the element again before capturing a screenshot.");
         }
         const captureSelection = preserveVisualSelection(captureRequest.selection, selection);
-        setInspectionResolution((current) =>
-          current && current.selection.nodeId === captureSelection.nodeId
-            ? { ...current, selection: captureSelection }
-            : current
-        );
-        setInspectionRequest((current) =>
-          current && current.selection.nodeId === captureSelection.nodeId
-            ? { ...current, selection: captureSelection }
-            : current
-        );
+        inspectionDraft.replaceSelection(captureSelection);
         return captureSelection;
       }
     })
@@ -2326,6 +2303,16 @@ export function App() {
     setStudioMode(nextMode);
   };
 
+  const openWhatsNew = () => {
+    whatsNewTriggerRef.current = document.activeElement as HTMLElement | null;
+    setWhatsNewOpen(true);
+  };
+
+  const closeWhatsNew = () => {
+    setWhatsNewOpen(false);
+    window.requestAnimationFrame(() => whatsNewTriggerRef.current?.focus());
+  };
+
   const toggleAnnotationMode = (keyboardEntry = false) => {
     if (inspectEnabled) {
       stopAnnotationMode();
@@ -2347,12 +2334,9 @@ export function App() {
     window.requestAnimationFrame(() => {
       const note = document.querySelector<HTMLTextAreaElement>('[data-testid="inspection-teacher-note"]');
       note?.focus();
-      if (note && selectionPerformanceRef.current) {
-        selectionPerformanceRef.current.finish();
-        selectionPerformanceRef.current = null;
-      }
+      if (note) inspectionDraft.finishVisibleFeedback();
     });
-  }, [inspectEnabled, inspectionResolution, inspectionResolving]);
+  }, [inspectEnabled, inspectionDraft.finishVisibleFeedback, inspectionResolution, inspectionResolving]);
 
   const openReviewSet = () => {
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
@@ -2388,8 +2372,11 @@ export function App() {
           onProjectChange={handleWorkspaceProjectChange}
           onToggleFavorite={toggleFavorite}
           onNewProject={() => setNewProjectOpen(true)}
+          onOpenWhatsNew={openWhatsNew}
           onRetryPreview={retryPreview}
         />
+
+        <WhatsNewPanel open={whatsNewOpen} onClose={closeWhatsNew} />
 
         <NewProjectPanel
           open={newProjectOpen}

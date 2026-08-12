@@ -1,25 +1,26 @@
 import { isPreviewContentHealth } from "./preview-health.js";
+import { STUDIO_BRIDGE_LIMITS, STUDIO_REVIEW_LIMITS } from "./studio-quality.js";
 
 export const PREVIEW_BRIDGE_PROTOCOL = "canvas-helper.preview";
 export const PREVIEW_BRIDGE_VERSION = 1;
-export const PREVIEW_BRIDGE_MAX_MESSAGE_BYTES = 8_192;
-export const PREVIEW_BRIDGE_MAX_VISIBLE_TEXT = 320;
-export const PREVIEW_BRIDGE_MAX_CONTAINERS = 8;
+export const PREVIEW_BRIDGE_MAX_MESSAGE_BYTES = STUDIO_BRIDGE_LIMITS.messageUtf8Bytes;
+export const PREVIEW_BRIDGE_MAX_VISIBLE_TEXT = STUDIO_BRIDGE_LIMITS.visibleTextCodeUnits;
+export const PREVIEW_BRIDGE_MAX_CONTAINERS = STUDIO_BRIDGE_LIMITS.scrollContainers;
 export const PREVIEW_BRIDGE_BOOTSTRAP_TYPE = "studio-connect";
 export const PREVIEW_STANDALONE_BOOTSTRAP_TYPE = "studio-connect-standalone";
 export const PREVIEW_STANDALONE_HOST_BOOTSTRAP_TYPE = "studio-connect-standalone-host";
 export const PREVIEW_STANDALONE_HOST_REJOIN_TYPE = "studio-rejoin-standalone-host";
 export const PREVIEW_STANDALONE_SESSION_PARAM = "canvas-helper-inspect-session";
 export const PREVIEW_STANDALONE_REJOIN_PARAM = "canvas-helper-inspect-rejoin";
-export const PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH = 128;
-export const PREVIEW_REVIEW_MAX_ITEMS = 5;
-export const PREVIEW_REVIEW_MAX_SCREENSHOTS = 3;
-export const PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH = 160;
-export const PREVIEW_REVIEW_NOTE_MAX_LENGTH = 256;
-export const PREVIEW_REVIEW_EXCERPT_MAX_LENGTH = 320;
-export const PREVIEW_REVIEW_STATUS_MAX_LENGTH = 240;
-export const PREVIEW_REVIEW_PACKET_MAX_LENGTH = 7_700;
-export const PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH = 80;
+export const PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.standaloneSessionTokenCodeUnits;
+export const PREVIEW_REVIEW_MAX_ITEMS = STUDIO_REVIEW_LIMITS.itemsPerSession;
+export const PREVIEW_REVIEW_MAX_SCREENSHOTS = STUDIO_REVIEW_LIMITS.screenshotsPerItem;
+export const PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.reviewItemIdCodeUnits;
+export const PREVIEW_REVIEW_NOTE_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.reviewNoteCodeUnits;
+export const PREVIEW_REVIEW_EXCERPT_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.reviewExcerptCodeUnits;
+export const PREVIEW_REVIEW_STATUS_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.reviewStatusCodeUnits;
+export const PREVIEW_REVIEW_PACKET_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.reviewPacketCodeUnits;
+export const PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH = STUDIO_BRIDGE_LIMITS.inspectRequestIdCodeUnits;
 
 export const PREVIEW_EVENT_TYPES = [
   "preview-ready",
@@ -212,16 +213,17 @@ function isBoundedNonEmptyString(value: unknown, maximumLength: number) {
 }
 
 function isReviewScreenshotPath(value: unknown) {
+  const sessionRange = `{${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits},${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits}}`;
   return (
     typeof value === "string" &&
-    /^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/.test(value)
+    new RegExp(`^\\.runtime/studio-review-sets/[A-Za-z0-9-]${sessionRange}/[A-Za-z0-9._-]+\\.png$`).test(value)
   );
 }
 
 export function isPreviewStandaloneSessionToken(value: unknown): value is string {
   return (
     typeof value === "string" &&
-    value.length >= 16 &&
+    value.length >= STUDIO_BRIDGE_LIMITS.standaloneSessionTokenMinCodeUnits &&
     value.length <= PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH &&
     /^[A-Za-z0-9-]+$/.test(value)
   );
@@ -265,7 +267,7 @@ export function isPreviewScrollState(value: unknown): value is PreviewScrollStat
     value.containers.every(
       (container) =>
         isRecord(container) &&
-        isBoundedString(container.selector, 260) &&
+        isBoundedString(container.selector, STUDIO_BRIDGE_LIMITS.scrollSelectorCodeUnits) &&
         isFiniteNumber(container.top) &&
         isFiniteNumber(container.left)
     )
@@ -275,16 +277,16 @@ export function isPreviewScrollState(value: unknown): value is PreviewScrollStat
 export function isPreviewInspectPayload(value: unknown): value is PreviewInspectPayload {
   return (
     isRecord(value) &&
-    (value.nodeId === null || isBoundedString(value.nodeId, 160)) &&
+    (value.nodeId === null || isBoundedString(value.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits)) &&
     (value.selectionKind === undefined || value.selectionKind === "element" || value.selectionKind === "area") &&
     isBoundedString(value.visibleText, PREVIEW_BRIDGE_MAX_VISIBLE_TEXT) &&
-    isBoundedString(value.tagName, 48) &&
-    isBoundedString(value.role, 80) &&
-    isBoundedString(value.testId, 120) &&
+    isBoundedString(value.tagName, STUDIO_BRIDGE_LIMITS.elementTagCodeUnits) &&
+    isBoundedString(value.role, STUDIO_BRIDGE_LIMITS.elementRoleCodeUnits) &&
+    isBoundedString(value.testId, STUDIO_BRIDGE_LIMITS.elementTestIdCodeUnits) &&
     isGeometry(value.geometry) &&
     isViewport(value.viewport) &&
     isPreviewScrollState(value.scroll) &&
-    isBoundedNonEmptyString(value.pageHref, 2_048) &&
+    isBoundedNonEmptyString(value.pageHref, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits) &&
     (
       value.interactionStartedAt === undefined ||
       (typeof value.interactionStartedAt === "number" && Number.isFinite(value.interactionStartedAt) && value.interactionStartedAt >= 0)
@@ -338,8 +340,8 @@ export function isPreviewReviewState(value: unknown): value is PreviewReviewStat
       (item) =>
         isRecord(item) &&
         isBoundedNonEmptyString(item.id, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH) &&
-        isBoundedNonEmptyString(item.projectSlug, 160) &&
-        isBoundedNonEmptyString(item.nodeId, 160) &&
+        isBoundedNonEmptyString(item.projectSlug, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
+        isBoundedNonEmptyString(item.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
         isBoundedString(item.excerpt, PREVIEW_REVIEW_EXCERPT_MAX_LENGTH) &&
         isBoundedString(item.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH) &&
         Array.isArray(item.screenshots) &&
@@ -361,7 +363,7 @@ export function isPreviewReviewState(value: unknown): value is PreviewReviewStat
     typeof value.packetReady === "boolean" &&
     isBoundedString(value.status, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
     isBoundedString(value.error, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
-    (value.undoLabel === undefined || isBoundedString(value.undoLabel, 80))
+    (value.undoLabel === undefined || isBoundedString(value.undoLabel, STUDIO_BRIDGE_LIMITS.reviewSessionNameCodeUnits))
   );
 }
 
@@ -378,11 +380,11 @@ export function isPreviewReviewActionResult(value: unknown): value is PreviewRev
 function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
   switch (type) {
     case "preview-ready":
-      return isRecord(payload) && isBoundedString(payload.href, 2_048);
+      return isRecord(payload) && isBoundedString(payload.href, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits);
     case "preview-scroll-state":
       return isPreviewScrollState(payload);
     case "preview-navigation":
-      return isRecord(payload) && isBoundedString(payload.href, 2_048);
+      return isRecord(payload) && isBoundedString(payload.href, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits);
     case "preview-inspect-hover":
     case "preview-inspect-selected":
       return isPreviewInspectPayload(payload);
@@ -396,7 +398,7 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return (
         isRecord(payload) &&
         isBoundedNonEmptyString(payload.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH) &&
-        isBoundedNonEmptyString(payload.nodeId, 160) &&
+        isBoundedNonEmptyString(payload.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
         typeof payload.focused === "boolean"
       );
     case "preview-inspect-mode":
@@ -411,13 +413,13 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return (
         isRecord(payload) &&
         (payload.kind === "runtime-error" || payload.kind === "unhandled-rejection" || payload.kind === "asset-error") &&
-        isBoundedString(payload.message, 360) &&
-        isBoundedString(payload.href, 2_048)
+        isBoundedString(payload.message, STUDIO_BRIDGE_LIMITS.diagnosticMessageCodeUnits) &&
+        isBoundedString(payload.href, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits)
       );
     case "preview-error":
       return (
         isRecord(payload) &&
-        isBoundedString(payload.message, 360) &&
+        isBoundedString(payload.message, STUDIO_BRIDGE_LIMITS.diagnosticMessageCodeUnits) &&
         (payload.requestId === undefined || isBoundedNonEmptyString(payload.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH))
       );
     case "studio-request-state":
@@ -430,20 +432,20 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return (
         isRecord(payload) &&
         isBoundedNonEmptyString(payload.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH) &&
-        isBoundedNonEmptyString(payload.nodeId, 160)
+        isBoundedNonEmptyString(payload.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits)
       );
     case "studio-focus-inspect-node":
       return (
         isRecord(payload) &&
         isBoundedNonEmptyString(payload.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH) &&
-        isBoundedNonEmptyString(payload.nodeId, 160)
+        isBoundedNonEmptyString(payload.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits)
       );
     case "studio-show-inspect-node":
       return (
         isRecord(payload) &&
         isBoundedNonEmptyString(payload.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH) &&
-        isBoundedNonEmptyString(payload.nodeId, 160) &&
-        isBoundedNonEmptyString(payload.pageHref, 2_048)
+        isBoundedNonEmptyString(payload.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
+        isBoundedNonEmptyString(payload.pageHref, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits)
       );
     case "studio-disconnect-standalone":
       return payload === null;

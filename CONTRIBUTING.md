@@ -25,6 +25,7 @@ Examples:
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
 - Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
+- Canvas Studio release candidates: `npm run test:studio-release`; do not replace its isolated port, local-tool, `forbidOnly`, full-inspection, smoke, or strict-project gates with a reused development server
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
 - Authoring enforcement changes: targeted deviation/preference tests plus `npm.cmd run typecheck`
 - Project metadata/source-of-truth policy changes: `npm.cmd run validate:manifests` plus targeted tests and `npm.cmd run typecheck`
@@ -63,6 +64,7 @@ A task is done when:
 - the change stays within its architectural boundary
 - the minimum verification has been run
 - affected docs are updated
+- shared Studio releases have a current `docs/releases/` note and a passing machine-readable `.runtime/studio-release-report.json`
 - risks and next steps are explicit
 - the resulting handoff is actionable for the next operator
 

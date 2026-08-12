@@ -1,16 +1,12 @@
-import {
-  PREVIEW_REVIEW_MAX_SCREENSHOTS,
-  type PreviewGeometry,
-  type PreviewScrollState,
-  type PreviewViewport
-} from "./preview-bridge.js";
+import type { PreviewGeometry, PreviewScrollState, PreviewViewport } from "./preview-bridge.js";
+import { STUDIO_PACKET_LIMITS, STUDIO_REVIEW_LIMITS, STUDIO_SCREENSHOT_LIMITS } from "./studio-quality.js";
 
-export const INSPECTION_PACKET_MAX_BYTES = 7_500;
-export const REVIEW_SCREENSHOT_MAX_BYTES = 5 * 1024 * 1024;
-export const REVIEW_SCREENSHOT_MAX_DIMENSION = 8_192;
-export const REVIEW_SCREENSHOT_MAX_PIXELS = 32_000_000;
-export const REVIEW_SCREENSHOT_MAX_PER_ITEM = PREVIEW_REVIEW_MAX_SCREENSHOTS;
-export const REVIEW_SCREENSHOT_MAX_FILES_PER_SESSION = 15;
+export const INSPECTION_PACKET_MAX_BYTES = STUDIO_PACKET_LIMITS.inspectionUtf8Bytes;
+export const REVIEW_SCREENSHOT_MAX_BYTES = STUDIO_SCREENSHOT_LIMITS.bytes;
+export const REVIEW_SCREENSHOT_MAX_DIMENSION = STUDIO_SCREENSHOT_LIMITS.dimension;
+export const REVIEW_SCREENSHOT_MAX_PIXELS = STUDIO_SCREENSHOT_LIMITS.pixels;
+export const REVIEW_SCREENSHOT_MAX_PER_ITEM = STUDIO_REVIEW_LIMITS.screenshotsPerItem;
+export const REVIEW_SCREENSHOT_MAX_FILES_PER_SESSION = STUDIO_REVIEW_LIMITS.screenshotsPerSession;
 export const INSPECTION_ISSUE_CATEGORIES = ["content", "layout", "interaction", "accessibility", "unsure"] as const;
 
 export type InspectionIssueCategory = (typeof INSPECTION_ISSUE_CATEGORIES)[number];

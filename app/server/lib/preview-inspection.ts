@@ -15,13 +15,14 @@ import {
   type InspectionResolution,
   type InspectionResolutionState
 } from "../../shared/inspection.js";
+import { STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
 
 export const PREVIEW_INSPECT_NODE_ATTRIBUTE = "data-canvas-helper-inspect-node";
 
 const MAX_INSPECTABLE_HTML_BYTES = 8 * 1024 * 1024;
 const PREVIEW_NODE_ID_PREFIX = "ch1";
 const EXCLUDED_TAGS = new Set(["base", "head", "link", "meta", "script", "style", "template", "title"]);
-const INSPECTION_DOCUMENT_CACHE_MAX_ENTRIES = 24;
+const INSPECTION_DOCUMENT_CACHE_MAX_ENTRIES = STUDIO_REVIEW_LIMITS.inspectionSourceCacheEntries;
 
 type CachedInspectionDocument = {
   mtimeMs: number;

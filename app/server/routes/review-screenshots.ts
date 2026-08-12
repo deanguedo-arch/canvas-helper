@@ -1,6 +1,7 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 
 import { REVIEW_SCREENSHOT_MAX_BYTES } from "../../shared/inspection.js";
+import { STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
 import { sendJson } from "../lib/response";
 import {
   isReviewScreenshotItemId,
@@ -65,7 +66,7 @@ async function readBoundedJson(request: IncomingMessage, maximumBytes = 16_384) 
 }
 
 function isBoundedNodeId(value: unknown): value is string {
-  return typeof value === "string" && value.length > 0 && value.length <= 160 && !/[\u0000-\u001f]/.test(value);
+  return typeof value === "string" && value.length > 0 && value.length <= STUDIO_REVIEW_LIMITS.identifierCodeUnits && !/[\u0000-\u001f]/.test(value);
 }
 
 export function createReviewScreenshotRouteHandler(options: ReviewScreenshotRouteOptions = {}) {
@@ -84,12 +85,12 @@ export function createReviewScreenshotRouteHandler(options: ReviewScreenshotRout
           Array.isArray(body) ||
           typeof body.projectSlug !== "string" ||
           !isSafeProjectSlug(body.projectSlug) ||
-          body.projectSlug.length > 160 ||
+          body.projectSlug.length > STUDIO_REVIEW_LIMITS.identifierCodeUnits ||
           !isReviewScreenshotSessionId(body.sessionId) ||
           !isReviewScreenshotItemId(body.itemId) ||
           !isBoundedNodeId(body.ownerNodeId) ||
           !Array.isArray(body.paths) ||
-          body.paths.length > 3 ||
+          body.paths.length > STUDIO_REVIEW_LIMITS.screenshotsPerItem ||
           !body.paths.every(isReviewScreenshotPath)
         ) {
           throw new Error("Invalid screenshot verification request.");
@@ -153,7 +154,7 @@ export function createReviewScreenshotRouteHandler(options: ReviewScreenshotRout
           typeof body !== "object" ||
           Array.isArray(body) ||
           !Array.isArray(body.screenshots) ||
-          body.screenshots.length > 15 ||
+          body.screenshots.length > STUDIO_REVIEW_LIMITS.screenshotsPerSession ||
           !body.screenshots.every((entry) => {
             if (!entry || typeof entry !== "object" || Array.isArray(entry)) return false;
             const screenshot = entry as Record<string, unknown>;
@@ -196,7 +197,7 @@ export function createReviewScreenshotRouteHandler(options: ReviewScreenshotRout
     if (
       !isReviewScreenshotSessionId(sessionId) ||
       !isSafeProjectSlug(projectSlug ?? "") ||
-      (projectSlug?.length ?? 0) > 160 ||
+      (projectSlug?.length ?? 0) > STUDIO_REVIEW_LIMITS.identifierCodeUnits ||
       !isReviewScreenshotItemId(itemId) ||
       !isReviewScreenshotItemId(screenshotId) ||
       !isBoundedNodeId(ownerNodeId)

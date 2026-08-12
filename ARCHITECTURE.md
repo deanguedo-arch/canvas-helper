@@ -65,6 +65,8 @@ flowchart LR
 - not responsible for: filesystem access, route logic, path validation, or direct command spawning
 - shared e2e selectors (`data-testid`) for core Studio interactions live here
 
+The teacher-facing release manifest lives in `app/studio/src/lib/studio-release-notes.ts` and powers the modal **What’s new** view. Inspection draft state and async cancellation live in `useInspectionDraft`; Review Set item creation, persistence, packet generation, screenshot ownership, and capture are exposed to `App.tsx` only through `lib/review-workbench.ts`. Compatibility aliases may remain at subsystem boundaries, but all Studio retention, screenshot, bridge, and packet ceilings originate in `app/shared/studio-quality.ts`, where UTF-8 bytes and JavaScript code units are named separately.
+
 ### Local Server
 
 - location: `app/server/`
@@ -218,6 +220,8 @@ Browser automation is implemented as a small platform layer under `e2e/`:
 - `e2e/specs/core-project-contract.spec.ts`: reusable core checks
 - `e2e/lib/load-project-contract.ts`: contract loading/validation
 - `e2e/lib/project-open.ts`: common Studio project-open flow
+- `e2e/lib/studio-fixtures.ts`: project-independent fixture descriptors for cross-project Studio behavior
+- `e2e/playwright.release.config.ts`: release-only configuration with an owned port, no reused server, and `forbidOnly`
 
 Project-specific expectations are declarative:
 
@@ -229,6 +233,9 @@ Default command paths:
 
 - platform smoke: `npm run test:e2e:smoke`
 - project contract gate: `npm run test:e2e:project -- --project <slug>`
+- complete Studio release gate: `npm run test:studio-release`
+
+The release command is implemented by `scripts/run-studio-release.ts` and `scripts/lib/studio-release.ts`. It invokes only checked-in dependency entrypoints, owns a fresh loopback port, runs focused contracts, the production build, all inspection E2E, platform smoke, and the strict neutral fixture contract in that order, propagates the first failing exit code, and writes `.runtime/studio-release-report.json` with the branch, commit, dirty-tree status, and a deterministic SHA-256 fingerprint of the exact Studio source bytes that were tested. It fails if those source bytes change during the run. Ordinary developer E2E may still reuse its configured server; release E2E may not.
 
 ### Policy-Controlled
 

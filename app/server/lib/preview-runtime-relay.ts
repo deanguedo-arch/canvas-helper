@@ -158,7 +158,7 @@ function isApprovedPreviewRuntimeSource(url: URL) {
 }
 
 export function parsePreviewRuntimeRelayPath(pathname: string): PreviewRuntimeRelayPath | null {
-  const match = pathname.match(/^\/_canvas-helper\/p\/([A-Za-z0-9-]{16,80})\/runtime$/);
+  const match = pathname.match(/^\/_canvas-helper\/p\/([A-Za-z0-9-]+)\/runtime$/);
   if (!match || !PREVIEW_CAPABILITY_TOKEN_PATTERN.test(match[1])) return null;
   return {
     token: match[1],
@@ -194,7 +194,10 @@ export function buildPreviewRuntimeRelayUrl(
   registerSource?: PreviewRuntimeSourceRegistrar
 ) {
   const normalized = normalizePreviewRuntimeSource(source);
-  if (!normalized || !/^\/_canvas-helper\/p\/[A-Za-z0-9-]{16,80}$/.test(publicPrefix)) {
+  const token = publicPrefix.startsWith(PREVIEW_CAPABILITY_PATH_PREFIX)
+    ? publicPrefix.slice(PREVIEW_CAPABILITY_PATH_PREFIX.length)
+    : "";
+  if (!normalized || !PREVIEW_CAPABILITY_TOKEN_PATTERN.test(token)) {
     return null;
   }
   if (registerSource?.(normalized) === false) return null;

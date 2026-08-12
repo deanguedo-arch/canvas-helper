@@ -11,7 +11,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 
 ## Quick Start
 
-1. Install Node.js
+1. Install Node.js 20.19 or newer (Node 22.12+ is also supported) and npm 10 or newer
 2. Run `npm install`
 3. Start Studio with `npm run studio`
 4. Use your platform launcher for a stable one-click Studio start:
@@ -36,6 +36,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run studio:codex:auto` (Codex desktop app + intake watcher on macOS)
 - `npm run studio:codex:migrate` (Codex app + explicit project layout migration)
 - `npm run studio:codex:session` (Codex app starter with prompt templates)
+- `npm run test:studio-release` (complete, isolated Studio release gate)
 - `npm run import -- "<path-to-html-or-folder>" --slug <slug>`
 - `npm run incoming:refresh`
 - `npm run analyze -- --project <slug>`
@@ -109,6 +110,8 @@ The right rail deliberately shows only the current annotation and the Review Set
 The live preview is served from a separate local loopback origin and communicates through bounded private bridges. Embedded frames use a private `MessageChannel`; a full preview receives a one-time session token, and its trusted Studio-origin host retains the opener only for bounded reload rejoin. The cross-origin course iframe never receives the opener or Studio channel. Each preview capability is limited to one project/root; a workspace preview can load only same-project reference material, never another project or workspace. The Inspector and packet builder make no external request, and selected course text is explicitly marked as untrusted content in the packet. For course fidelity, the live preview may load presentation-only HTTPS styles, fonts, images, media, and frames declared by the course. Older imported courses may also use a small, version-pinned set of legacy JavaScript runtimes. Studio syntax-rewrites approved external and inline-script dependencies through the capability-scoped local preview origin, registers each declared or transitively discovered source to that capability, accepts only exact library/path/query families and JavaScript MIME types, and applies bounded concurrency, fetch, redirect, size, timeout, parser, and memory-cache limits. Local/reference `HEAD` requests do not read or transform files, runtime `HEAD` is cache-only, and oversized local scripts are served unchanged. Arbitrary external scripts, form submissions, and nonlocal browser data connections remain blocked. The separate screenshot-capture browser keeps the stricter browser-network policy described below.
 
 **Screenshot** is optional and course-only. It does not open an operating-system screen-sharing picker. Canvas Helper opens the exact capability-scoped local preview in a bounded capture browser, restores its saved scroll state, rechecks the full page identity (including course query and hash state) plus the selected element, draws the blue numbered marker, and blocks outside HTTP requests, WebSockets, WebRTC, service workers, and dedicated/shared workers. It verifies those guards in the main document and runnable local child frames while skipping empty or browser-generated blocked-error frames so iframe-heavy courses cannot stall capture. Each annotation may keep up to three PNGs under the ignored `.runtime/studio-review-sets/` cache. Display, removal, and copy all verify each path against the exact session, project, annotation, and selected node. Review Set V3 lists only those safe repo-relative paths—never base64 pixels, blob URLs, or absolute paths. Screenshot files and the private version-6 persistence record expire after seven days.
+
+Use **What’s new** in the Studio header for the current concise product release. The durable release note is [docs/releases/2026-08-11-canvas-studio.md](docs/releases/2026-08-11-canvas-studio.md). Before publishing shared Studio behavior, run `npm run test:studio-release`; its ignored report is written to `.runtime/studio-release-report.json`.
 
 ## Workflow Types
 

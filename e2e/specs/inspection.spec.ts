@@ -4,6 +4,12 @@ import path from "node:path";
 import { expect, test } from "@playwright/test";
 
 import { openProjectInStudio, waitForWorkspacePreviewReady } from "../lib/project-open";
+import {
+  STUDIO_FIXTURES,
+  STUDIO_PRIMARY_FIXTURE,
+  STUDIO_SECONDARY_FIXTURE,
+  switchStudioFixture
+} from "../lib/studio-fixtures";
 
 type StudioPerformanceEvent = {
   measure: "preview-ready" | "selection-feedback" | "capture-status";
@@ -894,17 +900,23 @@ test("@inspection Review Set blocks a stale source recheck instead of copying an
   await expect(page.getByTestId("copy-review-set")).toBeDisabled();
 });
 
-test("@inspection changing projects ignores a late source-resolution response", async ({ page }) => {
+test("@inspection changing projects aborts a late source-resolution response", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
   await page.getByTestId("preview-workspace-toggle").click();
 
   let releaseInspectionResponse: (() => void) | null = null;
+  let inspectionRequestAborted = false;
+  page.on("requestfailed", (request) => {
+    if (new URL(request.url()).pathname === "/api/inspection/resolve" && request.method() === "POST") {
+      inspectionRequestAborted = true;
+    }
+  });
   await page.route("**/api/inspection/resolve", async (route) => {
     await new Promise<void>((resolve) => {
       releaseInspectionResponse = resolve;
     });
-    await route.continue();
+    await route.continue().catch(() => {});
   });
 
   await page.getByTestId("inspect-toggle").click();
@@ -920,17 +932,13 @@ test("@inspection changing projects ignores a late source-resolution response", 
   await expect.poll(() => Boolean(releaseInspectionResponse)).toBe(true);
 
   const projectSelect = page.getByTestId("workspace-project-select");
-  await projectSelect.selectOption("forensics35");
-  await expect(projectSelect).toHaveValue("forensics35");
+  await projectSelect.selectOption(STUDIO_SECONDARY_FIXTURE);
+  await expect(projectSelect).toHaveValue(STUDIO_SECONDARY_FIXTURE);
   await expect(page.getByTestId("inspection-selection-summary")).toHaveCount(0);
 
-  const inspectionResponse = page.waitForResponse((response) => {
-    const url = new URL(response.url());
-    return url.pathname === "/api/inspection/resolve" && response.request().method() === "POST";
-  });
   releaseInspectionResponse?.();
-  await inspectionResponse;
-  await waitForWorkspacePreviewReady(page, "forensics35");
+  await expect.poll(() => inspectionRequestAborted).toBe(true);
+  await waitForWorkspacePreviewReady(page, STUDIO_SECONDARY_FIXTURE);
 
   await expect(page.getByTestId("inspection-selection-summary")).toHaveCount(0);
 });
@@ -945,16 +953,13 @@ test("@inspection each project restores its own layout, device, zoom, and Review
   await page.getByTestId("inspector-toggle").click();
   await expect(page.getByTestId("review-set")).toBeVisible();
 
-  const projectSelect = page.getByTestId("workspace-project-select");
-  await projectSelect.selectOption("forensics35");
-  await waitForWorkspacePreviewReady(page, "forensics35");
+  await switchStudioFixture(page, STUDIO_FIXTURES.secondary);
   await expect(page.getByTestId("layout-focus-toggle")).toHaveClass(/active/);
   await expect(page.getByRole("combobox", { name: "Preview device" })).toHaveValue("desktop");
   await expect(page.getByRole("combobox", { name: "Preview zoom" })).toHaveValue("100");
   await expect(page.getByTestId("review-set")).toHaveCount(0);
 
-  await projectSelect.selectOption("e2e-fixture");
-  await waitForWorkspacePreviewReady(page, "e2e-fixture");
+  await switchStudioFixture(page, STUDIO_FIXTURES.primary);
   await expect(page.getByTestId("layout-split-toggle")).toHaveClass(/active/);
   await expect(page.getByRole("combobox", { name: "Preview device" })).toHaveValue("mobile");
   await expect(page.getByRole("combobox", { name: "Preview zoom" })).toHaveValue("75");
@@ -978,13 +983,10 @@ test("@inspection each project keeps its own temporary Review Set", async ({ pag
   await page.getByTestId("add-to-review-set").click();
   await expect(page.getByTestId("review-set-item")).toHaveCount(1);
 
-  const projectSelect = page.getByTestId("workspace-project-select");
-  await projectSelect.selectOption("forensics35");
-  await waitForWorkspacePreviewReady(page, "forensics35");
+  await switchStudioFixture(page, STUDIO_FIXTURES.secondary);
   await expect(page.getByTestId("review-set-item")).toHaveCount(0);
 
-  await projectSelect.selectOption("e2e-fixture");
-  await waitForWorkspacePreviewReady(page, "e2e-fixture");
+  await switchStudioFixture(page, STUDIO_FIXTURES.primary);
   await expect(page.getByTestId("review-set-item")).toHaveCount(1);
   await expect(page.getByTestId("review-set-item").locator("textarea")).toHaveValue(
     "Keep this note with the fixture course."
@@ -1066,15 +1068,59 @@ test("@inspection course finder supports search, favorites, and recents", async 
   await page.keyboard.press("Escape");
 
   await page.keyboard.press(process.platform === "darwin" ? "Meta+K" : "Control+K");
-  await page.getByTestId("course-search-input").fill("Forensics35");
-  await page.getByTestId("course-result-forensics35").click();
-  await waitForWorkspacePreviewReady(page, "forensics35");
-  await expect(page.getByTestId("workspace-project-select")).toHaveValue("forensics35");
+  await page.getByTestId("course-search-input").fill("Studio Fixture Secondary");
+  await page.getByTestId(`course-result-${STUDIO_SECONDARY_FIXTURE}`).click();
+  await waitForWorkspacePreviewReady(page, STUDIO_SECONDARY_FIXTURE);
+  await expect(page.getByTestId("workspace-project-select")).toHaveValue(STUDIO_SECONDARY_FIXTURE);
 
   await page.getByTestId("course-search-input").focus();
   await expect(page.getByTestId("course-finder").getByRole("heading", { name: "Favorites" })).toBeVisible();
   await expect(page.getByTestId("course-result-e2e-fixture")).toBeVisible();
   await expect(page.getByTestId("course-finder").getByRole("heading", { name: "Recent" })).toBeVisible();
+});
+
+test("@inspection What’s New is concise, keyboard-contained, and restores focus", async ({ page }) => {
+  await openProjectInStudio(page, STUDIO_PRIMARY_FIXTURE);
+  const trigger = page.getByTestId("open-whats-new");
+  await trigger.focus();
+  await trigger.press("Enter");
+
+  const panel = page.getByTestId("whats-new-panel");
+  await expect(panel).toBeVisible();
+  await expect(panel.getByRole("heading", { name: "Precision review workflow" })).toBeVisible();
+  await expect(panel.getByRole("heading", { level: 3 })).toHaveCount(4);
+  await expect(page.getByTestId("close-whats-new")).toBeFocused();
+
+  await page.keyboard.press("Shift+Tab");
+  await expect(panel.getByRole("button", { name: "Back to Studio" })).toBeFocused();
+  await page.keyboard.press("Tab");
+  await expect(page.getByTestId("close-whats-new")).toBeFocused();
+  await page.keyboard.press("Escape");
+
+  await expect(panel).toHaveCount(0);
+  await expect(trigger).toBeFocused();
+});
+
+test("@inspection What’s New stays usable at 320px with reduced motion and isolates the course", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 640 });
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openProjectInStudio(page, STUDIO_PRIMARY_FIXTURE);
+  await page.getByTestId("open-whats-new").click();
+
+  const panel = page.getByTestId("whats-new-panel");
+  await expect(panel).toBeVisible();
+  await expect(page.getByTestId("studio-topbar")).toHaveAttribute("inert", "");
+  await expect(panel.getByRole("button", { name: "Back to Studio" })).toBeVisible();
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= document.documentElement.clientWidth)).toBe(true);
+  const animationSeconds = await panel.evaluate((element) => {
+    const duration = getComputedStyle(element).animationDuration;
+    return duration.endsWith("ms") ? Number.parseFloat(duration) / 1_000 : Number.parseFloat(duration);
+  });
+  expect(animationSeconds).toBeLessThanOrEqual(0.000_01);
+
+  await panel.getByRole("button", { name: "Back to Studio" }).click();
+  await expect(page.getByTestId("studio-topbar")).not.toHaveAttribute("inert", "");
+  await expect(page.getByTestId("open-whats-new")).toBeFocused();
 });
 
 test("@inspection New Project routes to the existing local intake scan", async ({ page }) => {
@@ -1405,13 +1451,19 @@ test("@inspection a slow course stays mounted and recovers when meaningful conte
   await expect(page.getByTestId("workspace-preview-recovery")).toHaveCount(0);
 });
 
-test("@inspection a late first selection cannot overwrite a newer selection in the same preview", async ({ page }) => {
+test("@inspection a newer selection aborts the first request and remains selected", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("layout-focus-toggle").click();
   await page.getByTestId("preview-workspace-toggle").click();
 
   let inspectionRequestCount = 0;
+  let firstInspectionRequestAborted = false;
   let releaseFirstInspectionResponse: (() => void) | null = null;
+  page.on("requestfailed", (request) => {
+    if (new URL(request.url()).pathname === "/api/inspection/resolve" && request.method() === "POST") {
+      firstInspectionRequestAborted = true;
+    }
+  });
   await page.route("**/api/inspection/resolve", async (route) => {
     inspectionRequestCount += 1;
     if (inspectionRequestCount === 1) {
@@ -1419,7 +1471,7 @@ test("@inspection a late first selection cannot overwrite a newer selection in t
         releaseFirstInspectionResponse = resolve;
       });
     }
-    await route.continue();
+    await route.continue().catch(() => {});
   });
 
   await page.getByTestId("inspect-toggle").click();
@@ -1444,12 +1496,8 @@ test("@inspection a late first selection cannot overwrite a newer selection in t
   await expect.poll(() => inspectionRequestCount).toBe(2);
   await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
 
-  const firstInspectionResponse = page.waitForResponse((response) => {
-    const url = new URL(response.url());
-    return url.pathname === "/api/inspection/resolve" && response.request().method() === "POST";
-  });
   releaseFirstInspectionResponse?.();
-  await firstInspectionResponse;
+  await expect.poll(() => firstInspectionRequestAborted).toBe(true);
 
   await expect(page.getByTestId("inspection-selection-summary")).toContainText("Fixture Module");
 });

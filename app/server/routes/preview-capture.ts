@@ -2,6 +2,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 
 import { REVIEW_SCREENSHOT_MAX_BYTES } from "../../shared/inspection.js";
 import { isPreviewInspectPayload, type PreviewInspectPayload } from "../../shared/preview-bridge.js";
+import { STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
 import { captureMarkedPreviewPng, type PreviewCaptureInput } from "../lib/preview-capture";
 import { sendJson } from "../lib/response";
 import { isSafeProjectSlug } from "../lib/validation";
@@ -26,7 +27,7 @@ function isPreviewCaptureRequest(value: unknown): value is PreviewCaptureRequest
   return (
     typeof request.projectSlug === "string" &&
     isSafeProjectSlug(request.projectSlug) &&
-    request.projectSlug.length <= 160 &&
+    request.projectSlug.length <= STUDIO_REVIEW_LIMITS.identifierCodeUnits &&
     isPreviewInspectPayload(request.selection) &&
     typeof request.markerNumber === "number" &&
     Number.isInteger(request.markerNumber) &&

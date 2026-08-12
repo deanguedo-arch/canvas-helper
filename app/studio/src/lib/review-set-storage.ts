@@ -23,7 +23,7 @@ import {
   isReviewScreenshotSessionId,
   reviewScreenshotImageUrl
 } from "./review-screenshots";
-import { STUDIO_REVIEW_CACHE_LIMITS } from "../../../shared/studio-quality.js";
+import { STUDIO_REVIEW_LIMITS } from "../../../shared/studio-quality.js";
 
 const STORAGE_KEY = "canvas-helper/review-workbench-v9";
 const LEGACY_WORKBENCH_STORAGE_KEY = "canvas-helper/review-workbench-v8";
@@ -32,12 +32,14 @@ const LEGACY_SINGLE_SET_STORAGE_KEY = "canvas-helper/review-set-v6";
 const OBSOLETE_STORAGE_KEYS = ["canvas-helper/review-set-v5", "canvas-helper/review-set-v4", "canvas-helper/review-set-v3"];
 const STORAGE_VERSION = 9;
 const BACKUP_VERSION = 1;
-const STORAGE_TTL_MS = STUDIO_REVIEW_CACHE_LIMITS.ttlDays * 24 * 60 * 60 * 1_000;
-const STORAGE_MAX_PROJECTS = STUDIO_REVIEW_CACHE_LIMITS.projects;
-const STORAGE_MAX_SESSIONS_PER_PROJECT = STUDIO_REVIEW_CACHE_LIMITS.sessionsPerProject;
-const STORAGE_MAX_SET_CHARACTERS = 160_000;
-const STORAGE_MAX_CHARACTERS = 1_200_000;
-const REVIEW_SET_NAME_MAX_BYTES = 80;
+const STORAGE_TTL_MS = STUDIO_REVIEW_LIMITS.ttlDays * 24 * 60 * 60 * 1_000;
+const STORAGE_MAX_PROJECTS = STUDIO_REVIEW_LIMITS.projects;
+const STORAGE_MAX_SESSIONS_PER_PROJECT = STUDIO_REVIEW_LIMITS.sessionsPerProject;
+const STORAGE_MAX_SET_CHARACTERS = STUDIO_REVIEW_LIMITS.setStorageCodeUnits;
+const STORAGE_MAX_CHARACTERS = STUDIO_REVIEW_LIMITS.workbenchStorageCodeUnits;
+const REVIEW_SET_NAME_MAX_BYTES = STUDIO_REVIEW_LIMITS.sessionNameUtf8Bytes;
+const SAFE_PROJECT_SLUG = new RegExp(`^[A-Za-z0-9][A-Za-z0-9._-]{0,${STUDIO_REVIEW_LIMITS.identifierCodeUnits - 1}}$`);
+const SAFE_REVIEW_SESSION_ID = new RegExp(`^[A-Za-z0-9-]{${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits},${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits}}$`);
 
 type StoredReviewSet = {
   id: string;
@@ -109,7 +111,7 @@ function isSafeRepoPath(value: unknown): value is string {
   return (
     typeof value === "string" &&
     value.length > 0 &&
-    value.length <= 1_024 &&
+    value.length <= STUDIO_REVIEW_LIMITS.repoPathCodeUnits &&
     !/[\u0000-\u001f\\]/.test(value) &&
     !value.startsWith("/") &&
     !value.startsWith("~") &&
@@ -118,15 +120,15 @@ function isSafeRepoPath(value: unknown): value is string {
 }
 
 function isOptionalCommand(value: unknown): value is string | null {
-  return value === null || isSafeInline(value, 1_024);
+  return value === null || isSafeInline(value, STUDIO_REVIEW_LIMITS.repoPathCodeUnits);
 }
 
 function isSafeProjectSlug(value: unknown): value is string {
-  return typeof value === "string" && /^[A-Za-z0-9][A-Za-z0-9._-]{0,159}$/.test(value);
+  return typeof value === "string" && SAFE_PROJECT_SLUG.test(value);
 }
 
 function isReviewSessionId(value: unknown): value is string {
-  return typeof value === "string" && /^[A-Za-z0-9-]{16,80}$/.test(value);
+  return typeof value === "string" && SAFE_REVIEW_SESSION_ID.test(value);
 }
 
 function normalizeSetName(value: unknown, fallback = "Review 1") {
@@ -138,7 +140,7 @@ function normalizeSetName(value: unknown, fallback = "Review 1") {
 function isResolution(value: unknown): value is InspectionResolution {
   if (!isRecord(value) || !isPreviewInspectPayload(value.selection)) return false;
   return (
-    isSafeInline(value.projectSlug, 160) &&
+    isSafeInline(value.projectSlug, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
     isSafeRepoPath(value.previewPath) &&
     ["exact", "bounded", "unknown"].includes(String(value.resolution)) &&
     ["current", "unverified", "stale", "unsupported"].includes(String(value.freshness)) &&
@@ -147,13 +149,13 @@ function isResolution(value: unknown): value is InspectionResolution {
     (value.primaryEditTarget === null || isSafeRepoPath(value.primaryEditTarget)) &&
     (value.primaryEditLine === null || (Number.isInteger(value.primaryEditLine) && Number(value.primaryEditLine) > 0)) &&
     Array.isArray(value.contributors) &&
-    value.contributors.length <= 24 &&
+    value.contributors.length <= STUDIO_REVIEW_LIMITS.resolutionListItems &&
     value.contributors.every(isSafeRepoPath) &&
     isOptionalCommand(value.rebuildCommand) &&
     isOptionalCommand(value.validationCommand) &&
     Array.isArray(value.warnings) &&
-    value.warnings.length <= 24 &&
-    value.warnings.every((warning) => isSafeInline(warning, 1_024))
+    value.warnings.length <= STUDIO_REVIEW_LIMITS.resolutionListItems &&
+    value.warnings.every((warning) => isSafeInline(warning, STUDIO_REVIEW_LIMITS.repoPathCodeUnits))
   );
 }
 
@@ -162,11 +164,11 @@ function hydrateScreenshot(
   owner: { sessionId: string; projectSlug: string; itemId: string; ownerNodeId: string }
 ): ReviewSetScreenshot | null {
   if (!isRecord(value)) return null;
-  const ownerNodeId = isSafeInline(value.ownerNodeId, 160) && value.ownerNodeId
+  const ownerNodeId = isSafeInline(value.ownerNodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) && value.ownerNodeId
     ? value.ownerNodeId
     : owner.ownerNodeId;
   if (
-    !isSafeInline(value.id, 160) ||
+    !isSafeInline(value.id, STUDIO_REVIEW_LIMITS.identifierCodeUnits) ||
     !value.id ||
     !isReviewScreenshotPath(value.filePath) ||
     !String(value.filePath).startsWith(`.runtime/studio-review-sets/${owner.sessionId}/`) ||
@@ -200,10 +202,10 @@ function hydrateItem(value: unknown, sessionId: string, expectedProjectSlug: str
     : "normal";
   const shortLabel = typeof value.shortLabel === "string" ? value.shortLabel : "";
   if (
-    !isSafeInline(value.id, 160) ||
+    !isSafeInline(value.id, STUDIO_REVIEW_LIMITS.identifierCodeUnits) ||
     !value.id ||
     value.previewMode !== "workspace" ||
-    !isSafeInline(request.projectSlug, 160) ||
+    !isSafeInline(request.projectSlug, STUDIO_REVIEW_LIMITS.identifierCodeUnits) ||
     request.projectSlug !== expectedProjectSlug ||
     request.root !== "workspace" ||
     !isSafeRepoPath(request.htmlPath) ||
@@ -297,7 +299,7 @@ function removeLegacyKeys() {
 }
 
 function migrationSetId(updatedAt: number, position = 0) {
-  return `review-migrated-${Math.max(0, Math.floor(updatedAt))}-${position}`.slice(0, 80);
+  return `review-migrated-${Math.max(0, Math.floor(updatedAt))}-${position}`.slice(0, STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits);
 }
 
 function parseStoredJson(serialized: string) {

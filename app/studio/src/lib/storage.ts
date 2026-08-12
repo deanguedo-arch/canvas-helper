@@ -7,6 +7,7 @@ import {
   deviceModes,
   normalizeZoom
 } from "./types";
+import { STUDIO_REVIEW_LIMITS } from "../../../shared/studio-quality.js";
 
 const STUDIO_SELECTION_STORAGE_KEY = "canvas-helper/studio-selection";
 const STUDIO_LAYOUT_STORAGE_KEY = "canvas-helper/studio-layout";
@@ -88,7 +89,7 @@ function loadProjectLayoutMap(): Record<string, StoredProjectLayout> {
     const entries = Object.entries(parsed as Record<string, unknown>)
       .filter(([slug, value]) => (
         slug.length > 0 &&
-        slug.length <= 160 &&
+        slug.length <= STUDIO_REVIEW_LIMITS.identifierCodeUnits &&
         value &&
         typeof value === "object" &&
         !Array.isArray(value) &&
@@ -170,7 +171,7 @@ export function loadWorkspacePageSelections(): Record<string, string> {
     const entries = Object.entries(parsed as Record<string, unknown>)
       .filter(([slug, value]) => (
         slug.length > 0 &&
-        slug.length <= 160 &&
+        slug.length <= STUDIO_REVIEW_LIMITS.identifierCodeUnits &&
         value &&
         typeof value === "object" &&
         !Array.isArray(value) &&
@@ -189,7 +190,7 @@ export function loadWorkspacePageSelections(): Record<string, string> {
 }
 
 export function saveWorkspacePageSelection(projectSlug: string, htmlPath: string) {
-  if (typeof window === "undefined" || !projectSlug || projectSlug.length > 160 || !isSafeWorkspaceHtmlPath(htmlPath)) {
+  if (typeof window === "undefined" || !projectSlug || projectSlug.length > STUDIO_REVIEW_LIMITS.identifierCodeUnits || !isSafeWorkspaceHtmlPath(htmlPath)) {
     return false;
   }
   try {

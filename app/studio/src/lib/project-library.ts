@@ -15,7 +15,9 @@ export type ProjectLibrary = {
 const EMPTY_LIBRARY: ProjectLibrary = { favorites: [], recents: [] };
 
 function isSafeSlug(value: unknown): value is string {
-  return typeof value === "string" && /^[A-Za-z0-9][A-Za-z0-9._-]{0,159}$/.test(value);
+  return typeof value === "string" && new RegExp(
+    `^[A-Za-z0-9][A-Za-z0-9._-]{0,${STUDIO_REVIEW_LIMITS.identifierCodeUnits - 1}}$`
+  ).test(value);
 }
 
 export function normalizeProjectLibrary(value: unknown): ProjectLibrary {
@@ -75,3 +77,4 @@ export function toggleFavoriteProject(library: ProjectLibrary, slug: string) {
     : [slug, ...library.favorites];
   return normalizeProjectLibrary({ ...library, favorites });
 }
+import { STUDIO_REVIEW_LIMITS } from "../../../shared/studio-quality.js";

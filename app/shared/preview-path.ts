@@ -1,5 +1,9 @@
+import { STUDIO_BRIDGE_LIMITS } from "./studio-quality.js";
+
 export const PREVIEW_CAPABILITY_PATH_PREFIX = "/_canvas-helper/p/";
-export const PREVIEW_CAPABILITY_TOKEN_PATTERN = /^[A-Za-z0-9-]{16,80}$/;
+export const PREVIEW_CAPABILITY_TOKEN_PATTERN = new RegExp(
+  `^[A-Za-z0-9-]{${STUDIO_BRIDGE_LIMITS.previewCapabilityTokenMinCodeUnits},${STUDIO_BRIDGE_LIMITS.previewCapabilityTokenMaxCodeUnits}}$`
+);
 export const PREVIEW_TRANSIENT_QUERY_PARAMETERS = [
   "canvas-helper-capture",
   "canvas-helper-inspect-rejoin",
@@ -30,7 +34,7 @@ function previewScope(previewPath: string) {
 }
 
 export function parsePreviewCapabilityPath(pathname: string): PreviewCapabilityPath | null {
-  const match = pathname.match(/^\/_canvas-helper\/p\/([A-Za-z0-9-]{16,80})(\/preview\/.*)$/);
+  const match = pathname.match(/^\/_canvas-helper\/p\/([A-Za-z0-9-]+)(\/preview\/.*)$/);
   if (!match || !PREVIEW_CAPABILITY_TOKEN_PATTERN.test(match[1])) return null;
   const scope = previewScope(match[2]);
   if (!scope) return null;

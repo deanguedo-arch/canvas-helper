@@ -3,6 +3,7 @@ import {
   REVIEW_SCREENSHOT_MAX_DIMENSION,
   REVIEW_SCREENSHOT_MAX_PIXELS
 } from "../../../shared/inspection.js";
+import { STUDIO_REVIEW_LIMITS } from "../../../shared/studio-quality.js";
 
 export type PersistedReviewScreenshot = {
   path: string;
@@ -22,8 +23,8 @@ export type OwnedReviewScreenshotPath = ReviewScreenshotOwner & {
   repoRelativePath: string;
 };
 
-const SAFE_REVIEW_SCREENSHOT_PATH = /^\.runtime\/studio-review-sets\/[A-Za-z0-9-]{16,80}\/[A-Za-z0-9._-]+\.png$/;
-const SAFE_REVIEW_SCREENSHOT_SESSION = /^[A-Za-z0-9-]{16,80}$/;
+const SAFE_REVIEW_SCREENSHOT_PATH = new RegExp(`^\\.runtime/studio-review-sets/[A-Za-z0-9-]{${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits},${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits}}/[A-Za-z0-9._-]+\\.png$`);
+const SAFE_REVIEW_SCREENSHOT_SESSION = new RegExp(`^[A-Za-z0-9-]{${STUDIO_REVIEW_LIMITS.sessionIdMinCodeUnits},${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits}}$`);
 
 export function isReviewScreenshotPath(value: unknown): value is string {
   return typeof value === "string" && SAFE_REVIEW_SCREENSHOT_PATH.test(value);
