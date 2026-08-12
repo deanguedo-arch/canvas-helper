@@ -8238,3 +8238,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
 - Implementation commits: `a7501627` and `3cc61308`.
 - Next command at archival time: `sed -n '1,320p' app/studio/src/hooks/useScreenshotAnnotation.ts`.
+
+## Archived Active Handoff — 2026-08-11: Phase E annotation recovery
+
+- Project: `repo-wide`.
+- Task: Complete Canvas Studio roadmap Phase E: precise annotations, screenshot recovery, stale-anchor recovery, relinking, and resolved work.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the Phase F preview-recovery handoff.
+- Verification: 59 focused Studio tests, 24 annotation E2E tests, platform smoke, strict project contract, Studio production build, diff checks, and independent Terra red-team re-review passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/studio/src/App.tsx`, `app/studio/src/components/InspectionPanel.tsx`, `app/studio/src/components/ReviewSetPanel.tsx`, `app/studio/src/hooks/useScreenshotAnnotation.ts`, `app/studio/src/lib/review-set-storage.ts`, and `app/server/lib/review-screenshots.ts`.
+- Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
+- Implementation commits: `a1abbb56` and `01167026`.
+- Next command at archival time: `sed -n '1,260p' app/studio/src/components/PreviewPane.tsx`.

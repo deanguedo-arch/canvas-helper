@@ -495,15 +495,19 @@ Status: complete in `a1abbb56`, with 59 focused Studio tests, 24 annotation E2E 
 
 Goal: remove silent blank or mangled experiences.
 
-- preflight the selected page before presenting it as ready;
-- detect empty output and common runtime failures;
-- show a short teacher-facing explanation;
-- keep technical diagnostics behind **Details** and in the Codex packet;
-- add **Retry**, **Open another page**, and **Copy issue for Codex** actions;
-- document safe support for additional runtime families through explicit allowlists and tests;
-- distinguish secure-capture media fallbacks from actual course defects.
+- **Completed exact-page preflight:** the selected HTML page must pass a bounded, exact-origin source check before Studio mounts it, enables Annotate, or opens Full Preview;
+- **Completed runtime health:** blank output, hidden or transparent content, indefinite loading/status/progress states, bridge failures, and late runtime failures become explicit recovery states without rejecting slow pages that later render;
+- **Completed teacher recovery:** failures use short plain-language explanations with **Retry**, **Open another page**, and **Copy issue for Codex** actions;
+- **Completed bounded diagnostics:** technical details stay collapsed by default, packets hide local paths and external URL credentials, and stale or standalone-only events cannot contaminate the embedded page state;
+- **Completed full-preview recovery:** Full Preview always opens through the standalone recovery host, includes retry and return actions, and cannot expose a raw course URL through middle-click or link-menu activation;
+- **Completed compatibility policy:** supported runtime families remain allowlisted and tested, unsupported remote families warn without being misclassified as approved;
+- **Completed resource distinction:** generic reference resources bypass course-page recovery, while secure-capture fallbacks remain separate from actual course defects;
+- **Completed page-switch safety:** readiness is bound to the exact current preview URL, so a new page cannot inherit an earlier page's successful check;
+- **Completed project audit:** 524 raw/workspace HTML pages across 57 projects were preflighted with zero hard failures and four bounded warnings requiring project-level follow-up.
 
 Exit condition: every supported preview either renders or provides a useful recovery route.
+
+Status: complete in `75a5d369`, with 64 focused Studio tests, 35 inspection E2E tests, the platform smoke, the strict project contract, the Studio production build, and an independent Terra Max red-team pass succeeding.
 
 ### Phase G — Accessibility, responsive behavior, and performance
 
