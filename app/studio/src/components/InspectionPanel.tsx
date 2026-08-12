@@ -56,15 +56,28 @@ export function InspectionPanel({
     <section className="panel-card inspection-panel" data-testid="inspection-panel">
       <div className="section-header">
         <h3>New annotation</h3>
-        <span className={inspectEnabled ? "inspection-state enabled" : "inspection-state"}>
-          {inspectEnabled ? "Annotating" : resolution ? "Draft paused" : "Off"}
-        </span>
+        <div className="inspection-header-actions">
+          <span className={inspectEnabled ? "inspection-state enabled" : "inspection-state"}>
+            {inspectEnabled ? "Annotating" : resolution ? "Draft paused" : "Off"}
+          </span>
+          {resolution ? (
+            <button
+              type="button"
+              className="ghost-button compact active-toggle"
+              disabled={!canSave}
+              onClick={onSave}
+              data-testid="add-to-review-set"
+            >
+              Save annotation
+            </button>
+          ) : null}
+        </div>
       </div>
 
       {!inspectEnabled ? (
         <p className="empty-state">Turn on Annotate, then click an element or drag over an area in the course.</p>
       ) : null}
-      {resolving ? <p className="empty-state" role="status">Getting your selection ready…</p> : null}
+      {resolving ? <p className="empty-state" role="status" aria-live="polite">Getting your selection ready…</p> : null}
 
       {resolution ? (
         <div className="inspection-details">
@@ -80,6 +93,7 @@ export function InspectionPanel({
               onChange={(event) => onTeacherNoteChange(event.target.value)}
               placeholder="Write your note for Codex…"
               rows={3}
+              maxLength={256}
               data-testid="inspection-teacher-note"
             />
           </label>
@@ -95,18 +109,7 @@ export function InspectionPanel({
             </select>
           </label>
 
-          <div className="inspection-actions">
-            <button
-              type="button"
-              className="ghost-button compact active-toggle"
-              disabled={!canSave}
-              onClick={onSave}
-              data-testid="add-to-review-set"
-            >
-              Save annotation
-            </button>
-            {!canSave && saveDisabledReason ? <span className="inspection-copy-status">{saveDisabledReason}</span> : null}
-          </div>
+          {!canSave && saveDisabledReason ? <span className="inspection-copy-status">{saveDisabledReason}</span> : null}
 
           <div className="inspection-screenshot-option">
             <span>Add screenshots (optional)</span>
@@ -127,8 +130,10 @@ export function InspectionPanel({
             </div>
           </div>
           {!screenshotSupported ? <p className="inspection-warning">Screenshots are not available in this browser.</p> : null}
-          {screenshotError ? <p className="inspection-warning">{screenshotError}</p> : null}
-          {screenshotStatus === "ready" ? <p className="inspection-capture-status" role="status">Screenshot ready to save.</p> : null}
+          {screenshotError ? <p className="inspection-warning" role="alert">{screenshotError}</p> : null}
+          {screenshotStatus === "capturing" ? <p className="inspection-capture-status" role="status" aria-live="polite">Capturing the course preview…</p> : null}
+          {screenshotStatus === "processing" ? <p className="inspection-capture-status" role="status" aria-live="polite">Preparing the screenshot…</p> : null}
+          {screenshotStatus === "ready" ? <p className="inspection-capture-status" role="status" aria-live="polite">Screenshot ready to save.</p> : null}
           {screenshots.length ? (
             <ScreenshotAnnotation
               drafts={screenshots}

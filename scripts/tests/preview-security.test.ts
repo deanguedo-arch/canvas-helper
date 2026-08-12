@@ -425,7 +425,10 @@ test("full-preview draft capture never runs after the refreshed SPA route change
   );
   assert.equal(captureCalls, 0);
   const appSource = await readFile(path.join(repoRoot, "app/studio/src/App.tsx"), "utf8");
-  assert.match(appSource, /action\.action === "capture-draft"[\s\S]{0,1800}runWithCurrentPreviewSelection/);
+  assert.match(
+    appSource,
+    /action\.action === "capture-draft"[\s\S]{0,2400}prepareSelection:[\s\S]{0,800}requestCurrentInspectionSelection[\s\S]{0,800}hasSamePreviewPageRoute[\s\S]{0,800}preserveVisualSelection/
+  );
 });
 
 test("current-selection refresh keeps a teacher-drawn area while accepting current page state", () => {

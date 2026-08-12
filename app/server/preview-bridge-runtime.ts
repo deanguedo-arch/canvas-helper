@@ -52,8 +52,19 @@ export function buildPreviewBridgeRuntime(
   var studioConnected = false;
   var inspectEnabled = false;
   var hoverHandle = 0;
+  var hoverEvent = null;
   var scrollHandle = 0;
   var lastSelectors = [];
+  var scrollSelectorsInitialized = false;
+  var sourceNodeCounts = null;
+  var sourceNodeElements = null;
+  var sourceNodeIndexBuildCount = 0;
+  var keyboardCursor = null;
+  var keyboardCandidateCache = null;
+  var keyboardCandidateCacheDirty = true;
+  var keyboardMutationObserver = null;
+  var temporaryFocusElement = null;
+  var temporaryFocusTabIndex = null;
   var overlay = null;
   var shield = null;
   var dragStart = null;
@@ -93,6 +104,7 @@ export function buildPreviewBridgeRuntime(
   var hostedCourseFrame = null;
   var hostedCoursePort = null;
   var hostedCourseReadyHref = "";
+  var pendingHostedKeyboardEntry = false;
   var hostedCourseHealth = null;
   var hostedCourseHealthTimer = 0;
   var hostedCourseRecoveryMessage = "";
@@ -254,6 +266,7 @@ export function buildPreviewBridgeRuntime(
     var image = document.createElement("img");
     image.src = imageUrl;
     image.alt = label;
+    image.decoding = "async";
     image.style.display = "block";
     image.style.width = "100%";
     image.style.height = "auto";
@@ -324,12 +337,7 @@ export function buildPreviewBridgeRuntime(
   function captureScrollState() {
     var containers = [];
     var selectors = lastSelectors || [];
-    selectors.forEach(function(selector) {
-      var element;
-      try { element = document.querySelector(selector); } catch (_) { element = null; }
-      if (element && isScrollable(element)) containers.push({ selector: selector, top: element.scrollTop, left: element.scrollLeft });
-    });
-    if (!containers.length) {
+    if (!scrollSelectorsInitialized) {
       var seen = {};
       var candidates = Array.prototype.slice.call(document.querySelectorAll("body *"), 0, 12000)
         .filter(isScrollable)
@@ -339,6 +347,13 @@ export function buildPreviewBridgeRuntime(
         .slice(0, MAX_CONTAINERS);
       selectors = candidates.map(function(candidate) { return candidate.selector; });
       containers = candidates.map(function(candidate) { return { selector: candidate.selector, top: candidate.element.scrollTop, left: candidate.element.scrollLeft }; });
+      scrollSelectorsInitialized = true;
+    } else {
+      selectors.forEach(function(selector) {
+        var element;
+        try { element = document.querySelector(selector); } catch (_) { element = null; }
+        if (element && isScrollable(element)) containers.push({ selector: selector, top: element.scrollTop, left: element.scrollLeft });
+      });
     }
     lastSelectors = selectors;
     return { windowTop: window.scrollY, windowLeft: window.scrollX, containers: containers };
@@ -499,13 +514,7 @@ export function buildPreviewBridgeRuntime(
     renderReviewPanel();
   }
 
-  function renderReviewPanel() {
-    if (!reviewPanel || !reviewToggle) return;
-    reviewToggle.textContent = "Review Set (" + reviewState.items.length + ")";
-    reviewToggle.setAttribute("aria-expanded", reviewPanelOpen ? "true" : "false");
-    reviewPanel.style.display = reviewPanelOpen ? "block" : "none";
-    if (!reviewPanelOpen) return;
-
+  function updateReviewComposerState() {
     if (reviewSelectionText) reviewSelectionText.textContent = reviewSelectionExcerpt(reviewSelection);
     if (reviewDraft) reviewDraft.disabled = !reviewSelection;
     if (reviewCapture) {
@@ -524,6 +533,16 @@ export function buildPreviewBridgeRuntime(
       reviewSave.style.opacity = reviewSave.disabled ? "0.48" : "1";
       reviewSave.style.cursor = reviewSave.disabled ? "default" : "pointer";
     }
+  }
+
+  function renderReviewPanel() {
+    if (!reviewPanel || !reviewToggle) return;
+    reviewToggle.textContent = "Review Set (" + reviewState.items.length + ")";
+    reviewToggle.setAttribute("aria-expanded", reviewPanelOpen ? "true" : "false");
+    reviewPanel.style.display = reviewPanelOpen ? "block" : "none";
+    if (!reviewPanelOpen) return;
+
+    updateReviewComposerState();
 
     if (reviewItems) {
       while (reviewItems.firstChild) reviewItems.removeChild(reviewItems.firstChild);
@@ -562,6 +581,7 @@ export function buildPreviewBridgeRuntime(
           reviewLocalMessage = "Removing…";
           renderReviewPanel();
           sendReviewAction({ action: "remove", itemId: item.id });
+          window.requestAnimationFrame(function() { if (reviewPanel) reviewPanel.focus(); });
         });
 
         var show = document.createElement("button");
@@ -621,6 +641,8 @@ export function buildPreviewBridgeRuntime(
             var thumbnail = document.createElement("img");
             thumbnail.src = reviewScreenshotUrl(screenshot.filePath, item);
             thumbnail.alt = "";
+            thumbnail.loading = "lazy";
+            thumbnail.decoding = "async";
             thumbnail.style.display = "block";
             thumbnail.style.width = "100%";
             thumbnail.style.aspectRatio = "16 / 10";
@@ -739,8 +761,8 @@ export function buildPreviewBridgeRuntime(
     inspectButton.type = "button";
     inspectButton.setAttribute("data-canvas-helper-preview-inspect", "true");
     stylePreviewControlButton(inspectButton);
-    inspectButton.addEventListener("click", function() {
-      setInspectMode(!inspectEnabled, true);
+    inspectButton.addEventListener("click", function(event) {
+      setInspectMode(!inspectEnabled, true, event.detail === 0);
     });
 
     var reviewButton = document.createElement("button");
@@ -803,6 +825,7 @@ export function buildPreviewBridgeRuntime(
     panel.id = "canvas-helper-preview-review-panel";
     panel.setAttribute("data-canvas-helper-preview-review-panel", "true");
     panel.setAttribute("aria-label", "Review Set");
+    panel.tabIndex = -1;
     panel.style.display = "none";
     panel.style.position = "absolute";
     panel.style.right = "0";
@@ -835,7 +858,7 @@ export function buildPreviewBridgeRuntime(
     draft.setAttribute("aria-label", "What should Codex change?");
     draft.setAttribute("data-canvas-helper-preview-review-note", "true");
     stylePreviewTextArea(draft);
-    draft.addEventListener("input", renderReviewPanel);
+    draft.addEventListener("input", updateReviewComposerState);
 
     var save = document.createElement("button");
     save.type = "button";
@@ -960,6 +983,7 @@ export function buildPreviewBridgeRuntime(
 
     var panelMessage = document.createElement("p");
     panelMessage.setAttribute("role", "status");
+    panelMessage.setAttribute("aria-live", "polite");
     panelMessage.setAttribute("data-canvas-helper-preview-review-status", "true");
     panelMessage.style.minHeight = "16px";
     panelMessage.style.margin = "7px 0 0";
@@ -1015,6 +1039,26 @@ export function buildPreviewBridgeRuntime(
     updateStandaloneControls();
   }
 
+  function restoreTemporaryFocus() {
+    if (!temporaryFocusElement) return;
+    if (temporaryFocusTabIndex === null) temporaryFocusElement.removeAttribute("tabindex");
+    else temporaryFocusElement.setAttribute("tabindex", temporaryFocusTabIndex);
+    temporaryFocusElement = null;
+    temporaryFocusTabIndex = null;
+  }
+
+  function focusInspectableElement(element) {
+    if (!element) return false;
+    if (temporaryFocusElement !== element) {
+      restoreTemporaryFocus();
+      temporaryFocusElement = element;
+      temporaryFocusTabIndex = element.hasAttribute("tabindex") ? element.getAttribute("tabindex") : null;
+      if (element.tabIndex < 0) element.setAttribute("tabindex", "-1");
+    }
+    try { element.focus({ preventScroll: true }); } catch (_) { try { element.focus(); } catch (_) {} }
+    return document.activeElement === element;
+  }
+
   function focusSourceNode(nodeId, requestId) {
     var element = elementForSourceNodeId(nodeId);
     if (!element) {
@@ -1026,6 +1070,7 @@ export function buildPreviewBridgeRuntime(
     } catch (_) {
       element.scrollIntoView();
     }
+    focusInspectableElement(element);
     window.requestAnimationFrame(function() {
       var rect = element.getBoundingClientRect();
       setOverlay({ left: rect.left, top: rect.top, width: rect.width, height: rect.height });
@@ -1062,27 +1107,33 @@ export function buildPreviewBridgeRuntime(
     return shield;
   }
 
+  function ensureSourceNodeIndex() {
+    if (!sourceNodeCounts) {
+      sourceNodeIndexBuildCount += 1;
+      document.documentElement.setAttribute("data-canvas-helper-source-index-builds", String(sourceNodeIndexBuildCount));
+      sourceNodeCounts = Object.create(null);
+      sourceNodeElements = Object.create(null);
+      var matches = document.querySelectorAll("[" + NODE_ATTRIBUTE + "]");
+      for (var index = 0; index < matches.length; index += 1) {
+        var candidateId = matches[index].getAttribute(NODE_ATTRIBUTE) || "";
+        if (!candidateId) continue;
+        sourceNodeCounts[candidateId] = (sourceNodeCounts[candidateId] || 0) + 1;
+        sourceNodeElements[candidateId] = sourceNodeCounts[candidateId] === 1 ? matches[index] : null;
+      }
+    }
+  }
+
   function uniqueSourceNodeId(element) {
     var nodeId = element.getAttribute(NODE_ATTRIBUTE) || "";
     if (!nodeId) return null;
-    var matches = document.querySelectorAll("[" + NODE_ATTRIBUTE + "]");
-    var count = 0;
-    for (var index = 0; index < matches.length; index += 1) {
-      if (matches[index].getAttribute(NODE_ATTRIBUTE) === nodeId) count += 1;
-    }
-    return count === 1 ? nodeId : null;
+    ensureSourceNodeIndex();
+    return sourceNodeCounts[nodeId] === 1 ? nodeId : null;
   }
 
   function elementForSourceNodeId(nodeId) {
     if (typeof nodeId !== "string" || !nodeId) return null;
-    var matches = document.querySelectorAll("[" + NODE_ATTRIBUTE + "]");
-    var found = null;
-    for (var index = 0; index < matches.length; index += 1) {
-      if (matches[index].getAttribute(NODE_ATTRIBUTE) !== nodeId) continue;
-      if (found) return null;
-      found = matches[index];
-    }
-    return found;
+    ensureSourceNodeIndex();
+    return sourceNodeCounts[nodeId] === 1 ? sourceNodeElements[nodeId] : null;
   }
 
   function targetForPointerEvent(event) {
@@ -1099,7 +1150,7 @@ export function buildPreviewBridgeRuntime(
     return Boolean(element && element.closest("[data-canvas-helper-preview-controls]"));
   }
 
-  function selectionFor(target) {
+  function selectionFor(target, includeScroll, interactionStartedAt) {
     var element = target instanceof Element ? target : null;
     if (!element) return null;
     var rect = element.getBoundingClientRect();
@@ -1113,8 +1164,9 @@ export function buildPreviewBridgeRuntime(
       testId: boundedString(element.getAttribute("data-testid") || "", 120),
       geometry: { x: Math.round(rect.x), y: Math.round(rect.y), width: Math.round(Math.max(0, rect.width)), height: Math.round(Math.max(0, rect.height)) },
       viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
-      scroll: captureScrollState(),
-      pageHref: boundedString(location.href, 2048)
+      scroll: includeScroll === false ? { windowTop: window.scrollY, windowLeft: window.scrollX, containers: [] } : captureScrollState(),
+      pageHref: boundedString(location.href, 2048),
+      interactionStartedAt: typeof interactionStartedAt === "number" ? interactionStartedAt : undefined
     };
   }
 
@@ -1135,7 +1187,7 @@ export function buildPreviewBridgeRuntime(
     return null;
   }
 
-  function visualAreaSelection(rect) {
+  function visualAreaSelection(rect, interactionStartedAt) {
     return {
       nodeId: null,
       selectionKind: "area",
@@ -1146,7 +1198,8 @@ export function buildPreviewBridgeRuntime(
       geometry: rect,
       viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
       scroll: captureScrollState(),
-      pageHref: boundedString(location.href, 2048)
+      pageHref: boundedString(location.href, 2048),
+      interactionStartedAt: typeof interactionStartedAt === "number" ? interactionStartedAt : undefined
     };
   }
 
@@ -1162,6 +1215,83 @@ export function buildPreviewBridgeRuntime(
     setStandaloneStatus(studioConnected ? "Selection ready." : "Selection highlighted. Open this preview from Studio to save it.");
   }
 
+  function keyboardCandidates() {
+    if (!keyboardCandidateCache || keyboardCandidateCacheDirty) {
+      keyboardCandidateCache = Array.prototype.slice.call(document.querySelectorAll("[" + NODE_ATTRIBUTE + "]"), 0, 12000).filter(function(element) {
+        return Boolean(
+          element &&
+          element !== document.documentElement &&
+          element !== document.body &&
+          !isPreviewControlTarget(element) &&
+          isVisibleCourseElement(element)
+        );
+      });
+      keyboardCandidateCacheDirty = false;
+    }
+    return keyboardCandidateCache;
+  }
+
+  function moveKeyboardCursor(direction) {
+    var candidates = keyboardCandidates();
+    if (!candidates.length) return null;
+    var currentIndex = keyboardCursor ? candidates.indexOf(keyboardCursor) : -1;
+    var nextIndex = currentIndex < 0 ? (direction < 0 ? candidates.length - 1 : 0) : (currentIndex + direction + candidates.length) % candidates.length;
+    keyboardCursor = candidates[nextIndex];
+    var selection = selectionFor(keyboardCursor, false);
+    if (!selection) return null;
+    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+    try { keyboardCursor.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "auto" }); } catch (_) {}
+    focusInspectableElement(keyboardCursor);
+    return selection;
+  }
+
+  function stopKeyboardMutationObserver() {
+    if (!keyboardMutationObserver) return;
+    try { keyboardMutationObserver.disconnect(); } catch (_) {}
+    keyboardMutationObserver = null;
+  }
+
+  function startKeyboardMutationObserver() {
+    stopKeyboardMutationObserver();
+    keyboardCandidateCacheDirty = true;
+    sourceNodeCounts = null;
+    sourceNodeElements = null;
+    scrollSelectorsInitialized = false;
+    lastSelectors = [];
+    if (typeof MutationObserver !== "function" || !document.body) return;
+    keyboardMutationObserver = new MutationObserver(function(mutations) {
+      var relevantMutation = mutations.some(function(mutation) {
+        var target = mutation.target instanceof Element ? mutation.target : mutation.target && mutation.target.parentElement;
+        if (!target) return true;
+        if (target === shield || target === overlay || isPreviewControlTarget(target)) return false;
+        if (mutation.type === "childList") {
+          var changedNodes = Array.prototype.slice.call(mutation.addedNodes || []).concat(Array.prototype.slice.call(mutation.removedNodes || []));
+          if (changedNodes.length && changedNodes.every(function(node) {
+            var element = node instanceof Element ? node : node && node.parentElement;
+            return element && (element === shield || element === overlay || isPreviewControlTarget(element));
+          })) return false;
+        }
+        return true;
+      });
+      if (!relevantMutation) return;
+      keyboardCandidateCacheDirty = true;
+      sourceNodeCounts = null;
+      sourceNodeElements = null;
+      scrollSelectorsInitialized = false;
+      lastSelectors = [];
+    });
+    try {
+      keyboardMutationObserver.observe(document.body, {
+        childList: true,
+        subtree: true,
+        attributes: true,
+        attributeFilter: ["class", "style", "hidden", "aria-hidden", NODE_ATTRIBUTE]
+      });
+    } catch (_) {
+      stopKeyboardMutationObserver();
+    }
+  }
+
   function onPointerMove(event) {
     if (!inspectEnabled || !event.isTrusted) return;
     if (dragStart) {
@@ -1175,13 +1305,21 @@ export function buildPreviewBridgeRuntime(
       if (dragging) setOverlay(dragRect);
       return;
     }
-    var target = targetForPointerEvent(event);
-    if (isPreviewControlTarget(target)) return;
-    var selection = selectionFor(target);
-    if (!selection) return;
-    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+    hoverEvent = { target: event.target, clientX: event.clientX, clientY: event.clientY };
     if (hoverHandle) return;
-    hoverHandle = window.requestAnimationFrame(function() { hoverHandle = 0; send("preview-inspect-hover", selection); });
+    hoverHandle = window.requestAnimationFrame(function() {
+      hoverHandle = 0;
+      var pending = hoverEvent;
+      hoverEvent = null;
+      if (!pending) return;
+      var syntheticEvent = { target: pending.target, clientX: pending.clientX, clientY: pending.clientY };
+      var target = targetForPointerEvent(syntheticEvent);
+      if (isPreviewControlTarget(target)) return;
+      var selection = selectionFor(target, false);
+      if (!selection) return;
+      setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+      send("preview-inspect-hover", selection);
+    });
   }
 
   function blockAction(event) {
@@ -1205,7 +1343,8 @@ export function buildPreviewBridgeRuntime(
   function onInspectPointerUp(event) {
     if (!inspectEnabled || !event.isTrusted || !dragStart) return;
     blockAction(event);
-    var selection = dragStart.selection;
+    var interactionStartedAt = Date.now();
+    var selection = Object.assign({}, dragStart.selection, { interactionStartedAt: interactionStartedAt });
     if (dragging) {
       var areaRect = {
         x: Math.round(Math.min(dragStart.x, event.clientX)),
@@ -1215,7 +1354,7 @@ export function buildPreviewBridgeRuntime(
       };
       var endTarget = targetForPointerEvent(event);
       var owner = commonMappedOwner(dragStart.target, endTarget);
-      selection = owner ? selectionFor(owner) : visualAreaSelection(areaRect);
+      selection = owner ? selectionFor(owner, true, interactionStartedAt) : visualAreaSelection(areaRect, interactionStartedAt);
       if (owner && selection) {
         selection.selectionKind = "area";
         selection.geometry = areaRect;
@@ -1239,15 +1378,22 @@ export function buildPreviewBridgeRuntime(
       return;
     }
     if (!inspectEnabled || !event.isTrusted) return;
-    if (isPreviewControlTarget(event.target)) return;
-    if (event.key === "Tab") return;
-    blockAction(event);
     if (event.key === "Escape") {
+      event.preventDefault();
+      event.stopImmediatePropagation();
       setInspectMode(false, true);
       return;
     }
+    if (isPreviewControlTarget(event.target)) return;
+    if (event.key === "Tab") return;
+    blockAction(event);
+    if (event.key === "ArrowDown" || event.key === "ArrowRight" || event.key === "ArrowUp" || event.key === "ArrowLeft") {
+      moveKeyboardCursor(event.key === "ArrowDown" || event.key === "ArrowRight" ? 1 : -1);
+      return;
+    }
     if (event.key !== "Enter" && event.key !== " ") return;
-    var selection = selectionFor(document.activeElement);
+    var active = document.activeElement && document.activeElement !== document.body ? document.activeElement : keyboardCursor;
+    var selection = selectionFor(active, true, Date.now());
     if (!selection) return;
     selectInspection(selection);
   }
@@ -1260,15 +1406,23 @@ export function buildPreviewBridgeRuntime(
     window.scrollBy({ left: event.deltaX, top: event.deltaY, behavior: "auto" });
   }
 
-  function setInspectMode(enabled, notifyStudio) {
+  function setInspectMode(enabled, notifyStudio, keyboardEntry) {
     var nextInspectEnabled = Boolean(enabled);
     var inspectModeChanged = inspectEnabled !== nextInspectEnabled;
     inspectEnabled = nextInspectEnabled;
     document.documentElement.setAttribute("data-canvas-helper-inspect-active", inspectEnabled ? "true" : "false");
     if (hostMode) {
-      sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled });
+      if (!inspectEnabled) pendingHostedKeyboardEntry = false;
+      if (inspectEnabled && keyboardEntry) pendingHostedKeyboardEntry = true;
+      var shouldStartFromKeyboard = inspectEnabled && pendingHostedKeyboardEntry;
+      if (sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled, keyboardEntry: shouldStartFromKeyboard }) && shouldStartFromKeyboard) {
+        pendingHostedKeyboardEntry = false;
+      }
       if (inspectModeChanged) updateStandaloneControls(); else renderReviewPanel();
       if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
+      if (!inspectEnabled && notifyStudio && inspectControl) {
+        window.requestAnimationFrame(function() { inspectControl.focus(); });
+      }
       return;
     }
     var element = ensureShield();
@@ -1278,6 +1432,13 @@ export function buildPreviewBridgeRuntime(
       hideOverlay();
       dragStart = null;
       dragging = false;
+      keyboardCursor = null;
+      hoverEvent = null;
+      stopKeyboardMutationObserver();
+      restoreTemporaryFocus();
+    } else if (!hostMode) {
+      startKeyboardMutationObserver();
+      if (keyboardEntry) window.requestAnimationFrame(function() { moveKeyboardCursor(1); });
     }
     // Studio echoes the active mode back to every preview surface. Preserve a
     // useful local status such as "Selection ready" when that echo does not
@@ -1292,6 +1453,14 @@ export function buildPreviewBridgeRuntime(
     var nextIdentity = pageIdentity(location.href);
     if (!nextIdentity || nextIdentity === lastNavigationIdentity) return;
     lastNavigationIdentity = nextIdentity;
+    sourceNodeCounts = null;
+    sourceNodeElements = null;
+    keyboardCandidateCache = null;
+    keyboardCandidateCacheDirty = true;
+    scrollSelectorsInitialized = false;
+    lastSelectors = [];
+    keyboardCursor = null;
+    if (inspectEnabled) startKeyboardMutationObserver();
     reviewSelection = null;
     reviewLocalMessage = "The course page changed. Select an element again.";
     dragStart = null;
@@ -1411,7 +1580,10 @@ export function buildPreviewBridgeRuntime(
     if (data.type === "preview-ready" && data.payload && typeof data.payload.href === "string") {
       hostedCourseReadyHref = data.payload.href;
       send("preview-ready", data.payload);
-      sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled });
+      var shouldStartFromKeyboard = inspectEnabled && pendingHostedKeyboardEntry;
+      if (sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled, keyboardEntry: shouldStartFromKeyboard }) && shouldStartFromKeyboard) {
+        pendingHostedKeyboardEntry = false;
+      }
       flushHostedFocusRequest();
       return;
     }
@@ -1446,7 +1618,10 @@ export function buildPreviewBridgeRuntime(
     }
     if (data.type === "preview-inspect-mode" && data.payload && typeof data.payload.enabled === "boolean") {
       inspectEnabled = Boolean(data.payload.enabled);
+      document.documentElement.setAttribute("data-canvas-helper-inspect-active", inspectEnabled ? "true" : "false");
+      if (!inspectEnabled) pendingHostedKeyboardEntry = false;
       updateStandaloneControls();
+      if (!inspectEnabled && inspectControl) window.requestAnimationFrame(function() { inspectControl.focus(); });
     }
     if (data.type === "preview-inspect-focused" && hostedFocusRequest && data.payload && data.payload.requestId === hostedFocusRequest.requestId) {
       hostedFocusRequest = null;
@@ -1498,7 +1673,9 @@ export function buildPreviewBridgeRuntime(
     if (event.data.type === "studio-restore-scroll") {
       if (hostMode) sendHostedCourse("studio-restore-scroll", event.data.payload); else restoreScrollState(event.data.payload);
     }
-    if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") setInspectMode(event.data.payload.enabled, false);
+    if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") {
+      setInspectMode(event.data.payload.enabled, false, event.data.payload.keyboardEntry === true);
+    }
     if (
       event.data.type === "studio-request-inspect-current" &&
       event.data.payload &&
@@ -1562,6 +1739,9 @@ export function buildPreviewBridgeRuntime(
         if (reviewDraft) reviewDraft.value = "";
       }
       renderReviewPanel();
+      if (event.data.payload.ok && reviewPanel && (event.data.payload.clearDraft || /removed/i.test(event.data.payload.message))) {
+        window.requestAnimationFrame(function() { reviewPanel.focus(); });
+      }
     }
   }
 
@@ -1718,6 +1898,17 @@ export function buildPreviewBridgeRuntime(
     }
   }
 
+  function disconnectContentHealthObserver() {
+    if (contentHealthObserver) {
+      try { contentHealthObserver.disconnect(); } catch (_) {}
+      contentHealthObserver = null;
+    }
+    if (contentHealthMutationTimer) {
+      window.clearTimeout(contentHealthMutationTimer);
+      contentHealthMutationTimer = 0;
+    }
+  }
+
   function isVisibleCourseElement(element) {
     if (!element || element.closest("[data-canvas-helper-preview-controls], [hidden], [aria-hidden='true']")) return false;
     try {
@@ -1829,6 +2020,7 @@ export function buildPreviewBridgeRuntime(
       var counts = inspectCourseContent();
       if (counts.textLength > 0 || counts.visualCount > 0) {
         if (!contentHealth || contentHealth.status !== "ready") publishContentHealth("ready", counts);
+        disconnectContentHealthObserver();
         if (finalCheck) clearContentHealthCheck();
         return;
       }
@@ -1839,6 +2031,7 @@ export function buildPreviewBridgeRuntime(
     };
     if (typeof MutationObserver === "function" && document.body) {
       contentHealthObserver = new MutationObserver(function() {
+        keyboardCandidateCacheDirty = true;
         if (contentHealthMutationTimer) return;
         contentHealthMutationTimer = window.setTimeout(function() {
           contentHealthMutationTimer = 0;

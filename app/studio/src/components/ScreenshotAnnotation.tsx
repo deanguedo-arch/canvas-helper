@@ -17,7 +17,7 @@ export function ScreenshotAnnotation({ drafts, onCrop, onDownload, onDiscard }: 
       <div className="screenshot-draft-grid">
         {drafts.map((draft, index) => (
           <article key={draft.id} className="screenshot-draft" data-testid="screenshot-draft">
-            <img src={draft.imageUrl} alt={`Marked course screenshot ${index + 1}`} />
+            <img src={draft.imageUrl} alt={`Marked course screenshot ${index + 1}`} loading="lazy" decoding="async" />
             <div className="screenshot-draft-actions">
               <button type="button" className="ghost-button compact" disabled={draft.cropped} onClick={() => onCrop(draft.id)}>
                 {draft.cropped ? "Cropped" : "Crop to selection"}

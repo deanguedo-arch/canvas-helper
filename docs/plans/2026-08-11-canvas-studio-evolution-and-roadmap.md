@@ -513,16 +513,19 @@ Status: complete in `75a5d369`, with 64 focused Studio tests, 35 inspection E2E 
 
 Goal: make the complete review workflow dependable across input methods and screen sizes.
 
-- keyboard-complete annotation and Review Set operation;
-- visible and logical focus management;
-- screen-reader labels and status announcements;
-- color-contrast and reduced-motion checks;
-- narrow-screen layout that does not hide the exit or save actions;
-- large-page and large-project performance profiling;
-- lazy thumbnail loading and bounded local cache behavior;
-- explicit performance budgets for preview start, selection feedback, and capture status.
+- **Completed keyboard workflow:** keyboard activation enters the isolated course, arrows traverse mapped interactive or noninteractive content, Enter/Space select it without triggering the learner action, and Review Set controls remain keyboard operable;
+- **Completed focus management:** selection moves focus to the change note, save/remove return focus to Review Set, Show focuses the source node, and Done/Escape return to Annotate in both Studio and Full Preview;
+- **Completed semantics:** toggle state, expanded state, status/alert announcements, search behavior, review landmarks, and modal screenshot focus use truthful native or ARIA semantics;
+- **Completed visual accessibility:** key muted text meets readable contrast and reduced-motion preference collapses animation and transition duration;
+- **Completed narrow layout:** at 320 px the annotation bar and fixed bounded review rail keep Done and Save reachable without horizontal page overflow;
+- **Completed hot-path control:** pointer work is frame-coalesced, Studio-owned overlays do not invalidate course indexes, source-node and keyboard indexes are page-cached, content observers stop after readiness, and repeated source resolution uses exact mtime/size cache validation;
+- **Completed bounded media/cache behavior:** thumbnails decode asynchronously and lazy-load, while shared seven-day project/session/item/screenshot ceilings constrain local Review Set state;
+- **Completed performance contract:** local-only events measure preview readiness, visibly committed selection feedback, and capture outcome—including selection refresh—against explicit normal budgets while preserving longer recovery deadlines;
+- **Completed dynamic-page and intake safety:** late scroll containers enter committed evidence, large mapped pages remain keyboard responsive, and an intake mutation forces a fresh project-list request instead of reusing an older in-flight response.
 
 Exit condition: the essential workflow passes an accessibility review and remains responsive with realistic project and screenshot counts.
+
+Status: complete on `codex/studio-roadmap-phases`, with 68 focused Studio tests, 48 inspection E2E tests covering keyboard, Full Preview, 320 px, reduced motion, dynamic scroll containers, large mapped pages, warm pointer indexes, forced intake refresh, and visible performance outcomes, plus the platform smoke, strict project contract, Studio production build, and a strict Terra Max red-team pass before Phase H begins.
 
 ### Phase H — Maintainability and release discipline
 

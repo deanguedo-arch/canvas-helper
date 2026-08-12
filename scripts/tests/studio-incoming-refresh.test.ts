@@ -25,7 +25,9 @@ test("studio exposes the refresh intake control and status wiring", async () => 
   assert.match(projectsSource, /fetch\("\/api\/incoming\/refresh"/);
 
   assert.match(useProjectsSource, /const summary = await refreshIncomingIntake\(\);/);
-  assert.match(useProjectsSource, /await refreshProjects\(\);/);
+  assert.match(useProjectsSource, /await refreshProjects\(true\);/);
+  assert.match(useProjectsSource, /const loadProjectsOnce = useCallback\(async \(force = false\)/);
+  assert.match(useProjectsSource, /if \(!force && requestRef\.current\) return requestRef\.current/);
   assert.match(useProjectsSource, /setIncomingRefreshMessage\(toIncomingRefreshMessage\(summary\)\);/);
 
   assert.match(appSource, /onRefreshIntake=\{\(\) => void refreshIncoming\(\)\}/);

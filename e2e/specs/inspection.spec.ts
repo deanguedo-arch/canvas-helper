@@ -5,6 +5,38 @@ import { expect, test } from "@playwright/test";
 
 import { openProjectInStudio, waitForWorkspacePreviewReady } from "../lib/project-open";
 
+type StudioPerformanceEvent = {
+  measure: "preview-ready" | "selection-feedback" | "capture-status";
+  durationMs: number;
+  budgetMs: number;
+  withinBudget: boolean;
+};
+
+async function collectStudioPerformanceEvents(page: import("@playwright/test").Page) {
+  await page.addInitScript(() => {
+    const scope = window as typeof window & { __studioPerformanceEvents?: StudioPerformanceEvent[] };
+    scope.__studioPerformanceEvents = [];
+    window.addEventListener("canvas-helper:studio-performance", (event) => {
+      scope.__studioPerformanceEvents?.push((event as CustomEvent<StudioPerformanceEvent>).detail);
+    });
+  });
+}
+
+async function studioPerformanceEvents(page: import("@playwright/test").Page) {
+  return page.evaluate(() => (
+    (window as typeof window & { __studioPerformanceEvents?: StudioPerformanceEvent[] }).__studioPerformanceEvents ?? []
+  ));
+}
+
+async function tabToTestId(page: import("@playwright/test").Page, testId: string) {
+  for (let index = 0; index < 40; index += 1) {
+    const activeTestId = await page.evaluate(() => (document.activeElement as HTMLElement | null)?.dataset.testid ?? "");
+    if (activeTestId === testId) return;
+    await page.keyboard.press("Tab");
+  }
+  throw new Error(`Keyboard navigation could not reach ${testId}.`);
+}
+
 test("@inspection Studio uses an isolated preview origin and keeps annotation details simple", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
 
@@ -129,6 +161,268 @@ test("@inspection keyboard selection creates a handoff without activating the le
   await expect(workspaceFrame.locator("html")).not.toHaveAttribute("data-canvas-helper-inspect-active", "true");
 });
 
+test("@inspection keyboard-only annotation can select noninteractive content and restore focus", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await tabToTestId(page, "inspect-toggle");
+  await page.keyboard.press("Enter");
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  await expect.poll(() => workspaceFrame.locator("body").evaluate(() => (
+    document.activeElement?.hasAttribute("data-canvas-helper-inspect-node") ?? false
+  ))).toBe(true);
+  await workspaceFrame.locator(":focus").press("Enter");
+  await expect(page.getByTestId("inspection-panel")).toBeVisible();
+  await expect(page.getByTestId("inspection-teacher-note")).toBeFocused();
+  await page.getByTestId("inspection-teacher-note").fill("Clarify this noninteractive course content.");
+  await page.getByTestId("add-to-review-set").press("Enter");
+  await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await expect(page.getByTestId("review-set")).toBeFocused();
+  await page.getByTestId("review-set-item").getByRole("button", { name: "Remove", exact: true }).press("Enter");
+  await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+  await expect(page.getByTestId("review-set")).toBeFocused();
+  await page.getByTestId("annotation-mode-bar").getByRole("button", { name: "Done" }).press("Enter");
+  await expect(page.getByTestId("inspect-toggle")).toBeFocused();
+});
+
+test("@inspection narrow annotation mode keeps Done and Save reachable without horizontal overflow", async ({ page }) => {
+  await page.setViewportSize({ width: 320, height: 568 });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const heading = page.frameLocator('[data-testid="workspace-preview-frame"]').getByRole("heading", { name: "E2E Fixture Workspace" });
+  await heading.scrollIntoViewIfNeeded();
+  const bounds = await heading.boundingBox();
+  expect(bounds).toBeTruthy();
+  await page.mouse.click((bounds?.x ?? 0) + 8, (bounds?.y ?? 0) + 8);
+  await expect(page.getByTestId("inspection-teacher-note")).toBeFocused();
+  await page.getByTestId("inspection-teacher-note").fill("Keep this mobile review usable.");
+  await expect(page.getByTestId("add-to-review-set")).toBeInViewport();
+  await expect(page.getByTestId("annotation-mode-bar").getByRole("button", { name: "Done" })).toBeInViewport();
+  expect(await page.evaluate(() => ({ width: document.documentElement.clientWidth, scrollWidth: document.documentElement.scrollWidth })))
+    .toEqual({ width: 320, scrollWidth: 320 });
+});
+
+test("@inspection performance events expose bounded preview, selection, and capture outcomes", async ({ page }) => {
+  await collectStudioPerformanceEvents(page);
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  await openProjectInStudio(page, "e2e-fixture");
+  await expect.poll(async () => (await studioPerformanceEvents(page)).some((event) => event.measure === "preview-ready")).toBe(true);
+  await page.getByTestId("inspect-toggle").click();
+  const heading = page.frameLocator('[data-testid="workspace-preview-frame"]').getByRole("heading", { name: "E2E Fixture Workspace" });
+  const bounds = await heading.boundingBox();
+  expect(bounds).toBeTruthy();
+  await page.mouse.click((bounds?.x ?? 0) + 8, (bounds?.y ?? 0) + 8);
+  await expect(page.getByTestId("inspection-panel")).toBeVisible();
+  await page.getByTestId("capture-annotated-screenshot").click();
+  await expect(page.getByTestId("screenshot-draft")).toHaveCount(1);
+  await expect.poll(async () => {
+    const measures = (await studioPerformanceEvents(page)).map((event) => event.measure);
+    return ["preview-ready", "selection-feedback", "capture-status"].every((measure) => measures.includes(measure as StudioPerformanceEvent["measure"]));
+  }).toBe(true);
+  const latestByMeasure = new Map((await studioPerformanceEvents(page)).map((event) => [event.measure, event]));
+  for (const measure of ["preview-ready", "selection-feedback", "capture-status"] as const) {
+    const event = latestByMeasure.get(measure);
+    expect(event, `${measure} performance event is recorded`).toBeTruthy();
+    expect(event?.durationMs).toBeGreaterThanOrEqual(0);
+    expect(event?.budgetMs).toBeGreaterThan(0);
+    expect(event?.withinBudget, `${measure} stays inside its user-facing performance budget`).toBe(true);
+  }
+});
+
+test("@inspection selection feedback timing ends only after the note is visibly focused", async ({ page }) => {
+  await collectStudioPerformanceEvents(page);
+  await page.route("**/api/inspection/resolve", async (route) => {
+    await new Promise((resolve) => setTimeout(resolve, 650));
+    await route.continue();
+  });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const heading = page.frameLocator('[data-testid="workspace-preview-frame"]').getByRole("heading", { name: "E2E Fixture Workspace" });
+  const bounds = await heading.boundingBox();
+  expect(bounds).toBeTruthy();
+  await page.mouse.click((bounds?.x ?? 0) + 8, (bounds?.y ?? 0) + 8);
+  await expect(page.getByTestId("inspection-teacher-note")).toBeFocused();
+  await expect.poll(async () => (
+    (await studioPerformanceEvents(page)).filter((event) => event.measure === "selection-feedback").at(-1) ?? null
+  )).not.toBeNull();
+  const events = await studioPerformanceEvents(page);
+  const measured = events.filter((event) => event.measure === "selection-feedback").at(-1);
+  expect(measured?.durationMs).toBeGreaterThanOrEqual(600);
+  expect(measured?.withinBudget).toBe(false);
+});
+
+test("@inspection a deliberate slow drag measures feedback only after selection commit", async ({ page }) => {
+  await collectStudioPerformanceEvents(page);
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const heading = page.frameLocator('[data-testid="workspace-preview-frame"]').getByRole("heading", { name: "E2E Fixture Workspace" });
+  const bounds = await heading.boundingBox();
+  expect(bounds).toBeTruthy();
+  const startX = (bounds?.x ?? 0) + 8;
+  const startY = (bounds?.y ?? 0) + 8;
+  await page.mouse.move(startX, startY);
+  await page.mouse.down();
+  await page.waitForTimeout(700);
+  await page.mouse.move(startX + 45, startY + 18, { steps: 4 });
+  await page.mouse.up();
+  await expect(page.getByTestId("inspection-teacher-note")).toBeFocused();
+  await expect.poll(async () => (
+    (await studioPerformanceEvents(page)).filter((event) => event.measure === "selection-feedback").at(-1) ?? null
+  )).not.toBeNull();
+  const measured = (await studioPerformanceEvents(page)).filter((event) => event.measure === "selection-feedback").at(-1);
+  expect(measured?.durationMs).toBeLessThan(500);
+  expect(measured?.withinBudget).toBe(true);
+});
+
+test("@inspection keyboard entry from Original waits for Current and Escape returns focus", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("preview-reference-toggle").click();
+  await expect(page.getByTestId("preview-reference-toggle")).toHaveAttribute("aria-pressed", "true");
+  await tabToTestId(page, "inspect-toggle");
+  await page.keyboard.press("Enter");
+
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  await expect.poll(() => workspaceFrame.locator("body").evaluate(() => (
+    document.activeElement?.hasAttribute("data-canvas-helper-inspect-node") ?? false
+  ))).toBe(true);
+  const focusedNodeId = await workspaceFrame.locator("body").evaluate(() => (
+    document.activeElement?.getAttribute("data-canvas-helper-inspect-node") ?? ""
+  ));
+  expect(focusedNodeId).not.toBe("");
+  await workspaceFrame.locator(`[data-canvas-helper-inspect-node="${focusedNodeId}"]`).press("Escape");
+  await expect(page.getByTestId("inspect-toggle")).toBeFocused();
+  await expect(page.getByTestId("inspect-toggle")).toHaveAttribute("aria-pressed", "false");
+});
+
+test("@inspection Full Preview keyboard annotation focuses course content and restores its Annotate control", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const previewPagePromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const previewPage = await previewPagePromise;
+  await previewPage.waitForLoadState("domcontentloaded");
+  const previewInspect = previewPage.locator('[data-canvas-helper-preview-inspect="true"]');
+  const standaloneCourse = previewPage.frameLocator('[data-canvas-helper-standalone-course="true"]');
+  await expect(previewInspect).toBeVisible();
+  await previewInspect.focus();
+  await previewInspect.press("Enter");
+  await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  await expect.poll(() => standaloneCourse.locator("body").evaluate(() => (
+    document.activeElement?.hasAttribute("data-canvas-helper-inspect-node") ?? false
+  ))).toBe(true);
+  await standaloneCourse.locator(":focus").press("Escape");
+  await expect(previewInspect).toBeFocused();
+  await expect(previewInspect).toHaveAttribute("aria-pressed", "false");
+  await previewPage.close();
+});
+
+test("@inspection reduced motion and high-contrast annotation copy remain explicit", async ({ page }) => {
+  await page.emulateMedia({ reducedMotion: "reduce" });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const annotationCopy = page.getByTestId("annotation-mode-bar").locator(".annotation-mode-copy span");
+  await expect(annotationCopy).toHaveCSS("color", "rgb(255, 255, 255)");
+  const transitionDurationSeconds = await page.getByTestId("layout-focus-toggle").evaluate((element) => (
+    getComputedStyle(element).transitionDuration.split(",").map((value) => {
+      const duration = Number.parseFloat(value);
+      return value.trim().endsWith("ms") ? duration / 1_000 : duration;
+    })
+  ));
+  expect(Math.max(...transitionDurationSeconds)).toBeLessThanOrEqual(0.00001);
+});
+
+test("@inspection keyboard traversal sees mapped content added after preview readiness", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await tabToTestId(page, "inspect-toggle");
+  await page.keyboard.press("Enter");
+  await expect.poll(() => workspaceFrame.locator("body").evaluate(() => (
+    document.activeElement?.hasAttribute("data-canvas-helper-inspect-node") ?? false
+  ))).toBe(true);
+  await workspaceFrame.locator("body").evaluate((body) => {
+    const heading = document.createElement("h2");
+    heading.setAttribute("data-canvas-helper-inspect-node", "ch1:000000000000000000000000:9999");
+    heading.textContent = "Late mapped heading";
+    body.appendChild(heading);
+  });
+  await expect(workspaceFrame.getByRole("heading", { name: "Late mapped heading" })).toBeVisible();
+  let foundLateHeading = false;
+  for (let index = 0; index < 80 && !foundLateHeading; index += 1) {
+    foundLateHeading = await workspaceFrame.locator("body").evaluate(() => document.activeElement?.textContent === "Late mapped heading");
+    if (!foundLateHeading) await workspaceFrame.locator(":focus").press("ArrowDown");
+  }
+  expect(foundLateHeading).toBe(true);
+});
+
+test("@inspection repeated pointer hover keeps the mapped-node index warm", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const bounds = await heading.boundingBox();
+  expect(bounds).toBeTruthy();
+  for (let index = 0; index < 20; index += 1) {
+    await page.mouse.move((bounds?.x ?? 0) + 5 + index, (bounds?.y ?? 0) + 8);
+  }
+  await expect.poll(() => workspaceFrame.locator("html").getAttribute("data-canvas-helper-source-index-builds")).toBe("1");
+});
+
+test("@inspection keyboard entry remains responsive with a large mapped course page", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await workspaceFrame.locator("body").evaluate((body) => {
+    const fragment = document.createDocumentFragment();
+    for (let index = 0; index < 2_500; index += 1) {
+      const item = document.createElement("p");
+      item.setAttribute("data-canvas-helper-inspect-node", `ch1:000000000000000000000000:${10_000 + index}`);
+      item.textContent = `Mapped course item ${index + 1}`;
+      fragment.appendChild(item);
+    }
+    body.appendChild(fragment);
+  });
+  await tabToTestId(page, "inspect-toggle");
+  const startedAt = Date.now();
+  await page.keyboard.press("Enter");
+  await expect.poll(() => workspaceFrame.locator("body").evaluate(() => (
+    document.activeElement?.hasAttribute("data-canvas-helper-inspect-node") ?? false
+  )), { timeout: 2_000 }).toBe(true);
+  expect(Date.now() - startedAt).toBeLessThan(2_000);
+});
+
+test("@inspection a scroll container added after readiness is included in committed evidence", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+  await workspaceFrame.locator("body").evaluate((body) => {
+    const container = document.createElement("div");
+    container.id = "late-scroll-container";
+    container.style.cssText = "height:80px;overflow:auto;border:1px solid transparent";
+    const content = document.createElement("div");
+    content.style.height = "600px";
+    const target = document.createElement("h2");
+    target.textContent = "Late scroll selection";
+    target.style.marginTop = "180px";
+    target.setAttribute("data-canvas-helper-inspect-node", "ch1:000000000000000000000000:9001");
+    content.appendChild(target);
+    container.appendChild(content);
+    body.prepend(container);
+    container.scrollTop = 140;
+  });
+  const resolutionRequest = page.waitForRequest((request) => (
+    request.url().endsWith("/api/inspection/resolve") && request.method() === "POST"
+  ));
+  const lateTarget = workspaceFrame.getByRole("heading", { name: "Late scroll selection" });
+  const bounds = await lateTarget.boundingBox();
+  expect(bounds).toBeTruthy();
+  await page.mouse.click((bounds?.x ?? 0) + 8, (bounds?.y ?? 0) + 8);
+  const request = await resolutionRequest;
+  const payload = request.postDataJSON() as { selection: { scroll: { containers: Array<{ selector: string; top: number }> } } };
+  expect(payload.selection.scroll.containers).toEqual(expect.arrayContaining([
+    expect.objectContaining({ selector: "#late-scroll-container", top: 140 })
+  ]));
+});
+
 test("@inspection standalone preview can collect and copy the shared Review Set", async ({ page }) => {
   await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
   await openProjectInStudio(page, "e2e-fixture");
@@ -181,9 +475,33 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await expect(previewCapture).toContainText("1/3");
   await previewPage.locator('[data-canvas-helper-preview-review-save="true"]').click();
   await expect(previewPage.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(1);
+  await expect(previewReviewPanel).toBeFocused();
   await expect(page.getByTestId("review-set-item")).toHaveCount(1);
   await expect(page.getByTestId("review-set-screenshot")).toHaveCount(1);
   await expect(previewReviewPanel.locator("img")).toHaveCount(1);
+  const reselectionBounds = await standaloneHeading.boundingBox();
+  expect(reselectionBounds).toBeTruthy();
+  await previewPage.mouse.click(
+    (reselectionBounds?.x ?? 0) + (reselectionBounds?.width ?? 0) / 2,
+    (reselectionBounds?.y ?? 0) + (reselectionBounds?.height ?? 0) / 2
+  );
+  const standaloneDraft = previewPage.locator('[data-canvas-helper-preview-review-note="true"]');
+  await expect(standaloneDraft).toBeEnabled();
+  await expect.poll(() => previewReviewPanel.locator("img").evaluateAll((images) => (
+    images.every((image) => (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0)
+  ))).toBe(true);
+  let extraThumbnailRequests = 0;
+  previewPage.on("request", (request) => {
+    if (request.method() === "GET" && request.url().includes("/api/inspection/screenshots?")) {
+      extraThumbnailRequests += 1;
+    }
+  });
+  await previewPage.waitForTimeout(300);
+  extraThumbnailRequests = 0;
+  await standaloneDraft.pressSequentially("Typing must not reload saved screenshots.");
+  await previewPage.waitForTimeout(200);
+  expect(extraThumbnailRequests).toBe(0);
+  await standaloneDraft.fill("");
   const standaloneScreenshotTrigger = previewReviewPanel.getByRole("button", { name: "Open screenshot 1 for annotation 1" });
   await standaloneScreenshotTrigger.click();
   await expect(previewPage.getByRole("dialog", { name: "Screenshot 1 for annotation 1" })).toBeVisible();
@@ -194,12 +512,19 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await expect(previewPage.getByRole("dialog", { name: "Screenshot 1 for annotation 1" })).toHaveCount(0);
   await expect(standaloneScreenshotTrigger).toBeFocused();
   await expect(previewInspect).toHaveAttribute("aria-pressed", "true");
+  await standaloneDraft.focus();
+  await standaloneDraft.press("Escape");
+  await expect(previewInspect).toBeFocused();
+  await expect(previewInspect).toHaveAttribute("aria-pressed", "false");
+  await previewInspect.click();
+  await expect(previewInspect).toHaveAttribute("aria-pressed", "true");
   await previewReviewPanel.getByRole("button", { name: "Add screenshot" }).click();
   await expect(previewReviewPanel.locator("img")).toHaveCount(2);
   await previewReviewPanel.getByRole("button", { name: "Remove screenshot 2" }).click();
   await expect(previewReviewPanel.locator("img")).toHaveCount(1);
   await previewReviewPanel.getByRole("button", { name: "Remove", exact: true }).click();
   await expect(previewPage.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(0);
+  await expect(previewReviewPanel).toBeFocused();
   const previewUndo = previewPage.locator('[data-canvas-helper-preview-review-undo="true"]');
   await expect(previewUndo).toHaveText("Undo remove");
   await previewUndo.click();
@@ -433,7 +758,7 @@ test("@inspection screenshot capture can be canceled and retried without losing 
   });
   const capture = page.getByTestId("capture-annotated-screenshot");
   await capture.evaluate((button: HTMLButtonElement) => button.click());
-  await expect(capture).toHaveText("Cancel capture");
+  await expect(capture).toHaveText("Cancel capture", { timeout: 500 });
   await capture.evaluate((button: HTMLButtonElement) => button.click());
   releaseCapture();
   await expect(capture).toHaveText("Capture screenshot");
@@ -493,7 +818,9 @@ test("@inspection Show restores the saved workspace HTML page before focusing th
 test("@inspection Show restores the saved query and hash state on the same course page", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-  const currentState = () => workspaceFrame.locator("html").evaluate(() => `${location.search}${location.hash}`);
+  const currentState = () => workspaceFrame.locator("html")
+    .evaluate(() => `${location.search}${location.hash}`)
+    .catch(() => "");
   await workspaceFrame.locator("html").evaluate(() => history.replaceState(null, "", "?lesson=one#part-a"));
   await expect.poll(currentState).toBe("?lesson=one#part-a");
   await page.waitForTimeout(100); // Let the preview-navigation bridge settle before annotation mode starts.
@@ -772,6 +1099,39 @@ test("@inspection New Project routes to the existing local intake scan", async (
   await expect(page.getByTestId("new-project-panel")).toBeVisible();
   await page.getByTestId("scan-intake-button").click();
   await expect(page.getByTestId("new-project-panel").getByRole("status")).toContainText("No incoming items were ready");
+});
+
+test("@inspection intake refresh ignores an older in-flight project response", async ({ page }) => {
+  let projectRequestCount = 0;
+  let releaseFirstRequest = () => undefined;
+  const firstRequestHeld = new Promise<void>((resolve) => { releaseFirstRequest = resolve; });
+  await page.route("**/api/projects", async (route) => {
+    projectRequestCount += 1;
+    if (projectRequestCount === 1) await firstRequestHeld;
+    await route.continue();
+  });
+  await page.route("**/api/incoming/refresh", async (route) => {
+    await route.fulfill({
+      status: 200,
+      contentType: "application/json",
+      body: JSON.stringify({
+        startedAt: new Date().toISOString(),
+        finishedAt: new Date().toISOString(),
+        mode: "all",
+        importedProjects: [{ slug: "new-fixture" }],
+        skippedProjects: [],
+        syncedReferences: [],
+        failures: [],
+        archivedPaths: []
+      })
+    });
+  });
+  await page.goto("/?e2e=1");
+  await page.getByTestId("topbar-new-project").click();
+  await page.getByTestId("scan-intake-button").click();
+  await expect.poll(() => projectRequestCount).toBeGreaterThanOrEqual(2);
+  releaseFirstRequest();
+  await expect(page.getByTestId("new-project-panel").getByRole("status")).toContainText("Imported 1 project");
 });
 
 test("@inspection preview connection failure exposes a working reconnect action", async ({ page }) => {

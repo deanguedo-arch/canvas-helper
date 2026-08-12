@@ -79,6 +79,7 @@ export function Topbar({
 }: TopbarProps) {
   const [searchValue, setSearchValue] = useState("");
   const [searchOpen, setSearchOpen] = useState(false);
+  const [activeResultIndex, setActiveResultIndex] = useState(0);
   const searchRef = useRef<HTMLInputElement | null>(null);
   const searchShellRef = useRef<HTMLDivElement | null>(null);
   const visibleProjects = useMemo(() => getVisibleStudioProjects(projects), [projects]);
@@ -150,6 +151,12 @@ export function Topbar({
   };
 
   const firstResult = resultSections.flatMap((section) => section.projects)[0];
+  const flatResults = resultSections.flatMap((section) => section.projects);
+  const activeResult = flatResults[Math.min(activeResultIndex, Math.max(0, flatResults.length - 1))];
+
+  useEffect(() => {
+    setActiveResultIndex(0);
+  }, [searchValue]);
 
   return (
     <header className="topbar" data-testid="studio-topbar">
@@ -182,6 +189,7 @@ export function Topbar({
           <span className="sr-only">Search courses</span>
           <SearchIcon />
           <input
+            type="search"
             ref={searchRef}
             value={searchValue}
             onFocus={() => setSearchOpen(true)}
@@ -190,14 +198,19 @@ export function Topbar({
               setSearchOpen(true);
             }}
             onKeyDown={(event) => {
-              if (event.key === "Enter" && firstResult) {
+              if (event.key === "ArrowDown" && flatResults.length) {
                 event.preventDefault();
-                chooseProject(firstResult.manifest.slug);
+                setActiveResultIndex((current) => Math.min(current + 1, flatResults.length - 1));
+              } else if (event.key === "ArrowUp" && flatResults.length) {
+                event.preventDefault();
+                setActiveResultIndex((current) => Math.max(current - 1, 0));
+              } else if (event.key === "Enter" && (activeResult || firstResult)) {
+                event.preventDefault();
+                chooseProject((activeResult || firstResult).manifest.slug);
               }
             }}
             placeholder="Search courses…"
             autoComplete="off"
-            role="combobox"
             aria-expanded={searchOpen}
             aria-controls="studio-course-results"
             data-testid="course-search-input"
@@ -213,12 +226,14 @@ export function Topbar({
                 {section.projects.map((project) => {
                   const slug = project.manifest.slug;
                   const favorite = favoriteSet.has(slug);
+                  const resultIndex = flatResults.findIndex((candidate) => candidate.manifest.slug === slug);
                   return (
-                    <div className={slug === selectedSlug ? "course-finder-row selected" : "course-finder-row"} key={slug}>
+                    <div className={resultIndex === activeResultIndex ? "course-finder-row selected" : "course-finder-row"} key={slug}>
                       <button
                         type="button"
                         className="course-finder-result"
                         onClick={() => chooseProject(slug)}
+                        onMouseEnter={() => setActiveResultIndex(resultIndex)}
                         data-testid={`course-result-${slug}`}
                       >
                         <strong>{getProjectLabel(project)}</strong>

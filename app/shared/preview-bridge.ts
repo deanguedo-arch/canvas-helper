@@ -89,6 +89,7 @@ export type PreviewInspectPayload = {
   viewport: PreviewViewport;
   scroll: PreviewScrollState;
   pageHref: string;
+  interactionStartedAt?: number;
 };
 
 export type PreviewInspectCurrentPayload = {
@@ -283,7 +284,11 @@ export function isPreviewInspectPayload(value: unknown): value is PreviewInspect
     isGeometry(value.geometry) &&
     isViewport(value.viewport) &&
     isPreviewScrollState(value.scroll) &&
-    isBoundedNonEmptyString(value.pageHref, 2_048)
+    isBoundedNonEmptyString(value.pageHref, 2_048) &&
+    (
+      value.interactionStartedAt === undefined ||
+      (typeof value.interactionStartedAt === "number" && Number.isFinite(value.interactionStartedAt) && value.interactionStartedAt >= 0)
+    )
   );
 }
 
@@ -420,7 +425,7 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
     case "studio-restore-scroll":
       return isPreviewScrollState(payload);
     case "studio-set-inspect-mode":
-      return isRecord(payload) && typeof payload.enabled === "boolean";
+      return isRecord(payload) && typeof payload.enabled === "boolean" && (payload.keyboardEntry === undefined || typeof payload.keyboardEntry === "boolean");
     case "studio-request-inspect-current":
       return (
         isRecord(payload) &&

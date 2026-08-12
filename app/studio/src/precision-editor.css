@@ -702,7 +702,7 @@ pre {
 }
 
 .workspace-picker .mini-field span {
-  color: #7b8492;
+  color: #667085;
   font-size: 10px;
   font-weight: 650;
   letter-spacing: 0.02em;
@@ -924,7 +924,7 @@ pre {
 
 .annotation-mode-copy span {
   overflow: hidden;
-  color: rgba(255, 255, 255, 0.82);
+  color: #ffffff;
   font-size: 11px;
   text-overflow: ellipsis;
   white-space: nowrap;
@@ -949,6 +949,11 @@ pre {
   color: #1452a0;
   border-color: #ffffff;
   background: #ffffff;
+}
+
+.review-set-panel:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -3px;
 }
 
 /* Preview canvas */
@@ -1328,6 +1333,15 @@ pre {
 }
 
 @media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+  }
+
   .preview-recovery-spinner {
     animation: none;
     border-color: var(--accent);
@@ -1470,6 +1484,16 @@ pre {
 .inspection-state.enabled {
   color: #1859b8;
   background: #e8f0ff;
+}
+
+.inspection-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.inspection-header-actions .active-toggle {
+  white-space: nowrap;
 }
 
 .inspection-selection-summary {
@@ -2142,6 +2166,16 @@ pre {
     overflow-y: auto;
     padding-right: 0;
   }
+
+  .inspection-panel > .section-header {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    margin: -18px -18px 0;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--line);
+    background: #ffffff;
+  }
 }
 
 @media (max-width: 1520px) {
@@ -2231,7 +2265,7 @@ pre {
   }
 
   .annotation-mode-bar {
-    position: relative;
+    position: sticky;
     top: 0;
   }
 
@@ -2240,8 +2274,13 @@ pre {
   }
 
   .workspace-grid.inspector-open .inspector {
-    position: static;
-    max-height: none;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 55;
+    max-height: min(52vh, 520px);
+    overflow-y: auto;
     border-top: 1px solid var(--line);
     border-left: 0;
   }
@@ -2321,12 +2360,26 @@ pre {
   }
 
   .annotation-mode-actions {
-    flex-wrap: wrap;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr) auto;
+    width: 100%;
+  }
+
+  .annotation-mode-actions button {
+    justify-content: center;
+  }
+
+  .annotation-mode-actions .annotation-mode-done {
+    min-width: 72px;
   }
 
   .preview-workspace,
   .assessment-mode {
     padding: 10px;
+  }
+
+  .workspace-grid.inspector-open .inspector {
+    max-height: 46vh;
   }
 
   .preview-stage {

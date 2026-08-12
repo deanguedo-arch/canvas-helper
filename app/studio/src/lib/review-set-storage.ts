@@ -23,6 +23,7 @@ import {
   isReviewScreenshotSessionId,
   reviewScreenshotImageUrl
 } from "./review-screenshots";
+import { STUDIO_REVIEW_CACHE_LIMITS } from "../../../shared/studio-quality.js";
 
 const STORAGE_KEY = "canvas-helper/review-workbench-v9";
 const LEGACY_WORKBENCH_STORAGE_KEY = "canvas-helper/review-workbench-v8";
@@ -31,9 +32,9 @@ const LEGACY_SINGLE_SET_STORAGE_KEY = "canvas-helper/review-set-v6";
 const OBSOLETE_STORAGE_KEYS = ["canvas-helper/review-set-v5", "canvas-helper/review-set-v4", "canvas-helper/review-set-v3"];
 const STORAGE_VERSION = 9;
 const BACKUP_VERSION = 1;
-const STORAGE_TTL_MS = 7 * 24 * 60 * 60 * 1_000;
-const STORAGE_MAX_PROJECTS = 40;
-const STORAGE_MAX_SESSIONS_PER_PROJECT = 8;
+const STORAGE_TTL_MS = STUDIO_REVIEW_CACHE_LIMITS.ttlDays * 24 * 60 * 60 * 1_000;
+const STORAGE_MAX_PROJECTS = STUDIO_REVIEW_CACHE_LIMITS.projects;
+const STORAGE_MAX_SESSIONS_PER_PROJECT = STUDIO_REVIEW_CACHE_LIMITS.sessionsPerProject;
 const STORAGE_MAX_SET_CHARACTERS = 160_000;
 const STORAGE_MAX_CHARACTERS = 1_200_000;
 const REVIEW_SET_NAME_MAX_BYTES = 80;

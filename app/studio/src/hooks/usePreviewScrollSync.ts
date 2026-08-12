@@ -51,7 +51,7 @@ type UsePreviewScrollSyncOptions = {
   inspectEnabled: boolean;
   onInspectSelection: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
-  onInspectModeChange?: (enabled: boolean) => void;
+  onInspectModeChange?: (enabled: boolean, source: PreviewSurface) => void;
   onPreviewNavigation?: (mode: PreviewMode, href: string, source: PreviewSurface) => void;
   onPreviewReady?: (mode: PreviewMode, href: string, source: PreviewSurface) => void;
   onPreviewHealth?: (mode: PreviewMode, health: PreviewContentHealth, source: PreviewSurface) => void;
@@ -72,6 +72,8 @@ type PendingInspectionRequest = {
   resolve: (selection: PreviewInspectPayload) => void;
   reject: (error: Error) => void;
   timeout: number;
+  signal?: AbortSignal;
+  abortHandler?: () => void;
 };
 
 type PendingFocusRequest = {
@@ -205,6 +207,7 @@ export function usePreviewScrollSync({
     reference: null,
     workspace: null
   });
+  const pendingKeyboardInspectionRef = useRef(false);
   const previewScrollMapRef = useRef<PreviewScrollMap>(loadPreviewScrollMap());
   const latestScrollStateRef = useRef<Record<PreviewMode, PreviewScrollPosition | null>>({
     reference: null,
@@ -240,6 +243,9 @@ export function usePreviewScrollSync({
       return;
     }
     window.clearTimeout(pending.timeout);
+    if (pending.signal && pending.abortHandler) {
+      pending.signal.removeEventListener("abort", pending.abortHandler);
+    }
     pendingInspectionRequestRefs.current[mode] = null;
     if (error) {
       pending.reject(error);
@@ -311,6 +317,17 @@ export function usePreviewScrollSync({
       return false;
     }
     postToPort(port, message);
+    return true;
+  };
+
+  const flushPendingKeyboardInspection = () => {
+    if (!pendingKeyboardInspectionRef.current || !stateRef.current.inspectEnabled) return false;
+    const port = previewPortRefs.current.workspace;
+    if (!port || !previewReadyRefs.current.workspace) return false;
+    const message = createPreviewBridgeMessage("studio-set-inspect-mode", { enabled: true, keyboardEntry: true });
+    if (previewBridgeMessageByteLength(message) > PREVIEW_BRIDGE_MAX_MESSAGE_BYTES) return false;
+    postToPort(port, message);
+    pendingKeyboardInspectionRef.current = false;
     return true;
   };
 
@@ -406,6 +423,7 @@ export function usePreviewScrollSync({
         restoreStoredScrollPosition(mode);
         postBridgeCommand(mode, "studio-request-state", null);
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && stateRef.current.inspectEnabled });
+        if (mode === "workspace" && source === "embedded") flushPendingKeyboardInspection();
         flushPendingFocusRequest(mode, source);
         inspectionCallbacksRef.current.onPreviewReady?.(
           mode,
@@ -452,6 +470,9 @@ export function usePreviewScrollSync({
           break;
         }
         window.clearTimeout(pending.timeout);
+        if (pending.signal && pending.abortHandler) {
+          pending.signal.removeEventListener("abort", pending.abortHandler);
+        }
         pendingInspectionRequestRefs.current[mode] = null;
         pending.resolve(selection);
         break;
@@ -479,7 +500,7 @@ export function usePreviewScrollSync({
         previewModes.forEach((targetMode) => {
           postBridgeCommand(targetMode, "studio-set-inspect-mode", { enabled });
         });
-        inspectionCallbacksRef.current.onInspectModeChange?.(enabled);
+        inspectionCallbacksRef.current.onInspectModeChange?.(enabled, source);
         break;
       }
       case "preview-review-action":
@@ -591,7 +612,15 @@ export function usePreviewScrollSync({
     connectPreviewBridge(mode);
   };
 
-  const requestCurrentInspectionSelection = (mode: PreviewMode, nodeId: string, source: PreviewSurface = "embedded") => {
+  const requestCurrentInspectionSelection = (
+    mode: PreviewMode,
+    nodeId: string,
+    source: PreviewSurface = "embedded",
+    signal?: AbortSignal
+  ) => {
+    if (signal?.aborted) {
+      return Promise.reject(new DOMException("Capture canceled", "AbortError"));
+    }
     const hasReadyPort = source === "embedded"
       ? Boolean(previewPortRefs.current[mode] && previewReadyRefs.current[mode])
       : Boolean(standalonePreviewPortRefs.current[mode]);
@@ -607,10 +636,16 @@ export function usePreviewScrollSync({
         if (pending?.requestId !== requestId) {
           return;
         }
-        pendingInspectionRequestRefs.current[mode] = null;
-        reject(new Error("The preview did not confirm the selected element. Select it again before capturing a screenshot."));
+        clearPendingInspectionRequest(mode, new Error("The preview did not confirm the selected element. Select it again before capturing a screenshot."));
       }, 1_500);
-      pendingInspectionRequestRefs.current[mode] = { requestId, nodeId, source, resolve, reject, timeout };
+      const abortHandler = signal ? () => {
+        const pending = pendingInspectionRequestRefs.current[mode];
+        if (pending?.requestId === requestId) {
+          clearPendingInspectionRequest(mode, new DOMException("Capture canceled", "AbortError"));
+        }
+      } : undefined;
+      pendingInspectionRequestRefs.current[mode] = { requestId, nodeId, source, resolve, reject, timeout, signal, abortHandler };
+      if (signal && abortHandler) signal.addEventListener("abort", abortHandler, { once: true });
       if (!postBridgeCommandToSource(mode, source, "studio-request-inspect-current", { requestId, nodeId })) {
         clearPendingInspectionRequest(mode, new Error("The selected preview is no longer connected. Select the element again."));
       }
@@ -622,11 +657,17 @@ export function usePreviewScrollSync({
       ...stateRef.current,
       inspectEnabled: enabled
     };
+    if (!enabled) pendingKeyboardInspectionRef.current = false;
     previewModes.forEach((mode) => {
       if (previewReadyRefs.current[mode] || standalonePreviewPortRefs.current[mode]) {
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && enabled });
       }
     });
+  };
+
+  const beginKeyboardPreviewInspection = () => {
+    pendingKeyboardInspectionRef.current = true;
+    return flushPendingKeyboardInspection();
   };
 
   const focusPreviewInspectionSelection = (
@@ -778,6 +819,7 @@ export function usePreviewScrollSync({
         readyHrefRefs.current[mode] = { embedded: "", standalone: "" };
         standaloneSessionTokenRefs.current[mode] = "";
       });
+      pendingKeyboardInspectionRef.current = false;
     };
   }, []);
 
@@ -797,6 +839,7 @@ export function usePreviewScrollSync({
     prepareStandalonePreview,
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
+    beginKeyboardPreviewInspection,
     focusPreviewInspectionSelection,
     restorePreviewLocation,
     syncStandaloneReviewSet,

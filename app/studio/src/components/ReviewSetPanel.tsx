@@ -131,6 +131,7 @@ export function ReviewSetPanel({
   const lightboxRef = useRef<HTMLDivElement | null>(null);
   const lightboxCloseRef = useRef<HTMLButtonElement | null>(null);
   const importRef = useRef<HTMLInputElement | null>(null);
+  const panelRef = useRef<HTMLElement | null>(null);
   const screenshotCount = items.reduce((total, item) => total + item.screenshots.length, 0);
   const openCount = items.filter((item) => !item.resolved).length;
   const mutationLocked = Boolean(captureItemId);
@@ -178,10 +179,10 @@ export function ReviewSetPanel({
   }, [closeExpandedScreenshot, expandedScreenshot]);
 
   return (
-    <section className="panel-card review-set-panel" data-testid="review-set">
+    <section ref={panelRef} id="studio-review-set" className="panel-card review-set-panel" data-testid="review-set" tabIndex={-1} aria-labelledby="studio-review-set-heading">
       <div className="section-header review-set-header">
         <div>
-          <h3>Review Set</h3>
+          <h3 id="studio-review-set-heading">Review Set</h3>
           <p className="review-set-summary">
             {openCount} open · {items.length} of {REVIEW_SET_MAX_ITEMS} saved · {screenshotCount} screenshot{screenshotCount === 1 ? "" : "s"}
           </p>
@@ -248,11 +249,18 @@ export function ReviewSetPanel({
                   <div className="review-set-item-actions">
                     <button type="button" className="icon-text-button" disabled={mutationLocked || index === 0} onClick={() => onReorderItem(item.id, -1)} aria-label={`Move annotation ${index + 1} up`}>↑</button>
                     <button type="button" className="icon-text-button" disabled={mutationLocked || index === items.length - 1} onClick={() => onReorderItem(item.id, 1)} aria-label={`Move annotation ${index + 1} down`}>↓</button>
-                    <button type="button" className="ghost-button compact" disabled={mutationLocked} onClick={() => onFocus(item.id)}>Show</button>
+                    <button type="button" className="ghost-button compact" disabled={mutationLocked} onClick={async (event) => {
+                      const trigger = event.currentTarget;
+                      onFocus(item.id);
+                      window.requestAnimationFrame(() => trigger.focus());
+                    }}>Show</button>
                     <button type="button" className="ghost-button compact" disabled={mutationLocked} onClick={() => onRelinkItem(item.id)}>
                       {relinkItemId === item.id ? "Cancel relink" : "Relink"}
                     </button>
-                    <button type="button" className="ghost-button compact danger" disabled={mutationLocked} onClick={() => onRemove(item.id)}>Remove</button>
+                    <button type="button" className="ghost-button compact danger" disabled={mutationLocked} onClick={() => {
+                      onRemove(item.id);
+                      window.requestAnimationFrame(() => panelRef.current?.focus());
+                    }}>Remove</button>
                   </div>
                 </div>
 
@@ -316,7 +324,7 @@ export function ReviewSetPanel({
                           onClick={(event) => setExpandedScreenshot({ screenshot, annotationNumber: index + 1, trigger: event.currentTarget })}
                           aria-label={`Open screenshot ${screenshotIndex + 1} for annotation ${index + 1}`}
                         >
-                          <img src={screenshot.imageUrl} alt="" loading="lazy" />
+                          <img src={screenshot.imageUrl} alt="" loading="lazy" decoding="async" />
                           <span>{screenshotIndex + 1}</span>
                         </button>
                         <div className="review-screenshot-order">
@@ -434,7 +442,7 @@ export function ReviewSetPanel({
               <strong>Annotation {expandedScreenshot.annotationNumber}</strong>
               <button ref={lightboxCloseRef} type="button" className="ghost-button compact" onClick={closeExpandedScreenshot}>Close</button>
             </div>
-            <img src={expandedScreenshot.screenshot.imageUrl} alt={`Screenshot for annotation ${expandedScreenshot.annotationNumber}`} />
+            <img src={expandedScreenshot.screenshot.imageUrl} alt={`Screenshot for annotation ${expandedScreenshot.annotationNumber}`} decoding="async" />
           </div>
         </div>
       ) : null}

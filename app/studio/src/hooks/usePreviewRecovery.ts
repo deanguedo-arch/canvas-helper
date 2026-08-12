@@ -14,6 +14,7 @@ import {
   type PreviewRecoveryState
 } from "../lib/preview-recovery";
 import { previewModes, type PreviewMode } from "../lib/types";
+import { beginStudioPerformanceMeasure } from "../lib/studio-performance";
 
 type PreviewModeRecord<T> = Record<PreviewMode, T>;
 
@@ -59,6 +60,17 @@ export function usePreviewRecovery(options: {
   statesRef.current = currentStates;
   const activeHrefRefs = useRef<PreviewModeRecord<string>>({ reference: "", workspace: "" });
   const timeoutRefs = useRef<PreviewModeRecord<number>>({ reference: 0, workspace: 0 });
+  const performanceMeasureRefs = useRef<PreviewModeRecord<ReturnType<typeof beginStudioPerformanceMeasure> | null>>({ reference: null, workspace: null });
+
+  const cancelPerformanceMeasure = useCallback((mode: PreviewMode) => {
+    performanceMeasureRefs.current[mode]?.cancel();
+    performanceMeasureRefs.current[mode] = null;
+  }, []);
+
+  const finishPerformanceMeasure = useCallback((mode: PreviewMode) => {
+    performanceMeasureRefs.current[mode]?.finish();
+    performanceMeasureRefs.current[mode] = null;
+  }, []);
 
   const clearModeTimeout = useCallback((mode: PreviewMode) => {
     if (timeoutRefs.current[mode]) {
@@ -71,6 +83,7 @@ export function usePreviewRecovery(options: {
     clearModeTimeout(mode);
     timeoutRefs.current[mode] = window.setTimeout(() => {
       timeoutRefs.current[mode] = 0;
+      finishPerformanceMeasure(mode);
       setStates((current) => {
         const state = current[mode];
         if (state.previewUrl !== previewUrl || state.attempt !== attempt || state.phase === "ready" || state.phase === "warning" || state.phase === "error") {
@@ -93,7 +106,7 @@ export function usePreviewRecovery(options: {
         };
       });
     }, stage === "bridge" ? 8_000 : 10_000);
-  }, [clearModeTimeout]);
+  }, [clearModeTimeout, finishPerformanceMeasure]);
 
   useEffect(() => {
     const controllers: AbortController[] = [];
@@ -102,6 +115,7 @@ export function usePreviewRecovery(options: {
       clearModeTimeout(mode);
       const previewUrl = previewSources[mode];
       const attempt = retryVersions[mode];
+      cancelPerformanceMeasure(mode);
       if (!enabled[mode] || !previewUrl) {
         activeHrefRefs.current[mode] = "";
         setStates((current) => ({ ...current, [mode]: createPreviewRecoveryState("", attempt) }));
@@ -110,6 +124,8 @@ export function usePreviewRecovery(options: {
 
       const controller = new AbortController();
       controllers.push(controller);
+      const performanceMeasure = beginStudioPerformanceMeasure("preview-ready");
+      performanceMeasureRefs.current[mode] = performanceMeasure;
       activeHrefRefs.current[mode] = normalizePreviewPageIdentity(previewUrl) ?? "";
       setStates((current) => ({ ...current, [mode]: createPreviewRecoveryState(previewUrl, attempt) }));
 
@@ -131,6 +147,7 @@ export function usePreviewRecovery(options: {
           const state = current[mode];
           if (state.previewUrl !== previewUrl || state.attempt !== attempt) return current;
           if (payload.status === "error") {
+            finishPerformanceMeasure(mode);
             return {
               ...current,
               [mode]: {
@@ -159,6 +176,7 @@ export function usePreviewRecovery(options: {
         if (payload.status !== "error") scheduleTimeout(mode, previewUrl, attempt, "bridge");
       }).catch((error) => {
         if (controller.signal.aborted) return;
+        finishPerformanceMeasure(mode);
         setStates((current) => {
           const state = current[mode];
           if (state.previewUrl !== previewUrl || state.attempt !== attempt) return current;
@@ -178,8 +196,11 @@ export function usePreviewRecovery(options: {
 
     return () => {
       controllers.forEach((controller) => controller.abort());
+      previewModes.forEach((mode) => {
+        cancelPerformanceMeasure(mode);
+      });
     };
-  }, [clearModeTimeout, enabled.reference, enabled.workspace, previewSources.reference, previewSources.workspace, retryVersions.reference, retryVersions.workspace, scheduleTimeout]);
+  }, [cancelPerformanceMeasure, clearModeTimeout, enabled.reference, enabled.workspace, finishPerformanceMeasure, previewSources.reference, previewSources.workspace, retryVersions.reference, retryVersions.workspace, scheduleTimeout]);
 
   useEffect(() => () => {
     previewModes.forEach(clearModeTimeout);
@@ -226,6 +247,7 @@ export function usePreviewRecovery(options: {
       (activeHrefRefs.current[mode] && activeHrefRefs.current[mode] !== healthHref)
     ) return;
     clearModeTimeout(mode);
+    finishPerformanceMeasure(mode);
     setStates((current) => {
       const state = current[mode];
       if (
@@ -262,7 +284,7 @@ export function usePreviewRecovery(options: {
         }
       };
     });
-  }, [clearModeTimeout]);
+  }, [clearModeTimeout, finishPerformanceMeasure]);
 
   const addDiagnostic = useCallback((mode: PreviewMode, diagnostic: PreviewDiagnostic) => {
     const diagnosticHref = normalizePreviewPageIdentity(diagnostic.href);
@@ -328,8 +350,9 @@ export function usePreviewRecovery(options: {
 
   const retry = useCallback((mode: PreviewMode) => {
     clearModeTimeout(mode);
+    cancelPerformanceMeasure(mode);
     setRetryVersions((current) => ({ ...current, [mode]: current[mode] + 1 }));
-  }, [clearModeTimeout]);
+  }, [cancelPerformanceMeasure, clearModeTimeout]);
 
   return {
     states: currentStates,

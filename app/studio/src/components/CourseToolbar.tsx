@@ -16,7 +16,7 @@ type CourseToolbarProps = {
   onSetPreviewMode: (previewMode: PreviewMode) => void;
   onDeviceChange: (mode: PreviewMode, device: DeviceMode) => void;
   onZoomChange: (mode: PreviewMode, zoom: number) => void;
-  onToggleInspect: () => void;
+  onToggleInspect: (keyboardEntry?: boolean) => void;
   onToggleInspector: () => void;
   onToggleTools: () => void;
   onOpenWorkspacePreview: () => void;
@@ -67,6 +67,7 @@ export function CourseToolbar({
             type="button"
             className={layoutPreferences.compareMode ? "segmented-button" : "segmented-button active"}
             onClick={() => onSetCompareMode(false)}
+            aria-pressed={!layoutPreferences.compareMode}
             data-testid="layout-focus-toggle"
           >
             Focus
@@ -75,6 +76,7 @@ export function CourseToolbar({
             type="button"
             className={layoutPreferences.compareMode ? "segmented-button active" : "segmented-button"}
             onClick={() => onSetCompareMode(true)}
+            aria-pressed={layoutPreferences.compareMode}
             data-testid="layout-split-toggle"
           >
             Split
@@ -82,11 +84,12 @@ export function CourseToolbar({
         </div>
 
         {!layoutPreferences.compareMode ? (
-          <div className="segmented-control course-version-control" role="tablist" aria-label="Course version">
+          <div className="segmented-control course-version-control" aria-label="Course version">
             <button
               type="button"
               className={previewMode === "reference" ? "segmented-button active" : "segmented-button"}
               onClick={() => onSetPreviewMode("reference")}
+              aria-pressed={previewMode === "reference"}
               data-testid="preview-reference-toggle"
             >
               Original
@@ -95,6 +98,7 @@ export function CourseToolbar({
               type="button"
               className={previewMode === "workspace" ? "segmented-button active" : "segmented-button"}
               onClick={() => onSetPreviewMode("workspace")}
+              aria-pressed={previewMode === "workspace"}
               data-testid="preview-workspace-toggle"
             >
               Current
@@ -131,7 +135,8 @@ export function CourseToolbar({
         <button
           type="button"
           className={inspectEnabled ? "toolbar-button active" : "toolbar-button"}
-          onClick={onToggleInspect}
+          onClick={(event) => onToggleInspect(event.detail === 0)}
+          aria-pressed={inspectEnabled}
           disabled={!inspectAvailable}
           data-testid="inspect-toggle"
           title={inspectAvailable ? "Select course elements and collect notes for Codex" : "Starting isolated preview"}
@@ -161,6 +166,8 @@ export function CourseToolbar({
           type="button"
           className={layoutPreferences.inspectorOpen ? "toolbar-button active" : "toolbar-button"}
           onClick={onToggleInspector}
+          aria-expanded={layoutPreferences.inspectorOpen}
+          aria-controls="studio-review-set"
           data-testid="inspector-toggle"
         >
           <ToolbarIcon><path d="M4 4.5h12v11H4zM7 8h6M7 11h6" /></ToolbarIcon>

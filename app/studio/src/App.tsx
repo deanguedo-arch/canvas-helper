@@ -70,7 +70,7 @@ import {
   type ReviewSetSessionSummary
 } from "./lib/review-set-storage";
 import { loadWorkspacePageSelections, saveWorkspacePageSelection } from "./lib/storage";
-import { hasSamePreviewPageRoute, preserveVisualSelection, runWithCurrentPreviewSelection } from "./lib/current-preview-selection";
+import { hasSamePreviewPageRoute, preserveVisualSelection } from "./lib/current-preview-selection";
 import {
   INSPECTION_ISSUE_CATEGORIES,
   REVIEW_SCREENSHOT_MAX_PER_ITEM,
@@ -85,6 +85,7 @@ import type {
   PreviewReviewActionResult,
   PreviewReviewState
 } from "../../shared/preview-bridge.js";
+import { beginStudioPerformanceMeasure } from "./lib/studio-performance";
 
 async function resolveInspectionRequest(request: InspectionResolveRequest, signal?: AbortSignal) {
   const response = await fetch("/api/inspection/resolve", {
@@ -268,6 +269,7 @@ export function App() {
   const [inspectionPreviewMode, setInspectionPreviewMode] = useState<PreviewMode>("workspace");
   const inspectionSourceRef = useRef<"embedded" | "standalone">("embedded");
   const inspectionScopeVersionRef = useRef(0);
+  const selectionPerformanceRef = useRef<ReturnType<typeof beginStudioPerformanceMeasure> | null>(null);
   const screenshotAnnotation = useScreenshotAnnotation();
   const [initialReviewSet] = useState(() => selectedSlug ? loadStoredReviewSet(selectedSlug) : null);
   const [reviewSetItems, setReviewSetItems] = useState<ReviewSetItem[]>(() => initialReviewSet?.items ?? []);
@@ -555,6 +557,8 @@ export function App() {
 
   const resetInspection = useCallback(
     (resetTeacherInput = false) => {
+      selectionPerformanceRef.current?.cancel();
+      selectionPerformanceRef.current = null;
       inspectionScopeVersionRef.current += 1;
       setInspectionResolution(null);
       setInspectionRequest(null);
@@ -618,6 +622,9 @@ export function App() {
     selection: PreviewInspectPayload,
     source: "embedded" | "standalone"
   ) => {
+    selectionPerformanceRef.current?.cancel();
+    const selectionPerformance = beginStudioPerformanceMeasure("selection-feedback", selection.interactionStartedAt);
+    selectionPerformanceRef.current = selectionPerformance;
     const requestScopeVersion = inspectionScopeVersionRef.current + 1;
     inspectionScopeVersionRef.current = requestScopeVersion;
     const isCurrentRequest = () => inspectionScopeVersionRef.current === requestScopeVersion;
@@ -704,6 +711,8 @@ export function App() {
           setInspectionResolution(null);
           setInspectionRequest(null);
           setReviewSetStatus("Selection relinked. The original note and screenshots were preserved.", "success");
+          selectionPerformance.cancel();
+          selectionPerformanceRef.current = null;
           return;
         }
         setReviewSetStatus(
@@ -760,6 +769,7 @@ export function App() {
     prepareStandalonePreview,
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
+    beginKeyboardPreviewInspection,
     focusPreviewInspectionSelection,
     restorePreviewLocation,
     syncStandaloneReviewSet,
@@ -774,8 +784,13 @@ export function App() {
     previewOrigin,
     inspectEnabled,
     onInspectSelection: (mode, selection, source) => void resolveInspection(mode, selection, source),
-    onInspectModeChange: (enabled) => {
+    onInspectModeChange: (enabled, source) => {
       setInspectEnabled(enabled);
+      if (!enabled && source === "embedded") {
+        window.requestAnimationFrame(() => {
+          document.querySelector<HTMLElement>('[data-testid="inspect-toggle"]')?.focus();
+        });
+      }
     },
     onPreviewNavigation: (mode, href, source) => {
       if (source === "embedded") previewRecovery.markNavigation(mode, href);
@@ -807,6 +822,9 @@ export function App() {
     }
     setPreviewInspectMode(false);
     setInspectEnabled(false);
+    window.requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>('[data-testid="inspect-toggle"]')?.focus();
+    });
   }, [setPreviewInspectMode, setReviewSetStatus]);
 
   useEffect(() => {
@@ -962,6 +980,9 @@ export function App() {
           : "Annotation saved.",
         "success"
       );
+      window.requestAnimationFrame(() => {
+        document.querySelector<HTMLElement>('[data-testid="review-set"]')?.focus();
+      });
     } catch (error) {
       await deleteReviewScreenshotPaths(ownedScreenshotPaths(
         reviewScreenshotSessionIdRef.current,
@@ -1994,16 +2015,19 @@ export function App() {
       }
       const scopeVersion = inspectionScopeVersionRef.current;
       reviewCaptureBusyRef.current = true;
-      void runWithCurrentPreviewSelection({
-        expected: action.selection,
-        requestCurrent: () => requestCurrentInspectionSelection(mode, action.selection.nodeId as string, "standalone"),
-        run: (selection) => screenshotAnnotation.capture({
-            projectSlug: selectedSlug,
-            selection,
-            markerNumber: reviewSetItemsRef.current.length + 1,
-            isCurrent: () => inspectionScopeVersionRef.current === scopeVersion
-        }),
-        changedMessage: "The course page changed. Select the element again before capturing a screenshot."
+      void screenshotAnnotation.capture({
+        projectSlug: selectedSlug,
+        selection: action.selection,
+        markerNumber: reviewSetItemsRef.current.length + 1,
+        isCurrent: () => inspectionScopeVersionRef.current === scopeVersion,
+        prepareSelection: async (signal) => {
+          const current = await requestCurrentInspectionSelection(mode, action.selection.nodeId as string, "standalone", signal);
+          if (signal.aborted) throw new DOMException("Capture canceled", "AbortError");
+          if (!hasSamePreviewPageRoute(current.pageHref, action.selection.pageHref)) {
+            throw new Error("The course page changed. Select the element again before capturing a screenshot.");
+          }
+          return preserveVisualSelection(action.selection, current);
+        }
       })
         .then((result) => respond({
           ok: Boolean(result),
@@ -2087,20 +2111,28 @@ export function App() {
       return;
     }
     const captureScopeVersion = inspectionScopeVersionRef.current;
+    const captureRequest = inspectionRequest;
     reviewCaptureBusyRef.current = true;
-    void requestCurrentInspectionSelection(
-      inspectionPreviewMode,
-      inspectionResolution.selection.nodeId,
-      inspectionSourceRef.current
-    )
-      .then(async (selection) => {
+    void screenshotAnnotation.capture({
+      projectSlug: captureRequest.projectSlug,
+      selection: captureRequest.selection,
+      markerNumber: reviewSetItemsRef.current.length + 1,
+      isCurrent: () => inspectionScopeVersionRef.current === captureScopeVersion,
+      prepareSelection: async (signal) => {
+        const selection = await requestCurrentInspectionSelection(
+          inspectionPreviewMode,
+          captureRequest.selection.nodeId as string,
+          inspectionSourceRef.current,
+          signal
+        );
+        if (signal.aborted) throw new DOMException("Capture canceled", "AbortError");
         if (inspectionScopeVersionRef.current !== captureScopeVersion) {
-          return;
+          throw new DOMException("Capture canceled", "AbortError");
         }
-        if (!hasSamePreviewPageRoute(selection.pageHref, inspectionRequest.selection.pageHref)) {
+        if (!hasSamePreviewPageRoute(selection.pageHref, captureRequest.selection.pageHref)) {
           throw new Error("The course page changed. Select the element again before capturing a screenshot.");
         }
-        const captureSelection = preserveVisualSelection(inspectionRequest.selection, selection);
+        const captureSelection = preserveVisualSelection(captureRequest.selection, selection);
         setInspectionResolution((current) =>
           current && current.selection.nodeId === captureSelection.nodeId
             ? { ...current, selection: captureSelection }
@@ -2111,16 +2143,9 @@ export function App() {
             ? { ...current, selection: captureSelection }
             : current
         );
-        await screenshotAnnotation.capture({
-          projectSlug: inspectionRequest.projectSlug,
-          selection: captureSelection,
-          markerNumber: reviewSetItemsRef.current.length + 1,
-          isCurrent: () => inspectionScopeVersionRef.current === captureScopeVersion
-        });
-      })
-      .catch((error) => screenshotAnnotation.reportError(
-        error instanceof Error ? error.message : "Could not capture the course preview."
-      ))
+        return captureSelection;
+      }
+    })
       .finally(() => {
         reviewCaptureBusyRef.current = false;
       });
@@ -2301,7 +2326,7 @@ export function App() {
     setStudioMode(nextMode);
   };
 
-  const toggleAnnotationMode = () => {
+  const toggleAnnotationMode = (keyboardEntry = false) => {
     if (inspectEnabled) {
       stopAnnotationMode();
       return;
@@ -2312,6 +2337,28 @@ export function App() {
     setPreviewInspectMode(true);
     setInspectEnabled(true);
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    if (keyboardEntry) {
+      beginKeyboardPreviewInspection();
+    }
+  };
+
+  useEffect(() => {
+    if (!inspectEnabled || inspectionResolving || !inspectionResolution) return;
+    window.requestAnimationFrame(() => {
+      const note = document.querySelector<HTMLTextAreaElement>('[data-testid="inspection-teacher-note"]');
+      note?.focus();
+      if (note && selectionPerformanceRef.current) {
+        selectionPerformanceRef.current.finish();
+        selectionPerformanceRef.current = null;
+      }
+    });
+  }, [inspectEnabled, inspectionResolution, inspectionResolving]);
+
+  const openReviewSet = () => {
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    window.requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>('[data-testid="review-set"]')?.focus();
+    });
   };
 
   const workspacePicker = selectedProject ? (
@@ -2322,7 +2369,7 @@ export function App() {
       workspaceFileOptions={selectedProject.htmlFiles.workspace}
       onProjectChange={handleWorkspaceProjectChange}
       onHtmlChange={handleWorkspaceHtmlChange}
-      onRefresh={() => void refreshProjects()}
+      onRefresh={() => void refreshProjects(true)}
     />
   ) : null;
 
@@ -2369,9 +2416,11 @@ export function App() {
             onDeviceChange={handleDeviceChange}
             onZoomChange={handleZoomChange}
             onToggleInspect={toggleAnnotationMode}
-            onToggleInspector={() =>
-              setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }))
-            }
+            onToggleInspector={() => {
+              const opening = !layoutPreferences.inspectorOpen;
+              setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }));
+              if (opening) window.requestAnimationFrame(() => document.querySelector<HTMLElement>('[data-testid="review-set"]')?.focus());
+            }}
             onToggleTools={() => setToolsOpen((current) => !current)}
             onOpenWorkspacePreview={handleOpenWorkspacePreview}
           />
@@ -2385,7 +2434,7 @@ export function App() {
             capturing={screenshotAnnotation.status === "capturing"}
             onCapture={captureInspectionScreenshot}
             onCancelCapture={cancelReviewCapture}
-            onOpenReviewSet={() => setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }))}
+            onOpenReviewSet={openReviewSet}
             onDone={stopAnnotationMode}
           />
         ) : null}

@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from "react";
 
 import { REVIEW_SCREENSHOT_MAX_BYTES, REVIEW_SCREENSHOT_MAX_PER_ITEM } from "../../../shared/inspection.js";
 import type { PreviewInspectPayload } from "../../../shared/preview-bridge.js";
+import { beginStudioPerformanceMeasure } from "../lib/studio-performance";
 
 export type ScreenshotDraft = {
   id: string;
@@ -17,6 +18,7 @@ type CaptureScreenshotOptions = {
   selection: PreviewInspectPayload;
   markerNumber: number;
   isCurrent: () => boolean;
+  prepareSelection?: (signal: AbortSignal) => Promise<PreviewInspectPayload>;
 };
 
 function createDraftId() {
@@ -183,13 +185,18 @@ export function useScreenshotAnnotation() {
       return null;
     }
     const controller = new AbortController();
+    const performanceMeasure = beginStudioPerformanceMeasure("capture-status");
     activeCaptureRef.current = controller;
     setStatus("capturing");
     setError("");
     try {
+      const selection = options.prepareSelection
+        ? await options.prepareSelection(controller.signal)
+        : options.selection;
+      if (controller.signal.aborted || !options.isCurrent()) return null;
       const draft = await capturePreviewScreenshot({
         projectSlug: options.projectSlug,
-        selection: options.selection,
+        selection,
         markerNumber: options.markerNumber,
         signal: controller.signal
       });
@@ -208,6 +215,7 @@ export function useScreenshotAnnotation() {
       setError(captureError instanceof Error ? captureError.message : "Canvas Helper could not capture the course preview.");
       return null;
     } finally {
+      performanceMeasure.finish();
       if (activeCaptureRef.current === controller) {
         activeCaptureRef.current = null;
       }

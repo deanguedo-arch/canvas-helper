@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 
 import { fetchProjects, refreshIncomingIntake } from "../lib/projects";
 import type { IncomingRefreshSummary, ProjectBundle } from "../lib/types";
@@ -9,12 +9,34 @@ export function useProjects() {
   const [incomingRefreshRunning, setIncomingRefreshRunning] = useState(false);
   const [incomingRefreshMessage, setIncomingRefreshMessage] = useState("");
   const [incomingRefreshIsError, setIncomingRefreshIsError] = useState(false);
+  const requestRef = useRef<Promise<ProjectBundle[]> | null>(null);
+  const requestVersionRef = useRef(0);
 
-  const refreshProjects = async () => {
+  const loadProjectsOnce = useCallback(async (force = false) => {
+    if (!force && requestRef.current) return requestRef.current;
+    const requestVersion = ++requestVersionRef.current;
+    const request = fetchProjects();
+    requestRef.current = request;
     try {
-      const bundles = await fetchProjects();
-      setProjects(bundles);
-      setErrorMessage("");
+      const bundles = await request;
+      if (requestVersion === requestVersionRef.current) {
+        setProjects(bundles);
+        setErrorMessage("");
+      }
+      return bundles;
+    } catch (error) {
+      if (requestVersion === requestVersionRef.current) {
+        setErrorMessage(error instanceof Error ? error.message : "Failed to load projects.");
+      }
+      throw error;
+    } finally {
+      if (requestRef.current === request) requestRef.current = null;
+    }
+  }, []);
+
+  const refreshProjects = async (force = false) => {
+    try {
+      await loadProjectsOnce(force);
       return true;
     } catch (error) {
       setErrorMessage(error instanceof Error ? error.message : "Failed to load projects.");
@@ -64,7 +86,7 @@ export function useProjects() {
 
     try {
       const summary = await refreshIncomingIntake();
-      const refreshed = await refreshProjects();
+      const refreshed = await refreshProjects(true);
       if (!refreshed) throw new Error("The intake scan finished, but Studio could not refresh the course list.");
       setIncomingRefreshMessage(toIncomingRefreshMessage(summary));
       setIncomingRefreshIsError(summary.failures.length > 0);
@@ -83,13 +105,7 @@ export function useProjects() {
 
     const loadProjects = async () => {
       try {
-        const bundles = await fetchProjects();
-        if (cancelled) {
-          return;
-        }
-
-        setProjects(bundles);
-        setErrorMessage("");
+        await loadProjectsOnce();
       } catch (error) {
         if (!cancelled) {
           setErrorMessage(error instanceof Error ? error.message : "Failed to load projects.");
@@ -123,7 +139,7 @@ export function useProjects() {
       window.removeEventListener("focus", refreshOnFocus);
       document.removeEventListener("visibilitychange", refreshOnVisible);
     };
-  }, []);
+  }, [loadProjectsOnce]);
 
   return {
     projects,

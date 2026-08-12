@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { readFile } from "node:fs/promises";
+import { readFile, stat } from "node:fs/promises";
 import path from "node:path";
 
 import { Parser } from "htmlparser2";
@@ -21,6 +21,17 @@ export const PREVIEW_INSPECT_NODE_ATTRIBUTE = "data-canvas-helper-inspect-node";
 const MAX_INSPECTABLE_HTML_BYTES = 8 * 1024 * 1024;
 const PREVIEW_NODE_ID_PREFIX = "ch1";
 const EXCLUDED_TAGS = new Set(["base", "head", "link", "meta", "script", "style", "template", "title"]);
+const INSPECTION_DOCUMENT_CACHE_MAX_ENTRIES = 24;
+
+type CachedInspectionDocument = {
+  mtimeMs: number;
+  size: number;
+  document: PreviewInspectionDocument | null;
+};
+
+const inspectionDocumentCache = new Map<string, CachedInspectionDocument>();
+let inspectionDocumentCacheHits = 0;
+let inspectionDocumentCacheMisses = 0;
 
 type OpeningTag = {
   start: number;
@@ -204,9 +215,39 @@ function toRepoRelative(filePath: string) {
   return relative && !relative.startsWith("../") && relative !== ".." && !path.isAbsolute(relative) ? relative : null;
 }
 
-async function loadInspectionDocument(filePath: string) {
+export async function loadPreviewInspectionDocument(filePath: string) {
+  const metadata = await stat(filePath);
+  const cached = inspectionDocumentCache.get(filePath);
+  if (cached && cached.mtimeMs === metadata.mtimeMs && cached.size === metadata.size) {
+    inspectionDocumentCacheHits += 1;
+    inspectionDocumentCache.delete(filePath);
+    inspectionDocumentCache.set(filePath, cached);
+    return cached.document;
+  }
+  inspectionDocumentCacheMisses += 1;
   const body = await readFile(filePath);
-  return decoratePreviewHtmlBuffer(body);
+  const document = decoratePreviewHtmlBuffer(body);
+  inspectionDocumentCache.set(filePath, { mtimeMs: metadata.mtimeMs, size: metadata.size, document });
+  while (inspectionDocumentCache.size > INSPECTION_DOCUMENT_CACHE_MAX_ENTRIES) {
+    const oldest = inspectionDocumentCache.keys().next().value;
+    if (typeof oldest !== "string") break;
+    inspectionDocumentCache.delete(oldest);
+  }
+  return document;
+}
+
+export function previewInspectionDocumentCacheStats() {
+  return {
+    entries: inspectionDocumentCache.size,
+    hits: inspectionDocumentCacheHits,
+    misses: inspectionDocumentCacheMisses
+  };
+}
+
+export function clearPreviewInspectionDocumentCache() {
+  inspectionDocumentCache.clear();
+  inspectionDocumentCacheHits = 0;
+  inspectionDocumentCacheMisses = 0;
 }
 
 function uniquePaths(paths: CourseAuthoringPath[], maximum = 3) {
@@ -380,7 +421,7 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
     });
   }
 
-  const document = await loadInspectionDocument(previewFilePath);
+  const document = await loadPreviewInspectionDocument(previewFilePath);
   if (!document) {
     return buildUnknownResolution(
       request,
