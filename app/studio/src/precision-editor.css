@@ -1111,6 +1111,10 @@ pre {
   overflow: hidden;
 }
 
+.preview-canvas {
+  position: relative;
+}
+
 .preview-frame,
 .empty-preview,
 .resource-fallback {
@@ -1123,6 +1127,211 @@ pre {
 .empty-preview,
 .resource-fallback {
   color: var(--ink-soft);
+}
+
+.preview-recovery-layer {
+  position: absolute;
+  z-index: 4;
+  inset: 0;
+  display: grid;
+  min-height: calc(var(--frame-height) / var(--zoom-scale));
+  place-items: center;
+  padding: 28px;
+  border: 1px solid #d7dce3;
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.94);
+}
+
+.preview-recovery-layer.inline {
+  position: relative;
+  min-height: calc(var(--frame-height) / var(--zoom-scale));
+}
+
+.preview-recovery-layer.notice {
+  inset: 12px 12px auto;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  background: transparent;
+  pointer-events: none;
+}
+
+.preview-recovery {
+  width: min(100%, 520px);
+  padding: 24px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--studio-radius-lg);
+  color: var(--ink);
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.preview-recovery-waiting {
+  display: flex;
+  width: auto;
+  max-width: 420px;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 20px;
+  box-shadow: var(--shadow-soft);
+}
+
+.preview-recovery h4,
+.preview-recovery p {
+  margin: 0;
+}
+
+.preview-recovery h4 {
+  font-size: 18px;
+  line-height: 1.35;
+}
+
+.preview-recovery-copy > p:last-child,
+.preview-recovery-waiting p {
+  margin-top: 6px;
+  color: var(--ink-soft);
+  line-height: 1.5;
+}
+
+.preview-recovery-eyebrow {
+  margin-bottom: 6px !important;
+  color: var(--warning);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.preview-recovery-mark {
+  display: grid;
+  width: 38px;
+  height: 38px;
+  margin-bottom: 16px;
+  place-items: center;
+  border: 1px solid #f2d4a8;
+  border-radius: 50%;
+  color: var(--warning);
+  background: #fff8ed;
+}
+
+.preview-recovery-mark svg {
+  width: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.preview-recovery-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+
+.preview-recovery-details {
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--ink-soft);
+  font-size: 12px;
+}
+
+.preview-recovery-details summary,
+.preview-recovery-notice summary {
+  width: fit-content;
+  cursor: pointer;
+  color: #475467;
+  font-weight: 650;
+}
+
+.preview-recovery-technical {
+  margin-top: 10px;
+  overflow-wrap: anywhere;
+}
+
+.preview-recovery-technical p {
+  margin: 4px 0;
+}
+
+.preview-recovery-technical ul {
+  margin: 8px 0 0;
+  padding-left: 18px;
+}
+
+.preview-recovery-spinner {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  border: 2px solid #d6dce5;
+  border-top-color: var(--accent);
+  border-radius: 50%;
+  animation: preview-recovery-spin 700ms linear infinite;
+}
+
+.preview-recovery-notice {
+  display: flex;
+  width: min(100%, 760px);
+  align-items: center;
+  gap: 10px;
+  padding: 9px 10px 9px 13px;
+  border: 1px solid #e8c78f;
+  border-radius: var(--studio-radius-md);
+  color: #6f4300;
+  background: #fffaf0;
+  box-shadow: var(--shadow-soft);
+  pointer-events: auto;
+}
+
+.preview-recovery-notice > span {
+  min-width: 0;
+  flex: 1;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.preview-recovery-notice details {
+  position: relative;
+}
+
+.preview-recovery-notice .preview-recovery-technical {
+  position: absolute;
+  z-index: 2;
+  top: calc(100% + 10px);
+  right: 0;
+  width: min(360px, 75vw);
+  padding: 12px;
+  border: 1px solid var(--line);
+  border-radius: var(--studio-radius-md);
+  color: var(--ink-soft);
+  background: #ffffff;
+  box-shadow: var(--shadow);
+}
+
+.preview-recovery-notice button {
+  padding: 5px 8px;
+  border: 1px solid #d6b577;
+  border-radius: 6px;
+  color: #6f4300;
+  background: #ffffff;
+  cursor: pointer;
+}
+
+.preview-recovery-notice button:hover:not(:disabled) {
+  border-color: #bb8b35;
+  background: #fff5df;
+}
+
+@keyframes preview-recovery-spin {
+  to { transform: rotate(360deg); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .preview-recovery-spinner {
+    animation: none;
+    border-color: var(--accent);
+  }
 }
 
 /* Course tools */

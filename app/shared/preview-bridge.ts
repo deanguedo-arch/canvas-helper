@@ -1,3 +1,5 @@
+import { isPreviewContentHealth } from "./preview-health.js";
+
 export const PREVIEW_BRIDGE_PROTOCOL = "canvas-helper.preview";
 export const PREVIEW_BRIDGE_VERSION = 1;
 export const PREVIEW_BRIDGE_MAX_MESSAGE_BYTES = 8_192;
@@ -30,6 +32,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-mode",
   "preview-review-action",
   "preview-return-to-studio",
+  "preview-health",
   "preview-diagnostic",
   "preview-error"
 ] as const;
@@ -102,6 +105,7 @@ export type PreviewInspectFocusedPayload = {
 export type PreviewDiagnostic = {
   kind: "runtime-error" | "unhandled-rejection" | "asset-error";
   message: string;
+  href: string;
 };
 
 export type PreviewReviewAction = (
@@ -396,11 +400,14 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isPreviewReviewAction(payload);
     case "preview-return-to-studio":
       return payload === null;
+    case "preview-health":
+      return isPreviewContentHealth(payload);
     case "preview-diagnostic":
       return (
         isRecord(payload) &&
         (payload.kind === "runtime-error" || payload.kind === "unhandled-rejection" || payload.kind === "asset-error") &&
-        isBoundedString(payload.message, 360)
+        isBoundedString(payload.message, 360) &&
+        isBoundedString(payload.href, 2_048)
       );
     case "preview-error":
       return (

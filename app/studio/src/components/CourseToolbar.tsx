@@ -1,4 +1,4 @@
-import type { MouseEvent, ReactNode } from "react";
+import type { ReactNode } from "react";
 
 import { DEVICE_PRESETS, type DeviceMode, type PreviewLayoutPreferences, type PreviewMode } from "../lib/types";
 
@@ -10,7 +10,6 @@ type CourseToolbarProps = {
   inspectEnabled: boolean;
   inspectAvailable: boolean;
   hasWorkspacePreview: boolean;
-  workspacePreviewHref: string;
   reviewSetCount: number;
   toolsOpen: boolean;
   onSetCompareMode: (compareMode: boolean) => void;
@@ -20,7 +19,7 @@ type CourseToolbarProps = {
   onToggleInspect: () => void;
   onToggleInspector: () => void;
   onToggleTools: () => void;
-  onOpenWorkspacePreview: (event: MouseEvent<HTMLAnchorElement>) => void;
+  onOpenWorkspacePreview: () => void;
 };
 
 function ToolbarIcon({ children }: { children: ReactNode }) {
@@ -39,7 +38,6 @@ export function CourseToolbar({
   inspectEnabled,
   inspectAvailable,
   hasWorkspacePreview,
-  workspacePreviewHref,
   reviewSetCount,
   toolsOpen,
   onSetCompareMode,
@@ -143,19 +141,16 @@ export function CourseToolbar({
         </button>
 
         {hasWorkspacePreview ? (
-          <a
+          <button
+            type="button"
             className="toolbar-button"
-            href={workspacePreviewHref}
-            target="_blank"
-            rel="noopener noreferrer"
-            referrerPolicy="no-referrer"
             onClick={onOpenWorkspacePreview}
             data-testid="open-workspace-preview-toggle"
             title="Open the current course in the full preview"
           >
             <ToolbarIcon><path d="M7 4H4.8A1.8 1.8 0 0 0 3 5.8v9.4A1.8 1.8 0 0 0 4.8 17h9.4a1.8 1.8 0 0 0 1.8-1.8V13M11 4h5v5M9 11l7-7" /></ToolbarIcon>
             Full preview
-          </a>
+          </button>
         ) : (
           <button type="button" className="toolbar-button" disabled data-testid="open-workspace-preview-toggle">
             Full preview

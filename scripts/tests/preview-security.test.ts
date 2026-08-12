@@ -882,8 +882,26 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
     isPreviewBridgeMessage({
       protocol: "canvas-helper.preview",
       version: 1,
+      type: "preview-health",
+      payload: { status: "ready", href: selection.pageHref, textLength: 42, visualCount: 1 }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-health",
+      payload: { status: "empty", href: selection.pageHref, textLength: -1, visualCount: 0 }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
       type: "preview-diagnostic",
-      payload: { kind: "asset-error", message: "img failed to load" }
+      payload: { kind: "asset-error", message: "img failed to load", href: selection.pageHref }
     }),
     true
   );
@@ -892,7 +910,16 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       protocol: "canvas-helper.preview",
       version: 1,
       type: "preview-diagnostic",
-      payload: { kind: "asset-error", message: "x".repeat(361) }
+      payload: { kind: "asset-error", message: "missing page identity" }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-diagnostic",
+      payload: { kind: "asset-error", message: "x".repeat(361), href: selection.pageHref }
     }),
     false
   );

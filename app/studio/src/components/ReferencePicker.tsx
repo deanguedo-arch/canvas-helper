@@ -41,7 +41,12 @@ export function ReferencePicker({
       <div className="reference-picker">
         <label className="mini-field">
           <span>Project</span>
-          <select className="mini-select" value={target.projectSlug} onChange={(event) => onProjectChange(event.target.value)}>
+          <select
+            className="mini-select"
+            value={target.projectSlug}
+            onChange={(event) => onProjectChange(event.target.value)}
+            data-testid="reference-project-select"
+          >
             {projectGroups.map((group) => (
               <optgroup key={group.label} label={group.label}>
                 {group.projects.map((project) => (
@@ -60,6 +65,7 @@ export function ReferencePicker({
             className="mini-select"
             value={target.source}
             onChange={(event) => onSourceChange(event.target.value === "resource" ? "resource" : "html")}
+            data-testid="reference-source-select"
           >
             <option value="html">html</option>
             <option value="resource">resource</option>
@@ -82,7 +88,12 @@ export function ReferencePicker({
 
             <label className="mini-field mini-field-wide">
               <span>HTML</span>
-              <select className="mini-select" value={target.htmlPath} onChange={(event) => onHtmlChange(event.target.value)}>
+              <select
+                className="mini-select"
+                value={target.htmlPath}
+                onChange={(event) => onHtmlChange(event.target.value)}
+                data-testid="reference-html-select"
+              >
                 {htmlOptions.length ? (
                   htmlOptions.map((file) => (
                     <option key={file} value={file}>
@@ -115,6 +126,7 @@ export function ReferencePicker({
                 className="mini-select"
                 value={target.resourcePath}
                 onChange={(event) => onResourcePathChange(event.target.value)}
+                data-testid="reference-resource-select"
               >
                 {resourceOptions.length ? (
                   resourceOptions.map((filePath) => (

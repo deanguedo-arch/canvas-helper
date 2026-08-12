@@ -41,6 +41,7 @@ let assessmentsRouteHandler: RouteHandler | null = null;
 let inspectionRouteHandler: RouteHandler | null = null;
 let reviewScreenshotRouteHandler: RouteHandler | null = null;
 let previewCaptureRouteHandler: RouteHandler | null = null;
+let previewPreflightRouteHandler: RouteHandler | null = null;
 let courseBuildBriefRouteHandler: RouteHandler | null = null;
 
 async function loadRouteHandler(server: ViteDevServer, moduleName: string, exportName: string) {
@@ -112,6 +113,18 @@ async function getPreviewCaptureRouteHandler(server: ViteDevServer, previewOrigi
     previewCaptureRouteHandler = module.createPreviewCaptureRouteHandler({ previewOrigin }) as RouteHandler;
   }
   return previewCaptureRouteHandler;
+}
+
+async function getPreviewPreflightRouteHandler(server: ViteDevServer, previewOrigin: string) {
+  if (!previewPreflightRouteHandler) {
+    const routeModulePath = path.join(process.cwd(), "app", "server", "routes", "preview-preflight.ts");
+    const module = await server.ssrLoadModule(routeModulePath);
+    if (typeof module.createPreviewPreflightRouteHandler !== "function") {
+      throw new Error("Preview preflight route factory was not found.");
+    }
+    previewPreflightRouteHandler = module.createPreviewPreflightRouteHandler({ previewOrigin }) as RouteHandler;
+  }
+  return previewPreflightRouteHandler;
 }
 
 async function getCourseBuildBriefRouteHandler(server: ViteDevServer) {
@@ -246,6 +259,17 @@ async function handleRequest(
       return;
     }
     const handler = await getPreviewCaptureRouteHandler(server, previewServer.origin);
+    if (await handler(url, request, response)) {
+      return;
+    }
+  }
+
+  if (url === "/api/preview/preflight") {
+    if (!previewServer) {
+      sendJson(response, 503, { error: "Isolated preview server is starting." });
+      return;
+    }
+    const handler = await getPreviewPreflightRouteHandler(server, previewServer.origin);
     if (await handler(url, request, response)) {
       return;
     }

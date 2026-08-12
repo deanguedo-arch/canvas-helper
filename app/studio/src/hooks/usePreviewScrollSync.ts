@@ -22,6 +22,7 @@ import {
   type PreviewReviewState,
   type PreviewScrollState
 } from "../../../shared/preview-bridge.js";
+import type { PreviewContentHealth } from "../../../shared/preview-health.js";
 import { loadPreviewScrollMap, savePreviewScrollMap } from "../lib/storage";
 import { getTargetKey } from "../lib/preview-urls";
 import {
@@ -52,9 +53,11 @@ type UsePreviewScrollSyncOptions = {
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectModeChange?: (enabled: boolean) => void;
   onPreviewNavigation?: (mode: PreviewMode, href: string, source: PreviewSurface) => void;
+  onPreviewReady?: (mode: PreviewMode, href: string, source: PreviewSurface) => void;
+  onPreviewHealth?: (mode: PreviewMode, health: PreviewContentHealth, source: PreviewSurface) => void;
   onPreviewReviewAction?: (mode: PreviewMode, action: PreviewReviewAction) => void;
   onStandaloneReturn?: (mode: PreviewMode) => void;
-  onPreviewDiagnostic?: (mode: PreviewMode, diagnostic: PreviewDiagnostic) => void;
+  onPreviewDiagnostic?: (mode: PreviewMode, diagnostic: PreviewDiagnostic, source: PreviewSurface) => void;
 };
 
 type BridgeState = Pick<
@@ -163,6 +166,8 @@ export function usePreviewScrollSync({
   onInspectHover,
   onInspectModeChange,
   onPreviewNavigation,
+  onPreviewReady,
+  onPreviewHealth,
   onPreviewReviewAction,
   onStandaloneReturn,
   onPreviewDiagnostic
@@ -213,7 +218,7 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled
   });
-  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic });
+  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic });
   stateRef.current = {
     previewMode,
     selectedProject,
@@ -222,7 +227,7 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled
   };
-  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic };
+  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic };
 
   const getModeTarget = (mode: PreviewMode) => {
     const current = stateRef.current;
@@ -402,6 +407,11 @@ export function usePreviewScrollSync({
         postBridgeCommand(mode, "studio-request-state", null);
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && stateRef.current.inspectEnabled });
         flushPendingFocusRequest(mode, source);
+        inspectionCallbacksRef.current.onPreviewReady?.(
+          mode,
+          String((data.payload as { href?: string }).href ?? ""),
+          source
+        );
         break;
       case "preview-scroll-state": {
         if (source === "embedded") {
@@ -482,8 +492,11 @@ export function usePreviewScrollSync({
           inspectionCallbacksRef.current.onStandaloneReturn?.(mode);
         }
         break;
+      case "preview-health":
+        inspectionCallbacksRef.current.onPreviewHealth?.(mode, data.payload as PreviewContentHealth, source);
+        break;
       case "preview-diagnostic":
-        inspectionCallbacksRef.current.onPreviewDiagnostic?.(mode, data.payload as PreviewDiagnostic);
+        inspectionCallbacksRef.current.onPreviewDiagnostic?.(mode, data.payload as PreviewDiagnostic, source);
         break;
       case "preview-error":
         {

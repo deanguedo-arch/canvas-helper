@@ -68,6 +68,48 @@ test("@inspection Studio uses an isolated preview origin and keeps annotation de
   await expect(workspaceFrame.locator("html")).not.toHaveAttribute("data-canvas-helper-inspect-active", "true");
 });
 
+test("@inspection inline reference resources bypass course-page recovery without disappearing", async ({ page }) => {
+  await page.route("**/api/projects", async (route) => {
+    const response = await route.fetch();
+    const projects = await response.json() as Array<{
+      manifest: { slug: string };
+      paths: { resourceDir: string };
+      referenceIndex: { references: Array<Record<string, unknown>> } | null;
+    }>;
+    const fixture = projects.find((project) => project.manifest.slug === "e2e-fixture");
+    if (fixture) {
+      fixture.referenceIndex = {
+        references: [{
+          id: "inline-resource-test",
+          originalPath: `${fixture.paths.resourceDir}/inline-resource-test.txt`,
+          kind: "text",
+          extractionStatus: "not-requested"
+        }]
+      };
+    }
+    await route.fulfill({ response, json: projects });
+  });
+  await page.route("**/*", async (route) => {
+    if (new URL(route.request().url()).pathname.includes("/preview/references/raw/e2e-fixture/inline-resource-test.txt")) {
+      await route.fulfill({ status: 200, contentType: "text/plain", body: "Inline reference resource remains visible." });
+      return;
+    }
+    await route.fallback();
+  });
+
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("layout-split-toggle").click();
+  const referencePane = page.getByTestId("reference-preview-pane");
+  if (!(await page.getByTestId("reference-project-select").isVisible())) {
+    await referencePane.getByRole("button", { name: "Show Controls" }).click();
+  }
+  await page.getByTestId("reference-project-select").selectOption("e2e-fixture");
+  await page.getByTestId("reference-source-select").selectOption("resource");
+  await expect(page.getByTestId("reference-preview-frame")).toBeVisible();
+  await expect(page.frameLocator('[data-testid="reference-preview-frame"]').locator("body")).toContainText("Inline reference resource remains visible");
+  await expect(page.getByTestId("reference-preview-recovery")).toHaveCount(0);
+});
+
 test("@inspection keyboard selection creates a handoff without activating the learner control", async ({ page }) => {
   await openProjectInStudio(page, "e2e-fixture");
   await page.getByTestId("inspect-toggle").click();
@@ -109,6 +151,11 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await expect(previewTools).toBeVisible();
   await expect(previewStatus).toContainText("Connected to Studio");
   await expect(previewInspect).toHaveAttribute("aria-pressed", "false");
+  await standaloneCourse.locator("body").evaluate(() => {
+    window.dispatchEvent(new ErrorEvent("error", { message: "Standalone-only test failure" }));
+  });
+  await page.waitForTimeout(150);
+  await expect(page.getByTestId("workspace-preview-warning")).toHaveCount(0);
   await previewInspect.click();
   await expect(previewInspect).toHaveAttribute("aria-pressed", "true");
   await expect(previewPage.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
@@ -197,6 +244,65 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await page.getByTestId("review-set").getByRole("button", { name: "Clear" }).click();
   expect((await standaloneScreenshotReclaimed).ok()).toBe(true);
   await expect(page.getByTestId("review-set-item")).toHaveCount(0);
+});
+
+test("@inspection Full Preview cannot expose the raw course URL through auxiliary activation", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const fullPreview = page.getByTestId("open-workspace-preview-toggle");
+  await expect(fullPreview).toBeEnabled();
+  await expect(fullPreview).toHaveJSProperty("tagName", "BUTTON");
+  await expect(fullPreview).not.toHaveAttribute("href", /.+/);
+
+  const pagesBeforeAuxiliaryClick = page.context().pages().length;
+  await fullPreview.click({ button: "middle" });
+  await page.waitForTimeout(150);
+  expect(page.context().pages()).toHaveLength(pagesBeforeAuxiliaryClick);
+
+  const popupPromise = page.waitForEvent("popup");
+  await fullPreview.click();
+  const previewPage = await popupPromise;
+  await expect(previewPage).toHaveURL(/\/standalone-preview\?target=/);
+  await previewPage.close();
+});
+
+test("@inspection full preview exposes retry and return actions when its course frame stays empty", async ({ page }) => {
+  let workspaceDocumentCount = 0;
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.context().route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      workspaceDocumentCount += 1;
+      if (workspaceDocumentCount === 1) {
+        const response = await route.fetch();
+        await route.fulfill({
+          response,
+          body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script></head><body>   </body></html>'
+        });
+        return;
+      }
+    }
+    await route.continue();
+  });
+
+  await expect(page.getByTestId("open-workspace-preview-toggle")).toBeEnabled();
+  const popupPromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const previewPage = await popupPromise;
+  await previewPage.waitForLoadState("domcontentloaded");
+
+  const retry = previewPage.locator('[data-canvas-helper-preview-retry="true"]');
+  await expect(retry).toBeVisible({ timeout: 15_000 });
+  await expect(previewPage.locator('[data-canvas-helper-preview-inspect-status="true"]')).toContainText("did not appear");
+  await expect(previewPage.locator('[data-canvas-helper-return-to-studio="true"]')).toBeVisible();
+
+  await retry.click();
+  const standaloneCourse = previewPage.frameLocator('[data-canvas-helper-standalone-course="true"]');
+  await expect(standaloneCourse.getByRole("heading", { name: "E2E Fixture Workspace" })).toBeVisible({ timeout: 10_000 });
+  await expect(retry).toBeHidden();
+  await previewPage.close();
 });
 
 test("@inspection annotation rail hides the technical dashboard panels", async ({ page }) => {
@@ -682,6 +788,261 @@ test("@inspection preview connection failure exposes a working reconnect action"
   unavailable = false;
   await page.getByTestId("preview-connection").click();
   await expect(page.getByTestId("preview-connection")).toContainText("Preview ready");
+});
+
+test("@inspection a failed page preflight offers recovery, page choice, and a bounded Codex handoff", async ({ page }) => {
+  await page.context().grantPermissions(["clipboard-read", "clipboard-write"]);
+  let workspaceUnavailable = true;
+  await page.route("**/api/preview/preflight", async (route) => {
+    const body = route.request().postDataJSON() as { previewUrl?: string };
+    if (workspaceUnavailable && body.previewUrl?.includes("/preview/workspace/e2e-fixture/")) {
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          status: "error",
+          code: "missing-local-runtime",
+          message: "This page depends on a local script that is missing.",
+          details: ["Missing script: main.js"],
+          runtimeFamily: "local-runtime"
+        })
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  const projectSelect = page.getByTestId("workspace-project-select");
+  await projectSelect.selectOption("e2e-fixture");
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("local script that is missing");
+  await expect(page.getByTestId("workspace-preview-frame")).toHaveCount(0);
+  await expect(page.getByTestId("open-workspace-preview-toggle")).toBeDisabled();
+
+  await recovery.getByRole("button", { name: "Open another page" }).click();
+  await expect(page.getByTestId("workspace-html-select")).toBeFocused();
+
+  await recovery.getByRole("button", { name: "Copy issue for Codex" }).click();
+  await expect(recovery.getByRole("button", { name: "Copied for Codex" })).toBeVisible();
+  const packet = await page.evaluate(() => navigator.clipboard.readText());
+  expect(packet).toContain("# Canvas Studio Preview Issue handoff");
+  expect(packet).toContain("Schema: preview-issue-v1");
+  expect(packet).toContain("Missing script: main.js");
+  expect(packet).not.toContain("/Users/");
+
+  workspaceUnavailable = false;
+  await recovery.getByRole("button", { name: "Retry" }).click();
+  await expect(page.getByTestId("workspace-preview-frame")).toBeVisible();
+  await expect(page.getByTestId("workspace-preview-recovery")).toHaveCount(0);
+  await expect(page.frameLocator('[data-testid="workspace-preview-frame"]').getByRole("heading", { name: "E2E Fixture Workspace" })).toBeVisible();
+});
+
+test("@inspection switching pages cannot reuse a prior page's ready state", async ({ page }) => {
+  let releaseAlternatePreflight: (() => void) | null = null;
+  let alternateDocumentRequests = 0;
+  await openProjectInStudio(page, "e2e-fixture");
+  await expect(page.frameLocator('[data-testid="workspace-preview-frame"]').getByRole("heading", { name: "E2E Fixture Workspace" })).toBeVisible();
+
+  await page.route("**/api/preview/preflight", async (route) => {
+    const body = route.request().postDataJSON() as { previewUrl?: string };
+    if (body.previewUrl?.includes("/alternate.html")) {
+      await new Promise<void>((resolve) => {
+        releaseAlternatePreflight = resolve;
+      });
+      await route.fulfill({
+        status: 200,
+        contentType: "application/json",
+        body: JSON.stringify({
+          status: "error",
+          code: "missing-local-runtime",
+          message: "This alternate page did not pass its own preview check.",
+          details: ["Missing script: alternate.js"],
+          runtimeFamily: "local-runtime"
+        })
+      });
+      return;
+    }
+    await route.continue();
+  });
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (route.request().resourceType() === "document" && requestUrl.pathname.endsWith("/alternate.html")) {
+      alternateDocumentRequests += 1;
+    }
+    await route.fallback();
+  });
+
+  await page.getByTestId("workspace-html-select").selectOption("alternate.html");
+  await expect.poll(() => Boolean(releaseAlternatePreflight)).toBe(true);
+  await expect(page.getByTestId("workspace-preview-frame")).toHaveCount(0);
+  await expect(page.getByTestId("inspect-toggle")).toBeDisabled();
+  await expect(page.getByTestId("open-workspace-preview-toggle")).toBeDisabled();
+  await page.waitForTimeout(150);
+  expect(alternateDocumentRequests).toBe(0);
+
+  releaseAlternatePreflight?.();
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("did not pass its own preview check");
+  await expect(page.getByTestId("workspace-preview-frame")).toHaveCount(0);
+  await expect(page.getByTestId("open-workspace-preview-toggle")).toBeDisabled();
+});
+
+test("@inspection a page that loads without course content becomes an explicit recovery state", async ({ page }) => {
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script></head><body>   <div hidden>Hidden course copy</div><svg aria-hidden="true" width="32" height="32"><circle cx="16" cy="16" r="12"></circle></svg>   </body></html>'
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await page.getByTestId("workspace-project-select").selectOption("e2e-fixture");
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("course content did not appear", { timeout: 10_000 });
+  await recovery.locator("summary", { hasText: "Details" }).click();
+  await expect(recovery).toContainText("No meaningful course text or visual content appeared");
+});
+
+test("@inspection content inside a transparent ancestor becomes an explicit recovery state", async ({ page }) => {
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script></head><body><main style="opacity:0"><h1>Course content hidden from view</h1><button type="button">Continue</button></main></body></html>'
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await page.getByTestId("workspace-project-select").selectOption("e2e-fixture");
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("course content did not appear", { timeout: 15_000 });
+  await recovery.locator("summary", { hasText: "Details" }).click();
+  await expect(recovery).toContainText("No meaningful course text or visual content appeared");
+});
+
+test("@inspection a course stuck on loading status becomes an explicit recovery state", async ({ page }) => {
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script></head><body><main aria-busy="true"><div role="status">Loading content...</div><svg aria-label="Loading content" width="24" height="24"><circle cx="12" cy="12" r="10"></circle></svg></main></body></html>'
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await page.getByTestId("workspace-project-select").selectOption("e2e-fixture");
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("course content did not appear", { timeout: 15_000 });
+  await recovery.locator("summary", { hasText: "Details" }).click();
+  await expect(recovery).toContainText("No meaningful course text or visual content appeared");
+});
+
+test("@inspection a loader-only progress bar becomes an explicit recovery state", async ({ page }) => {
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script></head><body><div role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuenow="40">Loading 40%</div></body></html>'
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await page.getByTestId("workspace-project-select").selectOption("e2e-fixture");
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("course content did not appear", { timeout: 12_000 });
+  await recovery.locator("summary", { hasText: "Details" }).click();
+  await expect(recovery).toContainText("No meaningful course text or visual content appeared");
+});
+
+test("@inspection a loader-only native progress element becomes an explicit recovery state", async ({ page }) => {
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script></head><body><progress value="40" max="100">Loading 40%</progress></body></html>'
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await page.getByTestId("workspace-project-select").selectOption("e2e-fixture");
+  const recovery = page.getByTestId("workspace-preview-recovery");
+  await expect(recovery).toContainText("course content did not appear", { timeout: 12_000 });
+  await recovery.locator("summary", { hasText: "Details" }).click();
+  await expect(recovery).toContainText("No meaningful course text or visual content appeared");
+});
+
+test("@inspection a slow course stays mounted and recovers when meaningful content appears", async ({ page }) => {
+  await page.route("**/*", async (route) => {
+    const requestUrl = new URL(route.request().url());
+    if (
+      route.request().resourceType() === "document" &&
+      requestUrl.pathname.includes("/preview/workspace/e2e-fixture/index.html")
+    ) {
+      const response = await route.fetch();
+      await route.fulfill({
+        response,
+        body: '<!doctype html><html><head><meta charset="utf-8"><script src="/_canvas-helper/preview-bridge.js"></script><script>setTimeout(function(){document.getElementById("root").innerHTML="<h1>Delayed course ready</h1>";}, 4500);</script></head><body><div id="root" aria-busy="true"><svg aria-hidden="true" width="24" height="24"><circle cx="12" cy="12" r="10"></circle></svg></div></body></html>'
+      });
+      return;
+    }
+    await route.continue();
+  });
+
+  await page.goto("/?e2e=1");
+  await expect(page.getByTestId("studio-shell")).toBeVisible();
+  await page.getByTestId("workspace-project-select").selectOption("e2e-fixture");
+  const frame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await expect(frame.getByRole("heading", { name: "Delayed course ready" })).toBeVisible({ timeout: 7_000 });
+  await expect(page.getByTestId("workspace-preview-frame")).toBeVisible();
+  await expect(page.getByTestId("workspace-preview-recovery")).toHaveCount(0);
 });
 
 test("@inspection a late first selection cannot overwrite a newer selection in the same preview", async ({ page }) => {

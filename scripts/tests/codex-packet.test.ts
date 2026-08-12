@@ -11,6 +11,11 @@ import {
   utf8ByteLength,
   type ReviewSetScreenshot
 } from "../../app/studio/src/lib/review-set.ts";
+import {
+  buildPreviewIssuePacket,
+  createPreviewRecoveryState,
+  PREVIEW_ISSUE_PACKET_MAX_BYTES
+} from "../../app/studio/src/lib/preview-recovery.ts";
 import { INSPECTION_PACKET_MAX_BYTES, type InspectionResolution } from "../../app/shared/inspection.ts";
 
 const baseResolution: InspectionResolution = {
@@ -39,6 +44,36 @@ const baseResolution: InspectionResolution = {
   validationCommand: "npm run course:doctor -- --project social30-1-related-issue-1-option-2",
   warnings: ["The selected workspace is generated output. Do not hand-edit the displayed HTML; use the declared source and rebuild flow."]
 };
+
+test("preview issue packets keep technical evidence bounded and hide local paths", () => {
+  const state = {
+    ...createPreviewRecoveryState("http://127.0.0.1:61234/preview", 2),
+    phase: "error" as const,
+    code: "runtime-failure" as const,
+    message: "The course app did not render.",
+    details: ["Missing file /Users/teacher/private/course/main.js"],
+    diagnostics: [{
+      kind: "runtime-error" as const,
+      message: "Failed at http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/main.js and https://cdn.example.com/course.js?token=secret-value",
+      href: "http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/course-project/index.html"
+    }]
+  };
+  const packet = buildPreviewIssuePacket({
+    mode: "workspace",
+    projectSlug: "course-project",
+    pagePath: "index.html",
+    state
+  });
+
+  assert.match(packet, /Schema: preview-issue-v1/);
+  assert.match(packet, /runtime-failure/);
+  assert.match(packet, /untrusted course text/i);
+  assert.doesNotMatch(packet, /\/Users\/teacher/);
+  assert.doesNotMatch(packet, /12345678-1234-1234-1234-123456789abc/);
+  assert.doesNotMatch(packet, /secret-value|token=/);
+  assert.match(packet, /external link: cdn\.example\.com/);
+  assert.ok(utf8ByteLength(packet) <= PREVIEW_ISSUE_PACKET_MAX_BYTES);
+});
 
 test("Codex packet is bounded and preserves generated-source safety fields", () => {
   const packet = buildCodexPacket({

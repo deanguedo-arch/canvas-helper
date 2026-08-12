@@ -13,6 +13,7 @@ import { WorkspacePicker } from "./components/WorkspacePicker";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
+import { usePreviewRecovery } from "./hooks/usePreviewRecovery";
 import {
   capturePreviewScreenshot,
   cropScreenshotPng,
@@ -31,6 +32,7 @@ import {
   type PreviewMode
 } from "./lib/types";
 import { toPreviewUrl, toReferenceResourcePreviewUrl } from "./lib/preview-urls";
+import { buildPreviewIssuePacket } from "./lib/preview-recovery";
 import {
   buildReviewSetPacket,
   createReviewSetItem,
@@ -422,6 +424,14 @@ export function App() {
     return { reference: referenceSrc, workspace: workspaceSrc };
   }, [previewCapabilityFor, previewOrigin, referenceRevision, resolvedReference, selectedProject, workspaceTarget]);
 
+  const previewRecovery = usePreviewRecovery({
+    previewSources,
+    enabled: {
+      reference: resolvedReference.target.source === "html",
+      workspace: true
+    }
+  });
+
   const inspectionContextKey = useMemo(
     () =>
       JSON.stringify({
@@ -767,10 +777,20 @@ export function App() {
     onInspectModeChange: (enabled) => {
       setInspectEnabled(enabled);
     },
-    onPreviewNavigation: (mode) => {
+    onPreviewNavigation: (mode, href, source) => {
+      if (source === "embedded") previewRecovery.markNavigation(mode, href);
       if (mode === "workspace") {
         resetInspection(true);
       }
+    },
+    onPreviewReady: (mode, href, source) => {
+      if (source === "embedded") previewRecovery.markBridgeReady(mode, href);
+    },
+    onPreviewHealth: (mode, health, source) => {
+      if (source === "embedded") previewRecovery.markContentHealth(mode, health);
+    },
+    onPreviewDiagnostic: (mode, diagnostic, source) => {
+      if (source === "embedded") previewRecovery.addDiagnostic(mode, diagnostic);
     },
     onPreviewReviewAction: (mode, action) => standaloneReviewActionRef.current(mode, action),
     onStandaloneReturn: () => {
@@ -809,6 +829,34 @@ export function App() {
   const referenceFileOptions = resolvedReference.options.html;
   const referenceResourceOptions = resolvedReference.options.resourcesActive;
   const visiblePreviewModes = layoutPreferences.compareMode ? [...previewModes] : [previewMode];
+
+  const openAnotherPreviewPage = (mode: PreviewMode) => {
+    setPaneControlsVisible((current) => ({ ...current, [mode]: true }));
+    window.requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>(`[data-testid="${mode}-html-select"]`)?.focus();
+    });
+  };
+
+  const copyPreviewIssue = async (mode: PreviewMode) => {
+    const projectSlug = mode === "workspace"
+      ? selectedProject?.manifest.slug ?? selectedSlug
+      : resolvedReference.target.projectSlug;
+    const pagePath = mode === "workspace"
+      ? workspaceTarget?.htmlPath ?? ""
+      : resolvedReference.target.source === "html"
+        ? resolvedReference.target.htmlPath
+        : resolvedReference.target.resourcePath;
+    const packet = buildPreviewIssuePacket({
+      mode,
+      projectSlug,
+      pagePath,
+      state: previewRecovery.states[mode]
+    });
+    if (!navigator.clipboard || typeof navigator.clipboard.writeText !== "function") {
+      throw new Error("Clipboard access is unavailable.");
+    }
+    await navigator.clipboard.writeText(packet);
+  };
 
   const reviewSetAddAvailability = useMemo(() => {
     if (reviewSetSaving) {
@@ -2190,16 +2238,19 @@ export function App() {
     setPreviewMode(nextMode);
   };
 
-  const handleOpenWorkspacePreview = (event: MouseEvent<HTMLAnchorElement>) => {
+  const handleOpenWorkspacePreview = () => {
     persistAllVisibleScrollPositions();
-    event.currentTarget.rel = "noopener noreferrer";
+    if (!previewSources.workspace || !["ready", "warning"].includes(previewRecovery.states.workspace.phase)) {
+      setReviewSetStatus("The full preview will be available after this page passes its preview check.", "warning");
+      return;
+    }
     const connectedHref = prepareStandalonePreview("workspace", previewSources.workspace);
     if (connectedHref) {
-      event.currentTarget.href = connectedHref;
-      event.currentTarget.rel = "opener";
-      event.currentTarget.referrerPolicy = "no-referrer";
+      const previewWindow = window.open(connectedHref, "_blank");
+      if (!previewWindow) {
+        setReviewSetStatus("The browser blocked the full preview. Allow pop-ups for Studio and try again.", "warning");
+      }
     } else {
-      event.preventDefault();
       setReviewSetStatus("The full preview could not open yet. Try again once the preview finishes loading.");
     }
   };
@@ -2309,9 +2360,8 @@ export function App() {
             previewMode={previewMode}
             learnerMode={learnerModeDisplay}
             inspectEnabled={inspectEnabled}
-            inspectAvailable={Boolean(previewOrigin)}
-            hasWorkspacePreview={Boolean(previewSources.workspace)}
-            workspacePreviewHref={previewSources.workspace}
+            inspectAvailable={Boolean(previewOrigin) && ["ready", "warning"].includes(previewRecovery.states.workspace.phase)}
+            hasWorkspacePreview={Boolean(previewSources.workspace) && ["ready", "warning"].includes(previewRecovery.states.workspace.phase)}
             reviewSetCount={reviewSetItems.length}
             toolsOpen={toolsOpen}
             onSetCompareMode={setCompareMode}
@@ -2430,7 +2480,12 @@ export function App() {
                         onZoomChange={handleZoomChange}
                         registerPreviewFrame={registerPreviewFrame}
                         onPreviewLoad={attachPreviewPersistence}
+                        onPreviewFrameLoad={previewRecovery.markFrameLoaded}
                         previewSrc={previewSources[mode]}
+                        recoveryState={previewRecovery.states[mode]}
+                        onRetryPreview={previewRecovery.retry}
+                        onOpenAnotherPage={openAnotherPreviewPage}
+                        onCopyPreviewIssue={copyPreviewIssue}
                         picker={
                           mode === "reference" ? (
                             <ReferencePicker

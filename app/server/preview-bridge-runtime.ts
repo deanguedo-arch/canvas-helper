@@ -61,6 +61,7 @@ export function buildPreviewBridgeRuntime(
   var previewControls = null;
   var inspectControl = null;
   var previewStatus = null;
+  var standaloneRetryControl = null;
   var reviewToggle = null;
   var reviewPanel = null;
   var reviewSelection = null;
@@ -92,11 +93,18 @@ export function buildPreviewBridgeRuntime(
   var hostedCourseFrame = null;
   var hostedCoursePort = null;
   var hostedCourseReadyHref = "";
+  var hostedCourseHealth = null;
+  var hostedCourseHealthTimer = 0;
+  var hostedCourseRecoveryMessage = "";
   var hostedFocusRequest = null;
   var reconnectTimer = 0;
   var reconnectAttempts = 0;
   var lastNavigationIdentity = "";
   var navigationReportTimer = 0;
+  var contentHealth = null;
+  var contentHealthTimer = 0;
+  var contentHealthMutationTimer = 0;
+  var contentHealthObserver = null;
   try {
     standaloneUrl = new URL(location.href);
     standaloneSessionToken = standaloneUrl.searchParams.get(STANDALONE_SESSION_PARAM) || "";
@@ -415,6 +423,29 @@ export function buildPreviewBridgeRuntime(
     if (previewStatus) previewStatus.textContent = boundedString(value, 120);
   }
 
+  function clearHostedCourseHealthTimeout() {
+    if (!hostedCourseHealthTimer) return;
+    window.clearTimeout(hostedCourseHealthTimer);
+    hostedCourseHealthTimer = 0;
+  }
+
+  function setHostedCourseRecovery(message) {
+    hostedCourseRecoveryMessage = boundedString(message, 120);
+    if (standaloneRetryControl) standaloneRetryControl.style.display = hostedCourseRecoveryMessage ? "inline-flex" : "none";
+    if (hostedCourseRecoveryMessage) setStandaloneStatus(hostedCourseRecoveryMessage);
+  }
+
+  function scheduleHostedCourseHealthTimeout() {
+    if (!hostMode) return;
+    clearHostedCourseHealthTimeout();
+    hostedCourseHealthTimer = window.setTimeout(function() {
+      hostedCourseHealthTimer = 0;
+      if (!hostedCourseHealth || hostedCourseHealth.status !== "ready") {
+        setHostedCourseRecovery("Course content did not finish loading. Retry or return to Studio.");
+      }
+    }, 12000);
+  }
+
   function updateStandaloneControls() {
     if (!inspectControl) return;
     inspectControl.textContent = inspectEnabled ? "Annotating" : "Annotate";
@@ -440,6 +471,7 @@ export function buildPreviewBridgeRuntime(
     } else {
       setStandaloneStatus(studioConnected ? "Connected to Studio." : port ? "Connecting to Studio..." : "Open this preview from Studio to save annotations.");
     }
+    if (hostMode && hostedCourseRecoveryMessage) setStandaloneStatus(hostedCourseRecoveryMessage);
     renderReviewPanel();
   }
 
@@ -721,6 +753,22 @@ export function buildPreviewBridgeRuntime(
       if (reviewPanelOpen) sendReviewAction({ action: "request-state" });
     });
 
+    var retryButton = document.createElement("button");
+    retryButton.type = "button";
+    retryButton.textContent = "Retry preview";
+    retryButton.setAttribute("data-canvas-helper-preview-retry", "true");
+    stylePreviewControlButton(retryButton);
+    retryButton.style.display = "none";
+    retryButton.addEventListener("click", function(event) {
+      if (!event.isTrusted || !hostMode || !hostedCourseFrame) return;
+      hostedCourseHealth = null;
+      hostedCourseReadyHref = "";
+      setHostedCourseRecovery("");
+      setStandaloneStatus("Retrying course preview…");
+      scheduleHostedCourseHealthTimeout();
+      try { hostedCourseFrame.src = hostedCourseFrame.src; } catch (_) {}
+    });
+
     var returnButton = document.createElement("button");
     returnButton.type = "button";
     returnButton.textContent = "Return to Studio";
@@ -942,6 +990,7 @@ export function buildPreviewBridgeRuntime(
 
     actions.appendChild(inspectButton);
     actions.appendChild(reviewButton);
+    actions.appendChild(retryButton);
     actions.appendChild(returnButton);
     controls.appendChild(actions);
     controls.appendChild(status);
@@ -950,6 +999,7 @@ export function buildPreviewBridgeRuntime(
     previewControls = controls;
     inspectControl = inspectButton;
     previewStatus = status;
+    standaloneRetryControl = retryButton;
     reviewToggle = reviewButton;
     reviewPanel = panel;
     reviewSelectionText = selectedText;
@@ -993,7 +1043,7 @@ export function buildPreviewBridgeRuntime(
   }
 
   function sendDiagnostic(kind, value, fallback) {
-    send("preview-diagnostic", { kind: kind, message: diagnosticMessage(value, fallback) });
+    send("preview-diagnostic", { kind: kind, message: diagnosticMessage(value, fallback), href: location.href });
   }
 
   function ensureShield() {
@@ -1249,6 +1299,7 @@ export function buildPreviewBridgeRuntime(
     hideOverlay();
     renderReviewPanel();
     send("preview-navigation", { href: location.href });
+    beginContentHealthCheck();
     scheduleScrollState();
   }
 
@@ -1364,8 +1415,24 @@ export function buildPreviewBridgeRuntime(
       flushHostedFocusRequest();
       return;
     }
+    if (data.type === "preview-health") {
+      hostedCourseHealth = data.payload;
+      send("preview-health", data.payload);
+      if (data.payload && data.payload.status === "empty") {
+        clearHostedCourseHealthTimeout();
+        setHostedCourseRecovery("Course content did not appear. Retry or return to Studio.");
+      } else if (data.payload && data.payload.status === "ready") {
+        clearHostedCourseHealthTimeout();
+        setHostedCourseRecovery("");
+        updateStandaloneControls();
+      }
+      return;
+    }
     if (data.type === "preview-navigation" && data.payload && typeof data.payload.href === "string") {
       hostedCourseReadyHref = data.payload.href;
+      hostedCourseHealth = null;
+      setHostedCourseRecovery("");
+      scheduleHostedCourseHealthTimeout();
       reviewSelection = null;
       reviewLocalMessage = "The course page changed. Select an element again.";
       renderReviewPanel();
@@ -1392,6 +1459,7 @@ export function buildPreviewBridgeRuntime(
       data.type === "preview-inspect-current" ||
       data.type === "preview-inspect-focused" ||
       data.type === "preview-inspect-mode" ||
+      data.type === "preview-health" ||
       data.type === "preview-diagnostic" ||
       data.type === "preview-error"
     ) send(data.type, data.payload);
@@ -1401,6 +1469,9 @@ export function buildPreviewBridgeRuntime(
     if (!hostMode || typeof MessageChannel !== "function") return;
     hostedCourseFrame = document.querySelector("[data-canvas-helper-standalone-course]");
     if (!hostedCourseFrame || !hostedCourseFrame.contentWindow) return;
+    hostedCourseHealth = null;
+    setHostedCourseRecovery("");
+    scheduleHostedCourseHealthTimeout();
     if (hostedCoursePort) { try { hostedCoursePort.close(); } catch (_) {} }
     var channel = new MessageChannel();
     hostedCoursePort = channel.port1;
@@ -1508,9 +1579,11 @@ export function buildPreviewBridgeRuntime(
     if (typeof port.start === "function") port.start();
     if (hostMode) {
       if (hostedCourseReadyHref) send("preview-ready", { href: hostedCourseReadyHref });
+      if (hostedCourseHealth) send("preview-health", hostedCourseHealth);
       sendHostedCourse("studio-request-state", null);
     } else {
       send("preview-ready", { href: location.href });
+      if (contentHealth) send("preview-health", contentHealth);
       sendScrollState();
     }
     if (window.top === window) send("preview-review-action", { action: "request-state" });
@@ -1630,13 +1703,163 @@ export function buildPreviewBridgeRuntime(
     sendDiagnostic("unhandled-rejection", message, "A preview promise was rejected.");
   });
 
+  function clearContentHealthCheck() {
+    if (contentHealthTimer) {
+      window.clearTimeout(contentHealthTimer);
+      contentHealthTimer = 0;
+    }
+    if (contentHealthMutationTimer) {
+      window.clearTimeout(contentHealthMutationTimer);
+      contentHealthMutationTimer = 0;
+    }
+    if (contentHealthObserver) {
+      try { contentHealthObserver.disconnect(); } catch (_) {}
+      contentHealthObserver = null;
+    }
+  }
+
+  function isVisibleCourseElement(element) {
+    if (!element || element.closest("[data-canvas-helper-preview-controls], [hidden], [aria-hidden='true']")) return false;
+    try {
+      var ancestor = element;
+      while (ancestor && ancestor.nodeType === 1) {
+        var style = window.getComputedStyle(ancestor);
+        if (
+          style.display === "none" ||
+          style.visibility === "hidden" ||
+          style.visibility === "collapse" ||
+          Number(style.opacity) === 0
+        ) return false;
+        if (ancestor === document.body || ancestor === document.documentElement) break;
+        ancestor = ancestor.parentElement;
+      }
+      var rect = element.getBoundingClientRect();
+      return rect.width > 0 && rect.height > 0 && element.getClientRects().length > 0;
+    } catch (_) {
+      return false;
+    }
+  }
+
+  function isLoadingPlaceholderText(value) {
+    var normalized = boundedString(value, 240)
+      .toLowerCase()
+      .replace(/[.…!,:;_\-]+/g, " ")
+      .replace(/\s+/g, " ")
+      .trim();
+    if (!normalized) return false;
+    return /^(?:(?:loading|working|preparing|starting)(?: (?:the|your|course|lesson|module|page|preview|content|activity|resources?|experience|things|now)){0,6}(?: please wait)?|please wait(?: (?:for|while|the|your|course|lesson|module|page|preview|content|activity|resources?|experience|things|now)){0,6})$/i.test(normalized);
+  }
+
+  function isLoadingStatusElement(element) {
+    return Boolean(element && element.closest("progress, [role='status'], [role='progressbar'], [aria-busy='true']"));
+  }
+
+  function isMeaningfulVisual(element) {
+    if (!isVisibleCourseElement(element)) return false;
+    var tag = element.tagName ? element.tagName.toLowerCase() : "";
+    if (element.getAttribute("role") === "progressbar" || isLoadingStatusElement(element)) return false;
+    if (tag === "input" && element.getAttribute("type") === "hidden") return false;
+    if (tag !== "svg" && tag !== "canvas") return true;
+    var label = boundedString(element.getAttribute("aria-label") || element.getAttribute("title") || "", 120);
+    if (!label && tag === "svg") {
+      var title = element.querySelector("title");
+      label = boundedString(title && title.textContent, 120);
+    }
+    return Boolean(label && !isLoadingPlaceholderText(label));
+  }
+
+  function inspectCourseContent() {
+    if (hostMode || captureMode || !document.body) return { textLength: 0, visualCount: 0 };
+    var textLength = 0;
+    var visibleText = "";
+    try {
+      var walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT);
+      var node = walker.nextNode();
+      while (node && textLength < 100000) {
+        var parent = node.parentElement;
+        var tag = parent && parent.tagName ? parent.tagName.toLowerCase() : "";
+        if (
+          parent &&
+          tag !== "script" &&
+          tag !== "style" &&
+          tag !== "noscript" &&
+          tag !== "template" &&
+          !isLoadingStatusElement(parent) &&
+          isVisibleCourseElement(parent)
+        ) {
+          var text = boundedString(node.nodeValue, 100000 - textLength);
+          if (text) {
+            visibleText += (visibleText ? " " : "") + text;
+            textLength = visibleText.length;
+          }
+        }
+        node = walker.nextNode();
+      }
+    } catch (_) {}
+    if (isLoadingPlaceholderText(visibleText)) textLength = 0;
+    var visualCount = 0;
+    try {
+      var visuals = document.body.querySelectorAll("img,video,audio,canvas,svg,iframe,object,embed,table,input,textarea,select,button");
+      for (var index = 0; index < visuals.length && visualCount < 10000; index += 1) {
+        var visual = visuals[index];
+        if (isMeaningfulVisual(visual)) visualCount += 1;
+      }
+    } catch (_) {}
+    return { textLength: textLength, visualCount: visualCount };
+  }
+
+  function publishContentHealth(status, counts) {
+    contentHealth = {
+      status: status,
+      href: location.href,
+      textLength: Math.max(0, Math.min(100000, Math.round(counts.textLength || 0))),
+      visualCount: Math.max(0, Math.min(10000, Math.round(counts.visualCount || 0)))
+    };
+    send("preview-health", contentHealth);
+    if (status === "empty" && window.top === window) {
+      setStandaloneStatus("Course content did not appear. Return to Studio for recovery options.");
+    }
+  }
+
+  function beginContentHealthCheck() {
+    if (hostMode || captureMode) return;
+    clearContentHealthCheck();
+    contentHealth = null;
+    var check = function(finalCheck) {
+      var counts = inspectCourseContent();
+      if (counts.textLength > 0 || counts.visualCount > 0) {
+        if (!contentHealth || contentHealth.status !== "ready") publishContentHealth("ready", counts);
+        if (finalCheck) clearContentHealthCheck();
+        return;
+      }
+      if (finalCheck) {
+        publishContentHealth("empty", counts);
+        contentHealthTimer = window.setTimeout(clearContentHealthCheck, 15000);
+      }
+    };
+    if (typeof MutationObserver === "function" && document.body) {
+      contentHealthObserver = new MutationObserver(function() {
+        if (contentHealthMutationTimer) return;
+        contentHealthMutationTimer = window.setTimeout(function() {
+          contentHealthMutationTimer = 0;
+          check(false);
+        }, 40);
+      });
+      try { contentHealthObserver.observe(document.body, { childList: true, subtree: true, characterData: true }); } catch (_) {}
+    }
+    check(false);
+    contentHealthTimer = window.setTimeout(function() { check(true); }, 8000);
+  }
+
   function markReady() {
     document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true");
     ensureStandalonePreviewControls();
+    beginContentHealthCheck();
     if (hostMode) {
       hostedCourseFrame = document.querySelector("[data-canvas-helper-standalone-course]");
       if (hostedCourseFrame) hostedCourseFrame.addEventListener("load", connectHostedCourse);
       connectHostedCourse();
+      scheduleHostedCourseHealthTimeout();
     }
   }
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", markReady, { once: true }); else markReady();

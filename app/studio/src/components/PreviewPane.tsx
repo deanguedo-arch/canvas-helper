@@ -1,7 +1,9 @@
 import type { CSSProperties, ReactNode } from "react";
 
 import { getReferenceResourceRenderMode } from "../reference-resource-preview";
+import type { PreviewRecoveryState } from "../lib/preview-recovery";
 import { DEVICE_PRESETS, type PreviewLayoutPreferences, type PreviewMode } from "../lib/types";
+import { PreviewRecoveryPanel } from "./PreviewRecoveryPanel";
 
 type PreviewPaneProps = {
   mode: PreviewMode;
@@ -15,7 +17,12 @@ type PreviewPaneProps = {
   onZoomChange: (mode: PreviewMode, zoom: number) => void;
   registerPreviewFrame: (mode: PreviewMode, node: HTMLIFrameElement | null) => void;
   onPreviewLoad: (mode: PreviewMode) => void;
+  onPreviewFrameLoad: (mode: PreviewMode) => void;
   previewSrc: string;
+  recoveryState: PreviewRecoveryState;
+  onRetryPreview: (mode: PreviewMode) => void;
+  onOpenAnotherPage: (mode: PreviewMode) => void;
+  onCopyPreviewIssue: (mode: PreviewMode) => Promise<void>;
   picker?: ReactNode;
   resourcePreview?: {
     resourcePath: string;
@@ -39,7 +46,12 @@ export function PreviewPane({
   onZoomChange,
   registerPreviewFrame,
   onPreviewLoad,
+  onPreviewFrameLoad,
   previewSrc,
+  recoveryState,
+  onRetryPreview,
+  onOpenAnotherPage,
+  onCopyPreviewIssue,
   picker,
   resourcePreview
 }: PreviewPaneProps) {
@@ -54,8 +66,19 @@ export function PreviewPane({
   const resourceRenderMode = resourcePreview
     ? getReferenceResourceRenderMode(resourcePreview.resourcePath, resourcePreview.resourceRoot)
     : "fallback";
+  const shouldUseInlineResourcePreview = Boolean(resourcePreview && resourceRenderMode === "inline-frame");
   const shouldUsePdfResourcePreview = Boolean(resourcePreview && resourceRenderMode === "inline-pdf");
   const shouldUseResourceFallback = Boolean(resourcePreview && resourceRenderMode === "fallback");
+  const hasRecoverableRuntimeFailure = recoveryState.phase === "error" && (
+    recoveryState.code === "bridge-timeout" ||
+    recoveryState.code === "runtime-empty" ||
+    recoveryState.code === "runtime-failure"
+  );
+  const canMountHtmlPreview = Boolean(previewSrc && (
+    shouldUseInlineResourcePreview ||
+    ["loading", "checking", "ready", "warning"].includes(recoveryState.phase) ||
+    hasRecoverableRuntimeFailure
+  ));
 
   return (
     <article key={mode} className="preview-pane" data-testid={`${mode}-preview-pane`}>
@@ -188,17 +211,39 @@ export function PreviewPane({
         ) : previewSrc ? (
           <div className="preview-canvas-shell" data-preview-shell={mode}>
             <div className={`preview-canvas preview-canvas-${layoutPreferences.devices[mode]}`} style={previewCanvasStyle}>
-              <iframe
-                key={`${mode}:${previewSrc}`}
-                ref={(node) => registerPreviewFrame(mode, node)}
-                className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
-                src={previewSrc}
-                title={`${mode} preview`}
-                data-testid={`${mode}-preview-frame`}
-                sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads"
-                aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
-                onLoad={() => onPreviewLoad(mode)}
-              />
+              {canMountHtmlPreview ? (
+                <iframe
+                  key={`${mode}:${previewSrc}:${recoveryState.attempt}`}
+                  ref={(node) => registerPreviewFrame(mode, node)}
+                  className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
+                  src={previewSrc}
+                  title={`${mode} preview`}
+                  data-testid={`${mode}-preview-frame`}
+                  sandbox="allow-same-origin allow-scripts allow-forms allow-modals allow-popups allow-downloads"
+                  aria-hidden={!layoutPreferences.compareMode && previewMode !== mode}
+                  onLoad={() => {
+                    onPreviewFrameLoad(mode);
+                    onPreviewLoad(mode);
+                  }}
+                />
+              ) : null}
+              {!shouldUseInlineResourcePreview && recoveryState.phase !== "ready" ? (
+                <div className={
+                  recoveryState.phase === "warning"
+                    ? "preview-recovery-layer notice"
+                    : canMountHtmlPreview
+                      ? "preview-recovery-layer"
+                      : "preview-recovery-layer inline"
+                }>
+                  <PreviewRecoveryPanel
+                    mode={mode}
+                    state={recoveryState}
+                    onRetry={() => onRetryPreview(mode)}
+                    onOpenAnotherPage={() => onOpenAnotherPage(mode)}
+                    onCopyIssue={() => onCopyPreviewIssue(mode)}
+                  />
+                </div>
+              ) : null}
             </div>
           </div>
         ) : (
