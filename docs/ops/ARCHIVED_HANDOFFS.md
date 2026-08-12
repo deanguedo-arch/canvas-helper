@@ -8260,3 +8260,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; Full Preview remained on the standalone recovery host and diagnostics stayed URL-scoped, bounded, and privacy-scrubbed.
 - Implementation commits: `75a5d369` and `4760f458`.
 - Next command at archival time: `rg -n "stopAnnotationMode|toggleAnnotationMode|aria-live|focus\\(|loading=|@media|prefers-reduced-motion" app/studio/src app/server/preview-bridge-runtime.ts e2e/specs/inspection.spec.ts`.
+
+## Archived Active Handoff — 2026-08-11: Phase G accessibility and performance
+
+- Project: `repo-wide`.
+- Task: Complete Canvas Studio roadmap Phase G: accessibility, narrow-screen resilience, and explicit performance budgets.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the final Phase H roadmap handoff.
+- Verification: 68 focused Studio tests, 48 inspection E2E tests, platform smoke, strict project contract, Studio production build, targeted repeat regressions, and independent Terra Max review passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/shared/studio-quality.ts`, `app/server/preview-bridge-runtime.ts`, `app/studio/src/lib/studio-performance.ts`, `app/studio/src/lib/review-set-storage.ts`, and `e2e/specs/inspection.spec.ts`.
+- Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake and test-result snapshots remained unstaged.
+- Implementation commits: `c71e524c` and `43a6c278`.
+- Next command at archival time: `rg -n "useState|useRef|Review Set|PreviewReview|release notes|What's new" app/studio/src/App.tsx app/studio/src app/shared e2e/specs/inspection.spec.ts`.

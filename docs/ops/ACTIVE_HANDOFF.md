@@ -1,109 +1,111 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Complete Canvas Studio roadmap Phase G: accessibility, narrow-screen resilience, and explicit performance budgets.
-- Status: complete, committed as `c71e524c`, and pushed to `origin/codex/studio-roadmap-phases`.
+- Task: Complete and publish all Canvas Studio evolution roadmap phases A through H.
+- Status: complete; Phase H implementation is commit `1ad3cc21` and is pushed to `origin/codex/studio-roadmap-phases`.
 
 ## Files changed
 
-- `ARCHITECTURE.md`
-- `app/server/lib/preview-inspection.ts`
-- `app/server/preview-bridge-runtime.ts`
-- `app/shared/preview-bridge.ts`
-- `app/shared/studio-quality.ts`
 - `app/studio/src/App.tsx`
-- `app/studio/src/components/CourseToolbar.tsx`
-- `app/studio/src/components/InspectionPanel.tsx`
-- `app/studio/src/components/ReviewSetPanel.tsx`
-- `app/studio/src/components/ScreenshotAnnotation.tsx`
-- `app/studio/src/components/Topbar.tsx`
-- `app/studio/src/hooks/usePreviewRecovery.ts`
-- `app/studio/src/hooks/usePreviewScrollSync.ts`
-- `app/studio/src/hooks/useProjects.ts`
-- `app/studio/src/hooks/useScreenshotAnnotation.ts`
-- `app/studio/src/lib/review-set-storage.ts`
-- `app/studio/src/lib/studio-performance.ts`
-- `app/studio/src/precision-editor.css`
-- `docs/ops/FAST_PATHS.md`
-- `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
+- `app/studio/src/components/WhatsNewPanel.tsx`
+- `app/studio/src/hooks/useInspectionDraft.ts`
+- `app/studio/src/lib/inspection-draft.ts`
+- `app/studio/src/lib/review-workbench.ts`
+- `app/studio/src/lib/studio-release-notes.ts`
+- `app/shared/studio-quality.ts`
+- `app/shared/preview-bridge.ts`
+- `app/shared/preview-path.ts`
+- `app/server/preview-bridge-runtime.ts`
+- `scripts/lib/studio-release.ts`
+- `scripts/run-studio-release.ts`
+- `e2e/playwright.release.config.ts`
+- `e2e/lib/studio-fixtures.ts`
 - `e2e/specs/inspection.spec.ts`
-- `package.json`
-- `scripts/tests/preview-security.test.ts`
-- `scripts/tests/studio-incoming-refresh.test.ts`
-- `scripts/tests/studio-quality.test.ts`
+- `projects/e2e-studio-secondary/`
+- `docs/releases/2026-08-11-canvas-studio.md`
+- `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
 
 ## What changed
 
-- Shared, locally measured budgets now cover selection feedback, screenshot capture, and preview readiness.
-- Annotation selection, save, remove, show, Done, and Escape flows restore focus predictably for keyboard users.
-- Full Preview supports the same keyboard review intent as embedded Studio.
-- Reduced-motion, high-contrast, and 320-pixel layouts remain usable without hiding the course or review controls.
-- Pointer work is frame-coalesced, source and keyboard indexes are cached, late scroll containers are discovered, and Canvas Helper overlays no longer invalidate course caches.
-- Server inspection documents use a bounded exact-path and file-stat cache; project intake forces a fresh project listing.
-- Review Set retention, thumbnails, and capture work remain bounded and avoid needless rebuilds while notes are typed.
-- No learner-course file under `projects/<slug>/workspace`, `raw`, or `exports` changed.
+- All roadmap phases A through H are implemented and published on `codex/studio-roadmap-phases`.
+- Phase H moved selection lifecycle and cancellation into `useInspectionDraft` and exposed Review Set internals to `App.tsx` through one `review-workbench.ts` facade.
+- Cross-boundary Review Set, screenshot, preview capability, bridge, packet, and storage limits now originate in `app/shared/studio-quality.ts`; tests protect byte/code-unit distinctions and runtime parity.
+- Neutral descriptor-driven fixtures cover project switching and encoded-path behavior without branching on a real learner course.
+- Studio now includes an accessible, responsive **What’s new** dialog backed by the checked-in release manifest and release note.
+- `npm run test:studio-release` uses local installed tools, an owned loopback port, `forbidOnly`, fail-fast ordered gates, and a stable-tree SHA-256 source fingerprint.
+- No learner-course source, workspace, or generated export changed. `projects/e2e-studio-secondary/` is a neutral automation fixture only.
 
 ## Why this changed
 
-- The Studio review loop must remain fast, keyboard-complete, and visually stable on real teacher hardware and smaller windows.
-- Performance claims now have visible deadlines and regression coverage instead of depending on subjective impressions.
+- Canvas Studio needed to remain simple for a teacher while becoming safer to extend, easier to verify, and less dependent on one oversized component or duplicated limits.
+- Shared releases now have reproducible evidence for the exact source state tested, rather than relying on an older HEAD commit or an informal collection of commands.
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` — 68/68.
+- Passed: `npm run test:studio-release`.
+  - 85/85 focused Studio contracts.
+  - Studio production build.
+  - 50/50 complete inspection E2E tests.
+  - 1/1 platform smoke.
+  - 1/1 strict neutral-project contract.
+- Passed: stable-tree release report schema `canvas-helper-studio-release-v2`; 499 in-scope files fingerprinted with SHA-256, `sourceChangedDuringRun: false`, `ok: true`.
+- Passed: `npm run test:authoring-context` — 16/16.
 - Passed: `npm run build:studio`.
-- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 48/48.
-- Passed: the query/hash Show regression repeated three consecutive times.
-- Passed: `npm run test:e2e:smoke` — 1/1.
-- Passed: `npm run test:e2e:project -- --project e2e-fixture` — 1/1.
 - Passed: `git diff --check`.
-- Passed: independent Terra Max strict re-review after all adversarial findings were closed.
-- Baseline only: `npm run typecheck` still reports established unrelated diagnostics; no diagnostic points into a Phase G file.
+- Passed: independent Terra Max red-team re-review after all three review rounds; final verdict: `PASS`.
+- Baseline only: `npm run typecheck` still reports established unrelated diagnostics in legacy ELA, Forensics, Social 20, English-factory, and PDF extraction builders; none points into Phase H files.
 
 ## Source of truth
 
-- Shared budgets and cache limits: `app/shared/studio-quality.ts`.
-- Runtime bridge behavior: `app/server/preview-bridge-runtime.ts`.
-- Bridge message contract: `app/shared/preview-bridge.ts`.
-- Client measurement: `app/studio/src/lib/studio-performance.ts`.
-- Review persistence: `app/studio/src/lib/review-set-storage.ts`.
-- Phase G regression gate: `e2e/specs/inspection.spec.ts`.
+- Roadmap and phase record: `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`.
+- Studio application orchestration: `app/studio/src/App.tsx`.
+- Inspection lifecycle: `app/studio/src/hooks/useInspectionDraft.ts` and `app/studio/src/lib/inspection-draft.ts`.
+- Review Workbench boundary: `app/studio/src/lib/review-workbench.ts`.
+- Cross-boundary numeric contract: `app/shared/studio-quality.ts`.
+- Preview message/runtime contract: `app/shared/preview-bridge.ts`, `app/shared/preview-path.ts`, and `app/server/preview-bridge-runtime.ts`.
+- Release gate: `scripts/run-studio-release.ts`, `scripts/lib/studio-release.ts`, and `e2e/playwright.release.config.ts`.
+- Current teacher-facing release: `app/studio/src/lib/studio-release-notes.ts` and `docs/releases/2026-08-11-canvas-studio.md`.
 
 ## Fragile areas / watchouts
 
-- Measure committed selection work from pointer release or keyboard activation; do not include the teacher's deliberation or drag time.
-- Keep Canvas Helper overlay mutations outside course-content invalidation while still observing real course mutations.
-- Preserve exact-page readiness and the private exact-origin bridge from Phase F.
-- Keep caches and retained Review Set data bounded by the shared quality contract.
-- Unrelated `projects/processed/**/source 2/`, resource intake, and duplicate test-results folders remain local and were deliberately excluded.
+- Keep capability-token, standalone-session, and Review Set session limits distinct even when their current numeric values match.
+- Update `STUDIO_RELEASE_SOURCE_PATHS` when a new source root becomes part of the Studio release boundary; keep generated `dist`, runtime reports, and Playwright output excluded.
+- Keep `App.tsx` on the Review Workbench facade instead of importing storage, screenshot, packet, or capture modules directly.
+- Preserve abort-on-new-selection, abort-on-project-change, and abort-on-unmount behavior in the inspection hook.
+- Keep release-manifest headings synchronized with the durable release note.
+- Unrelated `projects/processed/**/source 2/`, resource intake, and duplicate `test-results 2/` folders remain local and deliberately untracked.
 
 ## Next prompt should assume
 
 - Branch: `codex/studio-roadmap-phases`.
-- Phases A through G are implemented and pushed.
-- Phase G implementation commit: `c71e524c`.
-- The remaining roadmap boundary is Phase H: architecture and release discipline.
-- Preserve the matte, restrained, project-neutral interface and current source-of-truth boundaries.
+- Phases A through H are complete and pushed.
+- Phase H implementation commit: `1ad3cc21`.
+- The final Terra Max verdict is `PASS`.
+- Canvas Studio remains project-neutral; no learner course was edited to complete the roadmap.
+- New Studio work should be a new scoped feature or maintenance task, not an unfinished roadmap phase.
 
 ## What still needs validation
 
-- Phase G has no outstanding validation; Phase H requires its own focused tests, full inspection E2E gate, smoke checks, and independent review.
+- No Phase A-H validation remains.
+- A future release should rerun `npm run test:studio-release` after any Studio, preview, Review Set, fixture, or release-gate source changes.
 
 ## Known risks
 
-- Repository-wide typecheck remains red for unrelated legacy ELA, Forensics, Social 20, English-factory, and PDF extraction diagnostics.
-- Browser performance depends on host load, so tests enforce deadlines with deliberate margin rather than claiming absolute latency on every machine.
+- Repository-wide typecheck remains red for unrelated legacy builder diagnostics and should be handled as a separate maintenance task.
+- The release report is intentionally ignored runtime evidence; durable release facts live in this handoff, the roadmap, and the release note.
+- Browser performance still depends on host load, so the suite enforces explicit budgets with recovery margins rather than promising identical latency on every machine.
 
 ## Exact next command
 
-`rg -n "useState|useRef|Review Set|PreviewReview|release notes|What's new" app/studio/src/App.tsx app/studio/src app/shared e2e/specs/inspection.spec.ts`
+`npm run studio:codex`
 
 ## Exact next file to open
 
-`app/studio/src/App.tsx`
+`docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
 
 ## Do not do next / warnings
 
-- Do not add course-specific branches to complete Phase H.
-- Do not touch learner-course source or generated output for Studio roadmap work.
-- Do not stage or delete unrelated untracked intake snapshots.
+- Do not edit generated learner-course output to change Studio behavior.
+- Do not reintroduce course-specific feature branches into shared Studio or server code.
+- Do not bypass the Review Workbench facade or duplicate cross-boundary limits outside `app/shared/studio-quality.ts`.
+- Do not stage or delete the unrelated untracked intake, resource, or duplicate test-result folders.
