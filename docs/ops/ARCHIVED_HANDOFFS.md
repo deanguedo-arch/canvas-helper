@@ -8249,3 +8249,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake snapshots remained unstaged.
 - Implementation commits: `a1abbb56` and `01167026`.
 - Next command at archival time: `sed -n '1,260p' app/studio/src/components/PreviewPane.tsx`.
+
+## Archived Active Handoff — 2026-08-11: Phase F preview recovery
+
+- Project: `repo-wide`.
+- Task: Complete Canvas Studio roadmap Phase F: exact-page preflight, runtime health, and teacher-facing preview recovery.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the Phase G accessibility-and-performance handoff.
+- Verification: 64 focused Studio tests, Studio build, 35 inspection E2E tests, a three-run loader regression, platform smoke, strict project contract, a 524-page compatibility audit, diff checks, and independent Terra Max red-team review passed; typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/shared/preview-health.ts`, `app/server/lib/preview-preflight.ts`, `app/server/preview-bridge-runtime.ts`, `app/studio/src/hooks/usePreviewRecovery.ts`, `app/studio/src/components/PreviewRecoveryPanel.tsx`, and `app/studio/src/lib/preview-recovery.ts`.
+- Preserved boundary: no learner-course workspace, raw source, or export changed; Full Preview remained on the standalone recovery host and diagnostics stayed URL-scoped, bounded, and privacy-scrubbed.
+- Implementation commits: `75a5d369` and `4760f458`.
+- Next command at archival time: `rg -n "stopAnnotationMode|toggleAnnotationMode|aria-live|focus\\(|loading=|@media|prefers-reduced-motion" app/studio/src app/server/preview-bridge-runtime.ts e2e/specs/inspection.spec.ts`.

@@ -1,108 +1,109 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Complete Canvas Studio roadmap Phase F: exact-page preflight, runtime health, and teacher-facing preview recovery.
-- Status: complete, committed as `75a5d369`, and pushed to `origin/codex/studio-roadmap-phases`.
+- Task: Complete Canvas Studio roadmap Phase G: accessibility, narrow-screen resilience, and explicit performance budgets.
+- Status: complete, committed as `c71e524c`, and pushed to `origin/codex/studio-roadmap-phases`.
 
 ## Files changed
 
 - `ARCHITECTURE.md`
-- `app/server/lib/preview-preflight.ts`
+- `app/server/lib/preview-inspection.ts`
 - `app/server/preview-bridge-runtime.ts`
-- `app/server/routes/preview-preflight.ts`
-- `app/server/studio-server.ts`
 - `app/shared/preview-bridge.ts`
-- `app/shared/preview-health.ts`
+- `app/shared/studio-quality.ts`
 - `app/studio/src/App.tsx`
 - `app/studio/src/components/CourseToolbar.tsx`
-- `app/studio/src/components/PreviewPane.tsx`
-- `app/studio/src/components/PreviewRecoveryPanel.tsx`
-- `app/studio/src/components/ReferencePicker.tsx`
+- `app/studio/src/components/InspectionPanel.tsx`
+- `app/studio/src/components/ReviewSetPanel.tsx`
+- `app/studio/src/components/ScreenshotAnnotation.tsx`
+- `app/studio/src/components/Topbar.tsx`
 - `app/studio/src/hooks/usePreviewRecovery.ts`
 - `app/studio/src/hooks/usePreviewScrollSync.ts`
-- `app/studio/src/lib/preview-recovery.ts`
+- `app/studio/src/hooks/useProjects.ts`
+- `app/studio/src/hooks/useScreenshotAnnotation.ts`
+- `app/studio/src/lib/review-set-storage.ts`
+- `app/studio/src/lib/studio-performance.ts`
 - `app/studio/src/precision-editor.css`
 - `docs/ops/FAST_PATHS.md`
 - `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
 - `e2e/specs/inspection.spec.ts`
-- `scripts/tests/codex-packet.test.ts`
-- `scripts/tests/preview-route.test.ts`
+- `package.json`
 - `scripts/tests/preview-security.test.ts`
+- `scripts/tests/studio-incoming-refresh.test.ts`
+- `scripts/tests/studio-quality.test.ts`
 
 ## What changed
 
-- Studio performs a bounded exact-origin preflight before mounting a selected course HTML page.
-- Annotate and Full Preview remain unavailable until the exact current page passes its own check.
-- Empty, hidden, transparent, decorative, indefinitely loading, loader-only, bridge-failed, and runtime-failed pages produce an explicit recovery surface.
-- Slow pages stay mounted long enough to render and can recover from a temporary empty state.
-- Recovery offers Retry, Open another page, Copy issue for Codex, and collapsed Details in plain teacher language.
-- Full Preview opens only through the standalone recovery host and includes Retry and Return to Studio.
-- Diagnostics are URL-scoped, bounded, privacy-scrubbed, and separated between embedded and standalone previews.
-- Generic inline reference resources remain visible without being treated as course pages.
+- Shared, locally measured budgets now cover selection feedback, screenshot capture, and preview readiness.
+- Annotation selection, save, remove, show, Done, and Escape flows restore focus predictably for keyboard users.
+- Full Preview supports the same keyboard review intent as embedded Studio.
+- Reduced-motion, high-contrast, and 320-pixel layouts remain usable without hiding the course or review controls.
+- Pointer work is frame-coalesced, source and keyboard indexes are cached, late scroll containers are discovered, and Canvas Helper overlays no longer invalidate course caches.
+- Server inspection documents use a bounded exact-path and file-stat cache; project intake forces a fresh project listing.
+- Review Set retention, thumbnails, and capture work remain bounded and avoid needless rebuilds while notes are typed.
 - No learner-course file under `projects/<slug>/workspace`, `raw`, or `exports` changed.
 
 ## Why this changed
 
-- A blank or mangled preview must never look like a working course.
-- Teachers need a direct recovery path without the old technical dashboard.
-- Exact-page readiness prevents stale state from authorizing a different page or bypassing the recovery host.
+- The Studio review loop must remain fast, keyboard-complete, and visually stable on real teacher hardware and smaller windows.
+- Performance claims now have visible deadlines and regression coverage instead of depending on subjective impressions.
 
 ## Verification run
 
-- Passed: `npm run test:studio-inspection` — 64/64.
+- Passed: `npm run test:studio-inspection` — 68/68.
 - Passed: `npm run build:studio`.
-- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 35/35.
-- Passed: the loader-status regression repeated three consecutive times.
+- Passed: `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts` — 48/48.
+- Passed: the query/hash Show regression repeated three consecutive times.
 - Passed: `npm run test:e2e:smoke` — 1/1.
 - Passed: `npm run test:e2e:project -- --project e2e-fixture` — 1/1.
 - Passed: `git diff --check`.
-- Passed: independent Terra Max red-team re-review after closing all reported edge cases.
-- Audited: 524 raw/workspace HTML pages across 57 projects — zero hard failures, four warnings.
-- Baseline only: `npm run typecheck` still reports established unrelated errors in legacy ELA, Forensics, Social 20, and English-builder files; no diagnostic points into a Phase F file.
+- Passed: independent Terra Max strict re-review after all adversarial findings were closed.
+- Baseline only: `npm run typecheck` still reports established unrelated diagnostics; no diagnostic points into a Phase G file.
 
 ## Source of truth
 
-- Exact-page preflight contract: `app/shared/preview-health.ts`.
-- Server-side preflight policy: `app/server/lib/preview-preflight.ts`.
-- Runtime content health and standalone recovery: `app/server/preview-bridge-runtime.ts`.
-- Client recovery state machine: `app/studio/src/hooks/usePreviewRecovery.ts`.
-- Teacher-facing recovery surface: `app/studio/src/components/PreviewRecoveryPanel.tsx`.
-- Bounded issue handoff: `app/studio/src/lib/preview-recovery.ts`.
+- Shared budgets and cache limits: `app/shared/studio-quality.ts`.
+- Runtime bridge behavior: `app/server/preview-bridge-runtime.ts`.
+- Bridge message contract: `app/shared/preview-bridge.ts`.
+- Client measurement: `app/studio/src/lib/studio-performance.ts`.
+- Review persistence: `app/studio/src/lib/review-set-storage.ts`.
+- Phase G regression gate: `e2e/specs/inspection.spec.ts`.
 
-## Fragile areas / what might drift
+## Fragile areas / watchouts
 
-- Keep readiness bound to the exact current preview URL and retry attempt.
-- Do not count status, progress, hidden, transparent, or decorative-only output as meaningful course content.
-- Do not shorten the delayed-content window without checking real legacy course startup times.
-- Full Preview must continue to open through `/standalone-preview`, never through a raw isolated-course URL.
-- The four warnings remain project-level follow-up: one missing ELA template script, one legacy D2L root-relative runtime, one unsupported Firebase module family, and one missing Ready Mind `main.js`.
-- Untracked `projects/processed/**/source 2/` folders remain unrelated local intake artifacts and were deliberately excluded.
+- Measure committed selection work from pointer release or keyboard activation; do not include the teacher's deliberation or drag time.
+- Keep Canvas Helper overlay mutations outside course-content invalidation while still observing real course mutations.
+- Preserve exact-page readiness and the private exact-origin bridge from Phase F.
+- Keep caches and retained Review Set data bounded by the shared quality contract.
+- Unrelated `projects/processed/**/source 2/`, resource intake, and duplicate test-results folders remain local and were deliberately excluded.
 
-## Next prompt assumptions
+## Next prompt should assume
 
 - Branch: `codex/studio-roadmap-phases`.
-- Phases A through F are implemented and pushed.
-- Phase F implementation commit: `75a5d369`.
-- The next roadmap boundary is Phase G: accessibility, narrow-screen resilience, and explicit performance budgets.
+- Phases A through G are implemented and pushed.
+- Phase G implementation commit: `c71e524c`.
+- The remaining roadmap boundary is Phase H: architecture and release discipline.
 - Preserve the matte, restrained, project-neutral interface and current source-of-truth boundaries.
 
-## Known risks / follow-up
+## What still needs validation
 
-- Runtime health is intentionally heuristic and bounded; future runtime families require explicit tests before allowlisting.
-- The four warning pages render or recover, but their project sources still need separate canonical repair if those courses are promoted to active authoring.
-- Repository-wide typecheck remains red for unrelated legacy builder errors.
+- Phase G has no outstanding validation; Phase H requires its own focused tests, full inspection E2E gate, smoke checks, and independent review.
+
+## Known risks
+
+- Repository-wide typecheck remains red for unrelated legacy ELA, Forensics, Social 20, English-factory, and PDF extraction diagnostics.
+- Browser performance depends on host load, so tests enforce deadlines with deliberate margin rather than claiming absolute latency on every machine.
 
 ## Exact next command
 
-`rg -n "stopAnnotationMode|toggleAnnotationMode|aria-live|focus\\(|loading=|@media|prefers-reduced-motion" app/studio/src app/server/preview-bridge-runtime.ts e2e/specs/inspection.spec.ts`
+`rg -n "useState|useRef|Review Set|PreviewReview|release notes|What's new" app/studio/src/App.tsx app/studio/src app/shared e2e/specs/inspection.spec.ts`
 
 ## Exact next file to open
 
-`app/studio/src/components/InspectionPanel.tsx`
+`app/studio/src/App.tsx`
 
 ## Do not do next / warnings
 
-- Do not restore Preview Health, source-file lists, or technical dashboard cards in the normal review rail.
-- Do not classify secure-capture media fallbacks as learner-course defects.
+- Do not add course-specific branches to complete Phase H.
 - Do not touch learner-course source or generated output for Studio roadmap work.
 - Do not stage or delete unrelated untracked intake snapshots.
