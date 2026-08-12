@@ -43,6 +43,7 @@ let reviewScreenshotRouteHandler: RouteHandler | null = null;
 let previewCaptureRouteHandler: RouteHandler | null = null;
 let previewPreflightRouteHandler: RouteHandler | null = null;
 let courseBuildBriefRouteHandler: RouteHandler | null = null;
+let courseEditsRouteHandler: RouteHandler | null = null;
 
 async function loadRouteHandler(server: ViteDevServer, moduleName: string, exportName: string) {
   const routeModulePath = path.join(process.cwd(), "app", "server", "routes", `${moduleName}.ts`);
@@ -134,6 +135,13 @@ async function getCourseBuildBriefRouteHandler(server: ViteDevServer) {
   return courseBuildBriefRouteHandler;
 }
 
+async function getCourseEditsRouteHandler(server: ViteDevServer) {
+  if (!courseEditsRouteHandler) {
+    courseEditsRouteHandler = await loadRouteHandler(server, "course-edits", "handleCourseEditsRoute");
+  }
+  return courseEditsRouteHandler;
+}
+
 async function handleRequest(
   server: ViteDevServer,
   request: IncomingMessage,
@@ -209,6 +217,11 @@ async function handleRequest(
   }
 
   if (url.startsWith("/api/projects/")) {
+    const courseEditsHandler = await getCourseEditsRouteHandler(server);
+    if (await courseEditsHandler(url, request, response)) {
+      return;
+    }
+
     const commandsHandler = await getCommandsRouteHandler(server);
     if (await commandsHandler(url, request, response)) {
       return;
@@ -241,6 +254,13 @@ async function handleRequest(
 
   if (url === "/api/inspection/resolve") {
     const handler = await getInspectionRouteHandler(server);
+    if (await handler(url, request, response)) {
+      return;
+    }
+  }
+
+  if (url === "/api/course-edits/resolve") {
+    const handler = await getCourseEditsRouteHandler(server);
     if (await handler(url, request, response)) {
       return;
     }

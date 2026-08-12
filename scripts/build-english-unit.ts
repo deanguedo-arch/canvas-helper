@@ -37,6 +37,7 @@ import type {
 import { stageAndPromoteEnglishWorkspace } from "./lib/english-unit/workspace-staging.js";
 import { extractPdfTextWithFallback } from "./lib/pdf-text.js";
 import { repoRoot } from "./lib/paths.js";
+import { applyStoredCourseEdits } from "./lib/course-editing/overrides.js";
 
 export type BuildArgs = {
   projectSlug: string;
@@ -467,7 +468,12 @@ export async function buildEnglishUnit(args: BuildArgs) {
       unit = await loadBrightspaceUnit({ zip: brightspaceZip, workspaceDir: stageDir, recipe: prepared.recipe, reportItems });
       readings = await buildReadings({ recipe: prepared.recipe, teacherZip, workspaceDir: stageDir, resourceDir, reportItems });
       videos = collectVerifiedVideos(unit.lessons, prepared.recipe);
-      const html = renderEnglishUnit({ recipe: prepared.recipe, lessons: unit.lessons, readings, videos });
+      const renderedHtml = renderEnglishUnit({ recipe: prepared.recipe, lessons: unit.lessons, readings, videos });
+      const html = await applyStoredCourseEdits({
+        repoRoot,
+        projectSlug: prepared.recipe.projectSlug,
+        html: renderedHtml
+      });
       const forbiddenLearnerPhrases = [
         "HARD GATE",
         "SOFT GATE",

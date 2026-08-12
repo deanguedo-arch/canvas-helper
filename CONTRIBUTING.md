@@ -24,6 +24,7 @@ Examples:
 
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
+- Studio direct-edit changes: `npm run test:course-editing`, `npm run test:studio-inspection`, the focused direct-edit browser scenario, and the complete Studio release gate before publishing
 - Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
 - Canvas Studio release candidates: `npm run test:studio-release`; do not replace its isolated port, local-tool, `forbidOnly`, full-inspection, smoke, or strict-project gates with a reused development server
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
@@ -49,6 +50,7 @@ Update docs when:
 Add or update tests when:
 
 - route behavior changes
+- direct-edit contracts, sanitization, adapter ownership, checkpoint/rollback, undo, or export-staleness behavior changes
 - Studio/player interaction behavior changes (mode toggles, navigation, quiz behavior, fallback rendering)
 - path validation changes
 - intelligence policy behavior changes

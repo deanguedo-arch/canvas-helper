@@ -1,5 +1,18 @@
 import { isPreviewContentHealth } from "./preview-health.js";
+import {
+  COURSE_EDIT_MAX_DRAFTS,
+  COURSE_EDIT_MAX_HTML_CODE_UNITS,
+  COURSE_EDIT_MAX_ID_CODE_UNITS,
+  COURSE_EDIT_MAX_STATUS_CODE_UNITS,
+  COURSE_EDIT_MAX_URL_CODE_UNITS,
+  isCourseEditPatch,
+  isCourseEditStylePatch,
+  type CourseEditCapabilities,
+  type CourseEditPatch,
+  type CourseEditStylePatch
+} from "./course-editing.js";
 import { STUDIO_BRIDGE_LIMITS, STUDIO_REVIEW_LIMITS } from "./studio-quality.js";
+import { isCapabilityWorkspacePreviewPath } from "./preview-path.js";
 
 export const PREVIEW_BRIDGE_PROTOCOL = "canvas-helper.preview";
 export const PREVIEW_BRIDGE_VERSION = 1;
@@ -31,6 +44,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-current",
   "preview-inspect-focused",
   "preview-inspect-mode",
+  "preview-edit-action",
   "preview-review-action",
   "preview-return-to-studio",
   "preview-health",
@@ -45,11 +59,14 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-request-inspect-current",
   "studio-focus-inspect-node",
   "studio-show-inspect-node",
+  "studio-refresh-preview",
   "studio-disconnect-standalone",
   "studio-cancel-review-copy",
   "studio-set-review-state",
   "studio-set-review-packet",
-  "studio-review-action-result"
+  "studio-review-action-result",
+  "studio-set-edit-state",
+  "studio-edit-action-result"
 ] as const;
 
 export type PreviewEventType = (typeof PREVIEW_EVENT_TYPES)[number];
@@ -171,6 +188,64 @@ export type PreviewReviewActionResult = {
   ok: boolean;
   message: string;
   clearDraft: boolean;
+  requestId?: string;
+};
+
+export type PreviewCourseEditTarget = {
+  eligibility: "editable" | "unsupported";
+  reason: string;
+  targetId: string;
+  tagName: string;
+  originalHtml: string;
+  originalText: string;
+  capabilities: CourseEditCapabilities;
+  attributes: { href: string; src: string; alt: string; title: string };
+  currentStyle: Required<CourseEditStylePatch>;
+};
+
+export type PreviewCourseEditDraftSummary = {
+  id: string;
+  targetId: string;
+  tagName: string;
+  beforeText: string;
+  afterText: string;
+};
+
+export type PreviewCourseEditDraftDetail = PreviewCourseEditDraftSummary & {
+  patch: CourseEditPatch;
+};
+
+export type PreviewCourseEditState = {
+  projectSlug: string;
+  enabled: boolean;
+  available: boolean;
+  unavailableReason: string;
+  target: PreviewCourseEditTarget | null;
+  drafts: PreviewCourseEditDraftSummary[];
+  selectedDraft: PreviewCourseEditDraftDetail | null;
+  busy: boolean;
+  canUndo: boolean;
+  exportsOutOfDate: boolean;
+  staleExportTargets: string[];
+  status: string;
+  error: string;
+};
+
+export type PreviewCourseEditAction = (
+  | { action: "request-state" }
+  | { action: "set-mode"; enabled: boolean; nextMode?: "off" | "annotate" }
+  | { action: "save-target"; targetId: string; patch: CourseEditPatch }
+  | { action: "select-draft"; draftId: string }
+  | { action: "update-draft"; draftId: string; patch: CourseEditPatch }
+  | { action: "remove-draft"; draftId: string }
+  | { action: "reorder-draft"; draftId: string; direction: -1 | 1 }
+  | { action: "apply" }
+  | { action: "undo" }
+) & { requestId?: string };
+
+export type PreviewCourseEditActionResult = {
+  ok: boolean;
+  message: string;
   requestId?: string;
 };
 
@@ -416,6 +491,144 @@ export function isPreviewReviewActionResult(value: unknown): value is PreviewRev
   );
 }
 
+function isCourseEditCapabilities(value: unknown): value is CourseEditCapabilities {
+  return (
+    isRecord(value) &&
+    Object.keys(value).every((key) => ["richText", "link", "image", "styles"].includes(key)) &&
+    typeof value.richText === "boolean" &&
+    typeof value.link === "boolean" &&
+    typeof value.image === "boolean" &&
+    typeof value.styles === "boolean"
+  );
+}
+
+function isCourseEditAttributes(value: unknown): value is PreviewCourseEditTarget["attributes"] {
+  return (
+    isRecord(value) &&
+    Object.keys(value).every((key) => ["href", "src", "alt", "title"].includes(key)) &&
+    isBoundedString(value.href, COURSE_EDIT_MAX_URL_CODE_UNITS) &&
+    isBoundedString(value.src, COURSE_EDIT_MAX_URL_CODE_UNITS) &&
+    isBoundedString(value.alt, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
+    isBoundedString(value.title, COURSE_EDIT_MAX_HTML_CODE_UNITS)
+  );
+}
+
+function isPreviewCourseEditTarget(value: unknown): value is PreviewCourseEditTarget {
+  if (!isRecord(value)) return false;
+  const targetId = value.targetId;
+  return (
+    Object.keys(value).every((key) => ["eligibility", "reason", "targetId", "tagName", "originalHtml", "originalText", "capabilities", "attributes", "currentStyle"].includes(key)) &&
+    (value.eligibility === "editable" || value.eligibility === "unsupported") &&
+    isBoundedString(value.reason, COURSE_EDIT_MAX_STATUS_CODE_UNITS) &&
+    (targetId === "" || (isBoundedString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(targetId as string))) &&
+    isBoundedString(value.tagName, 24) &&
+    isBoundedString(value.originalHtml, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
+    isBoundedString(value.originalText, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
+    isCourseEditCapabilities(value.capabilities) &&
+    isCourseEditAttributes(value.attributes) &&
+    isCourseEditStylePatch(value.currentStyle)
+  );
+}
+
+function isPreviewCourseEditDraftSummary(value: unknown): value is PreviewCourseEditDraftSummary {
+  if (!isRecord(value)) return false;
+  const targetId = value.targetId;
+  return (
+    Object.keys(value).every((key) => ["id", "targetId", "tagName", "beforeText", "afterText", "patch"].includes(key)) &&
+    isBoundedNonEmptyString(value.id, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
+    isBoundedNonEmptyString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
+    /^[a-f0-9]{24}$/.test(targetId as string) &&
+    isBoundedNonEmptyString(value.tagName, 24) &&
+    isBoundedString(value.beforeText, PREVIEW_BRIDGE_MAX_VISIBLE_TEXT) &&
+    isBoundedString(value.afterText, PREVIEW_BRIDGE_MAX_VISIBLE_TEXT)
+  );
+}
+
+function isPreviewCourseEditDraftDetail(value: unknown): value is PreviewCourseEditDraftDetail {
+  if (!isRecord(value) || !isPreviewCourseEditDraftSummary(value)) return false;
+  return isCourseEditPatch((value as Record<string, unknown>).patch);
+}
+
+function isCapabilityWorkspacePreviewHref(value: unknown) {
+  if (typeof value !== "string" || !isBoundedNonEmptyString(value, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits)) return false;
+  try {
+    const url = new URL(value);
+    const port = Number(url.port);
+    return (
+      url.protocol === "http:" &&
+      url.hostname === "127.0.0.1" &&
+      Number.isInteger(port) &&
+      port > 0 &&
+      port <= 65_535 &&
+      isCapabilityWorkspacePreviewPath(url.pathname)
+    );
+  } catch {
+    return false;
+  }
+}
+
+export function isPreviewCourseEditState(value: unknown): value is PreviewCourseEditState {
+  return (
+    isRecord(value) &&
+    Object.keys(value).every((key) => ["projectSlug", "enabled", "available", "unavailableReason", "target", "drafts", "selectedDraft", "busy", "canUndo", "exportsOutOfDate", "staleExportTargets", "status", "error"].includes(key)) &&
+    isBoundedString(value.projectSlug, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
+    typeof value.enabled === "boolean" &&
+    typeof value.available === "boolean" &&
+    isBoundedString(value.unavailableReason, COURSE_EDIT_MAX_STATUS_CODE_UNITS) &&
+    (value.target === null || isPreviewCourseEditTarget(value.target)) &&
+    Array.isArray(value.drafts) &&
+    value.drafts.length <= COURSE_EDIT_MAX_DRAFTS &&
+    value.drafts.every(isPreviewCourseEditDraftSummary) &&
+    (value.selectedDraft === null || isPreviewCourseEditDraftDetail(value.selectedDraft)) &&
+    typeof value.busy === "boolean" &&
+    typeof value.canUndo === "boolean" &&
+    typeof value.exportsOutOfDate === "boolean" &&
+    Array.isArray(value.staleExportTargets) &&
+    value.staleExportTargets.length <= 12 &&
+    value.staleExportTargets.every((entry) => isBoundedNonEmptyString(entry, 80)) &&
+    isBoundedString(value.status, COURSE_EDIT_MAX_STATUS_CODE_UNITS) &&
+    isBoundedString(value.error, COURSE_EDIT_MAX_STATUS_CODE_UNITS)
+  );
+}
+
+export function isPreviewCourseEditAction(value: unknown): value is PreviewCourseEditAction {
+  if (!isRecord(value) || typeof value.action !== "string") return false;
+  if (value.requestId !== undefined && !isBoundedNonEmptyString(value.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH)) return false;
+  switch (value.action) {
+    case "request-state":
+    case "apply":
+    case "undo":
+      return Object.keys(value).every((key) => key === "action" || key === "requestId");
+    case "set-mode":
+      return (
+        Object.keys(value).every((key) => ["action", "requestId", "enabled", "nextMode"].includes(key)) &&
+        typeof value.enabled === "boolean" &&
+        (value.nextMode === undefined || value.nextMode === "off" || value.nextMode === "annotate") &&
+        (value.enabled ? value.nextMode === undefined : true)
+      );
+    case "save-target":
+      return Object.keys(value).every((key) => ["action", "requestId", "targetId", "patch"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string) && isCourseEditPatch(value.patch);
+    case "select-draft":
+    case "remove-draft":
+      return Object.keys(value).every((key) => ["action", "requestId", "draftId"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS);
+    case "update-draft":
+      return Object.keys(value).every((key) => ["action", "requestId", "draftId", "patch"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS) && isCourseEditPatch(value.patch);
+    case "reorder-draft":
+      return Object.keys(value).every((key) => ["action", "requestId", "draftId", "direction"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS) && (value.direction === -1 || value.direction === 1);
+    default:
+      return false;
+  }
+}
+
+export function isPreviewCourseEditActionResult(value: unknown): value is PreviewCourseEditActionResult {
+  return (
+    isRecord(value) &&
+    typeof value.ok === "boolean" &&
+    isBoundedString(value.message, COURSE_EDIT_MAX_STATUS_CODE_UNITS) &&
+    (value.requestId === undefined || isBoundedNonEmptyString(value.requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH))
+  );
+}
+
 function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
   switch (type) {
     case "preview-ready":
@@ -442,6 +655,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       );
     case "preview-inspect-mode":
       return isRecord(payload) && typeof payload.enabled === "boolean";
+    case "preview-edit-action":
+      return isPreviewCourseEditAction(payload);
     case "preview-review-action":
       return isPreviewReviewAction(payload);
     case "preview-return-to-studio":
@@ -486,6 +701,12 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
         isBoundedNonEmptyString(payload.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
         isBoundedNonEmptyString(payload.pageHref, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits)
       );
+    case "studio-refresh-preview":
+      return (
+        isRecord(payload) &&
+        Object.keys(payload).every((key) => key === "href") &&
+        isCapabilityWorkspacePreviewHref(payload.href)
+      );
     case "studio-disconnect-standalone":
       return payload === null;
     case "studio-cancel-review-copy":
@@ -510,6 +731,10 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       );
     case "studio-review-action-result":
       return isPreviewReviewActionResult(payload);
+    case "studio-set-edit-state":
+      return isPreviewCourseEditState(payload);
+    case "studio-edit-action-result":
+      return isPreviewCourseEditActionResult(payload);
     default:
       return false;
   }

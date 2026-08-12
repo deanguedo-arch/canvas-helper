@@ -10,6 +10,7 @@ import JSZip from "jszip";
 import { decodeBrightspaceHtml } from "./lib/ela-modern-drama.js";
 import { renderNextStepCourseShell, type NextStepShellLesson, type NextStepShellNavItem } from "./lib/next-step-course-shell.js";
 import { stageAndPromoteSocialBuild } from "./lib/social-build-staging.js";
+import { applyStoredCourseEdits } from "./lib/course-editing/overrides.js";
 import {
   resolveSocial30SourceResource,
   SOCIAL30_DEFAULT_RESOURCE_ID,
@@ -1920,7 +1921,7 @@ async function buildIssue(
         return categoryOrder.indexOf(a.category) - categoryOrder.indexOf(b.category) || a.title.localeCompare(b.title);
       });
 
-      const html =
+      const renderedHtml =
         config.renderMode === "inline-d2l"
           ? renderInlineD2LCourseShell(config, lessons, resources)
           : renderNextStepCourseShell({
@@ -1944,6 +1945,7 @@ async function buildIssue(
               extraCss: socialShellCss(config)
             });
 
+      const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml });
       await fs.writeFile(path.join(workspaceDir, "index.html"), html);
       await writeBuildMetadata(stageMetaDir, config, sourceResource, lessons.length, resources.length);
       summary = { slug: config.slug, lessons: lessons.length, resources: resources.length };

@@ -1,102 +1,94 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Close Canvas Studio's visual-review-to-Codex loop with compact handoffs and persistent Verify Changes.
-- Status: complete and release-verified; ready to publish the final implementation commit.
+- Task: Add safe teacher-facing direct editing to Canvas Studio and Full Preview.
+- Status: complete and release-validated on `codex/studio-direct-editing-v1`; ready for a teacher pilot.
 
 ## Files changed
 
+- `app/shared/course-editing.ts`
+- `app/server/lib/course-editing.ts`
+- `app/server/routes/course-edits.ts`
+- `scripts/lib/course-editing/html.ts`
+- `scripts/lib/course-editing/overrides.ts`
+- `app/studio/src/hooks/useCourseEditing.ts`
+- `app/studio/src/lib/course-edit-storage.ts`
+- `app/studio/src/components/CourseEditPanel.tsx`
+- `app/studio/src/components/EditModeBar.tsx`
+- `app/studio/src/App.tsx`
 - `app/server/preview-bridge-runtime.ts`
 - `app/shared/preview-bridge.ts`
-- `app/studio/src/App.tsx`
-- `app/studio/src/components/InspectorPanel.tsx`
-- `app/studio/src/components/ReviewSetPanel.tsx`
-- `app/studio/src/hooks/usePreviewScrollSync.ts`
-- `app/studio/src/lib/review-set-storage.ts`
-- `app/studio/src/lib/review-set.ts`
-- `app/studio/src/lib/review-workbench.ts`
-- `app/studio/src/precision-editor.css`
-- `e2e/specs/inspection.spec.ts`
-- `scripts/tests/codex-packet.test.ts`
-- `scripts/tests/preview-security.test.ts`
-- `scripts/tests/studio-project-continuity.test.ts`
-- `scripts/tests/studio-quality.test.ts`
-- `docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md`
-- `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`
-- `docs/ops/ACTIVE_HANDOFF.md`
-- `docs/ops/ARCHIVED_HANDOFFS.md`
+- English and Social owning builders
+- bounded Studio project/page discovery and its regression contract
+- focused contracts, inspection E2E, release notes, architecture, workflow, and project-fixture metadata
 
 ## What changed
 
-- Added persisted `draft`, `sent`, `accepted`, and `reopened` states with backward-compatible storage and backup validation.
-- Made a successful exact-packet copy the only automatic transition to `Sent`; manual clipboard fallback requires explicit teacher confirmation.
-- Added **Verify changes**, **Show next change**, **Accept change**, and **Reopen for follow-up** in Studio and Full Preview.
-- Kept sent and accepted evidence immutable until explicit reopen, and limited follow-up packets to new or reopened requests.
-- Bound every handoff to packet, review-session, item, project, and storage-version identity before it can be marked sent.
-- Added a two-phase copy reservation shared across Studio and Full Preview, including cross-surface locking and timeout cancellation.
-- Kept one authoritative Full Preview connection and returned later Open Full Preview actions to it.
-- Preserved original screenshot ownership after annotation relinking so Full Preview thumbnails remain valid.
-- Updated the roadmap and independent-audit brief to mark the four post-roadmap priorities complete.
+- Added a dedicated blue Edit mode in Studio and Full Preview.
+- Added safe editing for supported text, links, images, alt text, titles/captions, and curated visual tokens.
+- Added per-course Draft Changes that persist across reload and Studio/Full Preview, with before/after, edit, remove, reorder, batch apply, and Undo last batch.
+- Added server-owned opaque target resolution, digest revalidation, sanitization, transactional checkpoints, rollback, rebuild, validation, and export-staleness tracking.
+- Direct courses update declared canonical workspace pages, including multi-page batches.
+- English and explicitly onboarded Social courses store course-only overrides in `meta/studio-edits.json`; stable generated edit IDs let builders replay them after every rebuild.
+- Unsupported, stale, blocked, proposal-only, runtime-generated, or unmapped content remains annotation-only.
+- Studio project discovery now seeds declared entrypoints, skips duplicate copied resource trees, and bounds fallback traversal so one accidental archive cannot freeze the course picker.
 
 ## Why this changed
 
-- Copying a Review Set previously ended the visible workflow without proving which requests were sent or helping the teacher verify Codex's result.
-- Compact packets reduce repeated context, while immutable sent evidence and explicit reopen protect the historical request.
-- Copying from two surfaces needed one transaction boundary so a stale, delayed, blocked, or never-settling clipboard operation could not create false success or permanent locks.
-
-## Verification run
-
-- Passed: `npm run test:studio-release` — 93 focused contracts, production build, 55 inspection E2E tests, platform smoke, strict neutral-project contract, and stable source fingerprint.
-- Passed targeted: relinked screenshot loading, one authoritative Full Preview, stalled Full Preview clipboard timeout, exact packet reservation, and old resolved-item exclusion.
-- Passed final focused Full Preview check: same-course reuse, reload rejoin, target identity across Studio reload, and stale-token rejection after a project switch.
-- Passed: `git diff --check`.
-- Repository-wide `npm run typecheck -- --pretty false` retains only the established unrelated legacy-builder diagnostics; none point into this change set.
-- Two independent Terra Max reviewers initially returned NO-SHIP and identified timeout, duplicate-preview, relinked-screenshot, reload-rejoin, stale-course focus, and cross-page identity risks. Those findings were fixed and regression-tested; both reviewers returned `SHIP` on the final diff.
+- Teachers need routine text and visual corrections to appear in the working course without copying every small request into Codex.
+- Generated course ownership and protected raw/export boundaries still need to remain trustworthy.
+- Draft review and one transactional apply reduce accidental partial edits and repeated context use.
 
 ## Source of truth
 
-- Lifecycle and packet contract: `app/studio/src/lib/review-set.ts`.
-- Persistence and migration: `app/studio/src/lib/review-set-storage.ts`.
-- Transaction and lifecycle orchestration: `app/studio/src/App.tsx`.
-- Full Preview protocol: `app/shared/preview-bridge.ts`, `app/studio/src/hooks/usePreviewScrollSync.ts`, and `app/server/preview-bridge-runtime.ts`.
-- User-facing lifecycle: `app/studio/src/components/ReviewSetPanel.tsx`.
-- Release behavior: `e2e/specs/inspection.spec.ts` and `npm run test:studio-release`.
+- Contracts: `app/shared/course-editing.ts`.
+- Transaction and adapter orchestration: `app/server/lib/course-editing.ts`.
+- Generated edit identity and replay: `scripts/lib/course-editing/`.
+- Studio state and persistence: `app/studio/src/hooks/useCourseEditing.ts` and `app/studio/src/lib/course-edit-storage.ts`.
+- Full Preview bridge: `app/shared/preview-bridge.ts` and `app/server/preview-bridge-runtime.ts`.
 
 ## Fragile areas / watchouts
 
-- Never mark an item sent before the exact reserved packet reaches the clipboard or the teacher confirms manual transfer.
-- A timeout, blocked clipboard, preview close, project change, or packet change must unlock both Studio and Full Preview without marking sent.
-- `screenshot.ownerNodeId` is immutable evidence ownership and may intentionally differ from a relinked item's current node.
-- Sent and accepted items must remain out of follow-up packets until explicitly reopened.
-- Full Preview shares Studio state; it must not become a second persistent owner.
+- The preview must never provide or choose a filesystem path.
+- Stable generated IDs deliberately fail closed if a builder changes the owned element structure.
+- Generated apply/undo checkpoints copy workspace and meta state into ignored `.runtime` storage; retain the size/file ceilings.
+- Social editing remains unavailable unless the manifest declares `social-related-issues-v1`, source resource IDs, and passes doctor.
+- Raw imports and exports remain protected; Studio rebuild commands must not mutate them.
+- Project HTML fallback discovery is bounded; pages beyond that ceiling need to be declared as canonical/entrypoint content instead of depending on an unbounded recursive scan.
 
 ## Next prompt should assume
 
-- The post-roadmap visual, first-use, compact-handoff, and Verify Changes priorities are implemented and release-verified.
-- No learner-course source, workspace, raw file, or export was changed.
-- The next product decision should come from observed use in real course work, not another speculative feature phase.
+- Direct Editing V1 is implemented and the complete Studio release gate passes: focused contracts, production build, 56 inspection E2E cases, platform smoke, and strict project contract.
+- Independent red-team review returned `SHIP`; green-team review found the course-picker recursion problem, which is now fixed with bounded discovery and a measured 58-project load in roughly 114 ms on this checkout.
+- Repository typecheck still reports only established unrelated legacy-builder diagnostics.
+- No implementation work remains in Direct Editing V1.
+- Unrelated untracked intake/resource/test-result folders still belong to the user and must remain unstaged.
 
-## What still needs validation
+## Verification run
 
-- No in-scope implementation validation remains after the release gate, focused post-hardening checks, production build, and independent sign-off.
-- Real course use should validate whether teachers understand `Sent`, `Accept`, and `Reopen for follow-up` without additional onboarding.
+- `npm run test:course-editing` — 11/11 passed.
+- `npm run test:studio-inspection` — 106/106 passed before the bounded picker contract was added.
+- `npm exec -- tsx --test scripts/tests/studio-project-html-scan.test.ts scripts/tests/studio-release-runner.test.ts` — 7/7 passed.
+- `npm run build:studio` — passed.
+- `npm run test:studio-release` — final pass: 108 focused, 56 inspection E2E, 1 platform smoke, 1 strict project contract.
+- `npm run typecheck` — no Direct Editing diagnostics; established unrelated builder diagnostics remain.
 
 ## Known risks
 
-- Browser clipboard APIs remain environment-dependent; the manual packet path is the deliberate fallback.
-- Local Review Sets remain bounded and expire under the existing local-retention policy.
-- Repository-wide typecheck has unrelated legacy-course-builder failures outside Studio's source boundary.
+- Real English and Social pilot edits require individually eligible projects; blocked or legacy manifests correctly remain annotation-only.
+- Checkpoint storage is local and intentionally keeps only the latest successful batch per course.
+- Repository-wide typecheck has established unrelated legacy-builder diagnostics.
 
 ## Exact next command
 
-`npm run studio:codex`
+`npm run studio`
 
 ## Exact next file to open
 
-`docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md`
+`docs/releases/2026-08-12-canvas-studio-direct-editing.md`
 
 ## Do not do next / warnings
 
-- Do not add an embedded API assistant, cloud account system, unlimited Review Sets, or direct source editing without new evidence.
-- Do not patch learner generated output from a visual selection; Codex must still investigate canonical ownership.
-- Do not stage unrelated local intake, resource, duplicate source, or test-result folders.
+- Do not onboard blocked projects merely to expose Edit mode.
+- Do not patch generated workspaces, raw imports, or exports as canonical sources.
+- Do not stage unrelated `source 2`, resource intake, or `test-results 2` folders.

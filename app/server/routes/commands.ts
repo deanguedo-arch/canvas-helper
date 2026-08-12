@@ -6,6 +6,7 @@ import { runStudioCommand } from "../lib/command-runner";
 import { sendJson } from "../lib/response";
 import { isSafeProjectSlug } from "../lib/validation";
 import type { StudioCommandName } from "../lib/types";
+import { markCourseExportCurrent } from "../lib/course-editing";
 
 export async function handleCommandsRoute(url: string, request: IncomingMessage, response: ServerResponse) {
   const commandMatch = url.match(/^\/api\/projects\/([^/]+)\/commands\/([^/]+)$/);
@@ -33,6 +34,7 @@ export async function handleCommandsRoute(url: string, request: IncomingMessage,
   try {
     await readStudioProjectBundle(slug);
     const result = await runStudioCommand(slug, commandName);
+    if (result.ok) await markCourseExportCurrent(slug, commandName);
     sendJson(response, result.ok ? 200 : 422, result);
   } catch (error) {
     sendJson(response, 400, {

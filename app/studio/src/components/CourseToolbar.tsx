@@ -7,6 +7,10 @@ type CourseToolbarProps = {
   layoutPreferences: PreviewLayoutPreferences;
   previewMode: PreviewMode;
   inspectEnabled: boolean;
+  editEnabled: boolean;
+  editAvailable: boolean;
+  editUnavailableReason: string;
+  editDraftCount: number;
   inspectAvailable: boolean;
   hasWorkspacePreview: boolean;
   reviewSetCount: number;
@@ -16,6 +20,7 @@ type CourseToolbarProps = {
   onDeviceChange: (mode: PreviewMode, device: DeviceMode) => void;
   onZoomChange: (mode: PreviewMode, zoom: number) => void;
   onToggleInspect: (keyboardEntry?: boolean) => void;
+  onToggleEdit: (keyboardEntry?: boolean) => void;
   onToggleInspector: () => void;
   onToggleTools: () => void;
   onOpenWorkspacePreview: () => void;
@@ -34,6 +39,10 @@ export function CourseToolbar({
   layoutPreferences,
   previewMode,
   inspectEnabled,
+  editEnabled,
+  editAvailable,
+  editUnavailableReason,
+  editDraftCount,
   inspectAvailable,
   hasWorkspacePreview,
   reviewSetCount,
@@ -43,6 +52,7 @@ export function CourseToolbar({
   onDeviceChange,
   onZoomChange,
   onToggleInspect,
+  onToggleEdit,
   onToggleInspector,
   onToggleTools,
   onOpenWorkspacePreview
@@ -127,6 +137,20 @@ export function CourseToolbar({
         </div>
 
         <div className="course-workflow-controls">
+          <button
+            type="button"
+            className={editEnabled ? "toolbar-button edit-action active" : "toolbar-button edit-action"}
+            onClick={(event) => onToggleEdit(event.detail === 0)}
+            aria-pressed={editEnabled}
+            disabled={!editAvailable}
+            data-testid="edit-toggle"
+            title={editAvailable ? "Make safe course-only text, image, link, and style changes" : editUnavailableReason || "This course is annotation-only"}
+          >
+            <ToolbarIcon><path d="M4 15.5h3l8.6-8.6-3-3L4 12.5v3ZM11.7 4.8l3 3M9 15.5h7" /></ToolbarIcon>
+            {editEnabled ? "Editing" : "Edit"}
+            {editDraftCount ? <span className="toolbar-count">{editDraftCount}</span> : null}
+          </button>
+
           <button
             type="button"
             className={inspectEnabled ? "toolbar-button annotate-action active" : "toolbar-button annotate-action"}

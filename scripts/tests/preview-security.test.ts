@@ -197,6 +197,38 @@ test("Studio can explicitly release a timed-out Full Preview copy transaction", 
   }), false);
 });
 
+test("Full Preview course edit messages are bounded and never accept filesystem paths", () => {
+  const base = {
+    protocol: "canvas-helper.preview",
+    version: 1
+  } as const;
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "preview-edit-action",
+    payload: { action: "set-mode", enabled: false, nextMode: "annotate", requestId: "edit-1" }
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "preview-edit-action",
+    payload: { action: "save-target", targetId: "a".repeat(24), patch: { html: "Safe <strong>text</strong>" }, filesystemPath: "/tmp/escape" }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "preview-edit-action",
+    payload: { action: "update-draft", draftId: "draft-1", patch: { html: "x".repeat(24_001) } }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "studio-refresh-preview",
+    payload: { href: `http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/e2e-fixture/index.html?rev=2` }
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "studio-refresh-preview",
+    payload: { href: "file:///tmp/escape", path: "/tmp/escape" }
+  }), false);
+});
+
 test("preview runtime compatibility relays only approved course CDN scripts through the scoped origin", () => {
   const capability = "12345678-1234-1234-1234-123456789abc";
   const publicPrefix = `/_canvas-helper/p/${capability}`;

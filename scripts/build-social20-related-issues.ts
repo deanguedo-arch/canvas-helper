@@ -9,6 +9,7 @@ import mammoth from "mammoth";
 import { decodeBrightspaceHtml } from "./lib/ela-modern-drama.js";
 import { parseNsoPodcastEntries, youtubeVideoIdFromHref, type NsoPodcastEntry } from "./lib/nso-podcasts.js";
 import { renderNextStepCourseShell, type NextStepShellLesson, type NextStepShellNavItem } from "./lib/next-step-course-shell.js";
+import { applyStoredCourseEdits } from "./lib/course-editing/overrides.js";
 
 type ZipBundle = {
   key: string;
@@ -4720,8 +4721,9 @@ async function buildIssue(config: IssueConfig, bundles: Map<string, ZipBundle>, 
   const projectDir = path.join(ROOT, "projects", config.slug);
   const workspaceDir = path.join(projectDir, "workspace");
   const rawDir = path.join(projectDir, "raw");
+  const studioEditRebuild = process.argv.includes("--studio-edit");
   await resetGeneratedWorkspace(workspaceDir);
-  await fs.mkdir(rawDir, { recursive: true });
+  if (!studioEditRebuild) await fs.mkdir(rawDir, { recursive: true });
 
   for (const bundle of bundles.values()) {
     await extractZipToWorkspace(bundle, workspaceDir);
@@ -4747,7 +4749,7 @@ async function buildIssue(config: IssueConfig, bundles: Map<string, ZipBundle>, 
   );
   const resources = await collectResources(bundles, enrichedConfig, workspaceDir);
   addPodcastResources(resources, podcastMapping.connections);
-  const html = renderNextStepCourseShell({
+  const renderedHtml = renderNextStepCourseShell({
     slug: enrichedConfig.slug,
     courseTitle: enrichedConfig.title,
     courseCode: "Social Studies 20-1",
@@ -4767,12 +4769,15 @@ async function buildIssue(config: IssueConfig, bundles: Map<string, ZipBundle>, 
     extraCss: extraCss()
   });
 
+  const html = await applyStoredCourseEdits({ repoRoot: path.resolve("."), projectSlug: config.slug, html: renderedHtml });
   await fs.writeFile(path.join(workspaceDir, "index.html"), html);
-  await fs.mkdir(rawDir, { recursive: true });
-  await fs.writeFile(
-    path.join(rawDir, "README.md"),
-    `# ${config.title}\n\nGenerated from the Social Studies 20-1 Brightspace/CBE ZIP set. Use the workspace HTML as the editable preview source.\n`
-  );
+  if (!studioEditRebuild) {
+    await fs.mkdir(rawDir, { recursive: true });
+    await fs.writeFile(
+      path.join(rawDir, "README.md"),
+      `# ${config.title}\n\nGenerated from the Social Studies 20-1 Brightspace/CBE ZIP set. Use the workspace HTML as the editable preview source.\n`
+    );
+  }
   await writeMetadata(
     config,
     [...Array.from(bundles.values()).map((bundle) => bundle.sourcePath), PODCAST_LIST_PATH],

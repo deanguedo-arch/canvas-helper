@@ -13,25 +13,25 @@ export type StudioRelease = {
 
 export const CURRENT_STUDIO_RELEASE: StudioRelease = {
   version: "2026.08",
-  date: "August 11, 2026",
-  title: "Precision review workflow",
-  summary: "A faster, steadier way to inspect any course, collect visual feedback, and hand one verified review to Codex.",
+  date: "August 12, 2026",
+  title: "Safe course editing",
+  summary: "Eligible courses can now collect, review, apply, and undo routine teacher changes directly in Studio or Full Preview.",
   notes: [
     {
-      title: "Annotate in place",
-      summary: "Select course content with a pointer or keyboard, add a plain-language note, and keep up to three marked screenshots with it."
+      title: "Edit the course in place",
+      summary: "Change supported text, links, images, alt text, captions, and curated visual styles without leaving Studio."
     },
     {
-      title: "Keep the review together",
-      summary: "Review Sets now stay with each course, survive Studio and Full Preview changes, and can be named, reorganized, exported, or restored."
+      title: "Review before applying",
+      summary: "Draft Changes persist per course across Studio and Full Preview and can be edited, removed, reordered, and compared before one batch is applied."
     },
     {
-      title: "Recover instead of guessing",
-      summary: "Blank, delayed, or unsupported pages show a useful recovery path instead of appearing to work."
+      title: "Apply safely and undo",
+      summary: "Studio rechecks targets, checkpoints the course, rebuilds generated courses when needed, validates the result, and can undo the last batch."
     },
     {
-      title: "Move with confidence",
-      summary: "Keyboard focus, narrow windows, large pages, and screenshot work now share explicit accessibility and performance checks."
+      title: "Keep ownership clear",
+      summary: "Every edit is course-only; unsupported or unmapped content stays annotation-only, and existing exports are marked out of date until republished."
     }
   ]
 };

@@ -117,6 +117,8 @@ export const STUDIO_FOCUSED_TEST_FILES = [
   "scripts/tests/review-screenshots.test.ts",
   "scripts/tests/codex-packet.test.ts",
   "scripts/tests/course-build-brief.test.ts",
+  "scripts/tests/course-editing.test.ts",
+  "scripts/tests/studio-project-html-scan.test.ts",
   "scripts/tests/studio-project-continuity.test.ts",
   "scripts/tests/studio-incoming-refresh.test.ts",
   "scripts/tests/studio-quality.test.ts",

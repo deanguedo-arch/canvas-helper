@@ -4,6 +4,8 @@ import path from "node:path";
 
 import { Parser } from "htmlparser2";
 
+import { STUDIO_EDIT_ID_ATTRIBUTE } from "../../../scripts/lib/course-editing/html.js";
+
 import {
   inspectCourseAuthoringProject,
   type CourseAuthoringPath,
@@ -38,6 +40,7 @@ type OpeningTag = {
   start: number;
   end: number;
   tagName: string;
+  editId: string | null;
 };
 
 export type PreviewInspectionDocument = {
@@ -45,7 +48,7 @@ export type PreviewInspectionDocument = {
   html: string;
   sourceDigest: string;
   nodeIds: Set<string>;
-  nodeLocations: Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number }>;
+  nodeLocations: Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number; ordinal: number; tagName: string; editId: string | null }>;
 };
 
 function sha256(value: string) {
@@ -64,7 +67,7 @@ function collectOpeningTags(html: string) {
   let parser: Parser;
   parser = new Parser(
     {
-      onopentag(tagName) {
+      onopentag(tagName, attributes) {
         const normalizedTagName = tagName.toLowerCase();
         if (normalizedTagName === "template") {
           templateDepth += 1;
@@ -87,7 +90,10 @@ function collectOpeningTags(html: string) {
           return;
         }
 
-        tags.push({ start, end, tagName: normalizedTagName });
+        const editId = typeof attributes[STUDIO_EDIT_ID_ATTRIBUTE] === "string" && /^che1:[a-f0-9]{24}$/.test(attributes[STUDIO_EDIT_ID_ATTRIBUTE])
+          ? attributes[STUDIO_EDIT_ID_ATTRIBUTE]
+          : null;
+        tags.push({ start, end, tagName: normalizedTagName, editId });
       },
       onclosetag(tagName) {
         if (tagName.toLowerCase() === "template" && templateDepth > 0) {
@@ -156,7 +162,7 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
     return null;
   }
   const nodeIds = new Set<string>();
-  const nodeLocations = new Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number }>();
+  const nodeLocations = new Map<string, { lineStart: number; lineEnd: number; sourceStart: number; sourceEnd: number; ordinal: number; tagName: string; editId: string | null }>();
   const lineStarts = collectLineStarts(html);
   let decorated = html;
 
@@ -168,7 +174,10 @@ export function decoratePreviewHtml(html: string): PreviewInspectionDocument | n
       lineStart: lineForOffset(lineStarts, tags[index].start),
       lineEnd: lineForOffset(lineStarts, tags[index].end),
       sourceStart: tags[index].start,
-      sourceEnd: tags[index].end
+      sourceEnd: tags[index].end,
+      ordinal: index + 1,
+      tagName: tags[index].tagName,
+      editId: tags[index].editId
     });
   }
 

@@ -63,6 +63,7 @@ import { transformWritingFoundationsLessons } from "./writing-foundations-lesson
 import { ensureStandardEnglishWritingProfile } from "./writing-sequence-renderer.js";
 import { runEnglishFactoryOutputTransaction } from "./factory-transaction.js";
 import { stageAndPromoteEnglishWorkspace } from "./workspace-staging.js";
+import { applyStoredCourseEdits } from "../course-editing/overrides.js";
 
 const LOGO_RELATIVE_PATH = path.join("docs", "design", "next-step", "assets", "nxt-ce-logo-white-with-ce.png");
 const FORBIDDEN_LEARNER_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
@@ -789,7 +790,8 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
         renderedProfile = renderEnglishActivityProfile(profile, { videos });
       }
       renderedRoutes = renderedProfile.pages.map((page) => page.id);
-      const html = renderEnglishFactoryUnit({ recipe, lessons: builtLessons, activityProfile: renderedProfile, resources: preparedResources, videos });
+      const renderedHtml = renderEnglishFactoryUnit({ recipe, lessons: builtLessons, activityProfile: renderedProfile, resources: preparedResources, videos });
+      const html = await applyStoredCourseEdits({ repoRoot: input.repoRoot, projectSlug: recipe.projectSlug, html: renderedHtml });
       validateLearnerHtml(html, recipe, renderedRoutes);
       await writeFile(path.join(stageDir, "index.html"), html, "utf8");
     },

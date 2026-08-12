@@ -7,9 +7,26 @@ import type {
   ScreenshotDraft
 } from "../lib/review-workbench";
 import { InspectionPanel } from "./InspectionPanel";
+import { CourseEditPanel } from "./CourseEditPanel";
+import type { CourseEditDraft, CourseEditPatch, CourseEditTarget } from "../../../shared/course-editing.js";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
+  editEnabled: boolean;
+  editTarget: CourseEditTarget | null;
+  editResolving: boolean;
+  editDrafts: CourseEditDraft[];
+  editBusy: boolean;
+  editFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error" };
+  editCanUndo: boolean;
+  editExportsOutOfDate: boolean;
+  editStaleExportTargets: string[];
+  onSaveEditTarget: (patch: CourseEditPatch) => boolean;
+  onUpdateEditDraft: (draft: CourseEditDraft) => void;
+  onRemoveEditDraft: (id: string) => void;
+  onReorderEditDraft: (id: string, direction: -1 | 1) => void;
+  onApplyEditDrafts: () => void;
+  onUndoEditBatch: () => void;
   inspectEnabled: boolean;
   inspectionResolution: InspectionResolution | null;
   inspectionResolving: boolean;
@@ -83,6 +100,21 @@ type InspectorPanelProps = {
 };
 
 export function InspectorPanel({
+  editEnabled,
+  editTarget,
+  editResolving,
+  editDrafts,
+  editBusy,
+  editFeedback,
+  editCanUndo,
+  editExportsOutOfDate,
+  editStaleExportTargets,
+  onSaveEditTarget,
+  onUpdateEditDraft,
+  onRemoveEditDraft,
+  onReorderEditDraft,
+  onApplyEditDrafts,
+  onUndoEditBatch,
   inspectEnabled,
   inspectionResolution,
   inspectionResolving,
@@ -158,6 +190,25 @@ export function InspectorPanel({
 
   return (
     <aside className="inspector" aria-label="Annotations">
+      {editEnabled || editDrafts.length > 0 || editCanUndo || editExportsOutOfDate ? (
+        <CourseEditPanel
+          enabled={editEnabled}
+          target={editTarget}
+          resolving={editResolving}
+          drafts={editDrafts}
+          busy={editBusy}
+          feedback={editFeedback}
+          canUndo={editCanUndo}
+          exportsOutOfDate={editExportsOutOfDate}
+          staleExportTargets={editStaleExportTargets}
+          onSaveTarget={onSaveEditTarget}
+          onUpdateDraft={onUpdateEditDraft}
+          onRemoveDraft={onRemoveEditDraft}
+          onReorderDraft={onReorderEditDraft}
+          onApply={onApplyEditDrafts}
+          onUndo={onUndoEditBatch}
+        />
+      ) : null}
       {showComposer ? (
         <InspectionPanel
           inspectEnabled={inspectEnabled}

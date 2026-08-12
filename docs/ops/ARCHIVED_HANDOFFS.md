@@ -8314,3 +8314,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: compact mode retained source ownership, rebuild, validation, screenshot paths, and untrusted-content boundaries; no learner-course artifact changed.
 - Implementation commit: `fed14efb`.
 - Next command at archival time: `sed -n '1,420p' app/studio/src/lib/review-set-storage.ts`.
+
+## Archived Active Handoff — 2026-08-12: closed visual review loop
+
+- Project: `repo-wide`.
+- Task: Close Canvas Studio's visual-review-to-Codex loop with compact handoffs and persistent Verify Changes.
+- Status: complete and release-verified on checkpoint `74b0c3ee`; superseded by Studio Direct Editing V1.
+- Verification: `npm run test:studio-release` passed 93 focused contracts, production build, 55 inspection E2E tests, platform smoke, and the strict neutral-project contract; focused post-hardening checks and independent reviewers also passed.
+- Source of truth: `app/studio/src/lib/review-set.ts`, `app/studio/src/lib/review-set-storage.ts`, `app/studio/src/App.tsx`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
+- Preserved boundary: no learner-course source, workspace, raw file, or export changed; unrelated local intake, resource, duplicate-source, and test-result folders remained unstaged.
+- Next command at archival time: `npm run studio:codex`.

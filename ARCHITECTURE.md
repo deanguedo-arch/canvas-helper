@@ -237,6 +237,22 @@ Default command paths:
 
 The release command is implemented by `scripts/run-studio-release.ts` and `scripts/lib/studio-release.ts`. It invokes only checked-in dependency entrypoints, owns a fresh loopback port, runs focused contracts, the production build, all inspection E2E, platform smoke, and the strict neutral fixture contract in that order, propagates the first failing exit code, and writes `.runtime/studio-release-report.json` with the branch, commit, dirty-tree status, and a deterministic SHA-256 fingerprint of the exact Studio source bytes that were tested. It fails if those source bytes change during the run. Ordinary developer E2E may still reuse its configured server; release E2E may not.
 
+Studio project discovery treats declared raw/workspace entrypoints as authoritative and uses recursive HTML discovery only as a bounded convenience. It skips asset trees and duplicate copied resource directories and caps total entries, entries per directory, and traversal depth. This prevents unrelated archives or filesystem-copy artifacts from blocking `/api/projects`; legitimate deep pages should be declared through project metadata instead of relying on an unbounded scan. Release provenance likewise records directory-level untracked status while the independent source fingerprint still reads every in-scope Studio byte.
+
+## Studio Direct Editing
+
+Studio direct editing is a server-owned transactional workflow, separate from annotation and Review Set handoffs:
+
+- Browser/server-safe contracts and validators live in `app/shared/course-editing.ts`.
+- Target resolution, source-digest checks, transactional apply, validation, export staleness, checkpoint, and undo live in `app/server/lib/course-editing.ts`; HTTP handlers live in `app/server/routes/course-edits.ts`.
+- Stable generated-course edit identities, sanitization, approved style tokens, and stored course-only overrides live in `scripts/lib/course-editing/`.
+- Studio state and per-course draft persistence live in `app/studio/src/hooks/useCourseEditing.ts` and `app/studio/src/lib/course-edit-storage.ts`.
+- Full Preview shares the same in-memory and persistent draft owner through the bounded private bridge; it never owns a second source state and never receives local file paths.
+
+Only a passing `course:doctor` project with a supported adapter is editable. Direct projects write the exact declared canonical workspace files. English factory and explicitly onboarded Social projects store course-only overrides under `projects/<slug>/meta/studio-edits.json`; their builders decorate generated HTML with stable edit IDs, replay the overrides, and regenerate the workspace. Generated HTML, raw imports, runtime bundles, and exports remain noncanonical.
+
+One apply request is transactional: re-resolve all opaque identities, reject changed digests or undeclared pages, sanitize approved operations, checkpoint every direct source or the generated workspace/meta boundary, update canonical inputs, run one bounded rebuild if required, run `course:doctor` and workspace verification, refresh previews, and mark declared exports stale. Failure restores the checkpoint. Undo restores the preceding complete batch. Checkpoints and status records live only in ignored `.runtime/studio-edit-*` directories.
+
 ### Policy-Controlled
 
 - intelligence influence on prompt packs

@@ -87,23 +87,29 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 3. Use Studio `Refresh Intake` or run `npm run incoming:refresh` (recommended); continuous watcher mode is optional (`npm run watch:incoming`)
 4. Imported sources are snapshotted to `projects/processed/<slug>/source/`
 5. Studio edits and previews the canonical project at `projects/<slug>/...`; if that canonical root is missing but the processed snapshot still exists, Studio rebuilds it automatically from `projects/processed/<slug>/source/`
-6. Edit only `projects/<slug>/workspace/`
-7. Use Studio to compare raw vs workspace
+6. Edit declared canonical sources only. For routine changes on eligible courses, use Studio **Edit** mode; otherwise edit the owning workspace, recipe, metadata override, or builder source identified by `course:doctor`.
+7. Use Studio to compare raw vs workspace, or collect a reviewed Draft Changes batch before applying it.
 8. Run `analyze` and `refs` to refresh workspace structure plus classified resource artifacts
 9. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
 10. Run export commands as needed
 11. Run `validate:manifests` when project source-of-truth metadata changed
 12. Capture a handoff before stopping
 
+## Studio Direct Editing
+
+Studio has a separate **Edit** mode for courses that pass `course:doctor` with a supported adapter. Turn on Edit, click supported text, a link, or an image, then save one or more changes into the course-specific **Draft Changes** panel. Drafts persist for seven days, follow the course between Studio and Full Preview, and can be edited, removed, reordered, and reviewed as before/after changes. **Apply changes** creates one local checkpoint, revalidates every selection and source digest, updates only that course, rebuilds English or explicitly onboarded Social output when required, runs focused validation, refreshes both previews, and enables **Undo last batch**. Existing export packages are marked out of date until the teacher explicitly republishes them.
+
+V1 supports safe text formatting, links, images, alt text, captions, button labels, and curated font, size, colour, alignment, emphasis, and spacing controls. The browser never supplies a source path. Unsupported, stale, runtime-generated, or unmapped selections fail closed and stay annotation-only. New activities or JavaScript, assessment/scoring logic, arbitrary HTML/CSS, navigation redesigns, complex section moves, family-wide changes, repairs, and publishing remain Codex or explicit command workflows.
+
 ## Studio Inspect + Codex Handoff
 
-Studio has no model-provider integration and does not write course sources. Use **Annotate** when one or more visible course elements need focused changes:
+Studio has no model-provider integration. Use **Annotate** when a change is outside safe direct-edit capabilities or when one or more visible course elements need focused work from Codex:
 
 1. Open the project, turn on **Annotate**, then click an element or drag across one source-mapped learner-facing area. An ambiguous drag remains visual-only so it cannot point Codex at the wrong source.
 2. Write what should change, optionally capture up to three marked course screenshots, and choose **Save annotation**.
 3. Repeat for up to five annotations, edit or review them in the persistent Review Set, then choose **Copy Review Set for Codex** and paste the one handoff into a Codex task.
 
-The right rail deliberately shows only the current annotation and the Review Set. Studio still resolves the canonical source, rebuild route, and validation command behind the scenes, then includes those details in the bounded copied handoff. Generated Social and English workspace HTML remains display output rather than an editable source.
+The right rail deliberately shows only the current annotation and the Review Set. Studio still resolves the canonical source, rebuild route, and validation command behind the scenes, then includes those details in the bounded copied handoff. Generated Social and English workspace HTML remains display output: Edit mode records course-only overrides and asks the owning builder to regenerate it rather than patching generated HTML.
 
 **Open preview** opens a trusted full-page host while keeping the course itself isolated in a capability-scoped iframe. It has the same blue annotation mode: click or drag, add a note or screenshot, save to the shared Review Set, and copy the complete set without returning to Studio. **Return to Studio** closes a connected full preview and brings back the original Studio session. An already-open full preview can rejoin after Studio reload, and **Show** navigates its course iframe to the saved HTML page before reporting a confirmed highlight. Saved annotations, notes, and screenshot references survive for seven days; switching to another course asks before clearing the current set.
 
@@ -111,7 +117,7 @@ The live preview is served from a separate local loopback origin and communicate
 
 **Screenshot** is optional and course-only. It does not open an operating-system screen-sharing picker. Canvas Helper opens the exact capability-scoped local preview in a bounded capture browser, restores its saved scroll state, rechecks the full page identity (including course query and hash state) plus the selected element, draws the blue numbered marker, and blocks outside HTTP requests, WebSockets, WebRTC, service workers, and dedicated/shared workers. It verifies those guards in the main document and runnable local child frames while skipping empty or browser-generated blocked-error frames so iframe-heavy courses cannot stall capture. Each annotation may keep up to three PNGs under the ignored `.runtime/studio-review-sets/` cache. Display, removal, and copy all verify each path against the exact session, project, annotation, and selected node. Review Set V3 lists only those safe repo-relative paths—never base64 pixels, blob URLs, or absolute paths. Screenshot files and the private version-6 persistence record expire after seven days.
 
-Use **What’s new** in the Studio header for the current concise product release. The durable release note is [docs/releases/2026-08-11-canvas-studio.md](docs/releases/2026-08-11-canvas-studio.md). Before publishing shared Studio behavior, run `npm run test:studio-release`; its ignored report is written to `.runtime/studio-release-report.json`.
+Use **What’s new** in the Studio header for the current concise product release. The durable release note is [docs/releases/2026-08-12-canvas-studio-direct-editing.md](docs/releases/2026-08-12-canvas-studio-direct-editing.md). Before publishing shared Studio behavior, run `npm run test:studio-release`; its ignored report is written to `.runtime/studio-release-report.json`.
 
 ## Workflow Types
 

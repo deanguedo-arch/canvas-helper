@@ -9,6 +9,7 @@ import mammoth from "mammoth";
 import { decodeBrightspaceHtml } from "./lib/ela-modern-drama.js";
 import { parseNsoPodcastEntries, youtubeVideoIdFromHref, type NsoPodcastEntry } from "./lib/nso-podcasts.js";
 import { renderNextStepCourseShell, type NextStepShellLesson, type NextStepShellNavItem } from "./lib/next-step-course-shell.js";
+import { applyStoredCourseEdits } from "./lib/course-editing/overrides.js";
 
 const ROOT = path.resolve(".");
 const D2L_SOURCE_PATH =
@@ -5639,8 +5640,9 @@ async function buildIssue(
   const projectDir = path.join(ROOT, "projects", config.slug);
   const workspaceDir = path.join(projectDir, "workspace");
   const rawDir = path.join(projectDir, "raw");
+  const studioEditRebuild = process.argv.includes("--studio-edit");
   await resetGeneratedWorkspace(workspaceDir);
-  await fs.mkdir(rawDir, { recursive: true });
+  if (!studioEditRebuild) await fs.mkdir(rawDir, { recursive: true });
   await extractZipToWorkspace(d2lBundle, workspaceDir);
   await extractZipToWorkspace(moduleBundle, workspaceDir);
   await copyBrandAssets(workspaceDir);
@@ -5682,7 +5684,7 @@ async function buildIssue(
     records
   };
 
-  const html = renderNextStepCourseShell({
+  const renderedHtml = renderNextStepCourseShell({
     slug: config.slug,
     courseTitle: config.title,
     courseCode: "Social Studies 10-1",
@@ -5704,12 +5706,15 @@ async function buildIssue(
     extraCss: extraCss()
   });
 
+  const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml });
   await fs.writeFile(path.join(workspaceDir, "index.html"), html, "utf8");
-  await fs.writeFile(
-    path.join(rawDir, "README.md"),
-    `# ${config.title}\n\nGenerated from the Social Studies 10-1 D2L export and updated module overlay. Use the workspace HTML as the editable preview source.\n`,
-    "utf8"
-  );
+  if (!studioEditRebuild) {
+    await fs.writeFile(
+      path.join(rawDir, "README.md"),
+      `# ${config.title}\n\nGenerated from the Social Studies 10-1 D2L export and updated module overlay. Use the workspace HTML as the editable preview source.\n`,
+      "utf8"
+    );
+  }
   await writeMappingReport(projectDir, report);
   await writePodcastMappingReport(projectDir, podcastMapping.report);
   await writeMetadata(projectDir, config, lessonsWithActivities.length, resources, report, podcastMapping.report);

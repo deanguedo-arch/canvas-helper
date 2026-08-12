@@ -18,7 +18,7 @@ test("Studio release manifest is bounded, unique, and mirrored in release docume
     assert.doesNotMatch(`${note.title}${note.summary}`, /<[^>]+>/);
   }
 
-  const releasePath = path.resolve("docs", "releases", "2026-08-11-canvas-studio.md");
+  const releasePath = path.resolve("docs", "releases", "2026-08-12-canvas-studio-direct-editing.md");
   const releaseDocument = await readFile(releasePath, "utf8");
   assert.match(releaseDocument, new RegExp(CURRENT_STUDIO_RELEASE.version.replace(".", "\\.")));
   assert.ok(releaseDocument.includes(CURRENT_STUDIO_RELEASE.title));

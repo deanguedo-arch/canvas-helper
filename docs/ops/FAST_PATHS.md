@@ -30,6 +30,36 @@ Read first:
 
 Do not start by searching the whole repo. The shared command contract is the source of truth.
 
+## Studio Direct Editing
+
+Read first:
+- `app/shared/course-editing.ts`
+- `app/server/lib/course-editing.ts`
+- `app/server/routes/course-edits.ts`
+- `scripts/lib/course-editing/html.ts`
+- `scripts/lib/course-editing/overrides.ts`
+- `app/studio/src/hooks/useCourseEditing.ts`
+- `app/studio/src/lib/course-edit-storage.ts`
+- `app/studio/src/components/CourseEditPanel.tsx`
+- `app/shared/preview-bridge.ts`
+- `app/server/preview-bridge-runtime.ts`
+
+Rules:
+- Enable Edit only for a passing `course:doctor` project with a supported adapter. Previewability is not editability.
+- The browser sends only an opaque target identity and approved patch. It never supplies, selects, or stores a filesystem path.
+- Re-resolve every draft and reject a changed source digest before writing. Direct pages must still be declared canonical editable files.
+- Sanitize rich text and URLs and apply only curated style tokens. Arbitrary HTML/CSS/JavaScript remains a Codex workflow.
+- Direct adapters edit canonical workspace files. English and Social adapters store course-only metadata overrides and rebuild; never patch their generated workspace output as source.
+- Snapshot the whole transactional write boundary before applying, validate after one batch, restore it on any failure, and retain only the latest successful batch for Undo.
+- Keep Draft Changes per course and shared across Studio and Full Preview. Full Preview is a bridge consumer, not a second persistent owner.
+- Mark declared exports out of date after apply and clear only the matching status after an explicit successful export command.
+
+Verification floor:
+- `npm run test:course-editing`
+- `npm run test:studio-inspection`
+- `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "direct edits persist"`
+- `npm run build:studio`
+
 ## Studio Inspect + Codex Handoff
 
 Read first:
@@ -59,7 +89,7 @@ Rules:
 - Preflight every selected HTML page through the exact isolated-preview origin before mounting it. Keep the response teacher-safe and bounded: missing page/runtime/style, unsupported runtime, empty source, or ready. After mount, require the private bridge's bounded `preview-health` report so a successful document load cannot hide an empty runtime. Keep Retry, page choice, and the preview-issue handoff in Studio; technical details stay collapsed by default.
 - Preserve live course fidelity: allow presentation-only HTTPS styles, fonts, images, media, and frames in the isolated preview CSP. Keep arbitrary external scripts, form submissions, and nonlocal browser data connections blocked. Legacy script/module compatibility belongs only in the capability-scoped runtime relay: use exact versioned library/path/query allowlists, per-capability declared/transitive source binding, JavaScript-only MIME handling, no credentials, revalidated bounded redirects, pinned known unversioned runtimes, bounded concurrency/response/timeout/cache/parser limits, syntax-aware rewriting, and regression tests. Local/reference `HEAD` must exit before reads or transformation, relay `HEAD` must remain cache-only, local scripts over 512 KiB must remain untouched, and approved ESM over 2 MiB must be rejected. Never loosen `script-src` to `https:` or turn the relay into a general proxy.
 - A preview selection is evidence, not source authority. Resolve canonical targets only through the project driver and fail closed as `unknown` when it cannot be proved.
-- Generated Social and English workspaces remain output; packets point to their builder/factory source and rebuild flow.
+- Generated Social and English workspaces remain output; Review Set packets point to their builder/factory source and rebuild flow, while eligible Edit-mode changes are stored as course-only metadata overrides consumed by that builder.
 - Keep source routes, file paths, commands, packet text, and preview diagnostics out of the normal annotation UI. They remain resolver-owned data inside the copied Review Set packet.
 - Review Set preparation is automatic after each save or note edit. Copy must stay disabled until every saved route has been revalidated against current repository state.
 - A standalone workspace preview must preserve the original Studio session and expose Annotate, the shared Review Set, and the trusted return control only in the Studio-origin host, never inside the cross-origin course iframe. Keep one-time bootstrap, bounded reload rejoin, and focus-acknowledgement flows. Do not replace them with wildcard messaging, iframe DOM reads, URL-carried selection text, course-owned opener access, or preview-owned persistent storage.
@@ -123,7 +153,7 @@ Use:
 - `npm run course:list -- --all` to distinguish actual readiness from a project lifecycle label; do not treat `active` as permission to edit or rebuild.
 - `npm run course:doctor -- --project <slug>` before building a compact course brief
 - `npm run context:project -- --project <slug>` only after the doctor passes
-- Treat Studio as a local read-only inspection and handoff surface. Course changes belong in the declared canonical source or owning rebuild flow.
+- Treat Annotate as a local inspection and handoff surface. Edit mode may change a course only through its declared direct source or supported owning rebuild adapter.
 
 Verification floor:
 - `npm run test:authoring-context`
