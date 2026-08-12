@@ -8,6 +8,8 @@ import {
   toggleFavoriteProject,
   touchRecentProject
 } from "../../app/studio/src/lib/project-library.js";
+import { formatProjectSlugLabel, getProjectLabel } from "../../app/studio/src/lib/project-display.js";
+import type { ProjectBundle } from "../../app/studio/src/lib/types.js";
 import {
   clearStoredReviewSet,
   createReviewSetBackup,
@@ -59,6 +61,29 @@ test("Studio fixture descriptors are neutral, distinct, and exact-path matched",
     false
   );
   assert.equal(workspacePreviewPathMatchesProject("/preview/workspace/%ZZ/index.html", "%ZZ"), false);
+});
+
+test("Studio turns repository slugs into readable course names without replacing curated titles", () => {
+  assert.equal(formatProjectSlugLabel("social10-1-related-issue-1-option-2"), "Social 10-1 Related Issue 1 Option 2");
+  assert.equal(formatProjectSlugLabel("ela20-1-modern-play"), "ELA 20-1 Modern Play");
+  assert.equal(formatProjectSlugLabel("forensics35"), "Forensics 35");
+  assert.equal(formatProjectSlugLabel("calm3new"), "CALM 3 New");
+
+  const slugTitleProject = {
+    manifest: {
+      slug: "social10-1-related-issue-1-option-2",
+      title: "Social10 1 Related Issue 1 Option 2"
+    }
+  } as ProjectBundle;
+  const curatedTitleProject = {
+    manifest: {
+      slug: "social10-1-related-issue-1-option-2",
+      title: "Social 10-1: Globalization and Identity"
+    }
+  } as ProjectBundle;
+
+  assert.equal(getProjectLabel(slugTitleProject), "Social 10-1 Related Issue 1 Option 2");
+  assert.equal(getProjectLabel(curatedTitleProject), "Social 10-1: Globalization and Identity");
 });
 
 function withLocalStorage(run: (values: Map<string, string>) => void) {

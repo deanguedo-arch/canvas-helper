@@ -9,21 +9,45 @@ const HIDDEN_STUDIO_PROJECT_SLUGS = new Set([
 
 const PROJECT_GROUP_ORDER = ["Conversion projects", "Generated courses", "Hybrid courses", "Legacy projects"];
 
-function formatProjectSlugLabel(slug: string) {
-  return slug
-    .split("-")
-    .filter(Boolean)
-    .map((part) => {
-      if (/^(ela|cte)$/i.test(part)) return part.toUpperCase();
-      if (/^\d/.test(part)) return part;
-      return part.charAt(0).toUpperCase() + part.slice(1);
-    })
-    .join(" ");
+const PROJECT_ACRONYMS = new Set(["ai", "calm", "cte", "ela", "hss", "scorm"]);
+
+function titleCaseProjectWord(word: string) {
+  if (PROJECT_ACRONYMS.has(word.toLowerCase())) return word.toUpperCase();
+  return word.charAt(0).toUpperCase() + word.slice(1).toLowerCase();
+}
+
+function formatProjectToken(token: string) {
+  const parts = token.match(/[a-z]+|\d+/gi) ?? [token];
+  return parts.map((part) => /^\d+$/.test(part) ? part : titleCaseProjectWord(part)).join(" ");
+}
+
+function matchesSlugIdentity(title: string, slug: string) {
+  const compact = (value: string) => value.toLowerCase().replace(/[^a-z0-9]+/g, "");
+  return compact(title) === compact(slug);
+}
+
+export function formatProjectSlugLabel(slug: string) {
+  const tokens = slug.split("-").filter(Boolean);
+  if (!tokens.length) return slug;
+
+  const firstCourseToken = tokens[0]?.match(/^([a-z]+)(\d+)([a-z]+)?$/i);
+  if (firstCourseToken && /^\d$/.test(tokens[1] ?? "") && Number(firstCourseToken[2]) >= 10) {
+    const [, subject, level, suffix] = firstCourseToken;
+    const courseLabel = `${titleCaseProjectWord(subject)} ${level}-${tokens[1]}`;
+    const remaining = [suffix, ...tokens.slice(2)].filter(Boolean).map(formatProjectToken);
+    return [courseLabel, ...remaining].join(" ");
+  }
+
+  return tokens.map(formatProjectToken).join(" ");
 }
 
 export function getProjectLabel(project: ProjectBundle | string) {
   if (typeof project === "string") return formatProjectSlugLabel(project);
-  return project.manifest.title?.trim() || formatProjectSlugLabel(project.manifest.slug);
+  const title = project.manifest.title?.trim();
+  if (!title || matchesSlugIdentity(title, project.manifest.slug)) {
+    return formatProjectSlugLabel(project.manifest.slug);
+  }
+  return title;
 }
 
 export function getProjectGroupLabel(project: ProjectBundle) {

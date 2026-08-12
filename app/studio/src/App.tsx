@@ -338,8 +338,6 @@ export function App() {
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
   );
-  const learnerModeLabel = selectedProject ? selectedProject.effectiveLearnerMode : "off";
-  const learnerModeDisplay = learnerModeLabel[0].toUpperCase() + learnerModeLabel.slice(1);
 
   const resolvedWorkspaceHtmlPath = useMemo(() => {
     if (!selectedProject) {
@@ -2392,7 +2390,6 @@ export function App() {
             picker={workspacePicker}
             layoutPreferences={layoutPreferences}
             previewMode={previewMode}
-            learnerMode={learnerModeDisplay}
             inspectEnabled={inspectEnabled}
             inspectAvailable={Boolean(previewOrigin) && ["ready", "warning"].includes(previewRecovery.states.workspace.phase)}
             hasWorkspacePreview={Boolean(previewSources.workspace) && ["ready", "warning"].includes(previewRecovery.states.workspace.phase)}

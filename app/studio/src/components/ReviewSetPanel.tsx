@@ -74,7 +74,7 @@ function itemReadiness(item: ReviewSetItem) {
 }
 
 function formatPacketSize(bytes: number) {
-  if (!bytes) return "Waiting for ready check";
+  if (!bytes) return "No handoff yet";
   return bytes < 1_000 ? `${bytes} B packet` : `${(bytes / 1_000).toFixed(1)} KB packet`;
 }
 
@@ -390,10 +390,17 @@ export function ReviewSetPanel({
           })}
         </ol>
       ) : (
-        <p className="empty-state">Select something in the course, add a note, and save it here.</p>
+        <div className="review-set-empty" data-testid="review-set-empty">
+          <p><strong>Start a focused review.</strong> Your saved notes and screenshots will stay together here.</p>
+          <ol>
+            <li>Turn on <strong>Annotate</strong>.</li>
+            <li>Select an element or drag over an area.</li>
+            <li>Add a clear note, then save the annotation.</li>
+          </ol>
+        </div>
       )}
 
-      {packetError || persistenceError || status || undoLabel ? (
+      {packetError || persistenceError || (items.length ? status : "") || undoLabel ? (
         <div className={`review-feedback ${status ? statusTone : packetError || persistenceError ? "error" : "neutral"}`} role="status" aria-live="polite" data-testid="review-feedback">
           <span>{status || packetError || persistenceError || "Last Review Set change can be undone."}</span>
           {undoLabel && !packetError && !persistenceError ? (
@@ -402,10 +409,14 @@ export function ReviewSetPanel({
         </div>
       ) : null}
 
-      <div className="review-packet-summary" data-testid="review-packet-size">
-        <span>{formatPacketSize(packetByteLength)}</span>
-        <span>{packetReady ? "Ready for Codex" : preparing ? "Checking sources…" : "Needs review"}</span>
-      </div>
+      {items.length ? (
+        <div className="review-packet-summary" data-testid="review-packet-size">
+          <span>{formatPacketSize(packetByteLength)}</span>
+          <span>{packetReady ? "Ready for Codex" : preparing ? "Checking sources…" : "Needs review"}</span>
+        </div>
+      ) : (
+        <p className="review-copy-hint" data-testid="review-packet-size">Save an annotation to create a Codex handoff.</p>
+      )}
       <div className="inspection-actions review-set-copy-row">
         <button type="button" className="ghost-button compact active-toggle" disabled={!packetReady || preparing || mutationLocked} onClick={onCopy} data-testid="copy-review-set">
           {preparing ? "Getting Review Set ready…" : "Copy Review Set for Codex"}

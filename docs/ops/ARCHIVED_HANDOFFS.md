@@ -8282,3 +8282,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course source, workspace, or generated export changed; unrelated local intake and test-result snapshots remained unstaged.
 - Implementation and final handoff commits: `1ad3cc21` and `dc89ec96`.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-12: post-roadmap independent-audit brief
+
+- Project: `repo-wide`.
+- Task: Prepare a complete post-roadmap Canvas Studio brief for an independent ChatGPT Pro / Terra Max audit.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the Studio refinement implementation.
+- Verification: documentation diff checks, branch/commit confirmation, source-path verification, and a read-only live Studio check passed.
+- Source of truth: `docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md` and commit `673182a3`.
+- Preserved boundary: no learner-course source, workspace, or generated export changed; unrelated local intake and test-result snapshots remained unstaged.
+- Next command at archival time: `rg -n "course-toolbar|review-set-panel|buildReviewSetPacket|resolved" app/studio/src app/shared app/server scripts/tests e2e/specs/inspection.spec.ts`.

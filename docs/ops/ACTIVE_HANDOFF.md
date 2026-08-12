@@ -1,74 +1,83 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Prepare a complete post-roadmap Canvas Studio brief for an independent ChatGPT Pro / Terra Max audit.
-- Status: complete; the brief is ready to attach to ChatGPT Pro.
+- Task: Refine Canvas Studio usability and visual hierarchy before changing handoff semantics.
+- Status: complete; visual hierarchy, first-use guidance, and readable display titles are ready and verified.
 
 ## Files changed
 
-- `docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md`
+- `app/studio/src/App.tsx`
+- `app/studio/src/components/CourseToolbar.tsx`
+- `app/studio/src/components/ReviewSetPanel.tsx`
+- `app/studio/src/lib/project-display.ts`
+- `app/studio/src/precision-editor.css`
+- `scripts/tests/studio-project-continuity.test.ts`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
 ## What changed
 
-- Added a course-neutral current-state brief covering every functional change delivered across phases A through H.
-- Added a before/after matrix, verified limits, release evidence, remaining usability questions, and Codex's ranked product recommendation.
-- Added a copy-ready ChatGPT Pro / Terra Max prompt requiring repository verification, red-team, green-team, and adjudication.
-- Archived the completed A-H handoff without changing Studio code or learner-course artifacts.
+- Grouped preview controls separately from the Annotate, Full preview, Review Set, and Tools workflow actions.
+- Removed the internal learner-policy label from the primary course toolbar.
+- Made Annotate and Review Set clearer workflow actions while keeping Tools visually secondary.
+- Replaced raw or awkward slug labels with readable course names such as `Social 10-1`, `ELA 20-1`, `Forensics 35`, and `CALM 3 New`, while preserving curated manifest titles.
+- Replaced the empty Review Set's diagnostic-looking state with a concise three-step first-use guide and a neutral disabled handoff state.
+- Increased the desktop Review Set rail width slightly without changing the course-first layout.
 
 ## Why this changed
 
-- The next independent audit needs the completed implementation state rather than the superseded pre-roadmap audit.
-- The brief prevents duplicate recommendations for work already completed and gives the adviser a concrete product position to challenge.
+- The completed A-H system was functionally strong but still made too many controls look equally important.
+- New users needed an obvious path from Annotate to a saved Review Set and Codex handoff.
+- Repository slugs are implementation identifiers, not polished product names.
 
 ## Verification run
 
+- Passed: `npm run test:studio-inspection` — 86/86.
+- Passed: `npm run build:studio`.
+- Passed: `npm run test:e2e:smoke` — 1/1.
 - Passed: `git diff --check`.
-- Verified: branch `codex/studio-roadmap-phases` and pushed implementation/handoff commits `1ad3cc21` and `dc89ec96`.
-- Verified: all referenced Studio audit files and owning source paths exist.
-- Read-only live check: current Studio at `http://127.0.0.1:5173/` confirms the course-first toolbar, Focus/Current controls, Annotate, Full Preview, Review Set, and Tools surfaces.
-- Not rerun: `npm run test:studio-release`, because this task changes documentation only.
+- Browser verified at `http://127.0.0.1:5186/`: course preview remained dominant; toolbar hierarchy, empty Review Set guidance, disabled handoff state, and representative display names rendered correctly.
 
 ## Source of truth
 
-- New independent-audit brief: `docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md`.
-- Completed implementation record: `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`.
-- Product release record: `docs/releases/2026-08-11-canvas-studio.md`.
+- Shared Studio presentation: `app/studio/src/precision-editor.css`.
+- Course toolbar behavior: `app/studio/src/components/CourseToolbar.tsx`.
+- Review Set first-use state: `app/studio/src/components/ReviewSetPanel.tsx`.
+- Course display names: `app/studio/src/lib/project-display.ts`.
 
 ## Fragile areas / watchouts
 
-- Adviser recommendations are proposals until Codex verifies them locally.
-- Keep the audit course-neutral; use courses only as varied regression fixtures.
-- Do not turn a visual refinement into another broad redesign or an embedded AI feature.
+- Keep course content inside isolated iframes; do not style learner courses through Studio CSS.
+- Preserve `data-testid` selectors and the Focus/Split, Original/Current, and Full preview behaviors.
+- Display formatting may need another generic token rule for future unconventional slugs; curated manifest titles remain authoritative.
 - Unrelated local intake, resource, and duplicate test-result folders remain unstaged.
 
 ## Next prompt should assume
 
-- Canvas Studio phases A through H are complete and pushed.
-- The new document is the current audit brief; the Downloads audit describes the older pre-roadmap state.
-- Codex's position is visual/usability refinement first, then validate a small Verify Changes loop and compact handoff modes.
+- Visual refinement phase is complete and should be committed before handoff-packet work begins.
+- The next phase adds a compact default Codex handoff plus an explicit full-diagnostics option.
+- Learner-course sources and generated outputs remain outside the change boundary.
 
 ## What still needs validation
 
-- ChatGPT Pro should verify the named branch and commits through GitHub and complete the requested red-team/green-team adjudication.
-- Any accepted implementation plan must be rechecked locally before code changes.
+- The final combined release candidate still requires the full `npm run test:studio-release` gate after the compact handoff and Verify Changes phases.
+- Narrow-screen and full annotation interaction coverage will run again in the final release gate.
 
 ## Known risks
 
-- A GitHub auditor cannot see this new uncommitted brief unless the user attaches it directly or it is later committed and pushed.
-- Repository-wide typecheck retains unrelated historical diagnostics and is not evidence against this documentation-only task.
+- The active Studio on port 5173 may still be an older server until it is restarted; the verified implementation ran through the current branch on port 5186.
+- This phase does not yet change what gets copied to Codex or add post-handoff verification states.
 
 ## Exact next command
 
-`git diff -- docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md`
+`rg -n "buildReviewSetPacket|preparedReviewSet|copyReviewSet" app/studio/src/lib/review-set.ts app/studio/src/App.tsx scripts/tests/codex-packet.test.ts`
 
 ## Exact next file to open
 
-`docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md`
+`app/studio/src/lib/review-set.ts`
 
 ## Do not do next / warnings
 
-- Do not ask the adviser to repeat phases A through H.
-- Do not accept adviser claims about repository state without local verification.
-- Do not edit learner-course output to change shared Studio behavior.
+- Do not remove bounded safety, source ownership, rebuild, validation, or screenshot-path evidence from compact handoffs.
+- Do not make full diagnostics the default.
+- Do not edit learner-course workspace, raw, or export files for shared Studio behavior.
