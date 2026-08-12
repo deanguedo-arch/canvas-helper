@@ -8271,3 +8271,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course workspace, raw source, or export changed; unrelated local intake and test-result snapshots remained unstaged.
 - Implementation commits: `c71e524c` and `43a6c278`.
 - Next command at archival time: `rg -n "useState|useRef|Review Set|PreviewReview|release notes|What's new" app/studio/src/App.tsx app/studio/src app/shared e2e/specs/inspection.spec.ts`.
+
+## Archived Active Handoff — 2026-08-11: completed Canvas Studio roadmap A-H
+
+- Project: `repo-wide`.
+- Task: Complete and publish all Canvas Studio evolution roadmap phases A through H.
+- Status: complete on `codex/studio-roadmap-phases`; superseded by the post-roadmap ChatGPT Pro audit brief.
+- Verification: `npm run test:studio-release` passed 85 focused Studio contracts, the production build, 50 inspection E2E tests, platform smoke, the strict neutral-project contract, and a stable 499-file source fingerprint; independent Terra Max review returned PASS.
+- Source of truth: `docs/plans/2026-08-11-canvas-studio-evolution-and-roadmap.md`, `docs/releases/2026-08-11-canvas-studio.md`, and implementation commit `1ad3cc21`.
+- Preserved boundary: no learner-course source, workspace, or generated export changed; unrelated local intake and test-result snapshots remained unstaged.
+- Implementation and final handoff commits: `1ad3cc21` and `dc89ec96`.
+- Next command at archival time: `npm run studio:codex`.
