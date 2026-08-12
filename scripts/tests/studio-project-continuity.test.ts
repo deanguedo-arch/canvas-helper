@@ -275,20 +275,132 @@ test("review workbench preserves recovery state and immutable screenshot ownersh
     assert.equal(current?.items[0]?.request.selection.selectionKind, "area");
     assert.equal(current?.items[0]?.screenshots[0]?.ownerNodeId, "ch1:1234567890abcdef12345678:1");
     assert.equal(current?.items[0]?.screenshots[0]?.cropped, true);
+    assert.equal(current?.items[0]?.handoffState, "draft");
 
-    const serialized = values.get("canvas-helper/review-workbench-v9");
+    const serialized = values.get("canvas-helper/review-workbench-v10");
     assert.ok(serialized);
     const legacy = JSON.parse(serialized as string) as { version: number };
     legacy.version = 8;
-    values.delete("canvas-helper/review-workbench-v9");
+    values.delete("canvas-helper/review-workbench-v10");
     values.set("canvas-helper/review-workbench-v8", JSON.stringify(legacy));
 
     const migrated = loadStoredReviewSet("alpha");
     assert.equal(migrated?.items[0]?.anchorState, "changed");
     assert.equal(migrated?.items[0]?.resolved, true);
     assert.equal(migrated?.items[0]?.screenshots[0]?.ownerNodeId, "ch1:1234567890abcdef12345678:1");
-    assert.equal(values.has("canvas-helper/review-workbench-v9"), true);
+    assert.equal(migrated?.items[0]?.handoffState, "draft");
+    assert.equal(values.has("canvas-helper/review-workbench-v10"), true);
     assert.equal(values.has("canvas-helper/review-workbench-v8"), false);
+  });
+});
+
+test("review workbench persists the sent, accepted, and reopened verification lifecycle", () => {
+  withLocalStorage((values) => {
+    const screenshotSessionId = "77777777-7777-4777-8777-777777777777";
+    const reviewSessionId = "77777777-aaaa-4aaa-8aaa-aaaaaaaaaaaa";
+    const resolution: InspectionResolution = {
+      projectSlug: "alpha",
+      previewPath: "projects/alpha/workspace/index.html",
+      selection: {
+        nodeId: "ch1:1234567890abcdef12345678:7",
+        selectionKind: "element",
+        visibleText: "Verification target",
+        tagName: "button",
+        role: "button",
+        testId: "verify-target",
+        geometry: { x: 10, y: 20, width: 200, height: 60 },
+        viewport: { width: 1280, height: 720 },
+        scroll: { windowTop: 0, windowLeft: 0, containers: [] },
+        pageHref: "http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/alpha/index.html"
+      },
+      resolution: "exact",
+      freshness: "current",
+      artifactRole: "canonical-editable-source",
+      generated: false,
+      primaryEditTarget: "projects/alpha/workspace/index.html",
+      primaryEditLine: 7,
+      contributors: [],
+      rebuildCommand: null,
+      validationCommand: "npm run course:doctor -- --project alpha",
+      warnings: []
+    };
+    const sent = createReviewSetItem({
+      id: "review-alpha-sent",
+      previewMode: "workspace",
+      request: { projectSlug: "alpha", root: "workspace", htmlPath: "index.html", selection: resolution.selection },
+      resolution,
+      issueCategory: "interaction",
+      handoffState: "sent",
+      sentAt: 1_786_544_000_000,
+      teacherNote: "Verify the interaction changed."
+    });
+    const accepted = createReviewSetItem({ ...sent, id: "review-alpha-accepted", handoffState: "accepted", resolved: true });
+    const reopened = createReviewSetItem({ ...sent, id: "review-alpha-reopened", handoffState: "reopened", resolved: false });
+
+    assert.equal(saveStoredReviewSet("alpha", reviewSessionId, "Verification", screenshotSessionId, [sent, accepted, reopened]), true);
+    const restored = loadStoredReviewSet("alpha");
+    assert.deepEqual(restored?.items.map((item) => item.handoffState), ["sent", "accepted", "reopened"]);
+    assert.equal(restored?.items[0]?.sentAt, 1_786_544_000_000);
+    assert.equal(restored?.items[1]?.resolved, true);
+    assert.equal(JSON.parse(values.get("canvas-helper/review-workbench-v10") ?? "{}").version, 10);
+  });
+});
+
+test("review workbench rejects impossible verification lifecycle combinations", () => {
+  const screenshotSessionId = "77777777-7777-4777-8777-777777777777";
+  const reviewSessionId = "77777777-bbbb-4bbb-8bbb-bbbbbbbbbbbb";
+  withLocalStorage((values) => {
+    const resolution: InspectionResolution = {
+      projectSlug: "alpha",
+      previewPath: "projects/alpha/workspace/index.html",
+      selection: {
+        nodeId: "ch1:1234567890abcdef12345678:8",
+        selectionKind: "element",
+        visibleText: "Lifecycle target",
+        tagName: "button",
+        role: "button",
+        testId: "lifecycle-target",
+        geometry: { x: 10, y: 20, width: 200, height: 60 },
+        viewport: { width: 1280, height: 720 },
+        scroll: { windowTop: 0, windowLeft: 0, containers: [] },
+        pageHref: "http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/alpha/index.html"
+      },
+      resolution: "exact",
+      freshness: "current",
+      artifactRole: "canonical-editable-source",
+      generated: false,
+      primaryEditTarget: "projects/alpha/workspace/index.html",
+      primaryEditLine: 8,
+      contributors: [],
+      rebuildCommand: null,
+      validationCommand: null,
+      warnings: []
+    };
+    const base = createReviewSetItem({
+      id: "review-alpha-lifecycle",
+      previewMode: "workspace",
+      request: { projectSlug: "alpha", root: "workspace", htmlPath: "index.html", selection: resolution.selection },
+      resolution,
+      issueCategory: "interaction",
+      teacherNote: "Keep lifecycle state valid."
+    });
+    assert.throws(() => createReviewSetItem({ ...base, handoffState: "sent", sentAt: null }), /sent timestamp/);
+    assert.throws(() => createReviewSetItem({ ...base, handoffState: "accepted", sentAt: 1_786_544_000_000, resolved: false }), /must be resolved/);
+    assert.throws(() => createReviewSetItem({ ...base, handoffState: "reopened", sentAt: 1_786_544_000_000, resolved: true }), /must remain open/);
+
+    const impossible = { ...base, handoffState: "accepted", sentAt: null, resolved: true };
+    values.set("canvas-helper/review-workbench-v10", JSON.stringify({
+      version: 10,
+      projects: {
+        alpha: {
+          updatedAt: Date.now(),
+          screenshotSessionId,
+          activeSetId: reviewSessionId,
+          sets: [{ id: reviewSessionId, name: "Invalid lifecycle", updatedAt: Date.now(), items: [impossible] }]
+        }
+      }
+    }));
+    assert.equal(loadStoredReviewSet("alpha"), null);
   });
 });
 
@@ -309,6 +421,7 @@ test("review workbench discards corrupt current and v8 storage before accepting 
     );
     assert.equal(loadStoredReviewSet("alpha")?.name, "Recovered review");
 
+    values.delete("canvas-helper/review-workbench-v10");
     values.set("canvas-helper/review-workbench-v9", "[also-not-json");
     assert.equal(loadStoredReviewSet("alpha"), null);
     assert.equal(values.has("canvas-helper/review-workbench-v9"), false);

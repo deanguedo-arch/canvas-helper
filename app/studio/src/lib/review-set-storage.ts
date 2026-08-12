@@ -10,11 +10,13 @@ import { isPreviewInspectPayload } from "../../../shared/preview-bridge.js";
 import {
   createReviewSetItem,
   REVIEW_SET_LABEL_MAX_BYTES,
+  REVIEW_SET_HANDOFF_STATES,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
   REVIEW_SET_PRIORITIES,
   utf8ByteLength,
   type ReviewSetItem,
+  type ReviewSetHandoffState,
   type ReviewSetPriority,
   type ReviewSetScreenshot
 } from "./review-set";
@@ -25,13 +27,14 @@ import {
 } from "./review-screenshots";
 import { STUDIO_REVIEW_LIMITS } from "../../../shared/studio-quality.js";
 
-const STORAGE_KEY = "canvas-helper/review-workbench-v9";
-const LEGACY_WORKBENCH_STORAGE_KEY = "canvas-helper/review-workbench-v8";
+const STORAGE_KEY = "canvas-helper/review-workbench-v10";
+const LEGACY_WORKBENCH_STORAGE_KEY = "canvas-helper/review-workbench-v9";
+const LEGACY_WORKBENCH_V8_STORAGE_KEY = "canvas-helper/review-workbench-v8";
 const LEGACY_PROJECT_SETS_STORAGE_KEY = "canvas-helper/review-sets-by-project-v7";
 const LEGACY_SINGLE_SET_STORAGE_KEY = "canvas-helper/review-set-v6";
 const OBSOLETE_STORAGE_KEYS = ["canvas-helper/review-set-v5", "canvas-helper/review-set-v4", "canvas-helper/review-set-v3"];
-const STORAGE_VERSION = 9;
-const BACKUP_VERSION = 1;
+const STORAGE_VERSION = 10;
+const BACKUP_VERSION = 2;
 const STORAGE_TTL_MS = STUDIO_REVIEW_LIMITS.ttlDays * 24 * 60 * 60 * 1_000;
 const STORAGE_MAX_PROJECTS = STUDIO_REVIEW_LIMITS.projects;
 const STORAGE_MAX_SESSIONS_PER_PROJECT = STUDIO_REVIEW_LIMITS.sessionsPerProject;
@@ -86,7 +89,7 @@ export type HydratedReviewSet = {
 
 export type ReviewSetBackup = {
   schema: "canvas-helper-review-set-backup";
-  version: typeof BACKUP_VERSION;
+  version: 1 | typeof BACKUP_VERSION;
   projectSlug: string;
   reviewSessionId: string;
   name: string;
@@ -261,6 +264,10 @@ function hydrateItem(value: unknown, sessionId: string, expectedProjectSlug: str
       priority,
       anchorState: value.anchorState === "changed" || value.anchorState === "missing" ? value.anchorState : "ready",
       resolved: value.resolved === true,
+      handoffState: REVIEW_SET_HANDOFF_STATES.includes(value.handoffState as ReviewSetHandoffState)
+        ? value.handoffState as ReviewSetHandoffState
+        : "draft",
+      sentAt: Number.isFinite(value.sentAt) && Number(value.sentAt) > 0 ? Number(value.sentAt) : null,
       teacherNote: value.teacherNote,
       screenshots: screenshots as ReviewSetScreenshot[]
     });
@@ -289,6 +296,7 @@ function emptyWorkbench(): StoredReviewWorkbench {
 function removeLegacyKeys() {
   try {
     window.localStorage.removeItem(LEGACY_WORKBENCH_STORAGE_KEY);
+    window.localStorage.removeItem(LEGACY_WORKBENCH_V8_STORAGE_KEY);
     window.localStorage.removeItem(LEGACY_PROJECT_SETS_STORAGE_KEY);
     window.localStorage.removeItem(LEGACY_SINGLE_SET_STORAGE_KEY);
     OBSOLETE_STORAGE_KEYS.forEach((key) => window.localStorage.removeItem(key));
@@ -312,14 +320,19 @@ function parseStoredJson(serialized: string) {
 
 function migrateLegacy(): StoredReviewWorkbench {
   const workbench = emptyWorkbench();
-  const workbenchSerialized = window.localStorage.getItem(LEGACY_WORKBENCH_STORAGE_KEY);
-  if (workbenchSerialized && workbenchSerialized.length <= STORAGE_MAX_CHARACTERS) {
-    const parsed = parseStoredJson(workbenchSerialized);
-    if (isRecord(parsed) && parsed.version === 8 && isRecord(parsed.projects)) {
-      const migrated = { version: STORAGE_VERSION, projects: parsed.projects as Record<string, StoredReviewProject> } satisfies StoredReviewWorkbench;
-      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
-      removeLegacyKeys();
-      return migrated;
+  for (const [legacyKey, legacyVersion] of [
+    [LEGACY_WORKBENCH_STORAGE_KEY, 9],
+    [LEGACY_WORKBENCH_V8_STORAGE_KEY, 8]
+  ] as const) {
+    const workbenchSerialized = window.localStorage.getItem(legacyKey);
+    if (workbenchSerialized && workbenchSerialized.length <= STORAGE_MAX_CHARACTERS) {
+      const parsed = parseStoredJson(workbenchSerialized);
+      if (isRecord(parsed) && parsed.version === legacyVersion && isRecord(parsed.projects)) {
+        const migrated = { version: STORAGE_VERSION, projects: parsed.projects as Record<string, StoredReviewProject> } satisfies StoredReviewWorkbench;
+        window.localStorage.setItem(STORAGE_KEY, JSON.stringify(migrated));
+        removeLegacyKeys();
+        return migrated;
+      }
     }
   }
   const projectSerialized = window.localStorage.getItem(LEGACY_PROJECT_SETS_STORAGE_KEY);
@@ -596,7 +609,7 @@ export function parseReviewSetBackup(serialized: string, expectedProjectSlug: st
   if (
     !isRecord(parsed) ||
     parsed.schema !== "canvas-helper-review-set-backup" ||
-    parsed.version !== BACKUP_VERSION ||
+    (parsed.version !== 1 && parsed.version !== BACKUP_VERSION) ||
     parsed.projectSlug !== expectedProjectSlug ||
     !isReviewSessionId(parsed.reviewSessionId) ||
     parsed.screenshotSessionId !== expectedScreenshotSessionId ||

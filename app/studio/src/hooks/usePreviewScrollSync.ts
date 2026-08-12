@@ -19,6 +19,7 @@ import {
   type PreviewInspectPayload,
   type PreviewReviewAction,
   type PreviewReviewActionResult,
+  type PreviewReviewPacket,
   type PreviewReviewState,
   type PreviewScrollState
 } from "../../../shared/preview-bridge.js";
@@ -85,16 +86,32 @@ type PendingFocusRequest = {
   timeout: number;
 };
 
+type StandalonePreviewConnection = {
+  port: MessagePort;
+  window: Window;
+  rejoinToken: string;
+  targetKey: string;
+};
+
 const STANDALONE_REJOIN_STORAGE_KEY = "canvas-helper/standalone-preview-rejoin-v1";
 const STANDALONE_REJOIN_TTL_MS = 8 * 60 * 60 * 1_000;
 
-function loadStandaloneRejoinTokens() {
-  const empty: Record<PreviewMode, string> = { reference: "", workspace: "" };
+type StandaloneRejoinState = {
+  tokens: Record<PreviewMode, string>;
+  targetKeys: Record<PreviewMode, string>;
+};
+
+function loadStandaloneRejoinState(): StandaloneRejoinState {
+  const empty = {
+    tokens: { reference: "", workspace: "" },
+    targetKeys: { reference: "", workspace: "" }
+  } satisfies StandaloneRejoinState;
   if (typeof window === "undefined") return empty;
   try {
     const parsed = JSON.parse(window.sessionStorage.getItem(STANDALONE_REJOIN_STORAGE_KEY) ?? "null") as {
       updatedAt?: unknown;
       tokens?: Partial<Record<PreviewMode, unknown>>;
+      targetKeys?: Partial<Record<PreviewMode, unknown>>;
     } | null;
     if (
       !parsed ||
@@ -106,9 +123,16 @@ function loadStandaloneRejoinTokens() {
       window.sessionStorage.removeItem(STANDALONE_REJOIN_STORAGE_KEY);
       return empty;
     }
+    const targetKeys = {
+      reference: typeof parsed.targetKeys?.reference === "string" ? parsed.targetKeys.reference : "",
+      workspace: typeof parsed.targetKeys?.workspace === "string" ? parsed.targetKeys.workspace : ""
+    };
     return {
-      reference: isPreviewStandaloneSessionToken(parsed.tokens.reference) ? parsed.tokens.reference : "",
-      workspace: isPreviewStandaloneSessionToken(parsed.tokens.workspace) ? parsed.tokens.workspace : ""
+      tokens: {
+        reference: targetKeys.reference && isPreviewStandaloneSessionToken(parsed.tokens.reference) ? parsed.tokens.reference : "",
+        workspace: targetKeys.workspace && isPreviewStandaloneSessionToken(parsed.tokens.workspace) ? parsed.tokens.workspace : ""
+      },
+      targetKeys
     };
   } catch {
     window.sessionStorage.removeItem(STANDALONE_REJOIN_STORAGE_KEY);
@@ -116,9 +140,9 @@ function loadStandaloneRejoinTokens() {
   }
 }
 
-function saveStandaloneRejoinTokens(tokens: Record<PreviewMode, string>) {
+function saveStandaloneRejoinState(state: StandaloneRejoinState) {
   try {
-    window.sessionStorage.setItem(STANDALONE_REJOIN_STORAGE_KEY, JSON.stringify({ updatedAt: Date.now(), tokens }));
+    window.sessionStorage.setItem(STANDALONE_REJOIN_STORAGE_KEY, JSON.stringify({ updatedAt: Date.now(), ...state }));
   } catch {
     // A full preview still works for this session; only reload rejoin is unavailable.
   }
@@ -174,6 +198,10 @@ export function usePreviewScrollSync({
   onStandaloneReturn,
   onPreviewDiagnostic
 }: UsePreviewScrollSyncOptions) {
+  const initialStandaloneRejoinState = useRef<StandaloneRejoinState | null>(null);
+  if (!initialStandaloneRejoinState.current) {
+    initialStandaloneRejoinState.current = loadStandaloneRejoinState();
+  }
   const previewFrameRefs = useRef<Record<PreviewMode, HTMLIFrameElement | null>>({
     reference: null,
     workspace: null
@@ -186,7 +214,7 @@ export function usePreviewScrollSync({
     reference: null,
     workspace: null
   });
-  const standalonePreviewPortRefs = useRef<Record<PreviewMode, MessagePort | null>>({
+  const standalonePreviewConnectionRefs = useRef<Record<PreviewMode, StandalonePreviewConnection | null>>({
     reference: null,
     workspace: null
   });
@@ -198,7 +226,8 @@ export function usePreviewScrollSync({
     reference: "",
     workspace: ""
   });
-  const standaloneRejoinTokenRefs = useRef<Record<PreviewMode, string>>(loadStandaloneRejoinTokens());
+  const standaloneRejoinTokenRefs = useRef<Record<PreviewMode, string>>(initialStandaloneRejoinState.current.tokens);
+  const standaloneTargetKeyRefs = useRef<Record<PreviewMode, string>>(initialStandaloneRejoinState.current.targetKeys);
   const pendingInspectionRequestRefs = useRef<Record<PreviewMode, PendingInspectionRequest | null>>({
     reference: null,
     workspace: null
@@ -273,6 +302,22 @@ export function usePreviewScrollSync({
     }
   };
 
+  const standaloneConnection = (mode: PreviewMode) => {
+    const connection = standalonePreviewConnectionRefs.current[mode];
+    if (connection?.window.closed) {
+      connection.port.close();
+      standalonePreviewConnectionRefs.current[mode] = null;
+      return null;
+    }
+    return connection;
+  };
+
+  const primaryStandalonePort = (mode: PreviewMode) => standaloneConnection(mode)?.port ?? null;
+
+  const standalonePreviewMatchesTarget = (mode: PreviewMode, targetKey: string) => (
+    standaloneConnection(mode)?.targetKey === targetKey
+  );
+
   const postBridgeCommand = (
     mode: PreviewMode,
     type:
@@ -282,11 +327,12 @@ export function usePreviewScrollSync({
       | "studio-request-inspect-current"
       | "studio-focus-inspect-node"
       | "studio-show-inspect-node"
-      | "studio-disconnect-standalone",
+      | "studio-disconnect-standalone"
+      | "studio-cancel-review-copy",
     payload: unknown
   ) => {
     const framePort = previewPortRefs.current[mode];
-    const standalonePort = standalonePreviewPortRefs.current[mode];
+    const standalonePort = primaryStandalonePort(mode);
     if (!framePort && !standalonePort) {
       return;
     }
@@ -297,9 +343,7 @@ export function usePreviewScrollSync({
     }
 
     postToPort(framePort, message);
-    if (standalonePort !== framePort) {
-      postToPort(standalonePort, message);
-    }
+    if (standalonePort !== framePort) postToPort(standalonePort, message);
   };
 
   const postBridgeCommandToSource = (
@@ -308,7 +352,7 @@ export function usePreviewScrollSync({
     type: "studio-request-inspect-current" | "studio-focus-inspect-node" | "studio-show-inspect-node",
     payload: unknown
   ) => {
-    const port = source === "embedded" ? previewPortRefs.current[mode] : standalonePreviewPortRefs.current[mode];
+    const port = source === "embedded" ? previewPortRefs.current[mode] : primaryStandalonePort(mode);
     if (!port) {
       return false;
     }
@@ -352,7 +396,7 @@ export function usePreviewScrollSync({
     type: "studio-set-review-state" | "studio-set-review-packet" | "studio-review-action-result",
     payload: unknown
   ) => {
-    const port = standalonePreviewPortRefs.current[mode];
+    const port = primaryStandalonePort(mode);
     if (!port) {
       return;
     }
@@ -569,7 +613,7 @@ export function usePreviewScrollSync({
     }
   };
 
-  const prepareStandalonePreview = (mode: PreviewMode, previewUrl: string) => {
+  const prepareStandalonePreview = (mode: PreviewMode, previewUrl: string, targetKey: string) => {
     const current = stateRef.current;
     if (!previewUrl || !current.previewOrigin) {
       return null;
@@ -589,13 +633,16 @@ export function usePreviewScrollSync({
       ? window.crypto.randomUUID()
       : Array.from(window.crypto.getRandomValues(new Uint32Array(4)), (value) => value.toString(16).padStart(8, "0")).join("");
     const sessionToken = createToken();
-    const rejoinToken = createToken();
+    const rejoinToken = standaloneTargetKeyRefs.current[mode] === targetKey
+      ? standaloneRejoinTokenRefs.current[mode] || createToken()
+      : createToken();
     standaloneSessionTokenRefs.current[mode] = sessionToken;
     standaloneRejoinTokenRefs.current = {
       ...standaloneRejoinTokenRefs.current,
       [mode]: rejoinToken
     };
-    saveStandaloneRejoinTokens(standaloneRejoinTokenRefs.current);
+    standaloneTargetKeyRefs.current[mode] = targetKey;
+    saveStandaloneRejoinState({ tokens: standaloneRejoinTokenRefs.current, targetKeys: standaloneTargetKeyRefs.current });
     window.setTimeout(() => {
       if (standaloneSessionTokenRefs.current[mode] === sessionToken) {
         standaloneSessionTokenRefs.current[mode] = "";
@@ -606,6 +653,43 @@ export function usePreviewScrollSync({
     hostUrl.searchParams.set(PREVIEW_STANDALONE_SESSION_PARAM, sessionToken);
     hostUrl.searchParams.set(PREVIEW_STANDALONE_REJOIN_PARAM, rejoinToken);
     return hostUrl.toString();
+  };
+
+  const focusStandalonePreview = (mode: PreviewMode, targetKey: string) => {
+    const existing = standaloneConnection(mode);
+    if (!existing) return false;
+    if (existing.targetKey !== targetKey) {
+      revokeStandalonePreview(mode);
+      return false;
+    }
+    existing.window.focus();
+    return true;
+  };
+
+  const revokeStandalonePreview = (mode: PreviewMode) => {
+    const existing = standaloneConnection(mode);
+    if (existing) {
+      existing.port.close();
+      existing.window.close();
+    }
+    standalonePreviewConnectionRefs.current[mode] = null;
+    readyHrefRefs.current[mode].standalone = "";
+    standaloneSessionTokenRefs.current[mode] = "";
+    standaloneRejoinTokenRefs.current = {
+      ...standaloneRejoinTokenRefs.current,
+      [mode]: ""
+    };
+    standaloneTargetKeyRefs.current[mode] = "";
+    saveStandaloneRejoinState({ tokens: standaloneRejoinTokenRefs.current, targetKeys: standaloneTargetKeyRefs.current });
+  };
+
+  const retargetStandalonePreview = (mode: PreviewMode, targetKey: string) => {
+    const existing = standaloneConnection(mode);
+    if (!existing || !targetKey) return false;
+    existing.targetKey = targetKey;
+    standaloneTargetKeyRefs.current[mode] = targetKey;
+    saveStandaloneRejoinState({ tokens: standaloneRejoinTokenRefs.current, targetKeys: standaloneTargetKeyRefs.current });
+    return true;
   };
 
   const attachPreviewPersistence = (mode: PreviewMode) => {
@@ -623,7 +707,7 @@ export function usePreviewScrollSync({
     }
     const hasReadyPort = source === "embedded"
       ? Boolean(previewPortRefs.current[mode] && previewReadyRefs.current[mode])
-      : Boolean(standalonePreviewPortRefs.current[mode]);
+      : Boolean(primaryStandalonePort(mode));
     if (!hasReadyPort) {
       return Promise.reject(new Error("The preview bridge is not ready. Select the element again before capturing a screenshot."));
     }
@@ -659,7 +743,7 @@ export function usePreviewScrollSync({
     };
     if (!enabled) pendingKeyboardInspectionRef.current = false;
     previewModes.forEach((mode) => {
-      if (previewReadyRefs.current[mode] || standalonePreviewPortRefs.current[mode]) {
+      if (previewReadyRefs.current[mode] || primaryStandalonePort(mode)) {
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && enabled });
       }
     });
@@ -699,13 +783,17 @@ export function usePreviewScrollSync({
     postBridgeCommand(mode, "studio-restore-scroll", scroll);
   };
 
-  const syncStandaloneReviewSet = (mode: PreviewMode, state: PreviewReviewState, packet: string) => {
+  const syncStandaloneReviewSet = (mode: PreviewMode, state: PreviewReviewState, packet: PreviewReviewPacket) => {
     postStandaloneBridgeCommand(mode, "studio-set-review-state", state);
-    postStandaloneBridgeCommand(mode, "studio-set-review-packet", { packet });
+    postStandaloneBridgeCommand(mode, "studio-set-review-packet", packet);
   };
 
   const sendStandaloneReviewActionResult = (mode: PreviewMode, result: PreviewReviewActionResult) => {
     postStandaloneBridgeCommand(mode, "studio-review-action-result", result);
+  };
+
+  const cancelStandaloneReviewCopy = (mode: PreviewMode, copyId: string, message: string) => {
+    postBridgeCommand(mode, "studio-cancel-review-copy", { copyId, message });
   };
 
   const registerPreviewFrame = (mode: PreviewMode, node: HTMLIFrameElement | null) => {
@@ -759,7 +847,10 @@ export function usePreviewScrollSync({
             standaloneRejoinTokenRefs.current[candidate] === event.data.payload.rejoinToken
           );
         }
-        return standaloneRejoinTokenRefs.current[candidate] === event.data.payload.rejoinToken;
+        return (
+          Boolean(standaloneTargetKeyRefs.current[candidate]) &&
+          standaloneRejoinTokenRefs.current[candidate] === event.data.payload.rejoinToken
+        );
       });
       if (!mode) {
         return;
@@ -767,19 +858,45 @@ export function usePreviewScrollSync({
 
       event.stopImmediatePropagation();
       if (!hostRejoin) standaloneSessionTokenRefs.current[mode] = "";
-      saveStandaloneRejoinTokens(standaloneRejoinTokenRefs.current);
+      saveStandaloneRejoinState({ tokens: standaloneRejoinTokenRefs.current, targetKeys: standaloneTargetKeyRefs.current });
       if (pendingInspectionRequestRefs.current[mode]?.source === "standalone") {
         clearPendingInspectionRequest(mode, new Error("The full preview reconnected before the selected element could be refreshed."));
       }
       if (pendingFocusRequestRefs.current[mode]?.source === "standalone") {
         clearPendingFocusRequest(mode, false);
       }
-      standalonePreviewPortRefs.current[mode]?.close();
       const nextPort = event.ports[0];
-      standalonePreviewPortRefs.current[mode] = nextPort;
+      const sourceWindow = event.source as Window;
+      const existing = standaloneConnection(mode);
+      if (existing && existing.window !== sourceWindow) {
+        standaloneRejoinTokenRefs.current = {
+          ...standaloneRejoinTokenRefs.current,
+          [mode]: existing.rejoinToken
+        };
+        saveStandaloneRejoinState({ tokens: standaloneRejoinTokenRefs.current, targetKeys: standaloneTargetKeyRefs.current });
+        nextPort.close();
+        sourceWindow.close();
+        existing.window.focus();
+        return;
+      }
+      existing?.port.close();
+      const rejoinToken = legacyInitial
+        ? standaloneRejoinTokenRefs.current[mode]
+        : event.data.payload.rejoinToken;
+      const targetKey = hostRejoin && existing?.window === sourceWindow
+        ? existing.targetKey
+        : standaloneTargetKeyRefs.current[mode] || (mode === "workspace"
+          ? stateRef.current.workspaceTarget
+            ? getTargetKey(stateRef.current.workspaceTarget)
+            : ""
+          : stateRef.current.referenceTarget.projectSlug
+            ? getTargetKey(stateRef.current.referenceTarget)
+            : "");
+      standaloneTargetKeyRefs.current[mode] = targetKey;
+      standalonePreviewConnectionRefs.current[mode] = { port: nextPort, window: sourceWindow, rejoinToken, targetKey };
       readyHrefRefs.current[mode].standalone = "";
       nextPort.onmessage = (portEvent) => {
-        if (standalonePreviewPortRefs.current[mode] === nextPort) {
+        if (standalonePreviewConnectionRefs.current[mode]?.port === nextPort) {
           handleBridgeMessage(mode, portEvent.data, "standalone");
         }
       };
@@ -796,7 +913,7 @@ export function usePreviewScrollSync({
   useEffect(() => {
     const notifyStandaloneDisconnect = () => {
       previewModes.forEach((mode) => postToPort(
-        standalonePreviewPortRefs.current[mode],
+        primaryStandalonePort(mode),
         createPreviewBridgeMessage("studio-disconnect-standalone", null)
       ));
     };
@@ -814,8 +931,8 @@ export function usePreviewScrollSync({
         clearPendingFocusRequest(mode, false);
         previewPortRefs.current[mode]?.close();
         previewPortRefs.current[mode] = null;
-        standalonePreviewPortRefs.current[mode]?.close();
-        standalonePreviewPortRefs.current[mode] = null;
+        standalonePreviewConnectionRefs.current[mode]?.port.close();
+        standalonePreviewConnectionRefs.current[mode] = null;
         readyHrefRefs.current[mode] = { embedded: "", standalone: "" };
         standaloneSessionTokenRefs.current[mode] = "";
       });
@@ -837,12 +954,17 @@ export function usePreviewScrollSync({
     syncFocusModeScrollPosition,
     fitPreviewToWidth,
     prepareStandalonePreview,
+    focusStandalonePreview,
+    revokeStandalonePreview,
+    retargetStandalonePreview,
+    standalonePreviewMatchesTarget,
     requestCurrentInspectionSelection,
     setPreviewInspectMode,
     beginKeyboardPreviewInspection,
     focusPreviewInspectionSelection,
     restorePreviewLocation,
     syncStandaloneReviewSet,
-    sendStandaloneReviewActionResult
+    sendStandaloneReviewActionResult,
+    cancelStandaloneReviewCopy
   };
 }

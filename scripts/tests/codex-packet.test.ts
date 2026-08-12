@@ -6,6 +6,8 @@ import {
   buildReviewSetPacket,
   createReviewSetItem,
   hasSameSafeReviewRoute,
+  reviewSetHandoffCycle,
+  reviewSetHandoffItems,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
   utf8ByteLength,
@@ -206,14 +208,17 @@ test("Review Set packet keeps multiple inspected items and local screenshot path
 
   assert.ok(prepared.byteLength <= INSPECTION_PACKET_MAX_BYTES);
   assert.equal(prepared.byteLength, utf8ByteLength(prepared.packet));
+  assert.match(prepared.packetId, /^[a-f0-9]{16}$/);
   assert.match(prepared.packet, /^# Canvas Helper Review Set handoff/m);
   assert.match(prepared.packet, /## Change 1/);
   assert.match(prepared.packet, /## Change 2/);
   assert.match(prepared.packet, /Schema: review-set-v4/);
   assert.match(prepared.packet, /Detail: compact/);
+  assert.match(prepared.packet, /Cycle: initial review/);
   assert.match(prepared.packet, /Selected: section \(data-testid: lesson-card\) · area/);
   assert.match(prepared.packet, /Selected: button \(data-testid: lesson-card\) · element/);
   assert.match(prepared.packet, /Concern: content · Priority: normal/);
+  assert.equal((prepared.packet.match(/Request state: new request/g) ?? []).length, 2);
   assert.equal((prepared.packet.match(/Edit target: scripts\/build-social30-related-issues\.ts/g) ?? []).length, 1);
   assert.equal((prepared.packet.match(/npx tsx scripts\/build-social30-related-issues\.ts/g) ?? []).length, 1);
   assert.match(prepared.packet, /Screenshots: 3 local PNGs/);
@@ -241,6 +246,7 @@ test("Review Set full diagnostics is explicit and retains the deep provenance vi
 
   assert.equal(compact.detail, "compact");
   assert.equal(diagnostic.detail, "diagnostic");
+  assert.notEqual(compact.packetId, diagnostic.packetId);
   assert.match(diagnostic.packet, /Detail: full diagnostics/);
   assert.match(diagnostic.packet, /Inspection node:/);
   assert.match(diagnostic.packet, /Selection type: area/);
@@ -248,6 +254,73 @@ test("Review Set full diagnostics is explicit and retains the deep provenance vi
   assert.match(diagnostic.packet, /Diagnostics:/);
   assert.ok(diagnostic.byteLength > compact.byteLength);
   assert.doesNotMatch(compact.packet, /Inspection node:|Diagnostics:/);
+});
+
+test("Review Set follow-up handoffs include only reopened and unsent draft changes", () => {
+  const draft = reviewSetItem("review-draft", baseResolution, "Keep this new request.");
+  const sent = createReviewSetItem({
+    ...reviewSetItem("review-sent", baseResolution, "Wait for verification."),
+    id: "review-sent",
+    handoffState: "sent",
+    sentAt: 1_786_000_000_000
+  });
+  const accepted = createReviewSetItem({
+    ...reviewSetItem("review-accepted", baseResolution, "This change is complete."),
+    id: "review-accepted",
+    handoffState: "accepted",
+    sentAt: 1_786_000_000_000,
+    resolved: true
+  });
+  const reopenedResolution = {
+    ...baseResolution,
+    selection: {
+      ...baseResolution.selection,
+      nodeId: "ch1:1234567890abcdef12345678:follow-up"
+    }
+  };
+  const reopened = createReviewSetItem({
+    ...reviewSetItem("review-reopened", reopenedResolution, "This still needs a smaller heading."),
+    id: "review-reopened",
+    handoffState: "reopened",
+    sentAt: 1_786_000_000_000,
+    resolved: false
+  });
+  const items = [draft, sent, accepted, reopened];
+  const candidates = reviewSetHandoffItems(items);
+
+  assert.deepEqual(candidates.map((item) => item.id), ["review-draft", "review-reopened"]);
+  assert.equal(reviewSetHandoffCycle(items), "follow-up");
+
+  const prepared = buildReviewSetPacket({
+    projectSlug: baseResolution.projectSlug,
+    previewMode: "workspace",
+    cycle: reviewSetHandoffCycle(items),
+    items: candidates.map((item) => ({ item, resolution: item.resolution }))
+  });
+  assert.equal(prepared.cycle, "follow-up");
+  assert.match(prepared.packet, /Cycle: follow-up review \(new and reopened requests\)/);
+  assert.match(prepared.packet, /Request state: new request/);
+  assert.match(prepared.packet, /Request state: reopened follow-up/);
+  assert.match(prepared.packet, /Items: 2/);
+  assert.match(prepared.packet, /Keep this new request/);
+  assert.match(prepared.packet, /This still needs a smaller heading/);
+  assert.doesNotMatch(prepared.packet, /Wait for verification|This change is complete/);
+});
+
+test("Review Set packet identity changes when the copied request changes", () => {
+  const first = reviewSetItem("review-fingerprint", baseResolution, "Use the shorter heading.");
+  const second = createReviewSetItem({ ...first, teacherNote: "Use the clearer heading." });
+  const firstPacket = buildReviewSetPacket({
+    projectSlug: baseResolution.projectSlug,
+    previewMode: "workspace",
+    items: [{ item: first, resolution: first.resolution }]
+  });
+  const secondPacket = buildReviewSetPacket({
+    projectSlug: baseResolution.projectSlug,
+    previewMode: "workspace",
+    items: [{ item: second, resolution: second.resolution }]
+  });
+  assert.notEqual(firstPacket.packetId, secondPacket.packetId);
 });
 
 test("Review Set packet rejects an unsafe screenshot path", () => {

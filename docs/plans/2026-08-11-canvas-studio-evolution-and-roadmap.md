@@ -8,6 +8,8 @@
 - Project-continuity implementation: `cddc6142` (`feat(studio): add project continuity workspace`)
 - Review-workbench implementation: `a7501627` (`feat(studio): add bounded review workbench`)
 - Accessibility/performance implementation: `c71e524c` (`feat(studio): complete accessibility and performance phase`)
+- Visual/first-use refinement: `a5145515` (`feat(studio): refine review workflow hierarchy`)
+- Compact handoff implementation: `fed14efb` (`feat(studio): add compact Codex handoffs`)
 - Pre-publish baseline commit: `24a32079` (`feat(studio): include screenshots in review handoff`)
 - Intended reader: ChatGPT Pro / Terra Max acting as an independent product, usability, architecture, and security auditor
 - Primary subject: Canvas Studio itself—not the design or readiness of any particular course
@@ -552,9 +554,28 @@ Exit condition: new Studio features can be added without destabilizing preview, 
 
 Status: complete. The isolated release gate passes 85 focused Studio contracts, the production build, 50/50 inspection E2E tests, the platform smoke, and the strict neutral-project contract. Its stable-tree report identifies the exact 499-file source state with SHA-256 and rejects source drift during the run. Independent Terra Max red-team review returned PASS after its limit-ownership and release-provenance findings were corrected. No learner-course source or generated course output is part of this phase.
 
+### Post-roadmap refinement — Premium review loop and verification lifecycle
+
+Goal: finish the highest-value work identified by the post-roadmap product audit without broadening Studio into an assistant, editor, or issue tracker.
+
+Delivered:
+
+- the toolbar, Review Set rail, empty state, status hierarchy, and disabled controls received one restrained visual refinement while keeping the course dominant;
+- slug-derived names now use readable display titles without course-specific branches, and the empty Review Set teaches the five-step first review in context;
+- `review-set-v4` uses a compact default handoff with shared source/rebuild/validation context and keeps an explicit full diagnostic option for ambiguous ownership or recovery;
+- copied items become persistent `Sent` work only after the exact packet is successfully copied or manually confirmed;
+- sent and accepted evidence is immutable until explicitly reopened, survives reload and Full Preview transitions, and is excluded from later handoffs;
+- **Verify changes** steps through sent work with `Accept change` or `Reopen for follow-up`; follow-up packets contain only reopened or new draft work;
+- packet identity, review-session identity, item identity, and storage lifecycle invariants prevent a stale or changed packet from being marked sent;
+- Studio and Full Preview use a two-phase copy reservation, share one authoritative Full Preview, release stalled clipboard transactions on both surfaces, and preserve immutable screenshot ownership after relinking.
+
+Exit condition: the normal teacher loop is closed from review request through Codex handoff and local acceptance, while copied context is smaller and no learner-course artifact is changed.
+
+Status: complete in the working tree after `fed14efb`. The authoritative release gate passes 93 focused Studio contracts, the production build, 55/55 inspection E2E tests, the platform smoke, and the strict neutral-project contract. Repository-wide typecheck retains only the established unrelated legacy-builder diagnostics. Final independent Terra Max red/product sign-off is recorded in the active handoff for the publishing commit.
+
 ## Recommended order
 
-The recommended order is:
+The historical A-H order was:
 
 1. publish and independently audit the current baseline;
 2. polish the core review interaction;
@@ -564,7 +585,7 @@ The recommended order is:
 6. complete accessibility and performance work;
 7. refactor only where tests show the product boundary is stable.
 
-The visual foundation is now established. Do not replace it with another broad redesign or a new embedded AI feature. Continue refining the proven center: preview, annotate, collect, hand off, verify.
+That sequence and the four post-roadmap audit priorities are now complete. Do not replace them with another broad redesign or a new embedded AI feature. Observe the released workflow in real course work before choosing another feature phase.
 
 ## Product acceptance criteria
 

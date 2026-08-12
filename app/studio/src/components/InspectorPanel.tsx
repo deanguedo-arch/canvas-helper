@@ -39,10 +39,12 @@ type InspectorPanelProps = {
   reviewSetStatus: string;
   reviewSetStatusTone: "neutral" | "progress" | "success" | "warning" | "error";
   reviewSetPreparing: boolean;
+  reviewSetSaving: boolean;
   reviewSetPacketReady: boolean;
   reviewSetPacketError: string;
   reviewSetManualPacket: string;
   reviewSetManualCopyVisible: boolean;
+  reviewSetCopying: boolean;
   reviewSetPersistenceError: string;
   reviewSetCaptureItemId: string;
   reviewSetRelinkItemId: string;
@@ -64,8 +66,11 @@ type InspectorPanelProps = {
   onRelinkReviewSetItem: (id: string) => void;
   onRetryReviewSetAnchor: (id: string) => void;
   onToggleReviewSetResolved: (id: string) => void;
+  onAcceptReviewSetItem: (id: string) => void;
+  onReopenReviewSetItem: (id: string) => void;
   onReviewSetHandoffDetailChange: (detail: ReviewSetHandoffDetail) => void;
   onCopyReviewSet: () => void;
+  onConfirmManualReviewSetSent: () => void;
   onUndoReviewSet: () => void;
   onReviewSessionChange: (sessionId: string) => void;
   onNewReviewSession: () => void;
@@ -107,10 +112,12 @@ export function InspectorPanel({
   reviewSetStatus,
   reviewSetStatusTone,
   reviewSetPreparing,
+  reviewSetSaving,
   reviewSetPacketReady,
   reviewSetPacketError,
   reviewSetManualPacket,
   reviewSetManualCopyVisible,
+  reviewSetCopying,
   reviewSetPersistenceError,
   reviewSetCaptureItemId,
   reviewSetRelinkItemId,
@@ -132,8 +139,11 @@ export function InspectorPanel({
   onRelinkReviewSetItem,
   onRetryReviewSetAnchor,
   onToggleReviewSetResolved,
+  onAcceptReviewSetItem,
+  onReopenReviewSetItem,
   onReviewSetHandoffDetailChange,
   onCopyReviewSet,
+  onConfirmManualReviewSetSent,
   onUndoReviewSet,
   onReviewSessionChange,
   onNewReviewSession,
@@ -182,10 +192,12 @@ export function InspectorPanel({
         status={reviewSetStatus}
         statusTone={reviewSetStatusTone}
         preparing={reviewSetPreparing}
+        saving={reviewSetSaving}
         packetReady={reviewSetPacketReady}
         packetError={reviewSetPacketError}
         manualPacket={reviewSetManualPacket}
         manualCopyVisible={reviewSetManualCopyVisible}
+        copying={reviewSetCopying}
         persistenceError={reviewSetPersistenceError}
         captureItemId={reviewSetCaptureItemId}
         relinkItemId={reviewSetRelinkItemId}
@@ -207,8 +219,11 @@ export function InspectorPanel({
         onRelinkItem={onRelinkReviewSetItem}
         onRetryAnchor={onRetryReviewSetAnchor}
         onToggleResolved={onToggleReviewSetResolved}
+        onAcceptItem={onAcceptReviewSetItem}
+        onReopenItem={onReopenReviewSetItem}
         onHandoffDetailChange={onReviewSetHandoffDetailChange}
         onCopy={onCopyReviewSet}
+        onConfirmManualSent={onConfirmManualReviewSetSent}
         onUndo={onUndoReviewSet}
         onSessionChange={onReviewSessionChange}
         onNewSession={onNewReviewSession}

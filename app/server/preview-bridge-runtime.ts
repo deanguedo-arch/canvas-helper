@@ -60,6 +60,7 @@ export function buildPreviewBridgeRuntime(
   var STANDALONE_SESSION_PARAM = "${PREVIEW_STANDALONE_SESSION_PARAM}";
   var STANDALONE_REJOIN_PARAM = "${PREVIEW_STANDALONE_REJOIN_PARAM}";
   var CAPTURE_PARAM = "canvas-helper-capture";
+  var STANDALONE_REJOIN_STORAGE_KEY = "canvas-helper/standalone-preview-rejoin-v1";
   var MAX_SESSION_TOKEN = ${PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH};
   var STUDIO_ORIGIN = ${serializedStudioOrigin};
   var PREVIEW_ORIGIN = ${serializedPreviewOrigin};
@@ -102,15 +103,23 @@ export function buildPreviewBridgeRuntime(
   var reviewUndo = null;
   var reviewMessage = null;
   var reviewPacketFallback = null;
+  var reviewPacketConfirm = null;
   var reviewLightbox = null;
   var reviewPanelOpen = false;
   var reviewPacket = "";
+  var reviewPacketId = "";
+  var reviewPacketItemIds = [];
+  var reviewPacketSessionId = "";
+  var reviewManualPacketSnapshot = null;
   var reviewLocalMessage = "";
   var reviewCapturePending = false;
   var reviewSavePending = false;
+  var reviewCopyPending = false;
+  var reviewCopyTransaction = null;
   var reviewActionSequence = 0;
   var latestReviewActionId = "";
-  var reviewState = { sessionId: "", items: [], draftScreenshotCount: 0, captureItemId: "", saving: false, preparing: false, packetReady: false, status: "", error: "", undoLabel: "" };
+  var reviewCopyReservationResult = null;
+  var reviewState = { sessionId: "", items: [], draftScreenshotCount: 0, captureItemId: "", saving: false, copying: false, preparing: false, packetReady: false, status: "", error: "", undoLabel: "" };
   var standaloneSessionToken = "";
   var standaloneRejoinToken = "";
   var standaloneUrl = null;
@@ -142,6 +151,18 @@ export function buildPreviewBridgeRuntime(
   } catch (_) {}
   if (standaloneSessionToken.length < MIN_STANDALONE_SESSION_TOKEN || standaloneSessionToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneSessionToken)) standaloneSessionToken = "";
   if (standaloneRejoinToken.length < MIN_STANDALONE_SESSION_TOKEN || standaloneRejoinToken.length > MAX_SESSION_TOKEN || !/^[A-Za-z0-9-]+$/.test(standaloneRejoinToken)) standaloneRejoinToken = "";
+  if (hostMode) {
+    try {
+      if (standaloneRejoinToken) {
+        window.sessionStorage.setItem(STANDALONE_REJOIN_STORAGE_KEY, standaloneRejoinToken);
+      } else {
+        var storedStandaloneRejoinToken = window.sessionStorage.getItem(STANDALONE_REJOIN_STORAGE_KEY) || "";
+        if (storedStandaloneRejoinToken.length >= MIN_STANDALONE_SESSION_TOKEN && storedStandaloneRejoinToken.length <= MAX_SESSION_TOKEN && /^[A-Za-z0-9-]+$/.test(storedStandaloneRejoinToken)) {
+          standaloneRejoinToken = storedStandaloneRejoinToken;
+        }
+      }
+    } catch (_) {}
+  }
   if ((standaloneSessionToken || standaloneRejoinToken) && standaloneUrl) {
     standaloneUrl.searchParams.delete(STANDALONE_SESSION_PARAM);
     standaloneUrl.searchParams.delete(STANDALONE_REJOIN_PARAM);
@@ -218,20 +239,24 @@ export function buildPreviewBridgeRuntime(
   }
 
   function reviewScreenshotUrl(filePath, item) {
+    var screenshot = item && Array.isArray(item.screenshots)
+      ? item.screenshots.find(function(candidate) { return candidate.filePath === filePath; })
+      : null;
     if (
       !isReviewScreenshotPath(filePath) ||
       !(new RegExp("^[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}$")).test(reviewState.sessionId) ||
       !item ||
       typeof item.projectSlug !== "string" ||
       typeof item.id !== "string" ||
-      typeof item.nodeId !== "string"
+      !screenshot ||
+      typeof screenshot.ownerNodeId !== "string"
     ) return "";
     var params = new URLSearchParams({
       path: filePath,
       sessionId: reviewState.sessionId,
       projectSlug: item.projectSlug,
       itemId: item.id,
-      ownerNodeId: item.nodeId
+      ownerNodeId: screenshot.ownerNodeId
     });
     return STUDIO_ORIGIN + "/api/inspection/screenshots?" + params.toString();
   }
@@ -518,11 +543,123 @@ export function buildPreviewBridgeRuntime(
       return false;
     }
     if (action.action !== "request-state") {
-      latestReviewActionId = "review-" + (++reviewActionSequence);
-      action = Object.assign({}, action, { requestId: latestReviewActionId });
+      var requestId = "review-" + (++reviewActionSequence);
+      latestReviewActionId = requestId;
+      action = Object.assign({}, action, { requestId: requestId });
     }
     send("preview-review-action", action);
-    return true;
+    return action.requestId || true;
+  }
+
+  function showReviewPacketFallback(snapshot, messageText) {
+    reviewManualPacketSnapshot = snapshot;
+    reviewLocalMessage = messageText;
+    if (reviewPacketFallback) {
+      reviewPacketFallback.value = snapshot.packet;
+      reviewPacketFallback.style.display = "block";
+      reviewPacketFallback.focus();
+      reviewPacketFallback.select();
+    }
+    if (reviewPacketConfirm) reviewPacketConfirm.style.display = "inline-flex";
+    renderReviewPanel();
+  }
+
+  function completeReservedReviewCopy(transaction) {
+    if (!transaction || reviewCopyTransaction !== transaction) return;
+    if (transaction.purpose === "manual") {
+      reviewLocalMessage = "Marking this Review Set as sent…";
+      transaction.phase = "committing";
+      var manualRequestId = sendReviewAction({
+        action: "mark-sent",
+        copyId: transaction.copyId,
+        itemIds: transaction.snapshot.itemIds.slice(),
+        packetId: transaction.snapshot.packetId,
+        reviewSessionId: transaction.snapshot.reviewSessionId
+      });
+      transaction.requestId = manualRequestId;
+      if (!manualRequestId) {
+        reviewCopyTransaction = null;
+        reviewCopyPending = false;
+      }
+      renderReviewPanel();
+      return;
+    }
+    transaction.phase = "copying";
+    reviewLocalMessage = "Copying Review Set…";
+    renderReviewPanel();
+    navigator.clipboard.writeText(transaction.snapshot.packet).then(function() {
+      if (reviewCopyTransaction !== transaction) return;
+      reviewLocalMessage = "Copied. Marking this Review Set as sent…";
+      if (reviewPacketFallback) reviewPacketFallback.style.display = "none";
+      if (reviewPacketConfirm) reviewPacketConfirm.style.display = "none";
+      transaction.phase = "committing";
+      var commitRequestId = sendReviewAction({
+        action: "mark-sent",
+        copyId: transaction.copyId,
+        itemIds: transaction.snapshot.itemIds.slice(),
+        packetId: transaction.snapshot.packetId,
+        reviewSessionId: transaction.snapshot.reviewSessionId
+      });
+      transaction.requestId = commitRequestId;
+      if (!commitRequestId) {
+        reviewCopyTransaction = null;
+        reviewCopyPending = false;
+      }
+      renderReviewPanel();
+    }).catch(function() {
+      if (reviewCopyTransaction !== transaction) return;
+      transaction.phase = "canceling";
+      var cancelRequestId = sendReviewAction({
+        action: "cancel-copy",
+        copyId: transaction.copyId,
+        itemIds: transaction.snapshot.itemIds.slice(),
+        packetId: transaction.snapshot.packetId,
+        reviewSessionId: transaction.snapshot.reviewSessionId
+      });
+      transaction.requestId = cancelRequestId;
+      if (!cancelRequestId) {
+        reviewCopyTransaction = null;
+        reviewCopyPending = false;
+      }
+      showReviewPacketFallback(transaction.snapshot, "Clipboard access was blocked. Copy the packet shown below.");
+    });
+  }
+
+  function beginReservedReviewCopy(snapshot, purpose) {
+    var copyId = "copy-" + Date.now().toString(36) + "-" + (reviewActionSequence + 1).toString(36);
+    var transaction = {
+      copyId: copyId,
+      snapshot: snapshot,
+      purpose: purpose,
+      phase: "reserving",
+      requestId: ""
+    };
+    reviewCopyTransaction = transaction;
+    reviewCopyPending = true;
+    reviewLocalMessage = "Reserving this Review Set…";
+    var requestId = sendReviewAction({
+      action: "begin-copy",
+      copyId: copyId,
+      itemIds: snapshot.itemIds.slice(),
+      packetId: snapshot.packetId,
+      reviewSessionId: snapshot.reviewSessionId
+    });
+    transaction.requestId = requestId;
+    if (reviewCopyReservationResult && reviewCopyReservationResult.requestId === requestId) {
+      var reservationResult = reviewCopyReservationResult;
+      reviewCopyReservationResult = null;
+      if (reservationResult.ok) completeReservedReviewCopy(transaction);
+      else {
+        reviewCopyTransaction = null;
+        reviewCopyPending = false;
+        reviewLocalMessage = reservationResult.message;
+      }
+    }
+    if (!requestId) {
+      reviewCopyTransaction = null;
+      reviewCopyPending = false;
+    }
+    renderReviewPanel();
   }
 
   function setReviewPanelOpen(open) {
@@ -532,9 +669,10 @@ export function buildPreviewBridgeRuntime(
 
   function updateReviewComposerState() {
     if (reviewSelectionText) reviewSelectionText.textContent = reviewSelectionExcerpt(reviewSelection);
-    if (reviewDraft) reviewDraft.disabled = !reviewSelection;
+    var sharedMutationPending = reviewCopyPending || reviewState.copying || reviewState.saving;
+    if (reviewDraft) reviewDraft.disabled = !reviewSelection || sharedMutationPending;
     if (reviewCapture) {
-      reviewCapture.disabled = !studioConnected || (!reviewCapturePending && (!reviewSelection || !reviewSelection.nodeId || reviewState.draftScreenshotCount >= MAX_REVIEW_SCREENSHOTS));
+      reviewCapture.disabled = sharedMutationPending || !studioConnected || (!reviewCapturePending && (!reviewSelection || !reviewSelection.nodeId || reviewState.draftScreenshotCount >= MAX_REVIEW_SCREENSHOTS));
       reviewCapture.textContent = reviewCapturePending
         ? "Cancel capture"
         : reviewState.draftScreenshotCount
@@ -545,7 +683,7 @@ export function buildPreviewBridgeRuntime(
     }
     if (reviewSave) {
       var note = reviewDraft ? boundedString(reviewDraft.value, MAX_REVIEW_NOTE) : "";
-      reviewSave.disabled = !studioConnected || reviewSavePending || reviewState.saving || !reviewSelection || !reviewSelection.nodeId || !note || reviewState.items.length >= MAX_REVIEW_ITEMS;
+      reviewSave.disabled = sharedMutationPending || !studioConnected || reviewSavePending || !reviewSelection || !reviewSelection.nodeId || !note || reviewState.items.length >= MAX_REVIEW_ITEMS;
       reviewSave.style.opacity = reviewSave.disabled ? "0.48" : "1";
       reviewSave.style.cursor = reviewSave.disabled ? "default" : "pointer";
     }
@@ -571,6 +709,7 @@ export function buildPreviewBridgeRuntime(
         reviewItems.appendChild(empty);
       }
       reviewState.items.forEach(function(item, index) {
+        var itemEditLocked = reviewCopyPending || reviewState.copying || reviewState.saving || item.handoffState === "sent" || item.handoffState === "accepted";
         var row = document.createElement("div");
         row.setAttribute("data-canvas-helper-preview-review-item", "true");
         row.style.padding = "10px 0";
@@ -587,12 +726,27 @@ export function buildPreviewBridgeRuntime(
         excerpt.style.font = "600 12px/1.35 system-ui, sans-serif";
         excerpt.style.overflowWrap = "anywhere";
 
+        var handoffState = document.createElement("span");
+        handoffState.textContent = item.handoffState === "sent"
+          ? "Sent · verify"
+          : item.handoffState === "accepted"
+          ? "Accepted"
+          : item.handoffState === "reopened"
+          ? "Follow-up"
+          : "Draft";
+        handoffState.style.display = "block";
+        handoffState.style.marginTop = "3px";
+        handoffState.style.color = item.handoffState === "accepted" ? "#166534" : item.handoffState === "reopened" ? "#805100" : "#64748b";
+        handoffState.style.font = "600 10px/1.3 system-ui, sans-serif";
+
         var remove = document.createElement("button");
         remove.type = "button";
         remove.textContent = "Remove";
         stylePreviewControlButton(remove);
         remove.style.padding = "5px 7px";
         remove.style.fontSize = "11px";
+        remove.disabled = itemEditLocked;
+        remove.style.opacity = itemEditLocked ? "0.48" : "1";
         remove.addEventListener("click", function() {
           reviewLocalMessage = "Removing…";
           renderReviewPanel();
@@ -606,6 +760,8 @@ export function buildPreviewBridgeRuntime(
         stylePreviewControlButton(show);
         show.style.padding = "5px 7px";
         show.style.fontSize = "11px";
+        show.disabled = reviewCopyPending;
+        show.style.opacity = show.disabled ? "0.48" : "1";
         show.addEventListener("click", function() {
           reviewLocalMessage = "Showing annotation…";
           renderReviewPanel();
@@ -616,6 +772,59 @@ export function buildPreviewBridgeRuntime(
         rowActions.style.display = "flex";
         rowActions.style.gap = "5px";
         rowActions.appendChild(show);
+        if (item.handoffState === "sent") {
+          var accept = document.createElement("button");
+          accept.type = "button";
+          accept.textContent = "Accept";
+          stylePreviewControlButton(accept);
+          accept.style.padding = "5px 7px";
+          accept.style.fontSize = "11px";
+          accept.disabled = reviewCopyPending;
+          accept.addEventListener("click", function() {
+            reviewLocalMessage = "Accepting change…";
+            renderReviewPanel();
+            var sent = sendReviewAction({ action: "accept-item", itemId: item.id });
+            if (sent && reviewMessage) reviewMessage.focus();
+          });
+          var reopen = document.createElement("button");
+          reopen.type = "button";
+          reopen.textContent = "Reopen";
+          stylePreviewControlButton(reopen);
+          reopen.style.padding = "5px 7px";
+          reopen.style.fontSize = "11px";
+          reopen.disabled = reviewCopyPending;
+          reopen.addEventListener("click", function() {
+            reviewLocalMessage = "Reopening change…";
+            renderReviewPanel();
+            var sent = sendReviewAction({ action: "reopen-item", itemId: item.id });
+            if (sent && reviewMessage) reviewMessage.focus();
+          });
+          rowActions.appendChild(accept);
+          rowActions.appendChild(reopen);
+        } else if (item.handoffState === "accepted") {
+          var accepted = document.createElement("button");
+          accepted.type = "button";
+          accepted.textContent = "Accepted";
+          accepted.disabled = true;
+          stylePreviewControlButton(accepted);
+          accepted.style.padding = "5px 7px";
+          accepted.style.fontSize = "11px";
+          var reopenAccepted = document.createElement("button");
+          reopenAccepted.type = "button";
+          reopenAccepted.textContent = "Reopen";
+          stylePreviewControlButton(reopenAccepted);
+          reopenAccepted.style.padding = "5px 7px";
+          reopenAccepted.style.fontSize = "11px";
+          reopenAccepted.disabled = reviewCopyPending;
+          reopenAccepted.addEventListener("click", function() {
+            reviewLocalMessage = "Reopening change…";
+            renderReviewPanel();
+            var sent = sendReviewAction({ action: "reopen-item", itemId: item.id });
+            if (sent && reviewMessage) reviewMessage.focus();
+          });
+          rowActions.appendChild(accepted);
+          rowActions.appendChild(reopenAccepted);
+        }
         rowActions.appendChild(remove);
 
         var noteArea = document.createElement("textarea");
@@ -625,12 +834,15 @@ export function buildPreviewBridgeRuntime(
         noteArea.setAttribute("aria-label", "Change note for annotation " + (index + 1));
         stylePreviewTextArea(noteArea);
         noteArea.style.marginTop = "7px";
+        noteArea.disabled = itemEditLocked;
+        noteArea.style.opacity = itemEditLocked ? "0.68" : "1";
         noteArea.addEventListener("change", function() {
           reviewLocalMessage = "Updating note…";
           sendReviewAction({ action: "update-note", itemId: item.id, teacherNote: noteArea.value });
         });
 
         rowHeading.appendChild(excerpt);
+        excerpt.appendChild(handoffState);
         rowHeading.appendChild(rowActions);
         row.appendChild(rowHeading);
         if (item.screenshots.length) {
@@ -681,7 +893,9 @@ export function buildPreviewBridgeRuntime(
             removeScreenshot.style.border = "1px solid rgba(15, 23, 42, 0.22)";
             removeScreenshot.style.borderRadius = "11px";
             removeScreenshot.style.background = "rgba(255, 255, 255, 0.94)";
-            removeScreenshot.style.cursor = "pointer";
+            removeScreenshot.disabled = itemEditLocked;
+            removeScreenshot.style.opacity = itemEditLocked ? "0.48" : "1";
+            removeScreenshot.style.cursor = itemEditLocked ? "default" : "pointer";
             removeScreenshot.addEventListener("click", function() {
               reviewLocalMessage = "Removing screenshot…";
               renderReviewPanel();
@@ -704,7 +918,7 @@ export function buildPreviewBridgeRuntime(
         addScreenshot.style.marginTop = "7px";
         addScreenshot.style.padding = "5px 7px";
         addScreenshot.style.fontSize = "11px";
-        addScreenshot.disabled = !studioConnected || (reviewState.captureItemId !== item.id && (reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS));
+        addScreenshot.disabled = itemEditLocked || !studioConnected || (reviewState.captureItemId !== item.id && (reviewCapturePending || Boolean(reviewState.captureItemId) || item.screenshots.length >= MAX_REVIEW_SCREENSHOTS));
         addScreenshot.style.opacity = addScreenshot.disabled ? "0.48" : "1";
         addScreenshot.addEventListener("click", function() {
           if (reviewState.captureItemId === item.id) {
@@ -727,20 +941,27 @@ export function buildPreviewBridgeRuntime(
     }
 
     if (reviewCopy) {
-      reviewCopy.disabled = !studioConnected || reviewState.preparing || !reviewState.packetReady || !reviewPacket;
-      reviewCopy.textContent = reviewState.preparing ? "Getting Review Set ready…" : "Copy Review Set for Codex";
+      reviewCopy.disabled = reviewCopyPending || reviewState.copying || reviewState.saving || !studioConnected || reviewState.preparing || !reviewState.packetReady || !reviewPacket;
+      var hasReviewHistory = reviewState.items.some(function(item) { return item.handoffState !== "draft"; });
+      reviewCopy.textContent = reviewState.preparing
+        ? "Getting Review Set ready…"
+        : hasReviewHistory ? "Copy Follow-up for Codex" : "Copy Review Set for Codex";
       reviewCopy.style.opacity = reviewCopy.disabled ? "0.48" : "1";
       reviewCopy.style.cursor = reviewCopy.disabled ? "default" : "pointer";
     }
     if (reviewClear) {
-      reviewClear.disabled = !studioConnected || !reviewState.items.length;
+      reviewClear.disabled = reviewCopyPending || reviewState.copying || reviewState.saving || !studioConnected || !reviewState.items.length || reviewState.items.some(function(item) { return item.handoffState === "sent" || item.handoffState === "accepted"; });
       reviewClear.style.opacity = reviewClear.disabled ? "0.48" : "1";
       reviewClear.style.cursor = reviewClear.disabled ? "default" : "pointer";
     }
     if (reviewUndo) {
       reviewUndo.style.display = reviewState.undoLabel ? "inline-flex" : "none";
       reviewUndo.textContent = reviewState.undoLabel || "Undo";
-      reviewUndo.disabled = !studioConnected || !reviewState.undoLabel;
+      reviewUndo.disabled = reviewCopyPending || reviewState.copying || reviewState.saving || !studioConnected || !reviewState.undoLabel;
+    }
+    if (reviewPacketConfirm && reviewPacketConfirm.style.display !== "none") {
+      reviewPacketConfirm.disabled = reviewCopyPending || reviewState.copying || reviewState.saving || !studioConnected;
+      reviewPacketConfirm.style.opacity = reviewPacketConfirm.disabled ? "0.48" : "1";
     }
     if (reviewMessage) {
       reviewMessage.textContent = boundedString(reviewState.error || reviewLocalMessage || reviewState.status, 180);
@@ -948,31 +1169,22 @@ export function buildPreviewBridgeRuntime(
     copy.style.background = "#18212f";
     copy.style.color = "#ffffff";
     copy.addEventListener("click", function() {
+      if (reviewCopyPending || reviewState.saving) return;
+      var copiedPacket = reviewPacket;
+      var copiedPacketId = reviewPacketId;
+      var copiedPacketItemIds = reviewPacketItemIds.slice();
+      var copiedReviewSessionId = reviewPacketSessionId;
+      reviewManualPacketSnapshot = {
+        packet: copiedPacket,
+        packetId: copiedPacketId,
+        itemIds: copiedPacketItemIds,
+        reviewSessionId: copiedReviewSessionId
+      };
       if (!reviewPacket || !navigator.clipboard || typeof navigator.clipboard.writeText !== "function") {
-        reviewLocalMessage = "Clipboard access is not available. Copy the packet shown below.";
-        if (reviewPacketFallback) {
-          reviewPacketFallback.value = reviewPacket;
-          reviewPacketFallback.style.display = "block";
-          reviewPacketFallback.focus();
-          reviewPacketFallback.select();
-        }
-        renderReviewPanel();
+        showReviewPacketFallback(reviewManualPacketSnapshot, "Clipboard access is not available. Copy the packet shown below.");
         return;
       }
-      navigator.clipboard.writeText(reviewPacket).then(function() {
-        reviewLocalMessage = "Copied. Paste the Review Set into Codex.";
-        if (reviewPacketFallback) reviewPacketFallback.style.display = "none";
-        renderReviewPanel();
-      }).catch(function() {
-        reviewLocalMessage = "Clipboard access was blocked. Copy the packet shown below.";
-        if (reviewPacketFallback) {
-          reviewPacketFallback.value = reviewPacket;
-          reviewPacketFallback.style.display = "block";
-          reviewPacketFallback.focus();
-          reviewPacketFallback.select();
-        }
-        renderReviewPanel();
-      });
+      beginReservedReviewCopy(reviewManualPacketSnapshot, "clipboard");
     });
 
     var clear = document.createElement("button");
@@ -1000,6 +1212,7 @@ export function buildPreviewBridgeRuntime(
     var panelMessage = document.createElement("p");
     panelMessage.setAttribute("role", "status");
     panelMessage.setAttribute("aria-live", "polite");
+    panelMessage.tabIndex = -1;
     panelMessage.setAttribute("data-canvas-helper-preview-review-status", "true");
     panelMessage.style.minHeight = "16px";
     panelMessage.style.margin = "7px 0 0";
@@ -1014,6 +1227,18 @@ export function buildPreviewBridgeRuntime(
     packetFallback.style.display = "none";
     packetFallback.style.marginTop = "8px";
 
+    var packetConfirm = document.createElement("button");
+    packetConfirm.type = "button";
+    packetConfirm.textContent = "I sent this to Codex";
+    packetConfirm.setAttribute("data-canvas-helper-preview-review-confirm-sent", "true");
+    stylePreviewControlButton(packetConfirm);
+    packetConfirm.style.display = "none";
+    packetConfirm.style.marginTop = "7px";
+    packetConfirm.addEventListener("click", function() {
+      if (!reviewManualPacketSnapshot || reviewCopyPending || reviewState.saving) return;
+      beginReservedReviewCopy(reviewManualPacketSnapshot, "manual");
+    });
+
     footer.appendChild(copy);
     footer.appendChild(undo);
     footer.appendChild(clear);
@@ -1026,6 +1251,7 @@ export function buildPreviewBridgeRuntime(
     panel.appendChild(savedItems);
     panel.appendChild(footer);
     panel.appendChild(packetFallback);
+    panel.appendChild(packetConfirm);
     panel.appendChild(panelMessage);
 
     actions.appendChild(inspectButton);
@@ -1051,6 +1277,7 @@ export function buildPreviewBridgeRuntime(
     reviewClear = clear;
     reviewUndo = undo;
     reviewPacketFallback = packetFallback;
+    reviewPacketConfirm = packetConfirm;
     reviewMessage = panelMessage;
     updateStandaloneControls();
   }
@@ -1503,10 +1730,10 @@ export function buildPreviewBridgeRuntime(
 
   function isReviewState(value) {
     if (!value || typeof value !== "object" || !Array.isArray(value.items) || value.items.length > MAX_REVIEW_ITEMS) return false;
-    if (typeof value.sessionId !== "string" || !(new RegExp("^[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}$")).test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > MAX_REVIEW_ITEM_ID || typeof value.saving !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > MAX_REVIEW_STATUS || typeof value.error !== "string" || value.error.length > MAX_REVIEW_STATUS || (value.undoLabel !== undefined && (typeof value.undoLabel !== "string" || value.undoLabel.length > MAX_SESSION_NAME))) return false;
+    if (typeof value.sessionId !== "string" || !(new RegExp("^[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}$")).test(value.sessionId) || typeof value.draftScreenshotCount !== "number" || value.draftScreenshotCount < 0 || value.draftScreenshotCount > MAX_REVIEW_SCREENSHOTS || value.draftScreenshotCount % 1 !== 0 || typeof value.captureItemId !== "string" || value.captureItemId.length > MAX_REVIEW_ITEM_ID || typeof value.saving !== "boolean" || typeof value.copying !== "boolean" || typeof value.preparing !== "boolean" || typeof value.packetReady !== "boolean" || typeof value.status !== "string" || value.status.length > MAX_REVIEW_STATUS || typeof value.error !== "string" || value.error.length > MAX_REVIEW_STATUS || (value.undoLabel !== undefined && (typeof value.undoLabel !== "string" || value.undoLabel.length > MAX_SESSION_NAME))) return false;
     return value.items.every(function(item) {
-      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= MAX_REVIEW_ITEM_ID && typeof item.projectSlug === "string" && item.projectSlug.length > 0 && item.projectSlug.length <= MAX_REVIEW_ITEM_ID && typeof item.nodeId === "string" && item.nodeId.length > 0 && item.nodeId.length <= MAX_REVIEW_ITEM_ID && typeof item.excerpt === "string" && item.excerpt.length <= MAX_REVIEW_EXCERPT && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && Array.isArray(item.screenshots) && item.screenshots.length <= MAX_REVIEW_SCREENSHOTS && item.screenshots.every(function(screenshot) {
-        return screenshot && typeof screenshot === "object" && typeof screenshot.id === "string" && screenshot.id.length > 0 && screenshot.id.length <= MAX_REVIEW_ITEM_ID && isReviewScreenshotPath(screenshot.filePath);
+      return item && typeof item === "object" && typeof item.id === "string" && item.id.length > 0 && item.id.length <= MAX_REVIEW_ITEM_ID && typeof item.projectSlug === "string" && item.projectSlug.length > 0 && item.projectSlug.length <= MAX_REVIEW_ITEM_ID && typeof item.nodeId === "string" && item.nodeId.length > 0 && item.nodeId.length <= MAX_REVIEW_ITEM_ID && typeof item.excerpt === "string" && item.excerpt.length <= MAX_REVIEW_EXCERPT && typeof item.teacherNote === "string" && item.teacherNote.length <= MAX_REVIEW_NOTE && ["draft", "sent", "accepted", "reopened"].indexOf(item.handoffState) >= 0 && Array.isArray(item.screenshots) && item.screenshots.length <= MAX_REVIEW_SCREENSHOTS && item.screenshots.every(function(screenshot) {
+        return screenshot && typeof screenshot === "object" && typeof screenshot.id === "string" && screenshot.id.length > 0 && screenshot.id.length <= MAX_REVIEW_ITEM_ID && isReviewScreenshotPath(screenshot.filePath) && typeof screenshot.ownerNodeId === "string" && screenshot.ownerNodeId.length > 0 && screenshot.ownerNodeId.length <= MAX_REVIEW_ITEM_ID;
       });
     });
   }
@@ -1522,6 +1749,20 @@ export function buildPreviewBridgeRuntime(
     if (rebased) return rebased;
     var parsed = boundedCourseUrl(value);
     return parsed && parsed.url.origin === PREVIEW_ORIGIN ? parsed.url : null;
+  }
+
+  function replaceHostedTargetInLocation(value) {
+    if (!hostMode || !standaloneUrl) return;
+    var target = boundedCourseUrl(value);
+    if (!target || target.url.origin !== PREVIEW_ORIGIN) return;
+    try {
+      var nextUrl = new URL(location.href);
+      nextUrl.searchParams.set("target", target.url.toString());
+      nextUrl.searchParams.delete(STANDALONE_SESSION_PARAM);
+      nextUrl.searchParams.delete(STANDALONE_REJOIN_PARAM);
+      history.replaceState(history.state, "", nextUrl.pathname + nextUrl.search + nextUrl.hash);
+      standaloneUrl = nextUrl;
+    } catch (_) {}
   }
 
   function flushHostedFocusRequest() {
@@ -1595,6 +1836,7 @@ export function buildPreviewBridgeRuntime(
     var data = event.data;
     if (data.type === "preview-ready" && data.payload && typeof data.payload.href === "string") {
       hostedCourseReadyHref = data.payload.href;
+      replaceHostedTargetInLocation(hostedCourseReadyHref);
       send("preview-ready", data.payload);
       var shouldStartFromKeyboard = inspectEnabled && pendingHostedKeyboardEntry;
       if (sendHostedCourse("studio-set-inspect-mode", { enabled: inspectEnabled, keyboardEntry: shouldStartFromKeyboard }) && shouldStartFromKeyboard) {
@@ -1727,10 +1969,27 @@ export function buildPreviewBridgeRuntime(
     }
     if (event.data.type === "studio-disconnect-standalone" && hostMode) {
       studioConnected = false;
+      reviewCopyTransaction = null;
+      reviewCopyPending = false;
       if (port) { try { port.close(); } catch (_) {} }
       port = null;
       updateStandaloneControls();
       scheduleStandaloneReconnect();
+      return;
+    }
+    if (
+      event.data.type === "studio-cancel-review-copy" &&
+      event.data.payload &&
+      typeof event.data.payload.copyId === "string" &&
+      typeof event.data.payload.message === "string" &&
+      reviewCopyTransaction &&
+      reviewCopyTransaction.copyId === event.data.payload.copyId
+    ) {
+      reviewCopyTransaction = null;
+      reviewCopyPending = false;
+      reviewCopyReservationResult = null;
+      reviewLocalMessage = event.data.payload.message;
+      renderReviewPanel();
       return;
     }
     if (event.data.type === "studio-set-review-state" && isReviewState(event.data.payload)) {
@@ -1740,9 +1999,11 @@ export function buildPreviewBridgeRuntime(
       }
       renderReviewPanel();
     }
-    if (event.data.type === "studio-set-review-packet" && event.data.payload && typeof event.data.payload.packet === "string" && event.data.payload.packet.length <= MAX_REVIEW_PACKET) {
+    if (event.data.type === "studio-set-review-packet" && event.data.payload && typeof event.data.payload.packet === "string" && event.data.payload.packet.length <= MAX_REVIEW_PACKET && typeof event.data.payload.packetId === "string" && (event.data.payload.packetId === "" || /^[a-f0-9]{16}$/.test(event.data.payload.packetId)) && Array.isArray(event.data.payload.itemIds) && event.data.payload.itemIds.length <= MAX_REVIEW_ITEMS && !event.data.payload.itemIds.some(function(itemId, index) { return typeof itemId !== "string" || !itemId || itemId.length > MAX_REVIEW_ITEM_ID || event.data.payload.itemIds.indexOf(itemId) !== index; }) && typeof event.data.payload.reviewSessionId === "string" && (new RegExp("^[A-Za-z0-9-]{" + MIN_REVIEW_SESSION_ID + "," + MAX_REVIEW_SESSION_ID + "}$")).test(event.data.payload.reviewSessionId)) {
       reviewPacket = event.data.payload.packet;
-      if (reviewPacketFallback && reviewPacketFallback.style.display !== "none") reviewPacketFallback.value = reviewPacket;
+      reviewPacketId = event.data.payload.packetId;
+      reviewPacketItemIds = event.data.payload.itemIds.slice();
+      reviewPacketSessionId = event.data.payload.reviewSessionId;
       renderReviewPanel();
     }
     if (event.data.type === "studio-review-action-result" && isReviewActionResult(event.data.payload)) {
@@ -1750,6 +2011,31 @@ export function buildPreviewBridgeRuntime(
       reviewCapturePending = false;
       reviewSavePending = false;
       reviewLocalMessage = event.data.payload.message;
+      if (
+        reviewCopyTransaction &&
+        event.data.payload.requestId === reviewCopyTransaction.requestId
+      ) {
+        if (reviewCopyTransaction.phase === "reserving" && event.data.payload.ok) {
+          completeReservedReviewCopy(reviewCopyTransaction);
+          return;
+        }
+        reviewCopyTransaction = null;
+        reviewCopyPending = false;
+      } else if (
+        reviewCopyTransaction &&
+        reviewCopyTransaction.phase === "reserving" &&
+        !reviewCopyTransaction.requestId &&
+        event.data.payload.requestId
+      ) {
+        reviewCopyReservationResult = event.data.payload;
+      } else if (!reviewCopyTransaction) {
+        reviewCopyPending = false;
+      }
+      if (event.data.payload.ok && /sent to codex/i.test(event.data.payload.message)) {
+        reviewManualPacketSnapshot = null;
+        if (reviewPacketFallback) reviewPacketFallback.style.display = "none";
+        if (reviewPacketConfirm) reviewPacketConfirm.style.display = "none";
+      }
       if (event.data.payload.clearDraft) {
         reviewSelection = null;
         if (reviewDraft) reviewDraft.value = "";
@@ -1769,6 +2055,8 @@ export function buildPreviewBridgeRuntime(
     port.onmessage = handlePortMessage;
     port.onmessageerror = function() {
       studioConnected = false;
+      reviewCopyTransaction = null;
+      reviewCopyPending = false;
       updateStandaloneControls();
       if (hostMode) scheduleStandaloneReconnect();
     };
@@ -1813,7 +2101,15 @@ export function buildPreviewBridgeRuntime(
   function connectStandalonePreview() {
     if (captureMode || window.top !== window) return;
     var studioWindow = hostMode ? trustedStudioWindow : window.opener;
-    if (!standaloneSessionToken || !studioWindow || typeof MessageChannel !== "function" || (hostMode && !standaloneRejoinToken)) {
+    if (!studioWindow || typeof MessageChannel !== "function" || (hostMode && !standaloneRejoinToken)) {
+      try { window.opener = null; } catch (_) {}
+      return;
+    }
+    if (hostMode && !standaloneSessionToken) {
+      scheduleStandaloneReconnect();
+      return;
+    }
+    if (!standaloneSessionToken) {
       try { window.opener = null; } catch (_) {}
       return;
     }

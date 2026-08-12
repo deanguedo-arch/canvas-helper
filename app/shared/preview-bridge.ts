@@ -46,6 +46,7 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-focus-inspect-node",
   "studio-show-inspect-node",
   "studio-disconnect-standalone",
+  "studio-cancel-review-copy",
   "studio-set-review-state",
   "studio-set-review-packet",
   "studio-review-action-result"
@@ -112,21 +113,34 @@ export type PreviewDiagnostic = {
 
 export type PreviewReviewAction = (
   | { action: "request-state" }
+  | { action: "begin-copy"; copyId: string; itemIds: string[]; packetId: string; reviewSessionId: string }
+  | { action: "cancel-copy"; copyId: string; itemIds: string[]; packetId: string; reviewSessionId: string }
+  | { action: "mark-sent"; copyId?: string; itemIds: string[]; packetId: string; reviewSessionId: string }
   | { action: "undo" }
   | { action: "cancel-capture" }
   | { action: "add"; selection: PreviewInspectPayload; teacherNote: string }
   | { action: "capture-draft"; selection: PreviewInspectPayload }
   | { action: "capture-item"; itemId: string }
   | { action: "focus-item"; itemId: string }
+  | { action: "accept-item"; itemId: string }
+  | { action: "reopen-item"; itemId: string }
   | { action: "remove"; itemId: string }
   | { action: "remove-screenshot"; itemId: string; screenshotId: string }
   | { action: "update-note"; itemId: string; teacherNote: string }
   | { action: "clear" }
 ) & { requestId?: string };
 
+export type PreviewReviewPacket = {
+  packet: string;
+  packetId: string;
+  itemIds: string[];
+  reviewSessionId: string;
+};
+
 export type PreviewReviewScreenshotSummary = {
   id: string;
   filePath: string;
+  ownerNodeId: string;
 };
 
 export type PreviewReviewItemSummary = {
@@ -135,6 +149,7 @@ export type PreviewReviewItemSummary = {
   nodeId: string;
   excerpt: string;
   teacherNote: string;
+  handoffState: "draft" | "sent" | "accepted" | "reopened";
   screenshots: PreviewReviewScreenshotSummary[];
 };
 
@@ -144,6 +159,7 @@ export type PreviewReviewState = {
   draftScreenshotCount: number;
   captureItemId: string;
   saving: boolean;
+  copying: boolean;
   preparing: boolean;
   packetReady: boolean;
   status: string;
@@ -307,12 +323,32 @@ export function isPreviewReviewAction(value: unknown): value is PreviewReviewAct
     case "undo":
     case "cancel-capture":
       return true;
+    case "begin-copy":
+    case "cancel-copy":
+    case "mark-sent":
+      return (
+        Array.isArray(value.itemIds) &&
+        value.itemIds.length > 0 &&
+        value.itemIds.length <= PREVIEW_REVIEW_MAX_ITEMS &&
+        new Set(value.itemIds).size === value.itemIds.length &&
+        value.itemIds.every((itemId) => isBoundedNonEmptyString(itemId, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH)) &&
+        (
+          value.action === "mark-sent"
+            ? value.copyId === undefined || isBoundedNonEmptyString(value.copyId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH)
+            : isBoundedNonEmptyString(value.copyId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH)
+        ) &&
+        typeof value.packetId === "string" &&
+        /^[a-f0-9]{16}$/.test(value.packetId) &&
+        isPreviewStandaloneSessionToken(value.reviewSessionId)
+      );
     case "add":
       return isPreviewInspectPayload(value.selection) && isBoundedString(value.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH);
     case "capture-draft":
       return isPreviewInspectPayload(value.selection);
     case "capture-item":
     case "focus-item":
+    case "accept-item":
+    case "reopen-item":
     case "remove":
       return isBoundedNonEmptyString(value.itemId, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH);
     case "remove-screenshot":
@@ -344,13 +380,15 @@ export function isPreviewReviewState(value: unknown): value is PreviewReviewStat
         isBoundedNonEmptyString(item.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
         isBoundedString(item.excerpt, PREVIEW_REVIEW_EXCERPT_MAX_LENGTH) &&
         isBoundedString(item.teacherNote, PREVIEW_REVIEW_NOTE_MAX_LENGTH) &&
+        ["draft", "sent", "accepted", "reopened"].includes(String(item.handoffState)) &&
         Array.isArray(item.screenshots) &&
         item.screenshots.length <= PREVIEW_REVIEW_MAX_SCREENSHOTS &&
         item.screenshots.every(
           (screenshot) =>
             isRecord(screenshot) &&
             isBoundedNonEmptyString(screenshot.id, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH) &&
-            isReviewScreenshotPath(screenshot.filePath)
+            isReviewScreenshotPath(screenshot.filePath) &&
+            isBoundedNonEmptyString(screenshot.ownerNodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits)
         )
     ) &&
     typeof value.draftScreenshotCount === "number" &&
@@ -359,6 +397,7 @@ export function isPreviewReviewState(value: unknown): value is PreviewReviewStat
     value.draftScreenshotCount <= PREVIEW_REVIEW_MAX_SCREENSHOTS &&
     isBoundedString(value.captureItemId, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH) &&
     typeof value.saving === "boolean" &&
+    typeof value.copying === "boolean" &&
     typeof value.preparing === "boolean" &&
     typeof value.packetReady === "boolean" &&
     isBoundedString(value.status, PREVIEW_REVIEW_STATUS_MAX_LENGTH) &&
@@ -449,10 +488,26 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       );
     case "studio-disconnect-standalone":
       return payload === null;
+    case "studio-cancel-review-copy":
+      return (
+        isRecord(payload) &&
+        isBoundedNonEmptyString(payload.copyId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH) &&
+        isBoundedString(payload.message, PREVIEW_REVIEW_STATUS_MAX_LENGTH)
+      );
     case "studio-set-review-state":
       return isPreviewReviewState(payload);
     case "studio-set-review-packet":
-      return isRecord(payload) && isBoundedString(payload.packet, PREVIEW_REVIEW_PACKET_MAX_LENGTH);
+      return (
+        isRecord(payload) &&
+        isBoundedString(payload.packet, PREVIEW_REVIEW_PACKET_MAX_LENGTH) &&
+        typeof payload.packetId === "string" &&
+        (payload.packetId === "" || /^[a-f0-9]{16}$/.test(payload.packetId)) &&
+        Array.isArray(payload.itemIds) &&
+        payload.itemIds.length <= PREVIEW_REVIEW_MAX_ITEMS &&
+        new Set(payload.itemIds).size === payload.itemIds.length &&
+        payload.itemIds.every((itemId) => isBoundedNonEmptyString(itemId, PREVIEW_REVIEW_ITEM_ID_MAX_LENGTH)) &&
+        isPreviewStandaloneSessionToken(payload.reviewSessionId)
+      );
     case "studio-review-action-result":
       return isPreviewReviewActionResult(payload);
     default:

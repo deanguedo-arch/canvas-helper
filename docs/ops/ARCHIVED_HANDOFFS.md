@@ -8303,3 +8303,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner-course source, workspace, or generated export changed; unrelated local intake and test-result snapshots remained unstaged.
 - Implementation commit: `a5145515`.
 - Next command at archival time: `rg -n "buildReviewSetPacket|preparedReviewSet|copyReviewSet" app/studio/src/lib/review-set.ts app/studio/src/App.tsx scripts/tests/codex-packet.test.ts`.
+
+## Archived Active Handoff — 2026-08-12: compact Codex handoffs
+
+- Project: `repo-wide`.
+- Task: Add a compact default Codex handoff while preserving an explicit full diagnostic packet.
+- Status: complete and pushed on `codex/studio-roadmap-phases`; superseded by the Verify Changes lifecycle handoff.
+- Verification: 87 focused Studio contracts, Studio production build, four targeted interaction tests, and diff checks passed; broad inspection testing exposed three presentation/name regressions that were corrected in the targeted rerun.
+- Source of truth: `app/studio/src/lib/review-set.ts`, `app/studio/src/components/ReviewSetPanel.tsx`, and `app/studio/src/App.tsx`.
+- Preserved boundary: compact mode retained source ownership, rebuild, validation, screenshot paths, and untrusted-content boundaries; no learner-course artifact changed.
+- Implementation commit: `fed14efb`.
+- Next command at archival time: `sed -n '1,420p' app/studio/src/lib/review-set-storage.ts`.

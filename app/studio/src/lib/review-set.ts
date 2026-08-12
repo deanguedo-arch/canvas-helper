@@ -16,10 +16,13 @@ export const REVIEW_SET_EXCERPT_MAX_BYTES = STUDIO_REVIEW_LIMITS.excerptUtf8Byte
 export const REVIEW_SET_LABEL_MAX_BYTES = STUDIO_REVIEW_LIMITS.labelUtf8Bytes;
 export const REVIEW_SET_PRIORITIES = ["normal", "high", "low"] as const;
 export const REVIEW_SET_HANDOFF_DETAILS = ["compact", "diagnostic"] as const;
+export const REVIEW_SET_HANDOFF_STATES = ["draft", "sent", "accepted", "reopened"] as const;
 
 export type ReviewSetPriority = (typeof REVIEW_SET_PRIORITIES)[number];
 export type ReviewSetAnchorState = "ready" | "changed" | "missing";
 export type ReviewSetHandoffDetail = (typeof REVIEW_SET_HANDOFF_DETAILS)[number];
+export type ReviewSetHandoffState = (typeof REVIEW_SET_HANDOFF_STATES)[number];
+export type ReviewSetHandoffCycle = "initial" | "follow-up";
 
 const encoder = new TextEncoder();
 
@@ -50,6 +53,8 @@ export type ReviewSetItem = {
   priority: ReviewSetPriority;
   anchorState: ReviewSetAnchorState;
   resolved: boolean;
+  handoffState: ReviewSetHandoffState;
+  sentAt: number | null;
   teacherNote: string;
   excerpt: string;
   excerptTruncated: boolean;
@@ -63,10 +68,12 @@ export type ReviewSetPacketItem = {
 
 export type PreparedReviewSetPacket = {
   packet: string;
+  packetId: string;
   byteLength: number;
   itemIds: string[];
   screenshotCount: number;
   detail: ReviewSetHandoffDetail;
+  cycle: ReviewSetHandoffCycle;
 };
 
 export type ReviewSetRecheck = {
@@ -77,6 +84,16 @@ export type ReviewSetRecheck = {
 
 export function utf8ByteLength(value: string) {
   return encoder.encode(value).byteLength;
+}
+
+function packetIdentity(value: string) {
+  let first = 0x811c9dc5;
+  let second = 0x9e3779b9;
+  for (const byte of encoder.encode(value)) {
+    first = Math.imul(first ^ byte, 0x01000193) >>> 0;
+    second = Math.imul(second ^ byte, 0x85ebca6b) >>> 0;
+  }
+  return `${first.toString(16).padStart(8, "0")}${second.toString(16).padStart(8, "0")}`;
 }
 
 function normalizeInline(value: string) {
@@ -145,6 +162,8 @@ export function createReviewSetItem(input: {
   priority?: ReviewSetPriority;
   anchorState?: ReviewSetAnchorState;
   resolved?: boolean;
+  handoffState?: ReviewSetHandoffState;
+  sentAt?: number | null;
   teacherNote: string;
   screenshots?: ReviewSetScreenshotInput[];
 }): ReviewSetItem {
@@ -167,6 +186,25 @@ export function createReviewSetItem(input: {
       : input.resolution.freshness === "unsupported"
         ? "missing"
         : "ready";
+  const handoffState = REVIEW_SET_HANDOFF_STATES.includes(input.handoffState ?? "draft")
+    ? input.handoffState ?? "draft"
+    : "draft";
+  const sentAt = Number.isFinite(input.sentAt) && Number(input.sentAt) > 0
+    ? Math.floor(Number(input.sentAt))
+    : null;
+  const resolved = Boolean(input.resolved);
+  if (handoffState === "draft" && sentAt !== null) {
+    throw new Error("A draft Review Set item cannot have a sent timestamp.");
+  }
+  if (handoffState !== "draft" && sentAt === null) {
+    throw new Error("A sent Review Set item needs a sent timestamp.");
+  }
+  if (handoffState === "accepted" && !resolved) {
+    throw new Error("An accepted Review Set item must be resolved.");
+  }
+  if ((handoffState === "sent" || handoffState === "reopened") && resolved) {
+    throw new Error("A sent or reopened Review Set item must remain open.");
+  }
   if ((input.screenshots?.length ?? 0) > REVIEW_SCREENSHOT_MAX_PER_ITEM) {
     throw new Error(`A Review Set item can include at most ${REVIEW_SCREENSHOT_MAX_PER_ITEM} screenshots.`);
   }
@@ -183,7 +221,9 @@ export function createReviewSetItem(input: {
     shortLabel,
     priority,
     anchorState,
-    resolved: Boolean(input.resolved),
+    resolved,
+    handoffState,
+    sentAt,
     teacherNote: input.teacherNote,
     excerpt,
     excerptTruncated: excerpt !== normalizedExcerpt,
@@ -193,6 +233,14 @@ export function createReviewSetItem(input: {
       cropped: Boolean(screenshot.cropped)
     }))
   };
+}
+
+export function reviewSetHandoffItems(items: ReviewSetItem[]) {
+  return items.filter((item) => !item.resolved && (item.handoffState === "draft" || item.handoffState === "reopened"));
+}
+
+export function reviewSetHandoffCycle(items: ReviewSetItem[]): ReviewSetHandoffCycle {
+  return items.some((item) => item.handoffState !== "draft") ? "follow-up" : "initial";
 }
 
 function resolutionFacts(resolution: InspectionResolution) {
@@ -367,6 +415,7 @@ function formatDiagnosticItemLines(index: number, entry: ReviewSetPacketItem) {
     `Label: ${item.shortLabel || "none"}`,
     `Priority: ${item.priority}`,
     `Concern: ${item.issueCategory === "layout" ? "responsive layout" : item.issueCategory === "unsure" ? "general" : item.issueCategory}`,
+    `Request state: ${item.handoffState === "reopened" ? "reopened follow-up" : "new request"}`,
     `Review status: ${item.resolved ? "resolved" : "open"}`,
     `Resolution: ${resolution.resolution}`,
     `Freshness: ${resolution.freshness}`,
@@ -440,6 +489,7 @@ function formatCompactItemLines(index: number, entry: ReviewSetPacketItem, share
   const lines = [
     `## Change ${index}${item.shortLabel ? ` — ${item.shortLabel}` : ""}`,
     `Teacher request: ${normalizeInline(item.teacherNote) || "none"}`,
+    `Request state: ${item.handoffState === "reopened" ? "reopened follow-up" : "new request"}`,
     `Page: ${repoPath(resolution.previewPath, `Item ${index} preview path`)}`,
     `Selected: ${selectedElement} · ${resolution.selection.selectionKind === "area" ? "area" : "element"}`,
     `Concern: ${item.issueCategory === "layout" ? "responsive layout" : item.issueCategory === "unsure" ? "general" : item.issueCategory} · Priority: ${item.priority}`,
@@ -482,9 +532,20 @@ export function buildReviewSetPacket(input: {
   previewMode: PreviewMode;
   items: ReviewSetPacketItem[];
   detail?: ReviewSetHandoffDetail;
+  cycle?: ReviewSetHandoffCycle;
 }): PreparedReviewSetPacket {
   requireSharedScope(input.items, input.projectSlug, input.previewMode);
   const detail = REVIEW_SET_HANDOFF_DETAILS.includes(input.detail ?? "compact") ? input.detail ?? "compact" : "compact";
+  const cycle = input.cycle === "follow-up" ? "follow-up" : "initial";
+  const hasNewRequests = input.items.some(({ item }) => item.handoffState === "draft");
+  const hasReopenedRequests = input.items.some(({ item }) => item.handoffState === "reopened");
+  const cycleLabel = cycle === "initial"
+    ? "initial review"
+    : hasNewRequests && hasReopenedRequests
+      ? "follow-up review (new and reopened requests)"
+      : hasReopenedRequests
+        ? "follow-up review (reopened requests)"
+        : "follow-up review (new requests)";
 
   const boundedCount = input.items.filter(({ resolution }) => resolution.resolution === "bounded").length;
   const unknownCount = input.items.filter(({ resolution }) => resolution.resolution === "unknown").length;
@@ -498,6 +559,7 @@ export function buildReviewSetPacket(input: {
     "# Canvas Helper Review Set handoff",
     "Schema: review-set-v4",
     `Detail: ${detail === "compact" ? "compact" : "full diagnostics"}`,
+    `Cycle: ${cycleLabel}`,
     `Project: ${requiredInline(input.projectSlug, "Project")}`,
     `Preview mode: ${input.previewMode}`,
     `Items: ${input.items.length}`,
@@ -562,9 +624,11 @@ export function buildReviewSetPacket(input: {
 
   return {
     packet,
+    packetId: packetIdentity(packet),
     byteLength: finalByteLength,
     itemIds: input.items.map(({ item }) => item.id),
     screenshotCount,
-    detail
+    detail,
+    cycle
   };
 }

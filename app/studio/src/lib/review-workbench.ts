@@ -16,6 +16,8 @@ import {
   buildReviewSetPacket,
   createReviewSetItem,
   hasSameMaterialResolution,
+  reviewSetHandoffCycle,
+  reviewSetHandoffItems,
   reviewSetItemIdentity,
   utf8ByteLength
 } from "./review-set";
@@ -41,7 +43,9 @@ export const reviewWorkbench = Object.freeze({
     hasSameMaterialResolution
   }),
   packet: Object.freeze({
-    build: buildReviewSetPacket
+    build: buildReviewSetPacket,
+    cycle: reviewSetHandoffCycle,
+    items: reviewSetHandoffItems
   }),
   storage: Object.freeze({
     createBackup: createReviewSetBackup,
@@ -72,11 +76,13 @@ export const reviewWorkbench = Object.freeze({
 
 export {
   REVIEW_SET_HANDOFF_DETAILS,
+  REVIEW_SET_HANDOFF_STATES,
   REVIEW_SET_LABEL_MAX_BYTES,
   REVIEW_SET_MAX_ITEMS,
   REVIEW_SET_NOTE_MAX_BYTES,
   type PreparedReviewSetPacket,
   type ReviewSetHandoffDetail,
+  type ReviewSetHandoffState,
   type ReviewSetItem,
   type ReviewSetPriority,
   type ReviewSetScreenshot

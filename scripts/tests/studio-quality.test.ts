@@ -117,7 +117,7 @@ test("bridge code-unit limits and Review Set UTF-8 byte limits remain deliberate
     protocol: "canvas-helper.preview",
     version: 1,
     type: "studio-set-review-packet",
-    payload: { packet }
+    payload: { packet, packetId: "0123456789abcdef", itemIds: ["review-1"], reviewSessionId: "12345678-1234-1234-1234-123456789abc" }
   });
   assert.equal(isPreviewBridgeMessage(envelope(packetAtLimit)), true);
   assert.equal(isPreviewBridgeMessage(envelope(packetOverLimit)), false);

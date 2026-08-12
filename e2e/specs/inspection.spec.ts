@@ -540,7 +540,13 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   const previewCopy = previewPage.locator('[data-canvas-helper-preview-review-copy="true"]');
   await expect(previewCopy).toBeEnabled();
   await previewCopy.click();
-  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("Copied");
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("Sent to Codex");
+  const sentPreviewItem = previewPage.locator('[data-canvas-helper-preview-review-item="true"]');
+  await expect(sentPreviewItem).toContainText("Sent · verify");
+  await expect(sentPreviewItem.getByLabel("Change note for annotation 1")).toBeDisabled();
+  await expect(sentPreviewItem.getByRole("button", { name: "Add screenshot" })).toBeDisabled();
+  await expect(sentPreviewItem.getByRole("button", { name: "Remove", exact: true })).toBeDisabled();
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-clear="true"]')).toBeDisabled();
 
   await page.reload();
   await expect(page.getByTestId("studio-shell")).toBeVisible();
@@ -548,7 +554,11 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await waitForWorkspacePreviewReady(page, "e2e-fixture");
   await expect(previewStatus).toContainText("Connected to Studio", { timeout: 10_000 });
   await expect(previewPage.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(1);
-  await expect(previewCopy).toBeEnabled();
+  await expect(previewCopy).toBeDisabled();
+  await sentPreviewItem.getByRole("button", { name: "Accept", exact: true }).click();
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toBeFocused();
+  await expect(sentPreviewItem).toContainText("Accepted");
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("Change accepted");
 
   const returnToStudio = previewPage.locator('[data-canvas-helper-return-to-studio="true"]');
   await expect(returnToStudio).toHaveText("Return to Studio");
@@ -559,6 +569,12 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await expect(page.getByTestId("studio-shell")).toBeVisible();
   await expect(page.getByTestId("review-set")).toBeVisible();
   await expect(page.getByTestId("review-set-item")).toHaveCount(1);
+  await expect(page.getByTestId("review-set-item")).toContainText("Accepted");
+  await expect(page.getByTestId("verify-next-change")).toHaveText("Verification complete");
+  await expect(page.getByTestId("copy-review-set")).toHaveCount(0);
+  await page.getByTestId("review-set-item").getByRole("button", { name: "Reopen", exact: true }).click();
+  await expect(page.getByTestId("review-set-item")).toContainText("Ready for follow-up");
+  await expect(page.getByTestId("copy-review-set")).toHaveText("Copy Follow-up for Codex");
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
 
   const reopenedPreviewPromise = page.waitForEvent("popup");
@@ -568,6 +584,9 @@ test("@inspection standalone preview can collect and copy the shared Review Set"
   await expect(reopenedPreview.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
   await reopenedPreview.locator('[data-canvas-helper-preview-review-toggle="true"]').click();
   await expect(reopenedPreview.locator('[data-canvas-helper-preview-review-item="true"]')).toHaveCount(1);
+  await expect(reopenedPreview.locator('[data-canvas-helper-preview-review-item="true"]')).toContainText("Follow-up");
+  await expect(reopenedPreview.locator('[data-canvas-helper-preview-review-copy="true"]')).toHaveText("Copy Follow-up for Codex");
+  await expect(reopenedPreview.locator('[data-canvas-helper-preview-review-copy="true"]')).toBeEnabled();
   await reopenedPreview.close();
   const standaloneScreenshotReclaimed = page.waitForResponse((response) =>
     response.url().endsWith("/api/inspection/screenshots") && response.request().method() === "DELETE"
@@ -704,22 +723,44 @@ test("@inspection Review Set automatically prepares multiple annotations for one
 
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
   await expect(page.getByTestId("review-handoff-detail")).toHaveValue("compact");
+  await page.getByTestId("review-handoff-detail").selectOption("diagnostic");
+  await expect(page.getByTestId("review-packet-size")).toContainText("Diagnostic · ready");
+  await page.getByTestId("review-handoff-detail").selectOption("compact");
+  await expect(page.getByTestId("review-packet-size")).toContainText("Compact · ready");
   await page.getByTestId("copy-review-set").click();
   const compactPacket = await page.evaluate(() => navigator.clipboard.readText());
   expect(compactPacket).toContain("Schema: review-set-v4");
   expect(compactPacket).toContain("Detail: compact");
+  expect(compactPacket).toContain("Cycle: initial review");
   expect(compactPacket).toContain("Items: 2");
   expect(compactPacket).toContain("Screenshots: 0 local PNGs");
   expect(compactPacket).not.toContain("Inspection node:");
 
-  await page.getByTestId("review-handoff-detail").selectOption("diagnostic");
+  const reviewItems = page.getByTestId("review-set-item");
+  await expect(page.getByTestId("review-verification")).toContainText("0 accepted · 2 to check · 0 follow-up");
+  await expect(reviewItems.nth(0)).toContainText("Sent");
+  await expect(reviewItems.nth(1)).toContainText("Sent");
+  await expect(reviewItems.nth(0).getByRole("button", { name: "Remove", exact: true })).toBeDisabled();
+  await expect(page.getByTestId("review-set").getByRole("button", { name: "Clear" })).toBeDisabled();
+  await expect(page.getByTestId("copy-review-set")).toHaveCount(0);
+
+  await reviewItems.nth(0).getByRole("button", { name: "Accept change" }).dblclick();
+  await expect(reviewItems.nth(0)).toContainText("Accepted");
+  await expect(reviewItems.nth(0).getByRole("button", { name: "Accepted", exact: true })).toBeDisabled();
+  await expect(reviewItems.nth(0)).not.toContainText("Ready for follow-up");
+  await reviewItems.nth(1).getByRole("button", { name: "Reopen for follow-up" }).click();
+  await expect(reviewItems.nth(1)).toContainText("Ready for follow-up");
+  await expect(page.getByTestId("review-verification")).toContainText("1 accepted · 0 to check · 1 follow-up");
+  await expect(page.getByTestId("copy-review-set")).toHaveText("Copy Follow-up for Codex");
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
   await page.getByTestId("copy-review-set").click();
-  const diagnosticPacket = await page.evaluate(() => navigator.clipboard.readText());
-  expect(diagnosticPacket).toContain("Detail: full diagnostics");
-  expect(diagnosticPacket).toContain("Inspection node:");
-  expect(diagnosticPacket.length).toBeGreaterThan(compactPacket.length);
-  await expect(page.getByTestId("review-set-packet")).toHaveCount(0);
+  const followUpPacket = await page.evaluate(() => navigator.clipboard.readText());
+  expect(followUpPacket).toContain("Cycle: follow-up review");
+  expect(followUpPacket).toContain("Items: 1");
+  expect(followUpPacket).toContain("Explain what happens when learners select this.");
+  expect(followUpPacket).not.toContain("Make this opening explanation more direct.");
+  await expect(reviewItems.nth(1)).toContainText("Sent");
+  await expect(page.getByTestId("review-verification")).toContainText("1 accepted · 1 to check · 0 follow-up");
 
   await page.getByTestId("preview-reference-toggle").click();
   await expect(page.getByTestId("review-set-item")).toHaveCount(2);
@@ -830,7 +871,22 @@ test("@inspection Show restores the saved workspace HTML page before focusing th
   await expect(standaloneCourse.getByRole("heading", { name: "E2E Fixture Alternate Page" })).toBeVisible();
   await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-inspection-focus", "true");
   await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("Annotation shown");
+  await previewPage.locator('[data-canvas-helper-preview-review-item="true"]').getByRole("button", { name: "Show", exact: true }).click();
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("Annotation shown");
+  expect(previewPage.isClosed()).toBe(false);
+  await previewPage.reload();
+  await expect(previewPage.frameLocator('[data-canvas-helper-standalone-course="true"]').getByRole("heading", { name: "E2E Fixture Alternate Page" })).toBeVisible();
+  await expect(previewPage.locator('[data-canvas-helper-preview-inspect-status="true"]')).not.toContainText("Open this preview from Studio");
   await previewPage.close();
+
+  await htmlSelect.selectOption("index.html");
+  await expect(workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" })).toBeVisible();
+  const stalePreviewPromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const stalePreview = await stalePreviewPromise;
+  await expect(stalePreview.locator('[data-canvas-helper-preview-inspect-status="true"]')).not.toContainText("Open this preview from Studio");
+  await page.getByTestId("review-set-item").getByRole("button", { name: "Show", exact: true }).click();
+  await expect.poll(() => stalePreview.isClosed()).toBe(true);
 });
 
 test("@inspection Show restores the saved query and hash state on the same course page", async ({ page }) => {
@@ -1615,6 +1671,7 @@ test("@inspection course-only capture supports drag selection, three screenshots
   const copied = await page.evaluate(() => navigator.clipboard.readText());
   expect(copied).toContain("Schema: review-set-v4");
   expect(copied).toContain("Detail: compact");
+  expect(copied).toContain("Cycle: initial review");
   expect(copied).toContain(" · area");
   expect(copied).toContain("Screenshots: 3 local PNGs");
   const screenshotPaths = [...copied.matchAll(/\.runtime\/studio-review-sets\/[A-Za-z0-9-]+\/[A-Za-z0-9._-]+\.png/g)]
@@ -1630,7 +1687,12 @@ test("@inspection course-only capture supports drag selection, three screenshots
   await waitForWorkspacePreviewReady(page, "e2e-fixture");
   await expect(page.getByTestId("review-set-item")).toHaveCount(1);
   await expect(page.getByTestId("review-set-screenshot")).toHaveCount(3);
-  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await expect(page.getByTestId("review-set-item")).toContainText("Sent");
+  await expect(page.getByTestId("review-verification")).toContainText("0 accepted · 1 to check · 0 follow-up");
+  await expect(page.getByTestId("copy-review-set")).toHaveCount(0);
+  await expect(page.getByTestId("review-set-item").locator("textarea")).toBeDisabled();
+  await page.getByTestId("review-set-item").getByRole("button", { name: "Reopen for follow-up" }).click();
+  await expect(page.getByTestId("review-set-item")).toContainText("Ready for follow-up");
   const screenshotsReclaimed = page.waitForResponse((response) =>
     response.url().endsWith("/api/inspection/screenshots") && response.request().method() === "DELETE"
   );
@@ -1679,6 +1741,17 @@ test("@inspection relink preserves evidence while completed annotations stay out
   await expect(firstItem.getByRole("button", { name: "Crop", exact: true })).toBeDisabled();
   await expect(firstItem.getByRole("button", { name: "Retake", exact: true })).toBeDisabled();
 
+  const relinkedPreviewPromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const relinkedPreview = await relinkedPreviewPromise;
+  await expect(relinkedPreview.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  const relinkedReviewToggle = relinkedPreview.locator('[data-canvas-helper-preview-review-toggle="true"]');
+  if (await relinkedReviewToggle.getAttribute("aria-expanded") !== "true") await relinkedReviewToggle.click();
+  await expect.poll(() => relinkedPreview.locator('[data-canvas-helper-preview-review-item="true"] img').evaluate((image) => (
+    (image as HTMLImageElement).complete && (image as HTMLImageElement).naturalWidth > 0
+  ))).toBe(true);
+  await relinkedPreview.close();
+
   const relinkedHeadingBounds = await heading.boundingBox();
   expect(relinkedHeadingBounds).toBeTruthy();
   await page.mouse.click(
@@ -1689,6 +1762,7 @@ test("@inspection relink preserves evidence while completed annotations stay out
   await page.getByTestId("inspection-teacher-note").fill("Keep this second open annotation in the handoff.");
   await page.getByTestId("add-to-review-set").click();
   await expect(page.getByTestId("review-set-item")).toHaveCount(2);
+  const secondItem = page.getByTestId("review-set-item").nth(1);
 
   await firstItem.getByRole("button", { name: "Mark resolved" }).click();
   await expect(firstItem).toContainText("Resolved");
@@ -1705,6 +1779,8 @@ test("@inspection relink preserves evidence while completed annotations stay out
   await firstItem.getByRole("button", { name: "Reopen" }).click();
   await expect(firstItem).not.toContainText("Resolved");
   await expect(page.getByTestId("review-set")).toContainText("2 open");
+  await secondItem.getByRole("button", { name: "Reopen for follow-up" }).click();
+  await expect(secondItem).toContainText("Ready for follow-up");
 
   const screenshotReclaimed = page.waitForResponse((response) =>
     response.url().endsWith("/api/inspection/screenshots") && response.request().method() === "DELETE"
@@ -1740,6 +1816,10 @@ test("@inspection clipboard denial exposes a selectable manual Review Set packet
   const fallback = page.getByTestId("review-set-manual-packet");
   await expect(fallback).toBeVisible();
   await expect(fallback).toHaveValue(/# Canvas Helper Review Set handoff/);
+  await page.getByTestId("confirm-manual-review-sent").click();
+  await expect(page.getByTestId("review-set-item")).toContainText("Sent");
+  await page.getByTestId("review-set-item").getByRole("button", { name: "Reopen for follow-up" }).click();
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
 
   const previewPagePromise = page.waitForEvent("popup");
   await page.getByTestId("open-workspace-preview-toggle").click();
@@ -1752,6 +1832,226 @@ test("@inspection clipboard denial exposes a selectable manual Review Set packet
   const previewFallback = previewPage.locator('[data-canvas-helper-preview-review-packet="true"]');
   await expect(previewFallback).toBeVisible();
   await expect(previewFallback).toHaveValue(/# Canvas Helper Review Set handoff/);
+  await previewPage.locator('[data-canvas-helper-preview-review-confirm-sent="true"]').click();
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("Sent to Codex");
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-item="true"]')).toContainText("Sent · verify");
+  await previewPage.close();
+});
+
+test("@inspection Review Set copy holds one immutable packet while the clipboard is pending", async ({ page }) => {
+  await page.addInitScript(() => {
+    const scope = window as typeof window & { __finishReviewCopy?: () => void };
+    Object.defineProperty(Navigator.prototype, "clipboard", {
+      configurable: true,
+      get: () => ({
+        writeText: () => new Promise<void>((resolve) => {
+          scope.__finishReviewCopy = resolve;
+        })
+      })
+    });
+  });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await page.getByTestId("inspection-teacher-note").fill("Keep this copy transaction stable.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await page.getByTestId("copy-review-set").click();
+  await expect(page.getByTestId("copy-review-set")).toHaveText("Copying Review Set…");
+  await expect(page.getByTestId("review-session-bar").getByLabel("Review session")).toBeDisabled();
+  await expect(page.getByTestId("review-set-item").getByRole("textbox", { name: "What should change?" })).toBeDisabled();
+  await expect(page.getByTestId("review-set-item").getByRole("button", { name: "Add screenshot" })).toBeDisabled();
+  await page.evaluate(() => (window as typeof window & { __finishReviewCopy?: () => void }).__finishReviewCopy?.());
+  await expect(page.getByTestId("review-set-item")).toContainText("Sent");
+});
+
+test("@inspection Studio copy locks Full Preview mutations until the exact packet is sent", async ({ page }) => {
+  await page.addInitScript(() => {
+    const scope = window as typeof window & { __finishSharedReviewCopy?: () => void };
+    Object.defineProperty(Navigator.prototype, "clipboard", {
+      configurable: true,
+      get: () => ({
+        writeText: () => new Promise<void>((resolve) => {
+          scope.__finishSharedReviewCopy = resolve;
+        })
+      })
+    });
+  });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await page.getByTestId("inspection-teacher-note").fill("Keep both review surfaces transaction-safe.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+
+  const previewPagePromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const previewPage = await previewPagePromise;
+  await expect(previewPage.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  await previewPage.locator('[data-canvas-helper-preview-review-toggle="true"]').click();
+  const previewItem = previewPage.locator('[data-canvas-helper-preview-review-item="true"]');
+  const previewNote = previewItem.getByLabel("Change note for annotation 1");
+  await expect(previewNote).toBeEnabled();
+
+  await page.getByTestId("copy-review-set").click();
+  await expect(page.getByTestId("copy-review-set")).toHaveText("Copying Review Set…");
+  await expect(previewNote).toBeDisabled();
+  await expect(previewItem.getByRole("button", { name: "Add screenshot" })).toBeDisabled();
+  await page.evaluate(() => (window as typeof window & { __finishSharedReviewCopy?: () => void }).__finishSharedReviewCopy?.());
+  await expect(previewItem).toContainText("Sent · verify");
+  await previewPage.close();
+});
+
+test("@inspection Full Preview reserves the exact packet before clipboard access", async ({ page, context }) => {
+  await context.addInitScript(() => {
+    const scope = window as typeof window & { __finishPreviewReviewCopy?: () => void; __previewReviewClipboardCalls?: number };
+    if (window.opener === null || window.top !== window) return;
+    scope.__previewReviewClipboardCalls = 0;
+    Object.defineProperty(Navigator.prototype, "clipboard", {
+      configurable: true,
+      get: () => ({
+        writeText: () => new Promise<void>((resolve) => {
+          scope.__previewReviewClipboardCalls = (scope.__previewReviewClipboardCalls ?? 0) + 1;
+          scope.__finishPreviewReviewCopy = resolve;
+        })
+      })
+    });
+  });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await page.getByTestId("inspection-teacher-note").fill("Reserve this packet before Full Preview copies it.");
+  await page.getByTestId("add-to-review-set").click();
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+
+  const previewPagePromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const previewPage = await previewPagePromise;
+  await expect(previewPage.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  const reviewToggle = previewPage.locator('[data-canvas-helper-preview-review-toggle="true"]');
+  if (await reviewToggle.getAttribute("aria-expanded") !== "true") await reviewToggle.click();
+  const previewCopy = previewPage.locator('[data-canvas-helper-preview-review-copy="true"]');
+  const previewItem = previewPage.locator('[data-canvas-helper-preview-review-item="true"]');
+  const previewStatus = previewPage.locator('[data-canvas-helper-preview-review-status="true"]');
+  expect(await previewPage.evaluate(() => Boolean((window as typeof window & { __finishPreviewReviewCopy?: () => void }).__finishPreviewReviewCopy))).toBe(false);
+  await expect(previewCopy).toBeEnabled();
+  await previewCopy.click();
+  await expect(previewStatus).not.toContainText("Reserving this Review Set…");
+  await expect.poll(() => previewPage.evaluate(() => Boolean((window as typeof window & { __finishPreviewReviewCopy?: () => void }).__finishPreviewReviewCopy))).toBe(true);
+
+  await expect(page.getByTestId("copy-review-set")).toHaveText("Copying Review Set…");
+  await expect(page.getByTestId("review-session-bar").getByLabel("Review session")).toBeDisabled();
+  await expect(page.getByTestId("review-set-item").getByRole("textbox", { name: "What should change?" })).toBeDisabled();
+  await expect(page.getByTestId("review-set-item").getByRole("button", { name: "Add screenshot" })).toBeDisabled();
+  await expect(previewItem.getByLabel("Change note for annotation 1")).toBeDisabled();
+
+  await previewPage.evaluate(() => (window as typeof window & { __finishPreviewReviewCopy?: () => void }).__finishPreviewReviewCopy?.());
+  await expect(page.getByTestId("review-set-item")).toContainText("Sent");
+  await expect(previewItem).toContainText("Sent · verify");
+  await previewPage.close();
+});
+
+test("@inspection Full Preview reuses the current course window and replaces it after a project switch", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const firstPreviewPromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const firstPreview = await firstPreviewPromise;
+  await expect(firstPreview.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  await expect(firstPreview.locator('[data-canvas-helper-preview-inspect-status="true"]')).toContainText("Connected to Studio");
+
+  const pagesBeforeSecondOpen = page.context().pages().length;
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  await page.waitForTimeout(150);
+
+  expect(page.context().pages()).toHaveLength(pagesBeforeSecondOpen);
+  expect(firstPreview.isClosed()).toBe(false);
+  await expect(firstPreview.locator('[data-canvas-helper-preview-inspect-status="true"]')).toContainText("Connected to Studio");
+  await firstPreview.reload();
+  await expect(firstPreview.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  await expect(firstPreview.locator('[data-canvas-helper-preview-inspect-status="true"]')).toContainText("Connected to Studio");
+
+  await page.getByTestId("workspace-project-select").selectOption(STUDIO_SECONDARY_FIXTURE);
+  await expect(page.getByTestId("workspace-project-select")).toHaveValue(STUDIO_SECONDARY_FIXTURE);
+  await waitForWorkspacePreviewReady(page, STUDIO_SECONDARY_FIXTURE);
+  await expect.poll(() => firstPreview.isClosed()).toBe(true);
+  await page.reload();
+  await expect(page.getByTestId("workspace-project-select")).toHaveValue(STUDIO_SECONDARY_FIXTURE);
+  await waitForWorkspacePreviewReady(page, STUDIO_SECONDARY_FIXTURE);
+  const secondPreviewPromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const secondPreview = await secondPreviewPromise;
+
+  await expect(secondPreview.locator('[data-canvas-helper-preview-inspect-status="true"]')).toContainText("Connected to Studio");
+  await expect(secondPreview.frameLocator('[data-canvas-helper-standalone-course="true"]').getByRole("heading", { name: STUDIO_FIXTURES.secondary.title })).toBeVisible();
+  await secondPreview.close();
+});
+
+test("@inspection a stalled Full Preview clipboard releases both review surfaces", async ({ page, context }) => {
+  await context.addInitScript(() => {
+    if (window.opener === null) {
+      const nativeSetTimeout = window.setTimeout.bind(window);
+      window.setTimeout = ((handler: TimerHandler, delay?: number, ...args: unknown[]) => (
+        nativeSetTimeout(handler, delay === 30_000 ? 200 : delay, ...args)
+      )) as typeof window.setTimeout;
+      return;
+    }
+    if (window.top !== window) return;
+    Object.defineProperty(Navigator.prototype, "clipboard", {
+      configurable: true,
+      get: () => ({ writeText: () => new Promise<void>(() => undefined) })
+    });
+  });
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("inspect-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const headingBounds = await heading.boundingBox();
+  expect(headingBounds).toBeTruthy();
+  await page.mouse.click(
+    (headingBounds?.x ?? 0) + (headingBounds?.width ?? 0) / 2,
+    (headingBounds?.y ?? 0) + (headingBounds?.height ?? 0) / 2
+  );
+  await page.getByTestId("inspection-teacher-note").fill("Do not leave this review locked after a stalled clipboard.");
+  await page.getByTestId("add-to-review-set").click();
+
+  const previewPagePromise = page.waitForEvent("popup");
+  await page.getByTestId("open-workspace-preview-toggle").click();
+  const previewPage = await previewPagePromise;
+  await expect(previewPage.locator('[data-canvas-helper-preview-controls="true"]')).toBeVisible();
+  const reviewToggle = previewPage.locator('[data-canvas-helper-preview-review-toggle="true"]');
+  if (await reviewToggle.getAttribute("aria-expanded") !== "true") await reviewToggle.click();
+  const previewCopy = previewPage.locator('[data-canvas-helper-preview-review-copy="true"]');
+  const previewItem = previewPage.locator('[data-canvas-helper-preview-review-item="true"]');
+  await previewCopy.click();
+  await expect(page.getByTestId("copy-review-set")).toHaveText("Copying Review Set…");
+  await expect(previewCopy).toBeDisabled();
+
+  await expect(previewPage.locator('[data-canvas-helper-preview-review-status="true"]')).toContainText("copy timed out");
+  await expect(previewCopy).toBeEnabled();
+  await expect(previewItem.getByLabel("Change note for annotation 1")).toBeEnabled();
+  await expect(page.getByTestId("copy-review-set")).toBeEnabled();
+  await expect(page.getByTestId("review-set-item")).not.toContainText("Sent");
   await previewPage.close();
 });
 
@@ -1831,7 +2131,7 @@ test("@inspection tampered persisted screenshot metadata cannot enable Copy", as
   await expect(page.getByTestId("copy-review-set")).toBeEnabled();
 
   const cleanupScreenshots = await page.evaluate(() => {
-    const key = "canvas-helper/review-workbench-v9";
+    const key = "canvas-helper/review-workbench-v10";
     const stored = JSON.parse(localStorage.getItem(key) || "null");
     const project = stored?.projects?.["e2e-fixture"];
     const review = project?.sets?.find((candidate: { id?: string }) => candidate.id === project.activeSetId);

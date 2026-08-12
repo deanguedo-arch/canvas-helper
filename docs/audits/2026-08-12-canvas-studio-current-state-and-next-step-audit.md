@@ -12,7 +12,7 @@
 
 **Final roadmap handoff commit:** `dc89ec969bfc8ee214a7a24c303df543beb9141e`
 
-**Current roadmap status:** Phases A through H complete and pushed
+**Current roadmap status:** Phases A through H plus the four post-roadmap audit priorities are implemented; final lifecycle commit pending publication at the time of this edit
 
 ## How to use this document
 
@@ -21,6 +21,8 @@ Attach this file to ChatGPT Pro and give it GitHub access to the repository and 
 The implementation commits are already on GitHub. This audit brief is a new local document unless a later commit says otherwise, so attaching this file directly is the safest way to ensure the auditor reads the exact brief.
 
 Ask ChatGPT Pro to verify every repository-dependent claim against the branch. Adviser recommendations are proposals until Codex confirms them locally against source ownership, current tests, and the active working tree.
+
+> August 12 implementation update: the four recommendations originally proposed later in this brief are now implemented. The historical “weaknesses and open questions” section remains below as the decision record that motivated the work; use the implementation addendum near the end as the current state.
 
 ---
 
@@ -434,9 +436,9 @@ The teacher can speak naturally. Codex still receives enough verified evidence t
 
 ---
 
-## Current weaknesses and open questions
+## Historical weaknesses and open questions (resolved in the post-roadmap refinement)
 
-These are hypotheses for the independent auditor to challenge—not pre-approved implementation work.
+These were the hypotheses supplied to the independent auditor. They are retained as the decision record; the implementation addendum below records what changed.
 
 ### 1. The interface is solid but not yet premium
 
@@ -544,7 +546,7 @@ The architecture and core interaction model should be kept.
 
 Canvas Studio is already functionally better than Codex Browser for long-form course review because it combines comparison, persistent batches, several screenshots, source-aware packets, and Full Preview continuity. Codex Browser remains simpler for one isolated comment. Studio should preserve that simplicity at the moment of annotation while using persistence and organization to win the longer workflow.
 
-### Recommended next order
+### Historical recommended next order
 
 #### Priority 1 — A disciplined visual and usability refinement
 
@@ -601,6 +603,36 @@ Use contextual empty-state guidance and declared display titles. Do not add a tu
 - another visual redesign before observing the current workflow in use;
 - course-specific branches in shared Studio code;
 - automatic direct edits from a visual selection without Codex source verification.
+
+---
+
+## Post-roadmap implementation addendum
+
+The independent audit priorities were implemented in the same order and kept inside the universal Studio boundary.
+
+### What changed now
+
+1. **Visual and first-use refinement:** the course remains dominant, the toolbar and Review Set have clearer hierarchy, empty and disabled states are intentional, readable project titles replace raw-looking slugs, and a concise empty-state sequence teaches the first review.
+2. **Compact handoff:** `review-set-v4` defaults to a compact packet, deduplicates shared implementation context, preserves safe source/rebuild/validation routes, and exposes full diagnostics only when selected.
+3. **Closed verification loop:** a successful copy marks the exact included items `Sent`; those items can be shown, accepted, or explicitly reopened; accepted and sent work stays out of follow-up packets; reopened/new work forms the next bounded handoff.
+4. **Cross-surface transaction safety:** Studio and Full Preview reserve the exact packet before clipboard work, lock mutations consistently, cancel a timed-out transaction on both surfaces, keep one authoritative Full Preview, and use each screenshot's immutable owner after a relink.
+
+### Current evidence
+
+The authoritative `npm run test:studio-release` gate passes:
+
+- **93/93 focused Studio contracts**;
+- the Studio production build;
+- **55/55 inspection end-to-end tests**;
+- **1/1 platform smoke test**;
+- **1/1 strict neutral-project contract**;
+- stable source fingerprinting with `sourceChangedDuringRun: false`.
+
+Repository-wide typecheck continues to report the pre-existing unrelated diagnostics in legacy ELA, Forensics, Social 20, and English-factory builders. No diagnostic points into the changed Studio, shared bridge, server bridge, or inspection-test files.
+
+### Current product decision
+
+The four highest-confidence improvements are complete. The next product step is observation, not another broad build phase: use the workflow during real course development, record concrete friction, and only then choose a small follow-up. The existing rejection list remains in force.
 
 ---
 

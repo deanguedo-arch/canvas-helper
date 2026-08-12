@@ -136,6 +136,67 @@ test("preview page identity preserves course query and hash state while strippin
   );
 });
 
+test("Full Preview review state preserves screenshot ownership after an annotation is relinked", () => {
+  const reviewState = {
+    sessionId: "12345678-1234-1234-1234-123456789abc",
+    items: [{
+      id: "review-1",
+      projectSlug: "e2e-fixture",
+      nodeId: "ch1:new-selection:2",
+      excerpt: "Relinked target",
+      teacherNote: "Keep the original evidence.",
+      handoffState: "draft",
+      screenshots: [{
+        id: "screenshot-1",
+        filePath: ".runtime/studio-review-sets/12345678-1234-1234-1234-123456789abc/review-1-screenshot-1.png",
+        ownerNodeId: "ch1:original-selection:1"
+      }]
+    }],
+    draftScreenshotCount: 0,
+    captureItemId: "",
+    saving: false,
+    copying: false,
+    preparing: false,
+    packetReady: true,
+    status: "",
+    error: "",
+    undoLabel: ""
+  };
+  assert.equal(isPreviewBridgeMessage({
+    protocol: "canvas-helper.preview",
+    version: 1,
+    type: "studio-set-review-state",
+    payload: reviewState
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    protocol: "canvas-helper.preview",
+    version: 1,
+    type: "studio-set-review-state",
+    payload: {
+      ...reviewState,
+      items: [{ ...reviewState.items[0], screenshots: [{ ...reviewState.items[0].screenshots[0], ownerNodeId: "" }] }]
+    }
+  }), false);
+});
+
+test("Studio can explicitly release a timed-out Full Preview copy transaction", () => {
+  assert.equal(isPreviewBridgeMessage({
+    protocol: "canvas-helper.preview",
+    version: 1,
+    type: "studio-cancel-review-copy",
+    payload: {
+      copyId: "copy-1234567890",
+      message: "The Review Set copy timed out. Nothing was marked sent; try copying again."
+    }
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    protocol: "canvas-helper.preview",
+    version: 1,
+    type: "studio-cancel-review-copy",
+    payload: { copyId: "", message: "invalid" }
+  }), false);
+});
+
 test("preview runtime compatibility relays only approved course CDN scripts through the scoped origin", () => {
   const capability = "12345678-1234-1234-1234-123456789abc";
   const publicPrefix = `/_canvas-helper/p/${capability}`;
@@ -795,6 +856,42 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
     isPreviewBridgeMessage({
       protocol: "canvas-helper.preview",
       version: 1,
+      type: "preview-review-action",
+      payload: { action: "mark-sent", itemIds: ["review-1", "review-2"], packetId: "0123456789abcdef", reviewSessionId: "12345678-1234-1234-1234-123456789abc" }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-review-action",
+      payload: { action: "mark-sent", itemIds: ["review-1", "review-1"], packetId: "0123456789abcdef", reviewSessionId: "12345678-1234-1234-1234-123456789abc" }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-review-action",
+      payload: { action: "begin-copy", copyId: "copy-1", itemIds: ["review-1", "review-2"], packetId: "0123456789abcdef", reviewSessionId: "12345678-1234-1234-1234-123456789abc" }
+    }),
+    true
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
+      type: "preview-review-action",
+      payload: { action: "cancel-copy", itemIds: ["review-1"], packetId: "0123456789abcdef", reviewSessionId: "12345678-1234-1234-1234-123456789abc" }
+    }),
+    false
+  );
+  assert.equal(
+    isPreviewBridgeMessage({
+      protocol: "canvas-helper.preview",
+      version: 1,
       type: "studio-request-inspect-current",
       payload: { requestId: "capture-request-1", nodeId: selection.nodeId }
     }),
@@ -975,14 +1072,17 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
           nodeId: selection.nodeId,
           excerpt: "Current element",
           teacherNote: "Make this clearer.",
+          handoffState: "draft",
           screenshots: [{
             id: "shot-1",
-            filePath: ".runtime/studio-review-sets/12345678-1234-1234-1234-123456789abc/e2e-fixture-review-1-shot.png"
+            filePath: ".runtime/studio-review-sets/12345678-1234-1234-1234-123456789abc/e2e-fixture-review-1-shot.png",
+            ownerNodeId: selection.nodeId
           }]
         }],
         draftScreenshotCount: 0,
         captureItemId: "",
         saving: false,
+        copying: false,
         preparing: false,
         packetReady: true,
         status: "Review Set ready.",
@@ -1017,10 +1117,11 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       type: "studio-set-review-state",
       payload: {
         sessionId: "12345678-1234-1234-1234-123456789abc",
-        items: [{ id: "review-1", projectSlug: "e2e-fixture", nodeId: selection.nodeId, excerpt: "Current element", teacherNote: "Make this clearer.", screenshots: [] }],
+        items: [{ id: "review-1", projectSlug: "e2e-fixture", nodeId: selection.nodeId, excerpt: "Current element", teacherNote: "Make this clearer.", handoffState: "draft", screenshots: [] }],
         draftScreenshotCount: 0,
         captureItemId: "",
         saving: "no",
+        copying: false,
         preparing: false,
         packetReady: true,
         status: "Review Set ready.",
@@ -1034,7 +1135,7 @@ test("the private bridge bounds the pre-capture geometry refresh protocol", () =
       protocol: "canvas-helper.preview",
       version: 1,
       type: "studio-set-review-packet",
-      payload: { packet: "x".repeat(7_701) }
+      payload: { packet: "x".repeat(7_701), packetId: "0123456789abcdef", itemIds: ["review-1"], reviewSessionId: "12345678-1234-1234-1234-123456789abc" }
     }),
     false
   );

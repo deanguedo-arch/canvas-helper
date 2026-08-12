@@ -22,10 +22,12 @@ type ReviewSetPanelProps = {
   status: string;
   statusTone: "neutral" | "progress" | "success" | "warning" | "error";
   preparing: boolean;
+  saving: boolean;
   packetReady: boolean;
   packetError: string;
   manualPacket: string;
   manualCopyVisible: boolean;
+  copying: boolean;
   persistenceError: string;
   captureItemId: string;
   relinkItemId: string;
@@ -47,8 +49,11 @@ type ReviewSetPanelProps = {
   onRelinkItem: (id: string) => void;
   onRetryAnchor: (id: string) => void;
   onToggleResolved: (id: string) => void;
+  onAcceptItem: (id: string) => void;
+  onReopenItem: (id: string) => void;
   onHandoffDetailChange: (detail: ReviewSetHandoffDetail) => void;
   onCopy: () => void;
+  onConfirmManualSent: () => void;
   onUndo: () => void;
   onSessionChange: (sessionId: string) => void;
   onNewSession: () => void;
@@ -66,6 +71,9 @@ function itemTitle(item: ReviewSetItem, position: number) {
 }
 
 function itemReadiness(item: ReviewSetItem) {
+  if (item.handoffState === "accepted") return { label: "Accepted", tone: "success" };
+  if (item.handoffState === "sent") return { label: "Sent", tone: "progress" };
+  if (item.handoffState === "reopened") return { label: "Follow-up", tone: "warning" };
   if (item.resolved) return { label: "Resolved", tone: "success" };
   if (item.anchorState === "missing") return { label: "Needs relink", tone: "error" };
   if (item.anchorState === "changed") return { label: "Changed", tone: "warning" };
@@ -91,10 +99,12 @@ export function ReviewSetPanel({
   status,
   statusTone,
   preparing,
+  saving,
   packetReady,
   packetError,
   manualPacket,
   manualCopyVisible,
+  copying,
   persistenceError,
   captureItemId,
   relinkItemId,
@@ -116,8 +126,11 @@ export function ReviewSetPanel({
   onRelinkItem,
   onRetryAnchor,
   onToggleResolved,
+  onAcceptItem,
+  onReopenItem,
   onHandoffDetailChange,
   onCopy,
+  onConfirmManualSent,
   onUndo,
   onSessionChange,
   onNewSession,
@@ -140,7 +153,13 @@ export function ReviewSetPanel({
   const panelRef = useRef<HTMLElement | null>(null);
   const screenshotCount = items.reduce((total, item) => total + item.screenshots.length, 0);
   const openCount = items.filter((item) => !item.resolved).length;
-  const mutationLocked = Boolean(captureItemId);
+  const sentItems = items.filter((item) => item.handoffState === "sent");
+  const acceptedCount = items.filter((item) => item.handoffState === "accepted").length;
+  const followUpCount = items.filter((item) => item.handoffState === "reopened").length;
+  const hasHandoffHistory = items.some((item) => item.handoffState !== "draft");
+  const hasProtectedHistory = items.some((item) => item.handoffState === "sent" || item.handoffState === "accepted");
+  const handoffCandidateCount = items.filter((item) => !item.resolved && (item.handoffState === "draft" || item.handoffState === "reopened")).length;
+  const mutationLocked = Boolean(captureItemId) || copying || saving;
   const queuedSessions = sessions.filter((session) => session.id !== activeSessionId);
   const closeExpandedScreenshot = useCallback(() => {
     setExpandedScreenshot((current) => {
@@ -193,7 +212,7 @@ export function ReviewSetPanel({
             {openCount} open · {items.length} of {REVIEW_SET_MAX_ITEMS} saved · {screenshotCount} screenshot{screenshotCount === 1 ? "" : "s"}
           </p>
         </div>
-        <button type="button" className="ghost-button compact" disabled={!items.length || mutationLocked} onClick={onClear}>Clear</button>
+        <button type="button" className="ghost-button compact" disabled={!items.length || mutationLocked || hasProtectedHistory} onClick={onClear}>Clear</button>
       </div>
 
       <div className="review-session-bar" data-testid="review-session-bar">
@@ -231,16 +250,35 @@ export function ReviewSetPanel({
             <button type="button" className="ghost-button compact" disabled={!mergeSessionId || mutationLocked} onClick={() => onMergeSession(mergeSessionId)}>Merge</button>
           </div>
         ) : null}
-        <button type="button" className="review-session-delete" disabled={mutationLocked} onClick={onDeleteSession}>
+        <button type="button" className="review-session-delete" disabled={mutationLocked || hasProtectedHistory} onClick={onDeleteSession}>
           {sessions.length > 1 ? "Delete active review" : "Clear active review"}
         </button>
       </details>
+
+      {hasHandoffHistory ? (
+        <div className="review-verification" data-testid="review-verification">
+          <div>
+            <strong>Verify changes</strong>
+            <span>{acceptedCount} accepted · {sentItems.length} to check · {followUpCount} follow-up</span>
+          </div>
+          <button
+            type="button"
+            className="ghost-button compact"
+            disabled={!sentItems.length || mutationLocked}
+            onClick={() => sentItems[0] && onFocus(sentItems[0].id)}
+            data-testid="verify-next-change"
+          >
+            {sentItems.length ? "Show next change" : "Verification complete"}
+          </button>
+        </div>
+      ) : null}
 
       {items.length ? (
         <ol className="review-set-items" data-testid="review-set-items">
           {items.map((item, index) => {
             const captureRunning = captureItemId === item.id;
             const anotherCaptureRunning = Boolean(captureItemId) && !captureRunning;
+            const editLocked = item.handoffState === "sent" || item.handoffState === "accepted";
             const readiness = itemReadiness(item);
             return (
               <li key={item.id} className={`review-set-item${item.resolved ? " resolved" : ""}`} data-testid="review-set-item">
@@ -260,10 +298,10 @@ export function ReviewSetPanel({
                       onFocus(item.id);
                       window.requestAnimationFrame(() => trigger.focus());
                     }}>Show</button>
-                    <button type="button" className="ghost-button compact" disabled={mutationLocked} onClick={() => onRelinkItem(item.id)}>
+                    <button type="button" className="ghost-button compact" disabled={mutationLocked || editLocked} onClick={() => onRelinkItem(item.id)}>
                       {relinkItemId === item.id ? "Cancel relink" : "Relink"}
                     </button>
-                    <button type="button" className="ghost-button compact danger" disabled={mutationLocked} onClick={() => {
+                    <button type="button" className="ghost-button compact danger" disabled={mutationLocked || editLocked} onClick={() => {
                       onRemove(item.id);
                       window.requestAnimationFrame(() => panelRef.current?.focus());
                     }}>Remove</button>
@@ -274,7 +312,7 @@ export function ReviewSetPanel({
                   <label>
                     <span>Short label</span>
                     <input
-                      disabled={mutationLocked}
+                      disabled={mutationLocked || editLocked}
                       value={item.shortLabel}
                       maxLength={STUDIO_BRIDGE_LIMITS.reviewLabelCodeUnits}
                       onChange={(event) => onMetadataChange(item.id, { shortLabel: event.target.value })}
@@ -284,7 +322,7 @@ export function ReviewSetPanel({
                   <label>
                     <span>Concern</span>
                     <select
-                      disabled={mutationLocked}
+                      disabled={mutationLocked || editLocked}
                       value={item.issueCategory}
                       onChange={(event) => onMetadataChange(item.id, { issueCategory: event.target.value as InspectionIssueCategory })}
                     >
@@ -298,7 +336,7 @@ export function ReviewSetPanel({
                   <label>
                     <span>Priority</span>
                     <select
-                      disabled={mutationLocked}
+                      disabled={mutationLocked || editLocked}
                       value={item.priority}
                       onChange={(event) => onMetadataChange(item.id, { priority: event.target.value as ReviewSetPriority })}
                     >
@@ -312,7 +350,7 @@ export function ReviewSetPanel({
                 <label className="inspection-note">
                   <span>What should change?</span>
                   <textarea
-                    disabled={mutationLocked}
+                    disabled={mutationLocked || editLocked}
                     value={item.teacherNote}
                     onChange={(event) => onTeacherNoteChange(item.id, event.target.value)}
                     placeholder="Write your note for Codex…"
@@ -334,25 +372,25 @@ export function ReviewSetPanel({
                           <span>{screenshotIndex + 1}</span>
                         </button>
                         <div className="review-screenshot-order">
-                          <button type="button" disabled={mutationLocked || screenshotIndex === 0} onClick={() => onReorderScreenshot(item.id, screenshot.id, -1)} aria-label={`Move screenshot ${screenshotIndex + 1} left`}>←</button>
-                          <button type="button" disabled={mutationLocked || screenshotIndex === item.screenshots.length - 1} onClick={() => onReorderScreenshot(item.id, screenshot.id, 1)} aria-label={`Move screenshot ${screenshotIndex + 1} right`}>→</button>
+                          <button type="button" disabled={mutationLocked || editLocked || screenshotIndex === 0} onClick={() => onReorderScreenshot(item.id, screenshot.id, -1)} aria-label={`Move screenshot ${screenshotIndex + 1} left`}>←</button>
+                          <button type="button" disabled={mutationLocked || editLocked || screenshotIndex === item.screenshots.length - 1} onClick={() => onReorderScreenshot(item.id, screenshot.id, 1)} aria-label={`Move screenshot ${screenshotIndex + 1} right`}>→</button>
                         </div>
                         <div className="review-screenshot-tools">
                           <button
                             type="button"
-                            disabled={mutationLocked || screenshot.ownerNodeId !== item.request.selection.nodeId}
+                            disabled={mutationLocked || editLocked || screenshot.ownerNodeId !== item.request.selection.nodeId}
                             onClick={() => onRetakeScreenshot(item.id, screenshot.id)}
                           >Retake</button>
                           <button
                             type="button"
-                            disabled={mutationLocked || screenshot.cropped || screenshot.ownerNodeId !== item.request.selection.nodeId}
+                            disabled={mutationLocked || editLocked || screenshot.cropped || screenshot.ownerNodeId !== item.request.selection.nodeId}
                             onClick={() => onCropScreenshot(item.id, screenshot.id)}
                           >{screenshot.cropped ? "Cropped" : "Crop"}</button>
                         </div>
                         <button
                           type="button"
                           className="review-set-screenshot-remove"
-                          disabled={mutationLocked}
+                          disabled={mutationLocked || editLocked}
                           onClick={() => onRemoveScreenshot(item.id, screenshot.id)}
                           aria-label={`Remove screenshot ${screenshotIndex + 1}`}
                         >×</button>
@@ -365,22 +403,36 @@ export function ReviewSetPanel({
                   <button
                     type="button"
                     className="ghost-button compact review-set-add-screenshot"
-                    disabled={anotherCaptureRunning || (!captureRunning && item.screenshots.length >= REVIEW_SCREENSHOT_MAX_PER_ITEM)}
+                    disabled={mutationLocked || editLocked || anotherCaptureRunning || (!captureRunning && item.screenshots.length >= REVIEW_SCREENSHOT_MAX_PER_ITEM)}
                     onClick={captureRunning ? onCancelScreenshotCapture : () => onAddScreenshot(item.id)}
                   >
                     {captureRunning ? "Cancel capture" : item.screenshots.length >= REVIEW_SCREENSHOT_MAX_PER_ITEM ? "3 screenshots attached" : "Add screenshot"}
                   </button>
-                  <button type="button" className="text-action" disabled={mutationLocked || items.length >= REVIEW_SET_MAX_ITEMS} onClick={() => onDuplicateItem(item.id)}>Duplicate</button>
+                  <button type="button" className="text-action" disabled={mutationLocked || editLocked || items.length >= REVIEW_SET_MAX_ITEMS} onClick={() => onDuplicateItem(item.id)}>Duplicate</button>
                   {item.anchorState !== "ready" ? (
                     <button type="button" className="text-action" disabled={mutationLocked} onClick={() => onRetryAnchor(item.id)}>Check again</button>
                   ) : null}
-                  <button type="button" className="text-action" disabled={mutationLocked} onClick={() => onToggleResolved(item.id)}>
-                    {item.resolved ? "Reopen" : "Mark resolved"}
-                  </button>
+                  {item.handoffState === "sent" ? (
+                    <>
+                      <button type="button" className="text-action review-accept-action" disabled={mutationLocked} onClick={() => onAcceptItem(item.id)}>Accept change</button>
+                      <button type="button" className="text-action" disabled={mutationLocked} onClick={() => onReopenItem(item.id)}>Reopen for follow-up</button>
+                    </>
+                  ) : item.handoffState === "accepted" ? (
+                    <>
+                      <button type="button" className="text-action review-accept-action" disabled>Accepted</button>
+                      <button type="button" className="text-action" disabled={mutationLocked} onClick={() => onReopenItem(item.id)}>Reopen</button>
+                    </>
+                  ) : item.handoffState === "reopened" ? (
+                    <span className="review-follow-up-label">Ready for follow-up</span>
+                  ) : (
+                    <button type="button" className="text-action" disabled={mutationLocked} onClick={() => onToggleResolved(item.id)}>
+                      {item.resolved ? "Reopen" : "Mark resolved"}
+                    </button>
+                  )}
                   {queuedSessions.length ? (
                     <label className="review-move-control">
                       <span className="sr-only">Move annotation {index + 1} to another review</span>
-                      <select disabled={mutationLocked} defaultValue="" onChange={(event) => {
+                      <select disabled={mutationLocked || editLocked} defaultValue="" onChange={(event) => {
                         if (event.target.value) onMoveItem(item.id, event.target.value);
                         event.target.value = "";
                       }} aria-label={`Move annotation ${index + 1} to another review`}>
@@ -414,7 +466,7 @@ export function ReviewSetPanel({
         </div>
       ) : null}
 
-      {items.length ? (
+      {handoffCandidateCount ? (
         <label className="review-handoff-detail">
           <span>Codex handoff</span>
           <select
@@ -432,19 +484,29 @@ export function ReviewSetPanel({
         </label>
       ) : null}
 
-      {items.length ? (
+      {handoffCandidateCount ? (
         <div className="review-packet-summary" data-testid="review-packet-size">
           <span>{formatPacketSize(packetByteLength)}</span>
           <span>{packetReady ? `${handoffDetail === "compact" ? "Compact" : "Diagnostic"} · ready` : preparing ? "Checking sources…" : "Needs review"}</span>
         </div>
-      ) : (
+      ) : !items.length ? (
         <p className="review-copy-hint" data-testid="review-packet-size">Save an annotation to create a Codex handoff.</p>
+      ) : hasHandoffHistory ? (
+        <p className="review-copy-hint" data-testid="review-packet-size">Verify each sent change. Reopen anything that still needs work to create a follow-up handoff.</p>
+      ) : (
+        <p className="review-copy-hint" data-testid="review-packet-size">Reopen an annotation to include it in the handoff.</p>
       )}
-      <div className="inspection-actions review-set-copy-row">
-        <button type="button" className="ghost-button compact active-toggle" disabled={!packetReady || preparing || mutationLocked} onClick={onCopy} data-testid="copy-review-set">
-          {preparing ? "Getting Review Set ready…" : "Copy Review Set for Codex"}
-        </button>
-      </div>
+      {!hasHandoffHistory || handoffCandidateCount ? (
+        <div className="inspection-actions review-set-copy-row">
+          <button type="button" className="ghost-button compact active-toggle" disabled={!packetReady || preparing || mutationLocked} onClick={onCopy} data-testid="copy-review-set">
+            {copying
+              ? "Copying Review Set…"
+              : preparing
+              ? "Getting Review Set ready…"
+              : hasHandoffHistory ? "Copy Follow-up for Codex" : "Copy Review Set for Codex"}
+          </button>
+        </div>
+      ) : null}
       <div className="review-export-actions">
         <button type="button" className="text-action" disabled={!packetReady || mutationLocked} onClick={onExportMarkdown}>Export Markdown</button>
         <button type="button" className="text-action" disabled={mutationLocked} onClick={onExportJson}>Backup JSON</button>
@@ -463,10 +525,15 @@ export function ReviewSetPanel({
         />
       </div>
       {manualPacket && manualCopyVisible ? (
-        <label className="review-set-manual-copy">
-          <span>Review Set packet</span>
-          <textarea readOnly value={manualPacket} rows={8} data-testid="review-set-manual-packet" />
-        </label>
+        <div className="review-set-manual-copy">
+          <label>
+            <span>Review Set packet</span>
+            <textarea readOnly value={manualPacket} rows={8} data-testid="review-set-manual-packet" />
+          </label>
+          <button type="button" className="ghost-button compact active-toggle" disabled={mutationLocked} onClick={onConfirmManualSent} data-testid="confirm-manual-review-sent">
+            I sent this to Codex
+          </button>
+        </div>
       ) : null}
 
       {expandedScreenshot ? (
