@@ -5,12 +5,20 @@ import path from "node:path";
 import test from "node:test";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.ts";
+import { PREVIEW_BRIDGE_MAX_VISIBLE_TEXT } from "../../app/shared/preview-bridge.ts";
 import { inspectCourseAuthoringProject } from "../lib/course-authoring/context.ts";
 import { onboardCourseCatalog } from "../lib/course-onboarding.ts";
+import { catalogPilotVisibleText } from "../lib/course-editing/catalog-pilot.ts";
 import type { ProjectManifest } from "../lib/types.ts";
 
 const FIRST_RUN = "2026-08-13T13:00:00.000Z";
 const SECOND_RUN = "2026-08-13T14:00:00.000Z";
+
+test("catalog pilot text matches the bounded browser bridge representation", () => {
+  const visible = catalogPilotVisibleText(`<strong>A &amp; B</strong> ${"long ".repeat(100)}`);
+  assert.equal(visible.startsWith("A & B long long"), true);
+  assert.equal(visible.length, PREVIEW_BRIDGE_MAX_VISIBLE_TEXT);
+});
 
 async function createLegacyProject(repoRoot: string, slug: string, regenerateCommand?: string) {
   const projectRoot = path.join(repoRoot, "projects", slug);

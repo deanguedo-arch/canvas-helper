@@ -29,8 +29,13 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Install Chromium
-        run: npx playwright install --with-deps chromium
+      - name: Install Chromium and course OCR dependencies
+        run: |
+          npx playwright install --with-deps chromium
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y poppler-utils tesseract-ocr
+          pdftoppm -v
+          tesseract --version
 
       - name: Run focused Direct Editing tests
         run: npm run test:course-editing

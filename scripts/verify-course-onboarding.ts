@@ -2,8 +2,6 @@ import assert from "node:assert/strict";
 import { access, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
-import { load } from "cheerio";
-
 import {
   COURSE_EDIT_SCHEMA_VERSION,
   type CourseEditDraft,
@@ -28,6 +26,7 @@ import {
   type CourseEditHttpRouteHarness
 } from "./lib/course-editing/http-route-harness.js";
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
+import { catalogPilotVisibleText } from "./lib/course-editing/catalog-pilot.js";
 import { repoRoot } from "./lib/paths.js";
 
 const PILOT_MARKER = "Studio catalog safety check";
@@ -43,10 +42,6 @@ type TargetResolution = {
   target: CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> };
   map: Awaited<ReturnType<typeof resolveCourseEditPageMap>>;
 };
-
-function normalizedText(value: string) {
-  return load(`<body>${value}</body>`)("body").text().replace(/\s+/g, " ").trim();
-}
 
 function errorMessages(error: unknown): string[] {
   if (error instanceof AggregateError) {
@@ -114,7 +109,7 @@ async function resolvePilotTarget(
   const eligibleElements = elements.filter((element) => (
       PILOT_TAG_PRIORITY.has(element.tagName) &&
       !Object.hasOwn(element.attributes, "data-canvas-helper-course-title") &&
-      normalizedText(document.source.slice(element.innerStart, element.innerEnd)).length > 0 &&
+      catalogPilotVisibleText(document.source.slice(element.innerStart, element.innerEnd)).length > 0 &&
       document.source.slice(element.innerStart, element.innerEnd).length <= 2_000
     ));
   const candidateGroups = [...PILOT_TAG_PRIORITY.keys()].map((tagName) => (
@@ -144,7 +139,7 @@ async function resolvePilotTarget(
       projectSlug,
       nodeId: located[0],
       tagName: element.tagName,
-      visibleText: normalizedText(document.source.slice(element.innerStart, element.innerEnd))
+      visibleText: catalogPilotVisibleText(document.source.slice(element.innerStart, element.innerEnd))
     }));
     if (target.eligibility === "editable" && target.identity && target.capabilities.richText) {
       return {
