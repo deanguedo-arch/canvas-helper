@@ -1,187 +1,168 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Bring the complete existing course catalog into explicit Studio authoring contracts without ruining legacy courses, while keeping future Codex/imported courses current by construction.
-- Status: complete
+- Task: Close every actionable finding from the independent Canvas Studio Direct Editing audit and prepare an exact, GitHub-verifiable re-audit packet.
+- Status: ready for validation
 
-## Publication and independent-audit packet
+## Publication and review state
 
 - Branch: `codex/studio-direct-editing-v1`
-- Pushed implementation commit: `1b221ee9ad9594a7166572494448e1db32f6e0e1`
 - Focused draft PR: `https://github.com/deanguedo-arch/canvas-helper/pull/1`
 - PR base: `codex/studio-roadmap-phases` at `74b0c3ee7de150472c10f172a664ee658050f2ca`
+- Remediation implementation commits: `99b8f3bbafc2cb4b546f8115d95ab8207a78b33b`, `4e5f8c7f726aef7f8cd98d74c326d07ba06433f2`, and `73ef39bc2c288acf5cba4585103bcc915f332483`
 - Audit packet: `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
-- The PR is intentionally focused on Direct Editing and catalog onboarding. The full comparison to `main` includes the older stacked Studio roadmap and English/course history.
+- Independent finding record: `docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md`
+- The PR must remain draft until the exact-head GitHub workflow is green and an independent re-audit accepts the boundary. Do not merge based only on local implementation evidence.
 
 ## Summary
 
-- Catalog onboarding is complete and idempotent across all 84 project directories.
-- 63 active or ready-for-export source-backed projects now pass `course:doctor` with explicit Studio editing enabled:
-  - 28 Direct workspace projects
-  - 5 English factory projects
-  - 4 Social factory projects
-  - 26 preserved legacy snapshots
-- One project remains intentionally blocked (`calm-module-4`), one is reference-only (`e2e-studio-secondary`), and 19 package/export-only directories are catalogued without fabricating editable sources.
-- The four original Social 30 issue courses are no longer hidden from Studio. Missing Social 30 Option Two Issues 2–4 were built from the checksum-verified source and onboarded with the existing staged factory.
-- Net-new `course:create` courses and newly imported projects receive explicit Direct ownership automatically, so future courses do not need another catalog catch-up.
-- Temporary catalog edits were all undone. No active edit lock, journal, or Undo checkpoint remains, and no existing learner workspace retained a pilot marker.
+- All actionable findings in the supplied independent audit have an implementation, regression coverage, and a public evidence path.
+- Undo now fails closed after drift; separate Studio processes use an atomic complete-owner filesystem lock; interrupted batches use fingerprint-aware recovery that preserves unknown external bytes; terminal cleanup is restart-idempotent.
+- The server validates the actual learner render after each batch. Studio visually distinguishes source-owned editable regions from runtime-owned or unsupported Annotation-only regions.
+- Draft persistence, no-op handling, stable generated identities, image upload, Rename Course, bounded request bodies, multi-page snapshots, and artifact-based export freshness are covered by focused tests.
+- A clean Git checkout contains 66 project directories and 65 manifests. Of those, 63 source-backed projects are explicitly Studio-enabled: 28 Direct, 5 English factory, 4 Social factory, and 26 preserved legacy snapshots. One project is blocked, one is reference-only, and one tracked directory is a package archive.
+- The earlier 84-directory/19-archive claim was caused by 18 ignored or untracked local package directories. It is corrected in the audit documents and those local artifacts are excluded from GitHub evidence.
+- Catalog acceptance passed 63/63: 50 projects completed a reversible rendered learner lifecycle, 12 honestly reported no source-owned text target, and Aboriginal Studies 30 safely reported no learner-stable sampled text target after exact restoration.
+- Real Direct, English, Social, and snapshot pilots passed together through HTTP Apply, rebuild/materialization, learner render, reload, server restart, route-level Undo, and byte-for-byte restoration.
+- No tracked learner course content remains changed from verification. The user's unrelated local duplicate, archive, resource, and transaction paths remain untouched and unstaged.
 
 ## Files changed
 
-### Catalog onboarding and acceptance
+### Mutation, locking, recovery, validation, and HTTP contracts
 
-- `scripts/lib/course-onboarding.ts`
-- `scripts/onboard-courses.ts`
-- `scripts/verify-course-onboarding.ts`
-- `scripts/tests/course-onboarding.test.ts`
-- `package.json`
-- `.gitignore`
-
-### Authoring drivers and source policy
-
-- `scripts/lib/course-authoring/context.ts`
-- `scripts/lib/project-manifest-policy.ts`
-- `scripts/lib/types.ts`
-- `scripts/lib/importer.ts`
 - `app/shared/course-editing.ts`
 - `app/server/lib/course-editing.ts`
+- `app/server/lib/course-edit-transaction.ts`
 - `app/server/lib/course-edit-render-validation.ts`
+- `app/server/lib/course-edit-image.ts`
+- `app/server/routes/course-edits.ts`
+- `scripts/lib/course-editing/http-route-harness.ts`
+- `scripts/lib/course-editing/export-freshness.ts`
+
+### Generated ownership, inspection, and teacher workflow
+
+- `scripts/lib/course-editing/html.ts`
+- `scripts/lib/course-editing/overrides.ts`
 - `app/server/lib/preview-inspection.ts`
-- `app/studio/src/lib/types.ts`
+- `app/server/preview-bridge-runtime.ts`
+- `app/studio/src/components/CourseEditPanel.tsx`
+- `app/studio/src/hooks/useCourseEditing.ts`
+- `app/studio/src/lib/course-edit-storage.ts`
 
-### Studio discovery and catalog visibility
+### Course lifecycle, catalog acceptance, and CI
 
-- `scripts/lib/projects.ts`
-- `app/studio/src/lib/project-display.ts`
-- `app/shared/project-discovery.ts`
-- `app/server/studio-server.ts`
-- `app/studio/src/hooks/useProjects.ts`
-- `scripts/tests/studio-project-continuity.test.ts`
+- `scripts/lib/course-authoring/context.ts`
+- `scripts/lib/course-onboarding.ts`
+- `scripts/lib/codex-course.ts`
+- `scripts/lib/importer.ts`
+- `scripts/verify-course-editing-pilots.ts`
+- `scripts/verify-course-onboarding.ts`
+- `.github/workflows/studio-direct-editing.yml`
+- `scripts/tests/course-editing.test.ts`
+- `scripts/tests/course-edit-storage.test.ts`
 
-### Course contracts and generated Social workspaces
+### Audit, release, and operating documentation
 
-- 65 `projects/<slug>/meta/project.json` manifests
-- `scripts/build-social30-related-issues.ts`
-- `projects/social30-1-related-issue-2-option-2/**`
-- `projects/social30-1-related-issue-3-option-2/**`
-- `projects/social30-1-related-issue-4-option-2/**`
-
-### Documentation and release communication
-
+- `docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md`
 - `docs/audits/2026-08-13-course-catalog-onboarding.md`
+- `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
+- `docs/releases/2026-08-12-canvas-studio-direct-editing.md`
 - `docs/ops/FAST_PATHS.md`
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 - `README.md`
 - `ARCHITECTURE.md`
-- `CONTRIBUTING.md`
-- `AGENTS.md`
-- `docs/releases/2026-08-12-canvas-studio-direct-editing.md`
-- `app/studio/src/lib/studio-release-notes.ts`
 
 ## What changed
 
-- `npm run course:onboard -- --all` audits every project directory without writes.
-- Adding `--apply` writes changed manifests as one rollback-safe catalog transaction, doctors every enabled project, rolls all manifests back if any enabled course fails, then sends the fixed project-change signal to a running Studio.
-- A second audit is retain-only. Unmanifested directories that are not demonstrably package-only now fail closed instead of being mislabeled.
-- `legacy-snapshot-v1` treats the current workspace as a protected recoverable baseline. Studio stores replayable overrides in `meta/studio-edits.json`, materializes them into declared pages, validates the real learner render, and supports drift-safe Undo without running the historical replacement builder.
-- Direct projects write only declared workspace-owned canonical files. Shared code remains read-only in Studio.
-- English/Social factories keep generated workspace output protected and replay course-only overrides through staged rebuilds.
-- Imported projects now declare `imported-workspace-v1` / `direct-workspace-v1` at intake.
-- The rendered-validation navigation allowance is a bounded 30 seconds so multi-thousand-element legacy pages such as Othello can complete source decoration without weakening postconditions.
-- Studio's visual Edit map remains authoritative only for display. Every actual patch is re-resolved and learner-render validated by the server.
+- One exhaustive shared adapter predicate now recognizes Direct, English factory, Social factory, and legacy snapshot in storage, transport, server validation, and pilot code.
+- Resolve, Rename, and Apply bodies use streaming byte ceilings rather than trusting parsed JSON size after allocation.
+- Lock acquisition publishes a complete fsynced owner through an atomic no-replace hard-link claim. Stale-lock retirement is identity-bound and normal cleanup removes its tombstone.
+- Recovery compares complete before/after write-boundary fingerprints. Exact-before, exact-after, and known-partial states recover deterministically; unknown post-crash external bytes enter manual recovery and are never overwritten.
+- Apply computes expected after-fingerprints up front and rereads each Direct source immediately before atomic replacement. Rejected rendered validation restores exact bytes without leaving a journal or Undo checkpoint.
+- Generated overrides refuse ambiguous identical siblings unless the canonical builder supplies a durable `data-canvas-helper-edit-key`.
+- Image uploads use bounded full Sharp decoding, full SHA-256 names, retry-safe dual publication, and learner-browser natural-dimension checks.
+- Export evidence V2 fingerprints target identity, workspace bytes, normalized manifest, Studio metadata, package state, recursive local exporter imports including side-effect-only imports, and artifact bytes. SCORM 1.2 and SCORM 2004 remain independent.
+- Public HTTP route harnesses cover body limits and restart lifecycles. Snapshot materialization loads every declared page from its own source.
+- `.github/workflows/studio-direct-editing.yml` runs focused tests, exports, the source-locked Studio release gate, all four real pilots, and the full catalog on every PR revision and branch push, then uploads SHA-bearing reports.
 
 ## Why this changed
 
-- A blanket editable flag would have made several legacy builders capable of replacing Studio work.
-- Package output is not a canonical source, and runtime-created DOM is not automatically persistable.
-- Explicit Direct/factory/snapshot outcomes let all real source-backed courses enter the current Studio model while preserving the course that learners already see.
-- Future creation and import paths now declare ownership immediately, preventing the catalog from drifting back into inferred legacy state.
+- File-level tests alone did not prove that the teacher-visible learner result survived runtime JavaScript, rebuilds, server restarts, or Undo.
+- Process-local coordination and unconditional recovery could overwrite newer work after concurrency or a crash.
+- Inferred legacy eligibility did not establish source ownership and could run builders that replace Studio changes.
+- Audit claims must be reproducible from a clean Git checkout; local-only package directories cannot count as published catalog evidence.
 
 ## Source of truth
 
-- Complete catalog outcome and exceptions: `docs/audits/2026-08-13-course-catalog-onboarding.md`.
-- Per-course ownership: `projects/<slug>/meta/project.json`.
-- Catalog classifier/transaction: `scripts/lib/course-onboarding.ts`.
-- Doctor/readiness resolver: `scripts/lib/course-authoring/context.ts`.
-- Apply/replay/Undo authority: `app/server/lib/course-editing.ts`.
-- Filesystem transaction boundary: `app/server/lib/course-edit-transaction.ts`.
+- Apply, Rename, upload, and Undo authority: `app/server/lib/course-editing.ts`.
+- Cross-process lock and transaction recovery: `app/server/lib/course-edit-transaction.ts`.
 - Learner-render postcondition: `app/server/lib/course-edit-render-validation.ts`.
-- Visual edit boundary: `app/server/lib/preview-inspection.ts` and `app/server/preview-bridge-runtime.ts`.
-- Future Codex-course path: `scripts/lib/codex-course.ts`.
-- Future import path: `scripts/lib/importer.ts`.
+- Editability map: `app/server/lib/preview-inspection.ts` and `app/server/preview-bridge-runtime.ts`.
+- Generated identity/replay: `scripts/lib/course-editing/html.ts` and `scripts/lib/course-editing/overrides.ts`.
+- Export evidence: `scripts/lib/course-editing/export-freshness.ts`.
+- Per-course ownership: `projects/<slug>/meta/project.json`.
+- Catalog classifier and acceptance: `scripts/lib/course-onboarding.ts` and `scripts/verify-course-onboarding.ts`.
+- Re-audit entrypoint: `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`.
 
 ## Verification run
 
-- `npm run course:onboard -- --all` — retain-only audit:
-  - 28 Direct
-  - 5 English factory
-  - 4 Social factory
-  - 26 legacy snapshot
-  - 1 blocked
-  - 1 reference-only
-  - 19 package archive
-  - zero pending source-backed manifest changes
-- `npm run validate:manifests` — all 65 manifests valid.
-- `npm run verify:course-onboarding -- --all` — 63/63 passed:
-  - 49 completed apply → applicable rebuild/materialization → learner render → reload → Undo → exact fingerprint restoration
-  - 12 correctly reported no source-owned text target
-  - `aboriginal-studies-30` and `sportswellness` safely rejected sampled text because of runtime replacement or existing contrast; every trial restored exactly
-- `npm run test:course-onboarding` — 2/2 passed, including idempotence/live signal and fail-closed unmanifested source behavior.
-- `npm run test:course-editing -- --test-reporter=dot` — 28/28 passed.
-- `npm run test:authoring-context -- --test-reporter=dot` — 18/18 passed.
-- `npm run test:metadata-policy -- --test-reporter=dot` — 27/27 passed earlier in this task.
-- `npm run test:studio-inspection -- --test-reporter=dot` — 132/132 passed.
-- `npm run build:studio` — passed.
-- `npm run test:studio-release` — final source-locked pass:
-  - 132/132 focused contracts
-  - production build passed
-  - 58/58 inspection E2E scenarios passed
+- Exact source checkout at `73ef39bc2c288acf5cba4585103bcc915f332483`: `npm run test:studio-release` passed:
+  - 147/147 focused contracts
+  - production Studio build passed
+  - 58/58 complete Studio inspection E2E scenarios passed
   - platform smoke 1/1 passed
   - strict project contract 1/1 passed
-  - `.runtime/studio-release-report.json` records `ok: true`, source digest `d7f83382e2bb2019fedf76623ceeff7abaea87e689201457add0005c62b6646e`, 524 fingerprinted files, and `sourceChangedDuringRun: false`
-- `npm run typecheck -- --pretty false` — no diagnostics in onboarding or Direct Editing files; established unrelated errors remain in legacy ELA, Forensics, Social 20, and English factory resource/render code.
-- `git diff --check` — passed; only existing CRLF conversion warnings were printed.
-- Residue audit — no active `.runtime/studio-edit-transactions/**`, lock owner, or latest Undo checkpoint remains.
+  - report `ok: true`, `sourceChangedDuringRun: false`, 523 fingerprinted source files, digest `5e8e06cc12fe77cd70b6aa59c880e90eadd4455fbe4619d2d44169b9cb70e6ec`
+- `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed after the final exporter dependency and stale-lock cleanup changes.
+- Clean implementation checkout at `4e5f8c7f726aef7f8cd98d74c326d07ba06433f2`: `npm run verify:course-editing-pilots` — 4/4 passed with HTTP server restart and exact restoration.
+- Same clean checkout: `npm run verify:course-onboarding -- --all` — 63/63 passed: 50 reversible learner cycles, 12 no-source-owned-text-target outcomes, one no-learner-stable-text-target outcome, zero failures.
+- Same clean checkout: `npm run course:onboard -- --all` — 66 tracked project directories, 65 manifests, retain-only for all source-backed projects; one tracked package archive classification.
+- `npm run validate:manifests` — 65/65 valid.
+- `npm run test:authoring-context -- --test-reporter=dot` — 18/18 passed.
+- `npm run test:metadata-policy -- --test-reporter=dot` — 27/27 passed.
+- `npm run test:exports` — 55/55 passed across SCORM, Google Hosted, and Apps Script suites.
+- `npm run typecheck -- --pretty false` — still exits 2 on the same ten established unrelated diagnostics in legacy ELA, Forensics, Social 20, and English factory resource/render files; no remediation file has a diagnostic.
+- `git diff --check` — passed before each remediation commit.
+- Clean-checkout residue audit — no active transaction journal, lock owner, or latest Undo checkpoint remained after catalog verification.
 
 ## Fragile areas / watchouts
 
-- The 26 snapshot projects preserve the current workspace; they do not reconstruct missing historical factory inputs. Their documented legacy commands are quarantined from Studio. Running one manually can still replace the materialized page and should be treated as a deliberate migration operation.
-- Twelve runtime-rendered projects have zero safe source-owned text target. They are visible in Studio, but learner text correctly routes to Annotate/Codex until routine content moves back into canonical HTML or receives a supported adapter.
-- `aboriginal-studies-30` and `sportswellness` remain text-restricted by runtime ownership and existing contrast debt. Do not weaken rendered validation to make them pass.
-- `calm-module-4` stays blocked until its required `lesson-shell` deviation is resolved.
-- The 19 package archives are accounted for but not visible as editable courses because no canonical source exists.
-- Running Codex or a builder after a Studio batch invalidates Undo by design.
-- Repository-wide typecheck retains unrelated baseline diagnostics.
-- The dirty worktree contains user-owned duplicate/conflict paths and other pre-existing work. They were preserved and must not be cleaned or broadly staged without explicit authorization.
+- The lock is cooperative. Node has no portable conditional replace for the final Direct reread-to-rename interval, so manual, Git, Codex, or standalone builder writes must not run concurrently with Apply.
+- Render settlement and edited-target accessibility checks are bounded local heuristics. They do not prove delayed interaction behavior, full WCAG conformance, Brightspace behavior, or deployed-host behavior.
+- Snapshot adapters preserve the current workspace baseline; they do not reconstruct missing historical factory inputs. Never run a quarantined legacy replacement builder merely to refresh a snapshot course.
+- Twelve courses expose no routine source-owned text target. They are correctly visible but Annotation-only for that content until ownership is migrated or a dedicated adapter is added.
+- Aboriginal Studies 30 retains runtime/contrast debt for sampled text changes. Do not weaken validation to force it through.
+- `calm-module-4` remains deliberately blocked by its unresolved `lesson-shell` lifecycle deviation.
+- The single tracked package archive and the 18 local-only package directories have no proved canonical editable source.
+- Running Codex or a builder after a Studio batch intentionally invalidates Undo.
+- The dirty main checkout still contains user-owned duplicate/conflict files, local resources, and factory transaction directories. Do not clean or broadly stage them.
 
 ## Next prompt should assume
 
-- All current source-backed active courses are explicitly onboarded and visible in Studio.
-- Clicking **Edit** shows the real visual boundary: supported visible regions show their action; runtime-owned or unsupported content shows Annotation only.
-- A course created in Codex must begin with `course:create`; an imported course receives explicit Direct ownership at import.
-- Legacy snapshot Studio edits are safe because Studio never invokes their replacement builders and every apply still receives a learner-render postcondition.
-- Package-only archives need source recovery/import, not a manifest flag.
-- No catalog migration rerun is needed unless new unmanifested legacy directories are introduced.
+- Direct Editing is implemented and locally release-verified for all four supported adapters, but PR #1 is still a draft pending exact-head CI and independent re-audit.
+- Every source-backed active project in the clean GitHub catalog is explicitly onboarded; this does not mean every rendered DOM node is inline-editable.
+- Edit mode is the honest visual answer: supported source-owned nodes show an edit action, while runtime-owned or unsupported nodes show Annotation only.
+- Net-new Codex courses must use `npm run course:create`; imported courses receive explicit Direct ownership during import.
+- The clean GitHub catalog count is 66 directories / 65 manifests / 63 enabled projects, not the superseded dirty-checkout count of 84.
 
 ## What still needs validation
 
-- No repository validation remains for the catalog onboarding itself.
-- Brightspace upload, SCORM/browser persistence, and deployed-host acceptance remain per-export external checks.
-- Recovering canonical sources for any of the 19 package archives is separate course-recovery work.
-- Making the 12 runtime-only courses broadly inline-editable requires moving routine content into source-owned HTML or adding a dedicated runtime adapter.
-- Repairing Aboriginal Studies/Sports Wellness contrast/runtime ownership and the CALM Module 4 deviation are explicit follow-up tasks, not rollout blockers for the rest of the catalog.
+- Push the local remediation and handoff commits, then require the exact-head GitHub Actions workflow to pass and retain its three SHA-bearing reports.
+- Give PR #1 and `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md` to the independent auditor for a fresh verdict.
+- Brightspace upload, deployed-host acceptance, and cross-browser SCORM save/restore remain external per-export checks.
+- Broad inline editing for runtime-owned courses, Aboriginal Studies runtime/contrast repair, CALM Module 4 lifecycle repair, and recovery/import of package-only sources remain separate follow-up work.
 
 ## Known risks
 
-- An operator can still bypass the documented creation/import/onboarding commands through arbitrary filesystem edits; the next doctor/onboarding audit will fail or expose that drift.
-- A historical builder run outside Studio can replace a snapshot workspace. Studio will refuse stale Undo afterward, but it cannot prevent an explicitly launched external command.
-- A package archive may be learner-usable as a release while still being non-authorable; do not equate those states.
-- Existing exports may be stale after future course edits and must be republished from their owning export target.
+- A non-cooperating external writer can bypass the lock protocol; operating guidance is required until platform-specific conditional replacement exists.
+- An operator can bypass `course:create`, import, or onboarding through arbitrary filesystem edits; the next doctor/onboarding run must catch that drift.
+- A historical builder launched outside Studio can replace a snapshot workspace. Studio will refuse stale Undo afterward, but cannot prevent an explicitly invoked external command.
+- A release package may still be learner-usable while lacking an authorable source; do not equate package validity with Studio editability.
 
 ## Exact next command
 
-`npm run test:studio-release`
+`gh pr checks 1 --watch`
 
 ## Exact next file to open
 
@@ -189,8 +170,8 @@
 
 ## Do not do next / warnings
 
-- Do not run quarantined legacy rebuild commands merely to “refresh” snapshot courses.
-- Do not create manifests for package-only directories until a canonical source is recovered or intentionally imported.
-- Do not mark runtime-owned DOM editable by relaxing source signatures, visibility, contrast, or learner-render checks.
+- Do not merge PR #1 before exact-head CI and the independent re-audit.
+- Do not weaken source mapping, rendered-result, contrast, or accessibility checks to increase the editable count.
+- Do not run quarantined legacy rebuild commands on snapshot courses.
 - Do not use Undo after Codex, a builder, or another tool changes that course.
-- Do not delete or normalize the user's duplicate/conflict files or unrelated dirty worktree.
+- Do not delete, normalize, or broadly stage the user's unrelated local files.

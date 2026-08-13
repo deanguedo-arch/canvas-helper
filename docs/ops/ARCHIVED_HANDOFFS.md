@@ -8366,3 +8366,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `scripts/lib/codex-course.ts`, `scripts/create-codex-course.ts`, `docs/workflows/codex-studio-course.md`, and `app/shared/project-discovery.ts`.
 - Preserved boundary: `course:create` refuses overwrite, creates Direct canonical HTML/CSS plus a raw baseline, and signals a running Studio; imported and factory courses retained their owning workflows.
 - Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-13: all-course catalog onboarding
+
+- Project: `repo-wide`.
+- Task: Bring every source-backed course into an explicit Studio authoring contract without running unsafe legacy replacement builders.
+- Status: implementation complete on `codex/studio-direct-editing-v1`; superseded by the independent Direct Editing remediation handoff.
+- Verification at archival time: 63 enabled projects passed the catalog lifecycle, onboarding was retain-only, 65 manifests were valid, focused Studio contracts and the release gate passed, and temporary edits were restored. The archived handoff's 84-directory/19-archive count came from the locally dirty checkout; clean Git evidence later corrected this to 66 tracked directories and one tracked package archive without changing the 63 enabled projects.
+- Source of truth: `scripts/lib/course-onboarding.ts`, `scripts/lib/course-authoring/context.ts`, `projects/<slug>/meta/project.json`, and `docs/audits/2026-08-13-course-catalog-onboarding.md`.
+- Preserved boundary: snapshot courses kept their current workspace as the protected baseline, package output was not promoted to source, and user-owned local duplicate/archive material remained unstaged.
+- Implementation commit: `1b221ee9ad9594a7166572494448e1db32f6e0e1`.
+- Next command at archival time: `npm run test:studio-release`.
