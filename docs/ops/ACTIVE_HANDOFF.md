@@ -12,7 +12,7 @@
 - Remediation implementation commits: `99b8f3bbafc2cb4b546f8115d95ab8207a78b33b`, `4e5f8c7f726aef7f8cd98d74c326d07ba06433f2`, `73ef39bc2c288acf5cba4585103bcc915f332483`, `bd67e342589007ef275001a9e04038fad670d41c`, and `ef30b252dab156804bede46546c9986c92483398`
 - Audit packet: `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
 - Independent finding record: `docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md`
-- The PR must remain draft until the exact-head GitHub workflow is green and an independent re-audit accepts the boundary. Do not merge based only on local implementation evidence.
+- Exact branch-head run `31738351202` and PR-merge run `31738355469` passed the complete GitHub release gate for implementation head `bb0449f4fac8c0e0c40dcc1287f04e3ad545575a`. The PR remains draft until an independent re-audit accepts the boundary.
 
 ## Summary
 
@@ -26,6 +26,7 @@
 - Real Direct, English, Social, and snapshot pilots passed together through HTTP Apply, rebuild/materialization, learner render, reload, server restart, route-level Undo, and byte-for-byte restoration.
 - The first exact-head PR workflow exposed a clean-Linux-only live-discovery defect: the first `course:create` signal was watched before its parent directory existed. Studio now creates that exact operational directory before subscribing, and the formerly failing clean-checkout browser scenario passes.
 - The second exact-head workflow passed the release gate and all four real pilots, then exposed two catalog-environment mismatches: Macbeth's declared factory needs Poppler/Tesseract OCR, and a later verifier sample exceeded the browser's shared 320-character text bound. CI now installs the OCR runtime and the verifier mirrors the browser bound; Macbeth passes its route-level lifecycle locally.
+- The replacement workflows passed completely. Exact-head evidence records 149/149 focused contracts, 58/58 inspection E2E, smoke 1/1, strict project contract 1/1, 4/4 real adapter pilots, 63/63 catalog entries, and `sourceChangedDuringRun: false`. The PR merge integration run passed the same gates against GitHub's synthetic merge commit.
 - No tracked learner course content remains changed from verification. The user's unrelated local duplicate, archive, resource, and transaction paths remain untouched and unstaged.
 
 ## Files changed
@@ -135,6 +136,8 @@
 - `npm run typecheck -- --pretty false` — still exits 2 on the same ten established unrelated diagnostics in legacy ELA, Forensics, Social 20, and English factory resource/render files; no remediation file has a diagnostic.
 - `git diff --check` — passed before each remediation commit.
 - Clean-checkout residue audit — no active transaction journal, lock owner, or latest Undo checkpoint remained after catalog verification.
+- GitHub exact-head run `31738351202` at `bb0449f4fac8c0e0c40dcc1287f04e3ad545575a` — passed; archived reports record 149 focused tests, 58 inspection E2E tests, 4/4 pilots, 63/63 catalog acceptance, and no source drift.
+- GitHub PR-merge run `31738355469` — passed the same complete gate against GitHub's synthetic merge commit.
 
 ## Fragile areas / watchouts
 
@@ -150,7 +153,7 @@
 
 ## Next prompt should assume
 
-- Direct Editing is implemented and locally release-verified for all four supported adapters, but PR #1 is still a draft pending exact-head CI and independent re-audit.
+- Direct Editing is implemented and release-verified for all four supported adapters. PR #1 is still a draft pending independent re-audit, not pending implementation or CI remediation.
 - Every source-backed active project in the clean GitHub catalog is explicitly onboarded; this does not mean every rendered DOM node is inline-editable.
 - Edit mode is the honest visual answer: supported source-owned nodes show an edit action, while runtime-owned or unsupported nodes show Annotation only.
 - Net-new Codex courses must use `npm run course:create`; imported courses receive explicit Direct ownership during import.
@@ -158,7 +161,6 @@
 
 ## What still needs validation
 
-- Push the catalog-runtime fix and updated evidence, then require the replacement exact-head GitHub Actions workflow to pass and retain its three SHA-bearing reports.
 - Give PR #1 and `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md` to the independent auditor for a fresh verdict.
 - Brightspace upload, deployed-host acceptance, and cross-browser SCORM save/restore remain external per-export checks.
 - Broad inline editing for runtime-owned courses, Aboriginal Studies runtime/contrast repair, CALM Module 4 lifecycle repair, and recovery/import of package-only sources remain separate follow-up work.
@@ -172,7 +174,7 @@
 
 ## Exact next command
 
-`gh pr checks 1 --watch`
+`gh pr checks 1`
 
 ## Exact next file to open
 
@@ -180,7 +182,7 @@
 
 ## Do not do next / warnings
 
-- Do not merge PR #1 before exact-head CI and the independent re-audit.
+- Do not merge PR #1 before the independent re-audit.
 - Do not weaken source mapping, rendered-result, contrast, or accessibility checks to increase the editable count.
 - Do not run quarantined legacy rebuild commands on snapshot courses.
 - Do not use Undo after Codex, a builder, or another tool changes that course.

@@ -43,8 +43,10 @@ The requested changes are implemented on the current branch:
 
 Current focused evidence from the remediation checkout:
 
-- The first exact-head PR run (`31733602382`) passed focused Direct Editing and export tests, then exposed a clean-Linux first-course discovery defect in one of 58 browser scenarios. Commit `bd67e342` creates the exact signal parent before subscribing; the formerly failing clean-checkout scenario then passed 1/1. Require the replacement run to be green rather than disregarding the original failure.
-- The second exact-head PR run (`31735152410`) passed focused editing, export evidence, the complete Studio release gate, and all four real adapter pilots. Its catalog step found that Macbeth's declared rebuild requires Poppler/Tesseract OCR, which the runner lacked, and that a later fallback candidate exceeded the browser's 320-character visible-text contract. Commit `ef30b252` installs the declared OCR runtime in CI and makes the verifier use the same shared browser bound. Macbeth then passed its real public-route lifecycle 1/1 locally. Require the next exact-head run to pass all 63 courses.
+- The first exact-head PR run (`31733602382`) passed focused Direct Editing and export tests, then exposed a clean-Linux first-course discovery defect in one of 58 browser scenarios. Commit `bd67e342` creates the exact signal parent before subscribing; the formerly failing clean-checkout scenario then passed 1/1. The failure was retained in the evidence trail and required a replacement run.
+- The second exact-head PR run (`31735152410`) passed focused editing, export evidence, the complete Studio release gate, and all four real adapter pilots. Its catalog step found that Macbeth's declared rebuild requires Poppler/Tesseract OCR, which the runner lacked, and that a later fallback candidate exceeded the browser's 320-character visible-text contract. Commit `ef30b252` installs the declared OCR runtime in CI and makes the verifier use the same shared browser bound. Macbeth then passed its real public-route lifecycle 1/1 locally before the complete replacement run below.
+- The replacement [exact branch-head run `31738351202`](https://github.com/deanguedo-arch/canvas-helper/actions/runs/31738351202) passed every gate at `bb0449f4fac8c0e0c40dcc1287f04e3ad545575a`: 149/149 focused contracts, 58/58 inspection E2E, smoke 1/1, strict project contract 1/1, 4/4 real adapter pilots, and 63/63 catalog entries. Its archived release report records `sourceChangedDuringRun: false`; catalog outcomes are 50 reversible passes, 12 `no-source-owned-text-target`, one safely restored `no-learner-stable-text-target`, and zero failures.
+- The [PR-merge integration run `31738355469`](https://github.com/deanguedo-arch/canvas-helper/actions/runs/31738355469) passed the same complete gate against GitHub's synthetic merge commit.
 - `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed.
 - `npm run test:studio-inspection -- --test-reporter=dot` — 149/149 passed after the clean-checkout watcher and catalog-bound regressions were added.
 - The formerly failing clean-checkout E2E, `a Codex-created course appears live with its visual Edit map ready`, passed 1/1 after deleting the operational signal directory before server startup.
@@ -53,7 +55,7 @@ Current focused evidence from the remediation checkout:
 - `npm run test:exports` — 55/55 SCORM, Google Hosted, and Apps Script tests passed before documentation-only follow-up.
 - `npm run typecheck -- --pretty false` — the same ten established unrelated diagnostics remain; no diagnostic is in the remediation files.
 
-The exact-head GitHub Actions run is the authoritative publication check and must be green on the current PR revision. The PR remains a draft and should not be merged merely because the implementation and local evidence exist; an independent re-audit still decides rollout readiness.
+The exact-head and PR-merge GitHub Actions runs are green. The PR remains a draft because an independent re-audit still decides rollout readiness.
 
 Focused comparison: [roadmap base → Direct Editing head](https://github.com/deanguedo-arch/canvas-helper/compare/codex/studio-roadmap-phases...codex/studio-direct-editing-v1)
 
@@ -198,16 +200,17 @@ All links below follow the current PR branch so the auditor sees the independent
 | `npm run verify:course-onboarding -- --all` | Clean checkout at `4e5f8c7f`: 63/63 enabled projects passed; 50 reversible learner-render cycles, 12 honest no-source-target outcomes, and one safely restored no-learner-stable-target outcome. |
 | `npm run course:onboard -- --all` | Clean tracked checkout: 66 directories, 65 manifests; 28 Direct, 5 English, 4 Social, 26 snapshot, 1 blocked, 1 reference-only, and 1 archive. |
 | `npm run validate:manifests` | 65/65 manifests passed, including a fresh pre-commit run. |
-| `npm run test:course-onboarding` | 2/2 passed, including idempotence and fail-closed unmanifested-source behavior. |
+| `npm run test:course-onboarding` | 3/3 passed, including idempotence, fail-closed unmanifested-source behavior, and bounded catalog pilot text. |
 | `npm run test:course-editing -- --test-reporter=dot` | 43/43 passed on the remediation implementation; the exact-head workflow repeats it. |
 | `npm run test:authoring-context -- --test-reporter=dot` | 18/18 passed. |
 | `npm run test:metadata-policy -- --test-reporter=dot` | 27/27 passed. |
-| `npm run test:studio-inspection -- --test-reporter=dot` | 146/146 passed on the remediation implementation; the exact-head workflow repeats it. |
+| `npm run test:studio-inspection -- --test-reporter=dot` | 149/149 passed on the remediation implementation and in the exact-head workflow. |
 | `npm run build:studio` | Passed on the remediation implementation; the exact-head workflow repeats it. |
-| `npm run test:studio-release` | Required locally before push and again by `.github/workflows/studio-direct-editing.yml`; use the current PR check and uploaded source-locked report as the exact-head result. |
+| Exact-head GitHub run `31738351202` | Passed at `bb0449f4`: release report `ok: true`, `sourceChangedDuringRun: false`; 149 focused, 58 inspection E2E, smoke 1, strict project 1, 4 pilots, and 63 catalog entries all passed. |
+| PR-merge GitHub run `31738355469` | Passed the same full workflow against GitHub's synthetic merge commit. |
 | `git diff --check` | Passed before each remediation commit. |
 
-Do not reuse the older release-report digest from the pre-remediation branch. The workflow uploads `.runtime/studio-release-report.json`, `.runtime/course-editing-pilots.json`, and `.runtime/course-onboarding-verification.json`; confirm that all three record the current GitHub SHA.
+Do not reuse the older release-report digest from the pre-remediation branch. The workflow uploads `.runtime/studio-release-report.json`, `.runtime/course-editing-pilots.json`, and `.runtime/course-onboarding-verification.json`. Use the push-run artifact for exact branch-head identity; a `pull_request` artifact correctly records GitHub's synthetic merge SHA rather than the branch-head SHA.
 
 Repository-wide `npm run typecheck -- --pretty false` is not green. It exits 2 on established unrelated diagnostics in legacy ELA builders, a Forensics static builder, Social 20, and English factory render/resource code. No diagnostic was recorded in the new Direct Editing or onboarding files. The auditor should confirm this baseline distinction rather than reporting typecheck as fully passed.
 
