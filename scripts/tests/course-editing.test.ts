@@ -519,6 +519,32 @@ test("rendered-result validation rolls back an edit that course JavaScript repla
   }
 });
 
+test("a rendered safety rejection restores exact bytes and leaves no transaction residue", async () => {
+  const fixture = await createFixture();
+  const journalPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-transactions", SLUG, "active.json");
+  const latestPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-checkpoints", SLUG, "latest.json");
+  try {
+    const lowContrast = ORIGINAL_HTML.replace("<head>", "<head><style>h1{color:#fff;background:#fff}</style>");
+    await writeFile(fixture.sourcePath, lowContrast, "utf8");
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const draft = draftFor(target, "Rejected contrast request");
+    draft.patch = { html: "Rejected contrast request" };
+    await assert.rejects(
+      applyCourseEditBatch({
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draft]
+      }, fixture.repoRoot),
+      /contrast/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), lowContrast);
+    await assert.rejects(access(journalPath), { code: "ENOENT" });
+    await assert.rejects(access(latestPath), { code: "ENOENT" });
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("Undo refuses after a newer filesystem change and preserves that work", async () => {
   const fixture = await createFixture();
   try {

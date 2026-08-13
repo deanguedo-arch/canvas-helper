@@ -1403,7 +1403,9 @@ export async function recoverInterruptedCourseEdit(projectSlug: string, repoRoot
     await restoreSnapshotFiles(repoRoot, recovery.files);
   }
   await restorePriorUndoCheckpoint(recovery, repoRoot);
-  await runValidation(projectSlug, repoRoot);
+  if (!courseEditFingerprintsMatch(expectedBefore, await fingerprintCheckpointBoundary(recovery, repoRoot))) {
+    throw new Error("Studio recovery did not restore the recorded pre-transaction boundary.");
+  }
   await finishRolledBackTransaction(rollingBack, recovery, repoRoot);
 }
 
@@ -1602,7 +1604,6 @@ export async function applyCourseEditBatch(
         if (!courseEditFingerprintsMatch(checkpoint.expectedBefore, await fingerprintCheckpointBoundary(checkpoint, repoRoot))) {
           throw new Error("Studio rollback did not restore the recorded pre-edit boundary.");
         }
-        await validateRenderedCourseEdits({ repoRoot, projectSlug: request.projectSlug, checks: checkpoint.renderBefore });
       }
       await finishRolledBackTransaction(journal, checkpoint, repoRoot);
       throw error;
@@ -1744,7 +1745,6 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
         if (!courseEditFingerprintsMatch(recovery.expectedBefore, await fingerprintCheckpointBoundary(recovery, repoRoot))) {
           throw new Error("Studio Undo recovery did not restore the recorded applied boundary.");
         }
-        await validateRenderedCourseEdits({ repoRoot, projectSlug, checks: recovery.renderBefore });
       }
       await finishRolledBackTransaction(journal, recovery, repoRoot);
       throw error;
@@ -2004,7 +2004,6 @@ export async function renameCourseForStudio(input: {
         if (!courseEditFingerprintsMatch(checkpoint.expectedBefore, await fingerprintCheckpointBoundary(checkpoint, repoRoot))) {
           throw new Error("Studio rename rollback did not restore the recorded pre-rename boundary.");
         }
-        await validateRenderedCourseEdits({ repoRoot, projectSlug: input.projectSlug, checks: checkpoint.renderBefore });
       }
       await finishRolledBackTransaction(journal, checkpoint, repoRoot);
       throw error;
