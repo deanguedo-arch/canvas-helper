@@ -362,12 +362,16 @@ async function acquireLock(
       // claims retirement of this exact lock inode before its live name is
       // removed.
       const tombstone = retiredLockPath(repoRoot, projectSlug, "stale", current.lockId);
+      let claimedRetirement = false;
       try {
         await link(directory, tombstone);
+        claimedRetirement = true;
         await rm(directory, { force: true });
         await syncDirectory(parent);
       } catch (error) {
         if (!["ENOENT", "EEXIST"].includes((error as NodeJS.ErrnoException).code ?? "")) throw error;
+      } finally {
+        if (claimedRetirement) await rm(tombstone, { force: true });
       }
     } finally {
       await rm(candidate, { force: true });

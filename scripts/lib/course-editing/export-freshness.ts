@@ -114,6 +114,7 @@ async function collectExporterImplementationFiles(repoRoot: string, target: Cour
     const source = await readFile(filePath, "utf8");
     const specifiers = [
       ...source.matchAll(/\bfrom\s*["']([^"']+)["']/g),
+      ...source.matchAll(/\bimport\s*["']([^"']+)["']/g),
       ...source.matchAll(/\bimport\s*\(\s*["']([^"']+)["']\s*\)/g)
     ].map((match) => match[1]).filter((value) => value.startsWith("."));
     for (const specifier of specifiers) pending.push(await existingLocalModulePath(repoRoot, filePath, specifier));

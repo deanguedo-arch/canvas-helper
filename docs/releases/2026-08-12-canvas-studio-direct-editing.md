@@ -18,7 +18,7 @@ Eligible courses can now collect, review, apply, and undo routine teacher change
 - **Trust export status:** Freshness is tied to the target-specific manifest/metadata/workspace/exporter input graph and actual artifact bytes, with separate SCORM 1.2 and SCORM 2004 evidence.
 - **Keep ownership clear:** Every edit is course-only; unsupported or unmapped content stays annotation-only, and existing exports are marked out of date until republished.
 - **Start new Codex courses ready:** `npm run course:create` creates a validated Direct project that appears in an already-open Studio with its visual Edit map enabled.
-- **Bring the source-backed catalog forward:** transactional onboarding classified all 84 project directories; 63 active source-backed projects are explicitly Studio-enabled, one remains blocked, one remains reference-only, and 19 package-only archives are accounted for without treating exports as source.
+- **Bring the source-backed catalog forward:** transactional onboarding classified all 66 project directories in a clean GitHub checkout; 63 active source-backed projects are explicitly Studio-enabled, one remains blocked, one remains reference-only, and one tracked package-only archive is accounted for without treating exports as source. Eighteen local-only package directories found during the first working-copy inventory are explicitly excluded from GitHub evidence.
 - **Keep Studio responsive across the repository:** Course-page discovery starts from declared entrypoints, ignores duplicate copied resource trees, and uses a bounded fallback scan so one accidental archive cannot freeze the picker.
 
 ## Safety boundary
@@ -27,7 +27,7 @@ Edit mode is enabled only when `course:doctor` passes and the manifest explicitl
 
 The reversible acceptance command `npm run verify:course-editing-pilots` covers one real Direct course, one real English factory course, one real Social factory course, and one real preserved legacy snapshot. Each temporary edit must survive its applicable rebuild or materialization, learner render, reload, and HTTP server restart before route-level Undo restores the complete boundary byte-for-byte.
 
-The catalog acceptance command `npm run verify:course-onboarding -- --all` passed 63/63 explicitly enabled projects. Forty-nine completed a reversible rendered text pilot; twelve correctly exposed no source-owned text target; Aboriginal Studies 30 and Sports Wellness safely rejected sampled changes because of runtime ownership or existing contrast and restored their files exactly. See `docs/audits/2026-08-13-course-catalog-onboarding.md` for the complete outcome.
+The catalog acceptance command `npm run verify:course-onboarding -- --all` passed 63/63 explicitly enabled projects. Fifty completed a reversible rendered text pilot; twelve correctly exposed no source-owned text target; Aboriginal Studies 30 exposed no learner-stable sampled text target after six safely restored runtime/contrast rejections. See `docs/audits/2026-08-13-course-catalog-onboarding.md` for the complete outcome.
 
 New JavaScript activities, assessment logic, navigation redesigns, arbitrary HTML/CSS, complex section moves, family-wide changes, and publishing remain Codex or explicit export workflows. Annotate and Review Set remain available as a separate workflow for those changes.
 

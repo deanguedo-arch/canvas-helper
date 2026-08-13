@@ -2,7 +2,7 @@
 
 ## Outcome
 
-The repository catalog is now explicit instead of inferred. All 84 project directories have a recorded outcome, and every source-backed active course uses a declared Studio authoring contract.
+The GitHub-tracked repository catalog is now explicit instead of inferred. All 66 project directories present in a clean checkout have a recorded outcome, and every source-backed active course uses a declared Studio authoring contract.
 
 | Outcome | Count | Meaning |
 | --- | ---: | --- |
@@ -12,9 +12,9 @@ The repository catalog is now explicit instead of inferred. All 84 project direc
 | Preserved legacy snapshot | 26 | The current workspace is the protected baseline; Studio persists replayable course overrides and never invokes the quarantined legacy replacement builder. |
 | Blocked | 1 | Source ownership is explicit, but lifecycle policy still disables Studio writes. |
 | Reference-only | 1 | Test/reference material remains intentionally non-authorable. |
-| Package archive | 19 | Only a release package, export, DOCX, or audit artifact exists; no editable source was invented. |
+| Package archive | 1 | Only a release package or audit artifact exists; no editable source was invented. |
 
-That is 65 explicit manifests, of which 63 active or ready-for-export projects pass `course:doctor` with Studio editing enabled. The remaining manifest projects are `calm-module-4` (blocked because its required `lesson-shell` deviation is unresolved) and `e2e-studio-secondary` (reference-only test data).
+That is 65 explicit manifests, of which 63 active or ready-for-export projects pass `course:doctor` with Studio editing enabled. The remaining manifest projects are `calm-module-4` (blocked because its required `lesson-shell` deviation is unresolved) and `e2e-studio-secondary` (reference-only test data). The sixty-sixth tracked directory, `social30-1-audit-zips`, is the package archive.
 
 ## What was changed
 
@@ -31,7 +31,7 @@ No existing raw import or export package was edited. Catalog verification made o
 
 `npm run verify:course-onboarding -- --all` passed 63/63 enabled projects:
 
-- 49 projects completed apply → applicable rebuild → isolated learner render → reload → Undo, with exact pre/post write-boundary fingerprints.
+- 50 projects completed apply → applicable rebuild → isolated learner render → reload → Undo, with exact pre/post write-boundary fingerprints.
 - 12 runtime-rendered projects correctly exposed no source-owned text target. Studio shows zero editable text regions and routes their learner content to Annotate/Codex:
   - `ai-course-building-resources`
   - `calm-life-adventure`
@@ -45,13 +45,22 @@ No existing raw import or export package was edited. Catalog verification made o
   - `general-psychology-20-independent-studies-202633108`
   - `next-step-redesigned-unit-docs`
   - `next-step-redesigned-unit-docs-original-format-source`
-- `aboriginal-studies-30` and `sportswellness` have mapped source elements, but the sampled text changes were rejected because course JavaScript replaced a target or the existing rendered text failed contrast requirements. Each rejection restored the course exactly. Keep routine text changes for those two in Annotate/Codex until their runtime/contrast debt is repaired; other mapped operations remain server-validated per patch.
+- `aboriginal-studies-30` has mapped source elements, but all six sampled text changes were rejected because course JavaScript replaced a target or the existing rendered text failed contrast requirements. Every rejection restored the course exactly, so the verifier reports `no-learner-stable-text-target` and routine text changes remain in Annotate/Codex until that runtime/contrast debt is repaired.
+- `sportswellness` now completes the reversible lifecycle after the verifier continues past rejected candidates to a learner-stable source-owned target. Its earlier safe-rejection result described the sampled target, not the course's overall editability.
 
 The map is intentionally honest: being visible in Studio does not make every DOM node editable. Edit mode outlines source-owned supported regions, shows runtime-owned/unsupported regions as Annotation only, and the server still validates the actual requested learner result before committing.
 
-## Package-only archives
+## Tracked package-only archive
 
-The following directories are catalogued as `package-archive`, not fabricated as editable courses:
+The clean GitHub checkout contains one directory catalogued as `package-archive`, not fabricated as an editable course:
+
+- `social30-1-audit-zips`
+
+Making it editable requires recovering or intentionally importing a canonical source; copying package output into a fake source would weaken rather than complete the migration.
+
+## Local-only archives excluded from GitHub evidence
+
+The first local inventory reported 84 directories and 19 package archives because the working checkout also contained 18 ignored or untracked package/export directories. They are not present in a clean Git checkout and are therefore not counted as repository-onboarded or used as evidence for PR #1:
 
 - `ela10-1-film-study`
 - `ela10-1-modern-play-fences`
@@ -71,9 +80,8 @@ The following directories are catalogued as `package-archive`, not fabricated as
 - `learning-strategies-15-docx-export`
 - `learning-strategies-25-docx-export`
 - `next-step-course-launch`
-- `social30-1-audit-zips`
 
-These entries are already accounted for by `course:list -- --all`. Making one editable requires recovering or intentionally importing a canonical source; copying package output into a fake source would weaken rather than complete the migration.
+If those local artifacts are later imported as canonical projects, onboarding must classify and validate them in a separate tracked change.
 
 ## Commands
 

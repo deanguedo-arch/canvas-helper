@@ -14,6 +14,8 @@ Implementation commits:
 
 - [`ff4d60a1` — add safe Direct Editing](https://github.com/deanguedo-arch/canvas-helper/commit/ff4d60a12df8deee5d11fd69424b60fb994eeda4)
 - [`1b221ee9` — harden editing and onboard the course catalog](https://github.com/deanguedo-arch/canvas-helper/commit/1b221ee9ad9594a7166572494448e1db32f6e0e1)
+- [`99b8f3bb` — close independent Direct Editing audit gaps](https://github.com/deanguedo-arch/canvas-helper/commit/99b8f3bbafc2cb4b546f8115d95ab8207a78b33b)
+- [`4e5f8c7f` — make rejected-edit rollback complete and residue-free](https://github.com/deanguedo-arch/canvas-helper/commit/4e5f8c7f726aef7f8cd98d74c326d07ba06433f2)
 
 ## August 13 independent follow-up and remediation
 
@@ -38,12 +40,13 @@ The requested changes are implemented on the current branch:
 
 Current focused evidence from the remediation checkout:
 
-- `npm run test:course-editing -- --test-reporter=dot` — 42/42 passed.
-- `npm run verify:course-editing-pilots` — Direct, English, and Social passed together with HTTP restart and exact restoration; the added real snapshot pilot passed separately under the same lifecycle. The final gate reruns all four together.
+- `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed.
+- `npm run verify:course-editing-pilots` — 4/4 passed together: real Direct, English, Social, and snapshot courses each completed route-level Apply, applicable rebuild/materialization, learner render, reload, HTTP server restart, Undo, and byte-for-byte restoration.
+- `npm run verify:course-onboarding -- --all` — 63/63 enabled projects passed in a clean checkout at `4e5f8c7f`; outcomes were 50 reversible learner-render cycles, 12 honest no-source-owned-text-target results, and one safely restored no-learner-stable-text-target result.
 - `npm run test:exports` — 55/55 SCORM, Google Hosted, and Apps Script tests passed before documentation-only follow-up.
 - `npm run typecheck -- --pretty false` — the same ten established unrelated diagnostics remain; no diagnostic is in the remediation files.
 
-The exact-head full catalog, Studio release gate, push, and GitHub Actions result must be recorded in the final handoff before this PR is reconsidered. The PR remains a draft and should not be merged merely because the implementation exists.
+The exact-head GitHub Actions run is the authoritative publication check and must be green on the current PR revision. The PR remains a draft and should not be merged merely because the implementation and local evidence exist; an independent re-audit still decides rollout readiness.
 
 Focused comparison: [roadmap base → Direct Editing head](https://github.com/deanguedo-arch/canvas-helper/compare/codex/studio-roadmap-phases...codex/studio-direct-editing-v1)
 
@@ -68,7 +71,7 @@ Do not treat this document, test names, package scripts, or green static validat
 
 ## Scope and branch topology
 
-PR #1 deliberately targets `codex/studio-roadmap-phases`, the branch from which Direct Editing was developed. That keeps the review to two implementation commits: 441 changed files, 26,046 additions, and 1,075 deletions at the time the implementation commit was pushed.
+PR #1 deliberately targets `codex/studio-roadmap-phases`, the branch from which Direct Editing was developed. Review the current focused comparison in GitHub rather than reusing an earlier file/addition count; the independent-remediation commits extend the original two-commit implementation.
 
 The earlier Studio roadmap is upstream context, not hidden work in this PR. It contains the course-first shell, Focus/Split review, Annotate, Review Sets, Full Preview continuity, stale-target recovery, preview recovery, accessibility/performance work, maintainability gates, and compact Codex verification loop. Read the [current-state roadmap audit](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-roadmap-phases/docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md) and [August 11 release note](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-roadmap-phases/docs/releases/2026-08-11-canvas-studio.md) when auditing the complete product rather than only Direct Editing.
 
@@ -109,7 +112,7 @@ The first Direct Editing commit added draft/apply/Undo support for explicitly su
 - Workspace and artifact bytes independently establish Brightspace, HTML, Google Hosted, Apps Script, SCORM 1.2, and SCORM 2004 freshness.
 - Real Direct, English factory, and Social factory pilots survived applicable rebuild/reload and restored byte-for-byte with Undo.
 
-The complete finding-by-finding record is [Studio Direct Editing rollout hardening](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md).
+The complete finding-by-finding record is [Studio Direct Editing rollout hardening](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md).
 
 ### August 13 — explicit catalog onboarding and future-course path
 
@@ -123,9 +126,9 @@ The catalog was classified explicitly instead of making every legacy directory e
 | Preserved legacy snapshot | 26 | Current workspace is protected; historical replacement builders are quarantined from Studio. |
 | Blocked | 1 | `calm-module-4` retains an unresolved required lifecycle deviation. |
 | Reference-only | 1 | `e2e-studio-secondary` remains test/reference material. |
-| Package archive | 19 | No editable source was invented from package output. |
+| Package archive | 1 | No editable source was invented from package output. |
 
-All 84 project directories now have an outcome. There are 65 explicit manifests and 63 active or ready source-backed projects with Studio editing enabled.
+All 66 project directories in a clean GitHub checkout now have an outcome. There are 65 explicit manifests and 63 active or ready source-backed projects with Studio editing enabled. The earlier 84-directory figure included 18 ignored or untracked local package directories and is superseded for GitHub audit purposes.
 
 Other catalog work:
 
@@ -138,66 +141,66 @@ Other catalog work:
 - Made imported projects declare Direct ownership at intake.
 - Added explicit Git binary handling so PDF, Office, image, audio, video, and ZIP course assets are preserved byte-for-byte.
 
-The full classification, runtime-only list, exceptions, and package archives are in [Course catalog Studio onboarding](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/docs/audits/2026-08-13-course-catalog-onboarding.md).
+The full classification, runtime-only list, exceptions, and package archives are in [Course catalog Studio onboarding](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-13-course-catalog-onboarding.md).
 
 ## What “every course” means now
 
 Every source-backed active course is explicitly brought into the current Studio contract, but that does not mean every rendered DOM node is inline-editable.
 
-- Forty-nine projects completed a reversible rendered text lifecycle.
+- Fifty projects completed a reversible rendered text lifecycle.
 - Twelve runtime-rendered projects correctly expose no safe source-owned text target. Their learner content routes to Annotation/Codex until ownership moves into canonical HTML or gains a dedicated adapter.
-- Aboriginal Studies 30 and Sports Wellness have mappings, but sampled text edits were safely rejected because runtime replacement or existing contrast prevented the requested learner result.
+- Aboriginal Studies 30 has mappings, but all six sampled text edits were safely rejected because runtime replacement or existing contrast prevented the requested learner result. Sports Wellness now passes after sampling a later learner-stable source target.
 - `calm-module-4` remains intentionally blocked.
-- Nineteen package-only directories remain non-authorable until a canonical source is recovered or intentionally imported.
+- The one tracked package-only directory remains non-authorable until a canonical source is recovered or intentionally imported. Eighteen additional local-only package directories are excluded from repository evidence until intentionally tracked and onboarded.
 
 This distinction is central to the audit: visibility in the course picker is catalog coverage; an Edit outline is source-backed editability; Annotation-only is a supported and intentional outcome.
 
 ## Primary code to inspect
 
-All links below are pinned to implementation commit `1b221ee9`.
+All links below follow the current PR branch so the auditor sees the independent-remediation commits, not only the pre-audit implementation.
 
 ### Mutation, recovery, and rendered truth
 
-- [Apply, Rename, upload, and drift-safe Undo authority](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/server/lib/course-editing.ts)
-- [Filesystem transaction and recovery boundary](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/server/lib/course-edit-transaction.ts)
-- [Learner-render postconditions and accessibility checks](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/server/lib/course-edit-render-validation.ts)
-- [Validated image asset workflow](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/server/lib/course-edit-image.ts)
-- [Artifact-based export freshness](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/scripts/lib/course-editing/export-freshness.ts)
+- [Apply, Rename, upload, and drift-safe Undo authority](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/lib/course-editing.ts)
+- [Filesystem transaction and recovery boundary](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/lib/course-edit-transaction.ts)
+- [Learner-render postconditions and accessibility checks](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/lib/course-edit-render-validation.ts)
+- [Validated image asset workflow](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/lib/course-edit-image.ts)
+- [Artifact-based export freshness](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/course-editing/export-freshness.ts)
 
 ### Visual edit boundary and teacher workflow
 
-- [Server-side inspection/edit map](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/server/lib/preview-inspection.ts)
-- [Preview bridge runtime](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/server/preview-bridge-runtime.ts)
-- [Teacher-facing edit panel](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/studio/src/components/CourseEditPanel.tsx)
-- [Draft persistence, complete baselines, backup/restore](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/studio/src/lib/course-edit-storage.ts)
-- [Browser-side course editing orchestration](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/app/studio/src/hooks/useCourseEditing.ts)
+- [Server-side inspection/edit map](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/lib/preview-inspection.ts)
+- [Preview bridge runtime](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/preview-bridge-runtime.ts)
+- [Teacher-facing edit panel](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/studio/src/components/CourseEditPanel.tsx)
+- [Draft persistence, complete baselines, backup/restore](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/studio/src/lib/course-edit-storage.ts)
+- [Browser-side course editing orchestration](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/studio/src/hooks/useCourseEditing.ts)
 
 ### Ownership, onboarding, and future courses
 
-- [Authoring doctor and driver resolution](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/scripts/lib/course-authoring/context.ts)
-- [Transactional catalog classifier](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/scripts/lib/course-onboarding.ts)
-- [Catalog acceptance harness](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/scripts/verify-course-onboarding.ts)
-- [Net-new Codex course creation](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/scripts/lib/codex-course.ts)
-- [Import-time ownership](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/scripts/lib/importer.ts)
-- [Codex-to-Studio course workflow](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/docs/workflows/codex-studio-course.md)
+- [Authoring doctor and driver resolution](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/course-authoring/context.ts)
+- [Transactional catalog classifier](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/course-onboarding.ts)
+- [Catalog acceptance harness](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/verify-course-onboarding.ts)
+- [Net-new Codex course creation](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/codex-course.ts)
+- [Import-time ownership](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/importer.ts)
+- [Codex-to-Studio course workflow](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/workflows/codex-studio-course.md)
 
 ## Verification evidence
 
 | Command | Recorded result |
 | --- | --- |
-| `npm run verify:course-onboarding -- --all` | 63/63 enabled projects passed; 49 full reversible learner-render cycles, 12 honest no-target outcomes, and two safe sampled rejections with exact restoration. |
-| `npm run course:onboard -- --all` | Retain-only after apply: 28 Direct, 5 English, 4 Social, 26 snapshot, 1 blocked, 1 reference-only, 19 archives. |
+| `npm run verify:course-onboarding -- --all` | Clean checkout at `4e5f8c7f`: 63/63 enabled projects passed; 50 reversible learner-render cycles, 12 honest no-source-target outcomes, and one safely restored no-learner-stable-target outcome. |
+| `npm run course:onboard -- --all` | Clean tracked checkout: 66 directories, 65 manifests; 28 Direct, 5 English, 4 Social, 26 snapshot, 1 blocked, 1 reference-only, and 1 archive. |
 | `npm run validate:manifests` | 65/65 manifests passed, including a fresh pre-commit run. |
 | `npm run test:course-onboarding` | 2/2 passed, including idempotence and fail-closed unmanifested-source behavior. |
-| `npm run test:course-editing -- --test-reporter=dot` | 28/28 passed. |
+| `npm run test:course-editing -- --test-reporter=dot` | 43/43 passed on the remediation implementation; the exact-head workflow repeats it. |
 | `npm run test:authoring-context -- --test-reporter=dot` | 18/18 passed. |
 | `npm run test:metadata-policy -- --test-reporter=dot` | 27/27 passed. |
-| `npm run test:studio-inspection -- --test-reporter=dot` | 132/132 passed. |
-| `npm run build:studio` | Passed again immediately before publication. |
-| `npm run test:studio-release` | Source-locked pass: 132/132 focused contracts, build pass, 58/58 inspection E2E, smoke 1/1, strict project contract 1/1. |
-| `git diff --cached --check` | Passed before the implementation commit. |
+| `npm run test:studio-inspection -- --test-reporter=dot` | 146/146 passed on the remediation implementation; the exact-head workflow repeats it. |
+| `npm run build:studio` | Passed on the remediation implementation; the exact-head workflow repeats it. |
+| `npm run test:studio-release` | Required locally before push and again by `.github/workflows/studio-direct-editing.yml`; use the current PR check and uploaded source-locked report as the exact-head result. |
+| `git diff --check` | Passed before each remediation commit. |
 
-The final release report recorded `ok: true`, 524 fingerprinted source files, `sourceChangedDuringRun: false`, and source digest `d7f83382e2bb2019fedf76623ceeff7abaea87e689201457add0005c62b6646e`.
+Do not reuse the older release-report digest from the pre-remediation branch. The workflow uploads `.runtime/studio-release-report.json`, `.runtime/course-editing-pilots.json`, and `.runtime/course-onboarding-verification.json`; confirm that all three record the current GitHub SHA.
 
 Repository-wide `npm run typecheck -- --pretty false` is not green. It exits 2 on established unrelated diagnostics in legacy ELA builders, a Forensics static builder, Social 20, and English factory render/resource code. No diagnostic was recorded in the new Direct Editing or onboarding files. The auditor should confirm this baseline distinction rather than reporting typecheck as fully passed.
 
@@ -221,11 +224,13 @@ Repository-wide `npm run typecheck -- --pretty false` is not green. It exits 2 o
 
 - Learner-render validation proves the local finished workspace, not Brightspace behavior after upload.
 - Brightspace upload, deployed-host acceptance, and cross-browser SCORM save/restore remain per-export external checks.
+- Browser settlement and edited-target accessibility checks are bounded local heuristics, not proof of delayed interaction behavior or full WCAG conformance.
+- The filesystem lock coordinates Canvas Helper writers. A non-cooperating writer inside a Direct adapter's final reread-to-rename interval is outside the portable lock contract; do not run manual, Git, Codex, or standalone builder writes concurrently with Apply.
 - Snapshot onboarding preserves current canonical workspaces; it does not reconstruct missing historical factory inputs.
 - Twelve runtime-only courses need canonical-content migration or a dedicated adapter before routine learner text becomes inline-editable.
-- Aboriginal Studies 30 and Sports Wellness retain runtime/contrast debt.
+- Aboriginal Studies 30 retains runtime/contrast debt for routine sampled text edits.
 - `calm-module-4` retains its explicit lifecycle deviation.
-- Package archives can be valid releases while still lacking an authorable source.
+- The tracked package archive can be a valid release while still lacking an authorable source; local-only package directories are not repository evidence.
 - Running Codex or a builder after a Studio batch intentionally invalidates Undo.
 
 ## Local material intentionally excluded from GitHub
@@ -238,6 +243,7 @@ The publication did not broadly stage the dirty worktree. The following remain l
 - `test-results 2/**`;
 - the untracked 1.3 GB `projects/resources/ela20-1-modern-play-crucible/_sources/**` media archive;
 - generated `projects/**/exports/**` directories;
+- eighteen ignored or untracked package/export project directories itemized in `docs/audits/2026-08-13-course-catalog-onboarding.md`;
 - leftover local factory transaction directories.
 
 No raw import or generated export was added merely to make a project appear editable.
@@ -247,9 +253,9 @@ No raw import or generated export was added merely to make a project appear edit
 1. This packet.
 2. [PR #1 commits and files](https://github.com/deanguedo-arch/canvas-helper/pull/1/files).
 3. [Studio current-state roadmap audit](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-roadmap-phases/docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md).
-4. [Direct Editing finding closure](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md).
-5. [Catalog outcome and exceptions](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/docs/audits/2026-08-13-course-catalog-onboarding.md).
-6. [Direct Editing release boundary](https://github.com/deanguedo-arch/canvas-helper/blob/1b221ee9ad9594a7166572494448e1db32f6e0e1/docs/releases/2026-08-12-canvas-studio-direct-editing.md).
+4. [Direct Editing finding closure](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md).
+5. [Catalog outcome and exceptions](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-13-course-catalog-onboarding.md).
+6. [Direct Editing release boundary](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/releases/2026-08-12-canvas-studio-direct-editing.md).
 7. [Current active handoff](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/ops/ACTIVE_HANDOFF.md).
 8. The primary code entrypoints listed above.
 

@@ -1020,14 +1020,16 @@ test("export freshness is tied to workspace and artifact bytes with separate SCO
   }
 });
 
-test("export input fingerprints change when the target exporter implementation changes", async () => {
+test("export input fingerprints change with entrypoint and side-effect dependency changes", async () => {
   const fixture = await createFixture();
   const implementationRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-exporter-version-"));
   const exporterPath = path.join(implementationRoot, "scripts", "lib", "exports", "single-html.ts");
+  const dependencyPath = path.join(implementationRoot, "scripts", "lib", "exports", "export-setup.ts");
   try {
     await mkdir(path.dirname(exporterPath), { recursive: true });
     await writeFile(path.join(implementationRoot, "package.json"), "{}\n", "utf8");
-    await writeFile(exporterPath, "export const exporterVersion = 1;\n", "utf8");
+    await writeFile(dependencyPath, "export const setupVersion = 1;\n", "utf8");
+    await writeFile(exporterPath, "import \"./export-setup.ts\";\nexport const exporterVersion = 1;\n", "utf8");
     const first = await fingerprintCourseExportInputs({
       repoRoot: fixture.repoRoot,
       projectSlug: SLUG,
@@ -1047,7 +1049,7 @@ test("export input fingerprints change when the target exporter implementation c
       target: "html",
       implementationRoot
     }), first);
-    await writeFile(exporterPath, "export const exporterVersion = 2;\n", "utf8");
+    await writeFile(dependencyPath, "export const setupVersion = 2;\n", "utf8");
     const second = await fingerprintCourseExportInputs({
       repoRoot: fixture.repoRoot,
       projectSlug: SLUG,
@@ -1055,6 +1057,13 @@ test("export input fingerprints change when the target exporter implementation c
       implementationRoot
     });
     assert.notEqual(second, first);
+    await writeFile(exporterPath, "import \"./export-setup.ts\";\nexport const exporterVersion = 2;\n", "utf8");
+    assert.notEqual(await fingerprintCourseExportInputs({
+      repoRoot: fixture.repoRoot,
+      projectSlug: SLUG,
+      target: "html",
+      implementationRoot
+    }), second);
   } finally {
     await rm(implementationRoot, { recursive: true, force: true });
     await fixture.cleanup();
