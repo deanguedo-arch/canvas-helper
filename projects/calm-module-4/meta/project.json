@@ -8,8 +8,8 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-17T20:08:48.101Z",
@@ -19,17 +19,17 @@
     "generated-course",
     "injection/integration"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
+  "canonicalEntry": "projects/calm-module-4/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\main.jsx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\careerplanning.reference.jsx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\resourcefulpeople.reference.jsx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\masterplan.reference.jsx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\resumebuilder.reference.jsx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas helper\\projects\\calm-module-4\\workspace\\components\\coverletterbuilder.reference.jsx"
+    "projects/calm-module-4/workspace/index.html",
+    "projects/calm-module-4/workspace/main.jsx",
+    "projects/calm-module-4/workspace/main.js",
+    "projects/calm-module-4/workspace/styles.css",
+    "projects/calm-module-4/workspace/components/careerplanning.reference.jsx",
+    "projects/calm-module-4/workspace/components/resourcefulpeople.reference.jsx",
+    "projects/calm-module-4/workspace/components/masterplan.reference.jsx",
+    "projects/calm-module-4/workspace/components/resumebuilder.reference.jsx",
+    "projects/calm-module-4/workspace/components/coverletterbuilder.reference.jsx"
   ],
   "generatedOutputs": [],
   "injectedComponents": [
@@ -81,8 +81,18 @@
   ],
   "authoringStatus": "blocked",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Treat workspace/index.html + main runtime/component sources as canonical. Export bundles are derived output.",
+  "sourceOfTruthNotes": "Treat workspace/index.html + main runtime/component sources as canonical. Export bundles are derived output. Studio onboarding: Source ownership was normalized, but the existing course lifecycle blocker remains explicit.",
   "createdAt": "2026-03-19T18:00:26.397Z",
-  "updatedAt": "2026-06-23T14:53:08.538Z",
-  "workspaceApprovedAt": "2026-05-19T15:57:44.514Z"
+  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "workspaceApprovedAt": "2026-05-19T15:57:44.514Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "blocked",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  }
 }

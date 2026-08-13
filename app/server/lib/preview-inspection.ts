@@ -13,6 +13,10 @@ import {
 } from "../../../scripts/lib/course-authoring/context.js";
 import { repoRoot } from "../../../scripts/lib/paths.js";
 import {
+  COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION,
+  type CourseEditPageMap,
+} from "../../shared/course-editing.js";
+import {
   type InspectionResolveRequest,
   type InspectionResolution,
   type InspectionResolutionState
@@ -20,6 +24,7 @@ import {
 import { STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
 
 export const PREVIEW_INSPECT_NODE_ATTRIBUTE = "data-canvas-helper-inspect-node";
+export const PREVIEW_COURSE_EDIT_MAP_ATTRIBUTE = "data-canvas-helper-course-edit-map";
 
 const MAX_INSPECTABLE_HTML_BYTES = 8 * 1024 * 1024;
 const PREVIEW_NODE_ID_PREFIX = "ch1";
@@ -90,7 +95,7 @@ function collectOpeningTags(html: string) {
           return;
         }
 
-        const editId = typeof attributes[STUDIO_EDIT_ID_ATTRIBUTE] === "string" && /^che1:[a-f0-9]{24}$/.test(attributes[STUDIO_EDIT_ID_ATTRIBUTE])
+        const editId = typeof attributes[STUDIO_EDIT_ID_ATTRIBUTE] === "string" && /^che[12]:[a-f0-9]{24}$/.test(attributes[STUDIO_EDIT_ID_ATTRIBUTE])
           ? attributes[STUDIO_EDIT_ID_ATTRIBUTE]
           : null;
         tags.push({ start, end, tagName: normalizedTagName, editId });
@@ -220,6 +225,25 @@ export function injectPreviewBridgeScript(html: string, scriptSource: string) {
   return `${scriptTag}${html}`;
 }
 
+export function injectPreviewCourseEditMap(html: string, map: CourseEditPageMap) {
+  const serialized = JSON.stringify(map)
+    .replaceAll("&", "\\u0026")
+    .replaceAll("<", "\\u003c")
+    .replaceAll(">", "\\u003e");
+  const mapTag = `<script type="application/json" ${PREVIEW_COURSE_EDIT_MAP_ATTRIBUTE}="v${COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION}">${serialized}</script>`;
+  const openingHead = /<head\b[^>]*>/i.exec(html);
+  if (openingHead) {
+    const insertionIndex = openingHead.index + openingHead[0].length;
+    return `${html.slice(0, insertionIndex)}${mapTag}${html.slice(insertionIndex)}`;
+  }
+  const openingBody = /<body\b[^>]*>/i.exec(html);
+  if (openingBody) {
+    const insertionIndex = openingBody.index + openingBody[0].length;
+    return `${html.slice(0, insertionIndex)}${mapTag}${html.slice(insertionIndex)}`;
+  }
+  return `${mapTag}${html}`;
+}
+
 function toRepoRelative(filePath: string) {
   const relative = path.relative(repoRoot, filePath).split(path.sep).join("/");
   return relative && !relative.startsWith("../") && relative !== ".." && !path.isAbsolute(relative) ? relative : null;
@@ -305,7 +329,7 @@ function buildUnknownResolution(
 }
 
 function resolveGeneratedTarget(project: ResolvedCourseAuthoringProject) {
-  if (project.driverId === "english-factory-v1") {
+  if (project.driverId === "english-factory-v1" || project.driverId === "legacy-snapshot-v1") {
     return firstFile(project.editableSources) ?? firstFile(project.canonicalSources);
   }
 
@@ -323,6 +347,9 @@ function generatedResolution(
   project: ResolvedCourseAuthoringProject
 ): InspectionResolution {
   const primaryEditTarget = resolveGeneratedTarget(project);
+  const warning = project.driverId === "legacy-snapshot-v1"
+    ? "The displayed page is a preserved legacy snapshot. Studio stores bounded changes as replayable metadata overrides; use Codex for structural or runtime changes."
+    : "The selected workspace is generated output. Do not hand-edit the displayed HTML; use the declared source and rebuild flow.";
   return {
     projectSlug: request.projectSlug,
     previewPath,
@@ -337,9 +364,7 @@ function generatedResolution(
     contributors: resolveContributors(project, primaryEditTarget),
     rebuildCommand: project.regenerateCommand ?? null,
     validationCommand: `npm run course:doctor -- --project ${request.projectSlug}`,
-    warnings: [
-      "The selected workspace is generated output. Do not hand-edit the displayed HTML; use the declared source and rebuild flow."
-    ]
+    warnings: [warning]
   };
 }
 
@@ -475,7 +500,11 @@ export async function resolvePreviewInspection(request: InspectionResolveRequest
     return directResolution(request, previewPath, project, document);
   }
 
-  if (project.driverId === "english-factory-v1" || project.driverId === "social-related-issues-v1") {
+  if (
+    project.driverId === "english-factory-v1" ||
+    project.driverId === "social-related-issues-v1" ||
+    project.driverId === "legacy-snapshot-v1"
+  ) {
     return generatedResolution(request, previewPath, project);
   }
 

@@ -1,4 +1,8 @@
 import {
+  COURSE_EDIT_PAGE_MAP_MAX_ENTRIES,
+  COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION
+} from "../shared/course-editing.js";
+import {
   PREVIEW_BRIDGE_MAX_CONTAINERS,
   PREVIEW_BRIDGE_MAX_VISIBLE_TEXT,
   PREVIEW_BRIDGE_PROTOCOL,
@@ -15,7 +19,7 @@ import {
   PREVIEW_STANDALONE_SESSION_TOKEN_MAX_LENGTH
 } from "../shared/preview-bridge.js";
 import { STUDIO_BRIDGE_LIMITS, STUDIO_REVIEW_LIMITS } from "../shared/studio-quality.js";
-import { PREVIEW_INSPECT_NODE_ATTRIBUTE } from "./lib/preview-inspection.js";
+import { PREVIEW_COURSE_EDIT_MAP_ATTRIBUTE, PREVIEW_INSPECT_NODE_ATTRIBUTE } from "./lib/preview-inspection.js";
 
 /**
  * This runs inside an untrusted course preview. Keep it intentionally small:
@@ -33,6 +37,9 @@ export function buildPreviewBridgeRuntime(
   var PROTOCOL = "${PREVIEW_BRIDGE_PROTOCOL}";
   var VERSION = ${PREVIEW_BRIDGE_VERSION};
   var NODE_ATTRIBUTE = "${PREVIEW_INSPECT_NODE_ATTRIBUTE}";
+  var EDIT_MAP_ATTRIBUTE = "${PREVIEW_COURSE_EDIT_MAP_ATTRIBUTE}";
+  var EDIT_MAP_SCHEMA_VERSION = ${COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION};
+  var MAX_EDIT_MAP_ENTRIES = ${COURSE_EDIT_PAGE_MAP_MAX_ENTRIES};
   var MAX_TEXT = ${PREVIEW_BRIDGE_MAX_VISIBLE_TEXT};
   var MAX_CONTAINERS = ${PREVIEW_BRIDGE_MAX_CONTAINERS};
   var MAX_REVIEW_ITEMS = ${PREVIEW_REVIEW_MAX_ITEMS};
@@ -113,6 +120,7 @@ export function buildPreviewBridgeRuntime(
   var editToggle = null;
   var editTargetText = null;
   var editHtml = null;
+  var editFormat = null;
   var editHref = null;
   var editSrc = null;
   var editAlt = null;
@@ -122,10 +130,25 @@ export function buildPreviewBridgeRuntime(
   var editItems = null;
   var editApply = null;
   var editUndo = null;
+  var editAnnotate = null;
   var editMessage = null;
   var editActionSequence = 0;
   var latestEditActionId = "";
+  var pendingEditAnnotationId = "";
   var editComposerKey = "";
+  var editLastSelection = null;
+  var editPageMap = { available: false, reason: "This page does not include a current editability map.", entries: [] };
+  var editMapEntriesByNodeId = Object.create(null);
+  var editMapRuntimeByNodeId = Object.create(null);
+  var editMapShowAll = true;
+  var editMapStyle = null;
+  var editMapToolbar = null;
+  var editMapCount = null;
+  var editMapToggle = null;
+  var editMapTooltip = null;
+  var editMapTooltipLabel = null;
+  var editMapTooltipReason = null;
+  var editMapRefreshTimer = 0;
   var editState = { projectSlug: "", enabled: false, available: false, unavailableReason: "", target: null, drafts: [], selectedDraft: null, busy: false, canUndo: false, exportsOutOfDate: false, staleExportTargets: [], status: "", error: "" };
   var reviewPacket = "";
   var reviewPacketId = "";
@@ -217,6 +240,297 @@ export function buildPreviewBridgeRuntime(
   function boundedString(value, maximum) {
     var text = String(value || "").replace(/\s+/g, " ").trim();
     return text.length > maximum ? text.slice(0, maximum) : text;
+  }
+
+  function normalizedRenderedText(value) {
+    return String(value || "").replace(/\s+/g, " ").trim().slice(0, ${24000});
+  }
+
+  function renderedTextFingerprint(value) {
+    var text = normalizedRenderedText(value);
+    var hash = 2166136261;
+    for (var index = 0; index < text.length; index += 1) {
+      hash ^= text.charCodeAt(index);
+      hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(16).padStart(8, "0");
+  }
+
+  function shortEditMapFingerprint(value) {
+    var text = String(value || "");
+    var hash = 2166136261;
+    for (var index = 0; index < text.length; index += 1) {
+      hash ^= text.charCodeAt(index);
+      hash = Math.imul(hash, 16777619);
+    }
+    return (hash >>> 0).toString(16).padStart(8, "0");
+  }
+
+  function renderedAttributeFingerprint(element) {
+    return shortEditMapFingerprint(["href", "src", "alt", "title"].map(function(name) {
+      return element.getAttribute(name) || "";
+    }).join("\u0000"));
+  }
+
+  function validEditMapEntry(entry) {
+    if (!entry || typeof entry !== "object") return false;
+    if (typeof entry.nodeId !== "string" || !/^ch1:[a-f0-9]{24}:[1-9][0-9]*$/.test(entry.nodeId)) return false;
+    if (typeof entry.tagName !== "string" || entry.tagName.length < 1 || entry.tagName.length > MAX_ELEMENT_TAG) return false;
+    if (["edit-text", "edit-link", "replace-image", "style-text", "rename-course", "annotation-only"].indexOf(entry.action) < 0) return false;
+    if (typeof entry.label !== "string" || entry.label.length > 80 || typeof entry.reason !== "string" || entry.reason.length > 240) return false;
+    if (entry.expected === null) return true;
+    return Boolean(
+      entry.expected &&
+      typeof entry.expected.textFingerprint === "string" && /^[a-f0-9]{8}$/.test(entry.expected.textFingerprint) &&
+      Number.isInteger(entry.expected.textLength) && entry.expected.textLength >= 0 && entry.expected.textLength <= 24000 &&
+      typeof entry.expected.attributeFingerprint === "string" && /^[a-f0-9]{8}$/.test(entry.expected.attributeFingerprint)
+    );
+  }
+
+  function readEditPageMap() {
+    var mapScript = document.querySelector("script[type='application/json'][" + EDIT_MAP_ATTRIBUTE + "='v" + EDIT_MAP_SCHEMA_VERSION + "']");
+    if (!mapScript) return;
+    try {
+      var parsed = JSON.parse(mapScript.textContent || "null");
+      if (
+        !parsed ||
+        parsed.schemaVersion !== EDIT_MAP_SCHEMA_VERSION ||
+        typeof parsed.available !== "boolean" ||
+        typeof parsed.reason !== "string" ||
+        !Array.isArray(parsed.entries) ||
+        parsed.entries.length > MAX_EDIT_MAP_ENTRIES ||
+        !parsed.entries.every(validEditMapEntry)
+      ) return;
+      editPageMap = parsed;
+      editMapEntriesByNodeId = Object.create(null);
+      parsed.entries.forEach(function(entry) { editMapEntriesByNodeId[entry.nodeId] = entry; });
+    } catch (_) {}
+  }
+
+  function ensureEditMapVisuals() {
+    if (!editMapStyle) {
+      editMapStyle = document.createElement("style");
+      editMapStyle.setAttribute("data-canvas-helper-edit-map-style", "v1");
+      editMapStyle.textContent = "html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='editable']{outline:2px solid rgba(24,121,78,.72)!important;outline-offset:2px!important}html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='rename']{outline:2px solid rgba(88,68,138,.72)!important;outline-offset:2px!important}";
+      (document.head || document.documentElement).appendChild(editMapStyle);
+    }
+    if (!editMapToolbar) {
+      editMapToolbar = document.createElement("div");
+      editMapToolbar.setAttribute("data-canvas-helper-edit-map-toolbar", "true");
+      editMapToolbar.setAttribute("role", "toolbar");
+      editMapToolbar.setAttribute("aria-label", "Editable areas");
+      editMapToolbar.style.position = "fixed";
+      editMapToolbar.style.top = "10px";
+      editMapToolbar.style.right = "10px";
+      editMapToolbar.style.zIndex = "2147483647";
+      editMapToolbar.style.display = "none";
+      editMapToolbar.style.alignItems = "center";
+      editMapToolbar.style.gap = "8px";
+      editMapToolbar.style.padding = "6px 8px";
+      editMapToolbar.style.border = "1px solid #64748b";
+      editMapToolbar.style.borderRadius = "6px";
+      editMapToolbar.style.background = "#ffffff";
+      editMapToolbar.style.color = "#18212f";
+      editMapToolbar.style.font = "12px/1.3 system-ui, sans-serif";
+      editMapToolbar.style.boxShadow = "0 2px 8px rgba(15,23,42,.16)";
+      editMapCount = document.createElement("span");
+      editMapCount.setAttribute("data-canvas-helper-edit-map-count", "true");
+      editMapToggle = document.createElement("button");
+      editMapToggle.type = "button";
+      editMapToggle.setAttribute("data-canvas-helper-edit-map-toggle", "true");
+      stylePreviewControlButton(editMapToggle);
+      editMapToggle.style.padding = "4px 7px";
+      editMapToggle.addEventListener("click", function(event) {
+        if (!event.isTrusted) return;
+        editMapShowAll = !editMapShowAll;
+        document.documentElement.setAttribute("data-canvas-helper-edit-map-show", editMapShowAll ? "true" : "false");
+        editMapToggle.textContent = editMapShowAll ? "Hide outlines" : "Show outlines";
+      });
+      editMapToolbar.appendChild(editMapCount);
+      editMapToolbar.appendChild(editMapToggle);
+      (document.body || document.documentElement).appendChild(editMapToolbar);
+    }
+    if (!editMapTooltip) {
+      editMapTooltip = document.createElement("div");
+      editMapTooltip.setAttribute("data-canvas-helper-edit-map-tooltip", "true");
+      editMapTooltip.setAttribute("role", "tooltip");
+      editMapTooltip.style.position = "fixed";
+      editMapTooltip.style.zIndex = "2147483647";
+      editMapTooltip.style.display = "none";
+      editMapTooltip.style.maxWidth = "320px";
+      editMapTooltip.style.padding = "7px 9px";
+      editMapTooltip.style.border = "1px solid #334155";
+      editMapTooltip.style.borderRadius = "6px";
+      editMapTooltip.style.background = "#18212f";
+      editMapTooltip.style.color = "#ffffff";
+      editMapTooltip.style.font = "12px/1.35 system-ui, sans-serif";
+      editMapTooltip.style.boxShadow = "0 2px 8px rgba(15,23,42,.2)";
+      editMapTooltipLabel = document.createElement("strong");
+      editMapTooltipLabel.style.display = "block";
+      editMapTooltipReason = document.createElement("span");
+      editMapTooltipReason.style.display = "block";
+      editMapTooltipReason.style.marginTop = "2px";
+      editMapTooltipReason.style.color = "#e2e8f0";
+      editMapTooltip.appendChild(editMapTooltipLabel);
+      editMapTooltip.appendChild(editMapTooltipReason);
+      (document.body || document.documentElement).appendChild(editMapTooltip);
+    }
+  }
+
+  function hideEditMapTooltip() {
+    if (editMapTooltip) editMapTooltip.style.display = "none";
+  }
+
+  function showEditMapTooltip(runtime, rect) {
+    ensureEditMapVisuals();
+    if (!editMapTooltip || !editMapTooltipLabel || !editMapTooltipReason) return;
+    editMapTooltipLabel.textContent = runtime.label;
+    editMapTooltipReason.textContent = runtime.reason;
+    editMapTooltip.style.display = "block";
+    var tooltipRect = editMapTooltip.getBoundingClientRect();
+    var left = Math.min(Math.max(8, rect.left), Math.max(8, window.innerWidth - tooltipRect.width - 8));
+    var above = rect.top - tooltipRect.height - 8;
+    var top = above >= 8 ? above : Math.min(window.innerHeight - tooltipRect.height - 8, rect.bottom + 8);
+    editMapTooltip.style.left = left + "px";
+    editMapTooltip.style.top = Math.max(8, top) + "px";
+  }
+
+  function refreshEditMap() {
+    if (!document.documentElement) return;
+    var previouslyMapped = document.querySelectorAll("[data-canvas-helper-edit-map-state]");
+    for (var previousIndex = 0; previousIndex < previouslyMapped.length; previousIndex += 1) {
+      previouslyMapped[previousIndex].removeAttribute("data-canvas-helper-edit-map-state");
+      previouslyMapped[previousIndex].removeAttribute("data-canvas-helper-edit-map-outline");
+    }
+    editMapRuntimeByNodeId = Object.create(null);
+    var actionable = [];
+    Object.keys(editMapEntriesByNodeId).forEach(function(nodeId) {
+      var entry = editMapEntriesByNodeId[nodeId];
+      var element = elementForSourceNodeId(nodeId);
+      if (!element || element.tagName.toLowerCase() !== entry.tagName) return;
+      var state = entry.action === "annotation-only" ? "blocked" : entry.action === "rename-course" ? "rename" : "editable";
+      var label = entry.label;
+      var reason = entry.reason;
+      if (entry.expected) {
+        var renderedText = normalizedRenderedText(element.textContent || "");
+        if (
+          renderedText.length !== entry.expected.textLength ||
+          renderedTextFingerprint(renderedText) !== entry.expected.textFingerprint ||
+          renderedAttributeFingerprint(element) !== entry.expected.attributeFingerprint
+        ) {
+          state = "blocked";
+          label = "Annotation only";
+          reason = "Course code replaces this element after the page loads, so a source edit would not control what learners see.";
+        }
+      }
+      var runtime = { element: element, state: state, action: entry.action, label: label, reason: reason, nodeId: nodeId };
+      editMapRuntimeByNodeId[nodeId] = runtime;
+      element.setAttribute("data-canvas-helper-edit-map-state", state);
+      if (state !== "blocked" && isVisibleCourseElement(element)) actionable.push(runtime);
+    });
+    var primaryCount = 0;
+    actionable.forEach(function(runtime) {
+      var ancestor = runtime.element.parentElement;
+      var hasActionableAncestor = false;
+      while (ancestor && ancestor !== document.documentElement) {
+        var ancestorNodeId = ancestor.getAttribute(NODE_ATTRIBUTE) || "";
+        var ancestorRuntime = ancestorNodeId ? editMapRuntimeByNodeId[ancestorNodeId] : null;
+        if (ancestorRuntime && ancestorRuntime.state !== "blocked") {
+          hasActionableAncestor = true;
+          break;
+        }
+        ancestor = ancestor.parentElement;
+      }
+      var isSpecificAction = runtime.action === "edit-link" || runtime.action === "replace-image" || runtime.action === "rename-course";
+      if (!hasActionableAncestor || isSpecificAction) {
+        runtime.element.setAttribute("data-canvas-helper-edit-map-outline", "true");
+        primaryCount += 1;
+      }
+    });
+    ensureEditMapVisuals();
+    if (editMapCount) {
+      editMapCount.textContent = editPageMap.available
+        ? (editPageMap.truncated ? primaryCount + "+ mapped editable areas" : primaryCount + " editable " + (primaryCount === 1 ? "area" : "areas"))
+        : "Edit map unavailable";
+    }
+    if (editMapToggle) {
+      editMapToggle.textContent = editMapShowAll ? "Hide outlines" : "Show outlines";
+      editMapToggle.disabled = !editPageMap.available || primaryCount === 0;
+      editMapToggle.style.opacity = editMapToggle.disabled ? "0.48" : "1";
+    }
+  }
+
+  function scheduleEditMapRefresh() {
+    if (!editModeEnabled || editMapRefreshTimer) return;
+    editMapRefreshTimer = window.setTimeout(function() {
+      editMapRefreshTimer = 0;
+      refreshEditMap();
+    }, 80);
+  }
+
+  function updateEditMapVisuals() {
+    ensureEditMapVisuals();
+    var active = Boolean(editModeEnabled && inspectEnabled && !hostMode);
+    document.documentElement.setAttribute("data-canvas-helper-edit-map-active", active ? "true" : "false");
+    document.documentElement.setAttribute("data-canvas-helper-edit-map-show", editMapShowAll ? "true" : "false");
+    if (editMapToolbar) editMapToolbar.style.display = active ? "flex" : "none";
+    if (!active) {
+      hideEditMapTooltip();
+      return;
+    }
+    refreshEditMap();
+    window.setTimeout(scheduleEditMapRefresh, 260);
+    window.setTimeout(scheduleEditMapRefresh, 1000);
+  }
+
+  function mapRuntimeForElement(element) {
+    if (!element) return null;
+    var nodeId = uniqueSourceNodeId(element);
+    return nodeId ? editMapRuntimeByNodeId[nodeId] || null : null;
+  }
+
+  function editMapDistanceToRect(x, y, rect) {
+    var dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
+    var dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
+    return Math.sqrt(dx * dx + dy * dy);
+  }
+
+  function editMapTargetForPointer(target, x, y) {
+    var element = target instanceof Element ? target : null;
+    if (!element) return null;
+    var firstBlocked = null;
+    var cursor = element;
+    while (cursor && cursor !== document.documentElement) {
+      var runtime = mapRuntimeForElement(cursor);
+      if (runtime && runtime.state !== "blocked") return runtime;
+      if (runtime && !firstBlocked) firstBlocked = runtime;
+      cursor = cursor.parentElement;
+    }
+    var candidates = element.querySelectorAll ? element.querySelectorAll("[" + NODE_ATTRIBUTE + "]") : [];
+    var nearest = null;
+    var nearestDistance = Infinity;
+    for (var index = 0; index < candidates.length && index < 300; index += 1) {
+      var candidateRuntime = mapRuntimeForElement(candidates[index]);
+      if (!candidateRuntime || candidateRuntime.state === "blocked" || !isVisibleCourseElement(candidateRuntime.element)) continue;
+      var candidateRect = candidateRuntime.element.getBoundingClientRect();
+      var distance = editMapDistanceToRect(x, y, candidateRect);
+      if (distance < nearestDistance) {
+        nearest = candidateRuntime;
+        nearestDistance = distance;
+      }
+    }
+    if (nearest && nearestDistance <= 36) return nearest;
+    if (firstBlocked) return firstBlocked;
+    return {
+      element: element,
+      state: "blocked",
+      action: "annotation-only",
+      label: "Annotation only",
+      reason: uniqueSourceNodeId(element)
+        ? "This is layout or interactive course structure. Select its text, link, or image, or annotate it for Codex."
+        : "This content was created at runtime and has no stable course-source target. Annotate it for Codex.",
+      nodeId: uniqueSourceNodeId(element) || ""
+    };
   }
 
   function boundedCourseUrl(value) {
@@ -451,6 +765,7 @@ export function buildPreviewBridgeRuntime(
     if (overlay) return overlay;
     overlay = document.createElement("div");
     overlay.setAttribute("aria-hidden", "true");
+    overlay.setAttribute("data-canvas-helper-preview-selection-overlay", "true");
     overlay.style.position = "fixed";
     overlay.style.pointerEvents = "none";
     overlay.style.zIndex = "2147483645";
@@ -463,8 +778,25 @@ export function buildPreviewBridgeRuntime(
     return overlay;
   }
 
-  function setOverlay(rect) {
+  function setOverlay(rect, appearance) {
     var element = ensureOverlay();
+    if (appearance === "editable") {
+      element.style.border = "2px solid #18794e";
+      element.style.background = "rgba(24,121,78,.08)";
+      element.style.boxShadow = "0 0 0 1px rgba(255,255,255,.9),0 0 0 4px rgba(24,121,78,.16)";
+    } else if (appearance === "rename") {
+      element.style.border = "2px solid #58448a";
+      element.style.background = "rgba(88,68,138,.08)";
+      element.style.boxShadow = "0 0 0 1px rgba(255,255,255,.9),0 0 0 4px rgba(88,68,138,.15)";
+    } else if (appearance === "blocked") {
+      element.style.border = "2px dashed #8a5d13";
+      element.style.background = "rgba(138,93,19,.06)";
+      element.style.boxShadow = "0 0 0 1px rgba(255,255,255,.9)";
+    } else {
+      element.style.border = "2px solid #1473e6";
+      element.style.background = "rgba(20,115,230,.08)";
+      element.style.boxShadow = "0 0 0 1px rgba(255,255,255,.9),0 0 0 4px rgba(20,115,230,.18)";
+    }
     element.style.left = Math.max(0, rect.left) + "px";
     element.style.top = Math.max(0, rect.top) + "px";
     element.style.width = Math.max(0, rect.width) + "px";
@@ -591,51 +923,36 @@ export function buildPreviewBridgeRuntime(
 
   function currentEditSource() {
     if (editState.target) return {
+      originalHtml: editState.target.originalHtml || "",
       capabilities: editState.target.capabilities,
       attributes: editState.target.attributes,
       currentStyle: editState.target.currentStyle
     };
     if (!editState.selectedDraft) return null;
-    var patch = editState.selectedDraft.patch || {};
-    return {
-      capabilities: {
-        richText: patch.html !== undefined,
-        link: patch.href !== undefined,
-        image: patch.src !== undefined || patch.alt !== undefined,
-        styles: patch.style !== undefined
-      },
-      attributes: {
-        href: patch.href || "",
-        src: patch.src || "",
-        alt: patch.alt || "",
-        title: patch.title || ""
-      },
-      currentStyle: Object.assign({ textStyle: "default", fontFamily: "default", fontSize: "default", textTone: "default", alignment: "default", spacing: "default" }, patch.style || {})
-    };
+    return editState.selectedDraft.baseline;
   }
 
   function currentEditPatch() {
     var source = currentEditSource();
     if (!source) return null;
     var patch = {};
-    if (source.capabilities.richText && editHtml) patch.html = editHtml.value;
-    if (source.capabilities.link && editHref) patch.href = editHref.value;
+    var htmlValue = editHtml ? editHtml.innerHTML : "";
+    if (source.capabilities.richText && editHtml && htmlValue !== source.originalHtml) patch.html = htmlValue;
+    if (source.capabilities.link && editHref && editHref.value !== source.attributes.href) patch.href = editHref.value;
     if (source.capabilities.image) {
-      if (editSrc) patch.src = editSrc.value;
-      if (editAlt) patch.alt = editAlt.value;
+      if (editSrc && editSrc.value !== source.attributes.src) patch.src = editSrc.value;
+      if (editAlt && editAlt.value !== source.attributes.alt) patch.alt = editAlt.value;
     }
-    if (editTitle) patch.title = editTitle.value;
+    if (editTitle && editTitle.value !== source.attributes.title) patch.title = editTitle.value;
     if (source.capabilities.styles) {
-      patch.style = {
-        textStyle: editControlValue("textStyle", "default"),
-        fontFamily: editControlValue("fontFamily", "default"),
-        fontSize: editControlValue("fontSize", "default"),
-        textTone: editControlValue("textTone", "default"),
-        alignment: editControlValue("alignment", "default"),
-        spacing: editControlValue("spacing", "default")
-      };
+      var style = {};
+      (source.capabilities.styleKeys || []).forEach(function(key) {
+        var value = editControlValue(key, source.currentStyle[key] || "default");
+        if (value !== source.currentStyle[key]) style[key] = value;
+      });
+      if (Object.keys(style).length) patch.style = style;
     }
-    return patch;
+    return Object.keys(patch).length ? patch : null;
   }
 
   function setEditFieldVisibility(control, visible) {
@@ -653,6 +970,7 @@ export function buildPreviewBridgeRuntime(
         ? "Editing saved draft: " + (selectedDraft.afterText || selectedDraft.tagName || "Draft change")
         : editState.available ? "Click a course element to edit it." : editState.unavailableReason || "This course is annotation-only.";
     setEditFieldVisibility(editHtml, Boolean(source && source.capabilities.richText));
+    if (editFormat) editFormat.style.display = source && source.capabilities.richText ? "flex" : "none";
     setEditFieldVisibility(editHref, Boolean(source && source.capabilities.link));
     setEditFieldVisibility(editSrc, Boolean(source && source.capabilities.image));
     setEditFieldVisibility(editAlt, Boolean(source && source.capabilities.image));
@@ -661,12 +979,13 @@ export function buildPreviewBridgeRuntime(
     if (nextComposerKey && editComposerKey !== nextComposerKey) {
       editComposerKey = nextComposerKey;
       var selectedPatch = selectedDraft ? selectedDraft.patch || {} : {};
-      if (editHtml) editHtml.value = target ? target.originalHtml || "" : selectedPatch.html || "";
-      if (editHref) editHref.value = target ? target.attributes.href || "" : selectedPatch.href || "";
-      if (editSrc) editSrc.value = target ? target.attributes.src || "" : selectedPatch.src || "";
-      if (editAlt) editAlt.value = target ? target.attributes.alt || "" : selectedPatch.alt || "";
-      if (editTitle) editTitle.value = target ? target.attributes.title || "" : selectedPatch.title || "";
-      if (editStyleControls) Object.keys(source.currentStyle || {}).forEach(function(key) { if (editStyleControls[key]) editStyleControls[key].value = source.currentStyle[key]; });
+      if (editHtml) editHtml.innerHTML = selectedPatch.html !== undefined ? selectedPatch.html : source.originalHtml || "";
+      if (editHref) editHref.value = selectedPatch.href !== undefined ? selectedPatch.href || "" : source.attributes.href || "";
+      if (editSrc) editSrc.value = selectedPatch.src !== undefined ? selectedPatch.src || "" : source.attributes.src || "";
+      if (editAlt) editAlt.value = selectedPatch.alt !== undefined ? selectedPatch.alt || "" : source.attributes.alt || "";
+      if (editTitle) editTitle.value = selectedPatch.title !== undefined ? selectedPatch.title || "" : source.attributes.title || "";
+      var displayedStyle = Object.assign({}, source.currentStyle || {}, selectedPatch.style || {});
+      if (editStyleControls) Object.keys(displayedStyle).forEach(function(key) { if (editStyleControls[key]) editStyleControls[key].value = displayedStyle[key]; });
     } else if (!nextComposerKey) {
       editComposerKey = "";
     }
@@ -675,12 +994,21 @@ export function buildPreviewBridgeRuntime(
       editSave.disabled = (!target && !selectedDraft) || (target && target.eligibility !== "editable") || editState.busy;
       editSave.style.opacity = editSave.disabled ? "0.48" : "1";
     }
-    [editHtml, editHref, editSrc, editAlt, editTitle].forEach(function(control) {
+    if (editAnnotate) {
+      var canAnnotateSelection = Boolean(target && target.eligibility === "unsupported" && editLastSelection);
+      editAnnotate.style.display = canAnnotateSelection ? "inline-flex" : "none";
+      editAnnotate.disabled = editState.busy || !studioConnected || !canAnnotateSelection;
+    }
+    [editHref, editSrc, editAlt, editTitle].forEach(function(control) {
       if (control) control.disabled = editState.busy;
     });
+    if (editHtml) editHtml.contentEditable = editState.busy ? "false" : "true";
     if (editStyleControls) {
       Object.keys(editStyleControls).forEach(function(key) {
-        if (key !== "container" && editStyleControls[key]) editStyleControls[key].disabled = editState.busy;
+        if (key !== "container" && editStyleControls[key]) {
+          editStyleControls[key].disabled = editState.busy || !source || (source.capabilities.styleKeys || []).indexOf(key) < 0;
+          if (editStyleControls[key].parentElement) editStyleControls[key].parentElement.style.display = !source || (source.capabilities.styleKeys || []).indexOf(key) < 0 ? "none" : "block";
+        }
       });
     }
   }
@@ -1370,11 +1698,62 @@ export function buildPreviewBridgeRuntime(
       label.appendChild(control);
       return label;
     }
-    var editHtmlArea = document.createElement("textarea");
+    var editHtmlArea = document.createElement("div");
     editHtmlArea.setAttribute("data-canvas-helper-preview-edit-html", "true");
-    editHtmlArea.rows = 5;
-    editHtmlArea.maxLength = ${24000};
+    editHtmlArea.setAttribute("role", "textbox");
+    editHtmlArea.setAttribute("aria-multiline", "true");
+    editHtmlArea.contentEditable = "true";
+    editHtmlArea.style.minHeight = "110px";
+    editHtmlArea.style.maxHeight = "260px";
+    editHtmlArea.style.overflow = "auto";
     stylePreviewTextArea(editHtmlArea);
+    var editFormatBar = document.createElement("div");
+    editFormatBar.style.display = "flex";
+    editFormatBar.style.flexWrap = "wrap";
+    editFormatBar.style.gap = "6px";
+    editFormatBar.style.marginTop = "8px";
+    var editTextRange = null;
+    function rememberEditTextRange() {
+      var selection = window.getSelection();
+      if (selection && selection.rangeCount && editHtmlArea.contains(selection.anchorNode)) {
+        editTextRange = selection.getRangeAt(0).cloneRange();
+      }
+    }
+    editHtmlArea.addEventListener("keyup", rememberEditTextRange);
+    editHtmlArea.addEventListener("mouseup", rememberEditTextRange);
+    [["bold", "Bold"], ["italic", "Italic"], ["insertUnorderedList", "Bullets"], ["insertOrderedList", "Numbers"]].forEach(function(definition) {
+      var formatButton = document.createElement("button");
+      formatButton.type = "button";
+      formatButton.textContent = definition[1];
+      stylePreviewControlButton(formatButton);
+      formatButton.addEventListener("mousedown", function(event) { event.preventDefault(); });
+      formatButton.addEventListener("click", function() { editHtmlArea.focus(); document.execCommand(definition[0], false); rememberEditTextRange(); });
+      editFormatBar.appendChild(formatButton);
+    });
+    var editInlineLink = document.createElement("input");
+    editInlineLink.type = "url";
+    editInlineLink.placeholder = "Link selected text";
+    editInlineLink.setAttribute("aria-label", "Link selected course text");
+    editInlineLink.style.minWidth = "150px";
+    editInlineLink.style.flex = "1 1 150px";
+    stylePreviewTextArea(editInlineLink);
+    var editInlineLinkButton = document.createElement("button");
+    editInlineLinkButton.type = "button";
+    editInlineLinkButton.textContent = "Add link";
+    stylePreviewControlButton(editInlineLinkButton);
+    editInlineLinkButton.addEventListener("click", function() {
+      var href = editInlineLink.value.trim();
+      if (!href || !editTextRange) return;
+      editHtmlArea.focus();
+      var selection = window.getSelection();
+      selection.removeAllRanges();
+      selection.addRange(editTextRange);
+      document.execCommand("createLink", false, href);
+      editInlineLink.value = "";
+      rememberEditTextRange();
+    });
+    editFormatBar.appendChild(editInlineLink);
+    editFormatBar.appendChild(editInlineLinkButton);
     var editHrefInput = document.createElement("input");
     stylePreviewTextArea(editHrefInput);
     var editSrcInput = document.createElement("input");
@@ -1392,7 +1771,6 @@ export function buildPreviewBridgeRuntime(
     styleGrid.style.marginTop = "9px";
     var styleControls = { container: styleGrid };
     [
-      ["textStyle", "Style", ["default", "heading", "subheading", "body", "caption"]],
       ["fontFamily", "Font", ["default", "readable-sans", "book-serif"]],
       ["fontSize", "Size", ["default", "small", "large", "x-large"]],
       ["textTone", "Colour", ["default", "ink", "muted", "accent"]],
@@ -1429,6 +1807,17 @@ export function buildPreviewBridgeRuntime(
       }
       if (editState.selectedDraft) sendEditAction({ action: "update-draft", draftId: editState.selectedDraft.id, patch: patch });
     });
+    var annotateEdit = document.createElement("button");
+    annotateEdit.type = "button";
+    annotateEdit.setAttribute("data-canvas-helper-preview-edit-annotate", "true");
+    annotateEdit.textContent = "Annotate this for Codex";
+    stylePreviewControlButton(annotateEdit);
+    annotateEdit.style.display = "none";
+    annotateEdit.style.marginTop = "9px";
+    annotateEdit.addEventListener("click", function() {
+      if (!editLastSelection || editState.busy) return;
+      pendingEditAnnotationId = sendEditAction({ action: "annotate-selection", selection: editLastSelection }) || "";
+    });
     var editSavedHeading = document.createElement("div");
     editSavedHeading.textContent = "Draft changes";
     editSavedHeading.style.marginTop = "14px";
@@ -1464,6 +1853,7 @@ export function buildPreviewBridgeRuntime(
     editFooter.appendChild(undoEdits);
     courseEditPanel.appendChild(editPanelTitle);
     courseEditPanel.appendChild(editSelectedText);
+    courseEditPanel.appendChild(editFormatBar);
     courseEditPanel.appendChild(editField("Text", editHtmlArea));
     courseEditPanel.appendChild(editField("Link destination", editHrefInput));
     courseEditPanel.appendChild(editField("Image", editSrcInput));
@@ -1471,6 +1861,7 @@ export function buildPreviewBridgeRuntime(
     courseEditPanel.appendChild(editField("Tooltip or title", editTitleInput));
     courseEditPanel.appendChild(styleGrid);
     courseEditPanel.appendChild(saveEdit);
+    courseEditPanel.appendChild(annotateEdit);
     courseEditPanel.appendChild(editSavedHeading);
     courseEditPanel.appendChild(editSavedItems);
     courseEditPanel.appendChild(editFooter);
@@ -1686,12 +2077,14 @@ export function buildPreviewBridgeRuntime(
     editPanel = courseEditPanel;
     editTargetText = editSelectedText;
     editHtml = editHtmlArea;
+    editFormat = editFormatBar;
     editHref = editHrefInput;
     editSrc = editSrcInput;
     editAlt = editAltArea;
     editTitle = editTitleInput;
     editStyleControls = styleControls;
     editSave = saveEdit;
+    editAnnotate = annotateEdit;
     editItems = editSavedItems;
     editApply = applyEdits;
     editUndo = undoEdits;
@@ -1807,7 +2200,7 @@ export function buildPreviewBridgeRuntime(
 
   function isPreviewControlTarget(target) {
     var element = target instanceof Element ? target : null;
-    return Boolean(element && element.closest("[data-canvas-helper-preview-controls]"));
+    return Boolean(element && element.closest("[data-canvas-helper-preview-controls], [data-canvas-helper-edit-map-toolbar], [data-canvas-helper-edit-map-tooltip]"));
   }
 
   function selectionFor(target, includeScroll, interactionStartedAt) {
@@ -1815,10 +2208,11 @@ export function buildPreviewBridgeRuntime(
     if (!element) return null;
     var rect = element.getBoundingClientRect();
     var isFormControl = element instanceof HTMLInputElement || element instanceof HTMLTextAreaElement || element instanceof HTMLSelectElement;
+    var fullVisibleText = isFormControl ? "" : normalizedRenderedText(element.textContent || "");
     return {
       nodeId: uniqueSourceNodeId(element),
       selectionKind: "element",
-      visibleText: isFormControl ? "" : boundedString(element.textContent || "", MAX_TEXT),
+      visibleText: boundedString(fullVisibleText, MAX_TEXT),
       tagName: boundedString(element.tagName ? element.tagName.toLowerCase() : "", MAX_ELEMENT_TAG),
       role: boundedString(element.getAttribute("role") || "", MAX_ELEMENT_ROLE),
       testId: boundedString(element.getAttribute("data-testid") || "", MAX_ELEMENT_TEST_ID),
@@ -1826,7 +2220,17 @@ export function buildPreviewBridgeRuntime(
       viewport: { width: Math.max(240, Math.round(window.innerWidth)), height: Math.max(240, Math.round(window.innerHeight)) },
       scroll: includeScroll === false ? { windowTop: window.scrollY, windowLeft: window.scrollX, containers: [] } : captureScrollState(),
       pageHref: boundedString(location.href, MAX_COURSE_URL),
-      interactionStartedAt: typeof interactionStartedAt === "number" ? interactionStartedAt : undefined
+      interactionStartedAt: typeof interactionStartedAt === "number" ? interactionStartedAt : undefined,
+      rendered: {
+        textFingerprint: renderedTextFingerprint(fullVisibleText),
+        textLength: fullVisibleText.length,
+        attributes: {
+          href: boundedString(element.getAttribute("href") || "", ${2048}),
+          src: boundedString(element.getAttribute("src") || "", ${2048}),
+          alt: boundedString(element.getAttribute("alt") || "", ${2048}),
+          title: boundedString(element.getAttribute("title") || "", ${2048})
+        }
+      }
     };
   }
 
@@ -1863,10 +2267,14 @@ export function buildPreviewBridgeRuntime(
     };
   }
 
-  function selectInspection(selection) {
+  function selectInspection(selection, editRuntime) {
     if (!selection) return;
-    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+    setOverlay(
+      { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
+      editRuntime ? editRuntime.state : undefined
+    );
     send("preview-inspect-selected", selection);
+    if (editModeEnabled) editLastSelection = selection;
     if (window.top === window) {
       if (editModeEnabled) {
         setEditPanelOpen(true);
@@ -1882,13 +2290,16 @@ export function buildPreviewBridgeRuntime(
   function keyboardCandidates() {
     if (!keyboardCandidateCache || keyboardCandidateCacheDirty) {
       keyboardCandidateCache = Array.prototype.slice.call(document.querySelectorAll("[" + NODE_ATTRIBUTE + "]"), 0, 12000).filter(function(element) {
-        return Boolean(
+        var inspectable = Boolean(
           element &&
           element !== document.documentElement &&
           element !== document.body &&
           !isPreviewControlTarget(element) &&
           isVisibleCourseElement(element)
         );
+        if (!inspectable || !editModeEnabled) return inspectable;
+        var runtime = mapRuntimeForElement(element);
+        return Boolean(runtime && runtime.state !== "blocked");
       });
       keyboardCandidateCacheDirty = false;
     }
@@ -1903,7 +2314,17 @@ export function buildPreviewBridgeRuntime(
     keyboardCursor = candidates[nextIndex];
     var selection = selectionFor(keyboardCursor, false);
     if (!selection) return null;
-    setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+    var editRuntime = editModeEnabled ? mapRuntimeForElement(keyboardCursor) : null;
+    setOverlay(
+      { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
+      editRuntime ? editRuntime.state : undefined
+    );
+    if (editRuntime) showEditMapTooltip(editRuntime, {
+      left: selection.geometry.x,
+      top: selection.geometry.y,
+      right: selection.geometry.x + selection.geometry.width,
+      bottom: selection.geometry.y + selection.geometry.height
+    });
     try { keyboardCursor.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "auto" }); } catch (_) {}
     focusInspectableElement(keyboardCursor);
     return selection;
@@ -1943,6 +2364,7 @@ export function buildPreviewBridgeRuntime(
       sourceNodeElements = null;
       scrollSelectorsInitialized = false;
       lastSelectors = [];
+      scheduleEditMapRefresh();
     });
     try {
       keyboardMutationObserver.observe(document.body, {
@@ -1958,7 +2380,7 @@ export function buildPreviewBridgeRuntime(
 
   function onPointerMove(event) {
     if (!inspectEnabled || !event.isTrusted) return;
-    if (dragStart) {
+    if (dragStart && !editModeEnabled) {
       var dragRect = {
         left: Math.min(dragStart.x, event.clientX),
         top: Math.min(dragStart.y, event.clientY),
@@ -1979,9 +2401,23 @@ export function buildPreviewBridgeRuntime(
       var syntheticEvent = { target: pending.target, clientX: pending.clientX, clientY: pending.clientY };
       var target = targetForPointerEvent(syntheticEvent);
       if (isPreviewControlTarget(target)) return;
-      var selection = selectionFor(target, false);
+      var editRuntime = editModeEnabled ? editMapTargetForPointer(target, pending.clientX, pending.clientY) : null;
+      var selection = selectionFor(editRuntime ? editRuntime.element : target, false);
       if (!selection) return;
-      setOverlay({ left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height });
+      setOverlay(
+        { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
+        editRuntime ? editRuntime.state : undefined
+      );
+      if (editRuntime) {
+        showEditMapTooltip(editRuntime, {
+          left: selection.geometry.x,
+          top: selection.geometry.y,
+          right: selection.geometry.x + selection.geometry.width,
+          bottom: selection.geometry.y + selection.geometry.height
+        });
+      } else {
+        hideEditMapTooltip();
+      }
       send("preview-inspect-hover", selection);
     });
   }
@@ -1997,10 +2433,12 @@ export function buildPreviewBridgeRuntime(
     if (!inspectEnabled || !event.isTrusted) return;
     var target = targetForPointerEvent(event);
     if (isPreviewControlTarget(target)) return;
-    var selection = selectionFor(target);
+    var editRuntime = editModeEnabled ? editMapTargetForPointer(target, event.clientX, event.clientY) : null;
+    var selectedTarget = editRuntime ? editRuntime.element : target;
+    var selection = selectionFor(selectedTarget);
     blockAction(event);
     if (!selection) return;
-    dragStart = { x: event.clientX, y: event.clientY, selection: selection, target: target };
+    dragStart = { x: event.clientX, y: event.clientY, selection: selection, target: selectedTarget, editRuntime: editRuntime };
     dragging = false;
   }
 
@@ -2009,7 +2447,7 @@ export function buildPreviewBridgeRuntime(
     blockAction(event);
     var interactionStartedAt = Date.now();
     var selection = Object.assign({}, dragStart.selection, { interactionStartedAt: interactionStartedAt });
-    if (dragging) {
+    if (dragging && !editModeEnabled) {
       var areaRect = {
         x: Math.round(Math.min(dragStart.x, event.clientX)),
         y: Math.round(Math.min(dragStart.y, event.clientY)),
@@ -2024,9 +2462,10 @@ export function buildPreviewBridgeRuntime(
         selection.geometry = areaRect;
       }
     }
+    var selectedEditRuntime = dragStart.editRuntime;
     dragStart = null;
     dragging = false;
-    selectInspection(selection);
+    selectInspection(selection, selectedEditRuntime);
   }
 
   function onInspectPointerCancel() {
@@ -2057,9 +2496,10 @@ export function buildPreviewBridgeRuntime(
     }
     if (event.key !== "Enter" && event.key !== " ") return;
     var active = document.activeElement && document.activeElement !== document.body ? document.activeElement : keyboardCursor;
-    var selection = selectionFor(active, true, Date.now());
+    var editRuntime = editModeEnabled ? editMapTargetForPointer(active, 0, 0) : null;
+    var selection = selectionFor(editRuntime ? editRuntime.element : active, true, Date.now());
     if (!selection) return;
-    selectInspection(selection);
+    selectInspection(selection, editRuntime);
   }
 
   function onInspectWheel(event) {
@@ -2108,6 +2548,7 @@ export function buildPreviewBridgeRuntime(
     // useful local status such as "Selection ready" when that echo does not
     // actually change this preview's mode.
     if (inspectModeChanged) updateStandaloneControls();
+    updateEditMapVisuals();
     if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
   }
 
@@ -2124,12 +2565,15 @@ export function buildPreviewBridgeRuntime(
     scrollSelectorsInitialized = false;
     lastSelectors = [];
     keyboardCursor = null;
+    editLastSelection = null;
     if (inspectEnabled) startKeyboardMutationObserver();
     reviewSelection = null;
     reviewLocalMessage = "The course page changed. Select an element again.";
     dragStart = null;
     dragging = false;
     hideOverlay();
+    hideEditMapTooltip();
+    scheduleEditMapRefresh();
     renderReviewPanel();
     send("preview-navigation", { href: location.href });
     beginContentHealthCheck();
@@ -2316,6 +2760,7 @@ export function buildPreviewBridgeRuntime(
     }
     if (data.type === "preview-inspect-selected") {
       if (editModeEnabled) {
+        editLastSelection = data.payload;
         setEditPanelOpen(true);
         setStandaloneStatus("Checking this edit target…");
       } else {
@@ -2343,6 +2788,7 @@ export function buildPreviewBridgeRuntime(
       data.type === "preview-inspect-current" ||
       data.type === "preview-inspect-focused" ||
       data.type === "preview-inspect-mode" ||
+      data.type === "preview-edit-action" ||
       data.type === "preview-health" ||
       data.type === "preview-diagnostic" ||
       data.type === "preview-error"
@@ -2384,6 +2830,13 @@ export function buildPreviewBridgeRuntime(
     }
     if (event.data.type === "studio-set-inspect-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") {
       setInspectMode(event.data.payload.enabled, false, event.data.payload.keyboardEntry === true);
+    }
+    if (event.data.type === "studio-set-edit-visual-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") {
+      editModeEnabled = Boolean(event.data.payload.enabled);
+      keyboardCandidateCacheDirty = true;
+      if (hostMode) sendHostedCourse("studio-set-edit-visual-mode", { enabled: editModeEnabled });
+      updateEditMapVisuals();
+      updateStandaloneControls({ renderReview: false });
     }
     if (
       event.data.type === "studio-request-inspect-current" &&
@@ -2504,14 +2957,26 @@ export function buildPreviewBridgeRuntime(
       var previousDraftId = editState.selectedDraft && editState.selectedDraft.id;
       editState = event.data.payload;
       editModeEnabled = Boolean(editState.enabled);
+      keyboardCandidateCacheDirty = true;
+      if (hostMode) sendHostedCourse("studio-set-edit-state", event.data.payload);
       if (editModeEnabled) editPanelOpen = true;
       var nextTargetId = editState.target && editState.target.targetId;
       var nextDraftId = editState.selectedDraft && editState.selectedDraft.id;
       if (previousTargetId !== nextTargetId || previousDraftId !== nextDraftId) populateEditComposer();
+      updateEditMapVisuals();
       updateStandaloneControls({ renderReview: false });
     }
     if (event.data.type === "studio-edit-action-result" && isEditActionResult(event.data.payload)) {
       if (event.data.payload.requestId && latestEditActionId && event.data.payload.requestId !== latestEditActionId) return;
+      if (event.data.payload.ok && pendingEditAnnotationId && event.data.payload.requestId === pendingEditAnnotationId && editLastSelection) {
+        pendingEditAnnotationId = "";
+        reviewSelection = editLastSelection;
+        reviewLocalMessage = "Add a note or screenshot, then save this annotation.";
+        setEditPanelOpen(false);
+        setReviewPanelOpen(true);
+      } else if (pendingEditAnnotationId && event.data.payload.requestId === pendingEditAnnotationId) {
+        pendingEditAnnotationId = "";
+      }
       if (editMessage) editMessage.textContent = event.data.payload.message;
       renderEditPanel();
     }
@@ -2695,7 +3160,7 @@ export function buildPreviewBridgeRuntime(
   }
 
   function isVisibleCourseElement(element) {
-    if (!element || element.closest("[data-canvas-helper-preview-controls], [hidden], [aria-hidden='true']")) return false;
+    if (!element || element.closest("[data-canvas-helper-preview-controls], [data-canvas-helper-edit-map-toolbar], [data-canvas-helper-edit-map-tooltip], [hidden], [aria-hidden='true']")) return false;
     try {
       var ancestor = element;
       while (ancestor && ancestor.nodeType === 1) {
@@ -2831,7 +3296,9 @@ export function buildPreviewBridgeRuntime(
 
   function markReady() {
     document.documentElement.setAttribute("data-canvas-helper-bridge-ready", "true");
+    readEditPageMap();
     ensureStandalonePreviewControls();
+    updateEditMapVisuals();
     beginContentHealthCheck();
     if (hostMode) {
       hostedCourseFrame = document.querySelector("[data-canvas-helper-standalone-course]");

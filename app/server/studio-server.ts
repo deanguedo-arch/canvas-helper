@@ -4,6 +4,10 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 import type { Plugin, ViteDevServer } from "vite";
 
 import {
+  STUDIO_PROJECTS_CHANGED_EVENT,
+  STUDIO_PROJECT_CHANGE_SIGNAL
+} from "../shared/project-discovery.js";
+import {
   PREVIEW_STANDALONE_REJOIN_PARAM,
   PREVIEW_STANDALONE_SESSION_PARAM
 } from "../shared/preview-bridge.js";
@@ -15,6 +19,18 @@ import { sendJson } from "./lib/response";
 import { buildStandalonePreviewHost } from "./standalone-preview-host";
 
 type RouteHandler = (url: string, request: IncomingMessage, response: ServerResponse) => Promise<boolean>;
+
+const RESERVED_PROJECT_DIRECTORIES = new Set(["assessments", "incoming", "processed", "resources"]);
+
+export function isStudioProjectManifestPath(filePath: string, root = process.cwd()) {
+  const relative = path.relative(path.join(root, "projects"), path.resolve(filePath));
+  const segments = relative.split(path.sep);
+  return segments.length === 3
+    && /^[a-z0-9]+(?:[._-][a-z0-9]+)*$/.test(segments[0] ?? "")
+    && !RESERVED_PROJECT_DIRECTORIES.has(segments[0] ?? "")
+    && segments[1] === "meta"
+    && segments[2] === "project.json";
+}
 
 export function hasTrustedStandalonePreviewNavigation(request: IncomingMessage, studioOrigin: string) {
   if (
@@ -334,6 +350,25 @@ export function createStudioServerPlugin(): Plugin {
   return {
     name: "studio-server",
     configureServer(server) {
+      const projectManifestGlob = path.join(process.cwd(), "projects", "*", "meta", "project.json");
+      const projectChangeSignal = path.join(process.cwd(), STUDIO_PROJECT_CHANGE_SIGNAL);
+      let projectRefreshTimer: ReturnType<typeof setTimeout> | null = null;
+      const scheduleProjectRefresh = (filePath: string) => {
+        if (
+          !isStudioProjectManifestPath(filePath)
+          && path.resolve(filePath) !== path.resolve(projectChangeSignal)
+        ) return;
+        if (projectRefreshTimer) clearTimeout(projectRefreshTimer);
+        projectRefreshTimer = setTimeout(() => {
+          projectRefreshTimer = null;
+          server.ws.send({ type: "custom", event: STUDIO_PROJECTS_CHANGED_EVENT });
+        }, 60);
+      };
+      server.watcher.add([projectManifestGlob, projectChangeSignal]);
+      server.watcher.on("add", scheduleProjectRefresh);
+      server.watcher.on("change", scheduleProjectRefresh);
+      server.watcher.on("unlink", scheduleProjectRefresh);
+
       const startPreviewServer = () => {
         const startup = ensurePreviewServer(server);
         if (startup) {
@@ -346,6 +381,10 @@ export function createStudioServerPlugin(): Plugin {
         server.httpServer?.once("listening", startPreviewServer);
       }
       server.httpServer?.once("close", () => {
+        if (projectRefreshTimer) clearTimeout(projectRefreshTimer);
+        server.watcher.off("add", scheduleProjectRefresh);
+        server.watcher.off("change", scheduleProjectRefresh);
+        server.watcher.off("unlink", scheduleProjectRefresh);
         if (isolatedPreviewServer) {
           void isolatedPreviewServer.close().catch(() => undefined);
         }

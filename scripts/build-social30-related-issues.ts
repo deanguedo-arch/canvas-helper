@@ -117,15 +117,13 @@ const ISSUES: IssueConfig[] = [
   }
 ];
 
-const OPTION_ISSUES: IssueConfig[] = [
-  {
-    ...ISSUES[0],
-    slug: "social30-1-related-issue-1-option-2",
-    title: "Related Issue 1 (Option Two)",
-    shortTitle: "Social RI 1 Option Two",
-    renderMode: "palette-shell"
-  }
-];
+const OPTION_ISSUES: IssueConfig[] = ISSUES.map((issue, index) => ({
+  ...issue,
+  slug: `social30-1-related-issue-${index + 1}-option-2`,
+  title: `Related Issue ${index + 1} (Option Two)`,
+  shortTitle: `Social RI ${index + 1} Option Two`,
+  renderMode: "palette-shell"
+}));
 
 const ALL_ISSUES = [...ISSUES, ...OPTION_ISSUES];
 
@@ -1945,7 +1943,7 @@ async function buildIssue(
               extraCss: socialShellCss(config)
             });
 
-      const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml });
+      const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml, workspaceDir });
       await fs.writeFile(path.join(workspaceDir, "index.html"), html);
       await writeBuildMetadata(stageMetaDir, config, sourceResource, lessons.length, resources.length);
       summary = { slug: config.slug, lessons: lessons.length, resources: resources.length };

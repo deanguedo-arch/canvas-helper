@@ -358,6 +358,7 @@ async function writeProjectMetadata(input: {
     );
   }
   const projectJson = {
+    ...existing,
     id: input.args.projectSlug,
     slug: input.args.projectSlug,
     sourcePath: input.brightspaceRawPath,
@@ -472,7 +473,8 @@ export async function buildEnglishUnit(args: BuildArgs) {
       const html = await applyStoredCourseEdits({
         repoRoot,
         projectSlug: prepared.recipe.projectSlug,
-        html: renderedHtml
+        html: renderedHtml,
+        workspaceDir: stageDir
       });
       const forbiddenLearnerPhrases = [
         "HARD GATE",

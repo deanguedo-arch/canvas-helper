@@ -1038,6 +1038,15 @@ export async function importProject(options: ImportProjectOptions) {
     preferredWorkflows: [inferredProjectType],
     canonicalEntry: paths.workspaceEntrypoint,
     canonicalSources,
+    authoring: {
+      driverId: "direct-workspace-v1",
+      familyId: "imported-workspace-v1",
+      studioEditing: {
+        enabled: true,
+        renameCourse: false,
+        imageAssets: true
+      }
+    },
     generatedOutputs: [],
     injectedComponents: [],
     importedFirstPassOrigin: {

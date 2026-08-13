@@ -22,7 +22,8 @@ import {
   writeJsonFile,
   writeTextFile
 } from "../fs.js";
-import { getProjectPaths } from "../paths.js";
+import { getProjectPaths, repoRoot } from "../paths.js";
+import { recordCourseExportEvidence } from "../course-editing/export-freshness.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 
 import {
@@ -465,6 +466,7 @@ export async function exportProjectToAppsScript(
 
   await restoreAppsScriptConfig(exportDir, preservedConfig);
   await markProjectWorkspaceApproved(projectSlug);
+  await recordCourseExportEvidence({ repoRoot, projectSlug, target: "apps-script", artifactPath: exportDir });
 
   const finalExportFiles = await listFilesRecursive(exportDir);
   const finalFileCounts = countExportFiles(finalExportFiles, driveAssetsDir);

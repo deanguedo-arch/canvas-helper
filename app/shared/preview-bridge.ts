@@ -8,6 +8,7 @@ import {
   isCourseEditPatch,
   isCourseEditStylePatch,
   type CourseEditCapabilities,
+  type CourseEditDraftBaseline,
   type CourseEditPatch,
   type CourseEditStylePatch
 } from "./course-editing.js";
@@ -56,6 +57,7 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-request-state",
   "studio-restore-scroll",
   "studio-set-inspect-mode",
+  "studio-set-edit-visual-mode",
   "studio-request-inspect-current",
   "studio-focus-inspect-node",
   "studio-show-inspect-node",
@@ -109,6 +111,16 @@ export type PreviewInspectPayload = {
   scroll: PreviewScrollState;
   pageHref: string;
   interactionStartedAt?: number;
+  rendered?: {
+    textFingerprint: string;
+    textLength: number;
+    attributes: {
+      href: string;
+      src: string;
+      alt: string;
+      title: string;
+    };
+  };
 };
 
 export type PreviewInspectCurrentPayload = {
@@ -212,6 +224,7 @@ export type PreviewCourseEditDraftSummary = {
 };
 
 export type PreviewCourseEditDraftDetail = PreviewCourseEditDraftSummary & {
+  baseline: CourseEditDraftBaseline;
   patch: CourseEditPatch;
 };
 
@@ -234,6 +247,7 @@ export type PreviewCourseEditState = {
 export type PreviewCourseEditAction = (
   | { action: "request-state" }
   | { action: "set-mode"; enabled: boolean; nextMode?: "off" | "annotate" }
+  | { action: "annotate-selection"; selection: PreviewInspectPayload }
   | { action: "save-target"; targetId: string; patch: CourseEditPatch }
   | { action: "select-draft"; draftId: string }
   | { action: "update-draft"; draftId: string; patch: CourseEditPatch }
@@ -366,6 +380,8 @@ export function isPreviewScrollState(value: unknown): value is PreviewScrollStat
 }
 
 export function isPreviewInspectPayload(value: unknown): value is PreviewInspectPayload {
+  const rendered = isRecord(value) && isRecord(value.rendered) ? value.rendered : null;
+  const renderedAttributes = rendered && isRecord(rendered.attributes) ? rendered.attributes : null;
   return (
     isRecord(value) &&
     (value.nodeId === null || isBoundedString(value.nodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits)) &&
@@ -378,6 +394,20 @@ export function isPreviewInspectPayload(value: unknown): value is PreviewInspect
     isViewport(value.viewport) &&
     isPreviewScrollState(value.scroll) &&
     isBoundedNonEmptyString(value.pageHref, STUDIO_BRIDGE_LIMITS.courseUrlCodeUnits) &&
+    (
+      value.rendered === undefined || (
+        rendered !== null &&
+        /^[a-f0-9]{8}$/.test(String(rendered.textFingerprint)) &&
+        typeof rendered.textLength === "number" &&
+        Number.isInteger(rendered.textLength) &&
+        rendered.textLength >= 0 &&
+        rendered.textLength <= COURSE_EDIT_MAX_HTML_CODE_UNITS &&
+        renderedAttributes !== null &&
+        ["href", "src", "alt", "title"].every((name) =>
+          isBoundedString(renderedAttributes[name], COURSE_EDIT_MAX_URL_CODE_UNITS)
+        )
+      )
+    ) &&
     (
       value.interactionStartedAt === undefined ||
       (typeof value.interactionStartedAt === "number" && Number.isFinite(value.interactionStartedAt) && value.interactionStartedAt >= 0)
@@ -494,11 +524,13 @@ export function isPreviewReviewActionResult(value: unknown): value is PreviewRev
 function isCourseEditCapabilities(value: unknown): value is CourseEditCapabilities {
   return (
     isRecord(value) &&
-    Object.keys(value).every((key) => ["richText", "link", "image", "styles"].includes(key)) &&
+    Object.keys(value).every((key) => ["richText", "link", "image", "styles", "styleKeys"].includes(key)) &&
     typeof value.richText === "boolean" &&
     typeof value.link === "boolean" &&
     typeof value.image === "boolean" &&
-    typeof value.styles === "boolean"
+    typeof value.styles === "boolean" &&
+    Array.isArray(value.styleKeys) &&
+    value.styleKeys.every((entry) => ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"].includes(String(entry)))
   );
 }
 
@@ -534,7 +566,7 @@ function isPreviewCourseEditDraftSummary(value: unknown): value is PreviewCourse
   if (!isRecord(value)) return false;
   const targetId = value.targetId;
   return (
-    Object.keys(value).every((key) => ["id", "targetId", "tagName", "beforeText", "afterText", "patch"].includes(key)) &&
+    Object.keys(value).every((key) => ["id", "targetId", "tagName", "beforeText", "afterText", "baseline", "patch"].includes(key)) &&
     isBoundedNonEmptyString(value.id, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
     isBoundedNonEmptyString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
     /^[a-f0-9]{24}$/.test(targetId as string) &&
@@ -545,8 +577,19 @@ function isPreviewCourseEditDraftSummary(value: unknown): value is PreviewCourse
 }
 
 function isPreviewCourseEditDraftDetail(value: unknown): value is PreviewCourseEditDraftDetail {
-  if (!isRecord(value) || !isPreviewCourseEditDraftSummary(value)) return false;
-  return isCourseEditPatch((value as Record<string, unknown>).patch);
+  if (!isRecord(value)) return false;
+  const baseline = value.baseline;
+  const patch = value.patch;
+  if (!isPreviewCourseEditDraftSummary(value)) return false;
+  return (
+    isRecord(baseline) &&
+    Object.keys(baseline).every((key) => ["originalHtml", "attributes", "currentStyle", "capabilities"].includes(key)) &&
+    isBoundedString(baseline.originalHtml, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
+    isCourseEditAttributes(baseline.attributes) &&
+    isCourseEditStylePatch(baseline.currentStyle) &&
+    isCourseEditCapabilities(baseline.capabilities) &&
+    isCourseEditPatch(patch)
+  );
 }
 
 function isCapabilityWorkspacePreviewHref(value: unknown) {
@@ -605,6 +648,11 @@ export function isPreviewCourseEditAction(value: unknown): value is PreviewCours
         typeof value.enabled === "boolean" &&
         (value.nextMode === undefined || value.nextMode === "off" || value.nextMode === "annotate") &&
         (value.enabled ? value.nextMode === undefined : true)
+      );
+    case "annotate-selection":
+      return (
+        Object.keys(value).every((key) => ["action", "requestId", "selection"].includes(key)) &&
+        isPreviewInspectPayload(value.selection)
       );
     case "save-target":
       return Object.keys(value).every((key) => ["action", "requestId", "targetId", "patch"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string) && isCourseEditPatch(value.patch);
@@ -682,6 +730,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isPreviewScrollState(payload);
     case "studio-set-inspect-mode":
       return isRecord(payload) && typeof payload.enabled === "boolean" && (payload.keyboardEntry === undefined || typeof payload.keyboardEntry === "boolean");
+    case "studio-set-edit-visual-mode":
+      return isRecord(payload) && Object.keys(payload).every((key) => key === "enabled") && typeof payload.enabled === "boolean";
     case "studio-request-inspect-current":
       return (
         isRecord(payload) &&

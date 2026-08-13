@@ -9,6 +9,7 @@ import { resolveContentType, sendJson } from "../lib/response";
 import {
   decoratePreviewHtml,
   decoratePreviewHtmlBuffer,
+  injectPreviewCourseEditMap,
   injectPreviewBridgeScript
 } from "../lib/preview-inspection";
 import {
@@ -22,6 +23,7 @@ export type PreviewRouteOptions = {
   bridgeScriptPath?: string;
   publicPathPrefix?: string;
   registerRuntimeSource?: PreviewRuntimeSourceRegistrar;
+  repoRoot?: string;
 };
 
 function escapeHtml(value: string) {
@@ -247,10 +249,11 @@ function bridgeScriptSource(options: PreviewRouteOptions) {
   return options.bridgeScriptPath ?? null;
 }
 
-function decorateHtmlResponse(
+async function decorateHtmlResponse(
   body: string | Buffer,
   _request: IncomingMessage,
-  options: PreviewRouteOptions
+  options: PreviewRouteOptions,
+  courseContext?: { projectSlug: string; htmlPath: string }
 ) {
   const scriptSource = bridgeScriptSource(options);
   if (!scriptSource) {
@@ -262,7 +265,23 @@ function decorateHtmlResponse(
     return body;
   }
 
-  const withBridge = injectPreviewBridgeScript(decoration.html, scriptSource);
+  let mappedHtml = decoration.html;
+  if (courseContext) {
+    try {
+      const { resolveCourseEditPageMap } = await import("../lib/course-editing");
+      const editMap = await resolveCourseEditPageMap(
+        courseContext.projectSlug,
+        courseContext.htmlPath,
+        decoration,
+        options.repoRoot
+      );
+      mappedHtml = injectPreviewCourseEditMap(mappedHtml, editMap);
+    } catch {
+      // The preview remains usable when authoring metadata cannot produce an
+      // editability map. Final edit resolution still fails closed.
+    }
+  }
+  const withBridge = injectPreviewBridgeScript(mappedHtml, scriptSource);
   const withCompatibleRuntime = options.publicPathPrefix
     ? rewritePreviewHtmlRuntimeScripts(
         withBridge,
@@ -324,7 +343,8 @@ export async function handlePreviewRoutes(
       const filePath = await getReferencePreviewPath(
         referencePreviewMatch[1] as "raw" | "extracted",
         referencePreviewMatch[2],
-        referencePreviewMatch[3]
+        referencePreviewMatch[3],
+        options.repoRoot
       );
 
       if (!(await fileExists(filePath))) {
@@ -336,7 +356,7 @@ export async function handlePreviewRoutes(
             response.end();
             return true;
           }
-          response.end(decorateHtmlResponse(
+          response.end(await decorateHtmlResponse(
             buildMissingReferencePreview({
               slug: referencePreviewMatch[2],
               resourceRoot: referencePreviewMatch[1] as "raw" | "extracted",
@@ -369,7 +389,7 @@ export async function handlePreviewRoutes(
       response.setHeader("Content-Type", contentType);
       response.end(
         contentType.startsWith("text/html")
-          ? decorateHtmlResponse(body, request, options)
+          ? await decorateHtmlResponse(body, request, options)
           : decorateJavaScriptResponse(body, filePath, contentType, options)
       );
   } catch {
@@ -387,7 +407,8 @@ export async function handlePreviewRoutes(
     const filePath = await getPreviewPath(
       previewMatch[1] as "raw" | "workspace",
       previewMatch[2],
-      previewMatch[3]
+      previewMatch[3],
+      options.repoRoot
     );
 
     if (!(await fileExists(filePath))) {
@@ -399,7 +420,7 @@ export async function handlePreviewRoutes(
           response.end();
           return true;
         }
-        response.end(decorateHtmlResponse(
+        response.end(await decorateHtmlResponse(
           buildMissingWorkspacePreview({
               slug: previewMatch[2],
               relativePath: decodeURIComponent(previewMatch[3] || "")
@@ -431,7 +452,10 @@ export async function handlePreviewRoutes(
     response.setHeader("Content-Type", contentType);
     response.end(
       contentType.startsWith("text/html")
-        ? decorateHtmlResponse(body, request, options)
+        ? await decorateHtmlResponse(body, request, options, previewMatch[1] === "workspace" ? {
+            projectSlug: previewMatch[2],
+            htmlPath: decodeURIComponent(previewMatch[3] || "index.html")
+          } : undefined)
         : decorateJavaScriptResponse(body, filePath, contentType, options)
     );
   } catch {

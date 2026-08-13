@@ -19,6 +19,9 @@ type InspectorPanelProps = {
   editBusy: boolean;
   editFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error" };
   editCanUndo: boolean;
+  editUndoUnavailableReason: string;
+  editCanRenameCourse: boolean;
+  editCourseTitle: string;
   editExportsOutOfDate: boolean;
   editStaleExportTargets: string[];
   onSaveEditTarget: (patch: CourseEditPatch) => boolean;
@@ -27,6 +30,11 @@ type InspectorPanelProps = {
   onReorderEditDraft: (id: string, direction: -1 | 1) => void;
   onApplyEditDrafts: () => void;
   onUndoEditBatch: () => void;
+  onExportEditDrafts: () => string;
+  onImportEditDrafts: (source: string) => boolean;
+  onUploadEditImage: (file: File, htmlPath: string) => Promise<string | null>;
+  onRenameCourse: (title: string) => Promise<boolean>;
+  onAnnotateEditTarget: () => void;
   inspectEnabled: boolean;
   inspectionResolution: InspectionResolution | null;
   inspectionResolving: boolean;
@@ -107,6 +115,9 @@ export function InspectorPanel({
   editBusy,
   editFeedback,
   editCanUndo,
+  editUndoUnavailableReason,
+  editCanRenameCourse,
+  editCourseTitle,
   editExportsOutOfDate,
   editStaleExportTargets,
   onSaveEditTarget,
@@ -115,6 +126,11 @@ export function InspectorPanel({
   onReorderEditDraft,
   onApplyEditDrafts,
   onUndoEditBatch,
+  onExportEditDrafts,
+  onImportEditDrafts,
+  onUploadEditImage,
+  onRenameCourse,
+  onAnnotateEditTarget,
   inspectEnabled,
   inspectionResolution,
   inspectionResolving,
@@ -199,6 +215,9 @@ export function InspectorPanel({
           busy={editBusy}
           feedback={editFeedback}
           canUndo={editCanUndo}
+          undoUnavailableReason={editUndoUnavailableReason}
+          canRenameCourse={editCanRenameCourse}
+          courseTitle={editCourseTitle}
           exportsOutOfDate={editExportsOutOfDate}
           staleExportTargets={editStaleExportTargets}
           onSaveTarget={onSaveEditTarget}
@@ -207,6 +226,11 @@ export function InspectorPanel({
           onReorderDraft={onReorderEditDraft}
           onApply={onApplyEditDrafts}
           onUndo={onUndoEditBatch}
+          onExportDrafts={onExportEditDrafts}
+          onImportDrafts={onImportEditDrafts}
+          onUploadImage={onUploadEditImage}
+          onRenameCourse={onRenameCourse}
+          onAnnotateTarget={onAnnotateEditTarget}
         />
       ) : null}
       {showComposer ? (

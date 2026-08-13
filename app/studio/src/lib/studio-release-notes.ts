@@ -13,25 +13,25 @@ export type StudioRelease = {
 
 export const CURRENT_STUDIO_RELEASE: StudioRelease = {
   version: "2026.08",
-  date: "August 12, 2026",
+  date: "August 13, 2026",
   title: "Safe course editing",
   summary: "Eligible courses can now collect, review, apply, and undo routine teacher changes directly in Studio or Full Preview.",
   notes: [
     {
-      title: "Edit the course in place",
-      summary: "Change supported text, links, images, alt text, captions, and curated visual styles without leaving Studio."
+      title: "See and edit in place",
+      summary: "Mapped areas show the available action; use text, links, safe images, curated styles, or course rename, while unsupported content routes to Annotate."
     },
     {
       title: "Review before applying",
-      summary: "Draft Changes persist per course across Studio and Full Preview and can be edited, removed, reordered, and compared before one batch is applied."
+      summary: "Drafts persist without silent expiry, reopen across Studio and Full Preview, show visual comparisons, and support local backup."
     },
     {
       title: "Apply safely and undo",
-      summary: "Studio rechecks targets, checkpoints the course, rebuilds generated courses when needed, validates the result, and can undo the last batch."
+      summary: "Studio locks and journals each batch, validates the real learner render, and refuses Undo after newer work."
     },
     {
-      title: "Keep ownership clear",
-      summary: "Every edit is course-only; unsupported or unmapped content stays annotation-only, and existing exports are marked out of date until republished."
+      title: "Bring the source-backed catalog forward",
+      summary: "Active source-backed, new, and imported courses use explicit ownership; runtime content routes to Annotate, packages stay protected, and artifact bytes track exports."
     }
   ]
 };

@@ -14,16 +14,35 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-08-11T00:00:00.000Z",
   "createdAt": "2026-08-11T00:00:00.000Z",
-  "updatedAt": "2026-08-11T00:00:00.000Z",
-  "migrationState": "legacy",
-  "preferredWorkflows": [],
+  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "migrationState": "migrated",
+  "preferredWorkflows": [
+    "conversion"
+  ],
   "canonicalSources": [],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "exportTargets": [],
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical workspace preview and export target."
+    }
+  ],
   "authoringStatus": "reference-only",
   "referenceOnly": [
-    "workspace/index.html"
+    "projects/e2e-studio-secondary/workspace/index.html"
   ],
-  "sourceOfTruthNotes": "Deterministic secondary project used only by project-neutral Studio continuity tests."
+  "sourceOfTruthNotes": "Deterministic secondary project used only by project-neutral Studio continuity tests. Studio onboarding: Reference/test artifact retained without enabling writes.",
+  "projectType": "conversion",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "reference-only",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  }
 }

@@ -1,5 +1,6 @@
 import { createHash } from "node:crypto";
 
+import { load } from "cheerio";
 import { Parser } from "htmlparser2";
 
 import type { CourseEditPatch, CourseEditStylePatch } from "../../../app/shared/course-editing.js";
@@ -21,6 +22,7 @@ export type EditableHtmlElement = {
   ordinal: number;
   tagName: string;
   pathKey: string;
+  stableKey: string;
   editId: string;
   sourceStart: number;
   openEnd: number;
@@ -43,7 +45,33 @@ function hash24(value: string) {
 }
 
 export function createStudioEditId(projectSlug: string, htmlPath: string, pathKey: string) {
-  return `che1:${hash24(`${projectSlug}\u0000${htmlPath}\u0000${pathKey}`)}`;
+  return `che2:${hash24(`${projectSlug}\u0000${htmlPath}\u0000${pathKey}`)}`;
+}
+
+export function isStudioEditId(value: string | undefined | null) {
+  return typeof value === "string" && /^che[12]:[a-f0-9]{24}$/.test(value);
+}
+
+function normalizedElementText(value: string) {
+  return load(`<body>${value}</body>`)("body").text().replace(/\s+/g, " ").trim();
+}
+
+function elementStableSignature(html: string, element: EditableHtmlElement) {
+  const attributes = element.attributes;
+  for (const name of ["data-canvas-helper-edit-key", "id", "data-testid", "name"]) {
+    const value = attributes[name]?.trim();
+    if (value) return `${element.tagName}\u0000${name}\u0000${value}`;
+  }
+  const inner = html.slice(element.innerStart, element.innerEnd);
+  const text = normalizedElementText(inner);
+  const semanticAttributes = ["href", "src", "alt", "title", "role", "aria-label"]
+    .map((name) => `${name}=${attributes[name] ?? ""}`)
+    .join("\u0000");
+  return `${element.tagName}\u0000text=${hash24(text)}\u0000${semanticAttributes}`;
+}
+
+export function courseEditElementDigest(html: string, element: EditableHtmlElement) {
+  return createHash("sha256").update(html.slice(element.sourceStart, element.sourceEnd), "utf8").digest("hex");
 }
 
 export function collectEditableHtmlElements(html: string, projectSlug: string, htmlPath: string) {
@@ -72,7 +100,8 @@ export function collectEditableHtmlElements(html: string, projectSlug: string, h
               ordinal,
               tagName: normalized,
               pathKey,
-              editId: createStudioEditId(projectSlug, htmlPath, pathKey),
+              stableKey: "",
+              editId: "",
               sourceStart,
               openEnd,
               innerStart: openEnd + 1,
@@ -121,7 +150,22 @@ export function collectEditableHtmlElements(html: string, projectSlug: string, h
   parser.write(html);
   parser.end();
   if (stack.length) parseFailed = true;
-  return parseFailed ? null : elements;
+  if (parseFailed) return null;
+  const signatureCounts = new Map<string, number>();
+  for (const element of elements) {
+    const existing = element.attributes[STUDIO_EDIT_ID_ATTRIBUTE];
+    if (isStudioEditId(existing)) {
+      element.stableKey = `declared\u0000${existing}`;
+      element.editId = existing;
+      continue;
+    }
+    const signature = elementStableSignature(html, element);
+    const occurrence = (signatureCounts.get(signature) ?? 0) + 1;
+    signatureCounts.set(signature, occurrence);
+    element.stableKey = `${signature}\u0000occurrence=${occurrence}`;
+    element.editId = createStudioEditId(projectSlug, htmlPath, element.stableKey);
+  }
+  return elements;
 }
 
 function escapeHtmlText(value: string) {
@@ -283,24 +327,34 @@ export function applyPatchToEditableElement(html: string, element: EditableHtmlE
   return `${html.slice(0, element.sourceStart)}${opening}${inner}${closing}${html.slice(element.sourceEnd)}`;
 }
 
-export function decorateGeneratedCourseHtml(html: string, projectSlug: string, htmlPath = "index.html") {
+export function decorateGeneratedCourseHtml(html: string, projectSlug: string, htmlPath = "index.html", includeStyles = false) {
   const elements = collectEditableHtmlElements(html, projectSlug, htmlPath);
   if (!elements) throw new Error("Studio could not establish stable edit identities for generated course HTML.");
   let decorated = html;
   for (const element of [...elements].sort((left, right) => right.sourceStart - left.sourceStart)) {
     decorated = applyPatchToEditableElement(decorated, element, {}, element.editId);
   }
-  return ensureStudioEditStyles(decorated);
+  return includeStyles ? ensureStudioEditStyles(decorated) : decorated;
 }
 
 export function courseEditCapabilitiesForTag(tagName: string) {
   const image = tagName === "img";
   const link = tagName === "a";
+  const styleKeys: Array<keyof CourseEditStylePatch> = /^h[1-6]$/.test(tagName)
+    ? ["fontFamily", "textTone", "alignment", "spacing"]
+    : ["p", "blockquote", "figcaption"].includes(tagName)
+      ? ["fontFamily", "fontSize", "textTone", "alignment", "spacing"]
+      : tagName === "li"
+        ? ["fontFamily", "fontSize", "textTone", "spacing"]
+        : ["td", "th"].includes(tagName)
+          ? ["textTone", "alignment"]
+          : [];
   return {
     richText: !image,
     link,
     image,
-    styles: !image
+    styles: styleKeys.length > 0,
+    styleKeys
   };
 }
 

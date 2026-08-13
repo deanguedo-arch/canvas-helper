@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdtemp, mkdir, readFile, rm, symlink, writeFile } from "node:fs/promises";
+import { mkdtemp, mkdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -15,12 +15,17 @@ import {
   applyCourseEditBatch,
   getCourseEditStatus,
   markCourseExportCurrent,
+  renameCourseForStudio,
+  resolveCourseEditPageMap,
   resolveCourseEditTarget,
+  restoreCheckpointDirectoryInPlace,
+  uploadCourseEditImageAsset,
   undoCourseEditBatch
 } from "../../app/server/lib/course-editing.ts";
 import { decoratePreviewHtml } from "../../app/server/lib/preview-inspection.ts";
 import {
   applyCourseEditOverridesToHtml,
+  syncStoredCourseEditAssets,
   type StoredCourseEditOverride
 } from "../lib/course-editing/overrides.ts";
 import {
@@ -32,8 +37,9 @@ import {
 const SLUG = "studio-edit-fixture";
 const ORIGINAL_HTML = `<!doctype html>
 <html>
-  <head><meta charset="utf-8"><title>Fixture</title></head>
+  <head><meta charset="utf-8"><title data-canvas-helper-course-title>Fixture</title></head>
   <body>
+    <header><h2 data-canvas-helper-course-title>Studio edit fixture</h2><h3 data-canvas-helper-course-title>Studio edit fixture</h3></header>
     <main>
       <h1>Hello teacher</h1>
       <p>Original paragraph</p>
@@ -62,6 +68,7 @@ async function createFixture() {
   ]);
   await writeFile(path.join(workspace, "index.html"), ORIGINAL_HTML, "utf8");
   await writeFile(path.join(workspace, "lesson.html"), SECOND_HTML, "utf8");
+  await writeFile(path.join(workspace, "course-data.js"), `window.COURSE = { "title": /* data-canvas-helper-course-title */ "Studio edit fixture" };\n`, "utf8");
   await writeFile(path.join(projectRoot, "raw", "original.html"), ORIGINAL_HTML, "utf8");
   await writeFile(path.join(repoRoot, "package.json"), `${JSON.stringify({
     private: true,
@@ -89,8 +96,13 @@ async function createFixture() {
     canonicalEntry: `projects/${SLUG}/workspace/index.html`,
     canonicalSources: [
       `projects/${SLUG}/workspace/index.html`,
-      `projects/${SLUG}/workspace/lesson.html`
+      `projects/${SLUG}/workspace/lesson.html`,
+      `projects/${SLUG}/workspace/course-data.js`
     ],
+    authoring: {
+      driverId: "direct-workspace-v1",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+    },
     generatedOutputs: [],
     authoringStatus: "active",
     exportTargets: [{ target: "scorm", enabled: true }, { target: "html", enabled: true }],
@@ -112,13 +124,19 @@ function requestFor(
 ): CourseEditResolveRequest {
   const located = [...document.nodeLocations.entries()].find(([, location]) => location.tagName === tagName);
   assert.ok(located, `Expected an inspectable ${tagName} element.`);
+  const editable = collectEditableHtmlElements(document.source, SLUG, htmlPath)?.find(
+    (element) => element.sourceStart === located[1].sourceStart && element.tagName === tagName
+  );
+  const visibleText = editable
+    ? document.source.slice(editable.innerStart, editable.innerEnd).replace(/<[^>]+>/g, "").replace(/\s+/g, " ").trim()
+    : "";
   return {
     projectSlug: SLUG,
     root: "workspace",
     htmlPath,
     selection: {
       nodeId: located[0],
-      visibleText: tagName === "h1" ? "Hello teacher" : "",
+      visibleText,
       tagName,
       role: "",
       testId: "",
@@ -138,6 +156,30 @@ async function resolveHeading(repoRoot: string, sourcePath: string) {
   assert.ok(target.identity);
   return target as CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> };
 }
+
+test("the page editability map identifies text, links, images, and synchronized course titles", async () => {
+  const fixture = await createFixture();
+  try {
+    const document = decoratePreviewHtml(await readFile(fixture.sourcePath, "utf8"));
+    assert.ok(document);
+    const map = await resolveCourseEditPageMap(SLUG, "index.html", document, fixture.repoRoot);
+    assert.equal(map.available, true);
+    assert.equal(map.truncated, false);
+    const actionForTag = (tagName: string, occurrence = 0) => {
+      const nodeId = [...document.nodeLocations.entries()].filter(([, location]) => location.tagName === tagName)[occurrence]?.[0];
+      assert.ok(nodeId, `Expected mapped ${tagName} occurrence ${occurrence}.`);
+      return map.entries.find((entry) => entry.nodeId === nodeId);
+    };
+    assert.equal(actionForTag("h1")?.action, "edit-text");
+    assert.equal(actionForTag("a")?.action, "edit-link");
+    assert.equal(actionForTag("img")?.action, "replace-image");
+    assert.equal(actionForTag("h2")?.action, "rename-course");
+    assert.match(actionForTag("h1")?.expected?.textFingerprint ?? "", /^[a-f0-9]{8}$/);
+    assert.ok(map.editableCount >= 4);
+  } finally {
+    await fixture.cleanup();
+  }
+});
 
 async function resolveElement(repoRoot: string, sourcePath: string, tagName: string, htmlPath: string) {
   const document = decoratePreviewHtml(await readFile(sourcePath, "utf8"));
@@ -175,9 +217,15 @@ function draftFor(target: CourseEditTarget & { identity: NonNullable<CourseEditT
     identity: target.identity,
     beforeText: target.originalText,
     afterText: html.replace(/<[^>]+>/g, ""),
+    baseline: {
+      originalHtml: target.originalHtml,
+      attributes: target.attributes,
+      currentStyle: target.currentStyle,
+      capabilities: target.capabilities
+    },
     patch: {
       html,
-      style: { textTone: "accent", fontSize: "large", spacing: "relaxed" }
+      style: { textTone: "accent", spacing: "relaxed" }
     }
   };
 }
@@ -190,7 +238,7 @@ test("direct Studio edits apply atomically, mark exports stale, and undo", async
     const result = await applyCourseEditBatch({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: SLUG, drafts: [draft] }, fixture.repoRoot);
 
     assert.equal(result.ok, true);
-    assert.deepEqual(result.staleExportTargets.sort(), ["html", "scorm"]);
+    assert.deepEqual(result.staleExportTargets.sort(), ["html", "scorm12", "scorm2004"]);
     const changed = await readFile(fixture.sourcePath, "utf8");
     assert.match(changed, /<strong>Updated<\/strong> heading/);
     assert.doesNotMatch(changed, /script|bad\(\)/);
@@ -208,7 +256,309 @@ test("direct Studio edits apply atomically, mark exports stale, and undo", async
     const undoneStatus = await getCourseEditStatus(SLUG, fixture.repoRoot);
     assert.equal(undoneStatus.canUndo, false);
     assert.equal(undoneStatus.exportsOutOfDate, true);
-    assert.deepEqual(undoneStatus.staleExportTargets.sort(), ["html", "scorm"]);
+    assert.deepEqual(undoneStatus.staleExportTargets.sort(), ["html", "scorm12", "scorm2004"]);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("legacy snapshot edits use replayable overrides and Undo restores the page byte-for-byte", async () => {
+  const fixture = await createFixture();
+  try {
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
+    manifest.authoring = {
+      driverId: "legacy-snapshot-v1",
+      familyId: "legacy-snapshot",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+    };
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    const before = await readFile(fixture.sourcePath, "utf8");
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    assert.equal(target.identity.adapter, "legacy-snapshot");
+
+    const result = await applyCourseEditBatch(
+      {
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draftFor(target, "Snapshot <strong>update</strong>")]
+      },
+      fixture.repoRoot
+    );
+    assert.equal(result.ok, true);
+    assert.match(await readFile(fixture.sourcePath, "utf8"), /Snapshot <strong>update<\/strong>/);
+    const overridesPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "studio-edits.json");
+    assert.equal((JSON.parse(await readFile(overridesPath, "utf8")) as { overrides: unknown[] }).overrides.length, 1);
+
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
+    await assert.rejects(readFile(overridesPath, "utf8"), { code: "ENOENT" });
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("course status derives a useful rename title when legacy metadata omits title", async () => {
+  const fixture = await createFixture();
+  try {
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    delete manifest.title;
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    assert.equal((await getCourseEditStatus(SLUG, fixture.repoRoot)).courseTitle, "Studio edit fixture");
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("direct Studio editing rejects text replaced by course runtime code", async () => {
+  const fixture = await createFixture();
+  try {
+    const document = decoratePreviewHtml(await readFile(fixture.sourcePath, "utf8"));
+    assert.ok(document);
+    const request = requestFor(document, "h1");
+    request.selection.visibleText = "Runtime replacement";
+    const target = await resolveCourseEditTarget(request, fixture.repoRoot);
+    assert.equal(target.eligibility, "unsupported");
+    assert.match(target.reason, /replaced by course code/i);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("rendered-result validation rolls back an edit that course JavaScript replaces after load", async () => {
+  const fixture = await createFixture();
+  try {
+    const runtimeHtml = ORIGINAL_HTML.replace(
+      "</body>",
+      `<script>setTimeout(() => { document.querySelector("h1").textContent = "Runtime wins"; }, 40);</script></body>`
+    );
+    await writeFile(fixture.sourcePath, runtimeHtml, "utf8");
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    await assert.rejects(
+      applyCourseEditBatch({
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draftFor(target, "Teacher request")]
+      }, fixture.repoRoot),
+      /rendered-result validation failed|course JavaScript changed/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), runtimeHtml);
+    assert.equal((await getCourseEditStatus(SLUG, fixture.repoRoot)).canUndo, false);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("Undo refuses after a newer filesystem change and preserves that work", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draftFor(target, "Applied version")]
+    }, fixture.repoRoot);
+    const newer = (await readFile(fixture.sourcePath, "utf8")).replace("Original paragraph", "Newer external work");
+    await writeFile(fixture.sourcePath, newer, "utf8");
+    const status = await getCourseEditStatus(SLUG, fixture.repoRoot);
+    assert.equal(status.canUndo, false);
+    assert.match(status.undoUnavailableReason, /changed after/i);
+    await assert.rejects(undoCourseEditBatch(SLUG, fixture.repoRoot), /changed after/i);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), newer);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("filesystem lock refuses a second Studio server before any mutation", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const lockRoot = path.join(fixture.repoRoot, ".runtime", "studio-edit-locks", SLUG);
+    await mkdir(lockRoot, { recursive: true });
+    await writeFile(path.join(lockRoot, "owner.json"), `${JSON.stringify({
+      schemaVersion: 1,
+      lockId: "external-studio",
+      projectSlug: SLUG,
+      operation: "apply",
+      pid: process.pid,
+      hostname: os.hostname(),
+      startedAt: new Date().toISOString()
+    })}\n`, "utf8");
+    await assert.rejects(
+      applyCourseEditBatch({
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draftFor(target, "Blocked version")]
+      }, fixture.repoRoot),
+      /another Studio server/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("an interrupted multi-file transaction is recovered from its durable journal before new work", async () => {
+  const fixture = await createFixture();
+  const secondPath = path.join(fixture.repoRoot, "projects", SLUG, "workspace", "lesson.html");
+  try {
+    const first = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const second = await resolveElement(fixture.repoRoot, secondPath, "h2", "lesson.html");
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draftFor(first, "Applied first"), { ...draftFor(second, "Applied second"), id: "draft-2" }]
+    }, fixture.repoRoot);
+    const staleTarget = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const checkpointPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-checkpoints", SLUG, "latest.json");
+    const checkpoint = JSON.parse(await readFile(checkpointPath, "utf8"));
+    await writeFile(fixture.sourcePath, "<!doctype html><html><body><h1>Partial crash</h1></body></html>", "utf8");
+    await writeFile(secondPath, "<!doctype html><html><body><h2>Other partial crash</h2></body></html>", "utf8");
+    const journalPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-transactions", SLUG, "active.json");
+    await mkdir(path.dirname(journalPath), { recursive: true });
+    await writeFile(journalPath, `${JSON.stringify({
+      schemaVersion: 1,
+      transactionId: "interrupted-fixture",
+      projectSlug: SLUG,
+      operation: "apply",
+      checkpointId: checkpoint.checkpointId,
+      phase: "mutating",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: checkpoint.expectedBefore,
+      expectedAfter: []
+    }, null, 2)}\n`, "utf8");
+    await assert.rejects(
+      applyCourseEditBatch({
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draftFor(staleTarget, "New request")]
+      }, fixture.repoRoot),
+      /selected element changed|stable edit identity/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    assert.equal(await readFile(secondPath, "utf8"), SECOND_HTML);
+    await assert.rejects(readFile(journalPath, "utf8"), /ENOENT/);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("directory recovery reconciles in place without replacing the watched root", async () => {
+  const fixtureRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-restore-in-place-"));
+  const backup = path.join(fixtureRoot, "backup");
+  const target = path.join(fixtureRoot, "target");
+  try {
+    await Promise.all([mkdir(path.join(backup, "nested"), { recursive: true }), mkdir(path.join(target, "nested"), { recursive: true })]);
+    await Promise.all([
+      writeFile(path.join(backup, "kept.txt"), "checkpoint", "utf8"),
+      writeFile(path.join(backup, "nested", "child.txt"), "nested checkpoint", "utf8"),
+      writeFile(path.join(target, "kept.txt"), "changed", "utf8"),
+      writeFile(path.join(target, "nested", "child.txt"), "changed nested", "utf8"),
+      writeFile(path.join(target, "conflict 2.txt"), "late duplicate", "utf8")
+    ]);
+    const inodeBefore = (await stat(target)).ino;
+    await restoreCheckpointDirectoryInPlace(backup, target);
+    assert.equal((await stat(target)).ino, inodeBefore);
+    assert.equal(await readFile(path.join(target, "kept.txt"), "utf8"), "checkpoint");
+    assert.equal(await readFile(path.join(target, "nested", "child.txt"), "utf8"), "nested checkpoint");
+    await assert.rejects(readFile(path.join(target, "conflict 2.txt"), "utf8"), /ENOENT/);
+  } finally {
+    await rm(fixtureRoot, { recursive: true, force: true });
+  }
+});
+
+test("no-op drafts and unsafe heading size controls are rejected", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const noOp = draftFor(target, target.originalHtml);
+    noOp.patch = { html: target.originalHtml };
+    await assert.rejects(
+      applyCourseEditBatch({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: SLUG, drafts: [noOp] }, fixture.repoRoot),
+      /actual change/i
+    );
+    const unsafe = draftFor(target, "Safe text");
+    unsafe.patch = { html: "Safe text", style: { fontSize: "x-large" } };
+    await assert.rejects(
+      applyCourseEditBatch({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: SLUG, drafts: [unsafe] }, fixture.repoRoot),
+      /fontSize control is not safe/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("validated image uploads are content-addressed and survive generated workspace rebuilds", async () => {
+  const fixture = await createFixture();
+  try {
+    const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
+    const uploaded = await uploadCourseEditImageAsset({
+      projectSlug: SLUG,
+      htmlPath: "lesson.html",
+      bytes: png,
+      repoRoot: fixture.repoRoot
+    });
+    assert.equal(uploaded.src.startsWith("assets/custom/studio/"), true);
+    assert.equal(uploaded.width, 1);
+    assert.equal(uploaded.height, 1);
+    assert.equal(await readFile(path.join(fixture.repoRoot, uploaded.repoRelativePath), "base64"), png.toString("base64"));
+    const stagedWorkspace = path.join(fixture.repoRoot, ".runtime", "asset-stage");
+    await syncStoredCourseEditAssets(fixture.repoRoot, SLUG, stagedWorkspace);
+    const filename = path.basename(uploaded.repoRelativePath);
+    assert.equal(await readFile(path.join(stagedWorkspace, "assets", "custom", "studio", filename), "base64"), png.toString("base64"));
+    await assert.rejects(
+      uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: Buffer.from("not an image"), repoRoot: fixture.repoRoot }),
+      /PNG, JPEG, or GIF/i
+    );
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("Rename course synchronizes declared surfaces, validates, and remains safely undoable", async () => {
+  const fixture = await createFixture();
+  try {
+    const result = await renameCourseForStudio({ projectSlug: SLUG, title: "Renamed & Ready", repoRoot: fixture.repoRoot });
+    assert.equal(result.courseTitle, "Renamed & Ready");
+    assert.equal(result.canUndo, true);
+    const html = await readFile(fixture.sourcePath, "utf8");
+    assert.match(html, /<title data-canvas-helper-course-title>Renamed &amp; Ready<\/title>/);
+    assert.equal((html.match(/data-canvas-helper-course-title>Renamed &amp; Ready/g) ?? []).length, 3);
+    assert.match(await readFile(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "course-data.js"), "utf8"), /"Renamed & Ready"/);
+    assert.equal(JSON.parse(await readFile(path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json"), "utf8")).title, "Renamed & Ready");
+    assert.equal(JSON.parse(await readFile(path.join(fixture.repoRoot, "projects", SLUG, "meta", "studio-course.json"), "utf8")).title, "Renamed & Ready");
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    assert.match(await readFile(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "course-data.js"), "utf8"), /"Studio edit fixture"/);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("export freshness is tied to workspace and artifact bytes with separate SCORM variants", async () => {
+  const fixture = await createFixture();
+  try {
+    const exportsRoot = path.join(fixture.repoRoot, "projects", SLUG, "exports");
+    await mkdir(path.join(exportsRoot, "single-html"), { recursive: true });
+    await writeFile(path.join(exportsRoot, "single-html", `${SLUG}.html`), ORIGINAL_HTML, "utf8");
+    await writeFile(path.join(exportsRoot, `${SLUG}-scorm-2004.zip`), "2004-a", "utf8");
+    await writeFile(path.join(exportsRoot, `${SLUG}-scorm-1-2.zip`), "12-a", "utf8");
+    await markCourseExportCurrent(SLUG, "html", fixture.repoRoot);
+    await markCourseExportCurrent(SLUG, "scorm2004", fixture.repoRoot);
+    await markCourseExportCurrent(SLUG, "scorm12", fixture.repoRoot);
+    assert.deepEqual((await getCourseEditStatus(SLUG, fixture.repoRoot)).staleExportTargets, []);
+
+    await writeFile(path.join(exportsRoot, `${SLUG}-scorm-2004.zip`), "2004-tampered", "utf8");
+    assert.deepEqual((await getCourseEditStatus(SLUG, fixture.repoRoot)).staleExportTargets, ["scorm2004"]);
+    await writeFile(fixture.sourcePath, ORIGINAL_HTML.replace("Original paragraph", "Workspace changed"), "utf8");
+    assert.deepEqual(
+      (await getCourseEditStatus(SLUG, fixture.repoRoot)).staleExportTargets.sort(),
+      ["html", "scorm12", "scorm2004"]
+    );
   } finally {
     await fixture.cleanup();
   }
@@ -239,11 +589,32 @@ test("one direct-course batch can update and undo multiple declared pages", asyn
   }
 });
 
-test("a source change after target resolution rejects the batch without overwriting it", async () => {
+test("an unrelated source change safely rebases the draft without overwriting newer work", async () => {
   const fixture = await createFixture();
   try {
     const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
     const externallyChanged = ORIGINAL_HTML.replace("Original paragraph", "Changed outside Studio");
+    await writeFile(fixture.sourcePath, externallyChanged, "utf8");
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draftFor(target, "Rebased draft")]
+    }, fixture.repoRoot);
+    const applied = await readFile(fixture.sourcePath, "utf8");
+    assert.match(applied, /Rebased draft/);
+    assert.match(applied, /Changed outside Studio/);
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), externallyChanged);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("a selected element change still rejects the draft", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const externallyChanged = ORIGINAL_HTML.replace("Hello teacher", "Changed outside Studio");
     await writeFile(fixture.sourcePath, externallyChanged, "utf8");
     await assert.rejects(
       applyCourseEditBatch({
@@ -251,9 +622,31 @@ test("a source change after target resolution rejects the batch without overwrit
         projectSlug: SLUG,
         drafts: [draftFor(target, "Stale draft")]
       }, fixture.repoRoot),
-      /changed after this draft was created|no longer current/i
+      /selected element changed|stable edit identity/i
     );
     assert.equal(await readFile(fixture.sourcePath, "utf8"), externallyChanged);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("batch preflight identifies the stale draft before any course file changes", async () => {
+  const fixture = await createFixture();
+  const secondPath = path.join(fixture.repoRoot, "projects", SLUG, "workspace", "lesson.html");
+  try {
+    const first = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const second = await resolveElement(fixture.repoRoot, secondPath, "h2", "lesson.html");
+    await writeFile(secondPath, SECOND_HTML.replace("Second page heading", "Externally changed heading"), "utf8");
+    await assert.rejects(
+      applyCourseEditBatch({
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draftFor(first, "First draft must not apply"), { ...draftFor(second, "Stale second draft"), id: "draft-2" }]
+      }, fixture.repoRoot),
+      /Draft 2 .*needs attention.*No course files changed/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    assert.equal((await getCourseEditStatus(SLUG, fixture.repoRoot)).canUndo, false);
   } finally {
     await fixture.cleanup();
   }
@@ -309,11 +702,13 @@ test("one batch rejects nested editable targets instead of silently erasing a ch
     await writeFile(fixture.sourcePath, nested, "utf8");
     const paragraph = await resolveElementAt(fixture.repoRoot, fixture.sourcePath, "p");
     const strong = await resolveElementAt(fixture.repoRoot, fixture.sourcePath, "strong");
+    const childDraft = { ...draftFor(strong, "Updated child"), id: "draft-2" };
+    childDraft.patch = { html: "Updated child" };
     await assert.rejects(
       applyCourseEditBatch({
         schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
         projectSlug: SLUG,
-        drafts: [draftFor(paragraph, "Updated parent"), { ...draftFor(strong, "Updated child"), id: "draft-2" }]
+        drafts: [draftFor(paragraph, "Updated parent"), childDraft]
       }, fixture.repoRoot),
       /contains another selected edit/i
     );
@@ -333,8 +728,14 @@ test("undo stays recoverable when validation fails and always invalidates regene
       drafts: [draftFor(target, "Applied version")]
     }, fixture.repoRoot);
     const applied = await readFile(fixture.sourcePath, "utf8");
+    const exportsRoot = path.join(fixture.repoRoot, "projects", SLUG, "exports");
+    await mkdir(path.join(exportsRoot, "single-html"), { recursive: true });
+    await writeFile(path.join(exportsRoot, "single-html", `${SLUG}.html`), applied, "utf8");
+    await writeFile(path.join(exportsRoot, `${SLUG}-scorm-2004.zip`), "scorm-2004", "utf8");
+    await writeFile(path.join(exportsRoot, `${SLUG}-scorm-1-2.zip`), "scorm-1-2", "utf8");
     await markCourseExportCurrent(SLUG, "html", fixture.repoRoot);
     await markCourseExportCurrent(SLUG, "scorm2004", fixture.repoRoot);
+    await markCourseExportCurrent(SLUG, "scorm12", fixture.repoRoot);
     assert.equal((await getCourseEditStatus(SLUG, fixture.repoRoot)).exportsOutOfDate, false);
 
     await writeFile(path.join(fixture.repoRoot, "package.json"), `${JSON.stringify({
@@ -357,7 +758,7 @@ test("undo stays recoverable when validation fails and always invalidates regene
     }, null, 2)}\n`, "utf8");
     const undone = await undoCourseEditBatch(SLUG, fixture.repoRoot);
     assert.equal(undone.exportsOutOfDate, true);
-    assert.deepEqual(undone.staleExportTargets.sort(), ["html", "scorm"]);
+    assert.deepEqual(undone.staleExportTargets.sort(), ["html", "scorm12", "scorm2004"]);
     assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
   } finally {
     await fixture.cleanup();
@@ -423,6 +824,38 @@ test("generated course overrides bind to stable element identities and replay af
   assert.match(rebuilt, /data-canvas-helper-text-style="heading"/);
 });
 
+test("generated text-only overrides do not inject Studio style CSS", () => {
+  const generated = "<!doctype html><html><head><title>Generated</title></head><body><main><p>Original</p></main></body></html>";
+  const paragraph = collectEditableHtmlElements(generated, "factory-fixture", "index.html")?.find((entry) => entry.tagName === "p");
+  assert.ok(paragraph);
+  const rebuilt = applyCourseEditOverridesToHtml({
+    html: generated,
+    projectSlug: "factory-fixture",
+    overrides: [{
+      editId: paragraph.editId,
+      htmlPath: "index.html",
+      tagName: paragraph.tagName,
+      pathKey: paragraph.pathKey,
+      patch: { html: "Teacher text" },
+      updatedAt: "2026-08-12T00:00:00.000Z"
+    }]
+  });
+  assert.match(rebuilt, /Teacher text/);
+  assert.doesNotMatch(rebuilt, /data-canvas-helper-studio-edit-styles/);
+});
+
+test("generated edit identities survive reordering distinct sibling content", () => {
+  const original = "<!doctype html><html><body><main><p>Alpha</p><p>Beta</p></main></body></html>";
+  const reordered = "<!doctype html><html><body><main><p>Beta</p><p>Alpha</p></main></body></html>";
+  const originalElements = collectEditableHtmlElements(original, "factory-fixture", "index.html");
+  const reorderedElements = collectEditableHtmlElements(reordered, "factory-fixture", "index.html");
+  assert.ok(originalElements && reorderedElements);
+  const alphaBefore = originalElements.find((entry) => original.slice(entry.innerStart, entry.innerEnd) === "Alpha");
+  const alphaAfter = reorderedElements.find((entry) => reordered.slice(entry.innerStart, entry.innerEnd) === "Alpha");
+  assert.ok(alphaBefore && alphaAfter);
+  assert.equal(alphaAfter.editId, alphaBefore.editId);
+});
+
 test("generated override replay rejects parent and child edits from separate batches", () => {
   const generated = "<!doctype html><html><body><main><p>Parent <strong>child</strong></p></main></body></html>";
   const elements = collectEditableHtmlElements(generated, "factory-fixture", "index.html");
@@ -456,7 +889,7 @@ test("editing contracts reject browser-supplied paths and unsafe content", () =>
       ...draftFor({
         eligibility: "editable",
         reason: "",
-        capabilities: { richText: true, link: false, image: false, styles: true },
+        capabilities: { richText: true, link: false, image: false, styles: true, styleKeys: ["fontSize", "textTone", "spacing"] },
         originalHtml: "Old",
         originalText: "Old",
         attributes: { href: "", src: "", alt: "", title: "" },
@@ -467,6 +900,7 @@ test("editing contracts reject browser-supplied paths and unsafe content", () =>
           htmlPath: "index.html",
           nodeId: `ch1:${"b".repeat(24)}:1`,
           sourceDigest: "c".repeat(64),
+          elementDigest: "d".repeat(64),
           editId: null,
           tagName: "h1",
           adapter: "direct"

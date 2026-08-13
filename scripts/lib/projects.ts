@@ -13,12 +13,6 @@ const COPIED_RESOURCE_DIR_PATTERN = /^resources(?:\s+\d+|\s+copy(?:\s+\d+)?)$/i;
 const DEFAULT_HTML_SCAN_MAX_ENTRIES = 20_000;
 const DEFAULT_HTML_SCAN_MAX_ENTRIES_PER_DIRECTORY = 5_000;
 const DEFAULT_HTML_SCAN_MAX_DEPTH = 16;
-const HIDDEN_STUDIO_PROJECT_SLUGS = new Set([
-  "social30-1-related-issue-1",
-  "social30-1-related-issue-2",
-  "social30-1-related-issue-3",
-  "social30-1-related-issue-4"
-]);
 
 function normalizeSlash(value: string) {
   return value.replace(/\\/g, "/");
@@ -266,7 +260,6 @@ export async function listProjectSlugs() {
 
   return availability
     .filter((entry) => entry.hasManifest)
-    .filter((entry) => !HIDDEN_STUDIO_PROJECT_SLUGS.has(entry.slug))
     .map((entry) => entry.slug)
     .sort((left, right) => left.localeCompare(right));
 }

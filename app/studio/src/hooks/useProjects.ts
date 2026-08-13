@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useRef, useState } from "react";
 
+import { STUDIO_PROJECTS_CHANGED_EVENT } from "../../../shared/project-discovery";
 import { fetchProjects, refreshIncomingIntake } from "../lib/projects";
 import type { IncomingRefreshSummary, ProjectBundle } from "../lib/types";
 
@@ -129,8 +130,8 @@ export function useProjects() {
     document.addEventListener("visibilitychange", refreshOnVisible);
 
     if (import.meta.hot) {
-      import.meta.hot.on("projects:changed", () => {
-        void loadProjects();
+      import.meta.hot.on(STUDIO_PROJECTS_CHANGED_EVENT, () => {
+        void loadProjectsOnce(true);
       });
     }
 

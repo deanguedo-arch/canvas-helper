@@ -8,8 +8,8 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/raw/original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-17T20:08:47.495Z",
@@ -18,27 +18,27 @@
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html",
+  "canonicalEntry": "projects/calm-life-adventure/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/main.js",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/styles.css",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-view-assets.py",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/meta/extract-agi-pic-assets.py"
+    "projects/calm-life-adventure/workspace/index.html",
+    "projects/calm-life-adventure/workspace/main.js",
+    "projects/calm-life-adventure/workspace/styles.css",
+    "projects/calm-life-adventure/meta/extract-agi-view-assets.py",
+    "projects/calm-life-adventure/meta/extract-agi-pic-assets.py"
   ],
   "generatedOutputs": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-10",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-11",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-14",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-15",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-16",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-21",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-22",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/pics/pic-31",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vBartender",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vBarGreaser",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vEgo",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/calm-life-adventure/workspace/assets/agi/views/vReceptionist"
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-10",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-11",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-14",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-15",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-16",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-21",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-22",
+    "projects/calm-life-adventure/workspace/assets/agi/pics/pic-31",
+    "projects/calm-life-adventure/workspace/assets/agi/views/vBartender",
+    "projects/calm-life-adventure/workspace/assets/agi/views/vBarGreaser",
+    "projects/calm-life-adventure/workspace/assets/agi/views/vEgo",
+    "projects/calm-life-adventure/workspace/assets/agi/views/vReceptionist"
   ],
   "regenerateCommand": "python3 projects/calm-life-adventure/meta/extract-agi-view-assets.py --view 0 --view 49 --view 54 --view 166 && python3 projects/calm-life-adventure/meta/extract-agi-pic-assets.py --pic 10 --pic 11 --pic 14 --pic 15 --pic 16 --pic 21 --pic 22 --pic 31",
   "injectedComponents": [],
@@ -56,8 +56,18 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Treat workspace/index.html, workspace/main.js, workspace/styles.css, and the AGI extraction scripts as canonical. Regenerate the checked-in SVG PIC/VIEW assets from the extracted LSL source bundle instead of hand-editing them.",
+  "sourceOfTruthNotes": "Treat workspace/index.html, workspace/main.js, workspace/styles.css, and the AGI extraction scripts as canonical. Regenerate the checked-in SVG PIC/VIEW assets from the extracted LSL source bundle instead of hand-editing them. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "createdAt": "2026-03-29T01:20:00.000Z",
-  "updatedAt": "2026-06-23T14:53:08.530Z",
-  "workspaceApprovedAt": "2026-04-17T20:08:47.495Z"
+  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "workspaceApprovedAt": "2026-04-17T20:08:47.495Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

@@ -791,7 +791,7 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
       }
       renderedRoutes = renderedProfile.pages.map((page) => page.id);
       const renderedHtml = renderEnglishFactoryUnit({ recipe, lessons: builtLessons, activityProfile: renderedProfile, resources: preparedResources, videos });
-      const html = await applyStoredCourseEdits({ repoRoot: input.repoRoot, projectSlug: recipe.projectSlug, html: renderedHtml });
+      const html = await applyStoredCourseEdits({ repoRoot: input.repoRoot, projectSlug: recipe.projectSlug, html: renderedHtml, workspaceDir: stageDir });
       validateLearnerHtml(html, recipe, renderedRoutes);
       await writeFile(path.join(stageDir, "index.html"), html, "utf8");
     },

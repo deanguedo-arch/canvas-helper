@@ -24,7 +24,10 @@ Examples:
 
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
-- Studio direct-edit changes: `npm run test:course-editing`, `npm run test:studio-inspection`, the focused direct-edit browser scenario, and the complete Studio release gate before publishing
+- Codex-to-Studio course creation changes: `npm run test:codex-course`, the focused live-discovery browser scenario, `npm.cmd run build:studio`, and `npm.cmd run typecheck`
+- Course-catalog onboarding changes: `npm run test:course-onboarding`, a retain-only `npm run course:onboard -- --all`, `npm run verify:course-onboarding -- --all`, focused Studio tests, and `npm.cmd run typecheck`
+- Studio direct-edit changes: `npm run test:course-editing`, `npm run test:studio-inspection`, `npm run verify:course-editing-pilots`, the focused direct-edit browser scenario, and the complete Studio release gate before publishing
+- Direct-edit exporter evidence changes: run `npm run test:exports` in addition to the Direct Editing floor
 - Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
 - Canvas Studio release candidates: `npm run test:studio-release`; do not replace its isolated port, local-tool, `forbidOnly`, full-inspection, smoke, or strict-project gates with a reused development server
 - Intelligence changes: targeted tests plus `npm.cmd run typecheck`
@@ -51,6 +54,7 @@ Add or update tests when:
 
 - route behavior changes
 - direct-edit contracts, sanitization, adapter ownership, checkpoint/rollback, undo, or export-staleness behavior changes
+- direct-edit filesystem locks, journals, rendered postconditions, image bytes, title synchronization, draft migrations, or artifact evidence change
 - Studio/player interaction behavior changes (mode toggles, navigation, quiz behavior, fallback rendering)
 - path validation changes
 - intelligence policy behavior changes
@@ -69,6 +73,8 @@ A task is done when:
 - shared Studio releases have a current `docs/releases/` note and a passing machine-readable `.runtime/studio-release-report.json`
 - risks and next steps are explicit
 - the resulting handoff is actionable for the next operator
+- a net-new course authored from scratch in Codex was created with `npm run course:create`, passes `course:doctor` and workspace verification, and completed one visual Edit-map plus reversible apply/reload/Undo check
+- a legacy catalog change has an explicit outcome for every project directory, leaves package-only artifacts non-authorable, and completes a rendered reversible catalog verification without learner-content residue
 
 ## Avoid Oversized Changes
 

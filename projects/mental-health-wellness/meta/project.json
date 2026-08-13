@@ -1,26 +1,27 @@
 {
   "id": "mental-health-wellness",
   "slug": "mental-health-wellness",
+  "title": "Mental Health & Wellness NXT",
   "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/mental-health-wellness/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "course-page",
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\index.html",
+  "canonicalEntry": "projects/mental-health-wellness/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\course-data.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\content\\module-index.css"
+    "projects/mental-health-wellness/workspace/index.html",
+    "projects/mental-health-wellness/workspace/main.js",
+    "projects/mental-health-wellness/workspace/styles.css",
+    "projects/mental-health-wellness/workspace/course-data.js",
+    "projects/mental-health-wellness/workspace/content/module-index.css"
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
@@ -41,14 +42,24 @@
     }
   ],
   "authoringStatus": "active",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "mental-health-wellness-shell",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
+    }
+  },
   "generatedOutputs": [],
   "regenerateCommand": "python projects/mental-health-wellness/meta/build_forensics_style_course.py",
   "injectedComponents": [],
   "referenceOnly": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\workspace\\references",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\mental-health-wellness\\raw\\original.html"
+    "projects/mental-health-wellness/workspace/references",
+    "projects/mental-health-wellness/raw/original.html"
   ],
-  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP with the project-local builder if the import mapping changes. Quiz and assignment arrays are intentionally empty until those passes are requested.",
+  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP with the project-local builder if the import mapping changes. Quiz and assignment arrays are intentionally empty until those passes are requested. Studio onboarding: Explicit canonical workspace ownership retained.",
   "googleHosted": {
     "trackedStorageKeys": [
       "mental-health-wellness.progress",
@@ -59,6 +70,6 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-21T10:57:46",
-  "updatedAt": "2026-06-23T14:53:08.729Z",
+  "updatedAt": "2026-08-13T13:08:16.727Z",
   "workspaceApprovedAt": "2026-05-21T20:48:48.006Z"
 }

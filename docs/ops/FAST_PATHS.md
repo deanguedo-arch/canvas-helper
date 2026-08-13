@@ -30,14 +30,78 @@ Read first:
 
 Do not start by searching the whole repo. The shared command contract is the source of truth.
 
+## Codex-Created Studio Course
+
+Read first:
+- `docs/workflows/codex-studio-course.md`
+- `scripts/create-codex-course.ts`
+- `scripts/lib/codex-course.ts`
+- `app/shared/project-discovery.ts`
+- `projects/<slug>/meta/prompt-pack.md` after creation
+
+Start every net-new course authored from scratch in Codex with:
+
+```bash
+npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"
+```
+
+Rules:
+- Never overwrite or copy a legacy project as the starting point.
+- Author the created canonical workspace HTML/CSS, not raw or exports.
+- Keep routine teacher-editable content source-owned and visibly mapped; runtime-replaced content must remain Annotation only.
+- Use an owning factory workflow instead for imported, English, or Social conversion work.
+
+Verification floor:
+- `npm run test:codex-course`
+- `npm run course:doctor -- --project <slug>`
+- `npm run verify -- --project <slug> --mode workspace`
+- Studio visual Edit-map inspection plus one apply/reload/Undo cycle
+- `npm run test:e2e:project -- --project <slug>` when learner interactions exist
+
+## Existing Course Catalog Onboarding
+
+Read first:
+- `docs/audits/2026-08-13-course-catalog-onboarding.md`
+- `scripts/lib/course-onboarding.ts`
+- `scripts/onboard-courses.ts`
+- `scripts/verify-course-onboarding.ts`
+- `scripts/lib/course-authoring/context.ts`
+
+Commands:
+
+```bash
+npm run course:onboard -- --all
+npm run course:onboard -- --all --apply --report .runtime/course-onboarding-report.json
+npm run verify:course-onboarding -- --all
+```
+
+Rules:
+- Audit before applying. Every directory must be Direct, English factory, Social factory, legacy snapshot, blocked, reference-only, or package archive.
+- Never create editability by flag alone. The declared driver, canonical boundary, transaction write set, and learner-render postcondition must agree.
+- Use `legacy-snapshot-v1` only when the current workspace is the recoverable baseline and the old replacement builder cannot safely be used. Preserve and document that builder; do not call it from Studio.
+- Do not create manifests for package-only directories until a canonical source is recovered or intentionally imported.
+- A successful apply must doctor every enabled project, notify a running Studio, and produce a retain-only next audit.
+
+Verification floor:
+- `npm run test:course-onboarding`
+- retain-only `npm run course:onboard -- --all`
+- `npm run verify:course-onboarding -- --all`
+- `npm run test:authoring-context`
+- `npm run test:studio-inspection`
+- `npm run build:studio`
+
 ## Studio Direct Editing
 
 Read first:
 - `app/shared/course-editing.ts`
 - `app/server/lib/course-editing.ts`
+- `app/server/lib/course-edit-transaction.ts`
+- `app/server/lib/course-edit-render-validation.ts`
+- `app/server/lib/course-edit-image.ts`
 - `app/server/routes/course-edits.ts`
 - `scripts/lib/course-editing/html.ts`
 - `scripts/lib/course-editing/overrides.ts`
+- `scripts/lib/course-editing/export-freshness.ts`
 - `app/studio/src/hooks/useCourseEditing.ts`
 - `app/studio/src/lib/course-edit-storage.ts`
 - `app/studio/src/components/CourseEditPanel.tsx`
@@ -45,18 +109,25 @@ Read first:
 - `app/server/preview-bridge-runtime.ts`
 
 Rules:
-- Enable Edit only for a passing `course:doctor` project with a supported adapter. Previewability is not editability.
+- Enable Edit only for a passing `course:doctor` project with a declared supported adapter and explicit `authoring.studioEditing.enabled`. Previewability and inferred ownership are not editability.
+- Keep the page editability map server-authored, bounded, keyed by opaque inspection node IDs, and informational only. Compare source signatures with the rendered DOM before drawing editable outlines; a visual map must never authorize a write.
+- In Edit mode, keep action labels, visible-area count, outline toggle, runtime-owned dashed state, proximity-limited container targeting, and the direct Annotate fallback consistent in embedded and Full Preview.
 - The browser sends only an opaque target identity and approved patch. It never supplies, selects, or stores a filesystem path.
-- Re-resolve every draft and reject a changed source digest before writing. Direct pages must still be declared canonical editable files.
+- Preflight every draft before writing. Rebase an unrelated page change only when the selected element digest is unchanged; identify a stale draft by item and fail the whole batch without writes. Direct pages must still be declared canonical editable files.
 - Sanitize rich text and URLs and apply only curated style tokens. Arbitrary HTML/CSS/JavaScript remains a Codex workflow.
 - Direct adapters edit canonical workspace files. English and Social adapters store course-only metadata overrides and rebuild; never patch their generated workspace output as source.
-- Snapshot the whole transactional write boundary before applying, validate after one batch, restore it on any failure, and retain only the latest successful batch for Undo.
+- Hold the filesystem lock, snapshot the whole transactional write boundary, durably journal each phase, terminate timed-out process groups, validate static and rendered learner results, restore on failure, and retain only the latest successful batch for Undo.
+- Undo must prove the entire boundary still matches the applied result. Newer manual, Codex, or builder work disables Undo; never force a restore over drift.
 - Keep Draft Changes per course and shared across Studio and Full Preview. Full Preview is a bridge consumer, not a second persistent owner.
-- Mark declared exports out of date after apply and clear only the matching status after an explicit successful export command.
+- Keep draft baselines complete, use delta-only patches, reject no-ops, never silently expire drafts, and preserve strict JSON backup/restore.
+- Keep image uploads content-addressed in the canonical project resource library and materialized through owning rebuilds. Keep Rename as one marked, checkpointed multi-surface operation.
+- Derive freshness from workspace and artifact fingerprints recorded by exporters. Keep SCORM 1.2 and 2004 independent.
 
 Verification floor:
 - `npm run test:course-editing`
 - `npm run test:studio-inspection`
+- `npm run verify:course-editing-pilots`
+- `npm run test:exports` when artifact evidence changes
 - `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "direct edits persist"`
 - `npm run build:studio`
 

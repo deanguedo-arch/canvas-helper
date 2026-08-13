@@ -10,7 +10,16 @@ test("every package script entrypoint under scripts resolves to a real file", as
     scripts?: Record<string, string>;
   };
   const scripts = packageJson.scripts ?? {};
-  for (const requiredName of ["course:doctor", "course:list", "context:project", "test:studio-release"]) {
+  for (const requiredName of [
+    "course:create",
+    "course:doctor",
+    "course:list",
+    "course:onboard",
+    "context:project",
+    "test:course-onboarding",
+    "verify:course-onboarding",
+    "test:studio-release"
+  ]) {
     assert.equal(typeof scripts[requiredName], "string", `${requiredName} must be advertised in package.json`);
   }
   assert.equal(scripts["test:studio-release"], "tsx scripts/run-studio-release.ts");

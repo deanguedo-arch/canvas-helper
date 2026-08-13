@@ -8,24 +8,23 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-3-option-2/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-3-option-2/raw/README.md",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-07-08T17:04:22.153Z",
-  "updatedAt": "2026-07-08T17:04:22.153Z",
+  "updatedAt": "2026-08-13T13:08:16.727Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-3-option-2/workspace/index.html",
+  "canonicalEntry": "projects/social10-1-related-issue-3-option-2/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-3-option-2/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-social10-related-issues.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/nso-podcasts.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+    "projects/social10-1-related-issue-3-option-2/workspace/index.html",
+    "scripts/build-social10-related-issues.ts",
+    "scripts/lib/nso-podcasts.ts",
+    "scripts/lib/next-step-course-shell.ts"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npx tsx scripts/build-social10-related-issues.ts --only social10-1-related-issue-3-option-2",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace+d2l-docx-overlay",
     "sourcePath": "/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP",
@@ -49,9 +48,9 @@
     "/Users/deanguedo/Downloads/D2LCCExport_149634_25-26 _ S2 _ Social Studies 10-1 _ Per 1(A) _ Sec _202651213.ZIP",
     "/Users/deanguedo/Downloads/Social Studies 10-1 UPDATED MODULES-20260707T151048Z-3-001.zip",
     "/Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social10-1-related-issue-3-option-2/raw/README.md"
+    "projects/social10-1-related-issue-3-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "Regenerate this Social Studies 10-1 workspace through scripts/build-social10-related-issues.ts and the shared Next Step shell. Do not hand-patch generated lesson HTML.",
+  "sourceOfTruthNotes": "Regenerate this Social Studies 10-1 workspace through scripts/build-social10-related-issues.ts and the shared Next Step shell. Do not hand-patch generated lesson HTML. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-social10-related-issues.ts --only social10-1-related-issue-3-option-2 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "conversionSummary": {
     "relatedIssue": "Sustainable Prosperity",
     "issueQuestion": "To what extent does globalization contribute to sustainable prosperity for all people?",
@@ -64,5 +63,15 @@
     "podcastsPlaced": 4,
     "podcastFallbackOverview": 0,
     "styleVariant": "social-10-final-social-30-pattern"
+  },
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "social-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
   }
 }

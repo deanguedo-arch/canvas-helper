@@ -101,6 +101,24 @@ test("normalization preserves a declared code-owned authoring driver", () => {
   });
 });
 
+test("normalization preserves the explicit legacy snapshot driver", () => {
+  const normalized = normalizeProjectManifestPolicy(
+    createManifest({
+      authoring: {
+        driverId: "legacy-snapshot-v1",
+        familyId: "legacy-snapshot",
+        studioEditing: { enabled: true, imageAssets: true }
+      }
+    })
+  );
+
+  assert.deepEqual(normalized.authoring, {
+    driverId: "legacy-snapshot-v1",
+    familyId: "legacy-snapshot",
+    studioEditing: { enabled: true, imageAssets: true }
+  });
+});
+
 test("validation rejects an unsupported declared authoring driver", () => {
   const result = validateProjectManifestPolicy(
     createManifest({

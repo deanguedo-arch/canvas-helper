@@ -1,4 +1,4 @@
-import { spawn } from "node:child_process";
+import { spawn, type ChildProcess } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
 import { constants as fsConstants } from "node:fs";
 import { chmod, copyFile, lstat, mkdir, readFile, readdir, realpath, rename, rm, writeFile } from "node:fs/promises";
@@ -7,12 +7,18 @@ import path from "node:path";
 import { load } from "cheerio";
 
 import {
+  COURSE_EDIT_PAGE_MAP_MAX_ENTRIES,
+  COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION,
   COURSE_EDIT_SCHEMA_VERSION,
   type CourseEditAdapter,
   type CourseEditApplyRequest,
   type CourseEditBatchResult,
   type CourseEditDraft,
+  type CourseEditMapAction,
+  type CourseEditPageMap,
+  type CourseEditPageMapEntry,
   type CourseEditResolveRequest,
+  type CourseEditStylePatch,
   type CourseEditStatus,
   type CourseEditTarget,
   type CourseEditTargetIdentity
@@ -21,6 +27,7 @@ import { inspectCourseAuthoringProject, type ResolvedCourseAuthoringProject } fr
 import {
   applyPatchToEditableElement,
   collectEditableHtmlElements,
+  courseEditElementDigest,
   courseEditCapabilitiesForTag,
   currentCourseEditStyle,
   ensureStudioEditStyles,
@@ -32,24 +39,57 @@ import {
 } from "../../../scripts/lib/course-editing/html.js";
 import {
   applyCourseEditOverridesToHtml,
+  applyStoredCourseEdits,
+  applyStoredCourseTitleToHtml,
+  applyStoredCourseTitleToRuntimeData,
   courseEditOverridesPath,
   loadCourseEditOverrides,
+  loadStoredStudioCourse,
   saveCourseEditOverrides,
+  saveStoredStudioCourse,
+  studioCoursePath,
   type StoredCourseEditOverride
 } from "../../../scripts/lib/course-editing/overrides.js";
 import { repoRoot as defaultRepoRoot } from "../../../scripts/lib/paths.js";
 import { loadProjectManifest } from "../../../scripts/lib/projects.js";
 import type { ProjectManifest } from "../../../scripts/lib/types.js";
-import { clearPreviewInspectionDocumentCache, isPreviewInspectionNodeId, loadPreviewInspectionDocument } from "./preview-inspection";
+import {
+  recordCourseExportEvidence,
+  staleCourseExportTargets,
+  type CourseExportEvidenceTarget
+} from "../../../scripts/lib/course-editing/export-freshness.js";
+import {
+  clearPreviewInspectionDocumentCache,
+  isPreviewInspectionNodeId,
+  loadPreviewInspectionDocument,
+  type PreviewInspectionDocument
+} from "./preview-inspection";
 import { isPathInside } from "./validation";
+import {
+  courseEditFingerprintsMatch,
+  durableAtomicWrite,
+  fingerprintCourseEditPaths,
+  readCourseEditJournal,
+  removeCourseEditJournal,
+  withCourseEditFileLock,
+  writeCourseEditJournal,
+  type CourseEditPathFingerprint,
+  type CourseEditTransactionJournal
+} from "./course-edit-transaction";
+import { validateCourseEditImage } from "./course-edit-image";
+import {
+  renderCheckForPatch,
+  validateRenderedCourseEdits,
+  type CourseEditRenderCheck
+} from "./course-edit-render-validation";
 
-const CHECKPOINT_SCHEMA_VERSION = 1;
+const CHECKPOINT_SCHEMA_VERSION = 3;
 const MAX_CHECKPOINT_FILE_BYTES = 10 * 1024 * 1024;
 const MAX_CHECKPOINT_DIRECTORY_BYTES = 512 * 1024 * 1024;
 const MAX_CHECKPOINT_DIRECTORY_FILES = 20_000;
 const MAX_COMMAND_OUTPUT = 12_000;
 const COMMAND_TIMEOUT_MS = 6 * 60 * 1_000;
-const activeProjectEdits = new Set<string>();
+const MAX_EXACT_RUNTIME_TEXT_CODE_UNITS = 280;
 
 class StaleCourseEditSourceError extends Error {
   constructor(message = "The course changed while Studio prepared this batch. Reload it and select the element again.") {
@@ -81,6 +121,11 @@ type CourseEditCheckpoint = {
   files: SnapshotFile[];
   directories: SnapshotDirectory[];
   previousStatus: CourseEditStatus;
+  previousCheckpointId: string | null;
+  expectedBefore: CourseEditPathFingerprint[];
+  expectedAfter: CourseEditPathFingerprint[];
+  renderBefore: CourseEditRenderCheck[];
+  renderAfter: CourseEditRenderCheck[];
 };
 
 type ResolvedEditableTarget = {
@@ -95,10 +140,44 @@ type CommandResult = { ok: boolean; stdout: string; stderr: string; exitCode: nu
 
 type CourseEditExecutionHooks = {
   beforeDirectCommit?: () => void | Promise<void>;
+  validateRendered?: typeof validateRenderedCourseEdits;
 };
 
 function trimOutput(value: string) {
   return value.length <= MAX_COMMAND_OUTPUT ? value : `...<truncated>\n${value.slice(-MAX_COMMAND_OUTPUT)}`;
+}
+
+function normalizedCourseEditText(value: string) {
+  return value.replace(/\s+/g, " ").trim();
+}
+
+function renderedTextFingerprint(value: string) {
+  const text = normalizedCourseEditText(value).slice(0, 24_000);
+  return shortRenderedFingerprint(text);
+}
+
+function shortRenderedFingerprint(value: string) {
+  let hash = 2166136261;
+  for (let index = 0; index < value.length; index += 1) {
+    hash ^= value.charCodeAt(index);
+    hash = Math.imul(hash, 16777619);
+  }
+  return (hash >>> 0).toString(16).padStart(8, "0");
+}
+
+function renderedAttributeFingerprint(attributes: { href: string; src: string; alt: string; title: string }) {
+  return shortRenderedFingerprint([attributes.href, attributes.src, attributes.alt, attributes.title].join("\u0000"));
+}
+
+function decodedElementAttributes(source: string, element: EditableHtmlElement) {
+  const fragment = load(`<body>${source.slice(element.sourceStart, element.openEnd + 1)}</body>`);
+  const selected = fragment("body").children().first();
+  return {
+    href: selected.attr("href") ?? "",
+    src: selected.attr("src") ?? "",
+    alt: selected.attr("alt") ?? "",
+    title: selected.attr("title") ?? ""
+  };
 }
 
 function hash24(value: string) {
@@ -106,14 +185,16 @@ function hash24(value: string) {
 }
 
 function adapterForProject(project: ResolvedCourseAuthoringProject): CourseEditAdapter | null {
+  if (project.driverSource !== "declared" || !project.studioEditing.enabled) return null;
   if (project.driverId === "direct-workspace-v1" && project.authoringMode === "direct") return "direct";
   if (project.driverId === "english-factory-v1" && project.authoringMode === "factory") return "english-factory";
-  if (project.driverId === "social-related-issues-v1" && project.driverSource === "declared") return "social-related-issues";
+  if (project.driverId === "social-related-issues-v1" && project.authoringMode === "factory") return "social-related-issues";
+  if (project.driverId === "legacy-snapshot-v1" && project.authoringMode === "factory") return "legacy-snapshot";
   return null;
 }
 
 function emptyCapabilities() {
-  return { richText: false, link: false, image: false, styles: false };
+  return { richText: false, link: false, image: false, styles: false, styleKeys: [] };
 }
 
 function unsupportedTarget(reason: string): CourseEditTarget {
@@ -179,12 +260,13 @@ function targetIdentity(input: {
   htmlPath: string;
   nodeId: string;
   sourceDigest: string;
+  elementDigest: string;
   editId: string | null;
   tagName: string;
   adapter: CourseEditAdapter;
 }): CourseEditTargetIdentity {
   return {
-    targetId: hash24([input.projectSlug, input.htmlPath, input.nodeId, input.sourceDigest, input.editId ?? "direct", input.tagName, input.adapter].join("\u0000")),
+    targetId: hash24([input.projectSlug, input.htmlPath, input.editId ?? input.elementDigest, input.tagName, input.adapter].join("\u0000")),
     ...input
   };
 }
@@ -199,7 +281,9 @@ async function resolveCourseProject(projectSlug: string, repoRoot: string) {
     return {
       project: report.project,
       adapter: null,
-      reason: "This course does not yet have a safe direct-edit adapter. You can still annotate it for Codex."
+      reason: report.project.driverSource !== "declared" || !report.project.studioEditing.enabled
+        ? "This course has not been explicitly onboarded for Studio editing. You can still annotate it for Codex."
+        : "This course does not yet have a safe direct-edit adapter. You can still annotate it for Codex."
     };
   }
   return { project: report.project, adapter, reason: "" };
@@ -225,11 +309,7 @@ function editableElementForNode(input: {
 async function resolveFromIdentity(identity: CourseEditTargetIdentity, repoRoot: string): Promise<ResolvedEditableTarget> {
   const sourcePath = await resolveEditWorkspacePath(identity.projectSlug, identity.htmlPath, repoRoot);
   const document = await loadPreviewInspectionDocument(sourcePath);
-  if (!document || document.sourceDigest !== identity.sourceDigest || !document.nodeIds.has(identity.nodeId)) {
-    throw new Error("The course changed after this draft was created. Reload it and select the element again.");
-  }
-  const location = document.nodeLocations.get(identity.nodeId);
-  if (!location || location.tagName !== identity.tagName) throw new Error("The selected element is no longer current.");
+  if (!document) throw new Error("Studio can no longer inspect this course page safely.");
   const { project, adapter, reason } = await resolveCourseProject(identity.projectSlug, repoRoot);
   if (!project || !adapter || adapter !== identity.adapter) throw new Error(reason || "The course edit adapter changed.");
   if (adapter === "direct") {
@@ -237,24 +317,34 @@ async function resolveFromIdentity(identity: CourseEditTargetIdentity, repoRoot:
     if (!project.editableSources.some((entry) => entry.kind === "file" && entry.repoRelative === repoRelative)) {
       throw new Error("This workspace page is no longer a declared canonical editable source.");
     }
-  } else if (identity.htmlPath !== "index.html") {
+  } else if (adapter !== "legacy-snapshot" && identity.htmlPath !== "index.html") {
     throw new Error("Generated course edits are available only on the generated course entry page.");
+  } else if (adapter === "legacy-snapshot") {
+    const repoRelative = path.relative(repoRoot, sourcePath).split(path.sep).join("/");
+    if (!project.canonicalSources.some((entry) => entry.kind === "file" && entry.repoRelative === repoRelative)) {
+      throw new Error("This legacy snapshot page is not a declared preserved source.");
+    }
   }
-  const element = editableElementForNode({
-    source: document.source,
-    projectSlug: identity.projectSlug,
-    htmlPath: identity.htmlPath,
-    sourceStart: location.sourceStart,
-    tagName: location.tagName,
-    editId: identity.editId
-  });
-  if (!element || (identity.editId && element.editId !== identity.editId)) throw new Error("The selected content no longer has the same stable edit identity.");
+  const elements = collectEditableHtmlElements(document.source, identity.projectSlug, identity.htmlPath);
+  if (!elements) throw new Error("Studio can no longer map editable elements on this page.");
+  const element = identity.editId
+    ? elements.find((candidate) => candidate.editId === identity.editId && candidate.tagName === identity.tagName)
+    : null;
+  if (!element) throw new Error("The selected content no longer has the same stable edit identity.");
+  if (courseEditElementDigest(document.source, element) !== identity.elementDigest) {
+    throw new Error("This selected element changed after the draft was created. Reopen or relink this draft before applying it.");
+  }
+  const currentNode = [...document.nodeLocations.entries()].find(([, location]) => (
+    location.sourceStart === element.sourceStart && location.tagName === element.tagName
+  ));
+  if (!currentNode) throw new Error("The selected content is no longer inspectable on this page.");
   const expected = targetIdentity({
     projectSlug: identity.projectSlug,
     htmlPath: identity.htmlPath,
-    nodeId: identity.nodeId,
-    sourceDigest: identity.sourceDigest,
-    editId: adapter === "direct" ? null : element.editId,
+    nodeId: currentNode[0],
+    sourceDigest: document.sourceDigest,
+    elementDigest: courseEditElementDigest(document.source, element),
+    editId: element.editId,
     tagName: element.tagName,
     adapter
   });
@@ -301,6 +391,144 @@ function buildEditableTarget(input: {
   };
 }
 
+function unavailablePageMap(projectSlug: string, htmlPath: string, sourceDigest: string, reason: string): CourseEditPageMap {
+  return {
+    schemaVersion: COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION,
+    projectSlug,
+    htmlPath,
+    sourceDigest,
+    available: false,
+    reason,
+    entries: [],
+    editableCount: 0,
+    annotationOnlyCount: 0,
+    truncated: false
+  };
+}
+
+function pageMapAction(tagName: string, capabilities: ReturnType<typeof courseEditCapabilitiesForTag>): CourseEditMapAction {
+  if (capabilities.image) return "replace-image";
+  if (capabilities.link) return "edit-link";
+  if (capabilities.richText) return "edit-text";
+  if (capabilities.styles) return "style-text";
+  return "annotation-only";
+}
+
+function pageMapLabel(action: CourseEditMapAction) {
+  if (action === "replace-image") return "Replace image";
+  if (action === "edit-link") return "Edit link";
+  if (action === "style-text") return "Style text";
+  if (action === "rename-course") return "Rename course";
+  if (action === "annotation-only") return "Annotation only";
+  return "Edit text";
+}
+
+/**
+ * Builds the informational map embedded into an isolated preview. The map is
+ * never write authority: every click and every apply still resolves against
+ * the current source and project policy again.
+ */
+export async function resolveCourseEditPageMap(
+  projectSlug: string,
+  htmlPath: string,
+  document: PreviewInspectionDocument,
+  repoRoot = defaultRepoRoot
+): Promise<CourseEditPageMap> {
+  const { project, adapter, reason } = await resolveCourseProject(projectSlug, repoRoot);
+  if (!project || !adapter) return unavailablePageMap(projectSlug, htmlPath, document.sourceDigest, reason);
+
+  if (adapter === "direct") {
+    const repoRelative = `projects/${projectSlug}/workspace/${htmlPath}`;
+    if (!project.editableSources.some((entry) => entry.kind === "file" && entry.repoRelative === repoRelative)) {
+      return unavailablePageMap(
+        projectSlug,
+        htmlPath,
+        document.sourceDigest,
+        "This page is not a declared canonical editable source."
+      );
+    }
+  } else if (htmlPath !== "index.html") {
+    return unavailablePageMap(
+      projectSlug,
+      htmlPath,
+      document.sourceDigest,
+      "Generated course edits are available only on the generated course entry page."
+    );
+  }
+
+  const editableElements = collectEditableHtmlElements(document.source, projectSlug, htmlPath);
+  if (!editableElements) {
+    return unavailablePageMap(
+      projectSlug,
+      htmlPath,
+      document.sourceDigest,
+      "Studio could not establish stable editable regions for this page."
+    );
+  }
+
+  const elementsByLocation = new Map(
+    editableElements.map((element) => [`${element.sourceStart}\u0000${element.tagName}`, element] as const)
+  );
+  const entries: CourseEditPageMapEntry[] = [];
+  let editableCount = 0;
+  let annotationOnlyCount = 0;
+  const orderedLocations = [...document.nodeLocations.entries()].sort((left, right) => left[1].ordinal - right[1].ordinal);
+
+  for (const [nodeId, location] of orderedLocations) {
+    const element = elementsByLocation.get(`${location.sourceStart}\u0000${location.tagName}`);
+    if (!element) continue;
+    const originalHtml = document.source.slice(element.innerStart, element.innerEnd);
+    const titleOwner = Object.hasOwn(element.attributes, "data-canvas-helper-course-title");
+    const baseCapabilities = courseEditCapabilitiesForTag(element.tagName);
+    const capabilities = {
+      ...baseCapabilities,
+      richText: baseCapabilities.richText && isSafeCourseEditRichTextSource(originalHtml)
+    };
+    const action = titleOwner ? "rename-course" : pageMapAction(element.tagName, capabilities);
+    const annotationOnly = action === "annotation-only";
+    const sourceText = normalizedCourseEditText(htmlText(originalHtml)).slice(0, 24_000);
+    const attributes = decodedElementAttributes(document.source, element);
+    const entry: CourseEditPageMapEntry = {
+      nodeId,
+      tagName: element.tagName,
+      action,
+      label: pageMapLabel(action),
+      reason: titleOwner
+        ? "Use Rename course so every title location stays synchronized."
+        : annotationOnly
+          ? "This element contains complex course structure and remains annotation-only."
+          : capabilities.richText
+            ? "Ready to edit."
+            : "Studio can change this element without rewriting its complex inner structure.",
+      expected: annotationOnly || titleOwner
+        ? null
+        : {
+            textFingerprint: renderedTextFingerprint(sourceText),
+            textLength: sourceText.length,
+            attributeFingerprint: renderedAttributeFingerprint(attributes)
+          }
+    };
+    if (annotationOnly) annotationOnlyCount += 1;
+    else editableCount += 1;
+    if (entries.length < COURSE_EDIT_PAGE_MAP_MAX_ENTRIES) entries.push(entry);
+  }
+
+  return {
+    schemaVersion: COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION,
+    projectSlug,
+    htmlPath,
+    sourceDigest: document.sourceDigest,
+    available: true,
+    reason: entries.length
+      ? "Editable regions are mapped from the current canonical course source."
+      : "No supported text, link, image, or course-title regions were found on this page.",
+    entries,
+    editableCount,
+    annotationOnlyCount,
+    truncated: editableCount + annotationOnlyCount > entries.length
+  };
+}
+
 export async function resolveCourseEditTarget(request: CourseEditResolveRequest, repoRoot = defaultRepoRoot): Promise<CourseEditTarget> {
   if (request.root !== "workspace" || !isPreviewInspectionNodeId(request.selection.nodeId)) {
     return unsupportedTarget("Only current workspace elements can be edited. References and area selections remain annotation-only.");
@@ -334,19 +562,44 @@ export async function resolveCourseEditTarget(request: CourseEditResolveRequest,
     editId: adapter === "direct" ? null : location.editId
   });
   if (!element) return unsupportedTarget("Select the text, link, image, caption, or button itself rather than its surrounding layout.");
+  if (Object.hasOwn(element.attributes, "data-canvas-helper-course-title")) {
+    return unsupportedTarget("Use Rename course so Studio can update every course title location together.");
+  }
+  const originalHtml = document.source.slice(element.innerStart, element.innerEnd);
+  const sourceText = normalizedCourseEditText(htmlText(originalHtml));
+  const visibleText = normalizedCourseEditText(request.selection.visibleText);
+  const rendered = request.selection.rendered;
+  const sourceAttributes = decodedElementAttributes(document.source, element);
+  const runtimeOwned = rendered
+    ? (
+        rendered.textLength !== sourceText.slice(0, 24_000).length ||
+        rendered.textFingerprint !== renderedTextFingerprint(sourceText) ||
+        (["href", "src", "alt", "title"] as const).some((name) => rendered.attributes[name] !== sourceAttributes[name])
+      )
+    : (
+        sourceText.length <= MAX_EXACT_RUNTIME_TEXT_CODE_UNITS &&
+        visibleText.length <= MAX_EXACT_RUNTIME_TEXT_CODE_UNITS &&
+        sourceText !== visibleText
+      );
+  if (runtimeOwned) {
+    return unsupportedTarget(
+      "This element is being replaced by course code after the page loads, so editing its HTML would not change what learners see. Annotate it for Codex until its runtime source is mapped."
+    );
+  }
   const identity = targetIdentity({
     projectSlug: request.projectSlug,
     htmlPath,
     nodeId: request.selection.nodeId,
     sourceDigest: document.sourceDigest,
-    editId: adapter === "direct" ? null : element.editId,
+    elementDigest: courseEditElementDigest(document.source, element),
+    editId: element.editId,
     tagName: element.tagName,
     adapter
   });
   return buildEditableTarget({
     identity,
     element,
-    originalHtml: document.source.slice(element.innerStart, element.innerEnd)
+    originalHtml
   });
 }
 
@@ -356,52 +609,100 @@ function sanitizeDraft(draft: CourseEditDraft, target: CourseEditTarget) {
   if (patch.html !== undefined) {
     if (!target.capabilities.richText) throw new Error("This element does not support rich-text changes.");
     patch.html = sanitizeCourseEditRichText(patch.html);
+    if (patch.html === sanitizeCourseEditRichText(target.originalHtml)) delete patch.html;
   }
   if (patch.href !== undefined) {
     if (!target.capabilities.link) throw new Error("This element is not an editable link.");
     patch.href = patch.href === null ? null : sanitizeCourseEditUrl(patch.href, "href");
+    if ((patch.href ?? "") === target.attributes.href) delete patch.href;
   }
   if (patch.src !== undefined) {
     if (!target.capabilities.image) throw new Error("This element is not an editable image.");
     patch.src = patch.src === null ? null : sanitizeCourseEditUrl(patch.src, "src");
+    if ((patch.src ?? "") === target.attributes.src) delete patch.src;
   }
   if (patch.alt !== undefined) {
     if (!target.capabilities.image) throw new Error("Only images support alt text.");
     patch.alt = patch.alt === null ? null : sanitizeCourseEditPlainText(patch.alt);
+    if ((patch.alt ?? "") === target.attributes.alt) delete patch.alt;
   }
-  if (patch.title !== undefined) patch.title = patch.title === null ? null : sanitizeCourseEditPlainText(patch.title);
-  if (patch.style && !target.capabilities.styles) throw new Error("This element does not support Studio style controls.");
+  if (patch.title !== undefined) {
+    patch.title = patch.title === null ? null : sanitizeCourseEditPlainText(patch.title);
+    if ((patch.title ?? "") === target.attributes.title) delete patch.title;
+  }
+  if (patch.style) {
+    if (!target.capabilities.styles) throw new Error("This element does not support Studio style controls.");
+    const style: CourseEditStylePatch = {};
+    for (const [key, value] of Object.entries(patch.style) as Array<[keyof CourseEditStylePatch, CourseEditStylePatch[keyof CourseEditStylePatch]]>) {
+      if (!target.capabilities.styleKeys.includes(key)) {
+        throw new Error(`The ${key} control is not safe for this kind of course element.`);
+      }
+      if (value !== undefined && value !== target.currentStyle[key]) Object.assign(style, { [key]: value });
+    }
+    if (Object.keys(style).length) patch.style = style;
+    else delete patch.style;
+  }
+  if (!Object.keys(patch).length) throw new Error("This draft does not contain an actual change.");
   return { ...draft, patch };
 }
 
-async function atomicWrite(filePath: string, content: string, mode?: number | null) {
-  const temporary = `${filePath}.studio-edit-${process.pid}-${Date.now()}`;
-  try {
-    await writeFile(temporary, content, "utf8");
-    if (typeof mode === "number") await chmod(temporary, mode);
-    await rename(temporary, filePath);
-  } finally {
-    await rm(temporary, { force: true });
+async function atomicWrite(filePath: string, content: string | Uint8Array, mode?: number | null) {
+  await durableAtomicWrite(filePath, content, typeof mode === "number" ? mode : undefined);
+}
+
+function terminateCommandTree(child: ChildProcess) {
+  if (!child.pid) return null;
+  if (process.platform === "win32") {
+    const killer = spawn("taskkill", ["/pid", String(child.pid), "/t", "/f"], {
+      stdio: "ignore",
+      windowsHide: true,
+      shell: false
+    });
+    killer.unref();
+    return null;
   }
+  try {
+    process.kill(-child.pid, "SIGTERM");
+  } catch {
+    child.kill("SIGTERM");
+  }
+  const force = setTimeout(() => {
+    try {
+      process.kill(-child.pid!, "SIGKILL");
+    } catch {
+      child.kill("SIGKILL");
+    }
+  }, 2_000);
+  force.unref();
+  return force;
 }
 
 async function runCommand(args: string[], repoRoot: string): Promise<CommandResult> {
   const isWindows = process.platform === "win32";
   const command = isWindows ? "npm.cmd" : "npm";
   return await new Promise((resolve) => {
-    const child = spawn(command, args, { cwd: repoRoot, env: process.env, stdio: ["ignore", "pipe", "pipe"], shell: false });
+    const child = spawn(command, args, {
+      cwd: repoRoot,
+      env: process.env,
+      stdio: ["ignore", "pipe", "pipe"],
+      shell: false,
+      detached: !isWindows,
+      windowsHide: true
+    });
     let stdout = "";
     let stderr = "";
     let settled = false;
+    let forceKillTimer: NodeJS.Timeout | null = null;
     const timer = setTimeout(() => {
       if (settled) return;
-      child.kill("SIGTERM");
+      forceKillTimer = terminateCommandTree(child);
       stderr += "\nCommand exceeded the Studio edit deadline.";
     }, COMMAND_TIMEOUT_MS);
     const finish = (exitCode: number) => {
       if (settled) return;
       settled = true;
       clearTimeout(timer);
+      if (forceKillTimer) clearTimeout(forceKillTimer);
       resolve({ ok: exitCode === 0, exitCode, stdout: trimOutput(stdout.trim()), stderr: trimOutput(stderr.trim()) });
     };
     child.stdout?.on("data", (chunk) => { stdout += String(chunk); });
@@ -416,8 +717,31 @@ async function projectManifest(projectSlug: string, repoRoot: string) {
   return JSON.parse(await readFile(path.join(repoRoot, "projects", projectSlug, "meta", "project.json"), "utf8")) as ProjectManifest;
 }
 
+async function currentCourseTitle(projectSlug: string, manifest: ProjectManifest, repoRoot: string) {
+  const stored = await loadStoredStudioCourse(repoRoot, projectSlug);
+  if (stored?.title.trim()) return stored.title.trim();
+  if (manifest.title?.trim()) return manifest.title.trim();
+  try {
+    const source = await readFile(path.join(repoRoot, "projects", projectSlug, "workspace", "index.html"), "utf8");
+    const $ = load(source);
+    const declared = $("body [data-canvas-helper-course-title]").first().text().replace(/\s+/g, " ").trim()
+      || $(`[data-canvas-helper-course-title]`).first().text().replace(/\s+/g, " ").trim();
+    if (declared) return declared;
+    const documentTitle = $("title").first().text().replace(/\s+/g, " ").trim();
+    if (documentTitle) return documentTitle;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
+  return projectSlug
+    .split(/[-_]+/)
+    .filter(Boolean)
+    .map((part) => part.length <= 3 ? part.toUpperCase() : `${part[0].toUpperCase()}${part.slice(1)}`)
+    .join(" ");
+}
+
 async function rebuildArgs(projectSlug: string, adapter: CourseEditAdapter, repoRoot: string) {
   if (adapter === "english-factory") return ["run", "build:english-unit", "--", "--project", projectSlug];
+  if (adapter === "legacy-snapshot") return null;
   if (adapter !== "social-related-issues") return null;
   const manifest = await projectManifest(projectSlug, repoRoot);
   if (projectSlug.startsWith("social10-1-related-issue-")) {
@@ -433,11 +757,48 @@ async function rebuildArgs(projectSlug: string, adapter: CourseEditAdapter, repo
   throw new Error("This Social course does not declare a known bounded rebuild adapter.");
 }
 
+async function materializeLegacySnapshot(projectSlug: string, repoRoot: string) {
+  const workspaceDir = path.join(repoRoot, "projects", projectSlug, "workspace");
+  const [stored, course] = await Promise.all([
+    loadCourseEditOverrides(repoRoot, projectSlug),
+    loadStoredStudioCourse(repoRoot, projectSlug)
+  ]);
+  const htmlPaths = new Set(stored.overrides.map((entry) => entry.htmlPath));
+  if (course) htmlPaths.add("index.html");
+  for (const htmlPath of htmlPaths) {
+    const entryPath = await resolveEditWorkspacePath(projectSlug, htmlPath, repoRoot);
+    const source = await readFile(entryPath, "utf8");
+    const next = await applyStoredCourseEdits({ repoRoot, projectSlug, html: source, htmlPath, workspaceDir });
+    if (next !== source) await atomicWrite(entryPath, next, (await lstat(entryPath)).mode);
+  }
+}
+
 async function runRebuild(projectSlug: string, adapter: CourseEditAdapter, repoRoot: string) {
+  if (adapter === "legacy-snapshot") {
+    await materializeLegacySnapshot(projectSlug, repoRoot);
+    return;
+  }
   const args = await rebuildArgs(projectSlug, adapter, repoRoot);
   if (!args) return;
   const result = await runCommand(args, repoRoot);
   if (!result.ok) throw new Error(`The course rebuild failed.\n${result.stderr || result.stdout}`);
+}
+
+function generatedWriteSetDirectories(projectSlug: string, adapter: CourseEditAdapter, repoRoot: string) {
+  if (adapter === "legacy-snapshot") return [];
+  const projectRoot = path.join(repoRoot, "projects", projectSlug);
+  const directories = [
+    path.join(projectRoot, "workspace"),
+    path.join(projectRoot, "meta")
+  ];
+  if (adapter === "english-factory") {
+    const resourceRoot = path.join(repoRoot, "projects", "resources", projectSlug);
+    directories.push(
+      path.join(resourceRoot, "teacher"),
+      path.join(resourceRoot, "_extracted")
+    );
+  }
+  return directories;
 }
 
 async function runValidation(projectSlug: string, repoRoot: string) {
@@ -456,6 +817,10 @@ function checkpointPath(repoRoot: string, projectSlug: string) {
 
 function checkpointBackupRoot(repoRoot: string, projectSlug: string, checkpointId: string) {
   return path.join(repoRoot, ".runtime", "studio-edit-checkpoints", projectSlug, checkpointId);
+}
+
+function checkpointVersionPath(repoRoot: string, projectSlug: string, checkpointId: string) {
+  return path.join(checkpointBackupRoot(repoRoot, projectSlug, checkpointId), "checkpoint.json");
 }
 
 function statusPath(repoRoot: string, projectSlug: string) {
@@ -549,6 +914,84 @@ function resolveCheckpointRelativePath(repoRoot: string, relativePath: string, l
   return target;
 }
 
+type RestoreTreeEntry = {
+  absolutePath: string;
+  relativePath: string;
+  kind: "file" | "directory";
+  mode: number;
+};
+
+async function collectRestoreTree(root: string) {
+  const entries: RestoreTreeEntry[] = [];
+  const visit = async (directoryPath: string, relativeDirectory: string): Promise<void> => {
+    const children = await readdir(directoryPath, { withFileTypes: true });
+    for (const child of children) {
+      const absolutePath = path.join(directoryPath, child.name);
+      const relativePath = relativeDirectory ? `${relativeDirectory}/${child.name}` : child.name;
+      const stats = await lstat(absolutePath);
+      if (stats.isSymbolicLink()) throw new Error("Checkpoint restore does not follow symbolic links.");
+      if (stats.isDirectory()) {
+        entries.push({ absolutePath, relativePath, kind: "directory", mode: stats.mode });
+        await visit(absolutePath, relativePath);
+      } else if (stats.isFile()) {
+        entries.push({ absolutePath, relativePath, kind: "file", mode: stats.mode });
+      } else {
+        throw new Error("Checkpoint restore supports only regular files and directories.");
+      }
+    }
+  };
+  await visit(root, "");
+  return entries;
+}
+
+function pathDepth(relativePath: string) {
+  return relativePath.split("/").length;
+}
+
+export async function restoreCheckpointDirectoryInPlace(backup: string, target: string) {
+  const backupStats = await lstat(backup);
+  if (!backupStats.isDirectory() || backupStats.isSymbolicLink()) {
+    throw new Error("Checkpoint backup is not a safe directory.");
+  }
+  try {
+    const targetStats = await lstat(target);
+    if (!targetStats.isDirectory() || targetStats.isSymbolicLink()) {
+      throw new Error("Checkpoint target is not a safe directory.");
+    }
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    await mkdir(target, { recursive: true });
+  }
+
+  const [backupEntries, targetEntries] = await Promise.all([
+    collectRestoreTree(backup),
+    collectRestoreTree(target)
+  ]);
+  const backupByPath = new Map(backupEntries.map((entry) => [entry.relativePath, entry]));
+  const extras = targetEntries
+    .filter((entry) => {
+      const expected = backupByPath.get(entry.relativePath);
+      return !expected || expected.kind !== entry.kind;
+    })
+    .sort((left, right) => pathDepth(right.relativePath) - pathDepth(left.relativePath));
+  for (const entry of extras) {
+    await rm(entry.absolutePath, { recursive: entry.kind === "directory", force: true });
+  }
+
+  for (const entry of backupEntries
+    .filter((candidate) => candidate.kind === "directory")
+    .sort((left, right) => pathDepth(left.relativePath) - pathDepth(right.relativePath))) {
+    const destination = path.join(target, ...entry.relativePath.split("/"));
+    await mkdir(destination, { recursive: true });
+    await chmod(destination, entry.mode);
+  }
+  for (const entry of backupEntries.filter((candidate) => candidate.kind === "file")) {
+    const destination = path.join(target, ...entry.relativePath.split("/"));
+    await atomicWrite(destination, await readFile(entry.absolutePath), entry.mode);
+  }
+  await chmod(target, backupStats.mode);
+}
+
 async function restoreSnapshotDirectories(repoRoot: string, directories: SnapshotDirectory[]) {
   for (const directory of directories) {
     const target = resolveCheckpointRelativePath(repoRoot, directory.repoRelativePath, "Checkpoint restore");
@@ -557,15 +1000,7 @@ async function restoreSnapshotDirectories(repoRoot: string, directories: Snapsho
       continue;
     }
     const backup = resolveCheckpointRelativePath(repoRoot, directory.backupRelativePath, "Checkpoint backup");
-    const temporary = `${target}.studio-restore-${process.pid}-${Date.now()}`;
-    const total = { bytes: 0, files: 0 };
-    try {
-      await copyCheckpointDirectory(backup, temporary, total);
-      await rm(target, { recursive: true, force: true });
-      await rename(temporary, target);
-    } finally {
-      await rm(temporary, { recursive: true, force: true });
-    }
+    await restoreCheckpointDirectoryInPlace(backup, target);
   }
   clearPreviewInspectionDocumentCache();
 }
@@ -580,27 +1015,63 @@ async function restoreSnapshotFiles(repoRoot: string, files: SnapshotFile[]) {
     await mkdir(path.dirname(target), { recursive: true });
     const content = Buffer.from(file.contentBase64, "base64");
     if (content.length > MAX_CHECKPOINT_FILE_BYTES) throw new Error("Checkpoint content exceeds the restore limit.");
-    await atomicWrite(target, content.toString("utf8"), file.mode);
+    await atomicWrite(target, content, file.mode);
   }
   clearPreviewInspectionDocumentCache();
 }
 
 async function writeCheckpoint(checkpoint: CourseEditCheckpoint, repoRoot: string) {
   const target = checkpointPath(repoRoot, checkpoint.projectSlug);
-  await mkdir(path.dirname(target), { recursive: true });
-  await atomicWrite(target, `${JSON.stringify(checkpoint, null, 2)}\n`);
+  const versionTarget = checkpointVersionPath(repoRoot, checkpoint.projectSlug, checkpoint.checkpointId);
+  await Promise.all([
+    mkdir(path.dirname(target), { recursive: true }),
+    mkdir(path.dirname(versionTarget), { recursive: true })
+  ]);
+  const serialized = `${JSON.stringify(checkpoint, null, 2)}\n`;
+  await atomicWrite(versionTarget, serialized);
+  await atomicWrite(target, serialized);
 }
 
-async function loadCheckpoint(projectSlug: string, repoRoot: string): Promise<CourseEditCheckpoint | null> {
+function upgradeCourseEditCheckpoint(value: unknown, projectSlug: string): CourseEditCheckpoint | null {
+  if (!value || typeof value !== "object" || Array.isArray(value)) return null;
+  const parsed = value as Omit<Partial<CourseEditCheckpoint>, "schemaVersion"> & { schemaVersion?: number };
+  if (
+    (parsed.schemaVersion !== 2 && parsed.schemaVersion !== CHECKPOINT_SCHEMA_VERSION) ||
+    parsed.projectSlug !== projectSlug ||
+    typeof parsed.previousCheckpointId === "undefined" ||
+    !Array.isArray(parsed.files) ||
+    !Array.isArray(parsed.directories) ||
+    !Array.isArray(parsed.htmlPaths) ||
+    !Array.isArray(parsed.expectedBefore) ||
+    !Array.isArray(parsed.expectedAfter)
+  ) return null;
+  return {
+    ...(parsed as CourseEditCheckpoint),
+    schemaVersion: CHECKPOINT_SCHEMA_VERSION,
+    renderBefore: Array.isArray(parsed.renderBefore) ? parsed.renderBefore : [],
+    renderAfter: Array.isArray(parsed.renderAfter) ? parsed.renderAfter : []
+  };
+}
+
+function isCourseEditCheckpoint(parsed: CourseEditCheckpoint, projectSlug: string) {
+  return (
+    parsed.schemaVersion === CHECKPOINT_SCHEMA_VERSION &&
+    parsed.projectSlug === projectSlug &&
+    typeof parsed.previousCheckpointId !== "undefined" &&
+    Array.isArray(parsed.files) &&
+    Array.isArray(parsed.directories) &&
+    Array.isArray(parsed.htmlPaths) &&
+    Array.isArray(parsed.expectedBefore) &&
+    Array.isArray(parsed.expectedAfter) &&
+    Array.isArray(parsed.renderBefore) &&
+    Array.isArray(parsed.renderAfter)
+  );
+}
+
+async function loadCheckpointAt(filePath: string, projectSlug: string): Promise<CourseEditCheckpoint | null> {
   try {
-    const parsed = JSON.parse(await readFile(checkpointPath(repoRoot, projectSlug), "utf8")) as CourseEditCheckpoint;
-    if (
-      parsed.schemaVersion !== CHECKPOINT_SCHEMA_VERSION ||
-      parsed.projectSlug !== projectSlug ||
-      !Array.isArray(parsed.files) ||
-      !Array.isArray(parsed.directories) ||
-      !Array.isArray(parsed.htmlPaths)
-    ) {
+    const parsed = upgradeCourseEditCheckpoint(JSON.parse(await readFile(filePath, "utf8")), projectSlug);
+    if (!parsed || !isCourseEditCheckpoint(parsed, projectSlug)) {
       throw new Error("The latest Studio edit checkpoint is invalid.");
     }
     return parsed;
@@ -608,6 +1079,30 @@ async function loadCheckpoint(projectSlug: string, repoRoot: string): Promise<Co
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return null;
     throw error;
   }
+}
+
+async function loadCheckpoint(projectSlug: string, repoRoot: string): Promise<CourseEditCheckpoint | null> {
+  return await loadCheckpointAt(checkpointPath(repoRoot, projectSlug), projectSlug);
+}
+
+async function loadCheckpointVersion(projectSlug: string, checkpointId: string, repoRoot: string) {
+  return await loadCheckpointAt(checkpointVersionPath(repoRoot, projectSlug, checkpointId), projectSlug);
+}
+
+function checkpointBoundaryPaths(checkpoint: CourseEditCheckpoint, repoRoot: string) {
+  return [
+    ...checkpoint.files.map((file) => resolveCheckpointRelativePath(repoRoot, file.repoRelativePath, "Checkpoint fingerprint")),
+    ...checkpoint.directories.map((directory) => resolveCheckpointRelativePath(repoRoot, directory.repoRelativePath, "Checkpoint fingerprint"))
+  ];
+}
+
+async function fingerprintCheckpointBoundary(checkpoint: CourseEditCheckpoint, repoRoot: string) {
+  return await fingerprintCourseEditPaths(repoRoot, checkpointBoundaryPaths(checkpoint, repoRoot));
+}
+
+async function checkpointMatchesExpectedPost(checkpoint: CourseEditCheckpoint, repoRoot: string) {
+  if (!checkpoint.expectedAfter.length) return false;
+  return courseEditFingerprintsMatch(checkpoint.expectedAfter, await fingerprintCheckpointBoundary(checkpoint, repoRoot));
 }
 
 export async function getCourseEditStatus(projectSlug: string, repoRoot = defaultRepoRoot): Promise<CourseEditStatus> {
@@ -618,15 +1113,34 @@ export async function getCourseEditStatus(projectSlug: string, repoRoot = defaul
     if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
   }
   const checkpoint = await loadCheckpoint(projectSlug, repoRoot);
+  const journal = await readCourseEditJournal(projectSlug, repoRoot);
+  const checkpointCurrent = checkpoint ? await checkpointMatchesExpectedPost(checkpoint, repoRoot) : false;
   const availability = await resolveCourseProject(projectSlug, repoRoot);
+  const manifest = availability.project ? await projectManifest(projectSlug, repoRoot) : null;
+  const courseTitle = manifest ? await currentCourseTitle(projectSlug, manifest, repoRoot) : "";
+  const staleTargets = manifest ? await staleExportTargets(projectSlug, repoRoot, manifest) : [];
+  const interruptedReason = journal
+    ? "Studio found an interrupted course edit transaction. The next apply or undo will recover it before making another change."
+    : "";
+  const undoUnavailableReason = journal
+    ? "Undo is paused until the interrupted transaction is recovered."
+    : checkpoint && !checkpointCurrent
+      ? "Undo is unavailable because the course changed after this Studio batch. Reload and review the newer work instead of restoring over it."
+      : checkpoint
+        ? ""
+        : "There is no applied Studio edit batch to undo.";
   return {
     projectSlug,
-    available: Boolean(availability.project && availability.adapter),
-    unavailableReason: availability.reason,
-    canUndo: Boolean(checkpoint),
+    available: Boolean(availability.project && availability.adapter && !journal),
+    unavailableReason: interruptedReason || availability.reason,
+    courseTitle,
+    canRenameCourse: Boolean(availability.project?.studioEditing.renameCourse && availability.adapter && !journal),
+    canUploadImages: Boolean(availability.project?.studioEditing.imageAssets && availability.adapter && !journal),
+    canUndo: Boolean(checkpoint && checkpointCurrent && !journal),
+    undoUnavailableReason,
     checkpointId: checkpoint?.checkpointId ?? null,
-    exportsOutOfDate: Boolean(stored.exportsOutOfDate),
-    staleExportTargets: Array.isArray(stored.staleExportTargets) ? stored.staleExportTargets.filter((value): value is string => typeof value === "string") : [],
+    exportsOutOfDate: staleTargets.length > 0,
+    staleExportTargets: staleTargets,
     lastAppliedAt: typeof stored.lastAppliedAt === "string" ? stored.lastAppliedAt : null
   };
 }
@@ -637,9 +1151,26 @@ async function saveCourseEditStatus(status: CourseEditStatus, repoRoot: string) 
   await atomicWrite(target, `${JSON.stringify(status, null, 2)}\n`);
 }
 
-async function staleExportTargets(projectSlug: string, repoRoot: string) {
-  const manifest = await projectManifest(projectSlug, repoRoot);
-  return [...new Set((manifest.exportTargets ?? []).filter((target) => target.enabled !== false).map((target) => target.target))];
+function declaredEvidenceTargets(manifest: ProjectManifest) {
+  const targets = new Set<CourseExportEvidenceTarget>();
+  for (const entry of manifest.exportTargets ?? []) {
+    if (entry.enabled === false) continue;
+    if (entry.target === "scorm") {
+      targets.add("scorm2004");
+      targets.add("scorm12");
+    } else if (entry.target === "brightspace") {
+      targets.add("brightspace");
+      targets.add("brightspace-package");
+    } else if (["google-hosted", "apps-script", "html"].includes(entry.target)) {
+      targets.add(entry.target as CourseExportEvidenceTarget);
+    }
+  }
+  return [...targets];
+}
+
+async function staleExportTargets(projectSlug: string, repoRoot: string, manifest?: ProjectManifest) {
+  const declared = declaredEvidenceTargets(manifest ?? await projectManifest(projectSlug, repoRoot));
+  return await staleCourseExportTargets({ repoRoot, projectSlug, targets: declared });
 }
 
 function assertNonOverlappingTargets(resolved: Array<{ draft: CourseEditDraft; target: ResolvedEditableTarget }>) {
@@ -691,7 +1222,9 @@ async function applyDirectEdits(
       if (entries.some((entry) => entry.target.source !== source)) throw new StaleCourseEditSourceError();
       let next = source;
       const operations = [...entries].sort((left, right) => right.target.element.sourceStart - left.target.element.sourceStart);
-      for (const { draft, target } of operations) next = applyPatchToEditableElement(next, target.element, draft.patch);
+      for (const { draft, target } of operations) {
+        next = applyPatchToEditableElement(next, target.element, draft.patch, target.element.editId);
+      }
       if (operations.some(({ draft }) => Boolean(draft.patch.style))) next = ensureStudioEditStyles(next);
       const mode = (await lstat(sourcePath)).mode;
       const temporary = `${sourcePath}.studio-edit-${process.pid}-${Date.now()}-${prepared.length}`;
@@ -743,14 +1276,54 @@ async function applyGeneratedEdits(
   await saveCourseEditOverrides(repoRoot, { schemaVersion: 1, projectSlug, updatedAt: now, overrides: nextOverrides });
 }
 
-async function withProjectEditLock<T>(projectSlug: string, run: () => Promise<T>) {
-  if (activeProjectEdits.has(projectSlug)) throw new Error("Another edit is already being applied to this course.");
-  activeProjectEdits.add(projectSlug);
-  try {
-    return await run();
-  } finally {
-    activeProjectEdits.delete(projectSlug);
+async function restoreCheckpointAndPriorUndo(checkpoint: CourseEditCheckpoint, repoRoot: string) {
+  await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
+  await restoreSnapshotFiles(repoRoot, checkpoint.files);
+  const previousCheckpoint = checkpoint.previousCheckpointId
+    ? await loadCheckpointVersion(checkpoint.projectSlug, checkpoint.previousCheckpointId, repoRoot)
+    : null;
+  if (checkpoint.previousCheckpointId && !previousCheckpoint) {
+    throw new Error("Studio could not recover the prior Undo checkpoint for this interrupted transaction.");
   }
+  if (previousCheckpoint) await writeCheckpoint(previousCheckpoint, repoRoot);
+  else await rm(checkpointPath(repoRoot, checkpoint.projectSlug), { force: true });
+}
+
+async function recoverInterruptedCourseEdit(projectSlug: string, repoRoot: string) {
+  const journal = await readCourseEditJournal(projectSlug, repoRoot);
+  if (!journal) return;
+  if (journal.phase === "manual-recovery") {
+    throw new Error(
+      "Studio preserved an interrupted transaction because files changed outside its lock. Inspect the recovery journal and checkpoint before choosing which work to keep."
+    );
+  }
+  if (!journal.checkpointId) {
+    throw new Error("Studio found an interrupted course operation without a recovery checkpoint. Preserve the journal and inspect the course before editing again.");
+  }
+  const recovery = await loadCheckpointVersion(projectSlug, journal.checkpointId, repoRoot);
+  if (!recovery) {
+    throw new Error("Studio found an interrupted course operation, but its recovery checkpoint is missing.");
+  }
+  await writeCourseEditJournal({ ...journal, phase: "rolling-back" }, repoRoot);
+  await restoreCheckpointAndPriorUndo(recovery, repoRoot);
+  await runValidation(projectSlug, repoRoot);
+  await rm(checkpointBackupRoot(repoRoot, projectSlug, recovery.checkpointId), { recursive: true, force: true });
+  await removeCourseEditJournal(projectSlug, repoRoot);
+}
+
+async function withProjectEditLock<T>(
+  projectSlug: string,
+  operation: CourseEditTransactionJournal["operation"],
+  repoRoot: string,
+  run: () => Promise<T>
+) {
+  return await withCourseEditFileLock({
+    projectSlug,
+    operation,
+    repoRoot,
+    recoverInterrupted: () => recoverInterruptedCourseEdit(projectSlug, repoRoot),
+    run
+  });
 }
 
 export async function applyCourseEditBatch(
@@ -759,11 +1332,17 @@ export async function applyCourseEditBatch(
   hooks: CourseEditExecutionHooks = {}
 ): Promise<CourseEditBatchResult> {
   if (request.schemaVersion !== COURSE_EDIT_SCHEMA_VERSION) throw new Error("Unsupported Studio edit batch version.");
-  return await withProjectEditLock(request.projectSlug, async () => {
+  return await withProjectEditLock(request.projectSlug, "apply", repoRoot, async () => {
     const resolved: Array<{ draft: CourseEditDraft; target: ResolvedEditableTarget }> = [];
-    for (const draft of request.drafts) {
-      const target = await resolveFromIdentity(draft.identity, repoRoot);
-      resolved.push({ draft: sanitizeDraft(draft, target.target), target });
+    for (const [index, draft] of request.drafts.entries()) {
+      try {
+        const target = await resolveFromIdentity(draft.identity, repoRoot);
+        resolved.push({ draft: sanitizeDraft(draft, target.target), target });
+      } catch (error) {
+        const excerpt = draft.beforeText.replace(/\s+/g, " ").trim().slice(0, 80) || draft.identity.tagName.toUpperCase();
+        const reason = error instanceof Error ? error.message : String(error);
+        throw new Error(`Draft ${index + 1} (${draft.identity.tagName.toUpperCase()}: "${excerpt}") needs attention: ${reason} No course files changed.`);
+      }
     }
     const adapter = resolved[0].target.target.identity?.adapter;
     const htmlPaths = [...new Set(resolved.map((entry) => entry.target.target.identity?.htmlPath).filter((value): value is string => Boolean(value)))];
@@ -777,15 +1356,31 @@ export async function applyCourseEditBatch(
     const previousStatus = await getCourseEditStatus(request.projectSlug, repoRoot);
     const previousCheckpoint = await loadCheckpoint(request.projectSlug, repoRoot);
     const checkpointId = randomUUID();
+    const legacySnapshotPaths = adapter === "legacy-snapshot"
+      ? await (async () => {
+          const [stored, course] = await Promise.all([
+            loadCourseEditOverrides(repoRoot, request.projectSlug),
+            loadStoredStudioCourse(repoRoot, request.projectSlug)
+          ]);
+          const htmlPaths = new Set([
+            ...resolved.map((entry) => entry.target.target.identity?.htmlPath).filter((value): value is string => Boolean(value)),
+            ...stored.overrides.map((entry) => entry.htmlPath)
+          ]);
+          if (course) htmlPaths.add("index.html");
+          return await Promise.all([...htmlPaths].map((htmlPath) => resolveEditWorkspacePath(request.projectSlug, htmlPath, repoRoot)));
+        })()
+      : [];
     const snapshotPaths = adapter === "direct"
       ? [...new Set(resolved.map((entry) => entry.target.sourcePath))]
-      : [];
+      : adapter === "legacy-snapshot"
+        ? [...new Set([
+            ...legacySnapshotPaths,
+            courseEditOverridesPath(repoRoot, request.projectSlug)
+          ])]
+        : [];
     const snapshotDirectoryPaths = adapter === "direct"
       ? []
-      : [
-          path.join(repoRoot, "projects", request.projectSlug, "workspace"),
-          path.join(repoRoot, "projects", request.projectSlug, "meta")
-        ];
+      : generatedWriteSetDirectories(request.projectSlug, adapter, repoRoot);
     const directoryTotal = { bytes: 0, files: 0 };
     const directories: SnapshotDirectory[] = [];
     try {
@@ -812,11 +1407,52 @@ export async function applyCourseEditBatch(
       createdAt: new Date().toISOString(),
       files: await Promise.all(snapshotPaths.map((filePath) => snapshotFile(repoRoot, filePath))),
       directories,
-      previousStatus
+      previousStatus,
+      previousCheckpointId: previousCheckpoint?.checkpointId ?? null,
+      expectedBefore: [],
+      expectedAfter: [],
+      renderBefore: resolved.map(({ draft, target }) => renderCheckForPatch({
+        htmlPath: draft.identity.htmlPath,
+        element: target.element,
+        patch: draft.patch,
+        before: {
+          html: target.target.originalHtml,
+          attributes: target.target.attributes,
+          style: target.target.currentStyle
+        },
+        phase: "before"
+      })),
+      renderAfter: resolved.map(({ draft, target }) => renderCheckForPatch({
+        htmlPath: draft.identity.htmlPath,
+        element: target.element,
+        patch: draft.patch,
+        before: {
+          html: target.target.originalHtml,
+          attributes: target.target.attributes,
+          style: target.target.currentStyle
+        },
+        phase: "after"
+      }))
     };
+    checkpoint.expectedBefore = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
     await writeCheckpoint(checkpoint, repoRoot);
+    let journal: CourseEditTransactionJournal = {
+      schemaVersion: 1,
+      transactionId: randomUUID(),
+      projectSlug: request.projectSlug,
+      operation: "apply",
+      checkpointId: checkpoint.checkpointId,
+      phase: "prepared",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: checkpoint.expectedBefore,
+      expectedAfter: []
+    };
+    await writeCourseEditJournal(journal, repoRoot);
 
     try {
+      journal = { ...journal, phase: "mutating" };
+      await writeCourseEditJournal(journal, repoRoot);
       if (adapter === "direct") {
         await applyDirectEdits(resolved, hooks);
       } else {
@@ -824,24 +1460,40 @@ export async function applyCourseEditBatch(
         await runRebuild(request.projectSlug, adapter, repoRoot);
         clearPreviewInspectionDocumentCache();
       }
+      checkpoint.expectedAfter = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+      await writeCheckpoint(checkpoint, repoRoot);
+      journal = { ...journal, phase: "validating", expectedAfter: checkpoint.expectedAfter };
+      await writeCourseEditJournal(journal, repoRoot);
       await runValidation(request.projectSlug, repoRoot);
+      await (hooks.validateRendered ?? validateRenderedCourseEdits)({
+        repoRoot,
+        projectSlug: request.projectSlug,
+        checks: checkpoint.renderAfter
+      });
     } catch (error) {
       const sourcesAlreadyChanged = error instanceof StaleCourseEditSourceError;
       if (!sourcesAlreadyChanged) {
-        await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
-        await restoreSnapshotFiles(repoRoot, checkpoint.files);
-      }
-      if (previousCheckpoint) {
+        if (
+          checkpoint.expectedAfter.length &&
+          !courseEditFingerprintsMatch(checkpoint.expectedAfter, await fingerprintCheckpointBoundary(checkpoint, repoRoot))
+        ) {
+          journal = { ...journal, phase: "manual-recovery" };
+          await writeCourseEditJournal(journal, repoRoot);
+          throw new Error(
+            "Studio paused automatic rollback because the course changed again during validation. The recovery journal and checkpoint were preserved; inspect the newer files before recovering this batch."
+          );
+        }
+        journal = { ...journal, phase: "rolling-back" };
+        await writeCourseEditJournal(journal, repoRoot);
+        await restoreCheckpointAndPriorUndo(checkpoint, repoRoot);
+      } else if (previousCheckpoint) {
         await writeCheckpoint(previousCheckpoint, repoRoot);
       } else {
         await rm(checkpointPath(repoRoot, request.projectSlug), { force: true });
       }
       await rm(checkpointBackupRoot(repoRoot, request.projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
+      await removeCourseEditJournal(request.projectSlug, repoRoot);
       throw error;
-    }
-
-    if (previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId) {
-      await rm(checkpointBackupRoot(repoRoot, request.projectSlug, previousCheckpoint.checkpointId), { recursive: true, force: true });
     }
 
     const staleTargets = await staleExportTargets(request.projectSlug, repoRoot);
@@ -849,13 +1501,27 @@ export async function applyCourseEditBatch(
       projectSlug: request.projectSlug,
       available: true,
       unavailableReason: "",
+      courseTitle: await currentCourseTitle(
+        request.projectSlug,
+        await projectManifest(request.projectSlug, repoRoot),
+        repoRoot
+      ),
+      canRenameCourse: resolved[0].target.project.studioEditing.renameCourse,
+      canUploadImages: resolved[0].target.project.studioEditing.imageAssets,
       canUndo: true,
+      undoUnavailableReason: "",
       checkpointId: checkpoint.checkpointId,
       exportsOutOfDate: staleTargets.length > 0,
       staleExportTargets: staleTargets,
       lastAppliedAt: new Date().toISOString()
     };
     await saveCourseEditStatus(status, repoRoot);
+    await removeCourseEditJournal(request.projectSlug, repoRoot);
+    checkpoint.previousCheckpointId = null;
+    await writeCheckpoint(checkpoint, repoRoot);
+    if (previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId) {
+      await rm(checkpointBackupRoot(repoRoot, request.projectSlug, previousCheckpoint.checkpointId), { recursive: true, force: true });
+    }
     return {
       ...status,
       ok: true,
@@ -867,9 +1533,14 @@ export async function applyCourseEditBatch(
 }
 
 export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaultRepoRoot): Promise<CourseEditBatchResult> {
-  return await withProjectEditLock(projectSlug, async () => {
+  return await withProjectEditLock(projectSlug, "undo", repoRoot, async () => {
     const checkpoint = await loadCheckpoint(projectSlug, repoRoot);
     if (!checkpoint) throw new Error("There is no applied Studio edit batch to undo.");
+    if (!await checkpointMatchesExpectedPost(checkpoint, repoRoot)) {
+      throw new Error(
+        "Undo refused because the course changed after this Studio batch. Reload and review the newer work; Studio will not restore over it."
+      );
+    }
     const undoRecoveryId = `undo-${randomUUID()}`;
     const recoveryTotal = { bytes: 0, files: 0 };
     const recoveryDirectories: SnapshotDirectory[] = [];
@@ -894,23 +1565,78 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
     const recoveryFiles = await Promise.all(checkpoint.files.map((file) => (
       snapshotFile(repoRoot, resolveCheckpointRelativePath(repoRoot, file.repoRelativePath, "Undo recovery"))
     )));
+    const recovery: CourseEditCheckpoint = {
+      schemaVersion: CHECKPOINT_SCHEMA_VERSION,
+      checkpointId: undoRecoveryId,
+      projectSlug,
+      adapter: checkpoint.adapter,
+      htmlPaths: checkpoint.htmlPaths,
+      createdAt: new Date().toISOString(),
+      files: recoveryFiles,
+      directories: recoveryDirectories,
+      previousStatus: await getCourseEditStatus(projectSlug, repoRoot),
+      previousCheckpointId: checkpoint.checkpointId,
+      expectedBefore: [],
+      expectedAfter: [],
+      renderBefore: checkpoint.renderAfter,
+      renderAfter: checkpoint.renderBefore
+    };
+    recovery.expectedBefore = await fingerprintCheckpointBoundary(recovery, repoRoot);
+    await writeCheckpoint(recovery, repoRoot);
+    let journal: CourseEditTransactionJournal = {
+      schemaVersion: 1,
+      transactionId: randomUUID(),
+      projectSlug,
+      operation: "undo",
+      checkpointId: recovery.checkpointId,
+      phase: "prepared",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: recovery.expectedBefore,
+      expectedAfter: []
+    };
+    await writeCourseEditJournal(journal, repoRoot);
     try {
+      journal = { ...journal, phase: "mutating" };
+      await writeCourseEditJournal(journal, repoRoot);
       await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
       await restoreSnapshotFiles(repoRoot, checkpoint.files);
+      recovery.expectedAfter = await fingerprintCheckpointBoundary(recovery, repoRoot);
+      await writeCheckpoint(recovery, repoRoot);
+      journal = { ...journal, phase: "validating", expectedAfter: recovery.expectedAfter };
+      await writeCourseEditJournal(journal, repoRoot);
       await runValidation(projectSlug, repoRoot);
+      await validateRenderedCourseEdits({ repoRoot, projectSlug, checks: checkpoint.renderBefore });
     } catch (error) {
-      await restoreSnapshotDirectories(repoRoot, recoveryDirectories);
-      await restoreSnapshotFiles(repoRoot, recoveryFiles);
+      if (
+        recovery.expectedAfter.length &&
+        !courseEditFingerprintsMatch(recovery.expectedAfter, await fingerprintCheckpointBoundary(recovery, repoRoot))
+      ) {
+        journal = { ...journal, phase: "manual-recovery" };
+        await writeCourseEditJournal(journal, repoRoot);
+        throw new Error(
+          "Studio paused Undo recovery because the course changed again during validation. The recovery journal and both checkpoints were preserved."
+        );
+      }
+      journal = { ...journal, phase: "rolling-back" };
+      await writeCourseEditJournal(journal, repoRoot);
+      await restoreCheckpointAndPriorUndo(recovery, repoRoot);
+      await removeCourseEditJournal(projectSlug, repoRoot);
       throw error;
     } finally {
-      await rm(checkpointBackupRoot(repoRoot, projectSlug, undoRecoveryId), { recursive: true, force: true });
+      if (!await readCourseEditJournal(projectSlug, repoRoot)) {
+        await rm(checkpointBackupRoot(repoRoot, projectSlug, undoRecoveryId), { recursive: true, force: true });
+      }
     }
     await rm(checkpointPath(repoRoot, projectSlug), { force: true });
     await rm(checkpointBackupRoot(repoRoot, projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
+    await rm(checkpointBackupRoot(repoRoot, projectSlug, recovery.checkpointId), { recursive: true, force: true });
+    await removeCourseEditJournal(projectSlug, repoRoot);
     const staleTargets = await staleExportTargets(projectSlug, repoRoot);
     const status = {
       ...checkpoint.previousStatus,
       canUndo: false,
+      undoUnavailableReason: "There is no applied Studio edit batch to undo.",
       checkpointId: null,
       exportsOutOfDate: staleTargets.length > 0,
       staleExportTargets: staleTargets
@@ -926,24 +1652,266 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
   });
 }
 
-const COMMAND_EXPORT_TARGETS: Record<string, string> = {
-  export: "brightspace",
-  package: "brightspace",
-  scorm2004: "scorm",
-  scorm12: "scorm",
-  googleHosted: "google-hosted",
-  appsScript: "apps-script",
-  html: "html"
+async function ensureCourseEditAssetDirectory(repoRoot: string, segments: string[]) {
+  let cursor = repoRoot;
+  for (const segment of segments) {
+    cursor = path.join(cursor, segment);
+    try {
+      const stats = await lstat(cursor);
+      if (stats.isSymbolicLink() || !stats.isDirectory()) throw new Error("Studio image storage must use real directories inside this checkout.");
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+      await mkdir(cursor);
+    }
+  }
+  return cursor;
+}
+
+export async function uploadCourseEditImageAsset(input: {
+  projectSlug: string;
+  htmlPath: string;
+  bytes: Buffer;
+  repoRoot?: string;
+}) {
+  const repoRoot = input.repoRoot ?? defaultRepoRoot;
+  const image = validateCourseEditImage(input.bytes);
+  return await withProjectEditLock(input.projectSlug, "asset-upload", repoRoot, async () => {
+    const { project, adapter, reason } = await resolveCourseProject(input.projectSlug, repoRoot);
+    if (!project || !adapter) throw new Error(reason || "This course cannot accept Studio image assets.");
+    if (!project.studioEditing.imageAssets) throw new Error("This course has not been explicitly onboarded for Studio image uploads.");
+    await resolveEditWorkspacePath(input.projectSlug, input.htmlPath, repoRoot);
+    const digest = createHash("sha256").update(input.bytes).digest("hex").slice(0, 24);
+    const filename = `${digest}.${image.extension}`;
+    const resourceDir = await ensureCourseEditAssetDirectory(repoRoot, ["projects", "resources", input.projectSlug, "studio-assets"]);
+    const workspaceDir = await ensureCourseEditAssetDirectory(repoRoot, ["projects", input.projectSlug, "workspace", "assets", "custom", "studio"]);
+    const resourcePath = path.join(resourceDir, filename);
+    const workspacePath = path.join(workspaceDir, filename);
+    await durableAtomicWrite(resourcePath, input.bytes, 0o644);
+    await durableAtomicWrite(workspacePath, input.bytes, 0o644);
+    const workspaceRelative = `assets/custom/studio/${filename}`;
+    const src = path.posix.relative(path.posix.dirname(input.htmlPath), workspaceRelative) || filename;
+    return {
+      src,
+      repoRelativePath: path.relative(repoRoot, resourcePath).split(path.sep).join("/"),
+      mimeType: image.mimeType,
+      width: image.width,
+      height: image.height,
+      byteLength: input.bytes.length
+    };
+  });
+}
+
+async function courseTitleRenderChecks(input: {
+  projectSlug: string;
+  repoRoot: string;
+  htmlPaths: string[];
+}) {
+  const checks: CourseEditRenderCheck[] = [];
+  for (const htmlPath of input.htmlPaths) {
+    const sourcePath = await resolveEditWorkspacePath(input.projectSlug, htmlPath, input.repoRoot);
+    const source = await readFile(sourcePath, "utf8");
+    const elements = collectEditableHtmlElements(source, input.projectSlug, htmlPath);
+    if (!elements) throw new Error("Studio could not map the course title markers safely.");
+    for (const element of elements) {
+      if (!Object.hasOwn(element.attributes, "data-canvas-helper-course-title")) continue;
+      checks.push({
+        htmlPath,
+        tagName: element.tagName,
+        pathKey: element.pathKey,
+        editId: element.editId,
+        expected: { html: source.slice(element.innerStart, element.innerEnd) }
+      });
+    }
+  }
+  return checks;
+}
+
+export async function renameCourseForStudio(input: {
+  projectSlug: string;
+  title: string;
+  repoRoot?: string;
+}): Promise<CourseEditBatchResult> {
+  const repoRoot = input.repoRoot ?? defaultRepoRoot;
+  const title = sanitizeCourseEditPlainText(input.title);
+  if (!title || title.length > 160) throw new Error("Course titles must be between 1 and 160 characters.");
+  return await withProjectEditLock(input.projectSlug, "rename", repoRoot, async () => {
+    const { project, adapter, reason } = await resolveCourseProject(input.projectSlug, repoRoot);
+    if (!project || !adapter) throw new Error(reason || "This course cannot be renamed in Studio.");
+    if (!project.studioEditing.renameCourse) throw new Error("This course has not been explicitly onboarded for coordinated renaming.");
+    const manifestPath = path.join(repoRoot, "projects", input.projectSlug, "meta", "project.json");
+    const metadataPath = studioCoursePath(repoRoot, input.projectSlug);
+    const directSources = adapter === "direct"
+      ? project.editableSources
+          .filter((entry) => entry.kind === "file" && /\.(?:html?|js)$/i.test(entry.repoRelative))
+          .map((entry) => path.join(repoRoot, ...entry.repoRelative.split("/")))
+      : [];
+    const htmlSourcePaths = adapter === "direct"
+      ? directSources.filter((filePath) => /\.html?$/i.test(filePath))
+      : [path.join(repoRoot, "projects", input.projectSlug, "workspace", "index.html")];
+    const htmlPaths = htmlSourcePaths.map((filePath) => relativeWorkspacePath(filePath, input.projectSlug, repoRoot));
+    const beforeChecks = await courseTitleRenderChecks({ projectSlug: input.projectSlug, repoRoot, htmlPaths });
+    if (beforeChecks.length < 2) {
+      throw new Error("This course does not declare enough synchronized title markers for a safe rename.");
+    }
+
+    const previousStatus = await getCourseEditStatus(input.projectSlug, repoRoot);
+    const previousCheckpoint = await loadCheckpoint(input.projectSlug, repoRoot);
+    const checkpointId = randomUUID();
+    const directories: SnapshotDirectory[] = [];
+    if (adapter !== "direct") {
+      const total = { bytes: 0, files: 0 };
+      try {
+        for (const [index, directoryPath] of generatedWriteSetDirectories(input.projectSlug, adapter, repoRoot).entries()) {
+          directories.push(await snapshotDirectory({
+            repoRoot,
+            projectSlug: input.projectSlug,
+            checkpointId,
+            directoryPath,
+            index,
+            total
+          }));
+        }
+      } catch (error) {
+        await rm(checkpointBackupRoot(repoRoot, input.projectSlug, checkpointId), { recursive: true, force: true });
+        throw error;
+      }
+    }
+    const snapshotPaths = adapter === "direct"
+      ? [...new Set([...directSources, manifestPath, metadataPath])]
+      : adapter === "legacy-snapshot"
+        ? [...new Set([...htmlSourcePaths, manifestPath, metadataPath])]
+        : [];
+    const checkpoint: CourseEditCheckpoint = {
+      schemaVersion: CHECKPOINT_SCHEMA_VERSION,
+      checkpointId,
+      projectSlug: input.projectSlug,
+      adapter,
+      htmlPaths,
+      createdAt: new Date().toISOString(),
+      files: await Promise.all(snapshotPaths.map((filePath) => snapshotFile(repoRoot, filePath))),
+      directories,
+      previousStatus,
+      previousCheckpointId: previousCheckpoint?.checkpointId ?? null,
+      expectedBefore: [],
+      expectedAfter: [],
+      renderBefore: beforeChecks,
+      renderAfter: []
+    };
+    checkpoint.expectedBefore = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+    await writeCheckpoint(checkpoint, repoRoot);
+    let journal: CourseEditTransactionJournal = {
+      schemaVersion: 1,
+      transactionId: randomUUID(),
+      projectSlug: input.projectSlug,
+      operation: "rename",
+      checkpointId,
+      phase: "prepared",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: checkpoint.expectedBefore,
+      expectedAfter: []
+    };
+    await writeCourseEditJournal(journal, repoRoot);
+    try {
+      journal = { ...journal, phase: "mutating" };
+      await writeCourseEditJournal(journal, repoRoot);
+      const now = new Date().toISOString();
+      await saveStoredStudioCourse(repoRoot, { schemaVersion: 1, projectSlug: input.projectSlug, title, updatedAt: now });
+      const manifest = await projectManifest(input.projectSlug, repoRoot);
+      await atomicWrite(manifestPath, `${JSON.stringify({ ...manifest, title, updatedAt: now }, null, 2)}\n`);
+      if (adapter === "direct") {
+        let htmlMarkerChanges = 0;
+        for (const filePath of directSources) {
+          const source = await readFile(filePath, "utf8");
+          const next = /\.html?$/i.test(filePath)
+            ? applyStoredCourseTitleToHtml(source, title)
+            : applyStoredCourseTitleToRuntimeData(source, title);
+          if (next !== source) {
+            if (/\.html?$/i.test(filePath)) htmlMarkerChanges += 1;
+            await atomicWrite(filePath, next, (await lstat(filePath)).mode);
+          }
+        }
+        if (htmlMarkerChanges === 0) throw new Error("No canonical course title markers were updated.");
+        clearPreviewInspectionDocumentCache();
+      } else {
+        await runRebuild(input.projectSlug, adapter, repoRoot);
+        clearPreviewInspectionDocumentCache();
+      }
+      checkpoint.renderAfter = await courseTitleRenderChecks({ projectSlug: input.projectSlug, repoRoot, htmlPaths });
+      if (checkpoint.renderAfter.length < 2 || checkpoint.renderAfter.some((check) => htmlText(check.expected.html ?? "") !== title)) {
+        throw new Error("The rebuilt course did not synchronize all declared title markers.");
+      }
+      checkpoint.expectedAfter = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+      await writeCheckpoint(checkpoint, repoRoot);
+      journal = { ...journal, phase: "validating", expectedAfter: checkpoint.expectedAfter };
+      await writeCourseEditJournal(journal, repoRoot);
+      await runValidation(input.projectSlug, repoRoot);
+      await validateRenderedCourseEdits({ repoRoot, projectSlug: input.projectSlug, checks: checkpoint.renderAfter });
+    } catch (error) {
+      if (
+        checkpoint.expectedAfter.length &&
+        !courseEditFingerprintsMatch(checkpoint.expectedAfter, await fingerprintCheckpointBoundary(checkpoint, repoRoot))
+      ) {
+        journal = { ...journal, phase: "manual-recovery" };
+        await writeCourseEditJournal(journal, repoRoot);
+        throw new Error("Studio paused rename rollback because the course changed again during validation. The recovery journal was preserved.");
+      }
+      journal = { ...journal, phase: "rolling-back" };
+      await writeCourseEditJournal(journal, repoRoot);
+      await restoreCheckpointAndPriorUndo(checkpoint, repoRoot);
+      await rm(checkpointBackupRoot(repoRoot, input.projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
+      await removeCourseEditJournal(input.projectSlug, repoRoot);
+      throw error;
+    }
+    const staleTargets = await staleExportTargets(input.projectSlug, repoRoot);
+    const status: CourseEditStatus = {
+      projectSlug: input.projectSlug,
+      available: true,
+      unavailableReason: "",
+      courseTitle: title,
+      canRenameCourse: true,
+      canUploadImages: project.studioEditing.imageAssets,
+      canUndo: true,
+      undoUnavailableReason: "",
+      checkpointId,
+      exportsOutOfDate: staleTargets.length > 0,
+      staleExportTargets: staleTargets,
+      lastAppliedAt: new Date().toISOString()
+    };
+    await saveCourseEditStatus(status, repoRoot);
+    await removeCourseEditJournal(input.projectSlug, repoRoot);
+    checkpoint.previousCheckpointId = null;
+    await writeCheckpoint(checkpoint, repoRoot);
+    if (previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId) {
+      await rm(checkpointBackupRoot(repoRoot, input.projectSlug, previousCheckpoint.checkpointId), { recursive: true, force: true });
+    }
+    return {
+      ...status,
+      ok: true,
+      appliedCount: 1,
+      message: `Course renamed to “${title}” and validated in the learner view.`,
+      warnings: staleTargets.length ? ["Existing export packages are out of date until you publish them again."] : []
+    };
+  });
+}
+
+const COMMAND_EXPORT_TARGETS: Record<string, { target: CourseExportEvidenceTarget; artifact: (repoRoot: string, slug: string) => string }> = {
+  export: { target: "brightspace", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", "brightspace") },
+  package: { target: "brightspace-package", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", `${slug}-brightspace.zip`) },
+  scorm2004: { target: "scorm2004", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", `${slug}-scorm-2004.zip`) },
+  scorm12: { target: "scorm12", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", `${slug}-scorm-1-2.zip`) },
+  googleHosted: { target: "google-hosted", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", "google-hosted") },
+  appsScript: { target: "apps-script", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", "apps-script") },
+  html: { target: "html", artifact: (repoRoot, slug) => path.join(repoRoot, "projects", slug, "exports", "single-html", `${slug}.html`) }
 };
 
 export async function markCourseExportCurrent(projectSlug: string, commandName: string, repoRoot = defaultRepoRoot) {
-  const target = COMMAND_EXPORT_TARGETS[commandName];
-  if (!target) return;
-  const status = await getCourseEditStatus(projectSlug, repoRoot);
-  const staleExportTargets = status.staleExportTargets.filter((entry) => entry !== target);
-  await saveCourseEditStatus({
-    ...status,
-    exportsOutOfDate: staleExportTargets.length > 0,
-    staleExportTargets
-  }, repoRoot);
+  const spec = COMMAND_EXPORT_TARGETS[commandName];
+  if (!spec) return;
+  await recordCourseExportEvidence({
+    repoRoot,
+    projectSlug,
+    target: spec.target,
+    artifactPath: spec.artifact(repoRoot, projectSlug)
+  });
 }

@@ -249,8 +249,14 @@
 
   function renderProgress() {
     const summary = getProgressSummary();
-    refs.courseTitle.textContent = data.course?.title || "Course Shell";
-    refs.courseSubtitle.textContent = data.course?.subtitle || "Complete each unit in order and track your progress.";
+    // These labels are canonical HTML so Studio edits remain visible. Course
+    // data is only a fallback for shells that intentionally leave them blank.
+    if (refs.courseTitle && !refs.courseTitle.textContent.trim()) {
+      refs.courseTitle.textContent = data.course?.title || "Course Shell";
+    }
+    if (refs.courseSubtitle && !refs.courseSubtitle.textContent.trim()) {
+      refs.courseSubtitle.textContent = data.course?.subtitle || "Complete each unit in order and track your progress.";
+    }
     refs.sidebarProgressTrack?.setAttribute("aria-valuenow", String(summary.percent));
     if (refs.sidebarProgressFill) refs.sidebarProgressFill.style.width = `${summary.percent}%`;
     refs.progressPercent.textContent = `${summary.percent}%`;

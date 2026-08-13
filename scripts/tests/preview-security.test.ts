@@ -210,6 +210,30 @@ test("Full Preview course edit messages are bounded and never accept filesystem 
   assert.equal(isPreviewBridgeMessage({
     ...base,
     type: "preview-edit-action",
+    payload: {
+      action: "annotate-selection",
+      requestId: "edit-2",
+      selection: {
+        nodeId: "ch1:aaaaaaaaaaaaaaaaaaaaaaaa:1",
+        visibleText: "Runtime-owned control",
+        tagName: "button",
+        role: "",
+        testId: "runtime-control",
+        geometry: { x: 10, y: 20, width: 120, height: 32 },
+        viewport: { width: 1280, height: 720 },
+        scroll: { windowTop: 0, windowLeft: 0, containers: [] },
+        pageHref: "http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/e2e-fixture/index.html"
+      }
+    }
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "studio-set-edit-visual-mode",
+    payload: { enabled: true }
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "preview-edit-action",
     payload: { action: "save-target", targetId: "a".repeat(24), patch: { html: "Safe <strong>text</strong>" }, filesystemPath: "/tmp/escape" }
   }), false);
   assert.equal(isPreviewBridgeMessage({

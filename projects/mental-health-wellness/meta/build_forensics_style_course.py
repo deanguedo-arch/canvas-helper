@@ -52,6 +52,21 @@ ASSET_ZIP = Path(
     or r"c:\Users\dean.guedo\Downloads\D2LExport_60408_21-22 _ S2 _ Mental Health _ Wellness _ Per 1(A) __202652118.zip"
 )
 
+
+def stored_course_title() -> str:
+    metadata_path = META_DIR / "studio-course.json"
+    try:
+        metadata = json.loads(metadata_path.read_text(encoding="utf-8"))
+        title = metadata.get("title") if isinstance(metadata, dict) else None
+        if isinstance(title, str) and title.strip() and len(title) <= 160:
+            return title.strip()
+    except (FileNotFoundError, json.JSONDecodeError, OSError):
+        pass
+    return "Mental Health & Wellness"
+
+
+COURSE_TITLE = stored_course_title()
+
 ACCENTS = [
     "#2f8f6b",
     "#4b7f93",
@@ -71,6 +86,21 @@ NOISE_TEXT = {
     "template javascript",
     "back to top",
 }
+
+
+def refuse_unintentional_studio_edit_overwrite() -> None:
+    if "--allow-studio-edit-overwrite" in sys.argv:
+        return
+    index_path = WORKSPACE_DIR / "index.html"
+    try:
+        current_html = index_path.read_text(encoding="utf-8")
+    except OSError:
+        return
+    if re.search(r"\bdata-canvas-helper-edit-id\s*=", current_html, flags=re.IGNORECASE):
+        raise RuntimeError(
+            "This workspace contains applied Studio edits. The legacy rebuild was stopped before writing. "
+            "Review or back up those canonical edits first; pass --allow-studio-edit-overwrite only for an intentional full regeneration."
+        )
 
 NEW_WINDOW_HELPER_RE = re.compile(
     r"\(?\s*(?:t?his\s+)?link\s+opens\s+in\s+(?:a\s+)?new\s+window(?:/tab)?\s*\)?",
@@ -990,7 +1020,7 @@ class MentalHealthWellnessShellBuilder:
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Mental Health &amp; Wellness</title>
+  <title data-canvas-helper-course-title>{escape(COURSE_TITLE)}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;500;600;700;800&family=Open+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -1003,7 +1033,7 @@ class MentalHealthWellnessShellBuilder:
       <div class="sidebar-top">
         <div class="brand-lockup">
           <div class="brand-text">
-            <h1>Mental Health &amp; Wellness</h1>
+            <h1 data-canvas-helper-course-title>{escape(COURSE_TITLE)}</h1>
           </div>
           <div class="sidebar-progress" aria-label="Course progress">
             <div id="sidebar-progress-track" class="sidebar-progress-track" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
@@ -1067,7 +1097,7 @@ class MentalHealthWellnessShellBuilder:
               <div id="progress-track" class="progress-track" role="progressbar" aria-label="Course progress" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
                 <div id="progress-fill" class="progress-fill"></div>
               </div>
-              <h2 id="course-title">Mental Health &amp; Wellness</h2>
+              <h2 id="course-title" data-canvas-helper-course-title>{escape(COURSE_TITLE)}</h2>
               <p id="course-subtitle">Complete each unit in order and track your progress.</p>
             </div>
           </div>
@@ -1343,8 +1373,14 @@ class MentalHealthWellnessShellBuilder:
 
   function renderProgress() {
     const summary = getProgressSummary();
-    refs.courseTitle.textContent = data.course?.title || "Course Shell";
-    refs.courseSubtitle.textContent = data.course?.subtitle || "Complete each unit in order and track your progress.";
+    // These labels are canonical HTML so Studio edits remain visible. Course
+    // data is only a fallback for shells that intentionally leave them blank.
+    if (refs.courseTitle && !refs.courseTitle.textContent.trim()) {
+      refs.courseTitle.textContent = data.course?.title || "Course Shell";
+    }
+    if (refs.courseSubtitle && !refs.courseSubtitle.textContent.trim()) {
+      refs.courseSubtitle.textContent = data.course?.subtitle || "Complete each unit in order and track your progress.";
+    }
     refs.sidebarProgressTrack?.setAttribute("aria-valuenow", String(summary.percent));
     if (refs.sidebarProgressFill) refs.sidebarProgressFill.style.width = `${summary.percent}%`;
     refs.progressPercent.textContent = `${summary.percent}%`;
@@ -1528,7 +1564,7 @@ class MentalHealthWellnessShellBuilder:
             )
         data = {
             "course": {
-                "title": "Mental Health & Wellness",
+                "title": COURSE_TITLE,
                 "subtitle": "Complete each unit in order and track your progress.",
                 "enableLibrary": False,
             },
@@ -1537,8 +1573,13 @@ class MentalHealthWellnessShellBuilder:
             "assignments": [],
             "library": [],
         }
+        serialized = json_dump(data).rstrip().replace(
+            f'"title": {json.dumps(COURSE_TITLE)}',
+            f'"title": /* data-canvas-helper-course-title */ {json.dumps(COURSE_TITLE)}',
+            1,
+        )
         (WORKSPACE_DIR / "course-data.js").write_text(
-            f"window.{DATA_GLOBAL} = {json_dump(data).rstrip()};\n",
+            f"window.{DATA_GLOBAL} = {serialized};\n",
             encoding="utf-8",
         )
 
@@ -1550,9 +1591,15 @@ class MentalHealthWellnessShellBuilder:
             WORKSPACE_DIR / "course-data.js",
             CONTENT_DIR / "module-index.css",
         ]
+        try:
+            existing_project = json.loads((META_DIR / "project.json").read_text(encoding="utf-8"))
+        except (FileNotFoundError, json.JSONDecodeError, OSError):
+            existing_project = {}
         project = {
+            **existing_project,
             "id": PROJECT_SLUG,
             "slug": PROJECT_SLUG,
+            "title": COURSE_TITLE,
             "sourcePath": str(SOURCE_ZIP),
             "inputKind": "brightspace-zip",
             "brightspaceTarget": "course-page",
@@ -1583,6 +1630,13 @@ class MentalHealthWellnessShellBuilder:
                 },
             ],
             "authoringStatus": "active",
+            "authoring": {
+                **(existing_project.get("authoring", {}) if isinstance(existing_project.get("authoring"), dict) else {}),
+                "driverId": "direct-workspace-v1",
+                "familyId": "mental-health-wellness-shell",
+                "qualityProfile": "direct-rendered-course",
+                "studioEditing": {"enabled": True, "renameCourse": True, "imageAssets": True},
+            },
             "generatedOutputs": [],
             "regenerateCommand": "python projects/mental-health-wellness/meta/build_forensics_style_course.py",
             "injectedComponents": [],
@@ -1628,6 +1682,7 @@ class MentalHealthWellnessShellBuilder:
 
 
 def main() -> None:
+    refuse_unintentional_studio_edit_overwrite()
     MentalHealthWellnessShellBuilder().build()
     print(f"Built {PROJECT_SLUG} from {SOURCE_ZIP}")
 

@@ -9,6 +9,7 @@ import { listProjectSlugs, readStudioProjectBundle } from "../lib/projects.js";
 const projectDir = path.resolve("projects", "mental-health-wellness");
 const workspaceDir = path.resolve(projectDir, "workspace");
 const projectJsonPath = path.resolve(projectDir, "meta", "project.json");
+const builderPath = path.resolve(projectDir, "meta", "build_forensics_style_course.py");
 const auditPath = path.resolve(projectDir, "meta", "source-zip-audit.json");
 const indexPath = path.resolve(workspaceDir, "index.html");
 const mainPath = path.resolve(workspaceDir, "main.js");
@@ -71,7 +72,10 @@ test("mental health wellness project metadata and shell files exist", async () =
   assert.match(manifest.canonicalEntry, /projects[\\/]mental-health-wellness[\\/]workspace[\\/]index\.html$/);
   assert.ok(manifest.canonicalSources.some((entry) => /workspace[\\/]course-data\.js$/.test(entry)));
 
-  assert.match(indexSource, /<title>Mental Health (?:&|&amp;) Wellness<\/title>/);
+  assert.match(
+    indexSource,
+    /<title[^>]*data-canvas-helper-course-title[^>]*>Mental Health (?:&|&amp;) Wellness<\/title>/
+  );
   assert.match(indexSource, /data-project-slug="mental-health-wellness"/);
   assert.match(indexSource, /Mental Health (?:&|&amp;) Wellness/);
   assert.match(indexSource, /Complete each unit in order and track your progress\./);
@@ -79,6 +83,14 @@ test("mental health wellness project metadata and shell files exist", async () =
   assert.match(indexSource, /Completed content/);
   assert.doesNotMatch(indexSource, /Forensics 25/i);
   assert.doesNotMatch(indexSource, /Forensic Studies 25/i);
+});
+
+test("mental health wellness legacy rebuild refuses to erase applied Studio edits by default", async () => {
+  const builderSource = await readFile(builderPath, "utf8");
+  assert.match(builderSource, /refuse_unintentional_studio_edit_overwrite\(\)/);
+  assert.match(builderSource, /data-canvas-helper-edit-id/);
+  assert.match(builderSource, /--allow-studio-edit-overwrite/);
+  assert.match(builderSource, /stopped before writing/i);
 });
 
 test("mental health wellness course data is content-only and keeps source module order", async () => {
@@ -116,7 +128,10 @@ test("mental health wellness course data is content-only and keeps source module
 });
 
 test("mental health wellness shell is adapted from forensics without assessment placeholders", async () => {
-  const mainSource = await readFile(mainPath, "utf8");
+  const [mainSource, builderSource] = await Promise.all([
+    readFile(mainPath, "utf8"),
+    readFile(builderPath, "utf8")
+  ]);
 
   assert.match(mainSource, /MENTAL_HEALTH_WELLNESS_DATA/);
   assert.match(mainSource, /mental-health-wellness\.progress/);
@@ -137,6 +152,12 @@ test("mental health wellness shell is adapted from forensics without assessment 
   assert.doesNotMatch(mainSource, /Assignment content has not been authored yet/);
   assert.doesNotMatch(mainSource, /Forensics 25/i);
   assert.doesNotMatch(mainSource, /Forensic Studies/i);
+  const staticTitleGuard = /if \(refs\.courseTitle && !refs\.courseTitle\.textContent\.trim\(\)\) \{\s*refs\.courseTitle\.textContent = data\.course\?\.title/s;
+  const staticSubtitleGuard = /if \(refs\.courseSubtitle && !refs\.courseSubtitle\.textContent\.trim\(\)\) \{\s*refs\.courseSubtitle\.textContent = data\.course\?\.subtitle/s;
+  assert.match(mainSource, staticTitleGuard);
+  assert.match(mainSource, staticSubtitleGuard);
+  assert.match(builderSource, staticTitleGuard);
+  assert.match(builderSource, staticSubtitleGuard);
 });
 
 test("mental health wellness chapter pages use content-only module progression", async () => {

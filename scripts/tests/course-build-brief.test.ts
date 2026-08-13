@@ -3,17 +3,37 @@ import test from "node:test";
 
 import { buildCourseBuildBrief } from "../../app/server/routes/course-build-brief.ts";
 import { buildCourseBuildBriefPacket } from "../../app/studio/src/lib/course-build-brief.ts";
-import { inspectCourseAuthoringProject } from "../lib/course-authoring/context.ts";
+import {
+  inspectCourseAuthoringProject,
+  type CourseDoctorReport
+} from "../lib/course-authoring/context.ts";
 
-test("course build brief keeps direct, factory, and proposal-only routes distinct", async () => {
-  const [directReport, factoryReport, proposalReport] = await Promise.all([
+test("course build brief keeps direct, factory, snapshot, and proposal-only routes distinct", async () => {
+  const [directReport, factoryReport, snapshotReport] = await Promise.all([
     inspectCourseAuthoringProject("forensics35"),
     inspectCourseAuthoringProject("ela20-1-modern-play-crucible"),
     inspectCourseAuthoringProject("social10-1-related-issue-1-option-2")
   ]);
   const direct = buildCourseBuildBrief(directReport);
   const factory = buildCourseBuildBrief(factoryReport);
-  const proposal = buildCourseBuildBrief(proposalReport);
+  const snapshot = buildCourseBuildBrief(snapshotReport);
+  const proposal = buildCourseBuildBrief({
+    slug: "proposal-fixture",
+    status: "pass",
+    issues: [],
+    normalizedLegacyPathCount: 0,
+    project: {
+      slug: "proposal-fixture",
+      driverId: "proposal-only-v1",
+      driverSource: "declared",
+      authoringMode: "proposal-only",
+      canonicalSources: [],
+      editableSources: [],
+      protectedPaths: [],
+      sharedSources: [],
+      studioEditing: { enabled: false, renameCourse: false, imageAssets: false }
+    }
+  } satisfies CourseDoctorReport);
 
   assert.equal(direct.status, "ready");
   assert.equal(direct.mode, "direct");
@@ -24,6 +44,12 @@ test("course build brief keeps direct, factory, and proposal-only routes distinc
   assert.equal(factory.mode, "factory");
   assert.equal(factory.generatedOutput, true);
   assert.ok(factory.editableSources.includes("projects/ela20-1-modern-play-crucible/meta/english-unit.json"));
+
+  assert.equal(snapshot.status, "ready");
+  assert.equal(snapshot.mode, "factory");
+  assert.equal(snapshot.driver, "legacy-snapshot-v1");
+  assert.equal(snapshot.generatedOutput, true);
+  assert.ok(snapshot.editableSources.includes("projects/social10-1-related-issue-1-option-2/meta/studio-edits.json"));
 
   assert.equal(proposal.status, "proposal-only");
   assert.equal(proposal.mode, "proposal-only");

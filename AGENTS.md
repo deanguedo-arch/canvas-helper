@@ -41,6 +41,47 @@ Goals:
 - place components surgically
 - preserve traceability and source-of-truth clarity
 
+## Codex-to-Studio New Course Contract
+
+Every net-new learner course authored from scratch in Codex must begin with the checked-in scaffold command:
+
+```bash
+npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"
+```
+
+- Run the command before adding lessons, activities, or assets. Do not handcraft a project root or copy a legacy course as the starting point.
+- Continue authoring only in the created canonical files under `projects/<slug>/workspace/**` and operational metadata under `projects/<slug>/meta/**`.
+- Keep routine teacher-editable text, links, and images in canonical HTML. JavaScript may attach behavior, but it must not replace those visible elements after load.
+- Keep synchronized course-name surfaces marked with `data-canvas-helper-course-title` and durable repeated/reorderable content marked with `data-canvas-helper-edit-key`.
+- The scaffold must remain `course:doctor`-passing, explicitly `direct-workspace-v1`, and Studio-editable. A running Studio discovers it automatically.
+- If the course later requires a generated workspace or family builder, do not keep claiming Direct ownership. Introduce a supported adapter, stored overrides, rebuild path, and reversible pilot before enabling Edit for that generated boundary.
+- Imported, conversion, English-factory, and Social-factory work must use their owning intake/factory workflow rather than this from-scratch scaffold.
+
+Completion floor for a new Codex course:
+
+- `npm run course:doctor -- --project <slug>`
+- `npm run verify -- --project <slug> --mode workspace`
+- visually inspect the Edit map in Studio
+- apply one reversible draft, reload, and Undo
+- add and run `npm run test:e2e:project -- --project <slug>` when learner interactions are added
+
+## Existing Course Catalog Contract
+
+Use the checked-in catalog workflow for legacy course onboarding; never make a project editable by adding only a boolean flag:
+
+```bash
+npm run course:onboard -- --all
+npm run course:onboard -- --all --apply --report .runtime/course-onboarding-report.json
+npm run verify:course-onboarding -- --all
+```
+
+- The audit must assign every project directory one explicit outcome: Direct, English factory, Social factory, preserved legacy snapshot, blocked, reference-only, or package archive.
+- `legacy-snapshot-v1` preserves the current workspace as the learner baseline and quarantines any legacy builder that could replace Studio work. Do not run that old builder through Studio.
+- Package/export-only directories are catalogued but are not editable sources. Recover or intentionally import a canonical source before creating an authorable manifest.
+- Keep runtime-owned content visibly Annotation only. Catalog membership does not mean every rendered node is a safe direct-edit target.
+- A catalog apply must be transactional, doctor every enabled project, signal a running Studio only after success, and be idempotent on its next audit.
+- The completion floor is `test:course-onboarding`, a clean retain-only audit, `verify:course-onboarding -- --all`, focused Studio tests, and the active handoff/audit update.
+
 ## Architecture Map
 
 - `app/studio/`: React/Vite browser shell only

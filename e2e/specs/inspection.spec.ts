@@ -1,8 +1,9 @@
-import { readFile } from "node:fs/promises";
+import { readFile, rm } from "node:fs/promises";
 import path from "node:path";
 
 import { expect, test } from "@playwright/test";
 
+import { createCodexStudioCourse } from "../../scripts/lib/codex-course";
 import { openProjectInStudio, waitForWorkspacePreviewReady } from "../lib/project-open";
 import {
   STUDIO_FIXTURES,
@@ -322,6 +323,49 @@ test("@inspection Full Preview keyboard annotation focuses course content and re
   await previewPage.close();
 });
 
+test("@inspection Edit mode shows real editable areas and routes blocked content to Annotate", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const runtimeControl = workspaceFrame.getByTestId("mode-toggle");
+  await runtimeControl.click();
+  await expect(runtimeControl).toHaveText("Hide admin-only");
+  await page.getByTestId("edit-toggle").click();
+  await expect(page.getByTestId("edit-mode-bar")).toBeVisible();
+
+  const courseRoot = workspaceFrame.locator("html");
+  const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const mapToolbar = workspaceFrame.locator('[data-canvas-helper-edit-map-toolbar="true"]');
+  await expect(courseRoot).toHaveAttribute("data-canvas-helper-edit-map-active", "true");
+  await expect(mapToolbar).toBeVisible();
+  await expect(mapToolbar.locator('[data-canvas-helper-edit-map-count="true"]')).toContainText(/editable areas?/);
+  await expect(heading).toHaveAttribute("data-canvas-helper-edit-map-state", "editable");
+  await expect(heading).toHaveAttribute("data-canvas-helper-edit-map-outline", "true");
+
+  const outlineToggle = mapToolbar.locator('[data-canvas-helper-edit-map-toggle="true"]');
+  await outlineToggle.click();
+  await expect(courseRoot).toHaveAttribute("data-canvas-helper-edit-map-show", "false");
+  await outlineToggle.click();
+  await expect(courseRoot).toHaveAttribute("data-canvas-helper-edit-map-show", "true");
+
+  const header = workspaceFrame.locator("header");
+  const headerBounds = await header.boundingBox();
+  expect(headerBounds).toBeTruthy();
+  await page.mouse.click((headerBounds?.x ?? 0) + 5, (headerBounds?.y ?? 0) + 24);
+  await expect(page.getByTestId("course-edit-composer")).toBeVisible();
+
+  await expect(runtimeControl).toHaveAttribute("data-canvas-helper-edit-map-state", "blocked");
+  const runtimeControlBounds = await runtimeControl.boundingBox();
+  expect(runtimeControlBounds).toBeTruthy();
+  await page.mouse.move((runtimeControlBounds?.x ?? 0) + 5, (runtimeControlBounds?.y ?? 0) + 5);
+  await expect(workspaceFrame.locator('[data-canvas-helper-edit-map-tooltip="true"]')).toContainText("Course code replaces this element");
+  await expect(workspaceFrame.locator('[data-canvas-helper-preview-selection-overlay="true"]')).toHaveCSS("border-style", "dashed");
+  await page.mouse.click((runtimeControlBounds?.x ?? 0) + 5, (runtimeControlBounds?.y ?? 0) + 5);
+  await expect(page.getByTestId("course-edit-unsupported")).toBeVisible();
+  await page.getByTestId("course-edit-annotate-target").click();
+  await expect(page.getByTestId("inspection-teacher-note")).toBeVisible();
+  await expect(page.getByTestId("edit-mode-bar")).toHaveCount(0);
+});
+
 test("@inspection direct edits persist into Full Preview, apply once, and undo safely", async ({ page }) => {
   const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
   const original = await readFile(fixtureSource, "utf8");
@@ -349,6 +393,9 @@ test("@inspection direct edits persist into Full Preview, apply once, and undo s
     await page.getByTestId("open-workspace-preview-toggle").click();
     previewPage = await previewPagePromise;
     await previewPage.waitForLoadState("domcontentloaded");
+    const fullCourseFrame = previewPage.frameLocator('[data-canvas-helper-standalone-course="true"]');
+    await expect(fullCourseFrame.locator("html")).toHaveAttribute("data-canvas-helper-edit-map-active", "true");
+    await expect(fullCourseFrame.locator('[data-canvas-helper-edit-map-toolbar="true"]')).toBeVisible();
     await expect(previewPage.locator('[data-canvas-helper-preview-edit-toggle="true"]')).toContainText("Draft Changes (1)");
     await previewPage.locator('[data-canvas-helper-preview-edit-toggle="true"]').click();
     await expect(previewPage.locator('[data-canvas-helper-preview-edit-draft="true"]')).toHaveCount(1);
@@ -1213,6 +1260,46 @@ test("@inspection course finder supports search, favorites, and recents", async 
   await expect(page.getByTestId("course-finder").getByRole("heading", { name: "Favorites" })).toBeVisible();
   await expect(page.getByTestId("course-result-e2e-fixture")).toBeVisible();
   await expect(page.getByTestId("course-finder").getByRole("heading", { name: "Recent" })).toBeVisible();
+});
+
+test("@inspection a Codex-created course appears live with its visual Edit map ready", async ({ page }) => {
+  const slug = `e2e-codex-created-${process.pid}`;
+  const title = "Codex Studio Course";
+  const projectRoot = path.resolve("projects", slug);
+  let created = false;
+
+  try {
+    await openProjectInStudio(page, STUDIO_PRIMARY_FIXTURE);
+    await createCodexStudioCourse({
+      repoRoot: process.cwd(),
+      slug,
+      title,
+      courseCode: "CSC 20",
+      summary: "A course authored in Codex and opened directly in Studio."
+    });
+    created = true;
+
+    const projectSelect = page.getByTestId("workspace-project-select");
+    await expect(projectSelect.locator(`option[value="${slug}"]`)).toHaveCount(1, { timeout: 10_000 });
+    await projectSelect.selectOption(slug);
+    await expect(projectSelect).toHaveValue(slug);
+    await waitForWorkspacePreviewReady(page, slug);
+
+    await expect(page.getByTestId("edit-toggle")).toBeEnabled();
+    await page.getByTestId("edit-toggle").click();
+    const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+    const heading = workspaceFrame.getByRole("heading", { name: title, level: 1 });
+    await expect(heading).toBeVisible();
+    await expect(workspaceFrame.locator("html")).toHaveAttribute("data-canvas-helper-edit-map-active", "true");
+    await expect(workspaceFrame.locator('[data-canvas-helper-edit-map-toolbar="true"]')).toBeVisible();
+    await expect(heading).toHaveAttribute("data-canvas-helper-edit-map-state", "rename");
+    await expect(workspaceFrame.locator('[data-canvas-helper-edit-key="course-summary"]')).toHaveAttribute(
+      "data-canvas-helper-edit-map-state",
+      "editable"
+    );
+  } finally {
+    if (created) await rm(projectRoot, { recursive: true, force: true });
+  }
 });
 
 test("@inspection What’s New is concise, keyboard-contained, and restores focus", async ({ page }) => {

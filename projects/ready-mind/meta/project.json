@@ -7,8 +7,8 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-06-05T15:41:44.890Z",
@@ -17,13 +17,13 @@
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\index.html",
+  "canonicalEntry": "projects/ready-mind/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\assignment-runtime.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ready-mind\\workspace\\assignment-runtime-main.js"
+    "projects/ready-mind/workspace/index.html",
+    "projects/ready-mind/workspace/main.js",
+    "projects/ready-mind/workspace/styles.css",
+    "projects/ready-mind/workspace/assignment-runtime.html",
+    "projects/ready-mind/workspace/assignment-runtime-main.js"
   ],
   "generatedOutputs": [],
   "regenerateCommand": "No generated outputs yet. Edit Ready Mind workspace sources, then run export commands when content is finalized.",
@@ -61,8 +61,18 @@
       "readymind.mental-rehearsal.v1"
     ]
   },
-  "sourceOfTruthNotes": "Ready Mind canonical editable sources are in projects/ready-mind/workspace. Catalogs are intentionally blank or placeholder-only until source content is finalized.",
+  "sourceOfTruthNotes": "Ready Mind canonical editable sources are in projects/ready-mind/workspace. Catalogs are intentionally blank or placeholder-only until source content is finalized. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "createdAt": "2026-05-08T19:00:32.888Z",
-  "updatedAt": "2026-06-23T14:53:08.740Z",
-  "workspaceApprovedAt": "2026-06-05T15:41:44.890Z"
+  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "workspaceApprovedAt": "2026-06-05T15:41:44.890Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

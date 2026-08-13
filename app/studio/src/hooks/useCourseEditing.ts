@@ -11,7 +11,13 @@ import {
   type CourseEditStatus,
   type CourseEditTarget
 } from "../../../shared/course-editing.js";
-import { loadCourseEditDrafts, saveCourseEditDrafts } from "../lib/course-edit-storage";
+import {
+  exportCourseEditDrafts,
+  importCourseEditDrafts,
+  loadCourseEditDraftState,
+  loadCourseEditDrafts,
+  saveCourseEditDrafts
+} from "../lib/course-edit-storage";
 
 type CourseEditFeedbackTone = "neutral" | "progress" | "success" | "warning" | "error";
 
@@ -19,7 +25,11 @@ const EMPTY_STATUS: CourseEditStatus = {
   projectSlug: "",
   available: false,
   unavailableReason: "Select a course to start editing.",
+  courseTitle: "",
+  canRenameCourse: false,
+  canUploadImages: false,
   canUndo: false,
+  undoUnavailableReason: "There is no applied Studio edit batch to undo.",
   checkpointId: null,
   exportsOutOfDate: false,
   staleExportTargets: [],
@@ -51,12 +61,13 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   const [enabled, setEnabled] = useState(false);
   const [target, setTarget] = useState<CourseEditTarget | null>(null);
   const [resolving, setResolving] = useState(false);
-  const [drafts, setDrafts] = useState<CourseEditDraft[]>(() => loadCourseEditDrafts(projectSlug));
+  const [drafts, setDrafts] = useState<CourseEditDraft[]>(() => loadCourseEditDraftState(projectSlug).drafts);
   const [status, setStatus] = useState<CourseEditStatus>({ ...EMPTY_STATUS, projectSlug });
   const [busy, setBusy] = useState(false);
   const [feedback, setFeedback] = useState<{ message: string; tone: CourseEditFeedbackTone }>({ message: "", tone: "neutral" });
   const resolveAbortRef = useRef<AbortController | null>(null);
   const activeProjectRef = useRef(projectSlug);
+  const operationRef = useRef(0);
   const draftsRef = useRef(drafts);
   draftsRef.current = drafts;
 
@@ -87,14 +98,21 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   useEffect(() => {
     resolveAbortRef.current?.abort();
     activeProjectRef.current = projectSlug;
+    operationRef.current += 1;
     setEnabled(false);
     setTarget(null);
     setResolving(false);
-    const stored = loadCourseEditDrafts(projectSlug);
+    setBusy(false);
+    const loaded = loadCourseEditDraftState(projectSlug);
+    const stored = loaded.drafts;
     draftsRef.current = stored;
     setDrafts(stored);
     setStatus({ ...EMPTY_STATUS, projectSlug });
-    setFeedback({ message: stored.length ? `${stored.length} draft ${stored.length === 1 ? "change" : "changes"} restored for this course.` : "", tone: stored.length ? "success" : "neutral" });
+    const restored = stored.length ? `${stored.length} draft ${stored.length === 1 ? "change" : "changes"} restored for this course.` : "";
+    setFeedback({
+      message: loaded.warnings[0] ?? restored,
+      tone: loaded.warnings.length ? "warning" : stored.length ? "success" : "neutral"
+    });
     void refreshStatus(projectSlug);
   }, [projectSlug, refreshStatus]);
 
@@ -140,6 +158,10 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     }
     const current = target;
     if (!current?.identity || current.eligibility !== "editable") return false;
+    if (!Object.keys(patch).length) {
+      setFeedback({ message: "Change at least one field before saving this draft.", tone: "warning" });
+      return false;
+    }
     const now = Date.now();
     const existing = draftsRef.current.find((draft) => draft.identity.targetId === current.identity?.targetId);
     const next: CourseEditDraft = {
@@ -149,6 +171,12 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       identity: current.identity,
       beforeText: current.originalText,
       afterText: courseEditPatchText(current, patch),
+      baseline: {
+        originalHtml: current.originalHtml,
+        attributes: current.attributes,
+        currentStyle: current.currentStyle,
+        capabilities: current.capabilities
+      },
       patch
     };
     const without = draftsRef.current.filter((draft) => draft.identity.targetId !== current.identity?.targetId);
@@ -204,6 +232,8 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     const slug = activeProjectRef.current;
     const currentDrafts = draftsRef.current;
     if (!slug || !currentDrafts.length || busy) return false;
+    const operation = ++operationRef.current;
+    const submittedIds = new Set(currentDrafts.map((draft) => draft.id));
     setBusy(true);
     setFeedback({ message: "Applying, rebuilding, and checking this course…", tone: "progress" });
     try {
@@ -213,8 +243,9 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
         body: JSON.stringify({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: slug, drafts: currentDrafts })
       });
       const result = await responseJson<CourseEditBatchResult>(response, "Studio could not apply these changes.");
-      if (activeProjectRef.current !== slug) return false;
-      const submittedIds = new Set(currentDrafts.map((draft) => draft.id));
+      const remainingForSubmittedProject = loadCourseEditDrafts(slug).filter((draft) => !submittedIds.has(draft.id));
+      saveCourseEditDrafts(slug, remainingForSubmittedProject);
+      if (activeProjectRef.current !== slug || operationRef.current !== operation) return true;
       replaceDrafts(draftsRef.current.filter((draft) => !submittedIds.has(draft.id)));
       setTarget(null);
       setStatus(result);
@@ -222,16 +253,19 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       await onApplied();
       return true;
     } catch (error) {
-      setFeedback({ message: error instanceof Error ? error.message : "Studio could not apply these changes.", tone: "error" });
+      if (activeProjectRef.current === slug && operationRef.current === operation) {
+        setFeedback({ message: error instanceof Error ? error.message : "Studio could not apply these changes.", tone: "error" });
+      }
       return false;
     } finally {
-      setBusy(false);
+      if (activeProjectRef.current === slug && operationRef.current === operation) setBusy(false);
     }
   }, [busy, onApplied, replaceDrafts]);
 
   const undo = useCallback(async () => {
     const slug = activeProjectRef.current;
     if (!slug || busy) return false;
+    const operation = ++operationRef.current;
     setBusy(true);
     setFeedback({ message: "Undoing the last applied batch and checking the course…", tone: "progress" });
     try {
@@ -244,10 +278,12 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       await onApplied();
       return true;
     } catch (error) {
-      setFeedback({ message: error instanceof Error ? error.message : "Studio could not undo the last batch.", tone: "error" });
+      if (activeProjectRef.current === slug && operationRef.current === operation) {
+        setFeedback({ message: error instanceof Error ? error.message : "Studio could not undo the last batch.", tone: "error" });
+      }
       return false;
     } finally {
-      setBusy(false);
+      if (activeProjectRef.current === slug && operationRef.current === operation) setBusy(false);
     }
   }, [busy, onApplied]);
 
@@ -256,6 +292,87 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     setTarget(null);
     setResolving(false);
   }, []);
+
+  const exportDrafts = useCallback(() => exportCourseEditDrafts(activeProjectRef.current), []);
+
+  const importDrafts = useCallback((source: string) => {
+    const slug = activeProjectRef.current;
+    const result = importCourseEditDrafts(slug, source);
+    if (result.ok) {
+      draftsRef.current = result.drafts;
+      setDrafts(result.drafts);
+      setFeedback({ message: `${result.drafts.length} draft ${result.drafts.length === 1 ? "change" : "changes"} imported.`, tone: "success" });
+    } else {
+      setFeedback({ message: result.warnings[0] ?? "Studio could not import this draft backup.", tone: "error" });
+    }
+    return result.ok;
+  }, []);
+
+  const uploadImage = useCallback(async (file: File, htmlPath: string) => {
+    const slug = activeProjectRef.current;
+    if (!slug || busy || file.size > 10 * 1024 * 1024) {
+      setFeedback({ message: file.size > 10 * 1024 * 1024 ? "Images must be 10 MB or smaller." : "Wait for the current course operation to finish.", tone: "warning" });
+      return null;
+    }
+    const operation = ++operationRef.current;
+    setBusy(true);
+    setFeedback({ message: "Validating and storing this course image…", tone: "progress" });
+    try {
+      const response = await fetch(`/api/projects/${encodeURIComponent(slug)}/course-edits/assets`, {
+        method: "POST",
+        headers: {
+          "Content-Type": file.type || "application/octet-stream",
+          "X-Canvas-Helper-Html-Path": htmlPath
+        },
+        body: file
+      });
+      const result = await responseJson<{ src: string; width: number; height: number }>(response, "Studio could not store this image.");
+      if (activeProjectRef.current !== slug || operationRef.current !== operation) return result.src;
+      setFeedback({ message: `Image stored safely (${result.width} × ${result.height}).`, tone: "success" });
+      await refreshStatus(slug);
+      return result.src;
+    } catch (error) {
+      if (activeProjectRef.current === slug && operationRef.current === operation) {
+        setFeedback({ message: error instanceof Error ? error.message : "Studio could not store this image.", tone: "error" });
+      }
+      return null;
+    } finally {
+      if (activeProjectRef.current === slug && operationRef.current === operation) setBusy(false);
+    }
+  }, [busy, refreshStatus]);
+
+  const renameCourse = useCallback(async (title: string) => {
+    const slug = activeProjectRef.current;
+    const normalized = title.replace(/\s+/g, " ").trim();
+    if (!slug || busy || !normalized || normalized.length > 160) {
+      setFeedback({ message: "Enter a course title between 1 and 160 characters.", tone: "warning" });
+      return false;
+    }
+    const operation = ++operationRef.current;
+    setBusy(true);
+    setFeedback({ message: "Renaming every course title location and checking the learner page…", tone: "progress" });
+    try {
+      const response = await fetch(`/api/projects/${encodeURIComponent(slug)}/course-edits/rename`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: slug, title: normalized })
+      });
+      const result = await responseJson<CourseEditBatchResult>(response, "Studio could not rename this course.");
+      if (activeProjectRef.current !== slug || operationRef.current !== operation) return true;
+      setTarget(null);
+      setStatus(result);
+      setFeedback({ message: result.message, tone: "success" });
+      await onApplied();
+      return true;
+    } catch (error) {
+      if (activeProjectRef.current === slug && operationRef.current === operation) {
+        setFeedback({ message: error instanceof Error ? error.message : "Studio could not rename this course.", tone: "error" });
+      }
+      return false;
+    } finally {
+      if (activeProjectRef.current === slug && operationRef.current === operation) setBusy(false);
+    }
+  }, [busy, onApplied]);
 
   return useMemo(() => ({
     enabled,
@@ -274,7 +391,11 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     reorderDraft,
     apply,
     undo,
+    exportDrafts,
+    importDrafts,
+    uploadImage,
+    renameCourse,
     clearSelection,
     refreshStatus
-  }), [apply, busy, clearSelection, drafts, editDraft, enabled, feedback, patchDraft, refreshStatus, removeDraft, reorderDraft, resolveSelection, resolving, saveTarget, status, target, undo]);
+  }), [apply, busy, clearSelection, drafts, editDraft, enabled, exportDrafts, feedback, importDrafts, patchDraft, refreshStatus, removeDraft, renameCourse, reorderDraft, resolveSelection, resolving, saveTarget, status, target, undo, uploadImage]);
 }

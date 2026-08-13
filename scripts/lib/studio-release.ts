@@ -118,6 +118,8 @@ export const STUDIO_FOCUSED_TEST_FILES = [
   "scripts/tests/codex-packet.test.ts",
   "scripts/tests/course-build-brief.test.ts",
   "scripts/tests/course-editing.test.ts",
+  "scripts/tests/codex-course.test.ts",
+  "scripts/tests/course-onboarding.test.ts",
   "scripts/tests/studio-project-html-scan.test.ts",
   "scripts/tests/studio-project-continuity.test.ts",
   "scripts/tests/studio-incoming-refresh.test.ts",

@@ -29,6 +29,7 @@ const AUTHORING_DRIVER_IDS = new Set([
   "direct-workspace-v1",
   "english-factory-v1",
   "social-related-issues-v1",
+  "legacy-snapshot-v1",
   "proposal-only-v1"
 ]);
 
@@ -181,11 +182,22 @@ function normalizeAuthoringContract(value: unknown): ProjectManifest["authoring"
   const familyId = toTrimmedString(record.familyId);
   const qualityProfile = toTrimmedString(record.qualityProfile);
   const sourceResourceIds = normalizeStringList(record.sourceResourceIds);
+  const studioEditingRecord = record.studioEditing && typeof record.studioEditing === "object" && !Array.isArray(record.studioEditing)
+    ? record.studioEditing as Record<string, unknown>
+    : null;
+  const studioEditing = studioEditingRecord && typeof studioEditingRecord.enabled === "boolean"
+    ? {
+        enabled: studioEditingRecord.enabled,
+        ...(typeof studioEditingRecord.renameCourse === "boolean" ? { renameCourse: studioEditingRecord.renameCourse } : {}),
+        ...(typeof studioEditingRecord.imageAssets === "boolean" ? { imageAssets: studioEditingRecord.imageAssets } : {})
+      }
+    : undefined;
   return {
     driverId: driverId as NonNullable<ProjectManifest["authoring"]>["driverId"],
-    familyId: familyId || undefined,
-    sourceResourceIds: sourceResourceIds.length > 0 ? sourceResourceIds : undefined,
-    qualityProfile: qualityProfile || undefined
+    ...(familyId ? { familyId } : {}),
+    ...(sourceResourceIds.length > 0 ? { sourceResourceIds } : {}),
+    ...(qualityProfile ? { qualityProfile } : {}),
+    ...(studioEditing ? { studioEditing } : {})
   };
 }
 

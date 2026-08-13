@@ -17,6 +17,7 @@ export type IsolatedPreviewServer = {
 
 export type IsolatedPreviewServerOptions = {
   studioOrigin: string;
+  repoRoot?: string;
 };
 
 function sendNotFound(response: ServerResponse) {
@@ -134,7 +135,8 @@ async function handlePreviewServerRequest(
   request: IncomingMessage,
   response: ServerResponse,
   studioOrigin: string,
-  capabilities: Map<string, PreviewCapabilityEntry>
+  capabilities: Map<string, PreviewCapabilityEntry>,
+  repoRoot?: string
 ) {
   applyPreviewSecurityHeaders(response, studioOrigin);
   const method = (request.method || "GET").toUpperCase();
@@ -190,7 +192,8 @@ async function handlePreviewServerRequest(
     await handlePreviewRoutes(authorized.previewPath, request, response, {
       bridgeScriptPath: "/_canvas-helper/preview-bridge.js",
       publicPathPrefix: authorized.publicPrefix,
-      registerRuntimeSource: (source) => registerPreviewRuntimeSource(capability, source)
+      registerRuntimeSource: (source) => registerPreviewRuntimeSource(capability, source),
+      repoRoot
     });
     return;
   }
@@ -213,7 +216,7 @@ export async function startIsolatedPreviewServer(options: IsolatedPreviewServerO
   const studioOrigin = studioUrl.origin;
   const previewCapabilities = new Map<string, PreviewCapabilityEntry>();
   const server = createServer((request, response) => {
-    void handlePreviewServerRequest(request, response, studioOrigin, previewCapabilities).catch(() => {
+    void handlePreviewServerRequest(request, response, studioOrigin, previewCapabilities, options.repoRoot).catch(() => {
       if (!response.headersSent) {
         response.statusCode = 500;
         response.setHeader("Content-Type", "text/plain; charset=utf-8");

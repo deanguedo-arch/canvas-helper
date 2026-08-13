@@ -4769,7 +4769,7 @@ async function buildIssue(config: IssueConfig, bundles: Map<string, ZipBundle>, 
     extraCss: extraCss()
   });
 
-  const html = await applyStoredCourseEdits({ repoRoot: path.resolve("."), projectSlug: config.slug, html: renderedHtml });
+  const html = await applyStoredCourseEdits({ repoRoot: path.resolve("."), projectSlug: config.slug, html: renderedHtml, workspaceDir });
   await fs.writeFile(path.join(workspaceDir, "index.html"), html);
   if (!studioEditRebuild) {
     await fs.mkdir(rawDir, { recursive: true });

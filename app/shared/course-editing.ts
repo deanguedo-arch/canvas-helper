@@ -1,11 +1,13 @@
 import type { InspectionResolveRequest } from "./inspection.js";
 
-export const COURSE_EDIT_SCHEMA_VERSION = 1;
+export const COURSE_EDIT_SCHEMA_VERSION = 2;
 export const COURSE_EDIT_MAX_DRAFTS = 20;
 export const COURSE_EDIT_MAX_HTML_CODE_UNITS = 24_000;
 export const COURSE_EDIT_MAX_URL_CODE_UNITS = 2_048;
 export const COURSE_EDIT_MAX_STATUS_CODE_UNITS = 240;
 export const COURSE_EDIT_MAX_ID_CODE_UNITS = 160;
+export const COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION = 1;
+export const COURSE_EDIT_PAGE_MAP_MAX_ENTRIES = 4_000;
 
 export const COURSE_EDIT_TEXT_STYLES = ["default", "heading", "subheading", "body", "caption"] as const;
 export const COURSE_EDIT_FONT_FAMILIES = ["default", "readable-sans", "book-serif"] as const;
@@ -14,8 +16,9 @@ export const COURSE_EDIT_TEXT_TONES = ["default", "ink", "muted", "accent"] as c
 export const COURSE_EDIT_ALIGNMENTS = ["default", "left", "center", "right"] as const;
 export const COURSE_EDIT_SPACING = ["default", "compact", "relaxed"] as const;
 
-export type CourseEditAdapter = "direct" | "english-factory" | "social-related-issues";
+export type CourseEditAdapter = "direct" | "english-factory" | "social-related-issues" | "legacy-snapshot";
 export type CourseEditEligibility = "editable" | "unsupported";
+export type CourseEditMapAction = "edit-text" | "edit-link" | "replace-image" | "style-text" | "rename-course" | "annotation-only";
 export type CourseEditTextStyle = (typeof COURSE_EDIT_TEXT_STYLES)[number];
 export type CourseEditFontFamily = (typeof COURSE_EDIT_FONT_FAMILIES)[number];
 export type CourseEditFontSize = (typeof COURSE_EDIT_FONT_SIZES)[number];
@@ -46,6 +49,7 @@ export type CourseEditCapabilities = {
   link: boolean;
   image: boolean;
   styles: boolean;
+  styleKeys: Array<keyof CourseEditStylePatch>;
 };
 
 /**
@@ -59,6 +63,7 @@ export type CourseEditTargetIdentity = {
   htmlPath: string;
   nodeId: string;
   sourceDigest: string;
+  elementDigest: string;
   editId: string | null;
   tagName: string;
   adapter: CourseEditAdapter;
@@ -80,6 +85,37 @@ export type CourseEditTarget = {
   currentStyle: Required<CourseEditStylePatch>;
 };
 
+export type CourseEditPageMapEntry = {
+  nodeId: string;
+  tagName: string;
+  action: CourseEditMapAction;
+  label: string;
+  reason: string;
+  expected: {
+    textFingerprint: string;
+    textLength: number;
+    attributeFingerprint: string;
+  } | null;
+};
+
+export type CourseEditPageMap = {
+  schemaVersion: typeof COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION;
+  projectSlug: string;
+  htmlPath: string;
+  sourceDigest: string;
+  available: boolean;
+  reason: string;
+  entries: CourseEditPageMapEntry[];
+  editableCount: number;
+  annotationOnlyCount: number;
+  truncated: boolean;
+};
+
+export type CourseEditDraftBaseline = Pick<
+  CourseEditTarget,
+  "originalHtml" | "attributes" | "currentStyle" | "capabilities"
+>;
+
 export type CourseEditResolveRequest = InspectionResolveRequest;
 
 export type CourseEditDraft = {
@@ -89,6 +125,7 @@ export type CourseEditDraft = {
   identity: CourseEditTargetIdentity;
   beforeText: string;
   afterText: string;
+  baseline: CourseEditDraftBaseline;
   patch: CourseEditPatch;
 };
 
@@ -102,7 +139,11 @@ export type CourseEditStatus = {
   projectSlug: string;
   available: boolean;
   unavailableReason: string;
+  courseTitle: string;
+  canRenameCourse: boolean;
+  canUploadImages: boolean;
   canUndo: boolean;
+  undoUnavailableReason: string;
   checkpointId: string | null;
   exportsOutOfDate: boolean;
   staleExportTargets: string[];
@@ -115,6 +156,24 @@ export type CourseEditBatchResult = CourseEditStatus & {
   message: string;
   warnings: string[];
 };
+
+export type CourseRenameRequest = {
+  schemaVersion: typeof COURSE_EDIT_SCHEMA_VERSION;
+  projectSlug: string;
+  title: string;
+};
+
+export function isCourseRenameRequest(value: unknown): value is CourseRenameRequest {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, ["schemaVersion", "projectSlug", "title"]) &&
+    value.schemaVersion === COURSE_EDIT_SCHEMA_VERSION &&
+    isBoundedString(value.projectSlug, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
+    /^[a-z0-9][a-z0-9._-]*$/i.test(value.projectSlug) &&
+    isBoundedString(value.title, 160, false) &&
+    value.title.trim() === value.title
+  );
+}
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
@@ -162,7 +221,7 @@ export function isCourseEditPatch(value: unknown): value is CourseEditPatch {
 export function isCourseEditTargetIdentity(value: unknown): value is CourseEditTargetIdentity {
   return (
     isRecord(value) &&
-    hasOnlyKeys(value, ["targetId", "projectSlug", "htmlPath", "nodeId", "sourceDigest", "editId", "tagName", "adapter"]) &&
+    hasOnlyKeys(value, ["targetId", "projectSlug", "htmlPath", "nodeId", "sourceDigest", "elementDigest", "editId", "tagName", "adapter"]) &&
     isBoundedString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
     /^[a-f0-9]{24}$/.test(value.targetId) &&
     isBoundedString(value.projectSlug, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
@@ -174,16 +233,22 @@ export function isCourseEditTargetIdentity(value: unknown): value is CourseEditT
     /^ch1:[a-f0-9]{24}:[1-9][0-9]*$/.test(value.nodeId) &&
     isBoundedString(value.sourceDigest, 64, false) &&
     /^[a-f0-9]{64}$/.test(value.sourceDigest) &&
-    (value.editId === null || (isBoundedString(value.editId, COURSE_EDIT_MAX_ID_CODE_UNITS, false) && /^che1:[a-f0-9]{24}$/.test(value.editId))) &&
+    isBoundedString(value.elementDigest, 64, false) &&
+    /^[a-f0-9]{64}$/.test(value.elementDigest) &&
+    (value.editId === null || (isBoundedString(value.editId, COURSE_EDIT_MAX_ID_CODE_UNITS, false) && /^che[12]:[a-f0-9]{24}$/.test(value.editId))) &&
     isBoundedString(value.tagName, 24, false) &&
     ["direct", "english-factory", "social-related-issues"].includes(String(value.adapter))
   );
 }
 
 export function isCourseEditDraft(value: unknown): value is CourseEditDraft {
+  const baseline = isRecord(value) && isRecord(value.baseline) ? value.baseline : null;
+  const attributes = baseline && isRecord(baseline.attributes) ? baseline.attributes : null;
+  const currentStyle = baseline && isRecord(baseline.currentStyle) ? baseline.currentStyle : null;
+  const capabilities = baseline && isRecord(baseline.capabilities) ? baseline.capabilities : null;
   return (
     isRecord(value) &&
-    hasOnlyKeys(value, ["id", "createdAt", "updatedAt", "identity", "beforeText", "afterText", "patch"]) &&
+    hasOnlyKeys(value, ["id", "createdAt", "updatedAt", "identity", "beforeText", "afterText", "baseline", "patch"]) &&
     isBoundedString(value.id, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
     /^[A-Za-z0-9._-]+$/.test(value.id) &&
     typeof value.createdAt === "number" &&
@@ -193,6 +258,21 @@ export function isCourseEditDraft(value: unknown): value is CourseEditDraft {
     isCourseEditTargetIdentity(value.identity) &&
     isBoundedString(value.beforeText, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
     isBoundedString(value.afterText, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
+    baseline !== null &&
+    hasOnlyKeys(baseline, ["originalHtml", "attributes", "currentStyle", "capabilities"]) &&
+    isBoundedString(baseline.originalHtml, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
+    attributes !== null &&
+    hasOnlyKeys(attributes, ["href", "src", "alt", "title"]) &&
+    [attributes.href, attributes.src, attributes.alt, attributes.title].every((entry) => isBoundedString(entry, COURSE_EDIT_MAX_HTML_CODE_UNITS)) &&
+    currentStyle !== null &&
+    hasOnlyKeys(currentStyle, ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"]) &&
+    isCourseEditStylePatch(currentStyle) &&
+    Object.keys(currentStyle).length === 6 &&
+    capabilities !== null &&
+    hasOnlyKeys(capabilities, ["richText", "link", "image", "styles", "styleKeys"]) &&
+    [capabilities.richText, capabilities.link, capabilities.image, capabilities.styles].every((entry) => typeof entry === "boolean") &&
+    Array.isArray(capabilities.styleKeys) &&
+    capabilities.styleKeys.every((entry) => ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"].includes(String(entry))) &&
     isCourseEditPatch(value.patch)
   );
 }

@@ -8,7 +8,12 @@ import {
   toggleFavoriteProject,
   touchRecentProject
 } from "../../app/studio/src/lib/project-library.js";
-import { formatProjectSlugLabel, getProjectLabel } from "../../app/studio/src/lib/project-display.js";
+import {
+  formatProjectSlugLabel,
+  getProjectLabel,
+  isStudioProjectVisible,
+  orderProjectSlugs
+} from "../../app/studio/src/lib/project-display.js";
 import type { ProjectBundle } from "../../app/studio/src/lib/types.js";
 import {
   clearStoredReviewSet,
@@ -89,6 +94,13 @@ test("Studio turns repository slugs into readable course names without replacing
   assert.equal(getProjectLabel(curatedTitleProject), "Social 10-1: Globalization and Identity");
 });
 
+test("explicitly onboarded legacy Social courses remain visible in Studio", () => {
+  const slug = "social30-1-related-issue-1";
+  const project = { manifest: { slug } } as ProjectBundle;
+  assert.equal(isStudioProjectVisible(project), true);
+  assert.deepEqual(orderProjectSlugs([slug]), [slug]);
+});
+
 function withLocalStorage(run: (values: Map<string, string>) => void) {
   const originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
   const values = new Map<string, string>();
@@ -165,12 +177,19 @@ test("course edit drafts stay separate by project and reject unsafe persisted id
         htmlPath: "index.html",
         nodeId: `ch1:${"b".repeat(24)}:1`,
         sourceDigest: "c".repeat(64),
+        elementDigest: "d".repeat(64),
         editId: null,
         tagName: "h1",
         adapter: "direct"
       },
       beforeText: "Before",
       afterText: "After",
+      baseline: {
+        originalHtml: "Before",
+        attributes: { href: "", src: "", alt: "", title: "" },
+        currentStyle: { textStyle: "default", fontFamily: "default", fontSize: "default", textTone: "default", alignment: "default", spacing: "default" },
+        capabilities: { richText: true, link: false, image: false, styles: true, styleKeys: ["fontFamily", "textTone", "alignment", "spacing"] }
+      },
       patch: { html: "After" }
     });
     const alpha = makeDraft("alpha", "draft-alpha");

@@ -8,23 +8,23 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
+  "canonicalEntry": "projects/how-assessment-works/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/styles.css",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/workspace/main.js"
+    "projects/how-assessment-works/workspace/index.html",
+    "projects/how-assessment-works/workspace/styles.css",
+    "projects/how-assessment-works/workspace/main.js"
   ],
   "generatedOutputs": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/exports/single-html/how-assessment-works.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/exports/scorm-2004",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/how-assessment-works/exports/how-assessment-works-scorm-2004.zip"
+    "projects/how-assessment-works/exports/single-html/how-assessment-works.html",
+    "projects/how-assessment-works/exports/scorm-2004",
+    "projects/how-assessment-works/exports/how-assessment-works-scorm-2004.zip"
   ],
   "regenerateCommand": "npm run export:html -- --project how-assessment-works && npm run export:scorm -- --project how-assessment-works --version 2004",
   "injectedComponents": [
@@ -63,10 +63,10 @@
   ],
   "authoringStatus": "ready-for-export",
   "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html"
+    "projects/ai-course-building-resources/workspace/resources/dean-ai-assessment-pillars.html",
+    "projects/ai-course-building-resources/workspace/resources/gatekeeping-architecture.html"
   ],
-  "sourceOfTruthNotes": "Edit only workspace/index.html, workspace/styles.css, and workspace/main.js for learner content and behavior. The two active workspace/assets/media videos are copied from the declared injected-component sources and should be refreshed by copying those sources, not edited in generated exports. The administration presentation is reference-only and must remain unchanged. HTML and SCORM exports are derived output and must be regenerated with regenerateCommand.",
+  "sourceOfTruthNotes": "Edit only workspace/index.html, workspace/styles.css, and workspace/main.js for learner content and behavior. The two active workspace/assets/media videos are copied from the declared injected-component sources and should be refreshed by copying those sources, not edited in generated exports. The administration presentation is reference-only and must remain unchanged. HTML and SCORM exports are derived output and must be regenerated with regenerateCommand. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "googleHosted": {
     "trackedStorageKeys": [
       "canvas-helper:how-assessment-works:state:v1"
@@ -76,6 +76,16 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-07-30T15:37:40.000Z",
   "createdAt": "2026-07-30T15:37:40.000Z",
-  "updatedAt": "2026-07-30T18:06:27.167Z",
-  "workspaceApprovedAt": "2026-07-30T18:06:27.167Z"
+  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "workspaceApprovedAt": "2026-07-30T18:06:27.167Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

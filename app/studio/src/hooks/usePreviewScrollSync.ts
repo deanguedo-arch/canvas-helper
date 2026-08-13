@@ -53,6 +53,7 @@ type UsePreviewScrollSyncOptions = {
   referenceTarget: ReferenceTarget;
   previewOrigin: string;
   inspectEnabled: boolean;
+  editEnabled: boolean;
   onInspectSelection: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectModeChange?: (enabled: boolean, source: PreviewSurface) => void;
@@ -67,7 +68,7 @@ type UsePreviewScrollSyncOptions = {
 
 type BridgeState = Pick<
   UsePreviewScrollSyncOptions,
-  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled"
+  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled" | "editEnabled"
 >;
 
 type PendingInspectionRequest = {
@@ -192,6 +193,7 @@ export function usePreviewScrollSync({
   referenceTarget,
   previewOrigin,
   inspectEnabled,
+  editEnabled,
   onInspectSelection,
   onInspectHover,
   onInspectModeChange,
@@ -253,7 +255,8 @@ export function usePreviewScrollSync({
     workspaceTarget,
     referenceTarget,
     previewOrigin,
-    inspectEnabled
+    inspectEnabled,
+    editEnabled
   });
   const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onStandaloneReturn, onPreviewDiagnostic });
   stateRef.current = {
@@ -262,7 +265,8 @@ export function usePreviewScrollSync({
     workspaceTarget,
     referenceTarget,
     previewOrigin,
-    inspectEnabled
+    inspectEnabled,
+    editEnabled
   };
   inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onStandaloneReturn, onPreviewDiagnostic };
 
@@ -329,6 +333,7 @@ export function usePreviewScrollSync({
       | "studio-request-state"
       | "studio-restore-scroll"
       | "studio-set-inspect-mode"
+      | "studio-set-edit-visual-mode"
       | "studio-request-inspect-current"
       | "studio-focus-inspect-node"
       | "studio-show-inspect-node"
@@ -473,6 +478,7 @@ export function usePreviewScrollSync({
         restoreStoredScrollPosition(mode);
         postBridgeCommand(mode, "studio-request-state", null);
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && stateRef.current.inspectEnabled });
+        postBridgeCommand(mode, "studio-set-edit-visual-mode", { enabled: mode === "workspace" && stateRef.current.editEnabled });
         if (mode === "workspace" && source === "embedded") flushPendingKeyboardInspection();
         flushPendingFocusRequest(mode, source);
         inspectionCallbacksRef.current.onPreviewReady?.(
@@ -967,6 +973,14 @@ export function usePreviewScrollSync({
     const timer = window.setTimeout(() => restoreStoredScrollPosition(previewMode), 0);
     return () => window.clearTimeout(timer);
   }, [previewMode, selectedProject, referenceTarget]);
+
+  useEffect(() => {
+    previewModes.forEach((mode) => {
+      postBridgeCommand(mode, "studio-set-edit-visual-mode", {
+        enabled: mode === "workspace" && editEnabled
+      });
+    });
+  }, [editEnabled]);
 
   return {
     registerPreviewFrame,

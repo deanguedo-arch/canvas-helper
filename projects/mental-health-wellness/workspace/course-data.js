@@ -1,6 +1,6 @@
 window.MENTAL_HEALTH_WELLNESS_DATA = {
   "course": {
-    "title": "Mental Health & Wellness",
+    "title": /* data-canvas-helper-course-title */ "Mental Health & Wellness NXT",
     "subtitle": "Complete each unit in order and track your progress.",
     "enableLibrary": false
   },

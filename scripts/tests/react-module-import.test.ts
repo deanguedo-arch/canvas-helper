@@ -75,6 +75,12 @@ test("importProject preserves React module sources disguised as html files", asy
     assert.match(workspaceScript, /import __CanvasHelperReactDomClient from "https:\/\/esm\.sh\/react-dom@19\.1\.1\/client";/);
     assert.match(workspaceScript, /__CanvasHelperReactDomClient\.createRoot/);
     assert.equal(rawSourceText, reactModuleSource);
+    const manifest = JSON.parse(await readFile(paths.manifestPath, "utf8"));
+    assert.deepEqual(manifest.authoring, {
+      driverId: "direct-workspace-v1",
+      familyId: "imported-workspace-v1",
+      studioEditing: { enabled: true, renameCourse: false, imageAssets: true }
+    });
   } finally {
     await removePath(paths.root);
     await removePath(paths.resourceDir);

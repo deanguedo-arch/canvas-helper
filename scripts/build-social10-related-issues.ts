@@ -5706,7 +5706,7 @@ async function buildIssue(
     extraCss: extraCss()
   });
 
-  const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml });
+  const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml, workspaceDir });
   await fs.writeFile(path.join(workspaceDir, "index.html"), html, "utf8");
   if (!studioEditRebuild) {
     await fs.writeFile(

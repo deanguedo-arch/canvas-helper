@@ -8,20 +8,45 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module-2-activites-reference\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calm-module-2-activites-reference\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-21T17:03:08.348Z",
   "createdAt": "2026-03-09T21:37:52.321Z",
-  "updatedAt": "2026-06-23T14:53:08.534Z",
+  "updatedAt": "2026-08-13T13:08:16.727Z",
   "workspaceApprovedAt": "2026-04-21T17:03:08.348Z",
-  "migrationState": "legacy",
-  "preferredWorkflows": [],
-  "canonicalSources": [],
+  "migrationState": "migrated",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalSources": [
+    "projects/calm-module-2-activites-reference/workspace/index.html",
+    "projects/calm-module-2-activites-reference/workspace/main.jsx",
+    "projects/calm-module-2-activites-reference/workspace/styles.css"
+  ],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "exportTargets": [],
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical workspace preview and export target."
+    }
+  ],
   "authoringStatus": "active",
-  "referenceOnly": []
+  "referenceOnly": [],
+  "projectType": "conversion",
+  "canonicalEntry": "projects/calm-module-2-activites-reference/workspace/index.html",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "migrated-legacy-workspace",
+    "qualityProfile": "direct-rendered-course",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  },
+  "sourceOfTruthNotes": "Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio."
 }
