@@ -1,8 +1,13 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { access, mkdtemp, readFile, rm } from "node:fs/promises";
+import os from "node:os";
+import path from "node:path";
 import test from "node:test";
 
-import { isStudioProjectManifestPath } from "../../app/server/studio-server.ts";
+import {
+  ensureStudioProjectChangeSignalDirectory,
+  isStudioProjectManifestPath
+} from "../../app/server/studio-server.ts";
 
 test("Studio App consumes Review Workbench only through its facade", async () => {
   const source = await readFile("app/studio/src/App.tsx", "utf8");
@@ -49,4 +54,16 @@ test("Studio watches only exact project manifests for live course discovery", as
   assert.match(serverSource, /STUDIO_PROJECT_CHANGE_SIGNAL/);
   assert.match(projectsHookSource, /import\.meta\.hot\.on\(STUDIO_PROJECTS_CHANGED_EVENT/);
   assert.match(projectsHookSource, /loadProjectsOnce\(true\)/);
+});
+
+test("Studio creates the exact course-change signal directory before watching a clean checkout", async () => {
+  const root = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-studio-watch-"));
+  try {
+    const signalPath = ensureStudioProjectChangeSignalDirectory(root);
+    assert.equal(signalPath, path.join(root, ".runtime", "course-create", "projects.changed.json"));
+    await access(path.dirname(signalPath));
+    await assert.rejects(access(signalPath), { code: "ENOENT" });
+  } finally {
+    await rm(root, { recursive: true, force: true });
+  }
 });

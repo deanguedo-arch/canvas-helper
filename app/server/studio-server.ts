@@ -1,4 +1,5 @@
 import path from "node:path";
+import { mkdirSync } from "node:fs";
 import type { IncomingMessage, ServerResponse } from "node:http";
 
 import type { Plugin, ViteDevServer } from "vite";
@@ -30,6 +31,16 @@ export function isStudioProjectManifestPath(filePath: string, root = process.cwd
     && !RESERVED_PROJECT_DIRECTORIES.has(segments[0] ?? "")
     && segments[1] === "meta"
     && segments[2] === "project.json";
+}
+
+export function ensureStudioProjectChangeSignalDirectory(root = process.cwd()) {
+  const signalPath = path.join(root, STUDIO_PROJECT_CHANGE_SIGNAL);
+  // Chokidar cannot reliably subscribe to an exact file below a directory
+  // that does not exist yet on Linux. Create only the operational signal
+  // directory before registering the watcher so a clean checkout receives
+  // the first course:create notification as reliably as an existing one.
+  mkdirSync(path.dirname(signalPath), { recursive: true });
+  return signalPath;
 }
 
 export function hasTrustedStandalonePreviewNavigation(request: IncomingMessage, studioOrigin: string) {
@@ -351,7 +362,7 @@ export function createStudioServerPlugin(): Plugin {
     name: "studio-server",
     configureServer(server) {
       const projectManifestGlob = path.join(process.cwd(), "projects", "*", "meta", "project.json");
-      const projectChangeSignal = path.join(process.cwd(), STUDIO_PROJECT_CHANGE_SIGNAL);
+      const projectChangeSignal = ensureStudioProjectChangeSignalDirectory();
       let projectRefreshTimer: ReturnType<typeof setTimeout> | null = null;
       const scheduleProjectRefresh = (filePath: string) => {
         if (
