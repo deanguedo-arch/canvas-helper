@@ -16,6 +16,8 @@ Implementation commits:
 - [`1b221ee9` — harden editing and onboard the course catalog](https://github.com/deanguedo-arch/canvas-helper/commit/1b221ee9ad9594a7166572494448e1db32f6e0e1)
 - [`99b8f3bb` — close independent Direct Editing audit gaps](https://github.com/deanguedo-arch/canvas-helper/commit/99b8f3bbafc2cb4b546f8115d95ab8207a78b33b)
 - [`4e5f8c7f` — make rejected-edit rollback complete and residue-free](https://github.com/deanguedo-arch/canvas-helper/commit/4e5f8c7f726aef7f8cd98d74c326d07ba06433f2)
+- [`73ef39bc` — finish export-graph, lock-cleanup, and audit-evidence remediation](https://github.com/deanguedo-arch/canvas-helper/commit/73ef39bc2c288acf5cba4585103bcc915f332483)
+- [`bd67e342` — make first-course live discovery reliable on clean Linux checkouts](https://github.com/deanguedo-arch/canvas-helper/commit/bd67e342589007ef275001a9e04038fad670d41c)
 
 ## August 13 independent follow-up and remediation
 
@@ -40,7 +42,10 @@ The requested changes are implemented on the current branch:
 
 Current focused evidence from the remediation checkout:
 
+- The first exact-head PR run (`31733602382`) passed focused Direct Editing and export tests, then exposed a clean-Linux first-course discovery defect in one of 58 browser scenarios. Commit `bd67e342` creates the exact signal parent before subscribing; the formerly failing clean-checkout scenario then passed 1/1. Require the replacement run to be green rather than disregarding the original failure.
 - `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed.
+- `npm run test:studio-inspection -- --test-reporter=dot` — 148/148 passed after the clean-checkout watcher regression was added.
+- The formerly failing clean-checkout E2E, `a Codex-created course appears live with its visual Edit map ready`, passed 1/1 after deleting the operational signal directory before server startup.
 - `npm run verify:course-editing-pilots` — 4/4 passed together: real Direct, English, Social, and snapshot courses each completed route-level Apply, applicable rebuild/materialization, learner render, reload, HTTP server restart, Undo, and byte-for-byte restoration.
 - `npm run verify:course-onboarding -- --all` — 63/63 enabled projects passed in a clean checkout at `4e5f8c7f`; outcomes were 50 reversible learner-render cycles, 12 honest no-source-owned-text-target results, and one safely restored no-learner-stable-text-target result.
 - `npm run test:exports` — 55/55 SCORM, Google Hosted, and Apps Script tests passed before documentation-only follow-up.
