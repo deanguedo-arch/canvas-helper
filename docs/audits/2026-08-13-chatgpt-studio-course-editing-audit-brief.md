@@ -18,6 +18,7 @@ Implementation commits:
 - [`4e5f8c7f` — make rejected-edit rollback complete and residue-free](https://github.com/deanguedo-arch/canvas-helper/commit/4e5f8c7f726aef7f8cd98d74c326d07ba06433f2)
 - [`73ef39bc` — finish export-graph, lock-cleanup, and audit-evidence remediation](https://github.com/deanguedo-arch/canvas-helper/commit/73ef39bc2c288acf5cba4585103bcc915f332483)
 - [`bd67e342` — make first-course live discovery reliable on clean Linux checkouts](https://github.com/deanguedo-arch/canvas-helper/commit/bd67e342589007ef275001a9e04038fad670d41c)
+- [`ef30b252` — provision the catalog authoring runtime and mirror browser text bounds](https://github.com/deanguedo-arch/canvas-helper/commit/ef30b252dab156804bede46546c9986c92483398)
 
 ## August 13 independent follow-up and remediation
 
@@ -43,8 +44,9 @@ The requested changes are implemented on the current branch:
 Current focused evidence from the remediation checkout:
 
 - The first exact-head PR run (`31733602382`) passed focused Direct Editing and export tests, then exposed a clean-Linux first-course discovery defect in one of 58 browser scenarios. Commit `bd67e342` creates the exact signal parent before subscribing; the formerly failing clean-checkout scenario then passed 1/1. Require the replacement run to be green rather than disregarding the original failure.
+- The second exact-head PR run (`31735152410`) passed focused editing, export evidence, the complete Studio release gate, and all four real adapter pilots. Its catalog step found that Macbeth's declared rebuild requires Poppler/Tesseract OCR, which the runner lacked, and that a later fallback candidate exceeded the browser's 320-character visible-text contract. Commit `ef30b252` installs the declared OCR runtime in CI and makes the verifier use the same shared browser bound. Macbeth then passed its real public-route lifecycle 1/1 locally. Require the next exact-head run to pass all 63 courses.
 - `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed.
-- `npm run test:studio-inspection -- --test-reporter=dot` — 148/148 passed after the clean-checkout watcher regression was added.
+- `npm run test:studio-inspection -- --test-reporter=dot` — 149/149 passed after the clean-checkout watcher and catalog-bound regressions were added.
 - The formerly failing clean-checkout E2E, `a Codex-created course appears live with its visual Edit map ready`, passed 1/1 after deleting the operational signal directory before server startup.
 - `npm run verify:course-editing-pilots` — 4/4 passed together: real Direct, English, Social, and snapshot courses each completed route-level Apply, applicable rebuild/materialization, learner render, reload, HTTP server restart, Undo, and byte-for-byte restoration.
 - `npm run verify:course-onboarding -- --all` — 63/63 enabled projects passed in a clean checkout at `4e5f8c7f`; outcomes were 50 reversible learner-render cycles, 12 honest no-source-owned-text-target results, and one safely restored no-learner-stable-text-target result.

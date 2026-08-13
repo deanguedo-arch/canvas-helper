@@ -9,7 +9,7 @@
 - Branch: `codex/studio-direct-editing-v1`
 - Focused draft PR: `https://github.com/deanguedo-arch/canvas-helper/pull/1`
 - PR base: `codex/studio-roadmap-phases` at `74b0c3ee7de150472c10f172a664ee658050f2ca`
-- Remediation implementation commits: `99b8f3bbafc2cb4b546f8115d95ab8207a78b33b`, `4e5f8c7f726aef7f8cd98d74c326d07ba06433f2`, `73ef39bc2c288acf5cba4585103bcc915f332483`, and `bd67e342589007ef275001a9e04038fad670d41c`
+- Remediation implementation commits: `99b8f3bbafc2cb4b546f8115d95ab8207a78b33b`, `4e5f8c7f726aef7f8cd98d74c326d07ba06433f2`, `73ef39bc2c288acf5cba4585103bcc915f332483`, `bd67e342589007ef275001a9e04038fad670d41c`, and `ef30b252dab156804bede46546c9986c92483398`
 - Audit packet: `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
 - Independent finding record: `docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md`
 - The PR must remain draft until the exact-head GitHub workflow is green and an independent re-audit accepts the boundary. Do not merge based only on local implementation evidence.
@@ -25,6 +25,7 @@
 - Catalog acceptance passed 63/63: 50 projects completed a reversible rendered learner lifecycle, 12 honestly reported no source-owned text target, and Aboriginal Studies 30 safely reported no learner-stable sampled text target after exact restoration.
 - Real Direct, English, Social, and snapshot pilots passed together through HTTP Apply, rebuild/materialization, learner render, reload, server restart, route-level Undo, and byte-for-byte restoration.
 - The first exact-head PR workflow exposed a clean-Linux-only live-discovery defect: the first `course:create` signal was watched before its parent directory existed. Studio now creates that exact operational directory before subscribing, and the formerly failing clean-checkout browser scenario passes.
+- The second exact-head workflow passed the release gate and all four real pilots, then exposed two catalog-environment mismatches: Macbeth's declared factory needs Poppler/Tesseract OCR, and a later verifier sample exceeded the browser's shared 320-character text bound. CI now installs the OCR runtime and the verifier mirrors the browser bound; Macbeth passes its route-level lifecycle locally.
 - No tracked learner course content remains changed from verification. The user's unrelated local duplicate, archive, resource, and transaction paths remain untouched and unstaged.
 
 ## Files changed
@@ -39,6 +40,7 @@
 - `app/server/routes/course-edits.ts`
 - `app/server/studio-server.ts`
 - `scripts/lib/course-editing/http-route-harness.ts`
+- `scripts/lib/course-editing/catalog-pilot.ts`
 - `scripts/lib/course-editing/export-freshness.ts`
 
 ### Generated ownership, inspection, and teacher workflow
@@ -88,6 +90,7 @@
 - Export evidence V2 fingerprints target identity, workspace bytes, normalized manifest, Studio metadata, package state, recursive local exporter imports including side-effect-only imports, and artifact bytes. SCORM 1.2 and SCORM 2004 remain independent.
 - Public HTTP route harnesses cover body limits and restart lifecycles. Snapshot materialization loads every declared page from its own source.
 - `.github/workflows/studio-direct-editing.yml` runs focused tests, exports, the source-locked Studio release gate, all four real pilots, and the full catalog on every PR revision and branch push, then uploads SHA-bearing reports.
+- The workflow installs the Poppler/Tesseract runtime required by the declared Macbeth factory, and catalog selections use the same shared visible-text ceiling as the browser bridge.
 - Studio creates `.runtime/course-create/` before registering the exact signal-file watcher, so the first Codex-created course appears live on clean Linux as well as established local checkouts.
 
 ## Why this changed
@@ -119,8 +122,9 @@
   - strict project contract 1/1 passed
   - report `ok: true`, `sourceChangedDuringRun: false`, 523 fingerprinted source files, digest `5e8e06cc12fe77cd70b6aa59c880e90eadd4455fbe4619d2d44169b9cb70e6ec`
 - `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed after the final exporter dependency and stale-lock cleanup changes.
-- `npm run test:studio-inspection -- --test-reporter=dot` — 148/148 passed after the clean-Linux watcher fix.
+- `npm run test:studio-inspection -- --test-reporter=dot` — 149/149 passed after the clean-Linux watcher and catalog-bound fixes.
 - Clean checkout with `.runtime/course-create/` absent: the exact formerly failing Codex-created-course live-discovery E2E passed 1/1.
+- Clean checkout with OCR support available: `npm run verify:course-onboarding -- --project ela20-1-shakespeare-macbeth` — 1/1 passed through the public route and exact restoration.
 - Clean implementation checkout at `4e5f8c7f726aef7f8cd98d74c326d07ba06433f2`: `npm run verify:course-editing-pilots` — 4/4 passed with HTTP server restart and exact restoration.
 - Same clean checkout: `npm run verify:course-onboarding -- --all` — 63/63 passed: 50 reversible learner cycles, 12 no-source-owned-text-target outcomes, one no-learner-stable-text-target outcome, zero failures.
 - Same clean checkout: `npm run course:onboard -- --all` — 66 tracked project directories, 65 manifests, retain-only for all source-backed projects; one tracked package archive classification.
@@ -154,7 +158,7 @@
 
 ## What still needs validation
 
-- Push the clean-checkout watcher fix and updated evidence, then require the replacement exact-head GitHub Actions workflow to pass and retain its three SHA-bearing reports.
+- Push the catalog-runtime fix and updated evidence, then require the replacement exact-head GitHub Actions workflow to pass and retain its three SHA-bearing reports.
 - Give PR #1 and `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md` to the independent auditor for a fresh verdict.
 - Brightspace upload, deployed-host acceptance, and cross-browser SCORM save/restore remain external per-export checks.
 - Broad inline editing for runtime-owned courses, Aboriginal Studies runtime/contrast repair, CALM Module 4 lifecycle repair, and recovery/import of package-only sources remain separate follow-up work.
