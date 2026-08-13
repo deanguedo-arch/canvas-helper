@@ -1,7 +1,7 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
 import { constants as fsConstants } from "node:fs";
-import { chmod, copyFile, lstat, mkdir, readFile, readdir, realpath, rename, rm, writeFile } from "node:fs/promises";
+import { chmod, copyFile, lstat, mkdir, readFile, readdir, realpath, rename, rm } from "node:fs/promises";
 import path from "node:path";
 
 import { load } from "cheerio";
@@ -67,7 +67,9 @@ import {
 import { isPathInside } from "./validation";
 import {
   courseEditFingerprintsMatch,
+  classifyCourseEditBoundary,
   durableAtomicWrite,
+  fingerprintCourseEditPath,
   fingerprintCourseEditPaths,
   readCourseEditJournal,
   removeCourseEditJournal,
@@ -92,9 +94,15 @@ const COMMAND_TIMEOUT_MS = 6 * 60 * 1_000;
 const MAX_EXACT_RUNTIME_TEXT_CODE_UNITS = 280;
 
 class StaleCourseEditSourceError extends Error {
-  constructor(message = "The course changed while Studio prepared this batch. Reload it and select the element again.") {
+  readonly studioWrites: boolean;
+
+  constructor(
+    message = "The course changed while Studio prepared this batch. Reload it and select the element again.",
+    studioWrites = false
+  ) {
     super(message);
     this.name = "StaleCourseEditSourceError";
+    this.studioWrites = studioWrites;
   }
 }
 
@@ -331,6 +339,9 @@ async function resolveFromIdentity(identity: CourseEditTargetIdentity, repoRoot:
     ? elements.find((candidate) => candidate.editId === identity.editId && candidate.tagName === identity.tagName)
     : null;
   if (!element) throw new Error("The selected content no longer has the same stable edit identity.");
+  if (!element.replaySafe) {
+    throw new Error("Repeated content needs a durable data-canvas-helper-edit-key before Studio can target an edit safely.");
+  }
   if (courseEditElementDigest(document.source, element) !== identity.elementDigest) {
     throw new Error("This selected element changed after the draft was created. Reopen or relink this draft before applying it.");
   }
@@ -447,13 +458,18 @@ export async function resolveCourseEditPageMap(
         "This page is not a declared canonical editable source."
       );
     }
-  } else if (htmlPath !== "index.html") {
+  } else if (adapter !== "legacy-snapshot" && htmlPath !== "index.html") {
     return unavailablePageMap(
       projectSlug,
       htmlPath,
       document.sourceDigest,
       "Generated course edits are available only on the generated course entry page."
     );
+  } else if (adapter === "legacy-snapshot") {
+    const repoRelative = `projects/${projectSlug}/workspace/${htmlPath}`;
+    if (!project.canonicalSources.some((entry) => entry.kind === "file" && entry.repoRelative === repoRelative)) {
+      return unavailablePageMap(projectSlug, htmlPath, document.sourceDigest, "This snapshot page is not a declared canonical source.");
+    }
   }
 
   const editableElements = collectEditableHtmlElements(document.source, projectSlug, htmlPath);
@@ -484,7 +500,8 @@ export async function resolveCourseEditPageMap(
       ...baseCapabilities,
       richText: baseCapabilities.richText && isSafeCourseEditRichTextSource(originalHtml)
     };
-    const action = titleOwner ? "rename-course" : pageMapAction(element.tagName, capabilities);
+    const replayUnsafe = !element.replaySafe;
+    const action = titleOwner ? "rename-course" : replayUnsafe ? "annotation-only" : pageMapAction(element.tagName, capabilities);
     const annotationOnly = action === "annotation-only";
     const sourceText = normalizedCourseEditText(htmlText(originalHtml)).slice(0, 24_000);
     const attributes = decodedElementAttributes(document.source, element);
@@ -495,7 +512,9 @@ export async function resolveCourseEditPageMap(
       label: pageMapLabel(action),
       reason: titleOwner
         ? "Use Rename course so every title location stays synchronized."
-        : annotationOnly
+        : replayUnsafe
+          ? "Repeated content needs a durable data-canvas-helper-edit-key in its canonical source before Studio can target edits safely."
+          : annotationOnly
           ? "This element contains complex course structure and remains annotation-only."
           : capabilities.richText
             ? "Ready to edit."
@@ -550,8 +569,13 @@ export async function resolveCourseEditTarget(request: CourseEditResolveRequest,
     if (!project.editableSources.some((entry) => entry.kind === "file" && entry.repoRelative === repoRelative)) {
       return unsupportedTarget("This workspace page is not declared as a canonical editable source.");
     }
-  } else if (htmlPath !== "index.html") {
+  } else if (adapter !== "legacy-snapshot" && htmlPath !== "index.html") {
     return unsupportedTarget("Generated course edits are available only on the generated course entry page.");
+  } else if (adapter === "legacy-snapshot") {
+    const repoRelative = path.relative(repoRoot, sourcePath).split(path.sep).join("/");
+    if (!project.canonicalSources.some((entry) => entry.kind === "file" && entry.repoRelative === repoRelative)) {
+      return unsupportedTarget("This legacy snapshot page is not a declared preserved source.");
+    }
   }
   const element = editableElementForNode({
     source: document.source,
@@ -562,6 +586,11 @@ export async function resolveCourseEditTarget(request: CourseEditResolveRequest,
     editId: adapter === "direct" ? null : location.editId
   });
   if (!element) return unsupportedTarget("Select the text, link, image, caption, or button itself rather than its surrounding layout.");
+  if (!element.replaySafe) {
+    return unsupportedTarget(
+      "This repeated element needs a durable data-canvas-helper-edit-key in its canonical source before Studio can edit it safely."
+    );
+  }
   if (Object.hasOwn(element.attributes, "data-canvas-helper-course-title")) {
     return unsupportedTarget("Use Rename course so Studio can update every course title location together.");
   }
@@ -1207,7 +1236,9 @@ async function assertResolvedSourcesCurrent(resolved: Array<{ draft: CourseEditD
 
 async function applyDirectEdits(
   resolved: Array<{ draft: CourseEditDraft; target: ResolvedEditableTarget }>,
-  hooks: CourseEditExecutionHooks
+  hooks: CourseEditExecutionHooks,
+  repoRoot: string,
+  onPrepared: (expectedAfter: CourseEditPathFingerprint[]) => Promise<void>
 ) {
   const bySource = new Map<string, Array<{ draft: CourseEditDraft; target: ResolvedEditableTarget }>>();
   for (const entry of resolved) {
@@ -1228,13 +1259,22 @@ async function applyDirectEdits(
       if (operations.some(({ draft }) => Boolean(draft.patch.style))) next = ensureStudioEditStyles(next);
       const mode = (await lstat(sourcePath)).mode;
       const temporary = `${sourcePath}.studio-edit-${process.pid}-${Date.now()}-${prepared.length}`;
-      await writeFile(temporary, next, "utf8");
-      await chmod(temporary, mode);
+      await durableAtomicWrite(temporary, next, mode);
       prepared.push({ sourcePath, source, next, mode, temporary });
     }
+    const expectedAfter = await Promise.all(prepared.map(async (entry) => ({
+      ...await fingerprintCourseEditPath(repoRoot, entry.temporary),
+      repoRelativePath: path.relative(repoRoot, entry.sourcePath).split(path.sep).join("/")
+    })));
+    await onPrepared(expectedAfter);
     await hooks.beforeDirectCommit?.();
     await assertResolvedSourcesCurrent(resolved);
-    for (const entry of prepared) await rename(entry.temporary, entry.sourcePath);
+    let published = 0;
+    for (const entry of prepared) {
+      if (await readFile(entry.sourcePath, "utf8") !== entry.source) throw new StaleCourseEditSourceError(undefined, published > 0);
+      await rename(entry.temporary, entry.sourcePath);
+      published += 1;
+    }
   } finally {
     await Promise.all(prepared.map((entry) => rm(entry.temporary, { force: true })));
   }
@@ -1244,7 +1284,8 @@ async function applyDirectEdits(
 async function applyGeneratedEdits(
   projectSlug: string,
   resolved: Array<{ draft: CourseEditDraft; target: ResolvedEditableTarget }>,
-  repoRoot: string
+  repoRoot: string,
+  onOverridesSaved?: () => Promise<void>
 ) {
   await assertResolvedSourcesCurrent(resolved);
   const stored = await loadCourseEditOverrides(repoRoot, projectSlug);
@@ -1265,8 +1306,13 @@ async function applyGeneratedEdits(
   }
   const nextOverrides = [...byId.values()];
   for (const htmlPath of new Set(nextOverrides.map((entry) => entry.htmlPath))) {
+    const selectedPage = resolved.find((entry) => entry.draft.identity.htmlPath === htmlPath)?.target;
+    const source = selectedPage?.source ?? await readFile(
+      await resolveEditWorkspacePath(projectSlug, htmlPath, repoRoot),
+      "utf8"
+    );
     applyCourseEditOverridesToHtml({
-      html: resolved[0].target.source,
+      html: source,
       projectSlug,
       htmlPath,
       overrides: nextOverrides
@@ -1274,11 +1320,10 @@ async function applyGeneratedEdits(
   }
   await assertResolvedSourcesCurrent(resolved);
   await saveCourseEditOverrides(repoRoot, { schemaVersion: 1, projectSlug, updatedAt: now, overrides: nextOverrides });
+  await onOverridesSaved?.();
 }
 
-async function restoreCheckpointAndPriorUndo(checkpoint: CourseEditCheckpoint, repoRoot: string) {
-  await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
-  await restoreSnapshotFiles(repoRoot, checkpoint.files);
+async function restorePriorUndoCheckpoint(checkpoint: CourseEditCheckpoint, repoRoot: string) {
   const previousCheckpoint = checkpoint.previousCheckpointId
     ? await loadCheckpointVersion(checkpoint.projectSlug, checkpoint.previousCheckpointId, repoRoot)
     : null;
@@ -1287,11 +1332,48 @@ async function restoreCheckpointAndPriorUndo(checkpoint: CourseEditCheckpoint, r
   }
   if (previousCheckpoint) await writeCheckpoint(previousCheckpoint, repoRoot);
   else await rm(checkpointPath(repoRoot, checkpoint.projectSlug), { force: true });
+  await saveCourseEditStatus(checkpoint.previousStatus, repoRoot);
 }
 
-async function recoverInterruptedCourseEdit(projectSlug: string, repoRoot: string) {
+async function finishRolledBackTransaction(
+  journal: CourseEditTransactionJournal,
+  checkpoint: CourseEditCheckpoint,
+  repoRoot: string
+) {
+  await writeCourseEditJournal({ ...journal, phase: "rolled-back", cleanupCheckpointIds: [checkpoint.checkpointId] }, repoRoot);
+  await rm(checkpointBackupRoot(repoRoot, checkpoint.projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
+  await removeCourseEditJournal(checkpoint.projectSlug, repoRoot);
+}
+
+async function finishCommittedTransaction(
+  journal: CourseEditTransactionJournal,
+  repoRoot: string,
+  cleanupCheckpointIds: string[] = []
+) {
+  await writeCourseEditJournal({ ...journal, phase: "committed", cleanupCheckpointIds }, repoRoot);
+  for (const checkpointId of cleanupCheckpointIds) {
+    await rm(checkpointBackupRoot(repoRoot, journal.projectSlug, checkpointId), { recursive: true, force: true });
+  }
+  await removeCourseEditJournal(journal.projectSlug, repoRoot);
+}
+
+export async function recoverInterruptedCourseEdit(projectSlug: string, repoRoot: string) {
   const journal = await readCourseEditJournal(projectSlug, repoRoot);
   if (!journal) return;
+  if (journal.phase === "committed") {
+    for (const checkpointId of journal.cleanupCheckpointIds ?? []) {
+      await rm(checkpointBackupRoot(repoRoot, projectSlug, checkpointId), { recursive: true, force: true });
+    }
+    await removeCourseEditJournal(projectSlug, repoRoot);
+    return;
+  }
+  if (journal.phase === "rolled-back") {
+    for (const checkpointId of journal.cleanupCheckpointIds ?? (journal.checkpointId ? [journal.checkpointId] : [])) {
+      await rm(checkpointBackupRoot(repoRoot, projectSlug, checkpointId), { recursive: true, force: true });
+    }
+    await removeCourseEditJournal(projectSlug, repoRoot);
+    return;
+  }
   if (journal.phase === "manual-recovery") {
     throw new Error(
       "Studio preserved an interrupted transaction because files changed outside its lock. Inspect the recovery journal and checkpoint before choosing which work to keep."
@@ -1304,11 +1386,25 @@ async function recoverInterruptedCourseEdit(projectSlug: string, repoRoot: strin
   if (!recovery) {
     throw new Error("Studio found an interrupted course operation, but its recovery checkpoint is missing.");
   }
-  await writeCourseEditJournal({ ...journal, phase: "rolling-back" }, repoRoot);
-  await restoreCheckpointAndPriorUndo(recovery, repoRoot);
+  const current = await fingerprintCheckpointBoundary(recovery, repoRoot);
+  const expectedBefore = journal.expectedBefore.length ? journal.expectedBefore : recovery.expectedBefore;
+  const expectedAfter = journal.expectedAfter.length ? journal.expectedAfter : recovery.expectedAfter;
+  const boundaryState = classifyCourseEditBoundary(expectedBefore, expectedAfter, current);
+  if (boundaryState === "unknown") {
+    await writeCourseEditJournal({ ...journal, phase: "manual-recovery", expectedBefore, expectedAfter }, repoRoot);
+    throw new Error(
+      "Studio preserved the interrupted transaction because the current files do not match either its before state or its known writes. No files were restored; inspect the journal and checkpoint before choosing which work to keep."
+    );
+  }
+  const rollingBack = { ...journal, phase: "rolling-back" as const, expectedBefore, expectedAfter };
+  await writeCourseEditJournal(rollingBack, repoRoot);
+  if (boundaryState === "after" || boundaryState === "known-partial") {
+    await restoreSnapshotDirectories(repoRoot, recovery.directories);
+    await restoreSnapshotFiles(repoRoot, recovery.files);
+  }
+  await restorePriorUndoCheckpoint(recovery, repoRoot);
   await runValidation(projectSlug, repoRoot);
-  await rm(checkpointBackupRoot(repoRoot, projectSlug, recovery.checkpointId), { recursive: true, force: true });
-  await removeCourseEditJournal(projectSlug, repoRoot);
+  await finishRolledBackTransaction(rollingBack, recovery, repoRoot);
 }
 
 async function withProjectEditLock<T>(
@@ -1349,7 +1445,7 @@ export async function applyCourseEditBatch(
     if (!adapter || htmlPaths.length === 0 || resolved.some((entry) => entry.target.target.identity?.adapter !== adapter)) {
       throw new Error("All drafts in one batch must belong to the same course and edit adapter.");
     }
-    if (adapter !== "direct" && htmlPaths.length !== 1) {
+    if (adapter !== "direct" && adapter !== "legacy-snapshot" && htmlPaths.length !== 1) {
       throw new Error("Generated-course edit batches must target their single generated course page.");
     }
     assertNonOverlappingTargets(resolved);
@@ -1454,9 +1550,23 @@ export async function applyCourseEditBatch(
       journal = { ...journal, phase: "mutating" };
       await writeCourseEditJournal(journal, repoRoot);
       if (adapter === "direct") {
-        await applyDirectEdits(resolved, hooks);
+        await applyDirectEdits(resolved, hooks, repoRoot, async (expectedAfter) => {
+          checkpoint.expectedAfter = expectedAfter;
+          await writeCheckpoint(checkpoint, repoRoot);
+          journal = { ...journal, expectedAfter };
+          await writeCourseEditJournal(journal, repoRoot);
+        });
       } else {
-        await applyGeneratedEdits(request.projectSlug, resolved, repoRoot);
+        await applyGeneratedEdits(request.projectSlug, resolved, repoRoot, async () => {
+          // Generated builders publish from staging, so the persisted override
+          // is a complete known intermediate boundary. Recording it lets a
+          // pre-commit builder failure roll back automatically while any
+          // unknown partial builder publication still fails closed.
+          checkpoint.expectedAfter = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+          await writeCheckpoint(checkpoint, repoRoot);
+          journal = { ...journal, expectedAfter: checkpoint.expectedAfter };
+          await writeCourseEditJournal(journal, repoRoot);
+        });
         await runRebuild(request.projectSlug, adapter, repoRoot);
         clearPreviewInspectionDocumentCache();
       }
@@ -1471,28 +1581,30 @@ export async function applyCourseEditBatch(
         checks: checkpoint.renderAfter
       });
     } catch (error) {
-      const sourcesAlreadyChanged = error instanceof StaleCourseEditSourceError;
-      if (!sourcesAlreadyChanged) {
-        if (
-          checkpoint.expectedAfter.length &&
-          !courseEditFingerprintsMatch(checkpoint.expectedAfter, await fingerprintCheckpointBoundary(checkpoint, repoRoot))
-        ) {
-          journal = { ...journal, phase: "manual-recovery" };
-          await writeCourseEditJournal(journal, repoRoot);
-          throw new Error(
-            "Studio paused automatic rollback because the course changed again during validation. The recovery journal and checkpoint were preserved; inspect the newer files before recovering this batch."
-          );
-        }
-        journal = { ...journal, phase: "rolling-back" };
+      const current = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+      const boundaryState = classifyCourseEditBoundary(checkpoint.expectedBefore, checkpoint.expectedAfter, current);
+      const staleBeforeStudioWrite = error instanceof StaleCourseEditSourceError && !error.studioWrites;
+      if (boundaryState === "unknown" && !staleBeforeStudioWrite) {
+        journal = { ...journal, phase: "manual-recovery", expectedAfter: checkpoint.expectedAfter };
         await writeCourseEditJournal(journal, repoRoot);
-        await restoreCheckpointAndPriorUndo(checkpoint, repoRoot);
-      } else if (previousCheckpoint) {
-        await writeCheckpoint(previousCheckpoint, repoRoot);
-      } else {
-        await rm(checkpointPath(repoRoot, request.projectSlug), { force: true });
+        throw new Error(
+          "Studio paused automatic rollback because the current course is not one of its known before, after, or partial-write states. No newer files were overwritten; inspect the preserved journal and checkpoint."
+        );
       }
-      await rm(checkpointBackupRoot(repoRoot, request.projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
-      await removeCourseEditJournal(request.projectSlug, repoRoot);
+      journal = { ...journal, phase: "rolling-back", expectedAfter: checkpoint.expectedAfter };
+      await writeCourseEditJournal(journal, repoRoot);
+      if (boundaryState === "after" || boundaryState === "known-partial") {
+        await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
+        await restoreSnapshotFiles(repoRoot, checkpoint.files);
+      }
+      await restorePriorUndoCheckpoint(checkpoint, repoRoot);
+      if (boundaryState === "after" || boundaryState === "known-partial") {
+        if (!courseEditFingerprintsMatch(checkpoint.expectedBefore, await fingerprintCheckpointBoundary(checkpoint, repoRoot))) {
+          throw new Error("Studio rollback did not restore the recorded pre-edit boundary.");
+        }
+        await validateRenderedCourseEdits({ repoRoot, projectSlug: request.projectSlug, checks: checkpoint.renderBefore });
+      }
+      await finishRolledBackTransaction(journal, checkpoint, repoRoot);
       throw error;
     }
 
@@ -1516,12 +1628,13 @@ export async function applyCourseEditBatch(
       lastAppliedAt: new Date().toISOString()
     };
     await saveCourseEditStatus(status, repoRoot);
-    await removeCourseEditJournal(request.projectSlug, repoRoot);
-    checkpoint.previousCheckpointId = null;
-    await writeCheckpoint(checkpoint, repoRoot);
-    if (previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId) {
-      await rm(checkpointBackupRoot(repoRoot, request.projectSlug, previousCheckpoint.checkpointId), { recursive: true, force: true });
-    }
+    await finishCommittedTransaction(
+      journal,
+      repoRoot,
+      previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId
+        ? [previousCheckpoint.checkpointId]
+        : []
+    );
     return {
       ...status,
       ok: true,
@@ -1582,6 +1695,7 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       renderAfter: checkpoint.renderBefore
     };
     recovery.expectedBefore = await fingerprintCheckpointBoundary(recovery, repoRoot);
+    recovery.expectedAfter = checkpoint.expectedBefore;
     await writeCheckpoint(recovery, repoRoot);
     let journal: CourseEditTransactionJournal = {
       schemaVersion: 1,
@@ -1593,7 +1707,7 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       startedAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       expectedBefore: recovery.expectedBefore,
-      expectedAfter: []
+      expectedAfter: recovery.expectedAfter
     };
     await writeCourseEditJournal(journal, repoRoot);
     try {
@@ -1601,37 +1715,40 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       await writeCourseEditJournal(journal, repoRoot);
       await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
       await restoreSnapshotFiles(repoRoot, checkpoint.files);
-      recovery.expectedAfter = await fingerprintCheckpointBoundary(recovery, repoRoot);
-      await writeCheckpoint(recovery, repoRoot);
+      const restored = await fingerprintCheckpointBoundary(recovery, repoRoot);
+      if (!courseEditFingerprintsMatch(recovery.expectedAfter, restored)) {
+        throw new Error("Undo restored files that do not match the recorded pre-edit boundary.");
+      }
       journal = { ...journal, phase: "validating", expectedAfter: recovery.expectedAfter };
       await writeCourseEditJournal(journal, repoRoot);
       await runValidation(projectSlug, repoRoot);
       await validateRenderedCourseEdits({ repoRoot, projectSlug, checks: checkpoint.renderBefore });
     } catch (error) {
-      if (
-        recovery.expectedAfter.length &&
-        !courseEditFingerprintsMatch(recovery.expectedAfter, await fingerprintCheckpointBoundary(recovery, repoRoot))
-      ) {
-        journal = { ...journal, phase: "manual-recovery" };
+      const current = await fingerprintCheckpointBoundary(recovery, repoRoot);
+      const boundaryState = classifyCourseEditBoundary(recovery.expectedBefore, recovery.expectedAfter, current);
+      if (boundaryState === "unknown") {
+        journal = { ...journal, phase: "manual-recovery", expectedAfter: recovery.expectedAfter };
         await writeCourseEditJournal(journal, repoRoot);
         throw new Error(
-          "Studio paused Undo recovery because the course changed again during validation. The recovery journal and both checkpoints were preserved."
+          "Studio paused Undo recovery because the current course is not one of its known before, after, or partial-write states. No newer files were overwritten; both checkpoints were preserved."
         );
       }
-      journal = { ...journal, phase: "rolling-back" };
+      journal = { ...journal, phase: "rolling-back", expectedAfter: recovery.expectedAfter };
       await writeCourseEditJournal(journal, repoRoot);
-      await restoreCheckpointAndPriorUndo(recovery, repoRoot);
-      await removeCourseEditJournal(projectSlug, repoRoot);
-      throw error;
-    } finally {
-      if (!await readCourseEditJournal(projectSlug, repoRoot)) {
-        await rm(checkpointBackupRoot(repoRoot, projectSlug, undoRecoveryId), { recursive: true, force: true });
+      if (boundaryState === "after" || boundaryState === "known-partial") {
+        await restoreSnapshotDirectories(repoRoot, recovery.directories);
+        await restoreSnapshotFiles(repoRoot, recovery.files);
       }
+      await restorePriorUndoCheckpoint(recovery, repoRoot);
+      if (boundaryState === "after" || boundaryState === "known-partial") {
+        if (!courseEditFingerprintsMatch(recovery.expectedBefore, await fingerprintCheckpointBoundary(recovery, repoRoot))) {
+          throw new Error("Studio Undo recovery did not restore the recorded applied boundary.");
+        }
+        await validateRenderedCourseEdits({ repoRoot, projectSlug, checks: recovery.renderBefore });
+      }
+      await finishRolledBackTransaction(journal, recovery, repoRoot);
+      throw error;
     }
-    await rm(checkpointPath(repoRoot, projectSlug), { force: true });
-    await rm(checkpointBackupRoot(repoRoot, projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
-    await rm(checkpointBackupRoot(repoRoot, projectSlug, recovery.checkpointId), { recursive: true, force: true });
-    await removeCourseEditJournal(projectSlug, repoRoot);
     const staleTargets = await staleExportTargets(projectSlug, repoRoot);
     const status = {
       ...checkpoint.previousStatus,
@@ -1642,6 +1759,8 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       staleExportTargets: staleTargets
     };
     await saveCourseEditStatus(status, repoRoot);
+    await rm(checkpointPath(repoRoot, projectSlug), { force: true });
+    await finishCommittedTransaction(journal, repoRoot, [checkpoint.checkpointId, recovery.checkpointId]);
     return {
       ...status,
       ok: true,
@@ -1672,22 +1791,39 @@ export async function uploadCourseEditImageAsset(input: {
   htmlPath: string;
   bytes: Buffer;
   repoRoot?: string;
+  afterCanonicalPublish?: () => void | Promise<void>;
 }) {
   const repoRoot = input.repoRoot ?? defaultRepoRoot;
-  const image = validateCourseEditImage(input.bytes);
+  const image = await validateCourseEditImage(input.bytes);
   return await withProjectEditLock(input.projectSlug, "asset-upload", repoRoot, async () => {
     const { project, adapter, reason } = await resolveCourseProject(input.projectSlug, repoRoot);
     if (!project || !adapter) throw new Error(reason || "This course cannot accept Studio image assets.");
     if (!project.studioEditing.imageAssets) throw new Error("This course has not been explicitly onboarded for Studio image uploads.");
     await resolveEditWorkspacePath(input.projectSlug, input.htmlPath, repoRoot);
-    const digest = createHash("sha256").update(input.bytes).digest("hex").slice(0, 24);
+    const digest = createHash("sha256").update(input.bytes).digest("hex");
     const filename = `${digest}.${image.extension}`;
     const resourceDir = await ensureCourseEditAssetDirectory(repoRoot, ["projects", "resources", input.projectSlug, "studio-assets"]);
     const workspaceDir = await ensureCourseEditAssetDirectory(repoRoot, ["projects", input.projectSlug, "workspace", "assets", "custom", "studio"]);
     const resourcePath = path.join(resourceDir, filename);
     const workspacePath = path.join(workspaceDir, filename);
-    await durableAtomicWrite(resourcePath, input.bytes, 0o644);
-    await durableAtomicWrite(workspacePath, input.bytes, 0o644);
+    const publish = async (targetPath: string) => {
+      try {
+        const stats = await lstat(targetPath);
+        if (!stats.isFile() || stats.isSymbolicLink()) throw new Error("A Studio asset path is not a regular file.");
+        if (!(await readFile(targetPath)).equals(input.bytes)) {
+          throw new Error("A content-addressed Studio asset does not match its recorded digest.");
+        }
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+        await durableAtomicWrite(targetPath, input.bytes, 0o644);
+      }
+    };
+    // The canonical resource is published first. Both destinations are keyed
+    // by the full content digest and verified on retry, so interruption can
+    // leave only an unreferenced canonical copy and a retry safely completes.
+    await publish(resourcePath);
+    await input.afterCanonicalPublish?.();
+    await publish(workspacePath);
     const workspaceRelative = `assets/custom/studio/${filename}`;
     const src = path.posix.relative(path.posix.dirname(input.htmlPath), workspaceRelative) || filename;
     return {
@@ -1848,19 +1984,29 @@ export async function renameCourseForStudio(input: {
       await runValidation(input.projectSlug, repoRoot);
       await validateRenderedCourseEdits({ repoRoot, projectSlug: input.projectSlug, checks: checkpoint.renderAfter });
     } catch (error) {
-      if (
-        checkpoint.expectedAfter.length &&
-        !courseEditFingerprintsMatch(checkpoint.expectedAfter, await fingerprintCheckpointBoundary(checkpoint, repoRoot))
-      ) {
-        journal = { ...journal, phase: "manual-recovery" };
+      const current = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+      const boundaryState = classifyCourseEditBoundary(checkpoint.expectedBefore, checkpoint.expectedAfter, current);
+      if (boundaryState === "unknown") {
+        journal = { ...journal, phase: "manual-recovery", expectedAfter: checkpoint.expectedAfter };
         await writeCourseEditJournal(journal, repoRoot);
-        throw new Error("Studio paused rename rollback because the course changed again during validation. The recovery journal was preserved.");
+        throw new Error(
+          "Studio paused rename rollback because the current course is not one of its known before, after, or partial-write states. No newer files were overwritten; the recovery journal was preserved."
+        );
       }
-      journal = { ...journal, phase: "rolling-back" };
+      journal = { ...journal, phase: "rolling-back", expectedAfter: checkpoint.expectedAfter };
       await writeCourseEditJournal(journal, repoRoot);
-      await restoreCheckpointAndPriorUndo(checkpoint, repoRoot);
-      await rm(checkpointBackupRoot(repoRoot, input.projectSlug, checkpoint.checkpointId), { recursive: true, force: true });
-      await removeCourseEditJournal(input.projectSlug, repoRoot);
+      if (boundaryState === "after" || boundaryState === "known-partial") {
+        await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
+        await restoreSnapshotFiles(repoRoot, checkpoint.files);
+      }
+      await restorePriorUndoCheckpoint(checkpoint, repoRoot);
+      if (boundaryState === "after" || boundaryState === "known-partial") {
+        if (!courseEditFingerprintsMatch(checkpoint.expectedBefore, await fingerprintCheckpointBoundary(checkpoint, repoRoot))) {
+          throw new Error("Studio rename rollback did not restore the recorded pre-rename boundary.");
+        }
+        await validateRenderedCourseEdits({ repoRoot, projectSlug: input.projectSlug, checks: checkpoint.renderBefore });
+      }
+      await finishRolledBackTransaction(journal, checkpoint, repoRoot);
       throw error;
     }
     const staleTargets = await staleExportTargets(input.projectSlug, repoRoot);
@@ -1879,12 +2025,13 @@ export async function renameCourseForStudio(input: {
       lastAppliedAt: new Date().toISOString()
     };
     await saveCourseEditStatus(status, repoRoot);
-    await removeCourseEditJournal(input.projectSlug, repoRoot);
-    checkpoint.previousCheckpointId = null;
-    await writeCheckpoint(checkpoint, repoRoot);
-    if (previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId) {
-      await rm(checkpointBackupRoot(repoRoot, input.projectSlug, previousCheckpoint.checkpointId), { recursive: true, force: true });
-    }
+    await finishCommittedTransaction(
+      journal,
+      repoRoot,
+      previousCheckpoint && previousCheckpoint.checkpointId !== checkpoint.checkpointId
+        ? [previousCheckpoint.checkpointId]
+        : []
+    );
     return {
       ...status,
       ok: true,

@@ -1,5 +1,9 @@
 import assert from "node:assert/strict";
-import { mkdtemp, mkdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
+import { spawn } from "node:child_process";
+import { randomUUID } from "node:crypto";
+import { access, mkdtemp, mkdir, readFile, rm, stat, symlink, writeFile } from "node:fs/promises";
+import { createServer } from "node:http";
+import { once } from "node:events";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -7,14 +11,21 @@ import test from "node:test";
 import {
   COURSE_EDIT_SCHEMA_VERSION,
   isCourseEditApplyRequest,
+  isCourseEditDraft,
   type CourseEditDraft,
   type CourseEditResolveRequest,
   type CourseEditTarget
 } from "../../app/shared/course-editing.ts";
+import { handleCourseEditsRoute } from "../../app/server/routes/course-edits.ts";
+import {
+  loadCourseEditDrafts,
+  saveCourseEditDrafts
+} from "../../app/studio/src/lib/course-edit-storage.ts";
 import {
   applyCourseEditBatch,
   getCourseEditStatus,
   markCourseExportCurrent,
+  recoverInterruptedCourseEdit,
   renameCourseForStudio,
   resolveCourseEditPageMap,
   resolveCourseEditTarget,
@@ -33,6 +44,7 @@ import {
   sanitizeCourseEditRichText,
   sanitizeCourseEditUrl
 } from "../lib/course-editing/html.ts";
+import { fingerprintCourseExportInputs } from "../lib/course-editing/export-freshness.ts";
 
 const SLUG = "studio-edit-fixture";
 const ORIGINAL_HTML = `<!doctype html>
@@ -230,6 +242,56 @@ function draftFor(target: CourseEditTarget & { identity: NonNullable<CourseEditT
   };
 }
 
+async function startCourseEditRouteServer(repoRoot: string) {
+  const server = createServer((request, response) => {
+    const pathname = new URL(request.url ?? "/", "http://127.0.0.1").pathname;
+    void handleCourseEditsRoute(pathname, request, response, { repoRoot }).then((handled) => {
+      if (!handled && !response.writableEnded) {
+        response.statusCode = 404;
+        response.end("Not found");
+      }
+    }).catch((error) => {
+      response.statusCode = 500;
+      response.end(error instanceof Error ? error.message : String(error));
+    });
+  });
+  server.listen(0, "127.0.0.1");
+  await once(server, "listening");
+  const address = server.address();
+  assert.ok(address && typeof address !== "string");
+  return {
+    origin: `http://127.0.0.1:${address.port}`,
+    async close() {
+      server.close();
+      await once(server, "close");
+    }
+  };
+}
+
+async function routeJson<T>(origin: string, pathname: string, method: "GET" | "POST", body?: unknown): Promise<T> {
+  const response = await fetch(`${origin}${pathname}`, {
+    method,
+    headers: body === undefined ? undefined : { "content-type": "application/json" },
+    body: body === undefined ? undefined : JSON.stringify(body)
+  });
+  const result = await response.json() as T & { error?: string };
+  assert.equal(response.ok, true, result.error ?? `Route returned ${response.status}.`);
+  return result;
+}
+
+async function writeFileFromIndependentProcess(filePath: string, content: string) {
+  const child = spawn(process.execPath, [
+    "--eval",
+    'require("node:fs").writeFileSync(process.argv[1], Buffer.from(process.argv[2], "base64"))',
+    filePath,
+    Buffer.from(content, "utf8").toString("base64")
+  ], { stdio: ["ignore", "ignore", "pipe"] });
+  let errorOutput = "";
+  child.stderr.on("data", (chunk) => { errorOutput += chunk.toString(); });
+  const [exitCode] = await once(child, "exit");
+  assert.equal(exitCode, 0, errorOutput);
+}
+
 test("direct Studio edits apply atomically, mark exports stale, and undo", async () => {
   const fixture = await createFixture();
   try {
@@ -293,6 +355,113 @@ test("legacy snapshot edits use replayable overrides and Undo restores the page 
     await undoCourseEditBatch(SLUG, fixture.repoRoot);
     assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
     await assert.rejects(readFile(overridesPath, "utf8"), { code: "ENOENT" });
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("legacy snapshot completes serialized draft, HTTP apply, server restart, and HTTP undo lifecycle", async () => {
+  const fixture = await createFixture();
+  let server: Awaited<ReturnType<typeof startCourseEditRouteServer>> | null = null;
+  try {
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
+    manifest.authoring = {
+      driverId: "legacy-snapshot-v1",
+      familyId: "legacy-snapshot",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+    };
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    const before = await readFile(fixture.sourcePath, "utf8");
+    const document = decoratePreviewHtml(before);
+    assert.ok(document);
+
+    server = await startCourseEditRouteServer(fixture.repoRoot);
+    const target = await routeJson<CourseEditTarget>(server.origin, "/api/course-edits/resolve", "POST", requestFor(document, "h1"));
+    assert.equal(target.eligibility, "editable");
+    assert.ok(target.identity);
+    assert.equal(target.identity.adapter, "legacy-snapshot");
+    const savedDraft = draftFor(
+      target as CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> },
+      "Snapshot route lifecycle"
+    );
+    const values = new Map<string, string>();
+    const localStorage = {
+      getItem(key: string) { return values.get(key) ?? null; },
+      setItem(key: string, value: string) { values.set(key, value); },
+      removeItem(key: string) { values.delete(key); },
+      clear() { values.clear(); },
+      key(index: number) { return [...values.keys()][index] ?? null; },
+      get length() { return values.size; }
+    };
+    const previousWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
+    let serializedDraft: CourseEditDraft;
+    Object.defineProperty(globalThis, "window", { configurable: true, value: { localStorage } });
+    try {
+      assert.equal(saveCourseEditDrafts(SLUG, [savedDraft]), true);
+      serializedDraft = JSON.parse(JSON.stringify(loadCourseEditDrafts(SLUG)[0])) as CourseEditDraft;
+    } finally {
+      if (previousWindow) Object.defineProperty(globalThis, "window", previousWindow);
+      else Reflect.deleteProperty(globalThis, "window");
+    }
+    assert.equal(isCourseEditDraft(serializedDraft), true);
+
+    const applied = await routeJson<{ ok: boolean; canUndo: boolean }>(
+      server.origin,
+      `/api/projects/${SLUG}/course-edits/apply`,
+      "POST",
+      { schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: SLUG, drafts: [serializedDraft] }
+    );
+    assert.equal(applied.ok, true);
+    assert.equal(applied.canUndo, true);
+    assert.match(await readFile(fixture.sourcePath, "utf8"), /Snapshot route lifecycle/);
+
+    await server.close();
+    server = null;
+    server = await startCourseEditRouteServer(fixture.repoRoot);
+    const restarted = await routeJson<{ canUndo: boolean }>(server.origin, `/api/projects/${SLUG}/course-edits/status`, "GET");
+    assert.equal(restarted.canUndo, true);
+    const undone = await routeJson<{ ok: boolean; canUndo: boolean }>(
+      server.origin,
+      `/api/projects/${SLUG}/course-edits/undo`,
+      "POST"
+    );
+    assert.equal(undone.ok, true);
+    assert.equal(undone.canUndo, false);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
+  } finally {
+    await server?.close().catch(() => undefined);
+    await fixture.cleanup();
+  }
+});
+
+test("one legacy snapshot batch materializes and undoes each page against its own source", async () => {
+  const fixture = await createFixture();
+  const lessonPath = path.join(fixture.repoRoot, "projects", SLUG, "workspace", "lesson.html");
+  try {
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
+    manifest.authoring = {
+      driverId: "legacy-snapshot-v1",
+      familyId: "legacy-snapshot",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+    };
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const lessonTarget = await resolveElement(fixture.repoRoot, lessonPath, "h2", "lesson.html");
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [
+        draftFor(target, "Current index update"),
+        { ...draftFor(lessonTarget, "Current lesson update"), id: "draft-2" }
+      ]
+    }, fixture.repoRoot);
+    assert.match(await readFile(fixture.sourcePath, "utf8"), /Current index update/);
+    assert.match(await readFile(lessonPath, "utf8"), /Current lesson update/);
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    assert.equal(await readFile(lessonPath, "utf8"), SECOND_HTML);
   } finally {
     await fixture.cleanup();
   }
@@ -379,7 +548,7 @@ test("filesystem lock refuses a second Studio server before any mutation", async
     await mkdir(lockRoot, { recursive: true });
     await writeFile(path.join(lockRoot, "owner.json"), `${JSON.stringify({
       schemaVersion: 1,
-      lockId: "external-studio",
+      lockId: randomUUID(),
       projectSlug: SLUG,
       operation: "apply",
       pid: process.pid,
@@ -400,7 +569,46 @@ test("filesystem lock refuses a second Studio server before any mutation", async
   }
 });
 
-test("an interrupted multi-file transaction is recovered from its durable journal before new work", async () => {
+test("two independent Node processes racing for a course lock produce exactly one winner", async () => {
+  const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-lock-race-"));
+  const helper = path.join(process.cwd(), "scripts", "tests", "helpers", "course-edit-lock-worker.ts");
+  const barrier = path.join(repoRoot, "barrier");
+  const runWorker = (id: string) => {
+    const child = spawn(process.execPath, ["--import", "tsx", helper, repoRoot, id], {
+      cwd: process.cwd(),
+      stdio: ["ignore", "pipe", "pipe"]
+    });
+    let output = "";
+    child.stdout.on("data", (chunk) => { output += chunk.toString(); });
+    child.stderr.on("data", (chunk) => { output += chunk.toString(); });
+    return { child, output: () => output };
+  };
+  const waitFor = async (filePath: string) => {
+    for (let attempt = 0; attempt < 1_000; attempt += 1) {
+      try {
+        await access(filePath);
+        return;
+      } catch {
+        await new Promise((resolve) => setTimeout(resolve, 10));
+      }
+    }
+    throw new Error(`Timed out waiting for ${filePath}.`);
+  };
+  try {
+    const workers = [runWorker("one"), runWorker("two")];
+    await Promise.all([waitFor(path.join(barrier, "ready-one")), waitFor(path.join(barrier, "ready-two"))]);
+    await writeFile(path.join(barrier, "go"), "go\n", "utf8");
+    const exits = await Promise.all(workers.map(({ child }) => once(child, "exit")));
+    assert.deepEqual(exits.map((entry) => entry[0]), [0, 0], workers.map((entry) => entry.output()).join("\n"));
+    const results = await Promise.all(["one", "two"].map((id) => readFile(path.join(barrier, `result-${id}`), "utf8")));
+    assert.equal(results.filter((entry) => entry === "acquired\n").length, 1);
+    assert.equal(results.filter((entry) => /^rejected:Another Studio server/i.test(entry)).length, 1);
+  } finally {
+    await rm(repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("an interrupted known-partial multi-file transaction is recovered before new work", async () => {
   const fixture = await createFixture();
   const secondPath = path.join(fixture.repoRoot, "projects", SLUG, "workspace", "lesson.html");
   try {
@@ -414,8 +622,7 @@ test("an interrupted multi-file transaction is recovered from its durable journa
     const staleTarget = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
     const checkpointPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-checkpoints", SLUG, "latest.json");
     const checkpoint = JSON.parse(await readFile(checkpointPath, "utf8"));
-    await writeFile(fixture.sourcePath, "<!doctype html><html><body><h1>Partial crash</h1></body></html>", "utf8");
-    await writeFile(secondPath, "<!doctype html><html><body><h2>Other partial crash</h2></body></html>", "utf8");
+    await writeFile(fixture.sourcePath, ORIGINAL_HTML, "utf8");
     const journalPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-transactions", SLUG, "active.json");
     await mkdir(path.dirname(journalPath), { recursive: true });
     await writeFile(journalPath, `${JSON.stringify({
@@ -428,7 +635,7 @@ test("an interrupted multi-file transaction is recovered from its durable journa
       startedAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       expectedBefore: checkpoint.expectedBefore,
-      expectedAfter: []
+      expectedAfter: checkpoint.expectedAfter
     }, null, 2)}\n`, "utf8");
     await assert.rejects(
       applyCourseEditBatch({
@@ -443,6 +650,162 @@ test("an interrupted multi-file transaction is recovered from its durable journa
     await assert.rejects(readFile(journalPath, "utf8"), /ENOENT/);
   } finally {
     await fixture.cleanup();
+  }
+});
+
+test("interrupted recovery preserves unknown newer filesystem work and fails closed", async () => {
+  const fixture = await createFixture();
+  const secondPath = path.join(fixture.repoRoot, "projects", SLUG, "workspace", "lesson.html");
+  try {
+    const first = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const second = await resolveElement(fixture.repoRoot, secondPath, "h2", "lesson.html");
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draftFor(first, "Applied first"), { ...draftFor(second, "Applied second"), id: "draft-2" }]
+    }, fixture.repoRoot);
+    const checkpoint = JSON.parse(await readFile(
+      path.join(fixture.repoRoot, ".runtime", "studio-edit-checkpoints", SLUG, "latest.json"),
+      "utf8"
+    ));
+    const unknownFirst = "<!doctype html><html><body><h1>Newer external first</h1></body></html>";
+    const unknownSecond = "<!doctype html><html><body><h2>Newer external second</h2></body></html>";
+    await writeFileFromIndependentProcess(fixture.sourcePath, unknownFirst);
+    await writeFileFromIndependentProcess(secondPath, unknownSecond);
+    const journalPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-transactions", SLUG, "active.json");
+    await mkdir(path.dirname(journalPath), { recursive: true });
+    await writeFile(journalPath, `${JSON.stringify({
+      schemaVersion: 1,
+      transactionId: "interrupted-external-fixture",
+      projectSlug: SLUG,
+      operation: "apply",
+      checkpointId: checkpoint.checkpointId,
+      phase: "mutating",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: checkpoint.expectedBefore,
+      expectedAfter: checkpoint.expectedAfter
+    }, null, 2)}\n`, "utf8");
+    await assert.rejects(
+      applyCourseEditBatch({
+        schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+        projectSlug: SLUG,
+        drafts: [draftFor(first, "New request")]
+      }, fixture.repoRoot),
+      /preserved the interrupted transaction|manual recovery/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), unknownFirst);
+    assert.equal(await readFile(secondPath, "utf8"), unknownSecond);
+    assert.equal(JSON.parse(await readFile(journalPath, "utf8")).phase, "manual-recovery");
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("terminal transaction cleanup is ordered and idempotent across retry boundaries", async () => {
+  const fixture = await createFixture();
+  const checkpointRoot = path.join(fixture.repoRoot, ".runtime", "studio-edit-checkpoints", SLUG);
+  const journalPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-transactions", SLUG, "active.json");
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draftFor(target, "Committed cleanup fixture")]
+    }, fixture.repoRoot);
+    const checkpoint = JSON.parse(await readFile(path.join(checkpointRoot, "latest.json"), "utf8"));
+    const orphanId = "cleanup-orphan-before-journal-removal";
+    await mkdir(path.join(checkpointRoot, orphanId), { recursive: true });
+    await writeFile(path.join(checkpointRoot, orphanId, "orphan.txt"), "orphan", "utf8");
+    await mkdir(path.dirname(journalPath), { recursive: true });
+    await writeFile(journalPath, `${JSON.stringify({
+      schemaVersion: 1,
+      transactionId: "committed-cleanup-fixture",
+      projectSlug: SLUG,
+      operation: "apply",
+      checkpointId: checkpoint.checkpointId,
+      phase: "committed",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: checkpoint.expectedBefore,
+      expectedAfter: checkpoint.expectedAfter,
+      cleanupCheckpointIds: [orphanId]
+    }, null, 2)}\n`, "utf8");
+
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    await assert.rejects(access(path.join(checkpointRoot, orphanId)), { code: "ENOENT" });
+    await assert.rejects(access(journalPath), { code: "ENOENT" });
+
+    await writeFile(journalPath, `${JSON.stringify({
+      schemaVersion: 1,
+      transactionId: "committed-cleanup-retry-fixture",
+      projectSlug: SLUG,
+      operation: "undo",
+      checkpointId: null,
+      phase: "committed",
+      startedAt: new Date().toISOString(),
+      updatedAt: new Date().toISOString(),
+      expectedBefore: [],
+      expectedAfter: [],
+      cleanupCheckpointIds: [orphanId]
+    }, null, 2)}\n`, "utf8");
+    const nextTarget = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draftFor(nextTarget, "Retry cleanup fixture")]
+    }, fixture.repoRoot);
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    await assert.rejects(access(journalPath), { code: "ENOENT" });
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("prepared, validating, rolling-back, and rolled-back crash phases recover idempotently", async (context) => {
+  for (const phase of ["prepared", "validating", "rolling-back", "rolled-back"] as const) {
+    await context.test(phase, async () => {
+      const fixture = await createFixture();
+      const checkpointRoot = path.join(fixture.repoRoot, ".runtime", "studio-edit-checkpoints", SLUG);
+      const latestPath = path.join(checkpointRoot, "latest.json");
+      const journalPath = path.join(fixture.repoRoot, ".runtime", "studio-edit-transactions", SLUG, "active.json");
+      try {
+        const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+        await applyCourseEditBatch({
+          schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+          projectSlug: SLUG,
+          drafts: [draftFor(target, `Crash phase ${phase}`)]
+        }, fixture.repoRoot);
+        const checkpoint = JSON.parse(await readFile(latestPath, "utf8"));
+        if (phase !== "validating") await writeFile(fixture.sourcePath, ORIGINAL_HTML, "utf8");
+        if (phase === "rolled-back") await rm(latestPath, { force: true });
+        await mkdir(path.dirname(journalPath), { recursive: true });
+        await writeFile(journalPath, `${JSON.stringify({
+          schemaVersion: 1,
+          transactionId: `crash-${phase}`,
+          projectSlug: SLUG,
+          operation: "apply",
+          checkpointId: checkpoint.checkpointId,
+          phase,
+          startedAt: new Date().toISOString(),
+          updatedAt: new Date().toISOString(),
+          expectedBefore: checkpoint.expectedBefore,
+          expectedAfter: checkpoint.expectedAfter,
+          ...(phase === "rolled-back" ? { cleanupCheckpointIds: [checkpoint.checkpointId] } : {})
+        }, null, 2)}\n`, "utf8");
+        await recoverInterruptedCourseEdit(SLUG, fixture.repoRoot);
+        assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+        await assert.rejects(access(journalPath), { code: "ENOENT" });
+        await assert.rejects(access(latestPath), { code: "ENOENT" });
+        await assert.rejects(access(path.join(checkpointRoot, checkpoint.checkpointId)), { code: "ENOENT" });
+        await recoverInterruptedCourseEdit(SLUG, fixture.repoRoot);
+        assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+      } finally {
+        await fixture.cleanup();
+      }
+    });
   }
 });
 
@@ -510,10 +873,65 @@ test("validated image uploads are content-addressed and survive generated worksp
     await syncStoredCourseEditAssets(fixture.repoRoot, SLUG, stagedWorkspace);
     const filename = path.basename(uploaded.repoRelativePath);
     assert.equal(await readFile(path.join(stagedWorkspace, "assets", "custom", "studio", filename), "base64"), png.toString("base64"));
+    const workspaceAsset = path.join(
+      fixture.repoRoot,
+      "projects",
+      SLUG,
+      "workspace",
+      "assets",
+      "custom",
+      "studio",
+      filename
+    );
+    await rm(workspaceAsset, { force: true });
+    await assert.rejects(
+      uploadCourseEditImageAsset({
+        projectSlug: SLUG,
+        htmlPath: "index.html",
+        bytes: png,
+        repoRoot: fixture.repoRoot,
+        afterCanonicalPublish: () => { throw new Error("simulated asset interruption"); }
+      }),
+      /simulated asset interruption/i
+    );
+    assert.equal(await readFile(path.join(fixture.repoRoot, uploaded.repoRelativePath), "base64"), png.toString("base64"));
+    await uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: png, repoRoot: fixture.repoRoot });
+    assert.equal(await readFile(workspaceAsset, "base64"), png.toString("base64"));
+    await writeFile(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "image.png"), png);
+    const imageTarget = await resolveElement(fixture.repoRoot, fixture.sourcePath, "img", "index.html");
+    const now = Date.now();
+    await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [{
+        id: "image-draft",
+        createdAt: now,
+        updatedAt: now,
+        identity: imageTarget.identity,
+        beforeText: imageTarget.originalText,
+        afterText: "Uploaded course image",
+        baseline: {
+          originalHtml: imageTarget.originalHtml,
+          attributes: imageTarget.attributes,
+          currentStyle: imageTarget.currentStyle,
+          capabilities: imageTarget.capabilities
+        },
+        patch: { src: uploaded.src, alt: "Uploaded course image" }
+      }]
+    }, fixture.repoRoot);
+    assert.match(await readFile(fixture.sourcePath, "utf8"), /assets\/custom\/studio/);
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
     await assert.rejects(
       uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: Buffer.from("not an image"), repoRoot: fixture.repoRoot }),
       /PNG, JPEG, or GIF/i
     );
+    for (const truncated of [png.subarray(0, 24), Buffer.from("GIF89a\u0001\u0000\u0001\u0000"), Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0, 8, 0, 0, 0, 0, 0, 0])]) {
+      await assert.rejects(
+        uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: truncated, repoRoot: fixture.repoRoot }),
+        /decode|validated PNG, JPEG, or GIF/i
+      );
+    }
   } finally {
     await fixture.cleanup();
   }
@@ -552,6 +970,18 @@ test("export freshness is tied to workspace and artifact bytes with separate SCO
     await markCourseExportCurrent(SLUG, "scorm12", fixture.repoRoot);
     assert.deepEqual((await getCourseEditStatus(SLUG, fixture.repoRoot)).staleExportTargets, []);
 
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    await writeFile(manifestPath, `${JSON.stringify({ ...manifest, title: "Changed export configuration" }, null, 2)}\n`, "utf8");
+    assert.deepEqual(
+      (await getCourseEditStatus(SLUG, fixture.repoRoot)).staleExportTargets.sort(),
+      ["html", "scorm12", "scorm2004"]
+    );
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    await markCourseExportCurrent(SLUG, "html", fixture.repoRoot);
+    await markCourseExportCurrent(SLUG, "scorm2004", fixture.repoRoot);
+    await markCourseExportCurrent(SLUG, "scorm12", fixture.repoRoot);
+
     await writeFile(path.join(exportsRoot, `${SLUG}-scorm-2004.zip`), "2004-tampered", "utf8");
     assert.deepEqual((await getCourseEditStatus(SLUG, fixture.repoRoot)).staleExportTargets, ["scorm2004"]);
     await writeFile(fixture.sourcePath, ORIGINAL_HTML.replace("Original paragraph", "Workspace changed"), "utf8");
@@ -560,6 +990,47 @@ test("export freshness is tied to workspace and artifact bytes with separate SCO
       ["html", "scorm12", "scorm2004"]
     );
   } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("export input fingerprints change when the target exporter implementation changes", async () => {
+  const fixture = await createFixture();
+  const implementationRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-exporter-version-"));
+  const exporterPath = path.join(implementationRoot, "scripts", "lib", "exports", "single-html.ts");
+  try {
+    await mkdir(path.dirname(exporterPath), { recursive: true });
+    await writeFile(path.join(implementationRoot, "package.json"), "{}\n", "utf8");
+    await writeFile(exporterPath, "export const exporterVersion = 1;\n", "utf8");
+    const first = await fingerprintCourseExportInputs({
+      repoRoot: fixture.repoRoot,
+      projectSlug: SLUG,
+      target: "html",
+      implementationRoot
+    });
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8"));
+    await writeFile(manifestPath, `${JSON.stringify({
+      ...manifest,
+      updatedAt: "2026-08-13T12:00:00.000Z",
+      workspaceApprovedAt: "2026-08-13T12:00:00.000Z"
+    }, null, 2)}\n`, "utf8");
+    assert.equal(await fingerprintCourseExportInputs({
+      repoRoot: fixture.repoRoot,
+      projectSlug: SLUG,
+      target: "html",
+      implementationRoot
+    }), first);
+    await writeFile(exporterPath, "export const exporterVersion = 2;\n", "utf8");
+    const second = await fingerprintCourseExportInputs({
+      repoRoot: fixture.repoRoot,
+      projectSlug: SLUG,
+      target: "html",
+      implementationRoot
+    });
+    assert.notEqual(second, first);
+  } finally {
+    await rm(implementationRoot, { recursive: true, force: true });
     await fixture.cleanup();
   }
 });
@@ -856,6 +1327,32 @@ test("generated edit identities survive reordering distinct sibling content", ()
   assert.equal(alphaAfter.editId, alphaBefore.editId);
 });
 
+test("generated replay refuses identical siblings until canonical durable keys disambiguate them", () => {
+  const original = "<!doctype html><html><body><main><button>Continue</button><button>Continue</button></main></body></html>";
+  const inserted = "<!doctype html><html><body><main><button>Continue</button><button>Continue</button><button>Continue</button></main></body></html>";
+  const buttons = collectEditableHtmlElements(original, "factory-fixture", "index.html")?.filter((entry) => entry.tagName === "button");
+  assert.ok(buttons && buttons.length === 2);
+  assert.equal(buttons.every((entry) => !entry.replaySafe), true);
+  assert.throws(() => applyCourseEditOverridesToHtml({
+    html: inserted,
+    projectSlug: "factory-fixture",
+    overrides: [{
+      editId: buttons[1].editId,
+      htmlPath: "index.html",
+      tagName: "button",
+      pathKey: buttons[1].pathKey,
+      patch: { html: "Teacher target" },
+      updatedAt: "2026-08-13T00:00:00.000Z"
+    }]
+  }), /durable data-canvas-helper-edit-key/i);
+
+  const keyed = "<!doctype html><html><body><main><button data-canvas-helper-edit-key=\"back\">Continue</button><button data-canvas-helper-edit-key=\"forward\">Continue</button></main></body></html>";
+  const keyedButtons = collectEditableHtmlElements(keyed, "factory-fixture", "index.html")?.filter((entry) => entry.tagName === "button");
+  assert.ok(keyedButtons && keyedButtons.length === 2);
+  assert.equal(keyedButtons.every((entry) => entry.replaySafe), true);
+  assert.notEqual(keyedButtons[0].editId, keyedButtons[1].editId);
+});
+
 test("generated override replay rejects parent and child edits from separate batches", () => {
   const generated = "<!doctype html><html><body><main><p>Parent <strong>child</strong></p></main></body></html>";
   const elements = collectEditableHtmlElements(generated, "factory-fixture", "index.html");
@@ -919,4 +1416,28 @@ test("editing contracts reject browser-supplied paths and unsafe content", () =>
       }
     }]
   }), false);
+});
+
+test("course edit HTTP routes reject oversized resolve, rename, and apply bodies", async () => {
+  const fixture = await createFixture();
+  const server = await startCourseEditRouteServer(fixture.repoRoot);
+  try {
+    for (const [pathname, bytes] of [
+      ["/api/course-edits/resolve", 262_145],
+      [`/api/projects/${SLUG}/course-edits/rename`, 16_385],
+      [`/api/projects/${SLUG}/course-edits/apply`, 4_194_305]
+    ] as const) {
+      const response = await fetch(`${server.origin}${pathname}`, {
+        method: "POST",
+        headers: { "content-type": "application/json" },
+        body: " ".repeat(bytes)
+      });
+      assert.equal(response.ok, false);
+      assert.match((await response.text()), /bytes or smaller/i);
+    }
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+  } finally {
+    await server.close();
+    await fixture.cleanup();
+  }
 });

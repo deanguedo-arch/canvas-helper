@@ -15,6 +15,36 @@ Implementation commits:
 - [`ff4d60a1` — add safe Direct Editing](https://github.com/deanguedo-arch/canvas-helper/commit/ff4d60a12df8deee5d11fd69424b60fb994eeda4)
 - [`1b221ee9` — harden editing and onboard the course catalog](https://github.com/deanguedo-arch/canvas-helper/commit/1b221ee9ad9594a7166572494448e1db32f6e0e1)
 
+## August 13 independent follow-up and remediation
+
+An independent review of PR head `45c6ab8b` returned **NO-GO / REQUEST CHANGES**. That verdict supersedes the earlier rollout language for the audited commit. The current review target is the latest head of [`codex/studio-direct-editing-v1`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-direct-editing-v1), not only the older pinned implementation links elsewhere in this packet.
+
+The requested changes are implemented on the current branch:
+
+| Independent finding | Current remediation and evidence entrypoint |
+| --- | --- |
+| Snapshot adapter omitted by shared validation | One exhaustive adapter predicate includes `legacy-snapshot`; storage plus HTTP/restart lifecycle coverage is in [`app/shared/course-editing.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/shared/course-editing.ts), [`course-edit-storage.test.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/tests/course-edit-storage.test.ts), and [`course-editing.test.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/tests/course-editing.test.ts). |
+| Ownerless cross-process lock race | A complete fsynced owner file is published with an atomic no-replace claim; two independent Node processes race it in the focused test. See [`course-edit-transaction.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/app/server/lib/course-edit-transaction.ts). |
+| Recovery overwrites post-crash external work | Recovery classifies exact-before, exact-after, known-partial, or unknown fingerprints. Unknown bytes are preserved under `manual-recovery`; an independent writer regression proves the boundary. |
+| Identical repeated generated content can retarget | Repeated ambiguous identities are Annotation only and replay rejects them until the canonical builder supplies a durable `data-canvas-helper-edit-key`. See [`html.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/course-editing/html.ts) and [`overrides.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/course-editing/overrides.ts). |
+| Cleanup can strand a journal | Durable `committed` and `rolled-back` states carry cleanup IDs; restart cleanup is idempotent even when backups are already absent. |
+| Direct final compare-and-swap interval | Every direct source is reread immediately before atomic replacement. The remaining non-cooperating writer interval is explicitly unsupported: manual, Git, Codex, and standalone builder writes must not run concurrently unless they use the same lock protocol. |
+| Image header checks and two-destination interruption | Uploads use bounded full Sharp decoding, full SHA-256 content names, retry-safe canonical/workspace publication, and learner-browser `complete`/natural-dimension checks. |
+| Incomplete export input graph | Evidence schema V2 fingerprints target identity, workspace, normalized manifest, Studio title/edit metadata, package state, recursive local exporter dependencies, and artifact bytes. SCORM variants remain separate. |
+| Unbounded JSON and multi-page snapshot source | Resolve, Rename, and Apply have explicit streaming byte ceilings; snapshot materialization loads and tests each declared page against its own source. |
+| Acceptance bypasses the public route | The catalog verifier now uses actual HTTP handlers. Real Direct, English, Social, and snapshot pilots restart the HTTP server before route-level Undo. See [`http-route-harness.ts`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/scripts/lib/course-editing/http-route-harness.ts). |
+| Runtime/accessibility claims were too broad | Documentation now says bounded local settlement and edited-target heuristics, not proof of delayed interaction behavior or full WCAG acceptance. |
+| No exact-head CI | [`studio-direct-editing.yml`](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/.github/workflows/studio-direct-editing.yml) runs on every PR revision and the branch, then uploads the source-locked release report plus pilot and catalog reports with the CI SHA. |
+
+Current focused evidence from the remediation checkout:
+
+- `npm run test:course-editing -- --test-reporter=dot` — 42/42 passed.
+- `npm run verify:course-editing-pilots` — Direct, English, and Social passed together with HTTP restart and exact restoration; the added real snapshot pilot passed separately under the same lifecycle. The final gate reruns all four together.
+- `npm run test:exports` — 55/55 SCORM, Google Hosted, and Apps Script tests passed before documentation-only follow-up.
+- `npm run typecheck -- --pretty false` — the same ten established unrelated diagnostics remain; no diagnostic is in the remediation files.
+
+The exact-head full catalog, Studio release gate, push, and GitHub Actions result must be recorded in the final handoff before this PR is reconsidered. The PR remains a draft and should not be merged merely because the implementation exists.
+
 Focused comparison: [roadmap base → Direct Editing head](https://github.com/deanguedo-arch/canvas-helper/compare/codex/studio-roadmap-phases...codex/studio-direct-editing-v1)
 
 Full stacked comparison: [`main` → Direct Editing head](https://github.com/deanguedo-arch/canvas-helper/compare/main...codex/studio-direct-editing-v1)

@@ -20,6 +20,14 @@ import { readRequestJson } from "../lib/request-body";
 import { sendJson } from "../lib/response";
 import { isSafeProjectSlug } from "../lib/validation";
 
+const COURSE_EDIT_RESOLVE_MAX_BYTES = 262_144;
+const COURSE_EDIT_APPLY_MAX_BYTES = 4_194_304;
+const COURSE_EDIT_RENAME_MAX_BYTES = 16_384;
+
+type CourseEditsRouteOptions = {
+  repoRoot?: string;
+};
+
 function isCourseEditResolveRequest(value: unknown): value is CourseEditResolveRequest {
   if (!value || typeof value !== "object" || Array.isArray(value)) return false;
   const request = value as Record<string, unknown>;
@@ -60,19 +68,28 @@ async function readBoundedImage(request: IncomingMessage) {
   return Buffer.concat(chunks);
 }
 
-export async function handleCourseEditsRoute(url: string, request: IncomingMessage, response: ServerResponse) {
+export async function handleCourseEditsRoute(
+  url: string,
+  request: IncomingMessage,
+  response: ServerResponse,
+  options: CourseEditsRouteOptions = {}
+) {
+  const repoRoot = options.repoRoot;
   if (url === "/api/course-edits/resolve") {
     if (request.method !== "POST") {
       sendJson(response, 405, { error: "Method not allowed." });
       return true;
     }
     try {
-      const body = await readRequestJson<unknown>(request);
+      const body = await readRequestJson<unknown>(request, {
+        maxBytes: COURSE_EDIT_RESOLVE_MAX_BYTES,
+        description: "Course edit resolve requests"
+      });
       if (!isCourseEditResolveRequest(body)) {
         sendJson(response, 400, { error: "Invalid bounded course edit request." });
         return true;
       }
-      sendJson(response, 200, await resolveCourseEditTarget(body as InspectionResolveRequest));
+      sendJson(response, 200, await resolveCourseEditTarget(body as InspectionResolveRequest, repoRoot));
     } catch (error) {
       sendJson(response, 400, { error: safeError(error) });
     }
@@ -94,7 +111,7 @@ export async function handleCourseEditsRoute(url: string, request: IncomingMessa
       return true;
     }
     try {
-      sendJson(response, 200, await getCourseEditStatus(projectSlug));
+      sendJson(response, 200, await getCourseEditStatus(projectSlug, repoRoot));
     } catch (error) {
       sendJson(response, 400, { error: safeError(error) });
     }
@@ -115,29 +132,36 @@ export async function handleCourseEditsRoute(url: string, request: IncomingMessa
       sendJson(response, 200, await uploadCourseEditImageAsset({
         projectSlug,
         htmlPath,
-        bytes: await readBoundedImage(request)
+        bytes: await readBoundedImage(request),
+        repoRoot
       }));
       return true;
     }
     if (action === "undo") {
-      sendJson(response, 200, await undoCourseEditBatch(projectSlug));
+      sendJson(response, 200, await undoCourseEditBatch(projectSlug, repoRoot));
       return true;
     }
     if (action === "rename") {
-      const body = await readRequestJson<unknown>(request);
+      const body = await readRequestJson<unknown>(request, {
+        maxBytes: COURSE_EDIT_RENAME_MAX_BYTES,
+        description: "Course rename requests"
+      });
       if (!isCourseRenameRequest(body) || body.projectSlug !== projectSlug) {
         sendJson(response, 400, { error: "Invalid bounded course rename request." });
         return true;
       }
-      sendJson(response, 200, await renameCourseForStudio({ projectSlug, title: body.title }));
+      sendJson(response, 200, await renameCourseForStudio({ projectSlug, title: body.title, repoRoot }));
       return true;
     }
-    const body = await readRequestJson<unknown>(request);
+    const body = await readRequestJson<unknown>(request, {
+      maxBytes: COURSE_EDIT_APPLY_MAX_BYTES,
+      description: "Course edit apply requests"
+    });
     if (!isCourseEditApplyRequest(body) || body.projectSlug !== projectSlug) {
       sendJson(response, 400, { error: "Invalid bounded course edit batch." });
       return true;
     }
-    sendJson(response, 200, await applyCourseEditBatch(body));
+    sendJson(response, 200, await applyCourseEditBatch(body, repoRoot));
   } catch (error) {
     sendJson(response, 422, { error: safeError(error) });
   }

@@ -116,12 +116,14 @@ Rules:
 - Preflight every draft before writing. Rebase an unrelated page change only when the selected element digest is unchanged; identify a stale draft by item and fail the whole batch without writes. Direct pages must still be declared canonical editable files.
 - Sanitize rich text and URLs and apply only curated style tokens. Arbitrary HTML/CSS/JavaScript remains a Codex workflow.
 - Direct adapters edit canonical workspace files. English and Social adapters store course-only metadata overrides and rebuild; never patch their generated workspace output as source.
-- Hold the filesystem lock, snapshot the whole transactional write boundary, durably journal each phase, terminate timed-out process groups, validate static and rendered learner results, restore on failure, and retain only the latest successful batch for Undo.
+- Atomically claim the complete-owner filesystem lock, snapshot the whole transactional write boundary, durably journal each phase and terminal cleanup, terminate timed-out process groups, validate static and rendered learner results, restore only known before/after/partial states, and retain only the latest successful batch for Undo. Unknown external crash state must remain untouched for manual recovery.
 - Undo must prove the entire boundary still matches the applied result. Newer manual, Codex, or builder work disables Undo; never force a restore over drift.
 - Keep Draft Changes per course and shared across Studio and Full Preview. Full Preview is a bridge consumer, not a second persistent owner.
 - Keep draft baselines complete, use delta-only patches, reject no-ops, never silently expire drafts, and preserve strict JSON backup/restore.
 - Keep image uploads content-addressed in the canonical project resource library and materialized through owning rebuilds. Keep Rename as one marked, checkpointed multi-surface operation.
-- Derive freshness from workspace and artifact fingerprints recorded by exporters. Keep SCORM 1.2 and 2004 independent.
+- Reject ambiguous identical repeated content unless the canonical source supplies a durable edit key.
+- Derive freshness from the target-specific manifest/metadata/workspace/exporter graph and artifact fingerprints recorded by exporters. Keep SCORM 1.2 and 2004 independent.
+- Treat the lock as cooperative: do not run non-participating manual, Git, Codex, or builder writes concurrently with Direct Apply.
 
 Verification floor:
 - `npm run test:course-editing`

@@ -406,12 +406,12 @@ export async function createCodexStudioCourse(input: CreateCodexStudioCourseInpu
     if (await fileExists(targetProjectRoot)) {
       throw new Error(`Project appeared while creating it: projects/${slug}. No existing files were changed.`);
     }
+    await rename(stagedProjectRoot, targetProjectRoot);
     await writeJsonFile(path.join(repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL), {
       projectSlug: slug,
       changedAt: now,
       nonce: randomUUID()
     });
-    await rename(stagedProjectRoot, targetProjectRoot);
   } catch (error) {
     await rm(stageRepoRoot, { recursive: true, force: true });
     throw error;

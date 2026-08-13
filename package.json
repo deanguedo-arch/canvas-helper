@@ -69,12 +69,12 @@
     "test:report-all-progress": "tsx --test scripts/tests/report-all-progress.test.ts scripts/tests/google-hosted-deploy.test.ts",
     "test:authoring-context": "tsx --test scripts/tests/course-authoring-context.test.ts scripts/tests/package-script-contract.test.ts",
     "test:metadata-policy": "tsx --test scripts/tests/project-manifest-policy.test.ts scripts/tests/course-authoring-context.test.ts scripts/tests/package-script-contract.test.ts",
-    "test:course-editing": "tsx --test scripts/tests/course-editing.test.ts",
+    "test:course-editing": "tsx --test --test-concurrency=1 scripts/tests/course-edit-storage.test.ts scripts/tests/course-editing.test.ts",
     "test:codex-course": "tsx --test scripts/tests/codex-course.test.ts",
     "test:course-onboarding": "tsx --test scripts/tests/course-onboarding.test.ts",
     "verify:course-editing-pilots": "tsx scripts/verify-course-editing-pilots.ts",
     "verify:course-onboarding": "tsx scripts/verify-course-onboarding.ts",
-    "test:studio-inspection": "tsx --test scripts/tests/preview-route.test.ts scripts/tests/preview-inspection.test.ts scripts/tests/preview-security.test.ts scripts/tests/review-screenshots.test.ts scripts/tests/codex-packet.test.ts scripts/tests/course-build-brief.test.ts scripts/tests/course-editing.test.ts scripts/tests/codex-course.test.ts scripts/tests/course-onboarding.test.ts scripts/tests/studio-project-html-scan.test.ts scripts/tests/studio-project-continuity.test.ts scripts/tests/studio-incoming-refresh.test.ts scripts/tests/studio-quality.test.ts scripts/tests/inspection-draft.test.ts scripts/tests/studio-release-notes.test.ts scripts/tests/studio-architecture.test.ts scripts/tests/studio-release-runner.test.ts",
+    "test:studio-inspection": "tsx --test scripts/tests/preview-route.test.ts scripts/tests/preview-inspection.test.ts scripts/tests/preview-security.test.ts scripts/tests/review-screenshots.test.ts scripts/tests/codex-packet.test.ts scripts/tests/course-build-brief.test.ts scripts/tests/course-edit-storage.test.ts scripts/tests/course-editing.test.ts scripts/tests/codex-course.test.ts scripts/tests/course-onboarding.test.ts scripts/tests/studio-project-html-scan.test.ts scripts/tests/studio-project-continuity.test.ts scripts/tests/studio-incoming-refresh.test.ts scripts/tests/studio-quality.test.ts scripts/tests/inspection-draft.test.ts scripts/tests/studio-release-notes.test.ts scripts/tests/studio-architecture.test.ts scripts/tests/studio-release-runner.test.ts",
     "test:studio-release": "tsx scripts/run-studio-release.ts",
     "test:exports": "npm run test:scorm && npm run test:google-hosted && npm run test:apps-script",
     "test:e2e": "playwright test -c e2e/playwright.config.ts",
@@ -113,6 +113,7 @@
     "pdf-parse": "^1.1.1",
     "react": "^19.1.1",
     "react-dom": "^19.1.1",
+    "sharp": "^0.35.3",
     "zod": "^3.24.2"
   },
   "devDependencies": {

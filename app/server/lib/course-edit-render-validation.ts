@@ -245,7 +245,10 @@ export async function validateRenderedCourseEdits(input: {
             color: computed.color,
             backgrounds,
             fontSize: Number.parseFloat(computed.fontSize),
-            fontWeight: Number.parseInt(computed.fontWeight, 10)
+            fontWeight: Number.parseInt(computed.fontWeight, 10),
+            imageComplete: element instanceof HTMLImageElement ? element.complete : true,
+            naturalWidth: element instanceof HTMLImageElement ? element.naturalWidth : 0,
+            naturalHeight: element instanceof HTMLImageElement ? element.naturalHeight : 0
           };
         }, {
           styleAttributes: STYLE_ATTRIBUTES,
@@ -265,6 +268,12 @@ export async function validateRenderedCourseEdits(input: {
           if (!reason && result.style[key] !== value) reason = `the rendered ${key} control did not survive the course runtime`;
         }
         if (!reason && result.tagName === "IMG" && !result.hasAlt && result.role !== "presentation") reason = "the edited image has no alt attribute";
+        if (
+          !reason &&
+          result.tagName === "IMG" &&
+          check.expected.src !== undefined &&
+          (!result.imageComplete || result.naturalWidth <= 0 || result.naturalHeight <= 0)
+        ) reason = "the requested image did not decode in the learner page";
         if (!reason && ["A", "BUTTON"].includes(result.tagName) && !result.text) reason = "the edited control has no accessible name";
         if (!reason && /^H[1-6]$/.test(result.tagName) && !result.text) reason = "the edited heading is empty";
         if (!reason && result.editId && !/^che[12]:[a-f0-9]{24}$/.test(result.editId)) reason = "the rendered edit identity is invalid";

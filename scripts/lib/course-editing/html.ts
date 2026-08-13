@@ -24,6 +24,7 @@ export type EditableHtmlElement = {
   pathKey: string;
   stableKey: string;
   editId: string;
+  replaySafe: boolean;
   sourceStart: number;
   openEnd: number;
   innerStart: number;
@@ -56,12 +57,17 @@ function normalizedElementText(value: string) {
   return load(`<body>${value}</body>`)("body").text().replace(/\s+/g, " ").trim();
 }
 
-function elementStableSignature(html: string, element: EditableHtmlElement) {
+function durableElementSignature(element: EditableHtmlElement) {
   const attributes = element.attributes;
   for (const name of ["data-canvas-helper-edit-key", "id", "data-testid", "name"]) {
     const value = attributes[name]?.trim();
     if (value) return `${element.tagName}\u0000${name}\u0000${value}`;
   }
+  return null;
+}
+
+function semanticElementSignature(html: string, element: EditableHtmlElement) {
+  const attributes = element.attributes;
   const inner = html.slice(element.innerStart, element.innerEnd);
   const text = normalizedElementText(inner);
   const semanticAttributes = ["href", "src", "alt", "title", "role", "aria-label"]
@@ -102,6 +108,7 @@ export function collectEditableHtmlElements(html: string, projectSlug: string, h
               pathKey,
               stableKey: "",
               editId: "",
+              replaySafe: false,
               sourceStart,
               openEnd,
               innerStart: openEnd + 1,
@@ -151,19 +158,20 @@ export function collectEditableHtmlElements(html: string, projectSlug: string, h
   parser.end();
   if (stack.length) parseFailed = true;
   if (parseFailed) return null;
+  const signatures = elements.map((element) => durableElementSignature(element) ?? semanticElementSignature(html, element));
+  const signatureTotals = new Map<string, number>();
+  for (const signature of signatures) signatureTotals.set(signature, (signatureTotals.get(signature) ?? 0) + 1);
   const signatureCounts = new Map<string, number>();
-  for (const element of elements) {
-    const existing = element.attributes[STUDIO_EDIT_ID_ATTRIBUTE];
-    if (isStudioEditId(existing)) {
-      element.stableKey = `declared\u0000${existing}`;
-      element.editId = existing;
-      continue;
-    }
-    const signature = elementStableSignature(html, element);
+  for (const [index, element] of elements.entries()) {
+    const signature = signatures[index];
     const occurrence = (signatureCounts.get(signature) ?? 0) + 1;
     signatureCounts.set(signature, occurrence);
-    element.stableKey = `${signature}\u0000occurrence=${occurrence}`;
-    element.editId = createStudioEditId(projectSlug, htmlPath, element.stableKey);
+    const existing = element.attributes[STUDIO_EDIT_ID_ATTRIBUTE];
+    element.stableKey = isStudioEditId(existing)
+      ? `declared\u0000${existing}`
+      : `${signature}\u0000occurrence=${occurrence}`;
+    element.editId = isStudioEditId(existing) ? existing : createStudioEditId(projectSlug, htmlPath, element.stableKey);
+    element.replaySafe = signatureTotals.get(signature) === 1;
   }
   return elements;
 }
@@ -332,6 +340,7 @@ export function decorateGeneratedCourseHtml(html: string, projectSlug: string, h
   if (!elements) throw new Error("Studio could not establish stable edit identities for generated course HTML.");
   let decorated = html;
   for (const element of [...elements].sort((left, right) => right.sourceStart - left.sourceStart)) {
+    if (!element.replaySafe) continue;
     decorated = applyPatchToEditableElement(decorated, element, {}, element.editId);
   }
   return includeStyles ? ensureStudioEditStyles(decorated) : decorated;

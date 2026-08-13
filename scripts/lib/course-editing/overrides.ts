@@ -155,6 +155,11 @@ export function applyCourseEditOverridesToHtml(input: {
         ? initial.find((candidate) => candidate.pathKey === override.pathKey && candidate.tagName === override.tagName)
         : undefined
     );
+    if (element && !element.replaySafe) {
+      throw new Error(
+        `Stored Studio edit ${override.editId} targets repeated generated content without a durable data-canvas-helper-edit-key. Add a stable key in the canonical builder before replaying this edit.`
+      );
+    }
     if (!element || element.tagName !== override.tagName || (override.editId.startsWith("che1:") && element.pathKey !== override.pathKey)) {
       return null;
     }
@@ -213,7 +218,7 @@ export async function syncStoredCourseEditAssets(repoRoot: string, projectSlug: 
   await rm(destination, { recursive: true, force: true });
   await mkdir(destination, { recursive: true });
   for (const entry of entries) {
-    if (!entry.isFile() || !/^[a-f0-9]{24}\.(?:png|jpg|gif)$/.test(entry.name)) {
+    if (!entry.isFile() || !/^(?:[a-f0-9]{24}|[a-f0-9]{64})\.(?:png|jpg|gif)$/.test(entry.name)) {
       throw new Error(`Invalid stored Studio image asset: ${entry.name}`);
     }
     const filePath = path.join(source, entry.name);

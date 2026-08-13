@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { readFile } from "node:fs/promises";
+import { mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { load } from "cheerio";
@@ -10,12 +10,6 @@ import {
   type CourseEditResolveRequest,
   type CourseEditTarget
 } from "../app/shared/course-editing.js";
-import {
-  applyCourseEditBatch,
-  getCourseEditStatus,
-  resolveCourseEditTarget,
-  undoCourseEditBatch
-} from "../app/server/lib/course-editing.js";
 import { decoratePreviewHtml } from "../app/server/lib/preview-inspection.js";
 import {
   courseEditFingerprintsMatch,
@@ -23,6 +17,10 @@ import {
 } from "../app/server/lib/course-edit-transaction.js";
 import { inspectCourseAuthoringProject } from "./lib/course-authoring/context.js";
 import { collectEditableHtmlElements } from "./lib/course-editing/html.js";
+import {
+  startCourseEditHttpRouteHarness,
+  type CourseEditHttpRouteHarness
+} from "./lib/course-editing/http-route-harness.js";
 import { getStringFlag, parseArgs } from "./lib/cli.js";
 import { repoRoot } from "./lib/paths.js";
 
@@ -45,6 +43,10 @@ const PILOTS: Pilot[] = [
   {
     projectSlug: "social30-1-related-issue-1-option-2",
     selector: { attribute: "class", value: "page-intro" }
+  },
+  {
+    projectSlug: "ela10-2-writing-foundations",
+    selector: { attribute: "id", value: "outcomes-title" }
   }
 ];
 
@@ -59,7 +61,7 @@ function matchesSelector(attributes: Record<string, string>, selector: Pilot["se
     : value === selector.value;
 }
 
-async function resolvePilotTarget(pilot: Pilot) {
+async function resolvePilotTarget(pilot: Pilot, http: CourseEditHttpRouteHarness) {
   const htmlPath = "index.html";
   const sourcePath = path.join(repoRoot, "projects", pilot.projectSlug, "workspace", htmlPath);
   const source = await readFile(sourcePath, "utf8");
@@ -90,7 +92,7 @@ async function resolvePilotTarget(pilot: Pilot) {
       pageHref: `http://127.0.0.1:5173/preview/workspace/${pilot.projectSlug}/${htmlPath}`
     }
   };
-  const target = await resolveCourseEditTarget(request);
+  const target = await http.resolve(request);
   assert.equal(target.eligibility, "editable", `${pilot.projectSlug}: ${target.reason}`);
   assert.ok(target.identity, `${pilot.projectSlug}: target identity is missing.`);
   return { source, target: target as CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> } };
@@ -130,24 +132,26 @@ function restorationPaths(projectSlug: string, driverId: string) {
 
 async function runPilot(pilot: Pilot) {
   const startedAt = Date.now();
+  let http = await startCourseEditHttpRouteHarness(repoRoot);
   const doctor = await inspectCourseAuthoringProject(pilot.projectSlug);
   assert.equal(doctor.status, "pass", `${pilot.projectSlug} did not pass course:doctor.`);
   assert.ok(doctor.project, `${pilot.projectSlug} has no resolved authoring project.`);
   assert.equal(doctor.project.driverSource, "declared", `${pilot.projectSlug} is not explicitly onboarded.`);
   assert.equal(doctor.project.studioEditing.enabled, true, `${pilot.projectSlug} is not enabled for Studio editing.`);
 
-  const priorStatus = await getCourseEditStatus(pilot.projectSlug);
+  const priorStatus = await http.status(pilot.projectSlug);
   assert.equal(priorStatus.canUndo, false, `${pilot.projectSlug} already has an Undo checkpoint; the pilot refused to replace it.`);
   const fingerprintPaths = restorationPaths(pilot.projectSlug, doctor.project.driverId);
   const before = await fingerprintCourseEditPaths(repoRoot, fingerprintPaths);
-  const { source, target } = await resolvePilotTarget(pilot);
+  const { source, target } = await resolvePilotTarget(pilot, http);
   const styleMarkersBefore = source.split("data-canvas-helper-studio-edit-styles").length - 1;
   let applied = false;
   let undone = false;
-  let applyResult: Awaited<ReturnType<typeof applyCourseEditBatch>> | null = null;
+  let applyResult: Awaited<ReturnType<CourseEditHttpRouteHarness["apply"]>> | null = null;
+  let finalStatus: Awaited<ReturnType<CourseEditHttpRouteHarness["status"]>> | null = null;
 
   try {
-    applyResult = await applyCourseEditBatch({
+    applyResult = await http.apply({
       schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
       projectSlug: pilot.projectSlug,
       drafts: [pilotDraft(target)]
@@ -156,7 +160,7 @@ async function runPilot(pilot: Pilot) {
     assert.equal(applyResult.canUndo, true, `${pilot.projectSlug} did not expose its successful batch to Undo.`);
     assert.equal(applyResult.appliedCount, 1, `${pilot.projectSlug} applied an unexpected draft count.`);
 
-    const reloaded = await resolvePilotTarget(pilot);
+    const reloaded = await resolvePilotTarget(pilot, http);
     assert.match(reloaded.target.originalText, new RegExp(PILOT_MARKER), `${pilot.projectSlug} lost the edit after rebuild/reload.`);
     const styleMarkersAfter = reloaded.source.split("data-canvas-helper-studio-edit-styles").length - 1;
     assert.equal(
@@ -165,25 +169,30 @@ async function runPilot(pilot: Pilot) {
       `${pilot.projectSlug} added styling infrastructure for a text-only pilot edit.`
     );
 
-    const undoResult = await undoCourseEditBatch(pilot.projectSlug);
+    await http.close();
+    http = await startCourseEditHttpRouteHarness(repoRoot);
+    assert.equal((await http.status(pilot.projectSlug)).canUndo, true, `${pilot.projectSlug} lost Undo state after the HTTP server restart.`);
+    const undoResult = await http.undo(pilot.projectSlug);
     undone = true;
     assert.equal(undoResult.canUndo, false, `${pilot.projectSlug} retained an Undo checkpoint after restoration.`);
+    finalStatus = await http.status(pilot.projectSlug);
   } catch (error) {
     if (applied && !undone) {
       try {
-        await undoCourseEditBatch(pilot.projectSlug);
+        await http.undo(pilot.projectSlug);
         undone = true;
       } catch (undoError) {
         throw new AggregateError([error, undoError], `${pilot.projectSlug} pilot failed and its recovery Undo also failed.`);
       }
     }
     throw error;
+  } finally {
+    await http.close().catch(() => undefined);
   }
 
   const after = await fingerprintCourseEditPaths(repoRoot, fingerprintPaths);
   assert.ok(courseEditFingerprintsMatch(before, after), `${pilot.projectSlug} was not restored byte-for-byte after Undo.`);
-  const finalStatus = await getCourseEditStatus(pilot.projectSlug);
-  assert.equal(finalStatus.canUndo, false, `${pilot.projectSlug} still reports Undo after the pilot.`);
+  assert.equal(finalStatus?.canUndo, false, `${pilot.projectSlug} still reports Undo after the pilot.`);
 
   const restoredFiles = before.reduce((total, entry) => total + entry.fileCount, 0);
   const restoredBytes = before.reduce((total, entry) => total + entry.byteCount, 0);
@@ -195,6 +204,7 @@ async function runPilot(pilot: Pilot) {
     rebuild: target.identity.adapter === "direct" ? "not-required" : "pass",
     renderedResult: "pass",
     reload: "pass",
+    serverRestart: "pass",
     undo: "pass",
     byteForByteRestore: "pass",
     restoredFiles,
@@ -216,12 +226,22 @@ async function main() {
 
   const results = [];
   for (const pilot of selected) {
-    console.log(`\n[Direct Editing pilot] ${pilot.projectSlug}`);
+    console.log(`\n[Studio adapter pilot] ${pilot.projectSlug}`);
     const result = await runPilot(pilot);
     results.push(result);
     console.log(JSON.stringify(result, null, 2));
   }
-  console.log(`\nPASS: ${results.length}/${selected.length} real-course Direct Editing pilots restored their sources.`);
+  const reportPath = path.join(repoRoot, ".runtime", "course-editing-pilots.json");
+  await mkdir(path.dirname(reportPath), { recursive: true });
+  await writeFile(reportPath, `${JSON.stringify({
+    schemaVersion: 1,
+    generatedAt: new Date().toISOString(),
+    commitSha: process.env.GITHUB_SHA ?? null,
+    requested: selected.length,
+    passed: results.length,
+    results
+  }, null, 2)}\n`, "utf8");
+  console.log(`\nPASS: ${results.length}/${selected.length} real-course adapter pilots restored their sources.`);
 }
 
 main().catch((error) => {

@@ -2,6 +2,7 @@ import { createHash, randomUUID } from "node:crypto";
 import { createReadStream } from "node:fs";
 import {
   lstat,
+  link,
   mkdir,
   open,
   readFile,
@@ -31,11 +32,12 @@ export type CourseEditTransactionJournal = {
   projectSlug: string;
   operation: "apply" | "undo" | "rename" | "asset-upload";
   checkpointId: string | null;
-  phase: "prepared" | "mutating" | "validating" | "rolling-back" | "manual-recovery";
+  phase: "prepared" | "mutating" | "validating" | "rolling-back" | "manual-recovery" | "committed" | "rolled-back";
   startedAt: string;
   updatedAt: string;
   expectedBefore: CourseEditPathFingerprint[];
   expectedAfter: CourseEditPathFingerprint[];
+  cleanupCheckpointIds?: string[];
 };
 
 type LockOwner = {
@@ -58,6 +60,14 @@ function lockPath(repoRoot: string, projectSlug: string) {
 
 function ownerPath(repoRoot: string, projectSlug: string) {
   return path.join(lockPath(repoRoot, projectSlug), "owner.json");
+}
+
+function candidateLockPath(repoRoot: string, projectSlug: string, lockId: string) {
+  return `${lockPath(repoRoot, projectSlug)}.candidate-${lockId}`;
+}
+
+function retiredLockPath(repoRoot: string, projectSlug: string, kind: "stale" | "released", lockId: string) {
+  return `${lockPath(repoRoot, projectSlug)}.${kind}-${lockId}`;
 }
 
 export function courseEditJournalPath(repoRoot: string, projectSlug: string) {
@@ -183,6 +193,37 @@ export function courseEditFingerprintsMatch(
   });
 }
 
+function courseEditFingerprintEntryMatches(expected: CourseEditPathFingerprint | undefined, actual: CourseEditPathFingerprint | undefined) {
+  return Boolean(
+    expected &&
+    actual &&
+    expected.repoRelativePath === actual.repoRelativePath &&
+    expected.kind === actual.kind &&
+    expected.sha256 === actual.sha256 &&
+    expected.fileCount === actual.fileCount &&
+    expected.byteCount === actual.byteCount
+  );
+}
+
+export type CourseEditBoundaryState = "before" | "after" | "known-partial" | "unknown";
+
+export function classifyCourseEditBoundary(
+  expectedBefore: readonly CourseEditPathFingerprint[],
+  expectedAfter: readonly CourseEditPathFingerprint[],
+  actual: readonly CourseEditPathFingerprint[]
+): CourseEditBoundaryState {
+  if (courseEditFingerprintsMatch(expectedBefore, actual)) return "before";
+  if (expectedAfter.length && courseEditFingerprintsMatch(expectedAfter, actual)) return "after";
+  if (!expectedAfter.length || expectedBefore.length !== expectedAfter.length || actual.length !== expectedBefore.length) return "unknown";
+  const beforeByPath = new Map(expectedBefore.map((entry) => [entry.repoRelativePath, entry]));
+  const afterByPath = new Map(expectedAfter.map((entry) => [entry.repoRelativePath, entry]));
+  const allKnown = actual.every((entry) => (
+    courseEditFingerprintEntryMatches(beforeByPath.get(entry.repoRelativePath), entry) ||
+    courseEditFingerprintEntryMatches(afterByPath.get(entry.repoRelativePath), entry)
+  ));
+  return allKnown ? "known-partial" : "unknown";
+}
+
 export async function writeCourseEditJournal(journal: CourseEditTransactionJournal, repoRoot: string) {
   await durableAtomicWrite(
     courseEditJournalPath(repoRoot, journal.projectSlug),
@@ -197,9 +238,13 @@ export async function readCourseEditJournal(projectSlug: string, repoRoot: strin
       value.schemaVersion !== JOURNAL_SCHEMA_VERSION ||
       value.projectSlug !== projectSlug ||
       !["apply", "undo", "rename", "asset-upload"].includes(value.operation) ||
-      !["prepared", "mutating", "validating", "rolling-back", "manual-recovery"].includes(value.phase) ||
+      !["prepared", "mutating", "validating", "rolling-back", "manual-recovery", "committed", "rolled-back"].includes(value.phase) ||
       !Array.isArray(value.expectedBefore) ||
-      !Array.isArray(value.expectedAfter)
+      !Array.isArray(value.expectedAfter) ||
+      (value.cleanupCheckpointIds !== undefined && (
+        !Array.isArray(value.cleanupCheckpointIds) ||
+        value.cleanupCheckpointIds.some((entry) => typeof entry !== "string" || !entry || entry.length > 160)
+      ))
     ) {
       throw new Error("The interrupted Studio edit journal is invalid.");
     }
@@ -227,8 +272,25 @@ function processIsAlive(pid: number) {
 
 async function readLockOwner(repoRoot: string, projectSlug: string): Promise<LockOwner | null> {
   try {
-    const value = JSON.parse(await readFile(ownerPath(repoRoot, projectSlug), "utf8")) as LockOwner;
-    return value.schemaVersion === LOCK_SCHEMA_VERSION && value.projectSlug === projectSlug ? value : null;
+    const target = lockPath(repoRoot, projectSlug);
+    const stats = await lstat(target);
+    if (stats.isSymbolicLink() || (!stats.isFile() && !stats.isDirectory())) return null;
+    const ownerTarget = stats.isDirectory() ? ownerPath(repoRoot, projectSlug) : target;
+    const ownerStats = await lstat(ownerTarget);
+    if (ownerStats.isSymbolicLink() || !ownerStats.isFile()) return null;
+    const value = JSON.parse(await readFile(ownerTarget, "utf8")) as LockOwner;
+    return (
+      value.schemaVersion === LOCK_SCHEMA_VERSION &&
+      value.projectSlug === projectSlug &&
+      typeof value.lockId === "string" &&
+      /^[0-9a-f-]{36}$/i.test(value.lockId) &&
+      ["apply", "undo", "rename", "asset-upload"].includes(value.operation) &&
+      Number.isInteger(value.pid) &&
+      value.pid > 0 &&
+      typeof value.hostname === "string" &&
+      value.hostname.length > 0 &&
+      Number.isFinite(Date.parse(value.startedAt))
+    ) ? value : null;
   } catch {
     return null;
   }
@@ -241,34 +303,91 @@ function lockOwnerIsActive(owner: LockOwner | null) {
   return !Number.isFinite(startedAt) || Date.now() - startedAt < FOREIGN_HOST_STALE_MS;
 }
 
-async function acquireLock(projectSlug: string, operation: CourseEditTransactionJournal["operation"], repoRoot: string) {
+async function lockPathExists(repoRoot: string, projectSlug: string) {
+  try {
+    await lstat(lockPath(repoRoot, projectSlug));
+    return true;
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code === "ENOENT") return false;
+    throw error;
+  }
+}
+
+async function acquireLock(
+  projectSlug: string,
+  operation: CourseEditTransactionJournal["operation"],
+  repoRoot: string,
+  beforePublish?: () => Promise<void>
+) {
   const directory = lockPath(repoRoot, projectSlug);
-  await mkdir(path.dirname(directory), { recursive: true });
-  for (let attempt = 0; attempt < 2; attempt += 1) {
+  const parent = path.dirname(directory);
+  await mkdir(parent, { recursive: true });
+  for (let attempt = 0; attempt < 8; attempt += 1) {
+    const owner: LockOwner = {
+      schemaVersion: LOCK_SCHEMA_VERSION,
+      lockId: randomUUID(),
+      projectSlug,
+      operation,
+      pid: process.pid,
+      hostname: os.hostname(),
+      startedAt: new Date().toISOString()
+    };
+    const candidate = candidateLockPath(repoRoot, projectSlug, owner.lockId);
     try {
-      await mkdir(directory);
-      const owner: LockOwner = {
-        schemaVersion: LOCK_SCHEMA_VERSION,
-        lockId: randomUUID(),
-        projectSlug,
-        operation,
-        pid: process.pid,
-        hostname: os.hostname(),
-        startedAt: new Date().toISOString()
-      };
-      await durableAtomicWrite(ownerPath(repoRoot, projectSlug), `${JSON.stringify(owner, null, 2)}\n`);
-      return owner;
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error;
-      const owner = await readLockOwner(repoRoot, projectSlug);
-      if (lockOwnerIsActive(owner)) {
+      // The final lock is a hard link to a complete, fsynced owner document.
+      // link(2) is an atomic no-replace claim, so competing processes can
+      // never observe or mistake an ownerless lock for an abandoned one.
+      await durableAtomicWrite(candidate, `${JSON.stringify(owner, null, 2)}\n`);
+      await beforePublish?.();
+      try {
+        await link(candidate, directory);
+        await syncDirectory(parent);
+        return owner;
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== "EEXIST") throw error;
+      }
+
+      const current = await readLockOwner(repoRoot, projectSlug);
+      if (!current) {
+        if (!(await lockPathExists(repoRoot, projectSlug))) continue;
+        throw new Error("The course edit lock has no valid owner. Studio left it in place and stopped for manual recovery.");
+      }
+      if (lockOwnerIsActive(current)) {
         throw new Error("Another Studio server is already changing this course. Wait for it to finish before trying again.");
       }
-      if (attempt > 0) throw new Error("Studio could not safely claim the course edit lock.");
-      await rm(directory, { recursive: true, force: true });
+
+      // A deterministic tombstone prevents an ABA race: another stale-lock
+      // contender that observed this owner cannot later unlink a newly
+      // acquired lock using the same stale identity. The no-replace hard link
+      // claims retirement of this exact lock inode before its live name is
+      // removed.
+      const tombstone = retiredLockPath(repoRoot, projectSlug, "stale", current.lockId);
+      try {
+        await link(directory, tombstone);
+        await rm(directory, { force: true });
+        await syncDirectory(parent);
+      } catch (error) {
+        if (!["ENOENT", "EEXIST"].includes((error as NodeJS.ErrnoException).code ?? "")) throw error;
+      }
+    } finally {
+      await rm(candidate, { force: true });
     }
   }
   throw new Error("Studio could not acquire the course edit lock.");
+}
+
+async function releaseLock(owner: LockOwner, repoRoot: string) {
+  const current = await readLockOwner(repoRoot, owner.projectSlug);
+  if (current?.lockId !== owner.lockId) return;
+  const directory = lockPath(repoRoot, owner.projectSlug);
+  const retired = retiredLockPath(repoRoot, owner.projectSlug, "released", owner.lockId);
+  try {
+    await rename(directory, retired);
+    await syncDirectory(path.dirname(directory));
+    await rm(retired, { recursive: true, force: true });
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+  }
 }
 
 export async function withCourseEditFileLock<T>(input: {
@@ -277,20 +396,18 @@ export async function withCourseEditFileLock<T>(input: {
   repoRoot: string;
   recoverInterrupted: () => Promise<void>;
   run: () => Promise<T>;
+  beforePublish?: () => Promise<void>;
 }) {
   const localKey = `${path.resolve(input.repoRoot)}\0${input.projectSlug}`;
   if (activeLocks.has(localKey)) throw new Error("Another edit is already being applied to this course.");
   activeLocks.add(localKey);
   let owner: LockOwner | null = null;
   try {
-    owner = await acquireLock(input.projectSlug, input.operation, input.repoRoot);
+    owner = await acquireLock(input.projectSlug, input.operation, input.repoRoot, input.beforePublish);
     await input.recoverInterrupted();
     return await input.run();
   } finally {
     activeLocks.delete(localKey);
-    if (owner) {
-      const current = await readLockOwner(input.repoRoot, input.projectSlug);
-      if (current?.lockId === owner.lockId) await rm(lockPath(input.repoRoot, input.projectSlug), { recursive: true, force: true });
-    }
+    if (owner) await releaseLock(owner, input.repoRoot);
   }
 }

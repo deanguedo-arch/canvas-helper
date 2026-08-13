@@ -32,6 +32,7 @@ const viteCli = path.join(nodeModules, "vite", "bin", "vite.js");
 const playwrightCli = path.join(nodeModules, "@playwright", "test", "cli.js");
 
 export const STUDIO_RELEASE_SOURCE_PATHS = [
+  ".github/workflows/studio-direct-editing.yml",
   ".gitignore",
   "ARCHITECTURE.md",
   "CONTRIBUTING.md",
@@ -117,6 +118,7 @@ export const STUDIO_FOCUSED_TEST_FILES = [
   "scripts/tests/review-screenshots.test.ts",
   "scripts/tests/codex-packet.test.ts",
   "scripts/tests/course-build-brief.test.ts",
+  "scripts/tests/course-edit-storage.test.ts",
   "scripts/tests/course-editing.test.ts",
   "scripts/tests/codex-course.test.ts",
   "scripts/tests/course-onboarding.test.ts",

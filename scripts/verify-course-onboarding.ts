@@ -11,11 +11,7 @@ import {
   type CourseEditTarget
 } from "../app/shared/course-editing.js";
 import {
-  applyCourseEditBatch,
-  getCourseEditStatus,
-  resolveCourseEditPageMap,
-  resolveCourseEditTarget,
-  undoCourseEditBatch
+  resolveCourseEditPageMap
 } from "../app/server/lib/course-editing.js";
 import { decoratePreviewHtml } from "../app/server/lib/preview-inspection.js";
 import {
@@ -27,6 +23,10 @@ import {
   listCourseAuthoringProjects
 } from "./lib/course-authoring/context.js";
 import { collectEditableHtmlElements } from "./lib/course-editing/html.js";
+import {
+  startCourseEditHttpRouteHarness,
+  type CourseEditHttpRouteHarness
+} from "./lib/course-editing/http-route-harness.js";
 import { getStringFlag, hasFlag, parseArgs } from "./lib/cli.js";
 import { repoRoot } from "./lib/paths.js";
 
@@ -97,7 +97,11 @@ function requestFor(input: {
   };
 }
 
-async function resolvePilotTarget(projectSlug: string, excludedCandidates = new Set<string>()): Promise<{
+async function resolvePilotTarget(
+  projectSlug: string,
+  http: CourseEditHttpRouteHarness,
+  excludedCandidates = new Set<string>()
+): Promise<{
   resolution: TargetResolution | null;
   map: Awaited<ReturnType<typeof resolveCourseEditPageMap>>;
 }> {
@@ -136,12 +140,12 @@ async function resolvePilotTarget(projectSlug: string, excludedCandidates = new 
       location.sourceStart === element.sourceStart && location.tagName === element.tagName
     ));
     if (!located) continue;
-    const target = await resolveCourseEditTarget(requestFor({
+    const target = await http.resolve(requestFor({
       projectSlug,
       nodeId: located[0],
       tagName: element.tagName,
       visibleText: normalizedText(document.source.slice(element.innerStart, element.innerEnd))
-    }), repoRoot);
+    }));
     if (target.eligibility === "editable" && target.identity && target.capabilities.richText) {
       return {
         map,
@@ -191,12 +195,12 @@ function verificationPaths(projectSlug: string, driverId: string, sourcePath: st
   return paths;
 }
 
-async function verifyProject(projectSlug: string, mapOnly: boolean) {
+async function verifyProject(projectSlug: string, mapOnly: boolean, http: CourseEditHttpRouteHarness) {
   const startedAt = Date.now();
   const doctor = await inspectCourseAuthoringProject(projectSlug, repoRoot);
   assert.equal(doctor.status, "pass", `${projectSlug} did not pass course:doctor.`);
   assert.ok(doctor.project?.studioEditing.enabled, `${projectSlug} is not enabled for Studio editing.`);
-  const resolved = await resolvePilotTarget(projectSlug);
+  const resolved = await resolvePilotTarget(projectSlug, http);
   const mapEvidence = {
     available: resolved.map.available,
     editableCount: resolved.map.editableCount,
@@ -214,7 +218,7 @@ async function verifyProject(projectSlug: string, mapOnly: boolean) {
     };
   }
 
-  const priorStatus = await getCourseEditStatus(projectSlug, repoRoot);
+  const priorStatus = await http.status(projectSlug);
   const hasExistingCheckpoint = await pathExists(path.join(
     repoRoot,
     ".runtime",
@@ -244,17 +248,17 @@ async function verifyProject(projectSlug: string, mapOnly: boolean) {
     let applied = false;
     let undone = false;
     try {
-      await applyCourseEditBatch({
+      await http.apply({
         schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
         projectSlug,
         drafts: [pilotDraft(activeResolution.target)]
-      }, repoRoot);
+      });
       applied = true;
       const reloadedSource: string = await readFile(activeResolution.sourcePath, "utf8");
       assert.match(reloadedSource, new RegExp(PILOT_MARKER), `${projectSlug} lost the edit after learner render/reload.`);
       const styleMarkersAfter: number = reloadedSource.split("data-canvas-helper-studio-edit-styles").length - 1;
       assert.equal(styleMarkersAfter, styleMarkersBefore, `${projectSlug} injected style infrastructure for a text-only edit.`);
-      await undoCourseEditBatch(projectSlug, repoRoot);
+      await http.undo(projectSlug);
       undone = true;
       const after = await fingerprintCourseEditPaths(repoRoot, paths);
       assert.ok(courseEditFingerprintsMatch(before, after), `${projectSlug} was not restored byte-for-byte.`);
@@ -269,9 +273,9 @@ async function verifyProject(projectSlug: string, mapOnly: boolean) {
     } catch (error) {
       if (!undone) {
         try {
-          const status = await getCourseEditStatus(projectSlug, repoRoot);
+          const status = await http.status(projectSlug);
           if (applied || status.canUndo) {
-            await undoCourseEditBatch(projectSlug, repoRoot);
+            await http.undo(projectSlug);
             undone = true;
           }
         } catch (undoError) {
@@ -286,7 +290,7 @@ async function verifyProject(projectSlug: string, mapOnly: boolean) {
         `  rejected ${activeResolution.target.identity.tagName} ${JSON.stringify(activeResolution.target.originalText.slice(0, 80))}: ${errorMessages(attemptError).join(" | ")}`
       );
       excludedCandidates.add(activeResolution.candidateKey);
-      resolution = (await resolvePilotTarget(projectSlug, excludedCandidates)).resolution;
+      resolution = (await resolvePilotTarget(projectSlug, http, excludedCandidates)).resolution;
     }
   }
   if (attemptErrors.length && attemptErrors.every((error) => (
@@ -326,23 +330,29 @@ async function main() {
   }
   if (!selected.length) throw new Error(`No onboarded course matched ${project ?? "--all"}.`);
 
+  const http = await startCourseEditHttpRouteHarness(repoRoot);
   const results = [];
   const failures: Array<{ projectSlug: string; error: string }> = [];
-  for (const row of selected) {
-    console.log(`[course onboarding] ${row.slug}`);
-    try {
-      const result = await verifyProject(row.slug, mapOnly);
-      results.push(result);
-      console.log(`  ${result.reversiblePilot}; ${result.map.editableCount} mapped editable target(s)`);
-    } catch (error) {
-      const message = errorEvidence(error);
-      failures.push({ projectSlug: row.slug, error: message });
-      console.error(`  FAIL: ${message}`);
+  try {
+    for (const row of selected) {
+      console.log(`[course onboarding] ${row.slug}`);
+      try {
+        const result = await verifyProject(row.slug, mapOnly, http);
+        results.push(result);
+        console.log(`  ${result.reversiblePilot}; ${result.map.editableCount} mapped editable target(s)`);
+      } catch (error) {
+        const message = errorEvidence(error);
+        failures.push({ projectSlug: row.slug, error: message });
+        console.error(`  FAIL: ${message}`);
+      }
     }
+  } finally {
+    await http.close();
   }
   const report = {
     schemaVersion: 1,
     generatedAt: new Date().toISOString(),
+    commitSha: process.env.GITHUB_SHA ?? null,
     mapOnly,
     requested: selected.length,
     passed: results.length,

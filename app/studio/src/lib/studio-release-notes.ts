@@ -27,11 +27,11 @@ export const CURRENT_STUDIO_RELEASE: StudioRelease = {
     },
     {
       title: "Apply safely and undo",
-      summary: "Studio locks and journals each batch, validates the real learner render, and refuses Undo after newer work."
+      summary: "Studio atomically locks and journals each batch, preserves unknown crash-recovery changes, validates the settled learner result, and refuses Undo after newer work."
     },
     {
       title: "Bring the source-backed catalog forward",
-      summary: "Active source-backed, new, and imported courses use explicit ownership; runtime content routes to Annotate, packages stay protected, and artifact bytes track exports."
+      summary: "Active source-backed, new, and imported courses use explicit ownership; runtime content routes to Annotate, packages stay protected, and target inputs plus artifact bytes track exports."
     }
   ]
 };

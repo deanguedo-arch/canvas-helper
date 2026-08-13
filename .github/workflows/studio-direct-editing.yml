@@ -1,0 +1,59 @@
+name: Studio Direct Editing release gate
+
+on:
+  pull_request: {}
+  push:
+    branches:
+      - codex/studio-direct-editing-v1
+
+concurrency:
+  group: studio-direct-editing-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  release-gate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out repository and course assets
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run focused Direct Editing tests
+        run: npm run test:course-editing
+
+      - name: Verify export evidence contracts
+        run: npm run test:exports
+
+      - name: Run Studio release gate
+        run: npm run test:studio-release
+
+      - name: Run real Direct, English, Social, and snapshot HTTP-route pilots
+        run: npm run verify:course-editing-pilots
+
+      - name: Verify the full onboarded catalog through public edit routes
+        run: npm run verify:course-onboarding -- --all
+
+      - name: Upload release evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: studio-direct-editing-release-evidence
+          if-no-files-found: warn
+          path: |
+            .runtime/studio-release-report.json
+            .runtime/course-editing-pilots.json
+            .runtime/course-onboarding-verification.json

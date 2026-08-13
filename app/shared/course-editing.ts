@@ -16,7 +16,9 @@ export const COURSE_EDIT_TEXT_TONES = ["default", "ink", "muted", "accent"] as c
 export const COURSE_EDIT_ALIGNMENTS = ["default", "left", "center", "right"] as const;
 export const COURSE_EDIT_SPACING = ["default", "compact", "relaxed"] as const;
 
-export type CourseEditAdapter = "direct" | "english-factory" | "social-related-issues" | "legacy-snapshot";
+export const COURSE_EDIT_ADAPTERS = ["direct", "english-factory", "social-related-issues", "legacy-snapshot"] as const;
+
+export type CourseEditAdapter = (typeof COURSE_EDIT_ADAPTERS)[number];
 export type CourseEditEligibility = "editable" | "unsupported";
 export type CourseEditMapAction = "edit-text" | "edit-link" | "replace-image" | "style-text" | "rename-course" | "annotation-only";
 export type CourseEditTextStyle = (typeof COURSE_EDIT_TEXT_STYLES)[number];
@@ -192,6 +194,10 @@ function isNullableBoundedString(value: unknown, maximum: number) {
   return value === null || isBoundedString(value, maximum);
 }
 
+export function isCourseEditAdapter(value: unknown): value is CourseEditAdapter {
+  return typeof value === "string" && COURSE_EDIT_ADAPTERS.includes(value as CourseEditAdapter);
+}
+
 export function isCourseEditStylePatch(value: unknown): value is CourseEditStylePatch {
   if (!isRecord(value)) return false;
   if (!hasOnlyKeys(value, ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"])) return false;
@@ -237,7 +243,7 @@ export function isCourseEditTargetIdentity(value: unknown): value is CourseEditT
     /^[a-f0-9]{64}$/.test(value.elementDigest) &&
     (value.editId === null || (isBoundedString(value.editId, COURSE_EDIT_MAX_ID_CODE_UNITS, false) && /^che[12]:[a-f0-9]{24}$/.test(value.editId))) &&
     isBoundedString(value.tagName, 24, false) &&
-    ["direct", "english-factory", "social-related-issues"].includes(String(value.adapter))
+    isCourseEditAdapter(value.adapter)
   );
 }
 
