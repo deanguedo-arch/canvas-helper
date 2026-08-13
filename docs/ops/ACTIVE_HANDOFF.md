@@ -4,6 +4,15 @@
 - Task: Bring the complete existing course catalog into explicit Studio authoring contracts without ruining legacy courses, while keeping future Codex/imported courses current by construction.
 - Status: complete
 
+## Publication and independent-audit packet
+
+- Branch: `codex/studio-direct-editing-v1`
+- Pushed implementation commit: `1b221ee9ad9594a7166572494448e1db32f6e0e1`
+- Focused draft PR: `https://github.com/deanguedo-arch/canvas-helper/pull/1`
+- PR base: `codex/studio-roadmap-phases` at `74b0c3ee7de150472c10f172a664ee658050f2ca`
+- Audit packet: `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
+- The PR is intentionally focused on Direct Editing and catalog onboarding. The full comparison to `main` includes the older stacked Studio roadmap and English/course history.
+
 ## Summary
 
 - Catalog onboarding is complete and idempotent across all 84 project directories.
@@ -172,11 +181,11 @@
 
 ## Exact next command
 
-`npm run studio:codex`
+`npm run test:studio-release`
 
 ## Exact next file to open
 
-`docs/audits/2026-08-13-course-catalog-onboarding.md`
+`docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
 
 ## Do not do next / warnings
 
