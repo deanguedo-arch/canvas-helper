@@ -4,11 +4,13 @@ Prepared: August 13, 2026
 
 Repository: [deanguedo-arch/canvas-helper](https://github.com/deanguedo-arch/canvas-helper)
 
-Focused draft PR: [#1 — Harden Direct Editing and onboard the course catalog](https://github.com/deanguedo-arch/canvas-helper/pull/1)
+Focused PR: [#1 — Harden Direct Editing and onboard the course catalog](https://github.com/deanguedo-arch/canvas-helper/pull/1) (open, ready for review, and unmerged at the Phase 0.5 planning handoff)
 
 Independent outcome: **[GREEN / GO](2026-08-13-studio-direct-editing-green-go-verdict.md)** on reviewed head `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`.
 
-Next-product audit protocol: **[ChatGPT Pro real-time editability audit plan](2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)**. It treats element coverage, ephemeral preview, and the new-course threshold as unimplemented until exact-head code and evidence land.
+Next-product audit protocol: **[ChatGPT Pro real-time editability audit plan](2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)**. The first plan audit at `a5645d2e` returned **REQUEST CHANGES** while preserving the inherited Direct Editing GREEN baseline.
+
+Plan-audit response: **[Studio real-time editability Phase 0.5 contracts](../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md)**. It defines adapter-owned learner surfaces, non-overlapping candidates, dual rendered/source collection, read-only isolation, server preview normalization, session ordering, a non-mutating host overlay, memory-only image preview, and quantitative rollout gates. It is ready for independent specification audit and is not implementation evidence.
 
 Review base: [`codex/studio-roadmap-phases`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-roadmap-phases) at [`74b0c3ee`](https://github.com/deanguedo-arch/canvas-helper/commit/74b0c3ee7de150472c10f172a664ee658050f2ca)
 

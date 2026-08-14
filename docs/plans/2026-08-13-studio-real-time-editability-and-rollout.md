@@ -1,10 +1,12 @@
 # Canvas Studio real-time editability and controlled rollout plan
 
 - Date: 2026-08-13
-- Status: approved direction; implementation not started
+- Status: plan audit **REQUEST CHANGES** accepted; Phase 0.5 contract amendment is ready for independent audit; implementation not started
 - Safety baseline: e71241433e173c7617dbf5ea5e5ddcc5bf712c11
-- Independent decision: **GREEN / GO**
+- Independent Direct Editing decision: **GREEN / GO**
+- Independent plan-audit decision: **REQUEST CHANGES** at a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a
 - Owning product surface: Canvas Studio Edit mode and Full Preview
+- Phase 0.5 contract amendment: [`2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`](2026-08-14-studio-real-time-editability-phase-0-5-contracts.md)
 - Independent audit protocol: [`../audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`](../audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)
 
 ## Outcome
@@ -14,10 +16,11 @@ Make routine teacher-owned course content feel immediate in Studio without weake
 For this plan, **real-time editing** means:
 
 1. the teacher selects a server-mapped editable target;
-2. supported changes appear immediately in the isolated preview while the teacher types or changes a control;
-3. those preview changes are temporary and make no filesystem write;
-4. **Save draft** stores the existing bounded course-edit patch;
-5. **Apply** remains the only path that writes canonical source, rebuilds when required, validates the learner render, records export staleness, and creates the Undo checkpoint.
+2. the server re-resolves and canonicalizes the proposed patch;
+3. supported changes appear in a host-owned inert overlay above the isolated preview while the teacher types or changes a control;
+4. the learner DOM remains untouched and those preview changes make no filesystem write;
+5. **Save draft** stores the canonical bounded course-edit patch and digest;
+6. **Apply** remains the only path that writes canonical source or image assets, rebuilds when required, validates the learner render, records export staleness, and creates the Undo checkpoint.
 
 It does not mean arbitrary contenteditable over the rendered DOM, writing files on each keystroke, multi-user collaboration, or treating runtime-owned output as source.
 
@@ -33,114 +36,79 @@ The next unknown is product coverage, not transaction safety:
 - Aboriginal Studies 30 exposed mapped targets but no learner-stable sampled text edit;
 - those course-level outcomes do not reveal what percentage of ordinary headings, paragraphs, links, images, captions, table cells, and card content is editable on each page.
 
-The plan therefore measures element-level coverage before setting legacy migration targets.
+The first independent review of this plan agreed with that direction but returned **REQUEST CHANGES** because “learner page,” “candidate,” “editable,” preview normalization, DOM safety, message ordering, and zero-write image preview were not defined precisely enough. The Phase 0.5 contract amendment now defines those abstractions and must be independently approved before census code begins.
 
 ## Non-negotiable contracts
 
 1. **The server remains the authority.** The preview map is informational. Only the current Resolve and Apply paths can authorize a write.
-2. **No write while typing.** Live preview is an ephemeral DOM presentation layer and is discarded on Cancel, target change, navigation, reload, disconnect, or stale source state.
-3. **One patch contract.** Preview, draft persistence, preflight, Apply, rebuild replay, rendered validation, and Undo use the same sanitized CourseEditPatch capabilities.
+2. **No learner-DOM mutation while typing.** Live preview is a host-owned inert overlay and is discarded on Cancel, target change, navigation, reload, disconnect, or stale source state.
+3. **One server canonicalizer.** Normalize Preview and Apply use the same target re-resolution, sanitization, capability, URL, curated-style, and no-op logic. Apply runs it again and requires the canonical patch digest to match.
 4. **Runtime ownership stays visible.** Unsupported or runtime-owned targets remain dashed Annotation-only selections with a reason.
 5. **Generated output stays generated.** English and Social changes remain metadata overrides consumed by their owning factories. Snapshot courses materialize only through the snapshot adapter.
 6. **External writers do not race Apply.** Codex, Git, manual editors, and standalone builders must not change the same Direct course during the final Apply boundary.
 7. **A percentage never grants permission.** Coverage reporting may describe a page; it may not enable Edit mode or authorize a target.
+8. **Incomplete means unscored.** Missing routes/states, truncation, unresolved rendered content, browser-state mutation, or read-only residue produces a null percentage rather than a partial green score.
+9. **Apply owns image persistence.** Preview image bytes remain bounded and memory-only. An ephemeral preview URL never becomes course source.
 
 ## Baseline and measurement model
 
-### Denominator: routine teacher-content candidates
+The normative definitions are in the [Phase 0.5 contract amendment](2026-08-14-studio-real-time-editability-phase-0-5-contracts.md). The implementation must preserve these measurement decisions:
 
-The census should count semantic content a teacher could reasonably expect to edit:
+- every adapter owns a versioned, exhaustive learner-surface inventory covering physical pages plus declared routes and required runtime states;
+- Studio's bounded HTML discovery is diagnostic only and cannot prove inventory completeness;
+- a source ownership collector and a rendered Chromium semantic collector reconcile independently;
+- runtime-created routine content remains in the denominator and receives a stable Annotation-only reason when it lacks safe ownership;
+- actual read-only Resolve eligibility, not a green page-map action, is required before a candidate is counted editable;
+- primary non-overlapping teacher-content blocks are measured separately from field/capability opportunities;
+- every rendered semantic occurrence is a primary candidate, a proven duplicate, a stable exclusion, or an incomplete-surface failure;
+- incomplete inventory, truncation, unresolved occurrences, attempted project repair, browser storage writes, or repository residue makes the percentage null;
+- project and catalog coverage use summed raw numerators and denominators, never an average of page percentages.
 
-- headings;
-- paragraphs and list items;
-- links and button labels where the label is course content;
-- images, alt text, captions, and titles;
-- table headers and data cells;
-- card titles, descriptions, and callout text;
-- the synchronized course name.
-
-It should separately classify, not inflate the denominator with:
-
-- scripts, styles, metadata, templates, and hidden nodes;
-- Studio or preview chrome;
-- navigation generated entirely from runtime data;
-- assessment engines, simulations, media players, and other behavior-rich components;
-- duplicate layout wrappers with no teacher-owned content.
-
-### Planned report
-
-Add a planned command named:
+The planned command remains:
 
     npm run report:course-editability -- --all
 
-It does not exist yet and must not be documented as runnable until its implementation and tests land.
+It does not exist yet. When Phase 1 lands, it must write deterministic, content-free, exact-commit evidence to `.runtime/course-editability-coverage.json`, with a canonical SHA-256 report digest.
 
-The command should traverse every declared learner page through the existing authoring driver and resolveCourseEditPageMap, then write ignored runtime evidence to .runtime/course-editability-coverage.json.
+Fresh-course acceptance requires all of the following, not one gameable ratio:
 
-Per project and page, record:
+- overall primary block coverage at least 90%;
+- aggregate teacher-text code-unit coverage at least 90%;
+- at least 80% per promised standard candidate kind;
+- required course-name/Rename synchronization at 100%;
+- promised link, image-source, and image-alt opportunity coverage at least 90%;
+- complete inventory and zero unknown, omitted, or truncated occurrences.
 
-- candidate count;
-- editable count;
-- Annotation-only count;
-- live-map/source-fingerprint match count;
-- capability counts for text, rich text, link, image, alt, title, and curated style keys;
-- reason histogram for unsupported targets;
-- repeated-identity rejection count;
-- truncated or uninspectable-page status;
-- adapter and canonical source owner;
-- most recent reversible catalog-pilot outcome.
-
-Repository snapshots may summarize totals under docs/audits, but the complete generated report stays ignored runtime evidence.
-
-### Success measures
-
-- 100% of declared learner pages receive a report outcome or a bounded explicit error.
-- 100% of visible candidate targets are classified as editable or Annotation only; there is no unknown click state.
-- New Codex-created courses target at least 90% editable coverage for routine teacher-content candidates.
-- Legacy targets are set only after the census; no catalog-wide percentage is invented in advance.
-- Coverage collection makes zero project, metadata, export, checkpoint, lock, or draft mutations.
+Legacy targets are set only after this census. No catalog-wide legacy percentage is invented in advance.
 
 ## Live-preview architecture
 
-The state flow is:
+The normative protocol and reset matrix are in the [Phase 0.5 contract amendment](2026-08-14-studio-real-time-editability-phase-0-5-contracts.md). The state flow is:
 
     server-authored edit map
       -> teacher selects mapped target
-      -> server returns baseline and capabilities
+      -> server Resolve returns current identity and capabilities
       -> teacher changes bounded controls
-      -> ephemeral patch updates only the isolated course DOM
-      -> Cancel/navigation restores the rendered snapshot
-      -> Save draft persists the bounded CourseEditPatch
-      -> Apply performs lock, preflight, write, rebuild, render validation, refresh, and Undo checkpoint
+      -> server Normalize Preview re-resolves, sanitizes, removes no-ops, and returns a canonical patch plus inert representation
+      -> host-owned overlay displays only the highest acknowledged session revision above the cross-origin iframe
+      -> learner DOM and learner state remain untouched
+      -> Save draft stores the canonical patch and digest
+      -> Apply closes preview, re-normalizes, then performs lock, preflight, write, rebuild, render validation, refresh, and Undo checkpoint
 
-### Proposed bridge additions
+Every preview command and acknowledgement carries a preview session ID, monotonic revision, project, page identity, map source digest, target node ID, and canonical patch digest. Late, reordered, duplicated, stale, or cross-target messages fail closed. Clear closes a generation permanently.
 
-Add versioned, bounded messages to the existing private preview bridge:
+V1 does not use `innerHTML` or attribute mutation on the original learner node. It renders a pointer-inert, accessibility-hidden overlay outside the learner document. Screenshot capture and Review Set save/copy are disabled while that unapplied overlay is visible.
 
-- studio-preview-course-edit: target ID, draft ID when applicable, and validated delta patch;
-- studio-clear-course-edit-preview: target/draft identity and reason;
-- preview-course-edit-preview-state: success, stale target, unsupported patch, or reset confirmation.
+Image preview uses a validation-only service. Validated encoded bytes remain in bounded server memory and are served through a session-bound isolated-preview capability. The preview URL is never saved. Apply is the first filesystem mutation and must atomically publish the matching bytes or reject the whole batch residue-free.
 
-The exact names may change during implementation, but the contract must:
-
-- carry no filesystem path, browser-supplied selector, raw JavaScript, or arbitrary CSS;
-- pass the same patch validators and message-byte limits as persisted drafts;
-- apply only to the currently selected mapped node;
-- snapshot original rendered text, allowed attributes, and curated presentation before the first preview;
-- restore that snapshot before switching targets or applying a different draft;
-- fail closed when source/render fingerprints no longer match;
-- avoid changing course-owned localStorage, form answers, completion state, or event handlers.
-
-### Preview behavior by capability
-
-| Capability | Immediate preview | Persistent authority | Notes |
+| Capability | Immediate representation | Persistent authority | Notes |
 | --- | --- | --- | --- |
-| Text and sanitized rich text | Replace selected content presentation | Existing draft and Apply pipeline | Never execute inserted markup or scripts. |
-| Link | Update mapped destination and visible selection | Existing URL sanitizer and Apply pipeline | Preview clicks stay suppressed while Edit mode is active. |
-| Image, alt, title | Preview a validated upload or approved URL and accessibility text | Existing upload/materialization and Apply pipeline | Object URLs never become source. |
-| Curated visual tokens | Apply only allowed token values | Existing semantic style patch | No arbitrary CSS. |
-| Course rename | Show synchronized marked surfaces temporarily | Dedicated Rename operation | Saving still uses the checkpointed multi-surface route. |
-| Runtime component | No generic DOM preview | Dedicated future component editor or Annotate/Codex | Runtime state is not promoted to source. |
+| Text and sanitized rich text | Inert host overlay from the server-normalized representation | Canonical draft and Apply pipeline | Raw user HTML never reaches the renderer. |
+| Link | Overlay displays normalized label/destination state | Shared URL canonicalizer and Apply | Preview overlay cannot navigate. |
+| Image, alt, title | Memory-only validated capability URL and decoded metadata | Apply-owned asset transaction | Ephemeral URL never becomes `src`. |
+| Curated visual tokens | Overlay uses approved semantic tokens | Shared canonicalizer and Apply | No arbitrary CSS. |
+| Course rename | Overlay may show synchronized marked surfaces | Dedicated checkpointed Rename route | Still requires server re-resolution and canonicalization. |
+| Runtime component | No generic preview | Dedicated future component editor or Annotate/Codex | Runtime state is not promoted to source. |
 
 ## New-course authoring contract
 
@@ -186,10 +154,35 @@ Exit gate:
 - independent verdict is linked from the audit packet, release note, active handoff, and PR;
 - current PR head is clean and both exact-head and PR-merge workflows pass.
 
+### Phase 0.5 — lock measurement and preview-authority contracts
+
+Deliverable:
+
+- [`2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`](2026-08-14-studio-real-time-editability-phase-0-5-contracts.md).
+
+The specification defines:
+
+- adapter-owned learner surfaces and incomplete-inventory behavior;
+- rendered/source dual collection and actual Resolve parity;
+- non-overlapping primary candidates and separate capability opportunities;
+- stable reason codes, anti-gaming metrics, canonical report serialization, and read-only isolation;
+- server preview normalization, session/revision ordering, and the preview state machine;
+- an inert host overlay that never mutates the learner subtree;
+- memory-only image preview and Apply-owned asset persistence;
+- the complete Studio reset matrix and quantitative teacher-rollout gates.
+
+Exit gate:
+
+- an independent specification audit returns GREEN / GO or GO WITH CONDITIONS with no unresolved P1 measurement or preview-authority ambiguity;
+- the reviewer explicitly confirms that approval is for the implementation contract, not proof that the census or preview exists.
+
 ### Phase 1 — element-level editability census
 
 Primary files:
 
+- shared Phase 0.5 schema modules under `app/shared/`;
+- mutation-prohibited project inspection under `scripts/lib/`;
+- exhaustive adapter surface inventory providers;
 - scripts/lib/course-editing/editability-coverage.ts;
 - scripts/report-course-editability.ts;
 - app/server/lib/preview-inspection.ts;
@@ -198,8 +191,10 @@ Primary files:
 
 Exit gate:
 
-- the planned report command covers every declared page;
-- generated evidence is deterministic, bounded, and read-only;
+- the planned report command covers every adapter-declared page, route, and required state or returns an incomplete inventory with no percentage;
+- source and rendered collectors reconcile runtime-created content through actual read-only Resolve parity;
+- generated evidence is deterministic, content-free, bounded, and read-only;
+- incomplete, zero-candidate, truncated, storage-mutating, or residue-producing surfaces cannot publish a percentage;
 - results distinguish course-level pilot success from element-level coverage;
 - Studio can display page-level editable and Annotation-only counts without using them as authorization.
 
@@ -207,8 +202,10 @@ Exit gate:
 
 Primary files:
 
+- one shared server canonicalizer used by Normalize Preview and Apply;
 - app/shared/preview-bridge.ts;
 - app/server/preview-bridge-runtime.ts;
+- a bounded memory-only preview-image service;
 - app/studio/src/hooks/useCourseEditing.ts;
 - app/studio/src/components/CourseEditPanel.tsx;
 - scripts/tests/preview-security.test.ts;
@@ -216,10 +213,12 @@ Primary files:
 
 Exit gate:
 
-- supported text, link, image/accessibility, and style controls update the selected preview without a file write;
-- Cancel, navigation, reload, source drift, and target switch restore the original rendered state;
-- Save draft persists the same bounded patch used today;
+- supported text, link, image/accessibility, and style controls update an inert host overlay without a file or learner-DOM write;
+- Cancel, navigation, reload, disconnect, source drift, layout/mode changes, and target switch close the preview generation and remove the overlay;
+- stale, duplicate, reordered, malformed, and oversized messages cannot repaint a closed or newer session;
+- Save draft persists the server-canonical patch and digest without a repository write;
 - Apply still crosses the full lock, transaction, rebuild, rendered-result, export, and Undo boundary;
+- image bytes remain memory-only until Apply and an expired pending image rejects the whole batch residue-free;
 - unsupported targets cannot receive a preview patch;
 - keyboard, focus, reduced-motion, and narrow-screen behavior pass E2E.
 
@@ -261,7 +260,9 @@ Pilot cohort:
 
 - the four accepted adapter pilots;
 - at least six additional courses chosen from high-use Direct, English, Social, and snapshot families;
-- at least twenty real teacher edit sessions covering text, links, images/alt, styles, Rename, rejected edits, and Undo.
+- at least twenty real teacher edit sessions across at least five teachers;
+- at least two teachers new to Studio and two regular users, with no participant supplying more than 40% of sessions;
+- the predetermined task matrix from the Phase 0.5 contract covering text, rich text, links, images/alt, styles, Rename, rejection/reset, and drift-safe Undo refusal.
 
 Capture:
 
@@ -278,7 +279,10 @@ Rollout exit gate:
 - zero silent corruption or unexplained file drift;
 - every failed Apply is residue-free or enters explicit manual recovery without overwriting unknown bytes;
 - every intervening external change disables Undo;
-- teachers can identify editable versus Annotation-only content before clicking;
+- zero false-editable incidents and less than 5% false Annotation-only results on independently verified safe targets;
+- at least 90% supported ordinary-task completion without Codex;
+- non-image preview acknowledgement median at or below 200 ms and p95 at or below 750 ms; validated image preview p95 at or below 2.5 seconds;
+- valid supported-task Apply rejection at or below 5%, zero preview/Apply mismatch, and no more than 0.25 confusion incidents per session;
 - no P0/P1 regression across the pilot;
 - common edit tasks can be completed without Codex, while complex work still hands off cleanly.
 
@@ -286,8 +290,9 @@ Rollout exit gate:
 
 | Change | Required verification |
 | --- | --- |
-| Coverage collector | Focused unit tests, read-only residue check, all-catalog report, manifest validation |
-| Preview bridge contract | Bridge validators, security tests, malformed/oversized message tests |
+| Phase 0.5 specification | Independent plan audit with explicit disposition for every original P1/P2 finding |
+| Coverage collector | Inventory-provider tests, rendered/source reconciliation, actual Resolve parity, browser-isolation checks, read-only residue check, deterministic all-catalog report, manifest validation |
+| Preview bridge contract | Canonicalizer parity, bridge validators, session/revision ordering, security tests, malformed/stale/reordered/oversized message tests |
 | Live preview UI | Studio build, focused Studio suite, full inspection E2E, keyboard/narrow-screen checks |
 | Apply behavior | Existing course-editing suite, all four HTTP pilots, rendered-result validation, exact Undo |
 | New-course contract | Codex-course tests, doctor, workspace verify, project E2E, coverage threshold |
@@ -307,6 +312,8 @@ These remain honest operating boundaries, not blockers to the controlled rollout
 
 ## First implementation slice
 
-Start with Phase 1 only. Add the read-only coverage collector, tests, and report schema. Do not add live DOM preview messages in the same change.
+Do not start Phase 1 code until the Phase 0.5 contract amendment receives an independent specification verdict with no unresolved P1.
 
-This gives the next implementation an exact baseline, lets the teacher-facing UI show honest page coverage, and prevents the live-preview work from being judged against a guessed percentage.
+After that approval, start with Phase 1A only: shared schemas, the mutation-prohibited project reader, and exhaustive adapter learner-surface inventory providers. Do not add the rendered collector, coverage percentage, preview bridge messages, or teacher UI in that first change.
+
+Phase 1B then adds the source/rendered dual collector, actual Resolve parity, deterministic report, and read-only residue proof. Preview authority and UI remain a separate Phase 2 change.
