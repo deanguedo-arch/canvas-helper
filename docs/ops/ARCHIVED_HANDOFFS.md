@@ -8390,3 +8390,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Catalog truth: 66 tracked project directories, 65 manifests, and 63 enabled source-backed projects; 50 reversible edit outcomes, 12 no-source-owned-text-target outcomes, and one no-learner-stable-text-target outcome.
 - User-owned duplicate, archive, resource, test-result, and transaction paths remained untouched and unstaged.
 - Next command at archival time: `sed -n '1,280p' docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`.
+
+## Archived Active Handoff — 2026-08-14: real-time Phase 0.5 specification
+
+- Project: `repo-wide`.
+- Task: Resolve the first real-time plan audit with authoritative learner-surface, candidate, read-only census, preview-authority, image, ordering, reset, and rollout contracts.
+- Status: specification complete at the handoff; superseded by the live-preview and measured-editability implementation.
+- Verification at archival time: documentation links and diff checks, Studio build, manifest validation, and inherited Direct Editing gates passed; the repository typecheck retained ten unrelated builder/factory diagnostics.
+- Source of truth: `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`, `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`, and `docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`.
+- Preserved boundary: the handoff made no implementation or course-content claim; user-owned duplicate/resource/transaction/test paths remained unstaged.
+- Next command at archival time: `git diff a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...HEAD -- docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`.

@@ -1,181 +1,119 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Independently audit the Phase 0.5 measurement and preview-authority contracts, then begin only the approved learner-surface inventory slice.
-- Status: ready for validation
+- Task: Implement safe real-time Studio preview, honest element-level editability measurement, new-course defaults, and a complete independent-audit packet.
+- Status: ready for independent validation
 
 ## Publication and review state
 
 - Branch: `codex/studio-direct-editing-v1`
-- Focused PR: `https://github.com/deanguedo-arch/canvas-helper/pull/1`
-- Accepted inherited Direct Editing head: `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`
-- First real-time planning head: `a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a`
-- Independent Direct Editing verdict: **GREEN / GO**
-- Independent plan-audit verdict at `a5645d2e`: **REQUEST CHANGES**
-- First-plan exact-head run `31765993351` passed on retry after a transient Chromium navigation timeout; PR-merge run `31765996040` passed first attempt.
-- Phase 0.5 response: `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`
-- Current product status: census, ephemeral preview, fresh-course threshold, legacy migrations, and teacher rollout remain **NOT IMPLEMENTED / NOT AUDITABLE YET**.
-- PR #1 remains unmerged. Merge is a repository-owner action.
+- Pull request: `https://github.com/deanguedo-arch/canvas-helper/pull/1`
+- Accepted Direct Editing baseline: `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`
+- First plan-audit head/verdict: `a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a` — **REQUEST CHANGES**
+- Published implementation commit: `ef72243e1c7039bc8c7778a33dadf44c61947d60`
+- The audit handoff also raises the GitHub job timeout from 90 to 180 minutes because the exhaustive rendered census can consume roughly 75 minutes before later pilot/catalog steps; test scope is unchanged.
+- Implementation audit packet: `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`
+- PR #1 remains open, mergeable, ready for review, and unmerged. Merge remains a repository-owner action.
+- Implementation-only push run `31840471429` and PR run `31840465755` began for `ef72243e`. Publishing this audit/CI-only descendant creates the final runs; use the PR checks and uploaded artifact from that final head as the authority.
 
 ## Summary
 
-- Accepted the independent plan-audit REQUEST CHANGES without weakening the inherited Direct Editing GREEN baseline.
-- Added a non-behavioural Phase 0.5 specification before any census or preview implementation.
-- Defined authoritative learner surfaces, rendered/source reconciliation, non-overlapping candidates, capability opportunities, stable reason codes, null incomplete scoring, read-only isolation, and deterministic report evidence.
-- Defined one server preview canonicalizer, a monotonic preview session protocol, a host-owned inert overlay, a memory-only image workflow, a complete reset matrix, and quantitative teacher-rollout gates.
-- Updated the product plan and ChatGPT Pro audit protocol so the next review is a specification checkpoint, not a false claim that real-time editing is complete.
-- No course content, project metadata, exports, runtime bundles, or implementation code changed.
+- Implemented adapter-owned learner-surface inventories, a mutation-prohibited project reader, rendered semantic collection, production Resolve parity, non-overlapping block/text/capability metrics, stable reason codes, canonical report digests, and repository residue proof.
+- Implemented immediate server-normalized inert overlays in embedded Studio and Full Preview. The learner subtree and course files remain unchanged while typing and through Save.
+- Added preview sessions, monotonic revisions, source/target/digest binding, closed-generation behavior, acknowledgement latency, complete reset handling, and screenshot/Review Set protection while an unapplied overlay is visible.
+- Added fully decoded, bounded, memory-only image preview. Apply is the first asset write and materializes the exact bytes inside the existing lock/checkpoint/journal/rebuild/render/Undo transaction.
+- Saved drafts retain page identity, can reopen on the correct page in Studio or Full Preview, re-resolve current authority, and restore the canonical preview.
+- Strengthened `course:create` with an editable image/caption and an explicit Annotation-only runtime practice control; the fresh-course contract now enforces ≥90% block/text coverage plus per-category and capability floors.
+- Added explicit learner-surface declarations across the source-backed catalog. All 63 enabled projects remain onboarded; element inventory is honestly separate.
+- Updated README, architecture, contributing, workflow, release, product plan, and Phase 0.5 contract documentation.
+- Published the implementation before creating the separate ChatGPT Pro audit update, as requested.
+- No learner course content was intentionally changed. Every verification edit was restored; user-owned concurrent builder outputs and duplicate/resource files were preserved and left unstaged.
 
 ## Files changed
 
-- `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`
-- `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`
-- `docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`
-- `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`
-- `docs/ops/ACTIVE_HANDOFF.md`
-
-## What changed
-
-### Authoritative learner surfaces
-
-- Added a versioned adapter-owned `LearnerSurfaceInventory` contract.
-- A physical HTML scan cannot establish complete page/route/state coverage.
-- Direct, English, Social, snapshot, and runtime-heavy adapters have explicit inventory ownership rules.
-- Missing routes/states, truncation, or unprovable exhaustiveness produces `complete: false` and no percentage.
-
-### Honest candidate measurement
-
-- Required independent source ownership and rendered semantic collectors.
-- Runtime-created routine content remains in the denominator.
-- Any candidate counted editable must pass actual production Resolve logic in read-only mode.
-- Defined one non-overlapping primary block per authored unit and separate field/capability opportunities.
-- Added block, teacher-text code-unit, per-category, and capability floors for future new-course acceptance.
-- Zero candidates, incomplete inventory, truncation, unresolved occurrences, browser-state writes, or repository residue cannot produce a positive percentage.
-
-### Read-only census
-
-- Prohibited coverage code from reaching `ensureProjectFromProcessedSnapshot` or any auto-import, repair, builder, materialization, recovery, or asset-publish path.
-- Required a fresh non-persistent Chromium context per surface, blocked service workers/external network, instrumented browser storage, deterministic environment, and hard time/memory/candidate limits.
-- Fixed deterministic canonical JSON and SHA-256 report-digest rules without course text or volatile host data.
-
-### Ephemeral preview authority
-
-- Raw teacher patches cannot go directly to the preview bridge.
-- Normalize Preview must re-resolve the target and use the same side-effect-free server canonicalizer as Apply.
-- Every command and ACK carries session, monotonic revision, project, page, source digest, target node, and canonical patch digest.
-- Clear permanently closes a generation; late or reordered messages cannot repaint it.
-- V1 uses a host-owned inert overlay outside the learner document. It does not change learner `innerHTML`, attributes, styles, event listeners, object identity, forms, storage, or runtime data.
-
-### Images and Studio workflow
-
-- Image preview uses fully decoded, bounded bytes held only in server memory.
-- The preview URL is capability-scoped and never becomes the saved `src`.
-- Apply is the first repository mutation and must materialize the matching bytes transactionally or reject residue-free.
-- Added explicit reset outcomes for Focus/Split, Original/Current, viewport, zoom, Full Preview, navigation, Annotation, reload, history, disconnect, drift, and multi-draft Apply.
-- Screenshot capture and Review Set save/copy are disabled while an unapplied overlay is visible.
-
-### Rollout evidence
-
-- Defined at least 20 sessions across at least five teachers with an experience mix and task matrix.
-- Added median/p95 acknowledgement latency, completion, false-editable, false Annotation-only, rejection, preview/Apply mismatch, confusion, and Codex-handoff metrics.
-- Any P0/P1 event stops rollout regardless of aggregate metrics.
-
-## Why this changed
-
-- The existing HTML discovery is bounded and returns filenames without a completeness result.
-- The current edit map is parsed from static source before learner JavaScript and cannot enumerate runtime-created semantic content.
-- The map is capped at 4,000 entries and uses human reason strings; partial map counts cannot become census evidence.
-- The current map may look editable before the stricter Resolve runtime-fingerprint check rejects a target.
-- `isCourseEditPatch` validates shape and bounds, while full sanitization and no-op removal happen later in server `sanitizeDraft`.
-- The current image endpoint writes canonical resource and workspace files immediately.
-- A DOM string snapshot cannot restore framework references, descendant listeners, MutationObserver side effects, or JavaScript object identity.
-- The first plan had no session/revision protocol to prevent stale preview responses from overwriting newer input.
+- Measurement: `app/shared/course-editability.ts`, `scripts/lib/course-editability/**`, `scripts/report-course-editability.ts`, and focused tests.
+- Preview authority: `app/shared/course-editing.ts`, `app/shared/preview-bridge.ts`, `app/server/lib/course-edit-preview.ts`, `app/server/lib/course-edit-preview-assets.ts`, `app/server/lib/course-editing.ts`, and routes/server wiring.
+- Teacher UI: `app/studio/src/hooks/useCourseEditing.ts`, `usePreviewScrollSync.ts`, `components/CourseEditPanel.tsx`, `App.tsx`, `InspectorPanel.tsx`, styles, and release notes.
+- New-course/catalog: `scripts/lib/codex-course.ts`, onboarding/manifest policy/types, verification runners, and explicit `projects/*/meta/project.json` declarations.
+- Verification/CI: `.github/workflows/studio-direct-editing.yml`, `e2e/specs/inspection.spec.ts`, and course-editability/editing/security tests.
+- Documentation: `README.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `docs/ops/FAST_PATHS.md`, the two real-time plans, the Codex course workflow, the Studio release note, and the implementation audit packet.
 
 ## Verification run
 
-- Confirmed the audit's factual premises in:
-  - `scripts/lib/projects.ts`;
-  - `app/shared/course-editing.ts`;
-  - `app/server/lib/preview-inspection.ts`;
-  - `app/server/lib/course-editing.ts`;
-  - `app/server/lib/course-edit-image.ts`;
-  - `app/server/routes/course-edits.ts`;
-  - `app/shared/preview-bridge.ts`;
-  - `app/server/preview-bridge-runtime.ts`;
-  - `app/studio/src/hooks/useCourseEditing.ts`;
-  - `app/studio/src/components/CourseEditPanel.tsx`.
+- `npm run test:course-editability` — 16/16 passed.
+- `npm run test:studio-inspection` — 154/154 passed.
+- `npm run verify:course-editing-pilots` — 4/4 real adapters passed Apply/rebuild/render/reload/restart/Undo and byte restoration.
+- `npm run verify:course-onboarding -- --all` — 63/63 enabled projects passed; temporary rejected/safe edits restored.
+- `npm run course:onboard -- --all` — retain-only for enabled projects; local-only package archives stayed non-authorable.
+- `npm run validate:manifests` — all 65 manifests passed.
+- `npm run build:studio` — passed, 85 modules.
+- `npm run test:studio-release` — passed 154 focused contracts, build, 58/58 inspection E2E, platform smoke, and strict project contract.
+- Focused What’s New rerun — 2/2 passed after binding the test to the canonical release manifest.
+- Exact `ef72243e` inventory-only census — 57/65 complete, residue proof passed; five snapshot gaps, two unsupported drivers, one missing route inventory.
+- Stable representative rendered census — `e2e-fixture` 13/21 blocks, 315/445 teacher-text code units, residue proof passed.
+- First all-catalog rendered diagnostic reached 65/65 but correctly exited nonzero and nulled aggregate coverage because an independent builder changed many course boundaries during the run. It is not release evidence.
 - `git diff --check` — passed.
-- Local Markdown-link verification across all five changed documents — passed; every local target exists.
-- `npm run build:studio` — passed; 85 modules built.
-- `npm run validate:manifests` — passed for the full reported catalog.
-- `npm run typecheck -- --pretty false` — exited 2 with the same ten established unrelated diagnostics in existing course builders/factory files; no diagnostic is in a changed documentation file.
-- Exact-head and PR-merge CI for the Phase 0.5 documentation head must be recorded after push.
-- No implementation tests establish census or preview behavior because that code intentionally does not exist.
+- `npm run typecheck -- --pretty false` — exited 2 with the established ten unrelated diagnostics in legacy builders/factory files; none is in the implementation files.
 
 ## Source of truth
 
-- Normative Phase 0.5 contracts: `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`.
-- Parent product and delivery order: `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`.
-- Independent review procedure and copy-ready prompt: `docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`.
-- Accepted Direct Editing evidence: `docs/audits/2026-08-13-studio-direct-editing-green-go-verdict.md`.
-- Current source map and Resolve behavior: `app/server/lib/course-editing.ts` and `app/server/lib/preview-inspection.ts`.
-- Current project loader with mutation-capable recovery behavior: `scripts/lib/projects.ts`.
-- Current private bridge: `app/shared/preview-bridge.ts` and `app/server/preview-bridge-runtime.ts`.
-- Current image persistence route: `app/server/routes/course-edits.ts` and `app/server/lib/course-editing.ts`.
+- Normative contracts: `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`.
+- Product phases and external gates: `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`.
+- Independent review instructions/evidence: `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`.
+- Measurement implementation: `app/shared/course-editability.ts` and `scripts/lib/course-editability/`.
+- Preview/Apply authority: `app/server/lib/course-edit-preview.ts`, `course-edit-preview-assets.ts`, `course-editing.ts`, and `app/shared/preview-bridge.ts`.
+- Teacher workflow: `app/studio/src/hooks/useCourseEditing.ts`, `CourseEditPanel.tsx`, `App.tsx`, and `app/server/preview-bridge-runtime.ts`.
+- Published implementation: commit `ef72243e1c7039bc8c7778a33dadf44c61947d60`.
 
 ## Fragile areas / what might drift
 
-- The Phase 0.5 TypeScript snippets are normative future schemas, not current exports. Do not import nonexistent names before Phase 1A lands.
-- Future manifest work must distinguish static-page completeness from explicit route/state completeness; omission cannot default to complete.
-- The current `loadProjectManifest`, `listProjectSlugs`, and `readStudioProjectBundle` paths can auto-reconstruct a missing project. Coverage must use a new read-only reader.
-- The current 4,000-entry page map remains an informational UI artifact. Census collection must stream or paginate independently.
-- A host overlay needs geometry synchronization in both embedded Studio and Full Preview without weakening the cross-origin capability boundary.
-- Memory-only image drafts become explicitly non-applicable after server/token expiry and must request re-upload; they may never fall back to a stale preview URL or partial batch.
-- Extracting one canonicalizer from `sanitizeDraft` must preserve current Apply behavior and old-draft migration deliberately.
-- Teacher latency floors are local Studio acceptance, not deployed-host or Brightspace evidence.
-- User-owned duplicate/conflict files, resource archives, factory transaction directories, and `test-results 2/` remain unstaged and must not be cleaned.
+- The 57/65 learner inventory result is exact for `ef72243e`; custom runtime route/tab/module declarations can change it and must be remeasured.
+- `aboriginal-studies-30`, four nonstandard English snapshots, `genpsy-studio`, the disabled CALM project, and the secondary test fixture remain explicitly incomplete for census purposes.
+- Blocked storage attempts invalidate an individual surface; they are not persistent browser residue because fresh non-persistent contexts close before repository proof.
+- The all-catalog rendered census is intentionally long. Any builder, Git mutation, Studio Apply, or manual writer during it must invalidate its residue proof.
+- The filesystem lock remains cooperative for participating writers; arbitrary external writers must not race Direct Apply.
+- Memory-only pending images intentionally require re-upload after expiry/server restart.
+- Local render settlement and edited-target accessibility checks remain bounded; they are not delayed-interaction or full-WCAG proof.
+- User-owned duplicate resource paths, local package archives, two factory transaction directories, external handoff files, and `test-results 2/` remain unstaged and must not be cleaned broadly.
 
 ## Next prompt should assume
 
-- The Direct Editing baseline remains GREEN / GO.
-- The first real-time plan audit returned REQUEST CHANGES at `a5645d2e`.
-- The Phase 0.5 response is documentation only and needs an independent specification verdict.
-- No element coverage percentage or immediate-preview claim is currently proven.
-- The planned `npm run report:course-editability -- --all` command still does not exist.
-- If Phase 0.5 is approved, the first implementation is Phase 1A only: shared schemas, a mutation-prohibited project reader, and exhaustive adapter inventory providers.
-- Rendered collection, percentage publication, preview bridge/UI, images, new-course enforcement, legacy migrations, and teacher rollout remain later checkpoints.
+- Live preview, saved-draft reopen, transactional pending images, the census command, new-course threshold, and explicit catalog inventories exist at `ef72243e`.
+- All 63 source-backed projects are onboarded for their declared safe adapter, but only 57/65 manifest inventories are currently complete for element-coverage measurement.
+- No publishable global element percentage exists while required inventories/surfaces are incomplete.
+- The first all-catalog local rendered run is deliberately non-authoritative because concurrent external writers tripped residue proof.
+- The next decision is an independent implementation audit and exact-head CI review, not more speculative architecture work.
+- Teacher rollout and Brightspace/deployed-host/cross-browser/full-WCAG acceptance remain separate.
 
 ## What still needs validation
 
-- ChatGPT Pro must return a separate Checkpoint 0.5 specification verdict and explicit disposition for every original P1/P2 finding.
-- The publication commit needs exact-head and PR-merge workflow evidence tied to its SHA.
-- Phase 1A schema and inventory implementation does not exist.
-- Brightspace upload, deployed-host behavior, full WCAG, delayed interaction, and cross-browser SCORM remain external acceptance.
-- PR #1 remains unmerged pending repository-owner action.
+- Record the final exact-head and PR workflow conclusions/artifacts for the final audit-document head.
+- Obtain the requested independent ChatGPT Pro verdict against every original P1/P2 finding.
+- Complete the eight inventory gaps only through proven source ownership and explicit route/state contracts.
+- Run the five-teacher/twenty-session quantitative rollout.
+- Complete Brightspace upload/launch/resume/score, deployed-host, cross-browser SCORM, and full accessibility acceptance.
 
 ## Known risks / follow-up
 
-- The specification can still be rejected if an independent reviewer finds a circular definition, unimplementable invariant, or contradiction with the accepted Apply boundary.
-- The deterministic browser profile and resource ceilings may expose incomplete runtime-heavy courses; that is an honest result, not permission to loosen the score.
-- Memory-only pending images trade durability across restart for the invariant that Apply is the first repository write. The UI must make re-upload requirements explicit.
-- The 90% fresh-course target remains unproven until a representative generated fixture passes every block, text, category, and capability floor.
-- Documentation CI can prove publication integrity but cannot prove future product behavior.
+- A reviewer may find a census reconciliation, canonicalization, overlay, pending-asset, or reset mismatch not covered by existing tests; treat any P0/P1 as release-blocking.
+- Large exact-head census runtime is real because every candidate crosses production Resolve. Optimize only without changing the denominator or failure semantics.
+- Do not turn incomplete legacy states into “complete” through a bounded HTML scan, flag, generated-output patch, or unsafe historical builder.
+- Do not cite local 34/65 diagnostic completion as a percentage; use the clean exact-head artifact and retain null aggregate status while the catalog is incomplete.
+- PR #1 must not be merged without repository-owner authorization.
 
 ## Exact next command
 
-`git diff a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...HEAD -- docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md docs/ops/ACTIVE_HANDOFF.md`
+`gh pr checks 1 --watch`
 
 ## Exact next file to open
 
-`docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`
+`docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`
 
 ## Do not do next / warnings
 
-- Do not implement `editability-coverage.ts` before the Phase 0.5 specification verdict has no unresolved P1.
-- Do not treat the Phase 0.5 document, package-script name, or green documentation CI as census/preview evidence.
-- Do not use bounded HTML discovery as the learner-surface inventory.
-- Do not count a green map entry as editable without actual read-only Resolve parity.
-- Do not mutate the learner DOM for V1 preview or attempt to restore it from an HTML snapshot.
-- Do not call the current writing image-asset endpoint while typing or previewing.
-- Do not merge PR #1 without repository-owner authorization.
-- Do not broadly stage, delete, or clean unrelated user-owned files.
+- Do not run builders, Studio Apply, Git mutations, or manual course edits during a residue-proof census.
+- Do not use coverage to enable Edit or authorize a target.
+- Do not mutate the learner subtree for preview or save an ephemeral image URL.
+- Do not force Undo or recovery over unknown/newer bytes.
+- Do not stage or delete unrelated user-owned duplicate/archive/transaction/handoff/test paths.
+- Do not claim teacher, Brightspace, deployed-host, cross-browser SCORM, delayed-runtime, or full-WCAG acceptance from local gates.

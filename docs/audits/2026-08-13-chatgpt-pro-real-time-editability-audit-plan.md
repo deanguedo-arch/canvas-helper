@@ -7,9 +7,13 @@
 - Post-audit planning baseline: `392298937102be216d4d3fc24da1c322ce280a36`
 - First plan-audit head: `a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a`
 - First plan-audit verdict: **REQUEST CHANGES**
-- Current implementation status: **Phase 0.5 contract amendment prepared for independent audit; real-time preview and element-level census are not implemented**
+- Implementation head: `ef72243e1c7039bc8c7778a33dadf44c61947d60`
+- Current implementation status: **census, live inert-overlay preview, memory-only image preview, and fresh-course threshold implemented at `ef72243e`; an independent implementation verdict and final-PR-head evidence are still required**
+- Current implementation audit packet: [`2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`](2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md)
 - Product plan: [`../plans/2026-08-13-studio-real-time-editability-and-rollout.md`](../plans/2026-08-13-studio-real-time-editability-and-rollout.md)
 - Phase 0.5 contract amendment: [`../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`](../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md)
+
+This file preserves the original audit protocol and the questions that produced the first **REQUEST CHANGES** verdict. For the current implementation review, begin with the implementation audit packet linked above; its copy-ready prompt supersedes the earlier specification-only prompt.
 
 ## Audit purpose
 
@@ -33,11 +37,11 @@ The audit is not complete if it answers only whether one edit works per course. 
 | The accepted Direct Editing safety baseline has no known release-blocking P0 from the previous audit. | Independently rated **GREEN / GO** at `e7124143`. | Re-run exact-head gates if implementation code changes the accepted boundary. |
 | Fifty of 63 enabled projects completed at least one reversible learner-render edit. | Proven by catalog acceptance. | This does **not** establish a per-page or per-element percentage. |
 | Twelve projects reported no routine source-owned text target and one reported no learner-stable sampled target. | Proven course-level outcomes. | The census must explain their visible candidate elements and ownership reasons page by page. |
-| New Codex courses are 90–95% editable. | **Not proven.** | A fresh-course exact-head census must establish the result. The committed product target is at least 90%, not a guaranteed 95%. |
+| New Codex courses are 90–95% editable. | The generated fixture now passes a ≥90% block/text contract plus per-kind/capability floors; a blanket 95% claim remains unproven. | Audit the exact implementation and clean report before generalizing beyond the generator contract. |
 | Legacy courses are 79% editable. | **False if stated as element coverage.** | `50 / 63` is a project lifecycle ratio, not editable DOM coverage. |
-| Changes appear immediately while typing. | **Not implemented at the planning baseline.** | Phase 2 code, browser tests, and direct observation must prove ephemeral preview. |
-| `npm run report:course-editability -- --all` works. | **Not implemented at the planning baseline.** | Confirm the package script and backing entrypoints exist before running it. |
-| The original roadmap was implementation-ready. | **Rejected by the first plan audit.** | The Phase 0.5 contract amendment must receive its own independent verdict before Phase 1 code begins. |
+| Changes appear immediately while typing. | Implemented at `ef72243e` through a server-normalized inert overlay. | Audit learner-DOM/filesystem non-mutation, ordering, reset, and Apply parity. |
+| `npm run report:course-editability -- --all` works. | Implemented at `ef72243e`; incomplete and residue-producing runs fail closed. | Use the exact-head artifact and do not publish a global percentage while inventory is incomplete. |
+| The original roadmap was implementation-ready. | **Rejected by the first plan audit.** | Audit implementation against the Phase 0.5 contracts and every original P1/P2 disposition. |
 
 Any review that repeats “90–95%” or “79% editable” without new element-level evidence should return **REQUEST CHANGES** for claim accuracy even if the underlying code is safe.
 
@@ -639,7 +643,7 @@ npm run test:e2e:smoke
 npm run test:studio-release
 ```
 
-Expected Phase 1 command only after implementation:
+Landed Phase 1 command:
 
 ```bash
 npm pkg get scripts.report:course-editability
@@ -660,7 +664,7 @@ For every release candidate:
 2. confirm the PR workflow covers GitHub's current merge context;
 3. download the push-run artifact `studio-direct-editing-release-evidence`;
 4. inspect `studio-release-report.json`, `course-editing-pilots.json`, and `course-onboarding-verification.json`;
-5. inspect the new coverage artifact once Phase 1 lands;
+5. inspect the uploaded coverage artifact;
 6. verify `ok`, zero failures, source fingerprint stability, expected counts, exact commit, and report digests;
 7. reject an artifact copied from an older green SHA.
 
@@ -669,7 +673,7 @@ The accepted post-audit planning baseline was independently re-run at `39229893`
 - exact-head run `31763552248`: 149 focused, 58 inspection E2E, smoke 1, project contract 1, four adapter pilots, and 63 catalog outcomes passed; source did not change during the run;
 - PR-merge run `31763554764`: the same complete gate passed in GitHub's merge context.
 
-Those runs prove the inherited baseline, not future census or live-preview behavior.
+Those runs prove the inherited baseline, not the later census or live-preview implementation.
 
 The first plan-audit head `a5645d2e` also has exact publication evidence:
 
@@ -710,24 +714,23 @@ The auditor must not provide a generic “looks good” based on documentation a
 
 ## Copy-ready prompt for ChatGPT Pro
 
-> Audit the Phase 0.5 real-time editability contract amendment in `deanguedo-arch/canvas-helper` as an independent release reviewer. Begin with `docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`, `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`, `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`, and `docs/ops/ACTIVE_HANDOFF.md`. Pin the exact head and base before reviewing. The previous plan audit at `a5645d2e` returned REQUEST CHANGES; verify that the amendment concretely resolves every item in the Checkpoint 0.5 disposition matrix. Treat Direct Editing GREEN/GO at `e7124143` and later exact-head baseline CI as inherited safety evidence only—not proof that the element census or live preview exists. Red-team one-HTML/many-route courses, runtime-created content, nested and duplicate candidate counting, incomplete/truncated scoring, mutation-capable project loading, browser storage/network/service-worker side effects, actual Resolve parity, server preview canonicalization, session/revision ordering, non-mutating host overlay behavior, memory-only images, Apply-owned persistence, the complete Studio reset matrix, and quantitative teacher-rollout gates. Return a separate verdict for the Phase 0.5 specification and mark census/preview behavior NOT AUDITABLE YET unless implementation exists on the reviewed head. Use exact GitHub file/line links, list unresolved P0–P3 findings, and identify the smallest safe next implementation slice. Do not accept the documentation as implementation proof and do not repeat “79% editable” or “90–95%” as current product evidence.
+> Audit the Studio live-editing and measured-editability implementation in `deanguedo-arch/canvas-helper` as an independent release reviewer. Begin with `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`, then use this original protocol, `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`, `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`, and `docs/ops/ACTIVE_HANDOFF.md`. Pin the exact PR head and base. Audit product behavior in commit `ef72243e1c7039bc8c7778a33dadf44c61947d60`; if the PR head is later, verify that its descendants only publish audit/handoff material or extend the CI timeout. The first plan audit at `a5645d2e` returned REQUEST CHANGES and Direct Editing at `e7124143` was independently GREEN/GO. Confirm that the implementation resolves every original P1/P2 finding without regressing that accepted write, recovery, render, export-freshness, or Undo boundary. Red-team learner-surface completeness, runtime-created content, nested and duplicate counting, incomplete/truncated scoring, mutation-prohibited loading, browser-state and network attempts, production Resolve parity, server canonicalization, session/revision ordering, inert overlay behavior, memory-only images, Apply-owned persistence, reset/evidence interactions, and the fresh-course threshold. Inspect exact-head GitHub artifacts and run focused commands where available. Return one of GREEN/GO, GO WITH CONDITIONS, REQUEST CHANGES, or NO-GO; list P0–P2 findings with exact GitHub file/line links; explicitly disposition all eight original P1 findings and the P2 improvements; separate repository proof from teacher, Brightspace, deployed-host, cross-browser SCORM, delayed-interaction, and full-WCAG acceptance; and give a merge recommendation for PR #1. Do not accept documentation as implementation proof, publish a global percentage from incomplete inventory, or repeat “79% editable” or “90–95%” as current catalog evidence.
 
 ## Maintainer handoff checklist before requesting the audit
 
-- [ ] Use a focused implementation branch or identify the exact post-baseline commit range.
-- [ ] Ensure the audit plan links to the current implementation PR.
-- [ ] Record the exact head SHA and current base SHA.
-- [ ] For Checkpoint 0.5, request a specification verdict against the complete disposition matrix before beginning Phase 1 code.
-- [ ] Confirm the reviewer labels census, preview, fresh-course threshold, legacy migration, and teacher rollout NOT AUDITABLE YET when they remain unimplemented.
-- [ ] Confirm all declared package scripts have backing entrypoints.
-- [ ] Run focused tests before the expensive complete release gate.
-- [ ] Generate the all-surface coverage report and record its schema/digest.
-- [ ] Run the four adapter pilots and catalog verification.
-- [ ] Run `npm run test:studio-release` without source changes during the run.
+- [x] Use a focused implementation branch and identify the exact post-baseline commit range.
+- [x] Link the audit plan to the current implementation PR and packet.
+- [x] Record the exact implementation SHA and current base.
+- [x] Resolve the Checkpoint 0.5 disposition matrix before landing implementation.
+- [x] Confirm all declared package scripts have backing entrypoints.
+- [x] Run focused tests before the expensive complete release gate.
+- [x] Generate local inventory/rendered evidence and preserve null scoring on incomplete or residue-producing runs.
+- [x] Run the four adapter pilots and catalog verification.
+- [x] Run `npm run test:studio-release` without implementation-source changes during the run.
 - [ ] Push and wait for exact-head and PR-merge workflows.
 - [ ] Upload the release, pilot, catalog, and coverage evidence.
-- [ ] Confirm no local-only course assets are presented as GitHub evidence.
-- [ ] Update `docs/ops/ACTIVE_HANDOFF.md` with honest incomplete and external acceptance work.
+- [x] Confirm no local-only course assets are presented as GitHub evidence.
+- [x] Update `docs/ops/ACTIVE_HANDOFF.md` with honest incomplete and external acceptance work.
 - [ ] Give ChatGPT Pro the copy-ready prompt and PR link.
 
-Until the census and preview implementation land, the correct independent verdict on those product claims is **NOT AUDITABLE YET / NOT IMPLEMENTED**, even though the inherited Direct Editing safety baseline remains GREEN.
+The census and preview are now auditable at `ef72243e`; their independent verdict must come from code and exact-head evidence, not this maintainer-authored packet. Teacher rollout and external platform acceptance remain unproven.
