@@ -14,7 +14,7 @@
 - The audit handoff also raises the GitHub job timeout from 90 to 180 minutes because the exhaustive rendered census can consume roughly 75 minutes before later pilot/catalog steps; test scope is unchanged.
 - Implementation audit packet: `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`
 - PR #1 remains open, mergeable, ready for review, and unmerged. Merge remains a repository-owner action.
-- Implementation-only push run `31840471429` and PR run `31840465755` began for `ef72243e`. Publishing this audit/CI-only descendant creates the final runs; use the PR checks and uploaded artifact from that final head as the authority.
+- Implementation-only PR run `31840471429` and push run `31840465755` began for `ef72243e` and were superseded by the audit/CI-only descendant. Use the PR checks and uploaded artifact from the final branch head as the authority.
 
 ## Summary
 
