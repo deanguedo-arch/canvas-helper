@@ -5,6 +5,7 @@
 - Safety baseline: e71241433e173c7617dbf5ea5e5ddcc5bf712c11
 - Independent decision: **GREEN / GO**
 - Owning product surface: Canvas Studio Edit mode and Full Preview
+- Independent audit protocol: [`../audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`](../audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)
 
 ## Outcome
 

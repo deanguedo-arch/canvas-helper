@@ -8,6 +8,8 @@ Focused draft PR: [#1 — Harden Direct Editing and onboard the course catalog](
 
 Independent outcome: **[GREEN / GO](2026-08-13-studio-direct-editing-green-go-verdict.md)** on reviewed head `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`.
 
+Next-product audit protocol: **[ChatGPT Pro real-time editability audit plan](2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)**. It treats element coverage, ephemeral preview, and the new-course threshold as unimplemented until exact-head code and evidence land.
+
 Review base: [`codex/studio-roadmap-phases`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-roadmap-phases) at [`74b0c3ee`](https://github.com/deanguedo-arch/canvas-helper/commit/74b0c3ee7de150472c10f172a664ee658050f2ca)
 
 Review head: [`codex/studio-direct-editing-v1`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-direct-editing-v1)
@@ -270,8 +272,9 @@ No raw import or generated export was added merely to make a project appear edit
 6. [Catalog outcome and exceptions](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-13-course-catalog-onboarding.md).
 7. [Direct Editing release boundary](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/releases/2026-08-12-canvas-studio-direct-editing.md).
 8. [Real-time editability and rollout plan](../plans/2026-08-13-studio-real-time-editability-and-rollout.md).
-9. [Current active handoff](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/ops/ACTIVE_HANDOFF.md).
-10. The primary code entrypoints listed above.
+9. [ChatGPT Pro real-time editability audit protocol](2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md).
+10. [Current active handoff](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/ops/ACTIVE_HANDOFF.md).
+11. The primary code entrypoints listed above.
 
 ## Copy-ready prompt for ChatGPT
 
