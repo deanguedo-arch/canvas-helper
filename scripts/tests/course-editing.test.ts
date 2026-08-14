@@ -10,9 +10,13 @@ import test from "node:test";
 
 import {
   COURSE_EDIT_SCHEMA_VERSION,
+  COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
   isCourseEditApplyRequest,
   isCourseEditDraft,
   type CourseEditDraft,
+  type CourseEditPendingAssetReference,
+  type CourseEditPendingImage,
+  type CourseEditPreviewNormalizeRequest,
   type CourseEditResolveRequest,
   type CourseEditTarget
 } from "../../app/shared/course-editing.ts";
@@ -23,6 +27,7 @@ import {
 } from "../../app/studio/src/lib/course-edit-storage.ts";
 import {
   applyCourseEditBatch,
+  courseEditCanonicalPatchDigest,
   getCourseEditStatus,
   markCourseExportCurrent,
   recoverInterruptedCourseEdit,
@@ -33,6 +38,14 @@ import {
   uploadCourseEditImageAsset,
   undoCourseEditBatch
 } from "../../app/server/lib/course-editing.ts";
+import {
+  clearCourseEditPreview,
+  normalizeCourseEditPreview
+} from "../../app/server/lib/course-edit-preview.ts";
+import {
+  pendingCourseEditImageStateForTests,
+  storePendingCourseEditImage
+} from "../../app/server/lib/course-edit-preview-assets.ts";
 import { decoratePreviewHtml } from "../../app/server/lib/preview-inspection.ts";
 import {
   applyCourseEditOverridesToHtml,
@@ -169,6 +182,24 @@ async function resolveHeading(repoRoot: string, sourcePath: string) {
   return target as CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> };
 }
 
+function livePreviewPageIdentity(htmlPath = "index.html") {
+  return `http://127.0.0.1:5173/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/${SLUG}/${htmlPath}`;
+}
+
+function pendingReference(pending: CourseEditPendingImage): CourseEditPendingAssetReference {
+  return {
+    kind: pending.kind,
+    id: pending.id,
+    previewSessionId: pending.previewSessionId,
+    digest: pending.digest,
+    finalSrc: pending.finalSrc,
+    mimeType: pending.mimeType,
+    width: pending.width,
+    height: pending.height,
+    byteLength: pending.byteLength
+  };
+}
+
 test("the page editability map identifies text, links, images, and synchronized course titles", async () => {
   const fixture = await createFixture();
   try {
@@ -188,6 +219,228 @@ test("the page editability map identifies text, links, images, and synchronized 
     assert.equal(actionForTag("h2")?.action, "rename-course");
     assert.match(actionForTag("h1")?.expected?.textFingerprint ?? "", /^[a-f0-9]{8}$/);
     assert.ok(map.editableCount >= 4);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("live preview normalization is canonical, ordered, read-only, and fails closed after clear", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const sessionId = randomUUID();
+    const request: CourseEditPreviewNormalizeRequest = {
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: sessionId,
+      revision: 1,
+      projectSlug: SLUG,
+      pageIdentity: livePreviewPageIdentity(),
+      mapSourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      identity: target.identity,
+      patch: { html: "Preview <strong>heading</strong><script>bad()</script>", style: { textTone: "accent" } }
+    };
+    const normalized = await normalizeCourseEditPreview(request, fixture.repoRoot);
+    assert.deepEqual(normalized.canonicalPatch, {
+      html: "Preview <strong>heading</strong>",
+      style: { textTone: "accent" }
+    });
+    assert.equal(normalized.representation.html, "Preview <strong>heading</strong>");
+    assert.equal(normalized.representation.style.textTone, "accent");
+    assert.match(normalized.canonicalPatchDigest, /^[a-f0-9]{64}$/);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    await assert.rejects(normalizeCourseEditPreview(request, fixture.repoRoot), /newer live preview revision/i);
+
+    const second = await normalizeCourseEditPreview({ ...request, revision: 2, patch: { html: "Newest heading" } }, fixture.repoRoot);
+    assert.equal(second.canonicalPatch.html, "Newest heading");
+    await clearCourseEditPreview({
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: sessionId,
+      revision: 3,
+      projectSlug: SLUG,
+      pageIdentity: request.pageIdentity,
+      mapSourceDigest: request.mapSourceDigest,
+      targetNodeId: request.targetNodeId
+    });
+    await assert.rejects(
+      normalizeCourseEditPreview({ ...request, revision: 4, patch: { html: "Must not revive" } }, fixture.repoRoot),
+      /session is closed/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("canonical preview digests bind Apply to the exact normalized patch", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const normalized = await normalizeCourseEditPreview({
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: randomUUID(),
+      revision: 1,
+      projectSlug: SLUG,
+      pageIdentity: livePreviewPageIdentity(),
+      mapSourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      identity: target.identity,
+      patch: { html: "Canonical learner preview" }
+    }, fixture.repoRoot);
+    const draft = draftFor(target, String(normalized.canonicalPatch.html));
+    draft.patch = normalized.canonicalPatch;
+    draft.canonicalPatchDigest = normalized.canonicalPatchDigest;
+    const applied = await applyCourseEditBatch({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: SLUG, drafts: [draft] }, fixture.repoRoot);
+    assert.equal(applied.ok, true);
+    assert.match(await readFile(fixture.sourcePath, "utf8"), /Canonical learner preview/);
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+
+    const fresh = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const tampered = draftFor(fresh, "Tampered preview");
+    tampered.canonicalPatchDigest = "0".repeat(64);
+    await assert.rejects(
+      applyCourseEditBatch({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, projectSlug: SLUG, drafts: [tampered] }, fixture.repoRoot),
+      /saved preview no longer matches/i
+    );
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("pending image previews stay in bounded memory and clear without filesystem residue", async () => {
+  const fixture = await createFixture();
+  try {
+    const target = await resolveElement(fixture.repoRoot, fixture.sourcePath, "img", "index.html");
+    const sessionId = randomUUID();
+    const pageIdentity = livePreviewPageIdentity();
+    const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
+    const pending = await storePendingCourseEditImage({
+      projectSlug: SLUG,
+      htmlPath: "index.html",
+      targetId: target.identity.targetId,
+      sourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      previewSessionId: sessionId,
+      pageIdentity,
+      bytes: png
+    });
+    assert.equal(pendingCourseEditImageStateForTests().entries, 1);
+    await assert.rejects(access(path.join(fixture.repoRoot, "projects", "resources", SLUG, "studio-assets")));
+    await assert.rejects(access(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "assets", "custom", "studio")));
+    const normalized = await normalizeCourseEditPreview({
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: sessionId,
+      revision: 1,
+      projectSlug: SLUG,
+      pageIdentity,
+      mapSourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      identity: target.identity,
+      patch: { src: pending.finalSrc },
+      pendingAssets: [pendingReference(pending)]
+    }, fixture.repoRoot);
+    assert.equal(normalized.canonicalPatch.src, pending.finalSrc);
+    assert.equal(normalized.representation.attributes.src, pending.previewSrc);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    await clearCourseEditPreview({
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: sessionId,
+      revision: 2,
+      projectSlug: SLUG,
+      pageIdentity,
+      mapSourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId
+    });
+    assert.deepEqual(pendingCourseEditImageStateForTests(), { entries: 0, bytes: 0 });
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("pending images remain memory-only through Save and materialize inside Apply with exact Undo", async () => {
+  const fixture = await createFixture();
+  try {
+    const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
+    await writeFile(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "image.png"), png);
+    const target = await resolveElement(fixture.repoRoot, fixture.sourcePath, "img", "index.html");
+    const sessionId = randomUUID();
+    const pageIdentity = livePreviewPageIdentity();
+    const pending = await storePendingCourseEditImage({
+      projectSlug: SLUG,
+      htmlPath: "index.html",
+      targetId: target.identity.targetId,
+      sourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      previewSessionId: sessionId,
+      pageIdentity,
+      bytes: png
+    });
+    const reference = pendingReference(pending);
+    const normalized = await normalizeCourseEditPreview({
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: sessionId,
+      revision: 1,
+      projectSlug: SLUG,
+      pageIdentity,
+      mapSourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      identity: target.identity,
+      patch: { src: reference.finalSrc, alt: "Applied from pending memory" },
+      pendingAssets: [reference]
+    }, fixture.repoRoot);
+    await clearCourseEditPreview({
+      schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+      previewSessionId: sessionId,
+      revision: 2,
+      projectSlug: SLUG,
+      pageIdentity,
+      mapSourceDigest: target.identity.sourceDigest,
+      targetNodeId: target.identity.nodeId,
+      retainPendingAssetIds: [reference.id]
+    });
+    assert.equal(pendingCourseEditImageStateForTests().entries, 1);
+    const resourceAsset = path.join(fixture.repoRoot, "projects", "resources", SLUG, "studio-assets", `${reference.digest}.png`);
+    const workspaceAsset = path.join(fixture.repoRoot, "projects", SLUG, "workspace", "assets", "custom", "studio", `${reference.digest}.png`);
+    await assert.rejects(access(resourceAsset));
+    await assert.rejects(access(workspaceAsset));
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+
+    const now = Date.now();
+    const draft: CourseEditDraft = {
+      id: "pending-image-draft",
+      createdAt: now,
+      updatedAt: now,
+      identity: target.identity,
+      beforeText: target.originalText,
+      afterText: "Applied from pending memory",
+      baseline: {
+        originalHtml: target.originalHtml,
+        attributes: target.attributes,
+        currentStyle: target.currentStyle,
+        capabilities: target.capabilities
+      },
+      patch: normalized.canonicalPatch,
+      canonicalPatchDigest: normalized.canonicalPatchDigest,
+      pendingAssets: normalized.pendingAssets
+    };
+    const applied = await applyCourseEditBatch({
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      projectSlug: SLUG,
+      drafts: [draft]
+    }, fixture.repoRoot);
+    assert.equal(applied.ok, true);
+    assert.match(await readFile(fixture.sourcePath, "utf8"), /Applied from pending memory/);
+    assert.deepEqual(await readFile(resourceAsset), png);
+    assert.deepEqual(await readFile(workspaceAsset), png);
+    assert.equal(pendingCourseEditImageStateForTests().entries, 0);
+
+    await undoCourseEditBatch(SLUG, fixture.repoRoot);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+    await assert.rejects(access(resourceAsset));
+    await assert.rejects(access(workspaceAsset));
+    await assert.rejects(access(path.dirname(resourceAsset)));
+    await assert.rejects(access(path.dirname(workspaceAsset)));
   } finally {
     await fixture.cleanup();
   }
@@ -222,6 +475,19 @@ async function resolveElementAt(
 }
 
 function draftFor(target: CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> }, html: string): CourseEditDraft {
+  const patch: CourseEditDraft["patch"] = {
+    html,
+    style: { textTone: "accent", spacing: "relaxed" }
+  };
+  const canonicalStyle = Object.fromEntries(
+    Object.entries(patch.style ?? {}).filter(([key, value]) => (
+      target.currentStyle[key as keyof typeof target.currentStyle] !== value
+    ))
+  );
+  const canonicalPatch: CourseEditDraft["patch"] = {
+    html: sanitizeCourseEditRichText(html),
+    ...(Object.keys(canonicalStyle).length ? { style: canonicalStyle } : {})
+  };
   return {
     id: "draft-1",
     createdAt: 1,
@@ -235,10 +501,8 @@ function draftFor(target: CourseEditTarget & { identity: NonNullable<CourseEditT
       currentStyle: target.currentStyle,
       capabilities: target.capabilities
     },
-    patch: {
-      html,
-      style: { textTone: "accent", spacing: "relaxed" }
-    }
+    patch,
+    canonicalPatchDigest: courseEditCanonicalPatchDigest(canonicalPatch)
   };
 }
 
@@ -529,6 +793,7 @@ test("a rendered safety rejection restores exact bytes and leaves no transaction
     const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
     const draft = draftFor(target, "Rejected contrast request");
     draft.patch = { html: "Rejected contrast request" };
+    draft.canonicalPatchDigest = courseEditCanonicalPatchDigest(draft.patch);
     await assert.rejects(
       applyCourseEditBatch({
         schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
@@ -942,7 +1207,8 @@ test("validated image uploads are content-addressed and survive generated worksp
           currentStyle: imageTarget.currentStyle,
           capabilities: imageTarget.capabilities
         },
-        patch: { src: uploaded.src, alt: "Uploaded course image" }
+        patch: { src: uploaded.src, alt: "Uploaded course image" },
+        canonicalPatchDigest: courseEditCanonicalPatchDigest({ src: uploaded.src, alt: "Uploaded course image" })
       }]
     }, fixture.repoRoot);
     assert.match(await readFile(fixture.sourcePath, "utf8"), /assets\/custom\/studio/);
@@ -1210,6 +1476,7 @@ test("one batch rejects nested editable targets instead of silently erasing a ch
     const strong = await resolveElementAt(fixture.repoRoot, fixture.sourcePath, "strong");
     const childDraft = { ...draftFor(strong, "Updated child"), id: "draft-2" };
     childDraft.patch = { html: "Updated child" };
+    childDraft.canonicalPatchDigest = courseEditCanonicalPatchDigest(childDraft.patch);
     await assert.rejects(
       applyCourseEditBatch({
         schemaVersion: COURSE_EDIT_SCHEMA_VERSION,

@@ -63,12 +63,26 @@
   },
   "sourceOfTruthNotes": "Ready Mind canonical editable sources are in projects/ready-mind/workspace. Catalogs are intentionally blank or placeholder-only until source content is finalized. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "createdAt": "2026-05-08T19:00:32.888Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-06-05T15:41:44.890Z",
   "authoring": {
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "assignment-runtime.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

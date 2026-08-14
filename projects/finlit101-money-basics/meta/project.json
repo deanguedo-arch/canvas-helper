@@ -48,6 +48,47 @@
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-characteristics",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-what-is-money",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#quizzes",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#readings",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

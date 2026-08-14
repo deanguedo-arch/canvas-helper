@@ -253,6 +253,68 @@ test("Full Preview course edit messages are bounded and never accept filesystem 
   }), false);
 });
 
+test("live learner preview bridge commands carry complete ordered authority and bounded presentation only", () => {
+  const pageIdentity = "http://127.0.0.1:61234/_canvas-helper/p/12345678-1234-1234-1234-123456789abc/preview/workspace/e2e-fixture/index.html";
+  const command = {
+    protocol: "canvas-helper.preview",
+    version: 1,
+    type: "studio-set-edit-preview",
+    payload: {
+      action: "render",
+      previewSessionId: "12345678-1234-1234-1234-123456789abc",
+      revision: 7,
+      projectSlug: "e2e-fixture",
+      pageIdentity,
+      mapSourceDigest: "a".repeat(64),
+      targetNodeId: "ch1:aaaaaaaaaaaaaaaaaaaaaaaa:1",
+      canonicalPatchDigest: "b".repeat(64),
+      representation: {
+        tagName: "h1",
+        html: "Canonical <strong>preview</strong>",
+        attributes: { href: "", src: "", alt: "", title: "" },
+        style: {
+          textStyle: "default",
+          fontFamily: "default",
+          fontSize: "default",
+          textTone: "accent",
+          alignment: "default",
+          spacing: "default"
+        }
+      }
+    }
+  };
+  assert.equal(isPreviewBridgeMessage(command), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    payload: { ...command.payload, revision: 0 }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    payload: { ...command.payload, filesystemPath: "/tmp/course.html" }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    payload: { ...command.payload, representation: { ...command.payload.representation, html: "x".repeat(24_001) } }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    type: "preview-edit-preview-ack",
+    payload: {
+      action: "rendered",
+      previewSessionId: command.payload.previewSessionId,
+      revision: command.payload.revision,
+      projectSlug: command.payload.projectSlug,
+      pageIdentity,
+      mapSourceDigest: command.payload.mapSourceDigest,
+      targetNodeId: command.payload.targetNodeId,
+      canonicalPatchDigest: command.payload.canonicalPatchDigest,
+      ok: true,
+      message: "Live preview updated.",
+      acknowledgedAt: Date.now()
+    }
+  }), true);
+});
+
 test("preview runtime compatibility relays only approved course CDN scripts through the scoped origin", () => {
   const capability = "12345678-1234-1234-1234-123456789abc";
   const publicPrefix = `/_canvas-helper/p/${capability}`;

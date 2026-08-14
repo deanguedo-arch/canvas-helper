@@ -18,7 +18,10 @@
   "canonicalSources": [
     "projects/course-showcase/workspace/index.html",
     "projects/course-showcase/workspace/styles.css",
-    "projects/course-showcase/workspace/main.js"
+    "projects/course-showcase/workspace/main.js",
+    "projects/course-showcase/workspace/option-two.html",
+    "projects/course-showcase/workspace/option-two.css",
+    "projects/course-showcase/workspace/option-two.js"
   ],
   "authoringStatus": "active",
   "exportTargets": [
@@ -52,6 +55,20 @@
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "option-two.html",
+          "route": ""
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

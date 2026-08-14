@@ -14,7 +14,7 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-21T17:03:08.570Z",
   "createdAt": "2026-03-06T20:40:30.861Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-05-19T15:57:41.782Z",
   "migrationState": "migrated",
   "preferredWorkflows": [
@@ -42,6 +42,16 @@
     "driverId": "direct-workspace-v1",
     "familyId": "migrated-legacy-workspace",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

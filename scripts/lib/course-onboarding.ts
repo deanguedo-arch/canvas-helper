@@ -3,7 +3,14 @@ import { lstat, mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/
 import path from "node:path";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.js";
+import type { ProjectLearnerSurfacesV1 } from "../../app/shared/course-editability.js";
 import { inspectCourseAuthoringProject } from "./course-authoring/context.js";
+import {
+  extractAdapterLearnerRouteIds,
+  extractStructurallyDeclaredLearnerRouteIds,
+  hasUnsupportedLearnerStateMechanisms,
+  learnerRouteNeedsNativeDetailsState
+} from "./course-editability/inventory.js";
 import { validateProjectManifestPolicy } from "./project-manifest-policy.js";
 import type { ProjectManifest } from "./types.js";
 
@@ -166,6 +173,75 @@ async function titleMarkerCount(repoRoot: string, slug: string) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return 0;
     throw error;
   }
+}
+
+function workspaceHtmlPath(source: string, slug: string) {
+  const prefix = `projects/${slug}/workspace/`;
+  return source.startsWith(prefix) && /\.html?$/i.test(source) ? source.slice(prefix.length) : null;
+}
+
+function hasUninventoryableRuntimeSurface(html: string) {
+  return (
+    /\b(?:history\.(?:pushState|replaceState)|createBrowserRouter|createHashRouter|new\s+URLPattern)\b/.test(html) ||
+    /\b(?:location\.hash|hashchange|data-page-target)\b/i.test(html) ||
+    /\b(?:data-tab(?:-target)?|role=["']tab["']|aria-controls=["'][^"']+["'])/i.test(html) ||
+    /\b(?:data-page|data-route|data-module|data-lesson)-(?:id|key|state)\b/i.test(html) ||
+    /\b(?:pagination|carousel|slideshow)\b/i.test(html)
+  );
+}
+
+async function inferLearnerSurfaceDeclaration(
+  manifest: ProjectManifest,
+  slug: string,
+  repoRoot: string
+): Promise<ProjectLearnerSurfacesV1 | undefined> {
+  const htmlPaths = [...new Set((manifest.canonicalSources ?? [])
+    .map((source) => workspaceHtmlPath(source, slug))
+    .filter((value): value is string => Boolean(value)))]
+    .sort((left, right) => left.localeCompare(right));
+  if (!htmlPaths.length) return undefined;
+  const currentDeclaration = manifest.authoring?.learnerSurfaces;
+  if (currentDeclaration) {
+    const currentSurfaces = currentDeclaration.mode === "static-pages-complete"
+      ? currentDeclaration.pages.map((entry) => ({ ...entry, stateKey: null }))
+      : currentDeclaration.surfaces;
+    const upgraded: Array<{ htmlPath: string; route: string; stateKey: string | null }> = [];
+    let changed = false;
+    for (const entry of currentSurfaces) {
+      if (entry.stateKey) {
+        upgraded.push(entry);
+        continue;
+      }
+      const html = await readFile(path.join(repoRoot, "projects", slug, "workspace", ...entry.htmlPath.split("/")), "utf8");
+      const stateKey = learnerRouteNeedsNativeDetailsState(html, entry.route);
+      changed ||= stateKey !== null;
+      upgraded.push({ ...entry, stateKey });
+    }
+    return changed
+      ? { schemaVersion: 1, mode: "declared-routes-and-states", surfaces: upgraded }
+      : currentDeclaration;
+  }
+  const declared: Array<{ htmlPath: string; route: string; stateKey: string | null }> = [];
+  let routed = false;
+  for (const htmlPath of htmlPaths) {
+    const html = await readFile(path.join(repoRoot, "projects", slug, "workspace", ...htmlPath.split("/")), "utf8");
+    const routeIds = extractAdapterLearnerRouteIds(html) ?? extractStructurallyDeclaredLearnerRouteIds(html);
+    if (routeIds) {
+      if (hasUnsupportedLearnerStateMechanisms(html)) return undefined;
+      routed = true;
+      declared.push(...routeIds.map((route) => ({
+        htmlPath,
+        route: `#${route}`,
+        stateKey: learnerRouteNeedsNativeDetailsState(html, `#${route}`)
+      })));
+      continue;
+    }
+    if (hasUninventoryableRuntimeSurface(html)) return undefined;
+    declared.push({ htmlPath, route: "", stateKey: learnerRouteNeedsNativeDetailsState(html, "") });
+  }
+  return routed || declared.some((entry) => entry.stateKey !== null)
+    ? { schemaVersion: 1, mode: "declared-routes-and-states", surfaces: declared }
+    : { schemaVersion: 1, mode: "static-pages-complete", pages: declared.map(({ htmlPath, route }) => ({ htmlPath, route })) };
 }
 
 function isEnglishProject(manifest: ProjectManifest, slug: string) {
@@ -368,6 +444,10 @@ async function buildManifestCandidate(input: {
       : "Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.";
   }
 
+  const learnerSurfaces = (driverId === "direct-workspace-v1" || driverId === "legacy-snapshot-v1") && enabled
+    ? await inferLearnerSurfaceDeclaration(manifest, slug, repoRoot)
+    : undefined;
+
   const next: ProjectManifest = {
     ...manifest,
     ...(classification === "reference-only" ? { canonicalEntry: undefined, canonicalSources: [] } : {}),
@@ -383,6 +463,7 @@ async function buildManifestCandidate(input: {
         driverId === "social-related-issues-v1" ? "social-related-issues" :
         driverId === "legacy-snapshot-v1" ? "legacy-snapshot-rendered" : "proposal-only"
       ),
+      ...(learnerSurfaces ? { learnerSurfaces } : {}),
       studioEditing: {
         enabled,
         renameCourse: enabled && (manifest.authoring?.studioEditing?.renameCourse === true || renameCourse),

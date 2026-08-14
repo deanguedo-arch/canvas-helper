@@ -1,7 +1,7 @@
 # Studio real-time editability Phase 0.5 contracts
 
 - Date: 2026-08-14
-- Status: ready for independent specification audit; implementation is not authorized by this document
+- Status: implemented locally through the census and ephemeral-preview checkpoints; independent implementation audit and exact-head CI are pending
 - Applies to: element-level editability census and ephemeral Studio preview
 - Accepted inherited baseline: Direct Editing at `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`
 - Plan-audit disposition being resolved: **REQUEST CHANGES** at `a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a`
@@ -10,11 +10,24 @@
 
 ## Purpose and authority
 
-This document locks the measurement and preview-authority contracts that were missing from the first real-time editability plan. It is a non-behavioural specification checkpoint. It does not add a census command, browser collector, preview message, normalization route, image service, or teacher-facing control.
+This document locks the measurement and preview-authority contracts that were missing from the first real-time editability plan. It began as a non-behavioural specification checkpoint; the August 14 implementation now maps these contracts into shared schemas, a read-only rendered census, server preview normalization, an ordered inert-overlay bridge, bounded memory-only image preview, and teacher-facing controls.
 
 The words **must**, **must not**, **required**, and **prohibited** are normative. An implementation may choose different internal names only when its public schemas, invariants, failure behavior, and audit evidence remain equivalent.
 
-Phase 1 implementation must not begin until an independent reviewer confirms that this specification resolves the plan-audit P1 findings. Approval of this document will approve the implementation boundary, not the unimplemented product claims.
+Implementation does not itself constitute independent approval. The audit packet must verify the code against every contract below and distinguish local evidence from exact-head CI, teacher rollout, Brightspace, deployed-host, cross-browser SCORM, and full-WCAG acceptance.
+
+## Implementation correspondence
+
+- Shared inventories, candidates, reasons, report shapes, and limits: `app/shared/course-editability.ts`.
+- Mutation-prohibited loader and adapter inventories: `scripts/lib/course-editability/read-only-project.ts` and `inventory.ts`.
+- Fresh-context Chromium collection, runtime semantic candidates, state/network/storage instrumentation, and production Resolve parity: `scripts/lib/course-editability/rendered.ts`.
+- Non-overlapping scoring, cross-surface duplicate ownership, canonical JSON, digest, and repository residue proof: `scripts/lib/course-editability/scoring.ts` and `report.ts`.
+- CLI and exact-head workflow: `scripts/report-course-editability.ts`, `package.json`, and `.github/workflows/studio-direct-editing.yml`.
+- Preview authority and in-memory assets: `app/server/lib/course-edit-preview.ts`, `course-edit-preview-assets.ts`, and the canonicalizer in `course-editing.ts`.
+- Ordered bridge and inert overlay: `app/shared/preview-bridge.ts` and `app/server/preview-bridge-runtime.ts`.
+- Teacher workflow and reset handling: `app/studio/src/hooks/useCourseEditing.ts`, `usePreviewScrollSync.ts`, `components/CourseEditPanel.tsx`, and `App.tsx`.
+
+The collector treats attempted storage writes as a surface-level `storage-write-attempt` and nulls that surface. Because every surface uses a fresh non-persistent context and the temporary browser profile closes before repository proof, a blocked attempt is reported separately from actual persistent browser residue. Native `<details>` content uses the explicit bounded state key `native-details-open`; custom tabs, selectors, or runtime module states remain incomplete until their adapter declares or implements them.
 
 ## Truth boundary
 

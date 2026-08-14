@@ -27,6 +27,16 @@
     "driverId": "direct-workspace-v1",
     "familyId": "sportswellness",
     "qualityProfile": "direct-workspace",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,
@@ -73,6 +83,6 @@
   },
   "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output. Studio onboarding: Explicit canonical workspace ownership retained.",
   "createdAt": "2026-04-14T15:24:04.645Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-05-19T15:57:48.271Z"
 }

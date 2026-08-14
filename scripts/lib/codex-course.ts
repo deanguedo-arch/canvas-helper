@@ -107,6 +107,11 @@ export function renderCodexStudioCourseHtml(input: {
           <p class="course-summary" data-canvas-helper-edit-key="course-summary">${summary}</p>
         </header>
 
+        <figure class="course-cover">
+          <img src="./assets/course-cover.svg" alt="Abstract course cover for ${title}" data-canvas-helper-edit-key="course-cover-image">
+          <figcaption data-canvas-helper-edit-key="course-cover-caption">Replace this starter cover with a course-specific image and useful alt text.</figcaption>
+        </figure>
+
         <section aria-labelledby="overview-title">
           <h2 id="overview-title" data-canvas-helper-edit-key="overview-title">Course overview</h2>
           <p data-canvas-helper-edit-key="overview-body">Replace this paragraph with the course purpose, learner audience, and what successful completion looks like.</p>
@@ -132,11 +137,48 @@ export function renderCodexStudioCourseHtml(input: {
             </article>
           </div>
         </section>
+
+        <section class="practice-card" aria-labelledby="practice-title" data-practice-card>
+          <h2 id="practice-title" data-canvas-helper-edit-key="practice-title">Practice checkpoint</h2>
+          <p data-canvas-helper-edit-key="practice-prompt">Identify one idea learners should explain before they move to the next module.</p>
+          <button
+            type="button"
+            aria-pressed="false"
+            data-practice-emphasis
+            data-canvas-helper-studio-edit="annotation-only"
+            data-canvas-helper-edit-key="practice-runtime-control"
+          >Highlight this checkpoint</button>
+        </section>
       </main>
     </div>
+    <script src="./course.js" defer></script>
   </body>
 </html>
 `;
+}
+
+export function renderCodexStudioCourseScript() {
+  return `document.querySelector("[data-practice-emphasis]")?.addEventListener("click", (event) => {
+  const button = event.currentTarget;
+  if (!(button instanceof HTMLButtonElement)) return;
+  const card = button.closest("[data-practice-card]");
+  const pressed = button.getAttribute("aria-pressed") !== "true";
+  button.setAttribute("aria-pressed", String(pressed));
+  card?.toggleAttribute("data-emphasized", pressed);
+});
+`;
+}
+
+export function renderCodexStudioCourseCoverSvg(title: string) {
+  const label = escapeHtml(`${title} course cover`);
+  return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" role="img" aria-labelledby="title description">
+  <title id="title">${label}</title>
+  <desc id="description">An abstract layered landscape in forest green, cream, and warm gold.</desc>
+  <rect width="1200" height="630" fill="#eef2e9"/>
+  <path d="M0 430 245 210l190 155 180-230 215 206 165-122 205 188v223H0Z" fill="#154212"/>
+  <path d="M0 510 290 330l196 112 205-151 205 130 152-81 152 104v186H0Z" fill="#d7a843" opacity=".9"/>
+  <circle cx="1010" cy="126" r="62" fill="#ffffff" opacity=".9"/>
+</svg>\n`;
 }
 
 export function renderCodexStudioCourseStyles() {
@@ -235,6 +277,10 @@ main { min-width: 0; max-width: 760px; }
 h1 { margin: 0; font-size: clamp(2rem, 5vw, 3rem); line-height: 1.08; letter-spacing: -0.035em; }
 .course-summary { max-width: 64ch; margin: 20px 0 0; font-size: 1.125rem; color: var(--muted); }
 
+.course-cover { margin: 0 0 32px; }
+.course-cover img { display: block; width: 100%; height: auto; border: 1px solid var(--border); }
+.course-cover figcaption { margin-top: 8px; color: var(--muted); font-size: 14px; }
+
 section { padding: 32px 0; border-top: 1px solid var(--border); }
 h2 { margin: 0 0 16px; font-size: 1.5rem; line-height: 1.2; }
 h3 { margin: 4px 0 8px; font-size: 1.125rem; }
@@ -246,6 +292,9 @@ p { max-width: 68ch; }
 .module { padding: 20px 0; border-bottom: 1px solid var(--border); }
 .module-number { margin: 0; color: var(--muted); font-size: 14px; font-weight: 700; }
 .module p { margin-top: 8px; }
+
+.practice-card button { padding: 9px 13px; border: 1px solid var(--primary); border-radius: 6px; background: var(--surface); color: var(--primary); font: inherit; font-weight: 700; cursor: pointer; }
+.practice-card[data-emphasized] { padding-inline: 20px; border: 2px solid #d7a843; background: #fffaf0; }
 
 @media (max-width: 760px) {
   .site-header-inner { align-items: flex-start; flex-direction: column; gap: 8px; }
@@ -314,13 +363,20 @@ function buildManifest(input: {
     canonicalEntry: `${projectRoot}/workspace/index.html`,
     canonicalSources: [
       `${projectRoot}/workspace/index.html`,
-      `${projectRoot}/workspace/styles.css`
+      `${projectRoot}/workspace/styles.css`,
+      `${projectRoot}/workspace/course.js`,
+      `${projectRoot}/workspace/assets/course-cover.svg`
     ],
     generatedOutputs: [],
     authoring: {
       driverId: "direct-workspace-v1",
       familyId: CODEX_STUDIO_COURSE_CONTRACT,
       qualityProfile: "direct-rendered-course",
+      learnerSurfaces: {
+        schemaVersion: 1,
+        mode: "static-pages-complete",
+        pages: [{ htmlPath: "index.html", route: "" }]
+      },
       studioEditing: {
         enabled: true,
         renameCourse: true,
@@ -335,7 +391,9 @@ function buildManifest(input: {
     ],
     referenceOnly: [
       `${projectRoot}/raw/original.html`,
-      `${projectRoot}/raw/styles.css`
+      `${projectRoot}/raw/styles.css`,
+      `${projectRoot}/raw/course.js`,
+      `${projectRoot}/raw/assets/course-cover.svg`
     ],
     sourceOfTruthNotes: "Codex authors the canonical workspace HTML and CSS. Studio edits those exact files through the declared Direct adapter; raw and exports remain protected."
   };
@@ -355,6 +413,8 @@ async function writeStagedCourse(input: {
   const metaRoot = path.join(projectRoot, "meta");
   const html = renderCodexStudioCourseHtml(input);
   const styles = renderCodexStudioCourseStyles();
+  const script = renderCodexStudioCourseScript();
+  const cover = renderCodexStudioCourseCoverSvg(input.title);
   const manifest = buildManifest(input);
   const policy = validateProjectManifestPolicy(manifest);
   if (policy.status !== "valid" || policy.errors.length) {
@@ -364,8 +424,12 @@ async function writeStagedCourse(input: {
   await Promise.all([
     writeTextFile(path.join(workspaceRoot, "index.html"), html),
     writeTextFile(path.join(workspaceRoot, "styles.css"), styles),
+    writeTextFile(path.join(workspaceRoot, "course.js"), script),
+    writeTextFile(path.join(workspaceRoot, "assets", "course-cover.svg"), cover),
     writeTextFile(path.join(rawRoot, "original.html"), html),
     writeTextFile(path.join(rawRoot, "styles.css"), styles),
+    writeTextFile(path.join(rawRoot, "course.js"), script),
+    writeTextFile(path.join(rawRoot, "assets", "course-cover.svg"), cover),
     writeJsonFile(path.join(metaRoot, "project.json"), manifest),
     writeTextFile(path.join(metaRoot, "prompt-pack.md"), renderCodexStudioPromptPack(input))
   ]);

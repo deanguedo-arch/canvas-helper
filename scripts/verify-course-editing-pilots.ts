@@ -151,10 +151,14 @@ async function runPilot(pilot: Pilot) {
   let finalStatus: Awaited<ReturnType<CourseEditHttpRouteHarness["status"]>> | null = null;
 
   try {
+    const draft = pilotDraft(target);
+    const normalized = await http.normalize(draft.identity, draft.patch);
+    draft.patch = normalized.canonicalPatch;
+    draft.canonicalPatchDigest = normalized.canonicalPatchDigest;
     applyResult = await http.apply({
       schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
       projectSlug: pilot.projectSlug,
-      drafts: [pilotDraft(target)]
+      drafts: [draft]
     });
     applied = true;
     assert.equal(applyResult.canUndo, true, `${pilot.projectSlug} did not expose its successful batch to Undo.`);

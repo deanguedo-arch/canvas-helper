@@ -1,4 +1,5 @@
 import {
+  COURSE_EDIT_MAX_ID_CODE_UNITS,
   COURSE_EDIT_PAGE_MAP_MAX_ENTRIES,
   COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION
 } from "../shared/course-editing.js";
@@ -40,6 +41,7 @@ export function buildPreviewBridgeRuntime(
   var EDIT_MAP_ATTRIBUTE = "${PREVIEW_COURSE_EDIT_MAP_ATTRIBUTE}";
   var EDIT_MAP_SCHEMA_VERSION = ${COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION};
   var MAX_EDIT_MAP_ENTRIES = ${COURSE_EDIT_PAGE_MAP_MAX_ENTRIES};
+  var MAX_COURSE_EDIT_ID = ${COURSE_EDIT_MAX_ID_CODE_UNITS};
   var MAX_TEXT = ${PREVIEW_BRIDGE_MAX_VISIBLE_TEXT};
   var MAX_CONTAINERS = ${PREVIEW_BRIDGE_MAX_CONTAINERS};
   var MAX_REVIEW_ITEMS = ${PREVIEW_REVIEW_MAX_ITEMS};
@@ -133,6 +135,7 @@ export function buildPreviewBridgeRuntime(
   var editAnnotate = null;
   var editMessage = null;
   var editActionSequence = 0;
+  var editPreviewActionTimer = 0;
   var latestEditActionId = "";
   var pendingEditAnnotationId = "";
   var editComposerKey = "";
@@ -149,6 +152,12 @@ export function buildPreviewBridgeRuntime(
   var editMapTooltipLabel = null;
   var editMapTooltipReason = null;
   var editMapRefreshTimer = 0;
+  var editPreviewOverlay = null;
+  var editPreviewTarget = null;
+  var editPreviewCommand = null;
+  var editPreviewPositionHandle = 0;
+  var editPreviewSessions = Object.create(null);
+  var editPreviewSessionOrder = [];
   var editState = { projectSlug: "", enabled: false, available: false, unavailableReason: "", target: null, drafts: [], selectedDraft: null, busy: false, canUndo: false, exportsOutOfDate: false, staleExportTargets: [], status: "", error: "" };
   var reviewPacket = "";
   var reviewPacketId = "";
@@ -295,6 +304,8 @@ export function buildPreviewBridgeRuntime(
       if (
         !parsed ||
         parsed.schemaVersion !== EDIT_MAP_SCHEMA_VERSION ||
+        typeof parsed.projectSlug !== "string" || parsed.projectSlug.length < 1 || parsed.projectSlug.length > MAX_COURSE_EDIT_ID ||
+        typeof parsed.sourceDigest !== "string" || !/^[a-f0-9]{64}$/.test(parsed.sourceDigest) ||
         typeof parsed.available !== "boolean" ||
         typeof parsed.reason !== "string" ||
         !Array.isArray(parsed.entries) ||
@@ -311,7 +322,7 @@ export function buildPreviewBridgeRuntime(
     if (!editMapStyle) {
       editMapStyle = document.createElement("style");
       editMapStyle.setAttribute("data-canvas-helper-edit-map-style", "v1");
-      editMapStyle.textContent = "html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='editable']{outline:2px solid rgba(24,121,78,.72)!important;outline-offset:2px!important}html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='rename']{outline:2px solid rgba(88,68,138,.72)!important;outline-offset:2px!important}";
+      editMapStyle.textContent = "html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='editable']{outline:2px solid rgba(24,121,78,.72)!important;outline-offset:2px!important}html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='rename']{outline:2px solid rgba(88,68,138,.72)!important;outline-offset:2px!important}html[data-canvas-helper-edit-map-active='true'][data-canvas-helper-edit-map-show='true'] [data-canvas-helper-edit-map-outline='true'][data-canvas-helper-edit-map-state='blocked']{outline:2px dashed rgba(166,105,24,.62)!important;outline-offset:2px!important}";
       (document.head || document.documentElement).appendChild(editMapStyle);
     }
     if (!editMapToolbar) {
@@ -404,6 +415,7 @@ export function buildPreviewBridgeRuntime(
     }
     editMapRuntimeByNodeId = Object.create(null);
     var actionable = [];
+    var annotationOnly = [];
     Object.keys(editMapEntriesByNodeId).forEach(function(nodeId) {
       var entry = editMapEntriesByNodeId[nodeId];
       var element = elementForSourceNodeId(nodeId);
@@ -427,6 +439,11 @@ export function buildPreviewBridgeRuntime(
       editMapRuntimeByNodeId[nodeId] = runtime;
       element.setAttribute("data-canvas-helper-edit-map-state", state);
       if (state !== "blocked" && isVisibleCourseElement(element)) actionable.push(runtime);
+      if (
+        state === "blocked" &&
+        isVisibleCourseElement(element) &&
+        /^(?:h[1-6]|p|a|img|li|td|th|figcaption|button|label)$/.test(entry.tagName)
+      ) annotationOnly.push(runtime);
     });
     var primaryCount = 0;
     actionable.forEach(function(runtime) {
@@ -447,10 +464,28 @@ export function buildPreviewBridgeRuntime(
         primaryCount += 1;
       }
     });
+    var annotationOnlyCount = 0;
+    annotationOnly.forEach(function(runtime) {
+      var ancestor = runtime.element.parentElement;
+      var hasOutlinedAncestor = false;
+      while (ancestor && ancestor !== document.documentElement) {
+        if (ancestor.getAttribute("data-canvas-helper-edit-map-outline") === "true") {
+          hasOutlinedAncestor = true;
+          break;
+        }
+        ancestor = ancestor.parentElement;
+      }
+      if (!hasOutlinedAncestor) {
+        runtime.element.setAttribute("data-canvas-helper-edit-map-outline", "true");
+        annotationOnlyCount += 1;
+      }
+    });
     ensureEditMapVisuals();
     if (editMapCount) {
       editMapCount.textContent = editPageMap.available
-        ? (editPageMap.truncated ? primaryCount + "+ mapped editable areas" : primaryCount + " editable " + (primaryCount === 1 ? "area" : "areas"))
+        ? (editPageMap.truncated
+          ? primaryCount + "+ mapped editable areas"
+          : primaryCount + " editable " + (primaryCount === 1 ? "area" : "areas") + " · " + annotationOnlyCount + " annotation-only")
         : "Edit map unavailable";
     }
     if (editMapToggle) {
@@ -487,6 +522,217 @@ export function buildPreviewBridgeRuntime(
     if (!element) return null;
     var nodeId = uniqueSourceNodeId(element);
     return nodeId ? editMapRuntimeByNodeId[nodeId] || null : null;
+  }
+
+  function validEditPreviewStyle(value) {
+    if (!value || typeof value !== "object") return false;
+    var keys = ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"];
+    if (Object.keys(value).length !== keys.length) return false;
+    var allowed = {
+      textStyle: ["default", "heading", "subheading", "body", "caption"],
+      fontFamily: ["default", "readable-sans", "book-serif"],
+      fontSize: ["default", "small", "large", "x-large"],
+      textTone: ["default", "ink", "muted", "accent"],
+      alignment: ["default", "left", "center", "right"],
+      spacing: ["default", "compact", "relaxed"]
+    };
+    return keys.every(function(key) { return allowed[key].indexOf(value[key]) >= 0; });
+  }
+
+  function validEditPreviewRepresentation(value) {
+    if (!value || typeof value !== "object") return false;
+    if (typeof value.tagName !== "string" || !/^[a-z][a-z0-9-]{0,23}$/.test(value.tagName)) return false;
+    if (typeof value.html !== "string" || value.html.length > 24000) return false;
+    if (!value.attributes || typeof value.attributes !== "object") return false;
+    if (!["href", "src", "alt", "title"].every(function(name) { return typeof value.attributes[name] === "string" && value.attributes[name].length <= 24000; })) return false;
+    return validEditPreviewStyle(value.style);
+  }
+
+  function validEditPreviewCommand(value) {
+    return Boolean(
+      value &&
+      typeof value === "object" &&
+      (value.action === "render" || value.action === "clear") &&
+      typeof value.previewSessionId === "string" && /^[A-Za-z0-9-]{1,96}$/.test(value.previewSessionId) &&
+      Number.isSafeInteger(value.revision) && value.revision > 0 &&
+      typeof value.projectSlug === "string" && value.projectSlug.length > 0 && value.projectSlug.length <= MAX_COURSE_EDIT_ID &&
+      typeof value.pageIdentity === "string" && value.pageIdentity.length > 0 && value.pageIdentity.length <= MAX_COURSE_URL &&
+      typeof value.mapSourceDigest === "string" && /^[a-f0-9]{64}$/.test(value.mapSourceDigest) &&
+      typeof value.targetNodeId === "string" && /^ch1:[a-f0-9]{24}:[1-9][0-9]*$/.test(value.targetNodeId) &&
+      typeof value.canonicalPatchDigest === "string" && /^[a-f0-9]{64}$/.test(value.canonicalPatchDigest) &&
+      (value.action === "render" ? validEditPreviewRepresentation(value.representation) : value.representation === null)
+    );
+  }
+
+  function editPreviewAck(command, action, ok, messageText) {
+    send("preview-edit-preview-ack", {
+      action: action,
+      previewSessionId: command.previewSessionId,
+      revision: command.revision,
+      projectSlug: command.projectSlug,
+      pageIdentity: command.pageIdentity,
+      mapSourceDigest: command.mapSourceDigest,
+      targetNodeId: command.targetNodeId,
+      canonicalPatchDigest: command.canonicalPatchDigest,
+      ok: Boolean(ok),
+      message: boundedString(messageText, MAX_REVIEW_STATUS),
+      acknowledgedAt: Date.now()
+    });
+  }
+
+  function recordEditPreviewSession(command, closed) {
+    if (!editPreviewSessions[command.previewSessionId]) {
+      editPreviewSessionOrder.push(command.previewSessionId);
+      if (editPreviewSessionOrder.length > 64) {
+        var retired = editPreviewSessionOrder.shift();
+        if (retired) delete editPreviewSessions[retired];
+      }
+    }
+    editPreviewSessions[command.previewSessionId] = { revision: command.revision, closed: Boolean(closed) };
+  }
+
+  function removeEditPreviewOverlay() {
+    if (editPreviewPositionHandle) {
+      window.cancelAnimationFrame(editPreviewPositionHandle);
+      editPreviewPositionHandle = 0;
+    }
+    if (editPreviewOverlay && editPreviewOverlay.parentNode) editPreviewOverlay.parentNode.removeChild(editPreviewOverlay);
+    editPreviewOverlay = null;
+    editPreviewTarget = null;
+    editPreviewCommand = null;
+  }
+
+  function visibleBackgroundFor(element) {
+    var cursor = element;
+    while (cursor && cursor !== document.documentElement) {
+      var style = window.getComputedStyle(cursor);
+      if (style.backgroundImage && style.backgroundImage !== "none") return style.background;
+      var color = style.backgroundColor || "";
+      if (color && color !== "transparent" && color !== "rgba(0, 0, 0, 0)") return color;
+      cursor = cursor.parentElement;
+    }
+    return window.getComputedStyle(document.body || document.documentElement).backgroundColor || "#ffffff";
+  }
+
+  function positionEditPreviewOverlay() {
+    editPreviewPositionHandle = 0;
+    if (!editPreviewOverlay || !editPreviewTarget || !editPreviewTarget.isConnected) {
+      removeEditPreviewOverlay();
+      return;
+    }
+    var rect = editPreviewTarget.getBoundingClientRect();
+    editPreviewOverlay.style.left = Math.round(rect.left) + "px";
+    editPreviewOverlay.style.top = Math.round(rect.top) + "px";
+    editPreviewOverlay.style.width = Math.max(1, Math.round(rect.width)) + "px";
+    editPreviewOverlay.style.minHeight = Math.max(1, Math.round(rect.height)) + "px";
+  }
+
+  function scheduleEditPreviewPosition() {
+    if (!editPreviewOverlay || editPreviewPositionHandle) return;
+    editPreviewPositionHandle = window.requestAnimationFrame(positionEditPreviewOverlay);
+  }
+
+  function copyComputedPresentation(source, target) {
+    var computed = window.getComputedStyle(source);
+    for (var index = 0; index < computed.length; index += 1) {
+      var property = computed[index];
+      if (["position", "left", "right", "top", "bottom", "inset", "z-index", "transform", "margin", "margin-left", "margin-right", "margin-top", "margin-bottom"].indexOf(property) >= 0) continue;
+      try { target.style.setProperty(property, computed.getPropertyValue(property), computed.getPropertyPriority(property)); } catch (_) {}
+    }
+    target.style.setProperty("margin", "0", "important");
+    target.style.setProperty("max-width", "100%", "important");
+    target.style.setProperty("pointer-events", "none", "important");
+  }
+
+  function renderEditPreview(command) {
+    var session = editPreviewSessions[command.previewSessionId];
+    if (session && (session.closed || command.revision <= session.revision)) {
+      editPreviewAck(command, "rejected", false, session.closed ? "This preview session is closed." : "A newer preview revision is already visible.");
+      return;
+    }
+    if (!editModeEnabled || !inspectEnabled) {
+      editPreviewAck(command, "rejected", false, "Edit mode is no longer active on this learner page.");
+      return;
+    }
+    var currentPageIdentity = pageIdentity(location.href);
+    if (!currentPageIdentity || pageIdentity(command.pageIdentity) !== currentPageIdentity) {
+      editPreviewAck(command, "rejected", false, "The learner page changed before this preview could render.");
+      return;
+    }
+    if (!editPageMap || editPageMap.sourceDigest !== command.mapSourceDigest) {
+      editPreviewAck(command, "rejected", false, "The editable source map changed. Select the element again.");
+      return;
+    }
+    var target = elementForSourceNodeId(command.targetNodeId);
+    var runtime = target ? mapRuntimeForElement(target) : null;
+    if (!target || !runtime || runtime.state === "blocked" || target.tagName.toLowerCase() !== command.representation.tagName) {
+      editPreviewAck(command, "rejected", false, "The selected learner element is no longer previewable.");
+      return;
+    }
+    removeEditPreviewOverlay();
+    var stage = document.createElement("div");
+    stage.setAttribute("data-canvas-helper-edit-preview-overlay", "true");
+    stage.setAttribute("aria-hidden", "true");
+    stage.setAttribute("inert", "");
+    stage.style.position = "fixed";
+    stage.style.zIndex = "2147483644";
+    stage.style.pointerEvents = "none";
+    stage.style.overflow = "visible";
+    stage.style.background = visibleBackgroundFor(target);
+    stage.style.boxSizing = "border-box";
+    var clone = document.createElement(command.representation.tagName);
+    copyComputedPresentation(target, clone);
+    if (command.representation.tagName !== "img") clone.innerHTML = command.representation.html;
+    ["href", "src", "alt", "title"].forEach(function(name) {
+      var value = command.representation.attributes[name];
+      if (value) clone.setAttribute(name, value); else clone.removeAttribute(name);
+    });
+    var styleAttributes = {
+      textStyle: "data-canvas-helper-text-style",
+      fontFamily: "data-canvas-helper-font",
+      fontSize: "data-canvas-helper-font-size",
+      textTone: "data-canvas-helper-text-tone",
+      alignment: "data-canvas-helper-align",
+      spacing: "data-canvas-helper-spacing"
+    };
+    Object.keys(styleAttributes).forEach(function(key) {
+      var value = command.representation.style[key];
+      if (value && value !== "default") clone.setAttribute(styleAttributes[key], value);
+    });
+    var descendants = clone.querySelectorAll("a,button,input,select,textarea,[tabindex]");
+    for (var descendantIndex = 0; descendantIndex < descendants.length; descendantIndex += 1) {
+      descendants[descendantIndex].setAttribute("tabindex", "-1");
+      descendants[descendantIndex].setAttribute("aria-hidden", "true");
+    }
+    stage.appendChild(clone);
+    (document.body || document.documentElement).appendChild(stage);
+    editPreviewOverlay = stage;
+    editPreviewTarget = target;
+    editPreviewCommand = command;
+    positionEditPreviewOverlay();
+    recordEditPreviewSession(command, false);
+    editPreviewAck(command, "rendered", true, "Live preview updated on the learner page.");
+  }
+
+  function applyEditPreviewCommand(command) {
+    if (!validEditPreviewCommand(command)) return;
+    if (command.action === "clear") {
+      var session = editPreviewSessions[command.previewSessionId];
+      if (session && command.revision <= session.revision) {
+        editPreviewAck(command, "rejected", false, "A newer preview revision already exists.");
+        return;
+      }
+      if (editPreviewCommand && editPreviewCommand.previewSessionId !== command.previewSessionId) {
+        recordEditPreviewSession(command, true);
+        editPreviewAck(command, "cleared", true, "The older preview session was already replaced.");
+        return;
+      }
+      removeEditPreviewOverlay();
+      recordEditPreviewSession(command, true);
+      editPreviewAck(command, "cleared", true, "Live preview cleared.");
+      return;
+    }
+    renderEditPreview(command);
   }
 
   function editMapDistanceToRect(x, y, rect) {
@@ -955,15 +1201,31 @@ export function buildPreviewBridgeRuntime(
     return Object.keys(patch).length ? patch : null;
   }
 
+  function scheduleEditComposerPreview() {
+    if (editPreviewActionTimer) window.clearTimeout(editPreviewActionTimer);
+    editPreviewActionTimer = window.setTimeout(function() {
+      editPreviewActionTimer = 0;
+      var target = editState.target;
+      if (!target || target.eligibility !== "editable" || editState.busy) return;
+      var patch = currentEditPatch();
+      if (patch) sendEditAction({ action: "preview-target", targetId: target.targetId, patch: patch });
+      else sendEditAction({ action: "clear-preview", targetId: target.targetId });
+    }, 180);
+  }
+
   function setEditFieldVisibility(control, visible) {
     if (control && control.parentElement) control.parentElement.style.display = visible ? "block" : "none";
   }
 
   function populateEditComposer() {
     var target = editState.target;
-    var selectedDraft = target ? null : editState.selectedDraft;
+    var selectedDraft = editState.selectedDraft && (!target || editState.selectedDraft.targetId === target.targetId)
+      ? editState.selectedDraft
+      : null;
     var source = currentEditSource();
-    var nextComposerKey = target ? "target:" + target.targetId : selectedDraft ? "draft:" + selectedDraft.id : "";
+    var nextComposerKey = target
+      ? "target:" + target.targetId + (selectedDraft ? ":draft:" + selectedDraft.id : "")
+      : selectedDraft ? "draft:" + selectedDraft.id : "";
     if (editTargetText) editTargetText.textContent = target
       ? (target.originalText || target.tagName || "Selected element")
       : selectedDraft
@@ -1044,7 +1306,7 @@ export function buildPreviewBridgeRuntime(
         summary.style.overflowWrap = "anywhere";
         summary.disabled = editState.busy;
         summary.style.opacity = summary.disabled ? "0.48" : "1";
-        summary.addEventListener("click", function() { sendEditAction({ action: "select-draft", draftId: draft.id }); });
+        summary.addEventListener("click", function() { sendEditAction({ action: "reopen-draft", draftId: draft.id }); });
         var actions = document.createElement("div");
         actions.style.display = "flex";
         actions.style.gap = "5px";
@@ -1721,13 +1983,14 @@ export function buildPreviewBridgeRuntime(
     }
     editHtmlArea.addEventListener("keyup", rememberEditTextRange);
     editHtmlArea.addEventListener("mouseup", rememberEditTextRange);
+    editHtmlArea.addEventListener("input", scheduleEditComposerPreview);
     [["bold", "Bold"], ["italic", "Italic"], ["insertUnorderedList", "Bullets"], ["insertOrderedList", "Numbers"]].forEach(function(definition) {
       var formatButton = document.createElement("button");
       formatButton.type = "button";
       formatButton.textContent = definition[1];
       stylePreviewControlButton(formatButton);
       formatButton.addEventListener("mousedown", function(event) { event.preventDefault(); });
-      formatButton.addEventListener("click", function() { editHtmlArea.focus(); document.execCommand(definition[0], false); rememberEditTextRange(); });
+      formatButton.addEventListener("click", function() { editHtmlArea.focus(); document.execCommand(definition[0], false); rememberEditTextRange(); scheduleEditComposerPreview(); });
       editFormatBar.appendChild(formatButton);
     });
     var editInlineLink = document.createElement("input");
@@ -1751,6 +2014,7 @@ export function buildPreviewBridgeRuntime(
       document.execCommand("createLink", false, href);
       editInlineLink.value = "";
       rememberEditTextRange();
+      scheduleEditComposerPreview();
     });
     editFormatBar.appendChild(editInlineLink);
     editFormatBar.appendChild(editInlineLinkButton);
@@ -1763,6 +2027,9 @@ export function buildPreviewBridgeRuntime(
     stylePreviewTextArea(editAltArea);
     var editTitleInput = document.createElement("input");
     stylePreviewTextArea(editTitleInput);
+    [editHrefInput, editSrcInput, editAltArea, editTitleInput].forEach(function(control) {
+      control.addEventListener("input", scheduleEditComposerPreview);
+    });
 
     var styleGrid = document.createElement("div");
     styleGrid.style.display = "grid";
@@ -1786,6 +2053,7 @@ export function buildPreviewBridgeRuntime(
         select.appendChild(option);
       });
       styleControls[definition[0]] = select;
+      select.addEventListener("change", scheduleEditComposerPreview);
       styleGrid.appendChild(editField(definition[1], select));
     });
 
@@ -2200,7 +2468,7 @@ export function buildPreviewBridgeRuntime(
 
   function isPreviewControlTarget(target) {
     var element = target instanceof Element ? target : null;
-    return Boolean(element && element.closest("[data-canvas-helper-preview-controls], [data-canvas-helper-edit-map-toolbar], [data-canvas-helper-edit-map-tooltip]"));
+    return Boolean(element && element.closest("[data-canvas-helper-preview-controls], [data-canvas-helper-edit-map-toolbar], [data-canvas-helper-edit-map-tooltip], [data-canvas-helper-edit-preview-overlay]"));
   }
 
   function selectionFor(target, includeScroll, interactionStartedAt) {
@@ -2533,6 +2801,7 @@ export function buildPreviewBridgeRuntime(
     element.style.display = inspectEnabled ? "block" : "none";
     element.style.pointerEvents = inspectEnabled ? "auto" : "none";
     if (!inspectEnabled) {
+      removeEditPreviewOverlay();
       hideOverlay();
       dragStart = null;
       dragging = false;
@@ -2566,6 +2835,7 @@ export function buildPreviewBridgeRuntime(
     lastSelectors = [];
     keyboardCursor = null;
     editLastSelection = null;
+    removeEditPreviewOverlay();
     if (inspectEnabled) startKeyboardMutationObserver();
     reviewSelection = null;
     reviewLocalMessage = "The course page changed. Select an element again.";
@@ -2788,6 +3058,7 @@ export function buildPreviewBridgeRuntime(
       data.type === "preview-inspect-current" ||
       data.type === "preview-inspect-focused" ||
       data.type === "preview-inspect-mode" ||
+      data.type === "preview-edit-preview-ack" ||
       data.type === "preview-edit-action" ||
       data.type === "preview-health" ||
       data.type === "preview-diagnostic" ||
@@ -2833,10 +3104,15 @@ export function buildPreviewBridgeRuntime(
     }
     if (event.data.type === "studio-set-edit-visual-mode" && event.data.payload && typeof event.data.payload.enabled === "boolean") {
       editModeEnabled = Boolean(event.data.payload.enabled);
+      if (!editModeEnabled) removeEditPreviewOverlay();
       keyboardCandidateCacheDirty = true;
       if (hostMode) sendHostedCourse("studio-set-edit-visual-mode", { enabled: editModeEnabled });
       updateEditMapVisuals();
       updateStandaloneControls({ renderReview: false });
+    }
+    if (event.data.type === "studio-set-edit-preview") {
+      if (hostMode) sendHostedCourse("studio-set-edit-preview", event.data.payload);
+      else applyEditPreviewCommand(event.data.payload);
     }
     if (
       event.data.type === "studio-request-inspect-current" &&
@@ -2957,6 +3233,7 @@ export function buildPreviewBridgeRuntime(
       var previousDraftId = editState.selectedDraft && editState.selectedDraft.id;
       editState = event.data.payload;
       editModeEnabled = Boolean(editState.enabled);
+      if (!editModeEnabled) removeEditPreviewOverlay();
       keyboardCandidateCacheDirty = true;
       if (hostMode) sendHostedCourse("studio-set-edit-state", event.data.payload);
       if (editModeEnabled) editPanelOpen = true;
@@ -3088,6 +3365,9 @@ export function buildPreviewBridgeRuntime(
 
   window.addEventListener("scroll", scheduleScrollState, { passive: true });
   document.addEventListener("scroll", scheduleScrollState, true);
+  window.addEventListener("scroll", scheduleEditPreviewPosition, { passive: true });
+  document.addEventListener("scroll", scheduleEditPreviewPosition, true);
+  window.addEventListener("resize", scheduleEditPreviewPosition, { passive: true });
   if (!hostMode) {
     lastNavigationIdentity = pageIdentity(location.href);
     ["pushState", "replaceState"].forEach(function(methodName) {
@@ -3160,7 +3440,7 @@ export function buildPreviewBridgeRuntime(
   }
 
   function isVisibleCourseElement(element) {
-    if (!element || element.closest("[data-canvas-helper-preview-controls], [data-canvas-helper-edit-map-toolbar], [data-canvas-helper-edit-map-tooltip], [hidden], [aria-hidden='true']")) return false;
+    if (!element || element.closest("[data-canvas-helper-preview-controls], [data-canvas-helper-edit-map-toolbar], [data-canvas-helper-edit-map-tooltip], [data-canvas-helper-edit-preview-overlay], [hidden], [aria-hidden='true']")) return false;
     try {
       var ancestor = element;
       while (ancestor && ancestor.nodeType === 1) {

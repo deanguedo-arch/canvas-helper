@@ -14,6 +14,7 @@ import {
 import {
   applyCourseEditBatch,
   getCourseEditStatus,
+  normalizeCourseEditPatchForPreview,
   resolveCourseEditPageMap,
   resolveCourseEditTarget,
   undoCourseEditBatch
@@ -125,6 +126,11 @@ test("Codex creates a declared Direct course that is immediately Studio-ready", 
       renameCourse: true,
       imageAssets: true
     });
+    assert.deepEqual(manifest.authoring?.learnerSurfaces, {
+      schemaVersion: 1,
+      mode: "static-pages-complete",
+      pages: [{ htmlPath: "index.html", route: "" }]
+    });
     assert.ok(manifest.canonicalSources?.every((entry) => entry.startsWith(`projects/${SLUG}/workspace/`)));
     assert.ok(manifest.referenceOnly?.every((entry) => entry.startsWith(`projects/${SLUG}/raw/`)));
 
@@ -137,7 +143,9 @@ test("Codex creates a declared Direct course that is immediately Studio-ready", 
     const source = await readFile(created.workspaceEntry, "utf8");
     assert.match(source, /data-canvas-helper-course-title/);
     assert.match(source, /data-canvas-helper-edit-key="course-summary"/);
-    assert.doesNotMatch(source, /<script\b/i);
+    assert.match(source, /<script src="\.\/course\.js" defer><\/script>/i);
+    assert.doesNotMatch(source, /<script(?![^>]*\bsrc=)[^>]*>/i);
+    assert.match(await readFile(path.join(created.projectRoot, "workspace", "course.js"), "utf8"), /aria-pressed/);
     assert.match(await readFile(created.promptPackPath, "utf8"), /Codex to Studio contract/);
     assert.equal(
       (JSON.parse(await readFile(path.join(fixture.repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL), "utf8")) as { projectSlug: string }).projectSlug,
@@ -194,10 +202,18 @@ test("a Codex-created course survives Studio apply, reload resolution, and Undo"
     assert.ok(resolved.identity);
     const target = resolved as CourseEditTarget & { identity: NonNullable<CourseEditTarget["identity"]> };
 
+    const draft = draftFor(target, "Learners investigate evidence, make a decision, and explain their reasoning.");
+    const normalized = await normalizeCourseEditPatchForPreview({
+      identity: draft.identity,
+      patch: draft.patch,
+      repoRoot: fixture.repoRoot
+    });
+    draft.patch = normalized.canonicalPatch;
+    draft.canonicalPatchDigest = normalized.canonicalPatchDigest;
     const applied = await applyCourseEditBatch({
       schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
       projectSlug: SLUG,
-      drafts: [draftFor(target, "Learners investigate evidence, make a decision, and explain their reasoning.")]
+      drafts: [draft]
     }, fixture.repoRoot);
     assert.equal(applied.ok, true);
     assert.deepEqual(applied.staleExportTargets, ["html"]);

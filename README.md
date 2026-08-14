@@ -40,6 +40,8 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run course:list -- --all` (all source-backed projects plus package/archive classifications)
 - `npm run course:onboard -- --all [--apply]` (audit or transactionally onboard the existing catalog)
 - `npm run verify:course-onboarding -- --all` (rendered reversible catalog acceptance)
+- `npm run report:course-editability -- --all [--allow-incomplete]` (read-only rendered element coverage; incomplete inventories receive no percentage)
+- `npm run test:course-editability` (learner-surface, browser-isolation, scoring, and report-digest contracts)
 - `npm run test:studio-release` (complete, isolated Studio release gate)
 - `npm run import -- "<path-to-html-or-folder>" --slug <slug>`
 - `npm run incoming:refresh`
@@ -138,9 +140,13 @@ The onboarding workflow never equates “has HTML” with “safe to edit.” It
 
 The current catalog outcome and exceptions are recorded in [docs/audits/2026-08-13-course-catalog-onboarding.md](docs/audits/2026-08-13-course-catalog-onboarding.md). Future imported projects and courses created through `course:create` receive explicit Studio ownership at creation, so this bulk migration should not become a recurring manual catch-up step.
 
+Element coverage is a separate read-only measurement and never grants edit authority. `report:course-editability` uses adapter-owned page/route/state inventories, a rendered Chromium semantic collector, and the production Resolve path. Runtime-created content remains in the denominator; missing states, browser-state writes, truncation, time/memory limits, or repository drift make the affected score null. Run the command only while other builders, Git operations, Studio Apply, and course writers are idle so its before/after residue proof can be publishable.
+
 ## Studio Direct Editing
 
 Studio has a separate **Edit** mode only for projects that pass `course:doctor` and explicitly declare both a supported `authoring.driverId` and `authoring.studioEditing.enabled: true`. Unclassified inferred projects remain **not onboarded** even when their workspace can be previewed; the current source-backed catalog has been explicitly classified through `course:onboard`. Turning on Edit shows a server-authored map of the current page: supported regions receive restrained outlines, hover labels identify **Edit text**, **Edit link**, **Replace image**, or **Rename course**, and the page toolbar reports the visible editable-area count with a show/hide toggle. JavaScript-replaced or otherwise unsupported regions use a dashed **Annotation only** selection with the reason and a direct **Annotate this for Codex** action. Clicking surrounding layout automatically selects a nearby safe child only when the map can prove one.
+
+For a supported target, Studio normalizes the proposed change on the server and displays it immediately in an inert visual overlay while the teacher types. The overlay does not replace or mutate the learner element, and no course file is written. **Save draft** stores the bounded canonical patch and digest; **Apply changes** is still the first filesystem mutation and revalidates that exact patch through the existing lock, checkpoint, rebuild, rendered-result, export-freshness, and Undo boundary. Preview messages carry a session and monotonic revision so stale typing or clear messages cannot repaint newer work. Temporary image bytes are fully decoded and kept only in bounded server memory until Apply materializes them inside the same transaction; an expired image requires re-upload rather than falling back to a preview URL.
 
 Click a supported region, then save one or more changes into the course-specific **Draft Changes** panel. Drafts do not silently expire, follow the course between Studio and Full Preview, can be reopened for every patch type, and have local JSON backup/restore. Visual before/after frames accompany accessible text captions.
 

@@ -1,7 +1,7 @@
 import { spawn, type ChildProcess } from "node:child_process";
 import { createHash, randomUUID } from "node:crypto";
 import { constants as fsConstants } from "node:fs";
-import { chmod, copyFile, lstat, mkdir, readFile, readdir, realpath, rename, rm } from "node:fs/promises";
+import { chmod, copyFile, lstat, mkdir, readFile, readdir, realpath, rename, rm, rmdir } from "node:fs/promises";
 import path from "node:path";
 
 import { load } from "cheerio";
@@ -17,6 +17,9 @@ import {
   type CourseEditMapAction,
   type CourseEditPageMap,
   type CourseEditPageMapEntry,
+  type CourseEditPendingAssetReference,
+  type CourseEditPatch,
+  type CourseEditPreviewRepresentation,
   type CourseEditResolveRequest,
   type CourseEditStylePatch,
   type CourseEditStatus,
@@ -69,6 +72,7 @@ import {
   courseEditFingerprintsMatch,
   classifyCourseEditBoundary,
   durableAtomicWrite,
+  fingerprintCourseEditFileContent,
   fingerprintCourseEditPath,
   fingerprintCourseEditPaths,
   readCourseEditJournal,
@@ -80,12 +84,16 @@ import {
 } from "./course-edit-transaction";
 import { validateCourseEditImage } from "./course-edit-image";
 import {
+  consumePendingCourseEditImage,
+  getPendingCourseEditImageForApply
+} from "./course-edit-preview-assets";
+import {
   renderCheckForPatch,
   validateRenderedCourseEdits,
   type CourseEditRenderCheck
 } from "./course-edit-render-validation";
 
-const CHECKPOINT_SCHEMA_VERSION = 3;
+const CHECKPOINT_SCHEMA_VERSION = 4;
 const MAX_CHECKPOINT_FILE_BYTES = 10 * 1024 * 1024;
 const MAX_CHECKPOINT_DIRECTORY_BYTES = 512 * 1024 * 1024;
 const MAX_CHECKPOINT_DIRECTORY_FILES = 20_000;
@@ -128,6 +136,7 @@ type CourseEditCheckpoint = {
   createdAt: string;
   files: SnapshotFile[];
   directories: SnapshotDirectory[];
+  cleanupEmptyDirectories: string[];
   previousStatus: CourseEditStatus;
   previousCheckpointId: string | null;
   expectedBefore: CourseEditPathFingerprint[];
@@ -375,6 +384,9 @@ function buildEditableTarget(input: {
   element: EditableHtmlElement;
   originalHtml: string;
 }): CourseEditTarget {
+  if (input.element.attributes["data-canvas-helper-studio-edit"] === "annotation-only") {
+    return unsupportedTarget("This runtime control is intentionally Annotation only until Studio has a dedicated editor for its behavior.");
+  }
   const baseCapabilities = courseEditCapabilitiesForTag(input.element.tagName);
   const capabilities = {
     ...baseCapabilities,
@@ -501,7 +513,12 @@ export async function resolveCourseEditPageMap(
       richText: baseCapabilities.richText && isSafeCourseEditRichTextSource(originalHtml)
     };
     const replayUnsafe = !element.replaySafe;
-    const action = titleOwner ? "rename-course" : replayUnsafe ? "annotation-only" : pageMapAction(element.tagName, capabilities);
+    const intentionalAnnotationOnly = element.attributes["data-canvas-helper-studio-edit"] === "annotation-only";
+    const action = titleOwner
+      ? "rename-course"
+      : replayUnsafe || intentionalAnnotationOnly
+        ? "annotation-only"
+        : pageMapAction(element.tagName, capabilities);
     const annotationOnly = action === "annotation-only";
     const sourceText = normalizedCourseEditText(htmlText(originalHtml)).slice(0, 24_000);
     const attributes = decodedElementAttributes(document.source, element);
@@ -512,6 +529,8 @@ export async function resolveCourseEditPageMap(
       label: pageMapLabel(action),
       reason: titleOwner
         ? "Use Rename course so every title location stays synchronized."
+        : intentionalAnnotationOnly
+          ? "This runtime control is intentionally Annotation only until Studio has a dedicated behavior editor."
         : replayUnsafe
           ? "Repeated content needs a durable data-canvas-helper-edit-key in its canonical source before Studio can target edits safely."
           : annotationOnly
@@ -586,6 +605,9 @@ export async function resolveCourseEditTarget(request: CourseEditResolveRequest,
     editId: adapter === "direct" ? null : location.editId
   });
   if (!element) return unsupportedTarget("Select the text, link, image, caption, or button itself rather than its surrounding layout.");
+  if (element.attributes["data-canvas-helper-studio-edit"] === "annotation-only") {
+    return unsupportedTarget("This runtime control is intentionally Annotation only until Studio has a dedicated editor for its behavior.");
+  }
   if (!element.replaySafe) {
     return unsupportedTarget(
       "This repeated element needs a durable data-canvas-helper-edit-key in its canonical source before Studio can edit it safely."
@@ -632,6 +654,36 @@ export async function resolveCourseEditTarget(request: CourseEditResolveRequest,
   });
 }
 
+function canonicalCourseEditPatch(patch: CourseEditPatch): CourseEditPatch {
+  const canonical: CourseEditPatch = {};
+  if (patch.html !== undefined) canonical.html = patch.html;
+  if (patch.href !== undefined) canonical.href = patch.href;
+  if (patch.src !== undefined) canonical.src = patch.src;
+  if (patch.alt !== undefined) canonical.alt = patch.alt;
+  if (patch.title !== undefined) canonical.title = patch.title;
+  if (patch.style) {
+    const style: CourseEditStylePatch = {};
+    for (const key of ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"] as const) {
+      if (patch.style[key] !== undefined) Object.assign(style, { [key]: patch.style[key] });
+    }
+    if (Object.keys(style).length) canonical.style = style;
+  }
+  return canonical;
+}
+
+export function courseEditCanonicalPatchDigest(
+  patch: CourseEditPatch,
+  pendingAssets: readonly CourseEditPendingAssetReference[] = []
+) {
+  const assets = [...pendingAssets]
+    .map((entry) => ({ ...entry }))
+    .sort((left, right) => left.id < right.id ? -1 : left.id > right.id ? 1 : 0);
+  return createHash("sha256").update(JSON.stringify({
+    patch: canonicalCourseEditPatch(patch),
+    pendingAssets: assets
+  })).digest("hex");
+}
+
 function sanitizeDraft(draft: CourseEditDraft, target: CourseEditTarget) {
   if (!target.identity) throw new Error("The edit target is no longer available.");
   const patch = { ...draft.patch };
@@ -672,7 +724,52 @@ function sanitizeDraft(draft: CourseEditDraft, target: CourseEditTarget) {
     else delete patch.style;
   }
   if (!Object.keys(patch).length) throw new Error("This draft does not contain an actual change.");
-  return { ...draft, patch };
+  return { ...draft, patch: canonicalCourseEditPatch(patch) };
+}
+
+export async function normalizeCourseEditPatchForPreview(input: {
+  identity: CourseEditTargetIdentity;
+  patch: CourseEditPatch;
+  pendingAssets?: CourseEditPendingAssetReference[];
+  representationSrc?: string;
+  repoRoot?: string;
+}) {
+  const resolved = await resolveFromIdentity(input.identity, input.repoRoot ?? defaultRepoRoot);
+  const now = Date.now();
+  const normalized = sanitizeDraft({
+    id: "preview-normalization",
+    createdAt: now,
+    updatedAt: now,
+    identity: input.identity,
+    beforeText: resolved.target.originalText,
+    afterText: resolved.target.originalText,
+    baseline: {
+      originalHtml: resolved.target.originalHtml,
+      attributes: resolved.target.attributes,
+      currentStyle: resolved.target.currentStyle,
+      capabilities: resolved.target.capabilities
+    },
+    patch: input.patch
+  }, resolved.target);
+  const canonicalPatch = normalized.patch;
+  const attributes = { ...resolved.target.attributes };
+  for (const name of ["href", "src", "alt", "title"] as const) {
+    const value = canonicalPatch[name];
+    if (value !== undefined) attributes[name] = value ?? "";
+  }
+  if (input.representationSrc !== undefined) attributes.src = input.representationSrc;
+  const representation: CourseEditPreviewRepresentation = {
+    tagName: resolved.target.identity?.tagName ?? input.identity.tagName,
+    html: canonicalPatch.html ?? resolved.target.originalHtml,
+    attributes,
+    style: { ...resolved.target.currentStyle, ...(canonicalPatch.style ?? {}) }
+  };
+  return {
+    canonicalPatch,
+    canonicalPatchDigest: courseEditCanonicalPatchDigest(canonicalPatch, input.pendingAssets),
+    representation,
+    target: resolved.target
+  };
 }
 
 async function atomicWrite(filePath: string, content: string | Uint8Array, mode?: number | null) {
@@ -1034,7 +1131,11 @@ async function restoreSnapshotDirectories(repoRoot: string, directories: Snapsho
   clearPreviewInspectionDocumentCache();
 }
 
-async function restoreSnapshotFiles(repoRoot: string, files: SnapshotFile[]) {
+async function restoreSnapshotFiles(
+  repoRoot: string,
+  files: SnapshotFile[],
+  cleanupEmptyDirectories: readonly string[] = []
+) {
   for (const file of files) {
     const target = resolveCheckpointRelativePath(repoRoot, file.repoRelativePath, "Checkpoint restore");
     if (!file.existed) {
@@ -1045,6 +1146,14 @@ async function restoreSnapshotFiles(repoRoot: string, files: SnapshotFile[]) {
     const content = Buffer.from(file.contentBase64, "base64");
     if (content.length > MAX_CHECKPOINT_FILE_BYTES) throw new Error("Checkpoint content exceeds the restore limit.");
     await atomicWrite(target, content, file.mode);
+  }
+  for (const relativePath of cleanupEmptyDirectories) {
+    const target = resolveCheckpointRelativePath(repoRoot, relativePath, "Checkpoint empty-directory cleanup");
+    try {
+      await rmdir(target);
+    } catch (error) {
+      if (!["ENOENT", "ENOTEMPTY", "EEXIST"].includes((error as NodeJS.ErrnoException).code ?? "")) throw error;
+    }
   }
   clearPreviewInspectionDocumentCache();
 }
@@ -1065,7 +1174,7 @@ function upgradeCourseEditCheckpoint(value: unknown, projectSlug: string): Cours
   if (!value || typeof value !== "object" || Array.isArray(value)) return null;
   const parsed = value as Omit<Partial<CourseEditCheckpoint>, "schemaVersion"> & { schemaVersion?: number };
   if (
-    (parsed.schemaVersion !== 2 && parsed.schemaVersion !== CHECKPOINT_SCHEMA_VERSION) ||
+    (parsed.schemaVersion !== 2 && parsed.schemaVersion !== 3 && parsed.schemaVersion !== CHECKPOINT_SCHEMA_VERSION) ||
     parsed.projectSlug !== projectSlug ||
     typeof parsed.previousCheckpointId === "undefined" ||
     !Array.isArray(parsed.files) ||
@@ -1077,6 +1186,7 @@ function upgradeCourseEditCheckpoint(value: unknown, projectSlug: string): Cours
   return {
     ...(parsed as CourseEditCheckpoint),
     schemaVersion: CHECKPOINT_SCHEMA_VERSION,
+    cleanupEmptyDirectories: Array.isArray(parsed.cleanupEmptyDirectories) ? parsed.cleanupEmptyDirectories : [],
     renderBefore: Array.isArray(parsed.renderBefore) ? parsed.renderBefore : [],
     renderAfter: Array.isArray(parsed.renderAfter) ? parsed.renderAfter : []
   };
@@ -1089,6 +1199,7 @@ function isCourseEditCheckpoint(parsed: CourseEditCheckpoint, projectSlug: strin
     typeof parsed.previousCheckpointId !== "undefined" &&
     Array.isArray(parsed.files) &&
     Array.isArray(parsed.directories) &&
+    Array.isArray(parsed.cleanupEmptyDirectories) &&
     Array.isArray(parsed.htmlPaths) &&
     Array.isArray(parsed.expectedBefore) &&
     Array.isArray(parsed.expectedAfter) &&
@@ -1400,7 +1511,7 @@ export async function recoverInterruptedCourseEdit(projectSlug: string, repoRoot
   await writeCourseEditJournal(rollingBack, repoRoot);
   if (boundaryState === "after" || boundaryState === "known-partial") {
     await restoreSnapshotDirectories(repoRoot, recovery.directories);
-    await restoreSnapshotFiles(repoRoot, recovery.files);
+    await restoreSnapshotFiles(repoRoot, recovery.files, recovery.cleanupEmptyDirectories);
   }
   await restorePriorUndoCheckpoint(recovery, repoRoot);
   if (!courseEditFingerprintsMatch(expectedBefore, await fingerprintCheckpointBoundary(recovery, repoRoot))) {
@@ -1424,6 +1535,149 @@ async function withProjectEditLock<T>(
   });
 }
 
+type PendingCourseEditApplyAsset = {
+  reference: CourseEditPendingAssetReference;
+  bytes: Buffer;
+  targetPaths: string[];
+};
+
+function pendingAssetExtension(mimeType: CourseEditPendingAssetReference["mimeType"]) {
+  if (mimeType === "image/png") return "png";
+  if (mimeType === "image/jpeg") return "jpg";
+  return "gif";
+}
+
+async function resolvePendingApplyAssets(input: {
+  projectSlug: string;
+  adapter: CourseEditAdapter;
+  resolved: Array<{ draft: CourseEditDraft; target: ResolvedEditableTarget }>;
+  repoRoot: string;
+}) {
+  const assets: PendingCourseEditApplyAsset[] = [];
+  const seenIds = new Set<string>();
+  for (const { draft, target } of input.resolved) {
+    for (const reference of draft.pendingAssets ?? []) {
+      if (seenIds.has(reference.id)) throw new Error("One pending image cannot be attached to more than one draft target.");
+      seenIds.add(reference.id);
+      if (!target.target.capabilities.image || draft.patch.src !== reference.finalSrc) {
+        throw new Error("A pending image is not attached to an editable image field.");
+      }
+      const pending = getPendingCourseEditImageForApply(reference, draft.identity);
+      const extension = pendingAssetExtension(reference.mimeType);
+      const filename = `${reference.digest}.${extension}`;
+      const expectedWorkspaceRelative = `assets/custom/studio/${filename}`;
+      const expectedSrc = path.posix.relative(path.posix.dirname(draft.identity.htmlPath), expectedWorkspaceRelative) || filename;
+      if (reference.finalSrc !== expectedSrc || pending.finalSrc !== expectedSrc) {
+        throw new Error("A pending image has an invalid content-addressed course path.");
+      }
+      const targetPaths = [
+        path.join(input.repoRoot, "projects", "resources", input.projectSlug, "studio-assets", filename)
+      ];
+      if (input.adapter === "direct" || input.adapter === "legacy-snapshot") {
+        targetPaths.push(path.join(
+          input.repoRoot,
+          "projects",
+          input.projectSlug,
+          "workspace",
+          "assets",
+          "custom",
+          "studio",
+          filename
+        ));
+      }
+      assets.push({ reference, bytes: Buffer.from(pending.bytes), targetPaths });
+    }
+  }
+  return assets;
+}
+
+async function plannedPendingAssetFingerprints(
+  repoRoot: string,
+  assets: readonly PendingCourseEditApplyAsset[]
+) {
+  const byPath = new Map<string, Buffer>();
+  for (const asset of assets) {
+    for (const targetPath of asset.targetPaths) {
+      const existing = byPath.get(targetPath);
+      if (existing && !existing.equals(asset.bytes)) throw new Error("Two pending images resolved to conflicting asset bytes.");
+      byPath.set(targetPath, asset.bytes);
+    }
+  }
+  const fingerprints: CourseEditPathFingerprint[] = [];
+  for (const [targetPath, bytes] of byPath) {
+    try {
+      const stats = await lstat(targetPath);
+      if (!stats.isFile() || stats.isSymbolicLink() || !(await readFile(targetPath)).equals(bytes)) {
+        throw new Error("A content-addressed Studio asset conflicts with the pending image bytes.");
+      }
+      fingerprints.push(await fingerprintCourseEditPath(repoRoot, targetPath));
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+      fingerprints.push(fingerprintCourseEditFileContent(repoRoot, targetPath, bytes, 0o644));
+    }
+  }
+  return fingerprints;
+}
+
+async function pendingAssetCleanupDirectories(repoRoot: string, assets: readonly PendingCourseEditApplyAsset[]) {
+  const projectsRoot = path.join(repoRoot, "projects");
+  const missing = new Set<string>();
+  for (const asset of assets) {
+    for (const targetPath of asset.targetPaths) {
+      const projectMatch = path.relative(projectsRoot, targetPath).split(path.sep);
+      const stopExclusive = projectMatch[0] === "resources"
+        ? path.join(projectsRoot, "resources")
+        : path.join(projectsRoot, projectMatch[0] ?? "", "workspace");
+      if (!isPathInside(projectsRoot, stopExclusive) || !isPathInside(stopExclusive, targetPath)) {
+        throw new Error("A pending image asset path escaped its course boundary.");
+      }
+      let current = path.dirname(targetPath);
+      while (current !== stopExclusive) {
+        try {
+          const stats = await lstat(current);
+          if (!stats.isDirectory() || stats.isSymbolicLink()) {
+            throw new Error("A pending image asset directory is not a real directory.");
+          }
+        } catch (error) {
+          if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+          missing.add(path.relative(repoRoot, current).split(path.sep).join("/"));
+        }
+        const parent = path.dirname(current);
+        if (parent === current) throw new Error("A pending image asset path escaped its cleanup boundary.");
+        current = parent;
+      }
+    }
+  }
+  return [...missing].sort((left, right) => right.split("/").length - left.split("/").length || left.localeCompare(right));
+}
+
+async function materializePendingApplyAssets(assets: readonly PendingCourseEditApplyAsset[]) {
+  const published = new Set<string>();
+  for (const asset of assets) {
+    for (const targetPath of asset.targetPaths) {
+      if (published.has(targetPath)) continue;
+      published.add(targetPath);
+      try {
+        const stats = await lstat(targetPath);
+        if (!stats.isFile() || stats.isSymbolicLink() || !(await readFile(targetPath)).equals(asset.bytes)) {
+          throw new Error("A content-addressed Studio asset conflicts with the pending image bytes.");
+        }
+      } catch (error) {
+        if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+        await durableAtomicWrite(targetPath, asset.bytes, 0o644);
+      }
+    }
+  }
+}
+
+function replaceBoundaryFingerprints(
+  current: readonly CourseEditPathFingerprint[],
+  replacements: readonly CourseEditPathFingerprint[]
+) {
+  const byPath = new Map(replacements.map((entry) => [entry.repoRelativePath, entry]));
+  return current.map((entry) => byPath.get(entry.repoRelativePath) ?? entry);
+}
+
 export async function applyCourseEditBatch(
   request: CourseEditApplyRequest,
   repoRoot = defaultRepoRoot,
@@ -1435,7 +1689,17 @@ export async function applyCourseEditBatch(
     for (const [index, draft] of request.drafts.entries()) {
       try {
         const target = await resolveFromIdentity(draft.identity, repoRoot);
-        resolved.push({ draft: sanitizeDraft(draft, target.target), target });
+        const normalizedDraft = sanitizeDraft(draft, target.target);
+        if (!draft.canonicalPatchDigest) {
+          throw new Error("This older draft must be reopened on the learner page before applying it.");
+        }
+        if (draft.canonicalPatchDigest !== courseEditCanonicalPatchDigest(
+          normalizedDraft.patch,
+          normalizedDraft.pendingAssets
+        )) {
+          throw new Error("The saved preview no longer matches the canonical patch. Reopen this draft before applying it.");
+        }
+        resolved.push({ draft: normalizedDraft, target });
       } catch (error) {
         const excerpt = draft.beforeText.replace(/\s+/g, " ").trim().slice(0, 80) || draft.identity.tagName.toUpperCase();
         const reason = error instanceof Error ? error.message : String(error);
@@ -1451,6 +1715,15 @@ export async function applyCourseEditBatch(
       throw new Error("Generated-course edit batches must target their single generated course page.");
     }
     assertNonOverlappingTargets(resolved);
+    const pendingAssets = await resolvePendingApplyAssets({
+      projectSlug: request.projectSlug,
+      adapter,
+      resolved,
+      repoRoot
+    });
+    const pendingAssetFingerprints = await plannedPendingAssetFingerprints(repoRoot, pendingAssets);
+    const cleanupEmptyDirectories = await pendingAssetCleanupDirectories(repoRoot, pendingAssets);
+    const pendingAssetPaths = [...new Set(pendingAssets.flatMap((entry) => entry.targetPaths))];
     const previousStatus = await getCourseEditStatus(request.projectSlug, repoRoot);
     const previousCheckpoint = await loadCheckpoint(request.projectSlug, repoRoot);
     const checkpointId = randomUUID();
@@ -1468,7 +1741,7 @@ export async function applyCourseEditBatch(
           return await Promise.all([...htmlPaths].map((htmlPath) => resolveEditWorkspacePath(request.projectSlug, htmlPath, repoRoot)));
         })()
       : [];
-    const snapshotPaths = adapter === "direct"
+    const adapterSnapshotPaths = adapter === "direct"
       ? [...new Set(resolved.map((entry) => entry.target.sourcePath))]
       : adapter === "legacy-snapshot"
         ? [...new Set([
@@ -1476,6 +1749,7 @@ export async function applyCourseEditBatch(
             courseEditOverridesPath(repoRoot, request.projectSlug)
           ])]
         : [];
+    const snapshotPaths = [...new Set([...adapterSnapshotPaths, ...pendingAssetPaths])];
     const snapshotDirectoryPaths = adapter === "direct"
       ? []
       : generatedWriteSetDirectories(request.projectSlug, adapter, repoRoot);
@@ -1505,6 +1779,7 @@ export async function applyCourseEditBatch(
       createdAt: new Date().toISOString(),
       files: await Promise.all(snapshotPaths.map((filePath) => snapshotFile(repoRoot, filePath))),
       directories,
+      cleanupEmptyDirectories,
       previousStatus,
       previousCheckpointId: previousCheckpoint?.checkpointId ?? null,
       expectedBefore: [],
@@ -1533,6 +1808,9 @@ export async function applyCourseEditBatch(
       }))
     };
     checkpoint.expectedBefore = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+    checkpoint.expectedAfter = pendingAssetFingerprints.length
+      ? replaceBoundaryFingerprints(checkpoint.expectedBefore, pendingAssetFingerprints)
+      : [];
     await writeCheckpoint(checkpoint, repoRoot);
     let journal: CourseEditTransactionJournal = {
       schemaVersion: 1,
@@ -1544,18 +1822,22 @@ export async function applyCourseEditBatch(
       startedAt: new Date().toISOString(),
       updatedAt: new Date().toISOString(),
       expectedBefore: checkpoint.expectedBefore,
-      expectedAfter: []
+      expectedAfter: checkpoint.expectedAfter
     };
     await writeCourseEditJournal(journal, repoRoot);
 
     try {
       journal = { ...journal, phase: "mutating" };
       await writeCourseEditJournal(journal, repoRoot);
+      await materializePendingApplyAssets(pendingAssets);
       if (adapter === "direct") {
         await applyDirectEdits(resolved, hooks, repoRoot, async (expectedAfter) => {
-          checkpoint.expectedAfter = expectedAfter;
+          checkpoint.expectedAfter = replaceBoundaryFingerprints(
+            checkpoint.expectedBefore,
+            [...pendingAssetFingerprints, ...expectedAfter]
+          );
           await writeCheckpoint(checkpoint, repoRoot);
-          journal = { ...journal, expectedAfter };
+          journal = { ...journal, expectedAfter: checkpoint.expectedAfter };
           await writeCourseEditJournal(journal, repoRoot);
         });
       } else {
@@ -1597,7 +1879,7 @@ export async function applyCourseEditBatch(
       await writeCourseEditJournal(journal, repoRoot);
       if (boundaryState === "after" || boundaryState === "known-partial") {
         await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
-        await restoreSnapshotFiles(repoRoot, checkpoint.files);
+        await restoreSnapshotFiles(repoRoot, checkpoint.files, checkpoint.cleanupEmptyDirectories);
       }
       await restorePriorUndoCheckpoint(checkpoint, repoRoot);
       if (boundaryState === "after" || boundaryState === "known-partial") {
@@ -1636,6 +1918,7 @@ export async function applyCourseEditBatch(
         ? [previousCheckpoint.checkpointId]
         : []
     );
+    for (const asset of pendingAssets) consumePendingCourseEditImage(asset.reference);
     return {
       ...status,
       ok: true,
@@ -1688,6 +1971,7 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       createdAt: new Date().toISOString(),
       files: recoveryFiles,
       directories: recoveryDirectories,
+      cleanupEmptyDirectories: [],
       previousStatus: await getCourseEditStatus(projectSlug, repoRoot),
       previousCheckpointId: checkpoint.checkpointId,
       expectedBefore: [],
@@ -1715,7 +1999,7 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       journal = { ...journal, phase: "mutating" };
       await writeCourseEditJournal(journal, repoRoot);
       await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
-      await restoreSnapshotFiles(repoRoot, checkpoint.files);
+      await restoreSnapshotFiles(repoRoot, checkpoint.files, checkpoint.cleanupEmptyDirectories);
       const restored = await fingerprintCheckpointBoundary(recovery, repoRoot);
       if (!courseEditFingerprintsMatch(recovery.expectedAfter, restored)) {
         throw new Error("Undo restored files that do not match the recorded pre-edit boundary.");
@@ -1738,7 +2022,7 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       await writeCourseEditJournal(journal, repoRoot);
       if (boundaryState === "after" || boundaryState === "known-partial") {
         await restoreSnapshotDirectories(repoRoot, recovery.directories);
-        await restoreSnapshotFiles(repoRoot, recovery.files);
+        await restoreSnapshotFiles(repoRoot, recovery.files, recovery.cleanupEmptyDirectories);
       }
       await restorePriorUndoCheckpoint(recovery, repoRoot);
       if (boundaryState === "after" || boundaryState === "known-partial") {
@@ -1926,6 +2210,7 @@ export async function renameCourseForStudio(input: {
       createdAt: new Date().toISOString(),
       files: await Promise.all(snapshotPaths.map((filePath) => snapshotFile(repoRoot, filePath))),
       directories,
+      cleanupEmptyDirectories: [],
       previousStatus,
       previousCheckpointId: previousCheckpoint?.checkpointId ?? null,
       expectedBefore: [],
@@ -1997,7 +2282,7 @@ export async function renameCourseForStudio(input: {
       await writeCourseEditJournal(journal, repoRoot);
       if (boundaryState === "after" || boundaryState === "known-partial") {
         await restoreSnapshotDirectories(repoRoot, checkpoint.directories);
-        await restoreSnapshotFiles(repoRoot, checkpoint.files);
+        await restoreSnapshotFiles(repoRoot, checkpoint.files, checkpoint.cleanupEmptyDirectories);
       }
       await restorePriorUndoCheckpoint(checkpoint, repoRoot);
       if (boundaryState === "after" || boundaryState === "known-partial") {

@@ -98,7 +98,14 @@ Read first:
 - `app/server/lib/course-edit-transaction.ts`
 - `app/server/lib/course-edit-render-validation.ts`
 - `app/server/lib/course-edit-image.ts`
+- `app/server/lib/course-edit-preview.ts`
+- `app/server/lib/course-edit-preview-assets.ts`
 - `app/server/routes/course-edits.ts`
+- `app/shared/course-editability.ts`
+- `scripts/lib/course-editability/inventory.ts`
+- `scripts/lib/course-editability/rendered.ts`
+- `scripts/lib/course-editability/scoring.ts`
+- `scripts/lib/course-editability/report.ts`
 - `scripts/lib/course-editing/html.ts`
 - `scripts/lib/course-editing/overrides.ts`
 - `scripts/lib/course-editing/export-freshness.ts`
@@ -112,6 +119,10 @@ Rules:
 - Enable Edit only for a passing `course:doctor` project with a declared supported adapter and explicit `authoring.studioEditing.enabled`. Previewability and inferred ownership are not editability.
 - Keep the page editability map server-authored, bounded, keyed by opaque inspection node IDs, and informational only. Compare source signatures with the rendered DOM before drawing editable outlines; a visual map must never authorize a write.
 - In Edit mode, keep action labels, visible-area count, outline toggle, runtime-owned dashed state, proximity-limited container targeting, and the direct Annotate fallback consistent in embedded and Full Preview.
+- Keep typing preview server-normalized and presentation-only. The inert overlay must not mutate the learner subtree; Save stores the canonical patch/digest and Apply remains the first repository write.
+- Keep every preview command/ACK bound to one session, monotonic revision, project, page, source digest, node, and canonical patch digest. A closed generation cannot be repainted.
+- Keep pending image bytes fully decoded, bounded, memory-only, and capability scoped. Apply owns transactional materialization; an expired pending asset fails the batch residue-free.
+- Treat element coverage as read-only evidence, never edit authority. Use adapter-owned learner inventories, rendered semantic collection, and actual Resolve parity; incomplete/truncated/state-writing surfaces receive no percentage.
 - The browser sends only an opaque target identity and approved patch. It never supplies, selects, or stores a filesystem path.
 - Preflight every draft before writing. Rebase an unrelated page change only when the selected element digest is unchanged; identify a stale draft by item and fail the whole batch without writes. Direct pages must still be declared canonical editable files.
 - Sanitize rich text and URLs and apply only curated style tokens. Arbitrary HTML/CSS/JavaScript remains a Codex workflow.
@@ -124,14 +135,17 @@ Rules:
 - Reject ambiguous identical repeated content unless the canonical source supplies a durable edit key.
 - Derive freshness from the target-specific manifest/metadata/workspace/exporter graph and artifact fingerprints recorded by exporters. Keep SCORM 1.2 and 2004 independent.
 - Treat the lock as cooperative: do not run non-participating manual, Git, Codex, or builder writes concurrently with Direct Apply.
+- Do not run any repository writer during `report:course-editability`; concurrent changes must fail its residue proof and make the aggregate non-publishable.
 
 Verification floor:
 - `npm run test:course-editing`
+- `npm run test:course-editability`
 - `npm run test:studio-inspection`
 - `npm run verify:course-editing-pilots`
 - `npm run test:exports` when artifact evidence changes
 - `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "direct edits persist"`
 - `npm run build:studio`
+- `npm run report:course-editability -- --all --inventory-only --allow-incomplete`
 
 ## Studio Inspect + Codex Handoff
 

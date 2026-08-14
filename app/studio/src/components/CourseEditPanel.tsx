@@ -9,6 +9,8 @@ import {
   type CourseEditCapabilities,
   type CourseEditDraft,
   type CourseEditDraftBaseline,
+  type CourseEditPendingAssetReference,
+  type CourseEditPendingImage,
   type CourseEditPatch,
   type CourseEditStylePatch,
   type CourseEditTarget
@@ -27,15 +29,20 @@ type CourseEditPanelProps = {
   courseTitle: string;
   exportsOutOfDate: boolean;
   staleExportTargets: string[];
-  onSaveTarget: (patch: CourseEditPatch) => boolean;
+  previewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
+  hasLivePreview: boolean;
+  onPreviewTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
+  onClearLivePreview: () => void;
+  onSaveTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
   onUpdateDraft: (draft: CourseEditDraft) => void;
+  onReopenDraft: (draft: CourseEditDraft) => void;
   onRemoveDraft: (id: string) => void;
   onReorderDraft: (id: string, direction: -1 | 1) => void;
   onApply: () => void;
   onUndo: () => void;
   onExportDrafts: () => string;
   onImportDrafts: (source: string) => boolean;
-  onUploadImage: (file: File, htmlPath: string) => Promise<string | null>;
+  onUploadImage: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
   onRenameCourse: (title: string) => Promise<boolean>;
   onAnnotateTarget: () => void;
 };
@@ -240,14 +247,16 @@ function VisualPreview({ label, tagName, baseline, patch }: {
   );
 }
 
-function EditComposer({ target, baseline, initialPatch = {}, busy, submitLabel, onSave, onUploadImage }: {
+function EditComposer({ target, baseline, initialPatch = {}, initialPendingAsset, busy, submitLabel, onSave, onUploadImage, onPreview }: {
   target: Pick<CourseEditTarget, "identity" | "originalText">;
   baseline: CourseEditDraftBaseline;
   initialPatch?: CourseEditPatch;
+  initialPendingAsset?: CourseEditPendingAssetReference;
   busy: boolean;
   submitLabel: string;
-  onSave: (patch: CourseEditPatch) => void;
-  onUploadImage?: (file: File, htmlPath: string) => Promise<string | null>;
+  onSave: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
+  onUploadImage?: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
+  onPreview?: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
 }) {
   const [html, setHtml] = useState(initialPatch.html ?? baseline.originalHtml);
   const [href, setHref] = useState(initialPatch.href ?? baseline.attributes.href);
@@ -255,9 +264,22 @@ function EditComposer({ target, baseline, initialPatch = {}, busy, submitLabel, 
   const [alt, setAlt] = useState(initialPatch.alt ?? baseline.attributes.alt);
   const [title, setTitle] = useState(initialPatch.title ?? baseline.attributes.title);
   const [style, setStyle] = useState({ ...baseline.currentStyle, ...(initialPatch.style ?? {}) });
+  const [pendingImage, setPendingImage] = useState<CourseEditPendingAssetReference | null>(initialPendingAsset ?? null);
+  const skipInitialPreviewRef = useRef(Object.keys(initialPatch).length > 0);
   const editorId = `course-edit-${target.identity?.targetId ?? "unsupported"}`;
   const patch = changedPatch({ baseline, html, href: href ?? "", src: src ?? "", alt: alt ?? "", title: title ?? "", style });
+  const serializedPatch = JSON.stringify(patch);
   const tagName = target.identity?.tagName ?? "p";
+
+  useEffect(() => {
+    if (!onPreview) return;
+    if (skipInitialPreviewRef.current) {
+      skipInitialPreviewRef.current = false;
+      return;
+    }
+    const timer = window.setTimeout(() => onPreview(patch, pendingImage ?? undefined), 180);
+    return () => window.clearTimeout(timer);
+  }, [onPreview, pendingImage?.id, serializedPatch]);
 
   return (
     <fieldset className="course-edit-composer" data-testid="course-edit-composer" disabled={busy} aria-busy={busy}>
@@ -272,7 +294,7 @@ function EditComposer({ target, baseline, initialPatch = {}, busy, submitLabel, 
       ) : null}
       {baseline.capabilities.image ? (
         <>
-          <label className="course-edit-field"><span>Image path</span><input value={src ?? ""} onChange={(event) => setSrc(event.target.value)} placeholder="Upload an image or use an existing course image" /></label>
+          <label className="course-edit-field"><span>Image path</span><input value={src ?? ""} onChange={(event) => { setPendingImage(null); setSrc(event.target.value); }} placeholder="Upload an image or use an existing course image" /></label>
           {onUploadImage && target.identity ? (
             <label className="course-edit-upload">
               <span>Upload a course image</span>
@@ -281,11 +303,26 @@ function EditComposer({ target, baseline, initialPatch = {}, busy, submitLabel, 
                 accept="image/png,image/jpeg,image/gif"
                 onChange={(event) => {
                   const file = event.target.files?.[0];
-                  if (file) void onUploadImage(file, target.identity!.htmlPath).then((stored) => { if (stored) setSrc(stored); });
+                  if (file) void onUploadImage(file, target.identity!.htmlPath).then((prepared) => {
+                    if (!prepared) return;
+                    const reference: CourseEditPendingAssetReference = {
+                      kind: prepared.kind,
+                      id: prepared.id,
+                      previewSessionId: prepared.previewSessionId,
+                      digest: prepared.digest,
+                      finalSrc: prepared.finalSrc,
+                      mimeType: prepared.mimeType,
+                      width: prepared.width,
+                      height: prepared.height,
+                      byteLength: prepared.byteLength
+                    };
+                    setPendingImage(reference);
+                    setSrc(prepared.finalSrc);
+                  });
                   event.target.value = "";
                 }}
               />
-              <small>PNG, JPEG, or GIF; 10 MB maximum. Studio keeps the original in the course resource library.</small>
+              <small>PNG, JPEG, or GIF; 10 MB maximum. The bytes stay in memory until you Apply the draft.</small>
             </label>
           ) : null}
           <label className="course-edit-field"><span>Alt text</span><textarea rows={3} value={alt ?? ""} onChange={(event) => setAlt(event.target.value)} /></label>
@@ -293,20 +330,26 @@ function EditComposer({ target, baseline, initialPatch = {}, busy, submitLabel, 
       ) : null}
       <label className="course-edit-field"><span>Tooltip or title</span><input value={title ?? ""} onChange={(event) => setTitle(event.target.value)} /></label>
       {baseline.capabilities.styles ? <StyleControls capabilities={baseline.capabilities} value={style} onChange={setStyle} /> : null}
-      <div className="course-edit-before-after" aria-label="Visual before and after preview">
-        <VisualPreview label="Before" tagName={tagName} baseline={baseline} patch={{}} />
-        <VisualPreview label="After" tagName={tagName} baseline={baseline} patch={patch} />
-      </div>
-      <button type="button" className="primary-button" disabled={!Object.keys(patch).length} onClick={() => onSave(patch)}>{submitLabel}</button>
+      {onPreview ? (
+        <p className="course-edit-live-preview-note">Changes appear directly over the selected learner-page element after Studio checks them. Course files remain unchanged.</p>
+      ) : (
+        <div className="course-edit-before-after" aria-label="Visual before and after preview">
+          <VisualPreview label="Before" tagName={tagName} baseline={baseline} patch={{}} />
+          <VisualPreview label="After" tagName={tagName} baseline={baseline} patch={patch} />
+        </div>
+      )}
+      <button type="button" className="primary-button" disabled={!Object.keys(patch).length} onClick={() => onSave(patch, pendingImage ?? undefined)}>{submitLabel}</button>
     </fieldset>
   );
 }
 
-function TargetEditor({ target, busy, onSave, onUploadImage }: {
+function TargetEditor({ target, draft, busy, onSave, onUploadImage, onPreview }: {
   target: CourseEditTarget;
+  draft?: CourseEditDraft;
   busy: boolean;
-  onSave: (patch: CourseEditPatch) => void;
+  onSave: CourseEditPanelProps["onSaveTarget"];
   onUploadImage: CourseEditPanelProps["onUploadImage"];
+  onPreview: CourseEditPanelProps["onPreviewTarget"];
 }) {
   const baseline: CourseEditDraftBaseline = {
     originalHtml: target.originalHtml,
@@ -317,22 +360,30 @@ function TargetEditor({ target, busy, onSave, onUploadImage }: {
   return (
     <div className="course-edit-target-editor">
       <div className="section-header"><div><h3>Edit selection</h3><p>{target.originalText || target.identity?.tagName}</p></div></div>
-      <EditComposer target={target} baseline={baseline} busy={busy} submitLabel="Save draft change" onSave={onSave} onUploadImage={onUploadImage} />
+      <EditComposer
+        target={target}
+        baseline={baseline}
+        initialPatch={draft?.patch}
+        initialPendingAsset={draft?.pendingAssets?.[0]}
+        busy={busy}
+        submitLabel={draft ? "Update draft" : "Save draft change"}
+        onSave={(patch, pendingAsset) => { void onSave(patch, pendingAsset); }}
+        onUploadImage={onUploadImage}
+        onPreview={onPreview}
+      />
     </div>
   );
 }
 
-function DraftCard({ draft, index, count, busy, onChange, onRemove, onReorder, onUploadImage }: {
+function DraftCard({ draft, index, count, busy, onReopen, onRemove, onReorder }: {
   draft: CourseEditDraft;
   index: number;
   count: number;
   busy: boolean;
-  onChange: (draft: CourseEditDraft) => void;
+  onReopen: () => void;
   onRemove: () => void;
   onReorder: (direction: -1 | 1) => void;
-  onUploadImage: CourseEditPanelProps["onUploadImage"];
 }) {
-  const [editing, setEditing] = useState(false);
   return (
     <article className="course-edit-draft" data-testid="course-edit-draft">
       <div className="course-edit-draft-heading">
@@ -340,29 +391,15 @@ function DraftCard({ draft, index, count, busy, onChange, onRemove, onReorder, o
         <div>
           <button type="button" className="ghost-button compact" disabled={busy || index === 0} onClick={() => onReorder(-1)} aria-label="Move draft up">↑</button>
           <button type="button" className="ghost-button compact" disabled={busy || index === count - 1} onClick={() => onReorder(1)} aria-label="Move draft down">↓</button>
-          <button type="button" className="ghost-button compact" disabled={busy} onClick={() => setEditing((value) => !value)}>{editing ? "Close" : "Edit"}</button>
+          <button type="button" className="ghost-button compact" disabled={busy} onClick={onReopen}>Reopen on page</button>
           <button type="button" className="ghost-button compact danger" disabled={busy} onClick={onRemove}>Remove</button>
         </div>
       </div>
-      {!editing ? (
-        <div className="course-edit-before-after compact">
-          <VisualPreview label="Before" tagName={draft.identity.tagName} baseline={draft.baseline} patch={{}} />
-          <VisualPreview label="After" tagName={draft.identity.tagName} baseline={draft.baseline} patch={draft.patch} />
-        </div>
-      ) : (
-        <EditComposer
-          target={{ identity: draft.identity, originalText: draft.beforeText }}
-          baseline={draft.baseline}
-          initialPatch={draft.patch}
-          busy={busy}
-          submitLabel="Update draft"
-          onUploadImage={onUploadImage}
-          onSave={(patch) => {
-            onChange({ ...draft, patch, afterText: patch.html !== undefined ? plainText(patch.html) : patch.alt ?? patch.href ?? draft.afterText });
-            setEditing(false);
-          }}
-        />
-      )}
+      <div className="course-edit-before-after compact">
+        <VisualPreview label="Before" tagName={draft.identity.tagName} baseline={draft.baseline} patch={{}} />
+        <VisualPreview label="After" tagName={draft.identity.tagName} baseline={draft.baseline} patch={draft.patch} />
+      </div>
+      {draft.pendingAssets?.length ? <small>This draft's image remains temporary until Apply. Re-upload is required if the Studio server restarts or the preview expires.</small> : null}
     </article>
   );
 }
@@ -437,7 +474,26 @@ export function CourseEditPanel(props: CourseEditPanelProps) {
           </button>
         </div>
       ) : null}
-      {props.target?.eligibility === "editable" ? <TargetEditor key={props.target.identity?.targetId} target={props.target} busy={props.busy} onSave={props.onSaveTarget} onUploadImage={props.onUploadImage} /> : null}
+      {props.target?.eligibility === "editable" ? (
+        <TargetEditor
+          key={props.target.identity?.targetId}
+          target={props.target}
+          draft={selectedDraft}
+          busy={props.busy}
+          onSave={props.onSaveTarget}
+          onUploadImage={props.onUploadImage}
+          onPreview={props.onPreviewTarget}
+        />
+      ) : null}
+      {props.previewFeedback.message ? (
+        <div className="course-edit-live-preview-status">
+          <p className={`course-edit-status ${props.previewFeedback.tone}`} role="status">
+            {props.previewFeedback.message}
+            {props.previewFeedback.latencyMs !== null ? ` (${props.previewFeedback.latencyMs} ms)` : ""}
+          </p>
+          {props.hasLivePreview ? <button type="button" className="ghost-button compact" onClick={() => props.onClearLivePreview()}>Reset live preview</button> : null}
+        </div>
+      ) : null}
       {selectedDraft && props.target?.eligibility === "editable" ? <p className="course-edit-status neutral">Saving again will update the existing draft for this element.</p> : null}
       {props.drafts.length ? (
         <div className="course-edit-drafts">
@@ -448,10 +504,9 @@ export function CourseEditPanel(props: CourseEditPanelProps) {
               index={index}
               count={props.drafts.length}
               busy={props.busy}
-              onChange={props.onUpdateDraft}
+              onReopen={() => props.onReopenDraft(draft)}
               onRemove={() => props.onRemoveDraft(draft.id)}
               onReorder={(direction) => props.onReorderDraft(draft.id, direction)}
-              onUploadImage={props.onUploadImage}
             />
           ))}
           <button type="button" className="primary-button course-edit-apply" disabled={props.busy} onClick={props.onApply} data-testid="course-edit-apply">

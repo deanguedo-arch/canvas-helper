@@ -13,10 +13,14 @@ export type StudioRelease = {
 
 export const CURRENT_STUDIO_RELEASE: StudioRelease = {
   version: "2026.08",
-  date: "August 13, 2026",
-  title: "Safe course editing",
-  summary: "Eligible courses can now collect, review, apply, and undo routine teacher changes directly in Studio or Full Preview.",
+  date: "August 14, 2026",
+  title: "Live, safe course editing",
+  summary: "Eligible courses now preview routine changes immediately, save canonical drafts, and apply or undo them through the protected Studio workflow.",
   notes: [
+    {
+      title: "Preview before you write",
+      summary: "Supported changes appear in a non-mutating overlay while you type; Save stores a canonical draft and Apply remains the first course-file write."
+    },
     {
       title: "See and edit in place",
       summary: "Mapped areas show the available action; use text, links, safe images, curated styles, or course rename, while unsupported content routes to Annotate."

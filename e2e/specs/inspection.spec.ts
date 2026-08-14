@@ -3,6 +3,7 @@ import path from "node:path";
 
 import { expect, test } from "@playwright/test";
 
+import { CURRENT_STUDIO_RELEASE } from "../../app/studio/src/lib/studio-release-notes";
 import { createCodexStudioCourse } from "../../scripts/lib/codex-course";
 import { openProjectInStudio, waitForWorkspacePreviewReady } from "../lib/project-open";
 import {
@@ -386,8 +387,28 @@ test("@inspection direct edits persist into Full Preview, apply once, and undo s
 
     await expect(page.getByTestId("course-edit-composer")).toBeVisible();
     await page.getByTestId("course-edit-html").fill("E2E Fixture Workspace — draft");
+    const liveOverlay = workspaceFrame.locator('[data-canvas-helper-edit-preview-overlay="true"]');
+    await expect(liveOverlay).toContainText("E2E Fixture Workspace — draft");
+    await expect(liveOverlay).toHaveAttribute("aria-hidden", "true");
+    await expect(liveOverlay).toHaveAttribute("inert", "");
+    await expect(heading).toHaveText("E2E Fixture Workspace");
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+    await expect(page.getByTestId("course-edit-panel")).toContainText(/Live preview updated.*\d+ ms/);
     await page.getByTestId("course-edit-composer").getByRole("button", { name: "Save draft change" }).click();
     await expect(page.getByTestId("course-edit-draft")).toHaveCount(1);
+    await expect(liveOverlay).toHaveCount(0);
+
+    await page.getByTestId("course-edit-draft").getByRole("button", { name: "Reopen on page" }).click();
+    await expect(page.getByTestId("course-edit-composer")).toBeVisible();
+    await expect(page.getByTestId("course-edit-html")).toContainText("E2E Fixture Workspace — draft");
+    await expect(liveOverlay).toContainText("E2E Fixture Workspace — draft");
+    await page.getByTestId("course-edit-html").fill("E2E Fixture Workspace — reopened");
+    await expect(liveOverlay).toContainText("E2E Fixture Workspace — reopened");
+    await expect(heading).toHaveText("E2E Fixture Workspace");
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+    await page.getByTestId("course-edit-composer").getByRole("button", { name: "Update draft" }).click();
+    await expect(page.getByTestId("course-edit-draft")).toContainText("E2E Fixture Workspace — reopened");
+    await expect(liveOverlay).toHaveCount(0);
 
     const previewPagePromise = page.waitForEvent("popup");
     await page.getByTestId("open-workspace-preview-toggle").click();
@@ -400,10 +421,16 @@ test("@inspection direct edits persist into Full Preview, apply once, and undo s
     await previewPage.locator('[data-canvas-helper-preview-edit-toggle="true"]').click();
     await expect(previewPage.locator('[data-canvas-helper-preview-edit-draft="true"]')).toHaveCount(1);
     await previewPage.locator('[data-canvas-helper-preview-edit-draft="true"] > button').first().click();
+    await expect(previewPage.locator('[data-canvas-helper-preview-edit-html="true"]')).toContainText("E2E Fixture Workspace — reopened");
     await previewPage.locator('[data-canvas-helper-preview-edit-html="true"]').fill("E2E Fixture Workspace — applied");
+    const fullLiveOverlay = fullCourseFrame.locator('[data-canvas-helper-edit-preview-overlay="true"]');
+    await expect(fullLiveOverlay).toContainText("E2E Fixture Workspace — applied");
+    await expect(fullCourseFrame.getByRole("heading", { name: "E2E Fixture Workspace" })).toBeVisible();
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
     await previewPage.locator('[data-canvas-helper-preview-edit-save="true"]').click();
 
     await expect(page.getByTestId("course-edit-draft")).toContainText("E2E Fixture Workspace — applied");
+    await expect(fullLiveOverlay).toHaveCount(0);
     await previewPage.locator('[data-canvas-helper-preview-edit-apply="true"]').click();
     applied = true;
     await expect(previewPage.frameLocator('[data-canvas-helper-standalone-course="true"]').getByRole("heading", { name: "E2E Fixture Workspace — applied" })).toBeVisible({ timeout: 30_000 });
@@ -428,11 +455,12 @@ test("@inspection direct edits persist into Full Preview, apply once, and undo s
     await previewPage?.close().catch(() => undefined);
     expect(await readFile(fixtureSource, "utf8")).toBe(original);
     await page.evaluate(() => {
-      const key = "canvas-helper/course-edit-drafts-v1";
-      const stored = JSON.parse(localStorage.getItem(key) || "null");
-      if (!stored?.projects) return;
-      stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
-      localStorage.setItem(key, JSON.stringify(stored));
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1"]) {
+        const stored = JSON.parse(localStorage.getItem(key) || "null");
+        if (!stored?.projects) continue;
+        stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
+        localStorage.setItem(key, JSON.stringify(stored));
+      }
     }).catch(() => undefined);
   }
 });
@@ -1310,8 +1338,8 @@ test("@inspection What’s New is concise, keyboard-contained, and restores focu
 
   const panel = page.getByTestId("whats-new-panel");
   await expect(panel).toBeVisible();
-  await expect(panel.getByRole("heading", { name: "Safe course editing" })).toBeVisible();
-  await expect(panel.getByRole("heading", { level: 3 })).toHaveCount(4);
+  await expect(panel.getByRole("heading", { name: CURRENT_STUDIO_RELEASE.title })).toBeVisible();
+  await expect(panel.getByRole("heading", { level: 3 })).toHaveCount(CURRENT_STUDIO_RELEASE.notes.length);
   await expect(page.getByTestId("close-whats-new")).toBeFocused();
 
   await page.keyboard.press("Shift+Tab");

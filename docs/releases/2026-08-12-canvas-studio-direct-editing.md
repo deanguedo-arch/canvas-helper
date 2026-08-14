@@ -1,8 +1,10 @@
-# Canvas Studio 2026.08 — Safe course editing
+# Canvas Studio 2026.08 — Live, safe course editing
 
 Released August 12, 2026.
 
 Catalog rollout updated August 13, 2026.
+
+Live preview and measured editability updated August 14, 2026.
 
 Eligible courses can now collect, review, apply, and undo routine teacher changes directly in Studio or Full Preview.
 
@@ -16,6 +18,10 @@ See [the recorded verdict](../audits/2026-08-13-studio-direct-editing-green-go-v
 
 ## What’s new
 
+- **Preview before you write:** Supported text, link, image, accessibility, and curated-style changes appear in a server-normalized inert overlay while the teacher types. The learner subtree and course files remain unchanged until Apply.
+- **Keep preview and Apply identical:** Every preview carries source, target, session, revision, and canonical patch-digest authority. Save keeps that canonical draft; Apply re-resolves and re-normalizes it against current source before entering the transaction.
+- **Preview images without publishing them:** Fully decoded temporary image bytes stay in bounded server memory and use a capability-scoped preview URL. Apply is the first operation that materializes the asset; expiration asks for re-upload.
+- **Measure rather than guess:** `npm run report:course-editability -- --all` combines adapter-owned learner surfaces, rendered semantic collection, and actual Resolve parity. Runtime-only content stays in the denominator, and incomplete or residue-producing runs publish no flattering percentage.
 - **See and edit in place:** Edit mode outlines visible supported regions, labels the available action on hover, counts mapped areas, and lets teachers change supported text, links, images, alt text, captions, curated visual styles, or the synchronized course name without leaving Studio. Runtime-owned or unsupported selections use a dashed Annotation-only state with the exact reason.
 - **Move blocked work directly to Codex:** A rejected selection can switch into Annotate without making the teacher find and select it again.
 - **Review before applying:** Draft Changes persist per course across Studio and Full Preview and can be edited, removed, reordered, and compared before one batch is applied.

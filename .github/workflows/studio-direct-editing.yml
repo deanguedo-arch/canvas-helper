@@ -40,11 +40,17 @@ jobs:
       - name: Run focused Direct Editing tests
         run: npm run test:course-editing
 
+      - name: Run editability census contracts
+        run: npm run test:course-editability
+
       - name: Verify export evidence contracts
         run: npm run test:exports
 
       - name: Run Studio release gate
         run: npm run test:studio-release
+
+      - name: Build exact-head all-catalog editability evidence
+        run: npm run report:course-editability -- --all --allow-incomplete --report .runtime/course-editability-report.json
 
       - name: Run real Direct, English, Social, and snapshot HTTP-route pilots
         run: npm run verify:course-editing-pilots
@@ -61,4 +67,5 @@ jobs:
           path: |
             .runtime/studio-release-report.json
             .runtime/course-editing-pilots.json
+            .runtime/course-editability-report.json
             .runtime/course-onboarding-verification.json

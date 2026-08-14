@@ -1,13 +1,18 @@
+import { randomUUID } from "node:crypto";
 import { createServer } from "node:http";
 import { once } from "node:events";
 
 import type {
   CourseEditApplyRequest,
   CourseEditBatchResult,
+  CourseEditPatch,
+  CourseEditPreviewNormalizeResult,
   CourseEditResolveRequest,
   CourseEditStatus,
-  CourseEditTarget
+  CourseEditTarget,
+  CourseEditTargetIdentity
 } from "../../../app/shared/course-editing.js";
+import { COURSE_EDIT_PREVIEW_SCHEMA_VERSION } from "../../../app/shared/course-editing.js";
 import { handleCourseEditsRoute } from "../../../app/server/routes/course-edits.js";
 
 async function responseJson<T>(response: Response): Promise<T> {
@@ -57,6 +62,21 @@ export async function startCourseEditHttpRouteHarness(repoRoot: string) {
     origin,
     resolve(request: CourseEditResolveRequest) {
       return post<CourseEditTarget>("/api/course-edits/resolve", request);
+    },
+    normalize(identity: CourseEditTargetIdentity, patch: CourseEditPatch) {
+      const previewSessionId = randomUUID();
+      const encodedPath = identity.htmlPath.split("/").map(encodeURIComponent).join("/");
+      return post<CourseEditPreviewNormalizeResult>("/api/course-edits/preview/normalize", {
+        schemaVersion: COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
+        previewSessionId,
+        revision: 1,
+        projectSlug: identity.projectSlug,
+        pageIdentity: `http://127.0.0.1:5173/_canvas-helper/p/${previewSessionId}/preview/workspace/${encodeURIComponent(identity.projectSlug)}/${encodedPath}`,
+        mapSourceDigest: identity.sourceDigest,
+        targetNodeId: identity.nodeId,
+        identity,
+        patch
+      });
     },
     status(projectSlug: string) {
       return get<CourseEditStatus>(`/api/projects/${encodeURIComponent(projectSlug)}/course-edits/status`);

@@ -8,7 +8,7 @@
   ],
   "workspaceEntrypoint": "workspace/index.html",
   "createdAt": "2026-07-22T16:31:29.116Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T17:52:27.429Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -33,6 +33,87 @@
     "driverId": "legacy-snapshot-v1",
     "familyId": "english-unit-v3",
     "qualityProfile": "english-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-writing-foundations",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-complete-sentences",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-3-topic-sentences-paragraph-structure",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-4-supporting-details-development",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-paragraph-planning-models",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-unity-coherence-transitions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-revise-edit-polish",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#sentence-lab",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#paragraph-builder",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#organization-lab",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#final-paragraph",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

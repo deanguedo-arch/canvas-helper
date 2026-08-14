@@ -1,7 +1,7 @@
 # Canvas Studio real-time editability and controlled rollout plan
 
 - Date: 2026-08-13
-- Status: plan audit **REQUEST CHANGES** accepted; Phase 0.5 contract amendment is ready for independent audit; implementation not started
+- Status: Phases 1–3 implemented locally; catalog state inventory is partial by design; independent implementation audit, exact-head CI, targeted legacy migrations, and teacher rollout remain
 - Safety baseline: e71241433e173c7617dbf5ea5e5ddcc5bf712c11
 - Independent Direct Editing decision: **GREEN / GO**
 - Independent plan-audit decision: **REQUEST CHANGES** at a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a
@@ -36,7 +36,19 @@ The next unknown is product coverage, not transaction safety:
 - Aboriginal Studies 30 exposed mapped targets but no learner-stable sampled text edit;
 - those course-level outcomes do not reveal what percentage of ordinary headings, paragraphs, links, images, captions, table cells, and card content is editable on each page.
 
-The first independent review of this plan agreed with that direction but returned **REQUEST CHANGES** because “learner page,” “candidate,” “editable,” preview normalization, DOM safety, message ordering, and zero-write image preview were not defined precisely enough. The Phase 0.5 contract amendment now defines those abstractions and must be independently approved before census code begins.
+The first independent review of this plan agreed with that direction but returned **REQUEST CHANGES** because “learner page,” “candidate,” “editable,” preview normalization, DOM safety, message ordering, and zero-write image preview were not defined precisely enough. The Phase 0.5 contract amendment defined those abstractions, and the current implementation now follows them. Independent review must audit the implementation rather than assuming that implementing the plan proves the result.
+
+## Current checkpoint status
+
+| Checkpoint | Current evidence | Status |
+| --- | --- | --- |
+| Accepted Direct Editing baseline | Real Direct, English, Social, and snapshot HTTP pilots; crash/lock/Undo/render gates | Implemented and locally green |
+| Phase 0.5 contracts | Versioned schemas and normative safety/measurement rules | Implemented; independent implementation audit pending |
+| Phase 1 census | Adapter inventory, rendered semantic collector, Resolve parity, deterministic report, residue proof | Implemented; exact-head all-catalog CI artifact pending |
+| Phase 2 live preview | Server canonicalization, inert overlay, ordered bridge, saved-draft reopen, memory-only images | Implemented; local focused E2E green |
+| Phase 3 new-course contract | Fresh generated course includes standard editable blocks and intentional runtime-only boundary | Implemented; threshold contract green |
+| Phase 4 legacy migration | All 63 authorable courses explicitly onboarded; incomplete state inventories remain a ranked queue | Partial |
+| Phase 5 teacher rollout | Quantitative protocol defined | Not started; requires real teachers |
 
 ## Non-negotiable contracts
 
@@ -64,11 +76,11 @@ The normative definitions are in the [Phase 0.5 contract amendment](2026-08-14-s
 - incomplete inventory, truncation, unresolved occurrences, attempted project repair, browser storage writes, or repository residue makes the percentage null;
 - project and catalog coverage use summed raw numerators and denominators, never an average of page percentages.
 
-The planned command remains:
+The implemented command is:
 
     npm run report:course-editability -- --all
 
-It does not exist yet. When Phase 1 lands, it must write deterministic, content-free, exact-commit evidence to `.runtime/course-editability-coverage.json`, with a canonical SHA-256 report digest.
+It writes deterministic, content-free, exact-commit evidence to an ignored `.runtime/` JSON report with a canonical SHA-256 digest. `--inventory-only` audits adapter coverage without launching Chromium, while `--allow-incomplete` preserves honest incomplete results for CI artifacts. Concurrent builders or other repository writers invalidate the before/after residue proof and make the aggregate non-publishable.
 
 Fresh-course acceptance requires all of the following, not one gameable ratio:
 
@@ -154,7 +166,7 @@ Exit gate:
 - independent verdict is linked from the audit packet, release note, active handoff, and PR;
 - current PR head is clean and both exact-head and PR-merge workflows pass.
 
-### Phase 0.5 — lock measurement and preview-authority contracts
+### Phase 0.5 — lock measurement and preview-authority contracts — implemented
 
 Deliverable:
 
@@ -176,7 +188,7 @@ Exit gate:
 - an independent specification audit returns GREEN / GO or GO WITH CONDITIONS with no unresolved P1 measurement or preview-authority ambiguity;
 - the reviewer explicitly confirms that approval is for the implementation contract, not proof that the census or preview exists.
 
-### Phase 1 — element-level editability census
+### Phase 1 — element-level editability census — implemented
 
 Primary files:
 
@@ -198,7 +210,7 @@ Exit gate:
 - results distinguish course-level pilot success from element-level coverage;
 - Studio can display page-level editable and Annotation-only counts without using them as authorization.
 
-### Phase 2 — ephemeral live preview for existing safe patches
+### Phase 2 — ephemeral live preview for existing safe patches — implemented
 
 Primary files:
 
@@ -222,7 +234,7 @@ Exit gate:
 - unsupported targets cannot receive a preview patch;
 - keyboard, focus, reduced-motion, and narrow-screen behavior pass E2E.
 
-### Phase 3 — new-course Studio-ready block contract
+### Phase 3 — new-course Studio-ready block contract — implemented
 
 Primary files:
 
@@ -239,7 +251,7 @@ Exit gate:
 - custom runtime regions are explicitly Annotation only;
 - a running Studio discovers the course and completes preview, Apply, reload, and Undo.
 
-### Phase 4 — targeted legacy ownership migrations
+### Phase 4 — targeted legacy ownership migrations — partial
 
 Deliverables:
 
@@ -254,7 +266,7 @@ Exit gate:
 - no legacy builder is unquarantined merely to improve coverage;
 - remaining Annotation-only reasons are intentional and documented.
 
-### Phase 5 — controlled teacher rollout
+### Phase 5 — controlled teacher rollout — external acceptance pending
 
 Pilot cohort:
 
@@ -310,10 +322,10 @@ These remain honest operating boundaries, not blockers to the controlled rollout
 - Brightspace, deployed-host, and cross-browser SCORM behavior remain export-stage acceptance;
 - an ancient pre-fix directory-format lock may require manual cleanup after an old crash.
 
-## First implementation slice
+## Next delivery slice
 
-Do not start Phase 1 code until the Phase 0.5 contract amendment receives an independent specification verdict with no unresolved P1.
-
-After that approval, start with Phase 1A only: shared schemas, the mutation-prohibited project reader, and exhaustive adapter learner-surface inventory providers. Do not add the rendered collector, coverage percentage, preview bridge messages, or teacher UI in that first change.
-
-Phase 1B then adds the source/rendered dual collector, actual Resolve parity, deterministic report, and read-only residue proof. Preview authority and UI remain a separate Phase 2 change.
+1. Publish the implementation commit and obtain exact-head workflow evidence, including the all-catalog report artifact.
+2. Submit the implementation audit packet for an independent verdict against every Phase 0.5 P1/P2 requirement.
+3. Use the report's stable incomplete/reason histogram to migrate only the highest-value undeclared route/state and durable-identity gaps.
+4. Run the predetermined teacher pilot. Do not substitute maintainer demos or synthetic E2E sessions for its five-teacher/twenty-session evidence.
+5. Keep Brightspace, deployed-host, cross-browser SCORM, and full-WCAG acceptance as separate release gates.

@@ -8,7 +8,13 @@ import type {
 } from "../lib/review-workbench";
 import { InspectionPanel } from "./InspectionPanel";
 import { CourseEditPanel } from "./CourseEditPanel";
-import type { CourseEditDraft, CourseEditPatch, CourseEditTarget } from "../../../shared/course-editing.js";
+import type {
+  CourseEditDraft,
+  CourseEditPatch,
+  CourseEditPendingAssetReference,
+  CourseEditPendingImage,
+  CourseEditTarget
+} from "../../../shared/course-editing.js";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
@@ -24,15 +30,20 @@ type InspectorPanelProps = {
   editCourseTitle: string;
   editExportsOutOfDate: boolean;
   editStaleExportTargets: string[];
-  onSaveEditTarget: (patch: CourseEditPatch) => boolean;
+  editPreviewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
+  editHasLivePreview: boolean;
+  onPreviewEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
+  onClearEditPreview: () => void;
+  onSaveEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
   onUpdateEditDraft: (draft: CourseEditDraft) => void;
+  onReopenEditDraft: (draft: CourseEditDraft) => void;
   onRemoveEditDraft: (id: string) => void;
   onReorderEditDraft: (id: string, direction: -1 | 1) => void;
   onApplyEditDrafts: () => void;
   onUndoEditBatch: () => void;
   onExportEditDrafts: () => string;
   onImportEditDrafts: (source: string) => boolean;
-  onUploadEditImage: (file: File, htmlPath: string) => Promise<string | null>;
+  onUploadEditImage: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
   onRenameCourse: (title: string) => Promise<boolean>;
   onAnnotateEditTarget: () => void;
   inspectEnabled: boolean;
@@ -120,8 +131,13 @@ export function InspectorPanel({
   editCourseTitle,
   editExportsOutOfDate,
   editStaleExportTargets,
+  editPreviewFeedback,
+  editHasLivePreview,
+  onPreviewEditTarget,
+  onClearEditPreview,
   onSaveEditTarget,
   onUpdateEditDraft,
+  onReopenEditDraft,
   onRemoveEditDraft,
   onReorderEditDraft,
   onApplyEditDrafts,
@@ -220,8 +236,13 @@ export function InspectorPanel({
           courseTitle={editCourseTitle}
           exportsOutOfDate={editExportsOutOfDate}
           staleExportTargets={editStaleExportTargets}
+          previewFeedback={editPreviewFeedback}
+          hasLivePreview={editHasLivePreview}
+          onPreviewTarget={onPreviewEditTarget}
+          onClearLivePreview={onClearEditPreview}
           onSaveTarget={onSaveEditTarget}
           onUpdateDraft={onUpdateEditDraft}
+          onReopenDraft={onReopenEditDraft}
           onRemoveDraft={onRemoveEditDraft}
           onReorderDraft={onReorderEditDraft}
           onApply={onApplyEditDrafts}

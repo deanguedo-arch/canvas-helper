@@ -1,3 +1,5 @@
+import type { ProjectLearnerSurfacesV1 } from "../../app/shared/course-editability.js";
+
 export type InputKind = "html" | "text-html" | "brightspace-zip" | "resource-pack";
 export type PreviewMode = "raw" | "workspace";
 export type BrightspaceTarget = "course-page" | "scorm";
@@ -109,6 +111,8 @@ export type ProjectManifest = {
       renameCourse?: boolean;
       imageAssets?: boolean;
     };
+    /** Exhaustive learner page/route/state declaration for census-capable direct and snapshot projects. */
+    learnerSurfaces?: ProjectLearnerSurfacesV1;
   };
   injectedComponents?: {
     id: string;

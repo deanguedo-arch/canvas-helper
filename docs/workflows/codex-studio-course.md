@@ -18,6 +18,7 @@ The command refuses unsafe slugs and existing projects. It stages the complete p
 
 - `projects/<slug>/workspace/index.html` — canonical learner page
 - `projects/<slug>/workspace/styles.css` — canonical presentation source
+- `projects/<slug>/workspace/course.js` — canonical progressive-enhancement runtime with its generated practice control explicitly marked Annotation only
 - `projects/<slug>/raw/**` — immutable starting baseline/reference
 - `projects/<slug>/meta/project.json` — `codex-studio-direct-v1` ownership contract
 - `projects/<slug>/meta/prompt-pack.md` — course-specific continuation rules
@@ -34,6 +35,7 @@ Develop the actual course only in its canonical workspace and declared assets. P
 - Repeated or reorderable content has semantic, durable `data-canvas-helper-edit-key` values.
 - New assets live under `workspace/assets/**` or enter through Studio's validated image workflow.
 - Raw baselines, runtime bundles, and exports never become editable source.
+- Standard headings, prose, lists, links, images, captions, and synchronized course-name surfaces must satisfy the fresh-course coverage contract; intentionally runtime-owned controls are marked `data-canvas-helper-studio-edit="annotation-only"` rather than hidden from measurement.
 
 Interactive course code is allowed. The boundary is visible: source-owned supported elements show an Edit action, while runtime-created or replaced elements show **Annotation only** and can move directly into a Codex Review Set.
 
@@ -42,18 +44,20 @@ Interactive course code is allowed. The boundary is visible: source-owned suppor
 ```bash
 npm run course:doctor -- --project <slug>
 npm run verify -- --project <slug> --mode workspace
+npm run report:course-editability -- --project <slug>
 ```
 
-The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. Fix the canonical contract rather than forcing eligibility.
+The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. The coverage report must have a complete learner inventory and retain the new-course block/text/category/capability floors exercised by `npm run test:codex-course`. Fix the canonical contract rather than forcing eligibility.
 
 ## 4. Prove the real Studio lifecycle
 
 1. Open the course in Studio.
 2. Select **Edit** and inspect the visual map for the actual current page.
 3. Confirm course-name surfaces show **Rename course** and routine content shows its supported action.
-4. Save and apply one harmless draft.
-5. Reload the course and confirm the rendered learner result survived.
-6. Use **Undo last batch** and confirm the exact original result returns.
+4. Change one supported value and confirm the inert preview overlay updates before Save while the learner element and course files remain unchanged.
+5. Save the canonical draft, reopen it on its real page, and apply it.
+6. Reload the course and confirm the rendered learner result survived.
+7. Use **Undo last batch** and confirm the exact original result returns.
 
 Do not use Undo after Codex, a builder, or another tool changes the course; Studio will disable it when the boundary drifts.
 

@@ -80,12 +80,26 @@
   ],
   "sourceOfTruthNotes": "Module 8 split files stay reference-only unless explicitly activated in the assignment flow. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "createdAt": "2026-03-14T13:26:57.855Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-04-21T17:03:33.922Z",
   "authoring": {
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "assets/module8assignment.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

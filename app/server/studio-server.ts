@@ -286,7 +286,11 @@ async function handleRequest(
     }
   }
 
-  if (url === "/api/course-edits/resolve") {
+  if (
+    url === "/api/course-edits/resolve" ||
+    url === "/api/course-edits/preview/normalize" ||
+    url === "/api/course-edits/preview/clear"
+  ) {
     const handler = await getCourseEditsRouteHandler(server);
     if (await handler(url, request, response)) {
       return;

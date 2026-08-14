@@ -6,6 +6,7 @@ import type {
   ProjectType,
   WorkflowType
 } from "./types.js";
+import { isProjectLearnerSurfacesV1 } from "../../app/shared/course-editability.js";
 
 const PROJECT_TYPES = new Set<ProjectType>(["conversion", "generated-course", "hybrid"]);
 const WORKFLOW_TYPES = new Set<WorkflowType>(["conversion", "generated-course", "injection/integration"]);
@@ -192,12 +193,16 @@ function normalizeAuthoringContract(value: unknown): ProjectManifest["authoring"
         ...(typeof studioEditingRecord.imageAssets === "boolean" ? { imageAssets: studioEditingRecord.imageAssets } : {})
       }
     : undefined;
+  const learnerSurfaces = isProjectLearnerSurfacesV1(record.learnerSurfaces)
+    ? record.learnerSurfaces
+    : undefined;
   return {
     driverId: driverId as NonNullable<ProjectManifest["authoring"]>["driverId"],
     ...(familyId ? { familyId } : {}),
     ...(sourceResourceIds.length > 0 ? { sourceResourceIds } : {}),
     ...(qualityProfile ? { qualityProfile } : {}),
-    ...(studioEditing ? { studioEditing } : {})
+    ...(studioEditing ? { studioEditing } : {}),
+    ...(learnerSurfaces ? { learnerSurfaces } : {})
   };
 }
 
@@ -260,6 +265,14 @@ export function validateProjectManifestPolicy(manifest: ProjectManifest): Projec
 
   if (manifest.authoring !== undefined && !normalized.authoring) {
     errors.push("`authoring` is present but does not declare a supported `driverId`.");
+  }
+
+  if (
+    manifest.authoring &&
+    Object.hasOwn(manifest.authoring, "learnerSurfaces") &&
+    !normalized.authoring?.learnerSurfaces
+  ) {
+    errors.push("`authoring.learnerSurfaces` is present but does not match the versioned learner-surface contract.");
   }
 
   if (requiresSourceOfTruth(normalized.authoringStatus)) {

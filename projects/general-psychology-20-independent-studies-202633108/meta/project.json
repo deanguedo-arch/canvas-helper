@@ -68,12 +68,42 @@
   "referenceOnly": [],
   "sourceOfTruthNotes": "Use workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and workspace/assets/*.html as editable canonical sources. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding course structure. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: powershell -ExecutionPolicy Bypass -File projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "createdAt": "2026-04-09T19:29:15.518Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-06-15T15:31:59.487Z",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
     "familyId": "builder-legacy-snapshot",
     "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "assets/gp20-behaviourism-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-defense-mechanisms-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-humanism-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-identifying-behaviour-disorders-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-learning-techniques-matching.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

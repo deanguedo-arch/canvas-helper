@@ -83,6 +83,7 @@ test("bridge aliases and injected runtime use the canonical shared limits", () =
   assert.equal(PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH, STUDIO_BRIDGE_LIMITS.inspectRequestIdCodeUnits);
 
   const runtime = buildPreviewBridgeRuntime("http://127.0.0.1:4173", { hostPreviewOrigin: "http://127.0.0.1:4174" });
+  assert.doesNotThrow(() => new Function(runtime));
   assert.match(runtime, new RegExp(`var MAX_REVIEW_NOTE = ${STUDIO_BRIDGE_LIMITS.reviewNoteCodeUnits};`));
   assert.match(runtime, new RegExp(`var MAX_REVIEW_PACKET = ${STUDIO_BRIDGE_LIMITS.reviewPacketCodeUnits};`));
   assert.match(runtime, new RegExp(`var MAX_REVIEW_SESSION_ID = ${STUDIO_REVIEW_LIMITS.sessionIdMaxCodeUnits};`));

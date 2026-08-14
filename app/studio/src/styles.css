@@ -1321,6 +1321,28 @@ pre {
   color: var(--ink);
 }
 
+.course-edit-live-preview-note {
+  margin: 0;
+  padding: 0.65rem 0;
+  border-top: 1px solid rgba(85, 108, 145, 0.16);
+  border-bottom: 1px solid rgba(85, 108, 145, 0.16);
+  color: var(--ink-soft);
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.course-edit-live-preview-status {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.course-edit-live-preview-status .course-edit-status {
+  min-width: 0;
+  flex: 1;
+}
+
 .course-edit-draft {
   padding: 0.75rem 0;
   border-top: 1px solid rgba(85, 108, 145, 0.16);

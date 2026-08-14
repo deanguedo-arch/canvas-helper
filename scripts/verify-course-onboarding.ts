@@ -243,10 +243,14 @@ async function verifyProject(projectSlug: string, mapOnly: boolean, http: Course
     let applied = false;
     let undone = false;
     try {
+      const draft = pilotDraft(activeResolution.target);
+      const normalized = await http.normalize(draft.identity, draft.patch);
+      draft.patch = normalized.canonicalPatch;
+      draft.canonicalPatchDigest = normalized.canonicalPatchDigest;
       await http.apply({
         schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
         projectSlug,
-        drafts: [pilotDraft(activeResolution.target)]
+        drafts: [draft]
       });
       applied = true;
       const reloadedSource: string = await readFile(activeResolution.sourcePath, "utf8");

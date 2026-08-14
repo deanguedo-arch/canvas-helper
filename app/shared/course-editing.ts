@@ -1,6 +1,8 @@
 import type { InspectionResolveRequest } from "./inspection.js";
+import { normalizePreviewPageIdentity, parsePreviewCapabilityPath } from "./preview-path.js";
 
 export const COURSE_EDIT_SCHEMA_VERSION = 2;
+export const COURSE_EDIT_PREVIEW_SCHEMA_VERSION = 1;
 export const COURSE_EDIT_MAX_DRAFTS = 20;
 export const COURSE_EDIT_MAX_HTML_CODE_UNITS = 24_000;
 export const COURSE_EDIT_MAX_URL_CODE_UNITS = 2_048;
@@ -129,6 +131,67 @@ export type CourseEditDraft = {
   afterText: string;
   baseline: CourseEditDraftBaseline;
   patch: CourseEditPatch;
+  canonicalPatchDigest?: string;
+  pendingAssets?: CourseEditPendingAssetReference[];
+  pageHref?: string;
+};
+
+export type CourseEditPendingAssetReference = {
+  kind: "image";
+  id: string;
+  previewSessionId: string;
+  digest: string;
+  finalSrc: string;
+  mimeType: "image/png" | "image/jpeg" | "image/gif";
+  width: number;
+  height: number;
+  byteLength: number;
+};
+
+export type CourseEditPreviewBinding = {
+  previewSessionId: string;
+  revision: number;
+  projectSlug: string;
+  pageIdentity: string;
+  mapSourceDigest: string;
+  targetNodeId: string;
+};
+
+export type CourseEditPreviewRepresentation = {
+  tagName: string;
+  html: string;
+  attributes: {
+    href: string;
+    src: string;
+    alt: string;
+    title: string;
+  };
+  style: Required<CourseEditStylePatch>;
+};
+
+export type CourseEditPreviewNormalizeRequest = CourseEditPreviewBinding & {
+  schemaVersion: typeof COURSE_EDIT_PREVIEW_SCHEMA_VERSION;
+  identity: CourseEditTargetIdentity;
+  patch: CourseEditPatch;
+  pendingAssets?: CourseEditPendingAssetReference[];
+};
+
+export type CourseEditPreviewNormalizeResult = CourseEditPreviewBinding & {
+  schemaVersion: typeof COURSE_EDIT_PREVIEW_SCHEMA_VERSION;
+  canonicalPatch: CourseEditPatch;
+  canonicalPatchDigest: string;
+  pendingAssets: CourseEditPendingAssetReference[];
+  representation: CourseEditPreviewRepresentation;
+  changed: true;
+};
+
+export type CourseEditPreviewClearRequest = CourseEditPreviewBinding & {
+  schemaVersion: typeof COURSE_EDIT_PREVIEW_SCHEMA_VERSION;
+  retainPendingAssetIds?: string[];
+};
+
+export type CourseEditPendingImage = CourseEditPendingAssetReference & {
+  previewSrc: string;
 };
 
 export type CourseEditApplyRequest = {
@@ -247,6 +310,54 @@ export function isCourseEditTargetIdentity(value: unknown): value is CourseEditT
   );
 }
 
+export function isCourseEditPendingAssetReference(value: unknown): value is CourseEditPendingAssetReference {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, [
+      "kind",
+      "id",
+      "previewSessionId",
+      "digest",
+      "finalSrc",
+      "mimeType",
+      "width",
+      "height",
+      "byteLength"
+    ]) &&
+    value.kind === "image" &&
+    isBoundedString(value.id, 96, false) &&
+    /^[A-Za-z0-9-]+$/.test(value.id) &&
+    isBoundedString(value.previewSessionId, 96, false) &&
+    /^[A-Za-z0-9-]+$/.test(value.previewSessionId) &&
+    isBoundedString(value.digest, 64, false) &&
+    /^[a-f0-9]{64}$/.test(value.digest) &&
+    isBoundedString(value.finalSrc, COURSE_EDIT_MAX_URL_CODE_UNITS, false) &&
+    !value.finalSrc.includes("\\") &&
+    !value.finalSrc.includes("\0") &&
+    ["image/png", "image/jpeg", "image/gif"].includes(String(value.mimeType)) &&
+    typeof value.width === "number" &&
+    Number.isSafeInteger(value.width) &&
+    value.width > 0 &&
+    value.width <= 12_000 &&
+    typeof value.height === "number" &&
+    Number.isSafeInteger(value.height) &&
+    value.height > 0 &&
+    value.height <= 12_000 &&
+    typeof value.byteLength === "number" &&
+    Number.isSafeInteger(value.byteLength) &&
+    value.byteLength > 0 &&
+    value.byteLength <= 10 * 1024 * 1024
+  );
+}
+
+function isCourseEditDraftPageHref(value: unknown, projectSlug: string) {
+  if (!isBoundedString(value, COURSE_EDIT_MAX_URL_CODE_UNITS, false)) return false;
+  const normalized = normalizePreviewPageIdentity(value);
+  if (!normalized || normalized !== value) return false;
+  const capability = parsePreviewCapabilityPath(new URL(normalized).pathname);
+  return capability?.scope === `project:workspace:${projectSlug}`;
+}
+
 export function isCourseEditDraft(value: unknown): value is CourseEditDraft {
   const baseline = isRecord(value) && isRecord(value.baseline) ? value.baseline : null;
   const attributes = baseline && isRecord(baseline.attributes) ? baseline.attributes : null;
@@ -254,7 +365,7 @@ export function isCourseEditDraft(value: unknown): value is CourseEditDraft {
   const capabilities = baseline && isRecord(baseline.capabilities) ? baseline.capabilities : null;
   return (
     isRecord(value) &&
-    hasOnlyKeys(value, ["id", "createdAt", "updatedAt", "identity", "beforeText", "afterText", "baseline", "patch"]) &&
+    hasOnlyKeys(value, ["id", "createdAt", "updatedAt", "identity", "beforeText", "afterText", "baseline", "patch", "canonicalPatchDigest", "pendingAssets", "pageHref"]) &&
     isBoundedString(value.id, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
     /^[A-Za-z0-9._-]+$/.test(value.id) &&
     typeof value.createdAt === "number" &&
@@ -262,6 +373,7 @@ export function isCourseEditDraft(value: unknown): value is CourseEditDraft {
     typeof value.updatedAt === "number" &&
     Number.isFinite(value.updatedAt) &&
     isCourseEditTargetIdentity(value.identity) &&
+    (value.pageHref === undefined || isCourseEditDraftPageHref(value.pageHref, value.identity.projectSlug)) &&
     isBoundedString(value.beforeText, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
     isBoundedString(value.afterText, COURSE_EDIT_MAX_HTML_CODE_UNITS) &&
     baseline !== null &&
@@ -279,7 +391,94 @@ export function isCourseEditDraft(value: unknown): value is CourseEditDraft {
     [capabilities.richText, capabilities.link, capabilities.image, capabilities.styles].every((entry) => typeof entry === "boolean") &&
     Array.isArray(capabilities.styleKeys) &&
     capabilities.styleKeys.every((entry) => ["textStyle", "fontFamily", "fontSize", "textTone", "alignment", "spacing"].includes(String(entry))) &&
-    isCourseEditPatch(value.patch)
+    isCourseEditPatch(value.patch) &&
+    (value.canonicalPatchDigest === undefined || (
+      isBoundedString(value.canonicalPatchDigest, 64, false) && /^[a-f0-9]{64}$/.test(value.canonicalPatchDigest)
+    )) &&
+    (value.pendingAssets === undefined || (
+      Array.isArray(value.pendingAssets) &&
+      value.pendingAssets.length <= 1 &&
+      value.pendingAssets.every(isCourseEditPendingAssetReference) &&
+      new Set(value.pendingAssets.map((entry) => entry.id)).size === value.pendingAssets.length &&
+      value.pendingAssets.every((entry) => (value.patch as CourseEditPatch).src === entry.finalSrc)
+    ))
+  );
+}
+
+function isCourseEditPreviewBinding(value: unknown) {
+  return (
+    isRecord(value) &&
+    isBoundedString(value.previewSessionId, 96, false) &&
+    /^[A-Za-z0-9-]+$/.test(value.previewSessionId) &&
+    typeof value.revision === "number" &&
+    Number.isSafeInteger(value.revision) &&
+    value.revision > 0 &&
+    isBoundedString(value.projectSlug, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
+    /^[a-z0-9][a-z0-9._-]*$/i.test(value.projectSlug) &&
+    isBoundedString(value.pageIdentity, COURSE_EDIT_MAX_URL_CODE_UNITS, false) &&
+    isBoundedString(value.mapSourceDigest, 64, false) &&
+    /^[a-f0-9]{64}$/.test(value.mapSourceDigest) &&
+    isBoundedString(value.targetNodeId, COURSE_EDIT_MAX_ID_CODE_UNITS, false) &&
+    /^ch1:[a-f0-9]{24}:[1-9][0-9]*$/.test(value.targetNodeId)
+  );
+}
+
+export function isCourseEditPreviewNormalizeRequest(value: unknown): value is CourseEditPreviewNormalizeRequest {
+  const request = isRecord(value) ? value : null;
+  return (
+    request !== null &&
+    isCourseEditPreviewBinding(request) &&
+    hasOnlyKeys(request, [
+      "schemaVersion",
+      "previewSessionId",
+      "revision",
+      "projectSlug",
+      "pageIdentity",
+      "mapSourceDigest",
+      "targetNodeId",
+      "identity",
+      "patch",
+      "pendingAssets"
+    ]) &&
+    request.schemaVersion === COURSE_EDIT_PREVIEW_SCHEMA_VERSION &&
+    isCourseEditTargetIdentity(request.identity) &&
+    request.identity.projectSlug === request.projectSlug &&
+    request.identity.sourceDigest === request.mapSourceDigest &&
+    request.identity.nodeId === request.targetNodeId &&
+    isCourseEditPatch(request.patch) &&
+    (request.pendingAssets === undefined || (
+      Array.isArray(request.pendingAssets) &&
+      request.pendingAssets.length <= 1 &&
+      request.pendingAssets.every(isCourseEditPendingAssetReference) &&
+      request.pendingAssets.every((entry) => (request.patch as CourseEditPatch).src === entry.finalSrc)
+    ))
+  );
+}
+
+export function isCourseEditPreviewClearRequest(value: unknown): value is CourseEditPreviewClearRequest {
+  const request = isRecord(value) ? value : null;
+  return (
+    request !== null &&
+    isCourseEditPreviewBinding(request) &&
+    hasOnlyKeys(request, [
+      "schemaVersion",
+      "previewSessionId",
+      "revision",
+      "projectSlug",
+      "pageIdentity",
+      "mapSourceDigest",
+      "targetNodeId",
+      "retainPendingAssetIds"
+    ]) &&
+    request.schemaVersion === COURSE_EDIT_PREVIEW_SCHEMA_VERSION &&
+    (request.retainPendingAssetIds === undefined || (
+      Array.isArray(request.retainPendingAssetIds) &&
+      request.retainPendingAssetIds.length <= 5 &&
+      new Set(request.retainPendingAssetIds).size === request.retainPendingAssetIds.length &&
+      request.retainPendingAssetIds.every((entry) => (
+        isBoundedString(entry, 96, false) && /^[A-Za-z0-9-]+$/.test(entry)
+      ))
+    ))
   );
 }
 

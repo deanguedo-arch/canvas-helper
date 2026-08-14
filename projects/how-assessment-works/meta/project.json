@@ -76,12 +76,23 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-07-30T15:37:40.000Z",
   "createdAt": "2026-07-30T15:37:40.000Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T17:52:27.429Z",
   "workspaceApprovedAt": "2026-07-30T18:06:27.167Z",
   "authoring": {
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "",
+          "stateKey": "native-details-open"
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

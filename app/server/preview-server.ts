@@ -8,6 +8,10 @@ import {
 } from "./lib/preview-runtime-relay";
 import { handlePreviewRoutes } from "./routes/preview";
 import { parsePreviewCapabilityPath } from "../shared/preview-path.js";
+import {
+  parsePendingCourseEditImagePath,
+  readPendingCourseEditImageForPreview
+} from "./lib/course-edit-preview-assets";
 
 export type IsolatedPreviewServer = {
   origin: string;
@@ -157,6 +161,24 @@ async function handlePreviewServerRequest(
   }
 
   if (pathname.startsWith("/_canvas-helper/p/")) {
+    const pendingImagePath = parsePendingCourseEditImagePath(pathname);
+    if (pendingImagePath) {
+      const capability = authorizeExistingPreviewCapability(pendingImagePath.capabilityToken, capabilities);
+      const image = capability
+        ? readPendingCourseEditImageForPreview(pendingImagePath.capabilityToken, pendingImagePath.imageId)
+        : null;
+      if (!capability || !image) {
+        response.statusCode = 404;
+        response.setHeader("Content-Type", "text/plain; charset=utf-8");
+        response.end("Pending edit image unavailable");
+        return;
+      }
+      response.statusCode = 200;
+      response.setHeader("Content-Type", image.mimeType);
+      response.setHeader("Content-Length", String(image.byteLength));
+      response.end(method === "HEAD" ? undefined : image.bytes);
+      return;
+    }
     const runtimeRelay = parsePreviewRuntimeRelayPath(pathname);
     if (runtimeRelay) {
       const capability = authorizeExistingPreviewCapability(runtimeRelay.token, capabilities);

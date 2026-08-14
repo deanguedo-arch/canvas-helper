@@ -2,6 +2,8 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 
 import {
   isCourseEditApplyRequest,
+  isCourseEditPreviewClearRequest,
+  isCourseEditPreviewNormalizeRequest,
   isCourseRenameRequest,
   type CourseEditResolveRequest
 } from "../../shared/course-editing.js";
@@ -16,6 +18,14 @@ import {
   undoCourseEditBatch
 } from "../lib/course-editing";
 import { MAX_COURSE_EDIT_IMAGE_BYTES } from "../lib/course-edit-image";
+import {
+  clearCourseEditPreview,
+  normalizeCourseEditPreview
+} from "../lib/course-edit-preview";
+import {
+  storePendingCourseEditImage,
+  type PendingCourseEditImageBinding
+} from "../lib/course-edit-preview-assets";
 import { readRequestJson } from "../lib/request-body";
 import { sendJson } from "../lib/response";
 import { isSafeProjectSlug } from "../lib/validation";
@@ -23,6 +33,7 @@ import { isSafeProjectSlug } from "../lib/validation";
 const COURSE_EDIT_RESOLVE_MAX_BYTES = 262_144;
 const COURSE_EDIT_APPLY_MAX_BYTES = 4_194_304;
 const COURSE_EDIT_RENAME_MAX_BYTES = 16_384;
+const COURSE_EDIT_PREVIEW_MAX_BYTES = 131_072;
 
 type CourseEditsRouteOptions = {
   repoRoot?: string;
@@ -68,6 +79,31 @@ async function readBoundedImage(request: IncomingMessage) {
   return Buffer.concat(chunks);
 }
 
+function boundedHeader(request: IncomingMessage, name: string, maximum: number) {
+  const raw = request.headers[name];
+  const value = Array.isArray(raw) ? raw[0] : raw;
+  if (typeof value !== "string" || !value || value.length > maximum || /[\u0000-\u001f\u007f]/.test(value)) {
+    throw new Error("The temporary image preview is missing a valid edit binding.");
+  }
+  return value;
+}
+
+function pendingImageBindingFromHeaders(request: IncomingMessage, projectSlug: string): PendingCourseEditImageBinding {
+  const htmlPath = boundedHeader(request, "x-canvas-helper-html-path", 2_048);
+  if (htmlPath.startsWith("/") || htmlPath.includes("\\") || htmlPath.split("/").some((part) => !part || part === "." || part === "..")) {
+    throw new Error("The temporary image preview has an invalid course page path.");
+  }
+  const targetId = boundedHeader(request, "x-canvas-helper-target-id", 160);
+  const sourceDigest = boundedHeader(request, "x-canvas-helper-source-digest", 64);
+  const targetNodeId = boundedHeader(request, "x-canvas-helper-target-node-id", 160);
+  const previewSessionId = boundedHeader(request, "x-canvas-helper-preview-session-id", 96);
+  const pageIdentity = boundedHeader(request, "x-canvas-helper-page-identity", 2_048);
+  if (!/^[a-f0-9]{24}$/.test(targetId) || !/^[a-f0-9]{64}$/.test(sourceDigest) || !/^ch1:[a-f0-9]{24}:[1-9][0-9]*$/.test(targetNodeId) || !/^[A-Za-z0-9-]+$/.test(previewSessionId)) {
+    throw new Error("The temporary image preview edit identity is invalid.");
+  }
+  return { projectSlug, htmlPath, targetId, sourceDigest, targetNodeId, previewSessionId, pageIdentity };
+}
+
 export async function handleCourseEditsRoute(
   url: string,
   request: IncomingMessage,
@@ -75,6 +111,34 @@ export async function handleCourseEditsRoute(
   options: CourseEditsRouteOptions = {}
 ) {
   const repoRoot = options.repoRoot;
+  if (url === "/api/course-edits/preview/normalize" || url === "/api/course-edits/preview/clear") {
+    if (request.method !== "POST") {
+      sendJson(response, 405, { error: "Method not allowed." });
+      return true;
+    }
+    try {
+      const body = await readRequestJson<unknown>(request, {
+        maxBytes: COURSE_EDIT_PREVIEW_MAX_BYTES,
+        description: "Course edit preview requests"
+      });
+      if (url.endsWith("/normalize")) {
+        if (!isCourseEditPreviewNormalizeRequest(body)) {
+          sendJson(response, 400, { error: "Invalid bounded live preview request." });
+          return true;
+        }
+        sendJson(response, 200, await normalizeCourseEditPreview(body, repoRoot));
+      } else {
+        if (!isCourseEditPreviewClearRequest(body)) {
+          sendJson(response, 400, { error: "Invalid bounded live preview clear request." });
+          return true;
+        }
+        sendJson(response, 200, await clearCourseEditPreview(body));
+      }
+    } catch (error) {
+      sendJson(response, 422, { error: safeError(error) });
+    }
+    return true;
+  }
   if (url === "/api/course-edits/resolve") {
     if (request.method !== "POST") {
       sendJson(response, 405, { error: "Method not allowed." });
@@ -96,7 +160,7 @@ export async function handleCourseEditsRoute(
     return true;
   }
 
-  const match = url.match(/^\/api\/projects\/([^/]+)\/course-edits\/(status|apply|undo|assets|rename)$/);
+  const match = url.match(/^\/api\/projects\/([^/]+)\/course-edits\/(status|apply|undo|assets|preview-assets|rename)$/);
   if (!match) return false;
   const projectSlug = decodeURIComponent(match[1]);
   const action = match[2];
@@ -123,6 +187,14 @@ export async function handleCourseEditsRoute(
     return true;
   }
   try {
+    if (action === "preview-assets") {
+      const binding = pendingImageBindingFromHeaders(request, projectSlug);
+      sendJson(response, 200, await storePendingCourseEditImage({
+        ...binding,
+        bytes: await readBoundedImage(request)
+      }));
+      return true;
+    }
     if (action === "assets") {
       const htmlPathHeader = request.headers["x-canvas-helper-html-path"];
       const htmlPath = Array.isArray(htmlPathHeader) ? htmlPathHeader[0] : htmlPathHeader;

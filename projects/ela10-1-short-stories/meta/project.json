@@ -10,7 +10,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/original.html",
   "createdAt": "2026-07-17T01:31:15.788Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-14T17:52:27.429Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -61,6 +61,157 @@
     "driverId": "legacy-snapshot-v1",
     "familyId": "english-legacy-snapshot",
     "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-what-do-good-readers-do",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-storytelling",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-reading-short-stories",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-short-story-terms",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13-writing-a-short-story-analysis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-14-literary-terms-review",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-topic-interpretation",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-one",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-two",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-three",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-conclusion-revision",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-prompt-impression",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-text-evidence",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-knowledge-experience",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-form-perspective",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-response-plan",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-draft-revise",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#story-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#story-questions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#writing-studio",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

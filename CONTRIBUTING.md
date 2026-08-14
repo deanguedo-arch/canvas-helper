@@ -26,6 +26,7 @@ Examples:
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
 - Codex-to-Studio course creation changes: `npm run test:codex-course`, the focused live-discovery browser scenario, `npm.cmd run build:studio`, and `npm.cmd run typecheck`
 - Course-catalog onboarding changes: `npm run test:course-onboarding`, a retain-only `npm run course:onboard -- --all`, `npm run verify:course-onboarding -- --all`, focused Studio tests, and `npm.cmd run typecheck`
+- Course-editability census changes: `npm run test:course-editability`, an inventory-only all-catalog report, one rendered representative report, and the exact-head all-catalog CI artifact; do not run repository writers during a residue-proof census
 - Studio direct-edit changes: `npm run test:course-editing`, `npm run test:studio-inspection`, `npm run verify:course-editing-pilots`, the focused direct-edit browser scenario, and the complete Studio release gate before publishing
 - Direct-edit exporter evidence changes: run `npm run test:exports` in addition to the Direct Editing floor
 - Interaction-heavy Studio/player changes: run E2E (`npm run test:e2e:smoke` for shared UI, `npm run test:e2e:project -- --project <slug>` for project contracts)
@@ -55,6 +56,7 @@ Add or update tests when:
 - route behavior changes
 - direct-edit contracts, sanitization, adapter ownership, checkpoint/rollback, undo, or export-staleness behavior changes
 - direct-edit filesystem locks, journals, rendered postconditions, image bytes, title synchronization, draft migrations, or artifact evidence change
+- learner-surface inventory, candidate ownership, census isolation, scoring, report residue, preview normalization, preview ordering, inert overlays, or pending image memory changes
 - Studio/player interaction behavior changes (mode toggles, navigation, quiz behavior, fallback rendering)
 - path validation changes
 - intelligence policy behavior changes

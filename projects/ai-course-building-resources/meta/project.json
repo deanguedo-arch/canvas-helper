@@ -83,6 +83,27 @@
     "driverId": "direct-workspace-v1",
     "familyId": "explicit-workspace-source",
     "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "resources/dean-ai-assessment-pillars.html",
+          "route": "",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "resources/gatekeeping-architecture.html",
+          "route": "",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "resources/jon-ai-resource.html",
+          "route": "",
+          "stateKey": "native-details-open"
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,

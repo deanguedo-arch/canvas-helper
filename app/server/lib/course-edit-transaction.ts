@@ -171,6 +171,29 @@ export async function fingerprintCourseEditPath(repoRoot: string, targetPath: st
   return { repoRelativePath, kind: "directory", sha256: hash.digest("hex"), fileCount, byteCount };
 }
 
+export function fingerprintCourseEditFileContent(
+  repoRoot: string,
+  targetPath: string,
+  content: Uint8Array,
+  mode = 0o644
+): CourseEditPathFingerprint {
+  const absolute = path.resolve(targetPath);
+  if (!isSafeRelativePath(path.resolve(repoRoot), absolute)) {
+    throw new Error("Course edit fingerprint path escaped this checkout.");
+  }
+  const bytes = Buffer.from(content);
+  const hash = createHash("sha256");
+  hash.update(`file\0${mode & 0o777}\0${bytes.length}\0`);
+  hash.update(bytes);
+  return {
+    repoRelativePath: path.relative(repoRoot, absolute).split(path.sep).join("/"),
+    kind: "file",
+    sha256: hash.digest("hex"),
+    fileCount: 1,
+    byteCount: bytes.length
+  };
+}
+
 export async function fingerprintCourseEditPaths(repoRoot: string, targetPaths: string[]) {
   return await Promise.all(targetPaths.map((targetPath) => fingerprintCourseEditPath(repoRoot, targetPath)));
 }
