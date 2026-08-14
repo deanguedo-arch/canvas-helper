@@ -6,6 +6,8 @@ Repository: [deanguedo-arch/canvas-helper](https://github.com/deanguedo-arch/can
 
 Focused draft PR: [#1 — Harden Direct Editing and onboard the course catalog](https://github.com/deanguedo-arch/canvas-helper/pull/1)
 
+Independent outcome: **[GREEN / GO](2026-08-13-studio-direct-editing-green-go-verdict.md)** on reviewed head `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`.
+
 Review base: [`codex/studio-roadmap-phases`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-roadmap-phases) at [`74b0c3ee`](https://github.com/deanguedo-arch/canvas-helper/commit/74b0c3ee7de150472c10f172a664ee658050f2ca)
 
 Review head: [`codex/studio-direct-editing-v1`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-direct-editing-v1)
@@ -22,7 +24,7 @@ Implementation commits:
 
 ## August 13 independent follow-up and remediation
 
-An independent review of PR head `45c6ab8b` returned **NO-GO / REQUEST CHANGES**. That verdict supersedes the earlier rollout language for the audited commit. The current review target is the latest head of [`codex/studio-direct-editing-v1`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-direct-editing-v1), not only the older pinned implementation links elsewhere in this packet.
+An independent review of PR head `45c6ab8b` returned **NO-GO / REQUEST CHANGES**. The requested remediation and exact-head evidence were then independently re-audited at `e7124143`, which returned **GREEN / GO** and supersedes the earlier rejection. The current review target remains [`codex/studio-direct-editing-v1`](https://github.com/deanguedo-arch/canvas-helper/tree/codex/studio-direct-editing-v1), not only the older pinned implementation links elsewhere in this packet.
 
 The requested changes are implemented on the current branch:
 
@@ -45,8 +47,8 @@ Current focused evidence from the remediation checkout:
 
 - The first exact-head PR run (`31733602382`) passed focused Direct Editing and export tests, then exposed a clean-Linux first-course discovery defect in one of 58 browser scenarios. Commit `bd67e342` creates the exact signal parent before subscribing; the formerly failing clean-checkout scenario then passed 1/1. The failure was retained in the evidence trail and required a replacement run.
 - The second exact-head PR run (`31735152410`) passed focused editing, export evidence, the complete Studio release gate, and all four real adapter pilots. Its catalog step found that Macbeth's declared rebuild requires Poppler/Tesseract OCR, which the runner lacked, and that a later fallback candidate exceeded the browser's 320-character visible-text contract. Commit `ef30b252` installs the declared OCR runtime in CI and makes the verifier use the same shared browser bound. Macbeth then passed its real public-route lifecycle 1/1 locally before the complete replacement run below.
-- The replacement [exact branch-head run `31738351202`](https://github.com/deanguedo-arch/canvas-helper/actions/runs/31738351202) passed every gate at `bb0449f4fac8c0e0c40dcc1287f04e3ad545575a`: 149/149 focused contracts, 58/58 inspection E2E, smoke 1/1, strict project contract 1/1, 4/4 real adapter pilots, and 63/63 catalog entries. Its archived release report records `sourceChangedDuringRun: false`; catalog outcomes are 50 reversible passes, 12 `no-source-owned-text-target`, one safely restored `no-learner-stable-text-target`, and zero failures.
-- The [PR-merge integration run `31738355469`](https://github.com/deanguedo-arch/canvas-helper/actions/runs/31738355469) passed the same complete gate against GitHub's synthetic merge commit.
+- The final reviewed [exact branch-head run `31753504317`](https://github.com/deanguedo-arch/canvas-helper/actions/runs/31753504317) passed every gate at `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`: 149/149 focused contracts, 58/58 inspection E2E, smoke 1/1, strict project contract 1/1, 4/4 real adapter pilots, and 63/63 catalog entries. Its archived release report records `sourceChangedDuringRun: false`; catalog outcomes are 50 reversible passes, 12 `no-source-owned-text-target`, one safely restored `no-learner-stable-text-target`, and zero failures.
+- The final [PR-merge integration run `31753507312`](https://github.com/deanguedo-arch/canvas-helper/actions/runs/31753507312) passed the same complete gate against GitHub's synthetic merge commit.
 - `npm run test:course-editing -- --test-reporter=dot` — 43/43 passed.
 - `npm run test:studio-inspection -- --test-reporter=dot` — 149/149 passed after the clean-checkout watcher and catalog-bound regressions were added.
 - The formerly failing clean-checkout E2E, `a Codex-created course appears live with its visual Edit map ready`, passed 1/1 after deleting the operational signal directory before server startup.
@@ -55,7 +57,7 @@ Current focused evidence from the remediation checkout:
 - `npm run test:exports` — 55/55 SCORM, Google Hosted, and Apps Script tests passed before documentation-only follow-up.
 - `npm run typecheck -- --pretty false` — the same ten established unrelated diagnostics remain; no diagnostic is in the remediation files.
 
-The exact-head and PR-merge GitHub Actions runs are green. The PR remains a draft because an independent re-audit still decides rollout readiness.
+The exact-head and PR-merge GitHub Actions runs are green, and the independent re-audit returned **GREEN / GO**. The audit blocker is closed; merge remains a repository-owner action, followed by controlled real-world rollout.
 
 Focused comparison: [roadmap base → Direct Editing head](https://github.com/deanguedo-arch/canvas-helper/compare/codex/studio-roadmap-phases...codex/studio-direct-editing-v1)
 
@@ -206,8 +208,8 @@ All links below follow the current PR branch so the auditor sees the independent
 | `npm run test:metadata-policy -- --test-reporter=dot` | 27/27 passed. |
 | `npm run test:studio-inspection -- --test-reporter=dot` | 149/149 passed on the remediation implementation and in the exact-head workflow. |
 | `npm run build:studio` | Passed on the remediation implementation; the exact-head workflow repeats it. |
-| Exact-head GitHub run `31738351202` | Passed at `bb0449f4`: release report `ok: true`, `sourceChangedDuringRun: false`; 149 focused, 58 inspection E2E, smoke 1, strict project 1, 4 pilots, and 63 catalog entries all passed. |
-| PR-merge GitHub run `31738355469` | Passed the same full workflow against GitHub's synthetic merge commit. |
+| Exact-head GitHub run `31753504317` | Passed at `e7124143`: release report `ok: true`, `sourceChangedDuringRun: false`; 149 focused, 58 inspection E2E, smoke 1, strict project 1, 4 pilots, and 63 catalog entries all passed. |
+| PR-merge GitHub run `31753507312` | Passed the same full workflow against GitHub's synthetic merge commit. |
 | `git diff --check` | Passed before each remediation commit. |
 
 Do not reuse the older release-report digest from the pre-remediation branch. The workflow uploads `.runtime/studio-release-report.json`, `.runtime/course-editing-pilots.json`, and `.runtime/course-onboarding-verification.json`. Use the push-run artifact for exact branch-head identity; a `pull_request` artifact correctly records GitHub's synthetic merge SHA rather than the branch-head SHA.
@@ -261,13 +263,15 @@ No raw import or generated export was added merely to make a project appear edit
 ## Recommended reading order
 
 1. This packet.
-2. [PR #1 commits and files](https://github.com/deanguedo-arch/canvas-helper/pull/1/files).
-3. [Studio current-state roadmap audit](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-roadmap-phases/docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md).
-4. [Direct Editing finding closure](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md).
-5. [Catalog outcome and exceptions](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-13-course-catalog-onboarding.md).
-6. [Direct Editing release boundary](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/releases/2026-08-12-canvas-studio-direct-editing.md).
-7. [Current active handoff](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/ops/ACTIVE_HANDOFF.md).
-8. The primary code entrypoints listed above.
+2. [Independent GREEN / GO verdict](2026-08-13-studio-direct-editing-green-go-verdict.md).
+3. [PR #1 commits and files](https://github.com/deanguedo-arch/canvas-helper/pull/1/files).
+4. [Studio current-state roadmap audit](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-roadmap-phases/docs/audits/2026-08-12-canvas-studio-current-state-and-next-step-audit.md).
+5. [Direct Editing finding closure](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md).
+6. [Catalog outcome and exceptions](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/audits/2026-08-13-course-catalog-onboarding.md).
+7. [Direct Editing release boundary](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/releases/2026-08-12-canvas-studio-direct-editing.md).
+8. [Real-time editability and rollout plan](../plans/2026-08-13-studio-real-time-editability-and-rollout.md).
+9. [Current active handoff](https://github.com/deanguedo-arch/canvas-helper/blob/codex/studio-direct-editing-v1/docs/ops/ACTIVE_HANDOFF.md).
+10. The primary code entrypoints listed above.
 
 ## Copy-ready prompt for ChatGPT
 

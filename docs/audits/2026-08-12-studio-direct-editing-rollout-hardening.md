@@ -2,7 +2,9 @@
 
 Date: 2026-08-12
 
-Status: superseded by the August 13 independent follow-up. Its requested transaction, contract, image, freshness, route-acceptance, and CI changes are now implemented; broad teacher rollout still requires the fresh exact-head gate and independent re-audit.
+Status: **GREEN / GO** on independently reviewed head `e7124143`. The requested transaction, contract, image, freshness, route-acceptance, and CI changes are implemented; controlled teacher rollout is now recommended.
+
+Independent outcome: [Canvas Studio Direct Editing independent verdict](2026-08-13-studio-direct-editing-green-go-verdict.md).
 
 ## Outcome
 

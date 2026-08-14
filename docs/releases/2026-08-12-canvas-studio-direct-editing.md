@@ -6,6 +6,14 @@ Catalog rollout updated August 13, 2026.
 
 Eligible courses can now collect, review, apply, and undo routine teacher changes directly in Studio or Full Preview.
 
+## Independent release decision
+
+The August 13 independent follow-up returned **GREEN / GO** on exact reviewed head `e7124143`. The prior release-blocking findings are closed, exact-head and PR-merge workflows passed, and the recommended next step is controlled teacher editing on real courses.
+
+The accepted boundaries remain explicit: arbitrary external writers must not race Studio Apply, local rendered validation is bounded, edited-target checks are not full WCAG, and Brightspace/deployed-host/cross-browser SCORM behavior remains separate export acceptance.
+
+See [the recorded verdict](../audits/2026-08-13-studio-direct-editing-green-go-verdict.md) and [the measured real-time editability rollout plan](../plans/2026-08-13-studio-real-time-editability-and-rollout.md).
+
 ## What’s new
 
 - **See and edit in place:** Edit mode outlines visible supported regions, labels the available action on hover, counts mapped areas, and lets teachers change supported text, links, images, alt text, captions, curated visual styles, or the synchronized course name without leaving Studio. Runtime-owned or unsupported selections use a dashed Annotation-only state with the exact reason.

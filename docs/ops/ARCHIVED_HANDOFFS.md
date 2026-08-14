@@ -8377,3 +8377,16 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: snapshot courses kept their current workspace as the protected baseline, package output was not promoted to source, and user-owned local duplicate/archive material remained unstaged.
 - Implementation commit: `1b221ee9ad9594a7166572494448e1db32f6e0e1`.
 - Next command at archival time: `npm run test:studio-release`.
+
+## Archived Active Handoff — 2026-08-13: independent Direct Editing remediation
+
+- Project: `repo-wide`.
+- Task: Close every actionable finding from the independent Canvas Studio Direct Editing audit and prepare an exact, GitHub-verifiable re-audit packet.
+- Status: complete on `codex/studio-direct-editing-v1` at reviewed head `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`; superseded by the measured real-time editability and controlled-rollout plan.
+- Independent result: **GREEN / GO**. The earlier NO-GO is superseded; the auditor found no remaining release-blocking P0 and approved PR #1 for merge followed by controlled real-world rollout.
+- Verification: exact-head run `31753504317` and PR-merge run `31753507312` passed 149 focused contracts, 58 inspection E2E scenarios, smoke, strict project contract, 4/4 real adapter pilots, 63/63 catalog acceptance, and artifact upload; the exact-head report recorded no source drift.
+- Source of truth: `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `app/server/lib/course-edit-render-validation.ts`, `app/server/lib/preview-inspection.ts`, `scripts/lib/course-editing/export-freshness.ts`, and `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`.
+- Preserved boundary: the lock remains cooperative for non-Studio writers, local render/accessibility checks remain bounded, Brightspace and cross-browser package checks remain external, and unsupported runtime-owned content remains Annotation only.
+- Catalog truth: 66 tracked project directories, 65 manifests, and 63 enabled source-backed projects; 50 reversible edit outcomes, 12 no-source-owned-text-target outcomes, and one no-learner-stable-text-target outcome.
+- User-owned duplicate, archive, resource, test-result, and transaction paths remained untouched and unstaged.
+- Next command at archival time: `sed -n '1,280p' docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`.
