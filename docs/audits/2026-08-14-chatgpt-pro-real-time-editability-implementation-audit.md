@@ -9,6 +9,7 @@
 - Implementation diff: [`a5645d2e…ef72243e`](https://github.com/deanguedo-arch/canvas-helper/compare/a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...ef72243e1c7039bc8c7778a33dadf44c61947d60)
 - Census scheduler correction to audit: [`801330bee7f4ce17ebea37b828ef6791d8c37a54`](https://github.com/deanguedo-arch/canvas-helper/commit/801330bee7f4ce17ebea37b828ef6791d8c37a54)
 - Scheduler-only diff: [`ef72243e…801330be`](https://github.com/deanguedo-arch/canvas-helper/compare/ef72243e1c7039bc8c7778a33dadf44c61947d60...801330bee7f4ce17ebea37b828ef6791d8c37a54)
+- CI job-isolation correction to audit: [`f844f6beeee492257c7c3f148d0b852d76b2d562`](https://github.com/deanguedo-arch/canvas-helper/commit/f844f6beeee492257c7c3f148d0b852d76b2d562)
 - Requested decision: independent implementation verdict; this document does not grade its own work
 
 ## Executive truth statement
@@ -73,6 +74,13 @@ The normative response is [the Phase 0.5 contract](../plans/2026-08-14-studio-re
 - Results are written back by original surface index, preserving deterministic canonical order even when the second worker finishes first.
 - The regression test proves the worker ceiling and result ordering. A real 30-surface course smoke completed with a clean residue proof.
 - Preview, Apply, Undo, adapters, candidates, scoring, and course files are unchanged by this correction.
+
+### At `f844f6be`
+
+- The normal release gate and exhaustive census run as independent parallel jobs instead of competing for one 180-minute clock.
+- The release job retains focused Direct Editing, census contracts, export contracts, full Studio E2E, all four real-adapter pilots, 63-course acceptance, and its existing evidence artifact.
+- The standalone census retains the exact all-catalog command, LFS course assets, Chromium/OCR environment, fail-closed exit behavior, and report upload, with an independent 240-minute budget.
+- The two artifacts have distinct names and must both come from the same exact head. No test, surface, candidate, or failure condition is removed.
 
 ## Disposition of every plan-audit P1
 
@@ -207,6 +215,8 @@ Exact-head push run `31841579002` and PR run `31841583574` passed focused editin
 
 The logs show route-heavy projects consuming 5–49 minutes each while their surfaces were processed one at a time. Commit `801330be` corrects that implementation error by honoring the already-published `maximumWorkers: 2` limit. It does not loosen timeouts, skip surfaces, raise memory ceilings, change scoring, or publish incomplete percentages. The cancelled runs are retained as failure evidence; only a later green exact-head report artifact can serve as release evidence.
 
+Corrected-head push run `31853405170` and PR run `31853410465` then both reached project 59 of 65 with bounded concurrency, but the monolithic job still expired before the remaining census surfaces and the downstream 27-minute pilot/catalog path could finish. Commit `f844f6be` resolves the composition error: the complete release gate and census now run in parallel with independent clocks and publish separate same-head artifacts. This is not a waiver or a timeout-only declaration of success; both jobs must finish green.
+
 ## Local verification at the implementation commit
 
 | Command/evidence | Result |
@@ -240,11 +250,12 @@ Each passed Apply, owning rebuild/materialization where applicable, learner-rend
 - `git fetch origin`
 - `git show --stat --oneline ef72243e1c7039bc8c7778a33dadf44c61947d60`
 - `git show --stat --oneline 801330bee7f4ce17ebea37b828ef6791d8c37a54`
+- `git show --stat --oneline f844f6beeee492257c7c3f148d0b852d76b2d562`
 - `git diff --check a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...ef72243e1c7039bc8c7778a33dadf44c61947d60`
 - `git diff --check ef72243e1c7039bc8c7778a33dadf44c61947d60...801330bee7f4ce17ebea37b828ef6791d8c37a54`
 - `gh pr view 1 --json url,state,isDraft,mergeable,headRefOid,baseRefName,statusCheckRollup`
 
-Audit product behavior at `ef72243e`, then separately audit the report scheduler diff through `801330be`. If PR #1 has a later head, verify that remaining descendants only publish audit/handoff material; they must not alter product or measurement behavior.
+Audit product behavior at `ef72243e`, then separately audit the report scheduler at `801330be` and CI job isolation at `f844f6be`. If PR #1 has a later head, verify that remaining descendants only publish audit/handoff material; they must not alter product or measurement behavior.
 
 ### 2. Inspect the safety-critical diff
 
@@ -362,6 +373,7 @@ Severity meanings:
 - [Implementation comparison](https://github.com/deanguedo-arch/canvas-helper/compare/a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...ef72243e1c7039bc8c7778a33dadf44c61947d60)
 - [Census scheduler correction `801330be`](https://github.com/deanguedo-arch/canvas-helper/commit/801330bee7f4ce17ebea37b828ef6791d8c37a54)
 - [Scheduler-only comparison](https://github.com/deanguedo-arch/canvas-helper/compare/ef72243e1c7039bc8c7778a33dadf44c61947d60...801330bee7f4ce17ebea37b828ef6791d8c37a54)
+- [CI job-isolation correction `f844f6be`](https://github.com/deanguedo-arch/canvas-helper/commit/f844f6beeee492257c7c3f148d0b852d76b2d562)
 - [Accepted Direct Editing GREEN baseline](2026-08-13-studio-direct-editing-green-go-verdict.md)
 - [Original audit protocol](2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)
 - [Phase 0.5 contracts](../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md)
