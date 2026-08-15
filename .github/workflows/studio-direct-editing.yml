@@ -13,7 +13,7 @@ concurrency:
 jobs:
   release-gate:
     runs-on: ubuntu-latest
-    timeout-minutes: 180
+    timeout-minutes: 90
     steps:
       - name: Check out repository and course assets
         uses: actions/checkout@v4
@@ -49,9 +49,6 @@ jobs:
       - name: Run Studio release gate
         run: npm run test:studio-release
 
-      - name: Build exact-head all-catalog editability evidence
-        run: npm run report:course-editability -- --all --allow-incomplete --report .runtime/course-editability-report.json
-
       - name: Run real Direct, English, Social, and snapshot HTTP-route pilots
         run: npm run verify:course-editing-pilots
 
@@ -67,5 +64,41 @@ jobs:
           path: |
             .runtime/studio-release-report.json
             .runtime/course-editing-pilots.json
-            .runtime/course-editability-report.json
             .runtime/course-onboarding-verification.json
+
+  editability-census:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    steps:
+      - name: Check out repository and course assets
+        uses: actions/checkout@v4
+        with:
+          lfs: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium and course OCR dependencies
+        run: |
+          npx playwright install --with-deps chromium
+          sudo apt-get update
+          sudo apt-get install --no-install-recommends -y poppler-utils tesseract-ocr
+          pdftoppm -v
+          tesseract --version
+
+      - name: Build exact-head all-catalog editability evidence
+        run: npm run report:course-editability -- --all --allow-incomplete --report .runtime/course-editability-report.json
+
+      - name: Upload editability evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: studio-course-editability-evidence
+          if-no-files-found: warn
+          path: .runtime/course-editability-report.json
