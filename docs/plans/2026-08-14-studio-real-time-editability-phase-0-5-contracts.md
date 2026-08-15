@@ -23,6 +23,7 @@ Implementation does not itself constitute independent approval. The audit packet
 - Fresh-context Chromium collection, runtime semantic candidates, state/network/storage instrumentation, and production Resolve parity: `scripts/lib/course-editability/rendered.ts`.
 - Non-overlapping scoring, cross-surface duplicate ownership, canonical JSON, digest, and repository residue proof: `scripts/lib/course-editability/scoring.ts` and `report.ts`.
 - CLI and exact-head workflow: `scripts/report-course-editability.ts`, `package.json`, and `.github/workflows/studio-direct-editing.yml`.
+- New-course enforcement: `scripts/lib/new-course-readiness.ts`, `scripts/verify-new-course-readiness.ts`, the versioned manifest marker, and `.github/workflows/new-course-readiness.yml`. Policy inception grandfathers the existing catalog while additions, activation/onboarding, and later governed project/resource changes must pass the fresh-course floor plus a reversible public-route lifecycle.
 - Preview authority and in-memory assets: `app/server/lib/course-edit-preview.ts`, `course-edit-preview-assets.ts`, and the canonicalizer in `course-editing.ts`.
 - Ordered bridge and inert overlay: `app/shared/preview-bridge.ts` and `app/server/preview-bridge-runtime.ts`.
 - Teacher workflow and reset handling: `app/studio/src/hooks/useCourseEditing.ts`, `usePreviewScrollSync.ts`, `components/CourseEditPanel.tsx`, and `App.tsx`.

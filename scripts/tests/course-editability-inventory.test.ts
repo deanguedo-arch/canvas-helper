@@ -13,12 +13,13 @@ import {
   resolveLearnerSurfaceInventory
 } from "../lib/course-editability/inventory.ts";
 import { RenderedCourseEditabilityCollector } from "../lib/course-editability/rendered.ts";
-import { scoreRenderedSurface } from "../lib/course-editability/scoring.ts";
+import { scoreProject, scoreRenderedSurface } from "../lib/course-editability/scoring.ts";
 import {
   listCourseEditabilityProjectSlugsReadOnly,
   openCourseEditabilityReadOnlyProject
 } from "../lib/course-editability/read-only-project.ts";
 import type { ProjectManifest } from "../lib/types.ts";
+import { evaluateNewCourseCoverageReadiness } from "../lib/new-course-readiness.ts";
 
 async function fixtureRepo() {
   const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-editability-inventory-"));
@@ -299,29 +300,17 @@ test("rendered census reconciles a fresh Studio-aware course through production 
     collector = await RenderedCourseEditabilityCollector.create(fixture.repoRoot, "2026-08-14T00:00:00.000Z");
     const collection = await collector.collect(inventory.surfaces[0]);
     assert.equal(collection.complete, true, collection.reasonCode ?? "render collection incomplete");
-    const report = scoreRenderedSurface(collection);
+    const report = scoreProject({
+      projectSlug: "fresh-editable-course",
+      adapter: "direct",
+      inventory,
+      collections: [collection]
+    });
     assert.equal(report.status, "complete");
-    assert.ok((report.blockCoverage?.denominator ?? 0) >= 10);
-    assert.ok((report.blockCoverage?.numerator ?? 0) > 0);
-    assert.ok((report.teacherTextCoverage?.denominator ?? 0) > 0);
-    assert.ok((report.candidatesByKind.heading?.total ?? 0) > 0);
-    assert.ok(
-      report.blockCoverage && report.blockCoverage.numerator / report.blockCoverage.denominator >= 0.9,
-      `Fresh-course block coverage was ${report.blockCoverage?.numerator ?? 0}/${report.blockCoverage?.denominator ?? 0}.`
-    );
-    assert.ok(
-      report.teacherTextCoverage && report.teacherTextCoverage.numerator / report.teacherTextCoverage.denominator >= 0.9,
-      `Fresh-course teacher-text coverage was ${report.teacherTextCoverage?.numerator ?? 0}/${report.teacherTextCoverage?.denominator ?? 0}.`
-    );
-    for (const kind of ["course-name", "heading", "prose", "list-item", "link-label", "image", "caption"] as const) {
-      const coverage = report.candidatesByKind[kind];
-      assert.ok(coverage, `Fresh-course fixture did not exercise promised ${kind} content.`);
-      assert.ok(
-        coverage.supported / coverage.total >= 0.8,
-        `Fresh-course ${kind} coverage was ${coverage.supported}/${coverage.total}.`
-      );
-    }
+    const readiness = evaluateNewCourseCoverageReadiness(report);
+    assert.equal(readiness.passed, true, `Fresh-course readiness failed: ${readiness.failedCodes.join(", ")}`);
     assert.deepEqual(report.capabilitiesByKind["rename-synchronization"], { supported: 1, total: 1 });
+    assert.ok((report.capabilitiesByKind["link-destination"]?.total ?? 0) > 0);
     assert.deepEqual(report.capabilitiesByKind["image-source"], { supported: 1, total: 1 });
     assert.deepEqual(report.capabilitiesByKind["image-alt"], { supported: 1, total: 1 });
     assert.equal(report.reasons["intentional-annotation-only"], 1);

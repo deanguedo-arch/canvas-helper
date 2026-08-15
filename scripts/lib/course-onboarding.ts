@@ -3,7 +3,11 @@ import { lstat, mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/
 import path from "node:path";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.js";
-import type { ProjectLearnerSurfacesV1 } from "../../app/shared/course-editability.js";
+import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID,
+  type ProjectLearnerSurfacesV1
+} from "../../app/shared/course-editability.js";
 import { inspectCourseAuthoringProject } from "./course-authoring/context.js";
 import {
   extractAdapterLearnerRouteIds,
@@ -317,7 +321,11 @@ function createSocial30FactoryManifest(slug: string, now: string): ProjectManife
       familyId: "social30-related-issues",
       sourceResourceIds: [SOCIAL30_RESOURCE_ID],
       qualityProfile: "social-related-issues",
-      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      }
     },
     importedFirstPassOrigin: {
       sourceSystem: "brightspace",
@@ -447,6 +455,21 @@ async function buildManifestCandidate(input: {
   const learnerSurfaces = (driverId === "direct-workspace-v1" || driverId === "legacy-snapshot-v1") && enabled
     ? await inferLearnerSurfaceDeclaration(manifest, slug, repoRoot)
     : undefined;
+  const supportedNewCourseDriver = (
+    driverId === "direct-workspace-v1" ||
+    driverId === "english-factory-v1" ||
+    driverId === "social-related-issues-v1"
+  );
+  const newlyEnrolledEditabilityContract = (
+    enabled &&
+    supportedNewCourseDriver &&
+    input.manifest.authoring?.studioEditing?.enabled !== true
+  )
+    ? {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      } as const
+    : undefined;
 
   const next: ProjectManifest = {
     ...manifest,
@@ -464,6 +487,11 @@ async function buildManifestCandidate(input: {
         driverId === "legacy-snapshot-v1" ? "legacy-snapshot-rendered" : "proposal-only"
       ),
       ...(learnerSurfaces ? { learnerSurfaces } : {}),
+      ...(manifest.authoring?.editabilityContract
+        ? { editabilityContract: manifest.authoring.editabilityContract }
+        : newlyEnrolledEditabilityContract
+          ? { editabilityContract: newlyEnrolledEditabilityContract }
+          : {}),
       studioEditing: {
         enabled,
         renameCourse: enabled && (manifest.authoring?.studioEditing?.renameCourse === true || renameCourse),

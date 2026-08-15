@@ -1,6 +1,11 @@
 import test from "node:test";
 import assert from "node:assert/strict";
 
+import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../../app/shared/course-editability.js";
+
 import { normalizeProjectManifestPolicy, validateProjectManifestPolicy } from "../lib/project-manifest-policy.js";
 import type { ProjectManifest } from "../lib/types.js";
 
@@ -117,6 +122,54 @@ test("normalization preserves the explicit legacy snapshot driver", () => {
     familyId: "legacy-snapshot",
     studioEditing: { enabled: true, imageAssets: true }
   });
+});
+
+test("normalization preserves a valid versioned Studio editability contract", () => {
+  const normalized = normalizeProjectManifestPolicy(
+    createManifest({
+      authoring: {
+        driverId: "direct-workspace-v1",
+        studioEditing: { enabled: true, renameCourse: true, imageAssets: true },
+        editabilityContract: {
+          schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+          profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+        }
+      }
+    })
+  );
+
+  assert.deepEqual(normalized.authoring?.editabilityContract, {
+    schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+    profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+  });
+});
+
+test("validation rejects an invalid or unsafe Studio editability contract", () => {
+  const invalid = createManifest({
+    migrationState: "migrated",
+    authoringStatus: "active",
+    projectType: "generated-course",
+    preferredWorkflows: ["generated-course"],
+    canonicalEntry: "/tmp/workspace/index.html",
+    canonicalSources: ["/tmp/workspace/index.html"],
+    exportTargets: [{ target: "html", enabled: true }],
+    authoring: {
+      driverId: "legacy-snapshot-v1",
+      studioEditing: { enabled: true },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      }
+    }
+  });
+  const result = validateProjectManifestPolicy(invalid);
+  assert.equal(result.status, "invalid");
+  assert.ok(result.errors.some((error) => error.includes("legacy snapshot")));
+
+  invalid.authoring!.editabilityContract = { schemaVersion: 2, profileId: "unknown" } as never;
+  const malformed = validateProjectManifestPolicy(invalid);
+  assert.equal(malformed.status, "invalid");
+  assert.ok(malformed.errors.some((error) => error.includes("supported versioned Studio")));
 });
 
 test("validation rejects an unsupported declared authoring driver", () => {

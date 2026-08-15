@@ -1,0 +1,79 @@
+name: New course Studio readiness
+
+on:
+  pull_request:
+    paths:
+      - "projects/**"
+      - "app/shared/course-editability.ts"
+      - "scripts/**"
+      - "package.json"
+      - "config/english/**"
+      - "config/studio-editability-policy-v1.json"
+      - ".github/workflows/new-course-readiness.yml"
+  push:
+    branches:
+      - main
+      - codex/studio-direct-editing-v1
+    paths:
+      - "projects/**"
+      - "app/shared/course-editability.ts"
+      - "scripts/**"
+      - "package.json"
+      - "config/english/**"
+      - "config/studio-editability-policy-v1.json"
+      - ".github/workflows/new-course-readiness.yml"
+  workflow_dispatch: {}
+
+concurrency:
+  group: new-course-studio-readiness-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  readiness:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    steps:
+      - name: Check out full repository history and course assets
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          lfs: true
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Chromium
+        run: npx playwright install --with-deps chromium
+
+      - name: Run new-course policy and generator contracts
+        run: npm run test:new-course-readiness
+
+      - name: Verify changed new and governed courses
+        env:
+          COURSE_READINESS_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+        run: |
+          readiness_args=(
+            --report .runtime/new-course-readiness.json
+            --coverage-report .runtime/new-course-editability-report.json
+          )
+          if [[ -n "$COURSE_READINESS_BASE" ]]; then
+            readiness_args+=(--base "$COURSE_READINESS_BASE")
+          fi
+          npm run verify:new-course-readiness -- "${readiness_args[@]}"
+
+      - name: Upload exact-head new-course evidence
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: new-course-studio-readiness-evidence
+          if-no-files-found: warn
+          path: |
+            .runtime/new-course-readiness.json
+            .runtime/new-course-editability-report.json
+            .runtime/course-onboarding-verification.json

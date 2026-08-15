@@ -4,6 +4,30 @@ export const COURSE_EDITABILITY_INVENTORY_SCHEMA_VERSION = 1;
 export const COURSE_EDITABILITY_CANDIDATE_SCHEMA_VERSION = 1;
 export const COURSE_EDITABILITY_REASON_REGISTRY_VERSION = 1;
 export const COURSE_EDITABILITY_ISOLATION_PROFILE_VERSION = 1;
+export const STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION = 1;
+export const STUDIO_ROUTINE_CONTENT_PROFILE_ID = "studio-routine-content-v1";
+
+export const STUDIO_ROUTINE_CONTENT_CANDIDATE_KINDS = [
+  "course-name",
+  "heading",
+  "prose",
+  "list-item",
+  "link-label",
+  "image",
+  "caption"
+] as const satisfies readonly CandidateKind[];
+
+export const STUDIO_ROUTINE_CONTENT_CAPABILITY_KINDS = [
+  "rename-synchronization",
+  "link-destination",
+  "image-source",
+  "image-alt"
+] as const satisfies readonly CourseEditCapabilityOpportunityKind[];
+
+export type ProjectStudioEditabilityContractV1 = {
+  schemaVersion: typeof STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION;
+  profileId: typeof STUDIO_ROUTINE_CONTENT_PROFILE_ID;
+};
 
 export const COURSE_EDITABILITY_MAX_SURFACES_PER_PROJECT = 2_000;
 export const COURSE_EDITABILITY_MAX_OCCURRENCES_PER_SURFACE = 50_000;
@@ -235,6 +259,17 @@ export type CourseEditabilityCoverageReport = {
 
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
+}
+
+export function isProjectStudioEditabilityContractV1(
+  value: unknown
+): value is ProjectStudioEditabilityContractV1 {
+  return (
+    isRecord(value) &&
+    Object.keys(value).every((key) => ["schemaVersion", "profileId"].includes(key)) &&
+    value.schemaVersion === STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION &&
+    value.profileId === STUDIO_ROUTINE_CONTENT_PROFILE_ID
+  );
 }
 
 function isSafeHtmlPath(value: unknown): value is string {

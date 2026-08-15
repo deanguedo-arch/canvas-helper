@@ -77,10 +77,11 @@ test("importProject preserves React module sources disguised as html files", asy
     assert.equal(rawSourceText, reactModuleSource);
     const manifest = JSON.parse(await readFile(paths.manifestPath, "utf8"));
     assert.deepEqual(manifest.authoring, {
-      driverId: "direct-workspace-v1",
+      driverId: "proposal-only-v1",
       familyId: "imported-workspace-v1",
-      studioEditing: { enabled: true, renameCourse: false, imageAssets: true }
+      studioEditing: { enabled: false, renameCourse: false, imageAssets: false }
     });
+    assert.equal(manifest.authoringStatus, "blocked");
   } finally {
     await removePath(paths.root);
     await removePath(paths.resourceDir);

@@ -8400,3 +8400,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`, `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`, and `docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`.
 - Preserved boundary: the handoff made no implementation or course-content claim; user-owned duplicate/resource/transaction/test paths remained unstaged.
 - Next command at archival time: `git diff a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...HEAD -- docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`.
+
+## Archived Active Handoff — 2026-08-15: measured real-time editability implementation
+
+- Project: `repo-wide`.
+- Task: Implement the Phase 0.5 rendered census, inert real-time preview, memory-only images, explicit catalog inventories, new-course fixture, and independent audit evidence.
+- Status: complete at `350d2ad4f164520123a37210fd8185cac20c4b77`; superseded by automatic new-course Studio readiness enforcement.
+- Verification: exact-head push run `31863569567` and PR run `31863574034` passed the release gate and exhaustive census jobs; 63/63 catalog lifecycles passed, 57/65 inventories were complete, and the aggregate percentage remained correctly null while inventories were incomplete.
+- Source of truth: `app/shared/course-editability.ts`, `scripts/lib/course-editability/`, `app/server/lib/course-edit-preview.ts`, `app/server/lib/course-edit-preview-assets.ts`, `app/server/preview-bridge-runtime.ts`, and `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`.
+- Preserved boundary: coverage remained evidence rather than Edit authority; user-owned duplicate/resource/transaction/handoff/test paths stayed unstaged; teacher rollout, Brightspace, deployed-host, cross-browser SCORM, and full-WCAG acceptance remained external.
+- Next command at archival time: `gh pr checks 1 --watch`.

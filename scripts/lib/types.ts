@@ -1,4 +1,7 @@
-import type { ProjectLearnerSurfacesV1 } from "../../app/shared/course-editability.js";
+import type {
+  ProjectLearnerSurfacesV1,
+  ProjectStudioEditabilityContractV1
+} from "../../app/shared/course-editability.js";
 
 export type InputKind = "html" | "text-html" | "brightspace-zip" | "resource-pack";
 export type PreviewMode = "raw" | "workspace";
@@ -113,6 +116,8 @@ export type ProjectManifest = {
     };
     /** Exhaustive learner page/route/state declaration for census-capable direct and snapshot projects. */
     learnerSurfaces?: ProjectLearnerSurfacesV1;
+    /** Versioned acceptance profile required for every newly activated Studio-editable course. */
+    editabilityContract?: ProjectStudioEditabilityContractV1;
   };
   injectedComponents?: {
     id: string;

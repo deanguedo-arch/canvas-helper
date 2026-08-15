@@ -5,6 +5,10 @@ import path from "node:path";
 import test from "node:test";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.ts";
+import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../../app/shared/course-editability.ts";
 import { PREVIEW_BRIDGE_MAX_VISIBLE_TEXT } from "../../app/shared/preview-bridge.ts";
 import { inspectCourseAuthoringProject } from "../lib/course-authoring/context.ts";
 import { onboardCourseCatalog } from "../lib/course-onboarding.ts";
@@ -90,9 +94,14 @@ test("bulk onboarding explicitly classifies legacy sources and is idempotent", a
     assert.equal(direct.migrationState, "migrated");
     assert.equal(direct.authoring?.driverId, "direct-workspace-v1");
     assert.equal(direct.authoring?.studioEditing?.enabled, true);
+    assert.deepEqual(direct.authoring?.editabilityContract, {
+      schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+      profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+    });
     assert.equal(direct.canonicalEntry, "projects/direct-legacy/workspace/index.html");
     assert.ok(direct.canonicalSources?.includes("projects/direct-legacy/workspace/styles.css"));
     assert.equal(snapshot.authoring?.driverId, "legacy-snapshot-v1");
+    assert.equal(snapshot.authoring?.editabilityContract, undefined);
     assert.equal(snapshot.regenerateCommand, undefined);
     assert.match(snapshot.sourceOfTruthNotes ?? "", /quarantined the prior rebuild command/i);
     assert.equal((await inspectCourseAuthoringProject("direct-legacy", repoRoot)).status, "pass");

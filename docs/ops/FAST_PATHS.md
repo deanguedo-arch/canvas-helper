@@ -32,6 +32,8 @@ Do not start by searching the whole repo. The shared command contract is the sou
 
 ## Codex-Created Studio Course
 
+This is an internal agent retrieval path, not a choice the teacher has to make. When the user asks Codex to make a course, route here automatically unless an explicit English/Social/import workflow owns the source.
+
 Read first:
 - `docs/workflows/codex-studio-course.md`
 - `scripts/create-codex-course.ts`
@@ -50,12 +52,15 @@ Rules:
 - Author the created canonical workspace HTML/CSS, not raw or exports.
 - Keep routine teacher-editable content source-owned and visibly mapped; runtime-replaced content must remain Annotation only.
 - Use an owning factory workflow instead for imported, English, or Social conversion work.
+- Keep the versioned `studio-routine-content-v1` manifest contract. A new active course, a newly activated course, or a later change to a governed course is rejected unless the automatic exact-head readiness gate passes.
+- Generic imports and unresolved legacy sources remain `blocked`; previewability alone must never make them active or Studio-editable.
 
 Verification floor:
 - `npm run test:codex-course`
+- `npm run test:new-course-readiness`
 - `npm run course:doctor -- --project <slug>`
 - `npm run verify -- --project <slug> --mode workspace`
-- Studio visual Edit-map inspection plus one apply/reload/Undo cycle
+- `npm run verify:new-course-readiness -- --base <comparison-sha>` after the course change is committed; CI supplies the comparison SHA automatically and records rendered coverage plus apply/reload/Undo evidence
 - `npm run test:e2e:project -- --project <slug>` when learner interactions exist
 
 ## Existing Course Catalog Onboarding

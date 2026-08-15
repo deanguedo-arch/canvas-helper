@@ -92,6 +92,8 @@ npm run build:english-unit -- --project <unit-slug>
 
 The unit command dispatches from `EnglishUnitRecipeV2.activityProfile`. The existing V1 Short Stories recipe remains supported as the golden compatibility profile.
 
+A newly created unit manifest receives the versioned `studio-routine-content-v1` contract. That contract does not make generated HTML a Direct source: Studio edits continue through the English factory adapter and staged rebuild. Before a new unit can be accepted as `active` or `ready-for-export`, exact-head CI must prove complete learner inventory, the routine-content coverage floors, and a real Apply → rebuild/reload → Undo lifecycle with exact restoration.
+
 ## Individual Refinement Loop
 
 1. Open `projects/<slug>/meta/prompt-pack.md`.
@@ -139,6 +141,7 @@ Run platform and project gates:
 
 ```bash
 npm run verify -- --project <unit-slug>
+npm run verify:new-course-readiness -- --base <comparison-sha>
 npm run test:e2e:project -- --project <unit-slug>
 npm run test:e2e:smoke
 npm run test:scorm

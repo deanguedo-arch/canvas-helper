@@ -3,6 +3,10 @@ import { rename, rm } from "node:fs/promises";
 import path from "node:path";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.js";
+import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../../app/shared/course-editability.js";
 import { inspectCourseAuthoringProject } from "./course-authoring/context.js";
 import { ensureDir, fileExists, writeJsonFile, writeTextFile } from "./fs.js";
 import { validateProjectManifestPolicy } from "./project-manifest-policy.js";
@@ -317,6 +321,7 @@ export function renderCodexStudioPromptPack(input: { slug: string; title: string
 - Canonical presentation styles: projects/${input.slug}/workspace/styles.css
 - Studio authoring driver: direct-workspace-v1
 - Studio editing: enabled
+- Studio editability profile: studio-routine-content-v1
 
 ## Authoring rules
 
@@ -326,12 +331,13 @@ export function renderCodexStudioPromptPack(input: { slug: string; title: string
 - Give durable content \`data-canvas-helper-edit-key\` values before adding repeated or reorderable sections.
 - Add assets under \`workspace/assets/\` or use Studio's validated image upload workflow.
 - Never edit \`raw/\` or \`exports/\`; they are baseline and generated boundaries.
+- Keep the versioned \`authoring.editabilityContract\`; CI remeasures this course whenever its governed project or resource boundary changes.
 
 ## Completion gate
 
 - \`npm run course:doctor -- --project ${input.slug}\`
 - \`npm run verify -- --project ${input.slug} --mode workspace\`
-- Open the course in Studio, confirm the Edit map, apply one reversible draft, reload, and Undo.
+- The automatic new-course readiness gate must pass complete learner inventory, rendered 90% block/text coverage, promised category/capability floors, and one apply/reload/Undo lifecycle.
 - Add a project-specific E2E contract when the course gains navigation, assessments, persistence, or other learner interactions.
 `;
 }
@@ -381,6 +387,10 @@ function buildManifest(input: {
         enabled: true,
         renameCourse: true,
         imageAssets: true
+      },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
       }
     },
     injectedComponents: [],

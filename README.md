@@ -40,6 +40,7 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run course:list -- --all` (all source-backed projects plus package/archive classifications)
 - `npm run course:onboard -- --all [--apply]` (audit or transactionally onboard the existing catalog)
 - `npm run verify:course-onboarding -- --all` (rendered reversible catalog acceptance)
+- `npm run verify:new-course-readiness -- --base <comparison-sha>` (automatic exact-head gate for every new, activated, or governed course; CI supplies the base)
 - `npm run report:course-editability -- --all [--allow-incomplete]` (read-only rendered element coverage; incomplete inventories receive no percentage)
 - `npm run test:course-editability` (learner-surface, browser-isolation, scoring, and report-digest contracts)
 - `npm run test:studio-release` (complete, isolated Studio release gate)
@@ -103,6 +104,8 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 
 ## Create a Course in Codex and Open It in Studio
 
+As a user, you can simply ask Codex to make the course. You do not need to choose a fast path or remember the commands below; they document the workflow Codex and CI use automatically.
+
 For a net-new course authored from scratch, start with the repository contract instead of copying an older project:
 
 ```bash
@@ -113,18 +116,19 @@ npm run course:create -- \
   --summary "Learners investigate evidence, make decisions, and explain their reasoning."
 ```
 
-The command creates a validated `generated-course` project with canonical HTML and CSS, an immutable raw baseline, a prompt pack, and an explicitly enabled `direct-workspace-v1` authoring contract. It never overwrites an existing project. If Studio is already open, the new course appears in the picker automatically; opening **Edit** immediately shows the live visual map of Rename, text, link, and image targets.
+The command creates a validated `generated-course` project with canonical HTML and CSS, an immutable raw baseline, a prompt pack, an explicitly enabled `direct-workspace-v1` authoring contract, and the versioned `studio-routine-content-v1` acceptance profile. It never overwrites an existing project. If Studio is already open, the new course appears in the picker automatically; opening **Edit** immediately shows the live visual map of Rename, text, link, and image targets.
 
 Continue course development in `projects/<slug>/workspace/`. Keep normal teacher-editable content in the HTML, use `data-canvas-helper-edit-key` on durable elements, and use `data-canvas-helper-course-title` on every course-name surface that Rename must synchronize. JavaScript can add behavior, but content it replaces at runtime becomes visibly **Annotation only** because Studio cannot safely prove where to persist it.
 
-Before handing off a new course, run:
+Before handoff, Codex runs the focused checks below. The change-aware CI gate then independently renders every declared learner surface, requires at least 90% block and teacher-text coverage plus the promised category/capability floors, and performs a real Apply → reload → Undo cycle against the exact commit.
 
 ```bash
 npm run course:doctor -- --project <slug>
 npm run verify -- --project <slug> --mode workspace
+npm run test:new-course-readiness
 ```
 
-Then open it in Studio, inspect the Edit map, apply one reversible draft, reload, and Undo. Courses imported from Brightspace or built through the English/Social factories keep their owning intake and rebuild workflows; this command is the default for courses created from scratch in Codex.
+Courses imported from Brightspace or built through the English/Social factories keep their owning intake and rebuild workflows. A fresh English factory or Social factory course receives the same versioned readiness obligation; a generic import or unresolved legacy source starts `blocked` and is not silently treated as Studio-ready. Only activation after complete inventory, rendered coverage, and reversible lifecycle proof is accepted.
 
 ## Bring an Existing Course Catalog Into Studio
 
@@ -138,7 +142,7 @@ npm run verify:course-onboarding -- --all
 
 The onboarding workflow never equates “has HTML” with “safe to edit.” It assigns an explicit Direct, English factory, Social factory, preserved legacy snapshot, blocked, reference-only, or package-archive outcome. A legacy snapshot keeps the current workspace as the protected learner baseline, stores Studio changes as replayable course overrides, and quarantines any old builder that could replace those changes. Package-only directories remain accounted for without pretending an export is source.
 
-The current catalog outcome and exceptions are recorded in [docs/audits/2026-08-13-course-catalog-onboarding.md](docs/audits/2026-08-13-course-catalog-onboarding.md). Future imported projects and courses created through `course:create` receive explicit Studio ownership at creation, so this bulk migration should not become a recurring manual catch-up step.
+The current catalog outcome and exceptions are recorded in [docs/audits/2026-08-13-course-catalog-onboarding.md](docs/audits/2026-08-13-course-catalog-onboarding.md). Courses created through `course:create` receive explicit Studio ownership at creation. Future imports begin blocked and must prove ownership plus readiness before activation, so previewability cannot silently recreate the legacy catch-up problem.
 
 Element coverage is a separate read-only measurement and never grants edit authority. `report:course-editability` uses adapter-owned page/route/state inventories, a rendered Chromium semantic collector, and the production Resolve path. Runtime-created content remains in the denominator; missing states, browser-state writes, truncation, time/memory limits, or repository drift make the affected score null. Run the command only while other builders, Git operations, Studio Apply, and course writers are idle so its before/after residue proof can be publishable.
 

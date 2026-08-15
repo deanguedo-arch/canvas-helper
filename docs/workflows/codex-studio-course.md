@@ -2,6 +2,8 @@
 
 Use this workflow for a net-new learner course authored from scratch in Codex. The outcome is a canonical course that opens in Studio immediately and keeps routine teacher changes directly editable.
 
+The teacher does not have to choose this workflow, know `FAST_PATHS.md`, or run these commands. “Make me a course” is enough: Codex selects this contract automatically for a from-scratch course and uses the owning English/Social workflow when that family is explicitly requested.
+
 Do not use it to ingest an existing Brightspace course or to create an English/Social factory unit. Those workflows have separate source ownership and rebuild contracts.
 
 ## 1. Create the project contract first
@@ -25,6 +27,8 @@ The command refuses unsafe slugs and existing projects. It stages the complete p
 
 If Studio is running, the promoted course appears automatically in its picker.
 
+The manifest also declares the versioned `studio-routine-content-v1` editability profile. That marker is an obligation, not a flag that grants editing: the exact-head gate must still measure the finished rendered course and complete a reversible public-route lifecycle.
+
 ## 2. Author for both learners and teachers
 
 Develop the actual course only in its canonical workspace and declared assets. Preserve these conditions:
@@ -45,9 +49,12 @@ Interactive course code is allowed. The boundary is visible: source-owned suppor
 npm run course:doctor -- --project <slug>
 npm run verify -- --project <slug> --mode workspace
 npm run report:course-editability -- --project <slug>
+npm run test:new-course-readiness
 ```
 
-The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. The coverage report must have a complete learner inventory and retain the new-course block/text/category/capability floors exercised by `npm run test:codex-course`. Fix the canonical contract rather than forcing eligibility.
+The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. The coverage report must have a complete learner inventory and retain the new-course block/text/category/capability floors exercised by `npm run test:new-course-readiness`. Fix the canonical contract rather than forcing eligibility.
+
+CI then runs `verify:new-course-readiness` against the correct Git comparison base, repeats production rendered measurement, and uploads content-free exact-head evidence. The change-aware gate covers a newly added active course, a blocked course promoted to active, a safe adapter newly onboarded onto an older course, and every later project/resource change to a governed course.
 
 ## 4. Prove the real Studio lifecycle
 
@@ -61,6 +68,8 @@ The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership,
 
 Do not use Undo after Codex, a builder, or another tool changes the course; Studio will disable it when the boundary drifts.
 
+The CI lifecycle must return `pass`; a page map, no-target result, skipped checkpoint, or failed restoration does not satisfy new-course readiness.
+
 ## 5. Add interaction acceptance when needed
 
 When the course gains navigation, assessments, stored responses, conditional content, or other learner behavior, create `projects/<slug>/meta/e2e-contract.json` and run:
@@ -70,6 +79,8 @@ npm run test:e2e:project -- --project <slug>
 ```
 
 Package and cross-browser persistence acceptance remain separate export-stage gates.
+
+Generic imports and unresolved legacy sources start `blocked`. They can be previewed, inspected, and migrated, but previewability alone cannot make them active or Studio-editable. Direct, English factory, and Social factory output becomes active only with the same versioned contract and the same measured gate.
 
 ## Changing ownership later
 

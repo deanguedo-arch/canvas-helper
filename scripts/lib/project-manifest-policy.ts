@@ -6,7 +6,10 @@ import type {
   ProjectType,
   WorkflowType
 } from "./types.js";
-import { isProjectLearnerSurfacesV1 } from "../../app/shared/course-editability.js";
+import {
+  isProjectLearnerSurfacesV1,
+  isProjectStudioEditabilityContractV1
+} from "../../app/shared/course-editability.js";
 
 const PROJECT_TYPES = new Set<ProjectType>(["conversion", "generated-course", "hybrid"]);
 const WORKFLOW_TYPES = new Set<WorkflowType>(["conversion", "generated-course", "injection/integration"]);
@@ -196,13 +199,17 @@ function normalizeAuthoringContract(value: unknown): ProjectManifest["authoring"
   const learnerSurfaces = isProjectLearnerSurfacesV1(record.learnerSurfaces)
     ? record.learnerSurfaces
     : undefined;
+  const editabilityContract = isProjectStudioEditabilityContractV1(record.editabilityContract)
+    ? record.editabilityContract
+    : undefined;
   return {
     driverId: driverId as NonNullable<ProjectManifest["authoring"]>["driverId"],
     ...(familyId ? { familyId } : {}),
     ...(sourceResourceIds.length > 0 ? { sourceResourceIds } : {}),
     ...(qualityProfile ? { qualityProfile } : {}),
     ...(studioEditing ? { studioEditing } : {}),
-    ...(learnerSurfaces ? { learnerSurfaces } : {})
+    ...(learnerSurfaces ? { learnerSurfaces } : {}),
+    ...(editabilityContract ? { editabilityContract } : {})
   };
 }
 
@@ -273,6 +280,26 @@ export function validateProjectManifestPolicy(manifest: ProjectManifest): Projec
     !normalized.authoring?.learnerSurfaces
   ) {
     errors.push("`authoring.learnerSurfaces` is present but does not match the versioned learner-surface contract.");
+  }
+
+  if (
+    manifest.authoring &&
+    Object.hasOwn(manifest.authoring, "editabilityContract") &&
+    !normalized.authoring?.editabilityContract
+  ) {
+    errors.push("`authoring.editabilityContract` is present but does not match a supported versioned Studio editability profile.");
+  }
+
+  if (normalized.authoring?.editabilityContract) {
+    if (normalized.authoring.studioEditing?.enabled !== true) {
+      errors.push("A Studio editability contract requires `authoring.studioEditing.enabled: true`.");
+    }
+    if (
+      normalized.authoring.driverId === "legacy-snapshot-v1" ||
+      normalized.authoring.driverId === "proposal-only-v1"
+    ) {
+      errors.push("A new-course Studio editability contract cannot use a legacy snapshot or proposal-only driver.");
+    }
   }
 
   if (requiresSourceOfTruth(normalized.authoringStatus)) {

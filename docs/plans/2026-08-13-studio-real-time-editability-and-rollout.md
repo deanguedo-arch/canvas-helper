@@ -46,7 +46,7 @@ The first independent review of this plan agreed with that direction but returne
 | Phase 0.5 contracts | Versioned schemas and normative safety/measurement rules | Implemented; independent implementation audit pending |
 | Phase 1 census | Adapter inventory, rendered semantic collector, Resolve parity, deterministic report, residue proof | Implemented; exact-head all-catalog CI artifact pending |
 | Phase 2 live preview | Server canonicalization, inert overlay, ordered bridge, saved-draft reopen, memory-only images | Implemented; local focused E2E green |
-| Phase 3 new-course contract | Fresh generated course includes standard editable blocks and intentional runtime-only boundary | Implemented; threshold contract green |
+| Phase 3 new-course contract | Fresh generated course includes standard editable blocks and intentional runtime-only boundary; change-aware exact-head policy covers creation, activation, and later governed edits | Implemented; local policy/threshold/lifecycle contracts green, exact-head job pending |
 | Phase 4 legacy migration | All 63 authorable courses explicitly onboarded; incomplete state inventories remain a ranked queue | Partial |
 | Phase 5 teacher rollout | Quantitative protocol defined | Not started; requires real teachers |
 
@@ -124,19 +124,21 @@ Image preview uses a validation-only service. Validated encoded bytes remain in 
 
 ## New-course authoring contract
 
-Every course created through npm run course:create should be designed for high routine-content coverage from its first commit.
+Every course created through `npm run course:create` is designed for high routine-content coverage from its first commit. The user does not need to select that command: Codex routes a from-scratch request to it automatically, while explicit English and Social families keep their owning factories.
 
-Planned contract additions:
+Implemented contract:
 
-- a versioned Studio-authoring contract in project.json;
+- a versioned `studio-routine-content-v1` Studio-authoring contract in `project.json`;
 - durable canonical edit keys for repeated blocks;
 - source-owned standard blocks for headings, prose, links, images, captions, cards, callouts, and tables;
 - runtime interactions that consume declared content data rather than replacing source text invisibly;
-- a creation-time coverage check with a 90% routine-content target;
-- one generated project E2E contract proving preview, Save draft, Apply, reload, and Undo;
+- a change-aware exact-head gate with a 90% routine-content target that covers new active manifests, activation/onboarding transitions, and later changes to governed project/resource boundaries;
+- a real HTTP Apply, learner reload, and exact Undo restoration pilot for each course admitted by the gate; the separate four-adapter release pilots retain the server-restart boundary;
 - a clear Annotation-only reason for custom code outside the block contract.
 
 The target is not 100% of the DOM. It is at least 90% of ordinary teacher-authored content, with 100% honest classification.
+
+Generic imports and unresolved legacy sources begin or remain `blocked`. They can be previewed without being mislabeled as active Studio-ready courses. Existing catalog courses at the policy-inception commit remain explicit migration work; the gate does not retroactively manufacture percentages for them.
 
 ## Legacy-course migration strategy
 

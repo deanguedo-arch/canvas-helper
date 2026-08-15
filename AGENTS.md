@@ -32,6 +32,8 @@ Goals:
 - expand depth, hierarchy, navigation, and interaction quality
 - produce coherent export-ready modules
 
+For a net-new course, the user only needs to ask for the course. The agent must route creation through the Studio-aware course or owning factory workflow automatically; do not make the user choose an internal fast path or remember a verification command. A newly created or newly activated `active`/`ready-for-export` course is not complete until the automatic new-course readiness gate proves its versioned editability contract, complete learner inventory, rendered routine-content thresholds, and reversible Studio lifecycle. Imported or unresolved legacy material must remain `blocked` until that proof exists.
+
 ### 3) `injection/integration`
 
 Use for externally generated interactive activities inserted into existing course surfaces.
@@ -151,6 +153,7 @@ Every project must treat artifact roles explicitly:
 - Direct bundle/runtime patching is emergency-only.
 - Any emergency runtime patch must be documented in project metadata and handoff output.
 - Reference-only files must be declared so they are not mistaken for active execution paths.
+- Every newly created or newly activated active course must declare `authoring.editabilityContract: { schemaVersion: 1, profileId: "studio-routine-content-v1" }` and pass `npm run verify:new-course-readiness`; removing the contract or changing a governed project/resource boundary causes the same gate to rerun.
 
 ## Project Metadata Standard
 
@@ -393,6 +396,7 @@ When creating or reshaping UI artifacts:
 ## Verification Floor
 
 - Run the smallest meaningful set of checks for the touched area.
+- For a net-new course or a change to a governed new course, run `npm run test:new-course-readiness` and the automatic `verify:new-course-readiness` exact-head gate. Direct, English factory, and Social factory courses may become active only after it passes; imported, proposal-only, and unresolved legacy work remains blocked.
 - For repo-wide architecture or governance changes, the minimum floor is:
   - `npm.cmd run typecheck`
   - `npm.cmd run build:studio`

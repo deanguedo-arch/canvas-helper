@@ -18,6 +18,8 @@ test("every package script entrypoint under scripts resolves to a real file", as
     "context:project",
     "test:course-onboarding",
     "verify:course-onboarding",
+    "test:new-course-readiness",
+    "verify:new-course-readiness",
     "test:studio-release"
   ]) {
     assert.equal(typeof scripts[requiredName], "string", `${requiredName} must be advertised in package.json`);

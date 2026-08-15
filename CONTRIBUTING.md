@@ -25,6 +25,7 @@ Examples:
 - Small UI-only changes: `npm.cmd run typecheck`
 - Studio/server changes: `npm.cmd run typecheck` and `npm.cmd run build:studio`
 - Codex-to-Studio course creation changes: `npm run test:codex-course`, the focused live-discovery browser scenario, `npm.cmd run build:studio`, and `npm.cmd run typecheck`
+- New or newly activated course changes: `npm run test:new-course-readiness` plus the exact-head `npm run verify:new-course-readiness -- --base <comparison-sha>` gate; CI supplies the base SHA and retains the coverage/lifecycle evidence artifact
 - Course-catalog onboarding changes: `npm run test:course-onboarding`, a retain-only `npm run course:onboard -- --all`, `npm run verify:course-onboarding -- --all`, focused Studio tests, and `npm.cmd run typecheck`
 - Course-editability census changes: `npm run test:course-editability`, an inventory-only all-catalog report, one rendered representative report, and the exact-head all-catalog CI artifact; do not run repository writers during a residue-proof census
 - Studio direct-edit changes: `npm run test:course-editing`, `npm run test:studio-inspection`, `npm run verify:course-editing-pilots`, the focused direct-edit browser scenario, and the complete Studio release gate before publishing
@@ -75,7 +76,8 @@ A task is done when:
 - shared Studio releases have a current `docs/releases/` note and a passing machine-readable `.runtime/studio-release-report.json`
 - risks and next steps are explicit
 - the resulting handoff is actionable for the next operator
-- a net-new course authored from scratch in Codex was created with `npm run course:create`, passes `course:doctor` and workspace verification, and completed one visual Edit-map plus reversible apply/reload/Undo check
+- a net-new or newly activated active course declares `studio-routine-content-v1` and passes the automatic new-course gate: valid ownership, complete learner inventory, rendered 90% block/text coverage, promised category/capability floors, and one reversible apply/reload/Undo lifecycle
+- imported or unresolved legacy material remains `blocked` until that same proof exists; previewability is not active Studio readiness
 - a legacy catalog change has an explicit outcome for every project directory, leaves package-only artifacts non-authorable, and completes a rendered reversible catalog verification without learner-content residue
 
 ## Avoid Oversized Changes

@@ -4,6 +4,11 @@ import path from "node:path";
 
 import JSZip from "jszip";
 
+import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../app/shared/course-editability.js";
+
 import { getStringFlag, parseArgs } from "./lib/cli.js";
 import { writeEnglishLearnerE2EContract } from "./lib/english-unit/e2e-contract.js";
 import { buildEnglishFactoryProject } from "./lib/english-unit/factory-build.js";
@@ -353,7 +358,7 @@ async function writeProjectMetadata(input: {
   if (!(await fileExists(promptPackPath))) {
     await writeFile(
       promptPackPath,
-      `# ${input.recipe.courseCode} ${input.recipe.courseTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: short-fiction golden profile\n- Exact Brightspace unit: ${input.recipe.source.brightspaceUnitId}\n- Canonical recipe: projects/${input.args.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.args.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.args.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.args.projectSlug}\n\n## Source authority\n\nThe teacher/SPO archive controls the unit organization, assigned texts, and question sets. Brightspace supplies instructional lesson content. The finished Short Stories course supplies the visual and interaction baseline.\n\n## Authoring boundary\n\nEdit the recipe or reusable English renderers for durable decisions; put bespoke code or data under the preserved custom paths. The staged build may replace only declared generated paths.\n\n## Review blocker\n\n- Review the content mapping before changing the project to ready-for-export.\n\nFinal SCORM packaging remains blocked until the project is ready-for-export and project E2E passes.\n`,
+      `# ${input.recipe.courseCode} ${input.recipe.courseTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: short-fiction golden profile\n- Exact Brightspace unit: ${input.recipe.source.brightspaceUnitId}\n- Canonical recipe: projects/${input.args.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.args.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.args.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.args.projectSlug}\n- Studio editability profile: studio-routine-content-v1\n\n## Source authority\n\nThe teacher/SPO archive controls the unit organization, assigned texts, and question sets. Brightspace supplies instructional lesson content. The finished Short Stories course supplies the visual and interaction baseline.\n\n## Authoring boundary\n\nEdit the recipe or reusable English renderers for durable decisions; put bespoke code or data under the preserved custom paths. The staged build may replace only declared generated paths. The automatic new-course gate must pass before a newly created active unit is accepted.\n\n## Review blocker\n\n- Review the content mapping before changing the project to ready-for-export.\n\nFinal SCORM packaging remains blocked until the project is ready-for-export and project E2E passes.\n`,
       "utf8"
     );
   }
@@ -384,6 +389,16 @@ async function writeProjectMetadata(input: {
     ],
     generatedOutputs: [],
     regenerateCommand: `npm run build:english-unit -- --project ${input.args.projectSlug}`,
+    authoring: existing.authoring ?? {
+      driverId: "english-factory-v1",
+      familyId: "english-unit",
+      qualityProfile: "english-unit",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      }
+    },
     importedFirstPassOrigin: {
       sourceSystem: "brightspace",
       sourcePath: input.brightspaceRawPath,

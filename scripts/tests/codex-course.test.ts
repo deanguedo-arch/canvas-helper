@@ -6,6 +6,10 @@ import test from "node:test";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.ts";
 import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../../app/shared/course-editability.ts";
+import {
   COURSE_EDIT_SCHEMA_VERSION,
   type CourseEditDraft,
   type CourseEditResolveRequest,
@@ -125,6 +129,10 @@ test("Codex creates a declared Direct course that is immediately Studio-ready", 
       enabled: true,
       renameCourse: true,
       imageAssets: true
+    });
+    assert.deepEqual(manifest.authoring?.editabilityContract, {
+      schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+      profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
     });
     assert.deepEqual(manifest.authoring?.learnerSurfaces, {
       schemaVersion: 1,

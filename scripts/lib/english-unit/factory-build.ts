@@ -6,6 +6,11 @@ import path from "node:path";
 import JSZip from "jszip";
 
 import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../../../app/shared/course-editability.js";
+
+import {
   renderEnglishActivityProfile,
   type EnglishActivityProfile,
   type EnglishMaterialHook,
@@ -473,7 +478,7 @@ async function writeMetadata(input: {
       .join(", ");
     await writeFile(
       promptPackPath,
-      `# ${input.recipe.courseCode} ${input.recipe.unitTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: ${input.recipe.activityProfile.kind} (${input.recipe.profileVersion})\n- Exact included Brightspace IDs: ${includedIds}\n- Exact excluded Brightspace IDs: ${excludedIds || "none"}\n- Canonical recipe: projects/${input.recipe.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.recipe.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.recipe.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.recipe.projectSlug}\n\n## Authoring boundary\n\nEdit the recipe for source, placement, profile, or wording decisions. Put bespoke activity code or data under the preserved custom paths. The factory owns index.html and assets/generated; do not patch exports.\n\n## Review blockers\n\n${input.recipe.acceptance.reviewItems.map((item) => `- ${item}`).join("\n")}\n\nFinal SCORM packaging remains blocked until the recipe is ready-for-export and project E2E passes.\n`,
+      `# ${input.recipe.courseCode} ${input.recipe.unitTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: ${input.recipe.activityProfile.kind} (${input.recipe.profileVersion})\n- Exact included Brightspace IDs: ${includedIds}\n- Exact excluded Brightspace IDs: ${excludedIds || "none"}\n- Canonical recipe: projects/${input.recipe.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.recipe.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.recipe.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.recipe.projectSlug}\n- Studio editability profile: studio-routine-content-v1\n\n## Authoring boundary\n\nEdit the recipe for source, placement, profile, or wording decisions. Put bespoke activity code or data under the preserved custom paths. The factory owns index.html and assets/generated; do not patch exports. The automatic new-course gate must pass before a newly created active unit is accepted.\n\n## Review blockers\n\n${input.recipe.acceptance.reviewItems.map((item) => `- ${item}`).join("\n")}\n\nFinal SCORM packaging remains blocked until the recipe is ready-for-export and project E2E passes.\n`,
       "utf8"
     );
   }
@@ -520,6 +525,16 @@ async function writeMetadata(input: {
     ],
     generatedOutputs: [],
     regenerateCommand: `npm run build:english-unit -- --project ${input.recipe.projectSlug}`,
+    authoring: existing.authoring ?? {
+      driverId: "english-factory-v1",
+      familyId: "english-unit",
+      qualityProfile: "english-unit",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      }
+    },
     importedFirstPassOrigin: {
       sourceSystem: "brightspace",
       sourcePath: input.brightspacePath,
