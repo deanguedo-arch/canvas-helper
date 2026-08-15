@@ -10,7 +10,8 @@ import {
   COURSE_EDITABILITY_ISOLATION_PROFILE_VERSION,
   COURSE_EDITABILITY_REASON_REGISTRY_VERSION,
   type CourseEditabilityCoverageReport,
-  type CourseEditabilityResidueProof
+  type CourseEditabilityResidueProof,
+  type LearnerSurface
 } from "../../../app/shared/course-editability.js";
 import { resolveLearnerSurfaceInventory } from "./inventory.js";
 import { listCourseEditabilityProjectSlugsReadOnly } from "./read-only-project.js";
@@ -109,6 +110,36 @@ export type BuildCourseEditabilityReportOptions = {
   onProjectStart?: (projectSlug: string, index: number, total: number) => void;
 };
 
+export type CourseEditabilitySurfaceCollector = {
+  collect(
+    surface: LearnerSurface,
+    declaredSurfaces?: readonly LearnerSurface[]
+  ): Promise<RenderedSurfaceCollection>;
+};
+
+export async function collectCourseEditabilitySurfaces(
+  collector: CourseEditabilitySurfaceCollector,
+  surfaces: readonly LearnerSurface[],
+  maximumWorkers = COURSE_EDITABILITY_RENDER_LIMITS.maximumWorkers
+): Promise<RenderedSurfaceCollection[]> {
+  if (!surfaces.length) return [];
+  const workerCount = Math.min(
+    surfaces.length,
+    Math.max(1, Math.floor(maximumWorkers))
+  );
+  const collections = new Array<RenderedSurfaceCollection>(surfaces.length);
+  let nextIndex = 0;
+  const workers = Array.from({ length: workerCount }, async () => {
+    while (nextIndex < surfaces.length) {
+      const index = nextIndex;
+      nextIndex += 1;
+      collections[index] = await collector.collect(surfaces[index], surfaces);
+    }
+  });
+  await Promise.all(workers);
+  return collections;
+}
+
 export async function buildCourseEditabilityReport(
   options: BuildCourseEditabilityReportOptions
 ): Promise<CourseEditabilityCoverageReport> {
@@ -131,11 +162,9 @@ export async function buildCourseEditabilityReport(
       options.onProjectStart?.(projectSlug, index + 1, slugs.length);
       const inventoryResult = await resolveLearnerSurfaceInventory(projectSlug, repoRoot);
       const { adapter, ...inventory } = inventoryResult;
-      const collections: RenderedSurfaceCollection[] = [];
+      let collections: RenderedSurfaceCollection[] = [];
       if (inventory.complete && collector) {
-        for (const surface of inventory.surfaces) {
-          collections.push(await collector.collect(surface, inventory.surfaces));
-        }
+        collections = await collectCourseEditabilitySurfaces(collector, inventory.surfaces);
       }
       projects.push(scoreProject({ projectSlug, adapter, inventory, collections }));
     }

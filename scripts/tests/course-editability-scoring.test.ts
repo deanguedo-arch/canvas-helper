@@ -10,6 +10,7 @@ import type {
 import type { RenderedSurfaceCollection } from "../lib/course-editability/rendered.ts";
 import {
   canonicalCourseEditabilityJson,
+  collectCourseEditabilitySurfaces,
   courseEditabilityReportDigest
 } from "../lib/course-editability/report.ts";
 import {
@@ -199,4 +200,30 @@ test("canonical report JSON and digest are deterministic across object insertion
   const reordered = JSON.parse(JSON.stringify(report)) as typeof report;
   assert.equal(courseEditabilityReportDigest(report), courseEditabilityReportDigest(reordered));
   assert.match(courseEditabilityReportDigest(report), /^[a-f0-9]{64}$/);
+});
+
+test("rendered census honors its worker limit and preserves declared surface order", async () => {
+  const surfaces = Array.from({ length: 5 }, (_, index): LearnerSurface => ({
+    ...surface,
+    surfaceId: `ls1:${String(index + 1).padStart(24, "0")}`,
+    route: `#lesson-${index + 1}`
+  }));
+  let active = 0;
+  let maximumActive = 0;
+  const declaredCounts: number[] = [];
+  const collector = {
+    async collect(learnerSurface: LearnerSurface, declaredSurfaces: readonly LearnerSurface[] = []) {
+      active += 1;
+      maximumActive = Math.max(maximumActive, active);
+      declaredCounts.push(declaredSurfaces.length);
+      await new Promise((resolve) => setTimeout(resolve, learnerSurface.route === "#lesson-1" ? 20 : 2));
+      active -= 1;
+      return collection([], learnerSurface);
+    }
+  };
+
+  const result = await collectCourseEditabilitySurfaces(collector, surfaces);
+  assert.equal(maximumActive, 2);
+  assert.deepEqual(declaredCounts, [5, 5, 5, 5, 5]);
+  assert.deepEqual(result.map((entry) => entry.surface.surfaceId), surfaces.map((entry) => entry.surfaceId));
 });
