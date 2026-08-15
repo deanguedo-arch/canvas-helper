@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Implement safe real-time Studio preview, honest element-level editability measurement, new-course defaults, and a complete independent-audit packet.
-- Status: ready for independent validation
+- Status: implementation complete; corrected exact-head CI rerun required before independent release verdict
 
 ## Publication and review state
 
@@ -11,7 +11,8 @@
 - Accepted Direct Editing baseline: `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`
 - First plan-audit head/verdict: `a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a` — **REQUEST CHANGES**
 - Published implementation commit: `ef72243e1c7039bc8c7778a33dadf44c61947d60`
-- The audit handoff also raises the GitHub job timeout from 90 to 180 minutes because the exhaustive rendered census can consume roughly 75 minutes before later pilot/catalog steps; test scope is unchanged.
+- Census orchestration correction: `801330bee7f4ce17ebea37b828ef6791d8c37a54`
+- Exact-head push run `31841579002` and PR run `31841583574` passed every pre-census gate but hit the 180-minute job limit after reaching projects 55 and 57 of 65. The collector declared a two-worker ceiling but the report loop was still serial. `801330be` now uses exactly that bounded concurrency while preserving canonical output order, per-surface isolation, the denominator, and failure semantics.
 - Implementation audit packet: `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`
 - PR #1 remains open, mergeable, ready for review, and unmerged. Merge remains a repository-owner action.
 - Implementation-only PR run `31840471429` and push run `31840465755` began for `ef72243e` and were superseded by the audit/CI-only descendant. Use the PR checks and uploaded artifact from the final branch head as the authority.
@@ -19,6 +20,7 @@
 ## Summary
 
 - Implemented adapter-owned learner-surface inventories, a mutation-prohibited project reader, rendered semantic collection, production Resolve parity, non-overlapping block/text/capability metrics, stable reason codes, canonical report digests, and repository residue proof.
+- Corrected the all-catalog report scheduler to honor its existing two-worker limit; no Edit authority, scoring, preview, Apply, or course source behavior changed.
 - Implemented immediate server-normalized inert overlays in embedded Studio and Full Preview. The learner subtree and course files remain unchanged while typing and through Save.
 - Added preview sessions, monotonic revisions, source/target/digest binding, closed-generation behavior, acknowledgement latency, complete reset handling, and screenshot/Review Set protection while an unapplied overlay is visible.
 - Added fully decoded, bounded, memory-only image preview. Apply is the first asset write and materializes the exact bytes inside the existing lock/checkpoint/journal/rebuild/render/Undo transaction.
@@ -40,7 +42,7 @@
 
 ## Verification run
 
-- `npm run test:course-editability` — 16/16 passed.
+- `npm run test:course-editability` — 17/17 passed, including bounded concurrency and deterministic result-order coverage.
 - `npm run test:studio-inspection` — 154/154 passed.
 - `npm run verify:course-editing-pilots` — 4/4 real adapters passed Apply/rebuild/render/reload/restart/Undo and byte restoration.
 - `npm run verify:course-onboarding -- --all` — 63/63 enabled projects passed; temporary rejected/safe edits restored.
@@ -51,6 +53,8 @@
 - Focused What’s New rerun — 2/2 passed after binding the test to the canonical release manifest.
 - Exact `ef72243e` inventory-only census — 57/65 complete, residue proof passed; five snapshot gaps, two unsupported drivers, one missing route inventory.
 - Stable representative rendered census — `e2e-fixture` 13/21 blocks, 315/445 teacher-text code units, residue proof passed.
+- Real 30-surface concurrency smoke — `ela30-1-short-stories` completed coverage and residue proof; 481/1,094 blocks and 29,591/59,035 teacher-text code units. This is project evidence, not a catalog percentage.
+- Exact-head runs `31841579002` and `31841583574` — pre-census gates passed; both were cancelled at the 180-minute job ceiling because the 730-surface census was serial. Later pilots were skipped and only the Studio release report was uploaded. They are failure evidence, not release evidence.
 - First all-catalog rendered diagnostic reached 65/65 but correctly exited nonzero and nulled aggregate coverage because an independent builder changed many course boundaries during the run. It is not release evidence.
 - `git diff --check` — passed.
 - `npm run typecheck -- --pretty false` — exited 2 with the established ten unrelated diagnostics in legacy builders/factory files; none is in the implementation files.
@@ -63,14 +67,15 @@
 - Measurement implementation: `app/shared/course-editability.ts` and `scripts/lib/course-editability/`.
 - Preview/Apply authority: `app/server/lib/course-edit-preview.ts`, `course-edit-preview-assets.ts`, `course-editing.ts`, and `app/shared/preview-bridge.ts`.
 - Teacher workflow: `app/studio/src/hooks/useCourseEditing.ts`, `CourseEditPanel.tsx`, `App.tsx`, and `app/server/preview-bridge-runtime.ts`.
-- Published implementation: commit `ef72243e1c7039bc8c7778a33dadf44c61947d60`.
+- Product implementation: commit `ef72243e1c7039bc8c7778a33dadf44c61947d60`.
+- Census scheduler correction: commit `801330bee7f4ce17ebea37b828ef6791d8c37a54`.
 
 ## Fragile areas / what might drift
 
 - The 57/65 learner inventory result is exact for `ef72243e`; custom runtime route/tab/module declarations can change it and must be remeasured.
 - `aboriginal-studies-30`, four nonstandard English snapshots, `genpsy-studio`, the disabled CALM project, and the secondary test fixture remain explicitly incomplete for census purposes.
 - Blocked storage attempts invalidate an individual surface; they are not persistent browser residue because fresh non-persistent contexts close before repository proof.
-- The all-catalog rendered census is intentionally long. Any builder, Git mutation, Studio Apply, or manual writer during it must invalidate its residue proof.
+- The all-catalog rendered census still opens 730 declared surfaces. It now uses at most two isolated contexts concurrently; any builder, Git mutation, Studio Apply, or manual writer during it must still invalidate residue proof.
 - The filesystem lock remains cooperative for participating writers; arbitrary external writers must not race Direct Apply.
 - Memory-only pending images intentionally require re-upload after expiry/server restart.
 - Local render settlement and edited-target accessibility checks remain bounded; they are not delayed-interaction or full-WCAG proof.
@@ -78,7 +83,7 @@
 
 ## Next prompt should assume
 
-- Live preview, saved-draft reopen, transactional pending images, the census command, new-course threshold, and explicit catalog inventories exist at `ef72243e`.
+- Live preview, saved-draft reopen, transactional pending images, the census command, new-course threshold, and explicit catalog inventories exist at `ef72243e`; the bounded census scheduler is at `801330be`.
 - All 63 source-backed projects are onboarded for their declared safe adapter, but only 57/65 manifest inventories are currently complete for element-coverage measurement.
 - No publishable global element percentage exists while required inventories/surfaces are incomplete.
 - The first all-catalog local rendered run is deliberately non-authoritative because concurrent external writers tripped residue proof.
@@ -96,7 +101,7 @@
 ## Known risks / follow-up
 
 - A reviewer may find a census reconciliation, canonicalization, overlay, pending-asset, or reset mismatch not covered by existing tests; treat any P0/P1 as release-blocking.
-- Large exact-head census runtime is real because every candidate crosses production Resolve. Optimize only without changing the denominator or failure semantics.
+- Large exact-head census runtime is real because every candidate crosses production Resolve. `801330be` adds only the already-declared two-worker concurrency; further optimization must not change the denominator, isolation, canonical ordering, memory ceilings, or failure semantics.
 - Do not turn incomplete legacy states into “complete” through a bounded HTML scan, flag, generated-output patch, or unsafe historical builder.
 - Do not cite local 34/65 diagnostic completion as a percentage; use the clean exact-head artifact and retain null aggregate status while the catalog is incomplete.
 - PR #1 must not be merged without repository-owner authorization.

@@ -7,6 +7,8 @@
 - First plan-audit head: [`a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a`](https://github.com/deanguedo-arch/canvas-helper/commit/a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a)
 - Implementation commit to audit: [`ef72243e1c7039bc8c7778a33dadf44c61947d60`](https://github.com/deanguedo-arch/canvas-helper/commit/ef72243e1c7039bc8c7778a33dadf44c61947d60)
 - Implementation diff: [`a5645d2e…ef72243e`](https://github.com/deanguedo-arch/canvas-helper/compare/a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...ef72243e1c7039bc8c7778a33dadf44c61947d60)
+- Census scheduler correction to audit: [`801330bee7f4ce17ebea37b828ef6791d8c37a54`](https://github.com/deanguedo-arch/canvas-helper/commit/801330bee7f4ce17ebea37b828ef6791d8c37a54)
+- Scheduler-only diff: [`ef72243e…801330be`](https://github.com/deanguedo-arch/canvas-helper/compare/ef72243e1c7039bc8c7778a33dadf44c61947d60...801330bee7f4ce17ebea37b828ef6791d8c37a54)
 - Requested decision: independent implementation verdict; this document does not grade its own work
 
 ## Executive truth statement
@@ -37,7 +39,7 @@ The first real-time plan audit returned **REQUEST CHANGES**. It agreed with the 
 - message ordering and preview generations;
 - stable reasons, truncation behavior, quantitative rollout, and the Studio reset matrix.
 
-The normative response is [the Phase 0.5 contract](../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md). This audit asks whether commit `ef72243e` actually implements those contracts without weakening the independently accepted Direct Editing baseline.
+The normative response is [the Phase 0.5 contract](../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md). This audit asks whether commit `ef72243e` actually implements those contracts without weakening the independently accepted Direct Editing baseline, and whether the bounded scheduler correction at `801330be` changes any measurement or safety semantics.
 
 ## What is materially different now
 
@@ -63,6 +65,14 @@ The normative response is [the Phase 0.5 contract](../plans/2026-08-14-studio-re
 - Temporary image bytes are decoded, bounded, memory-only, and capability scoped until Apply.
 - `course:create` generates standard editable headings, prose, lists, links, an image/caption, synchronized course-name surfaces, and an explicit Annotation-only runtime practice control.
 - Exact Apply/rebuild/reload/restart/Undo pilots cover Direct, English factory, Social factory, and legacy snapshot adapters.
+
+### At `801330be`
+
+- The report loop honors the collector's existing maximum of two workers instead of opening all 730 declared surfaces serially.
+- Each surface still receives its complete adapter declaration, uses its own fresh browser context, and retains the same per-surface timeout, memory, network, storage, Resolve, and residue rules.
+- Results are written back by original surface index, preserving deterministic canonical order even when the second worker finishes first.
+- The regression test proves the worker ceiling and result ordering. A real 30-surface course smoke completed with a clean residue proof.
+- Preview, Apply, Undo, adapters, candidates, scoring, and course files are unchanged by this correction.
 
 ## Disposition of every plan-audit P1
 
@@ -186,11 +196,22 @@ A stable representative rerun after the storage/residue distinction was correcte
 
 Blocked browser storage writes invalidate their individual surface as `storage-write-attempt`. They are reported separately from persistent browser residue because every surface uses a fresh non-persistent context and the temporary browser profile is closed before the repository proof.
 
+### Exact-head CI timeout and scheduler correction
+
+Exact-head push run `31841579002` and PR run `31841583574` passed focused editing, census contracts, export contracts, and the complete Studio release gate. Both then hit the 180-minute job ceiling inside the rendered census:
+
+- the push run reached project 55 of 65;
+- the PR run reached project 57 of 65;
+- the four real-adapter pilots and 63-course acceptance were skipped;
+- artifact upload ran with only the already-complete Studio release report.
+
+The logs show route-heavy projects consuming 5–49 minutes each while their surfaces were processed one at a time. Commit `801330be` corrects that implementation error by honoring the already-published `maximumWorkers: 2` limit. It does not loosen timeouts, skip surfaces, raise memory ceilings, change scoring, or publish incomplete percentages. The cancelled runs are retained as failure evidence; only a later green exact-head report artifact can serve as release evidence.
+
 ## Local verification at the implementation commit
 
 | Command/evidence | Result |
 | --- | --- |
-| `npm run test:course-editability` | 16/16 passed |
+| `npm run test:course-editability` | 17/17 passed, including bounded two-worker scheduling and canonical result order |
 | `npm run test:studio-inspection` | 154/154 passed |
 | `npm run verify:course-editing-pilots` | 4/4 adapters passed, byte-for-byte restored |
 | `npm run verify:course-onboarding -- --all` | 63/63 enabled courses passed public-route acceptance |
@@ -199,6 +220,7 @@ Blocked browser storage writes invalidate their individual surface as `storage-w
 | `npm run test:studio-release` | 154 focused contracts, 58/58 inspection E2E, build, smoke, and strict project passed |
 | Focused What’s New E2E | 2/2 passed after binding title/count assertions to the canonical release manifest |
 | Representative rendered census | coverage complete; residue proof passed |
+| 30-surface rendered concurrency smoke | `ela30-1-short-stories` complete; residue proof passed; 481/1,094 blocks and 29,591/59,035 text units |
 | `git diff --check` | passed |
 | `npm run typecheck -- --pretty false` | exited 2 with the same ten unrelated established builder/factory diagnostics; none is in implementation files |
 
@@ -217,10 +239,12 @@ Each passed Apply, owning rebuild/materialization where applicable, learner-rend
 
 - `git fetch origin`
 - `git show --stat --oneline ef72243e1c7039bc8c7778a33dadf44c61947d60`
+- `git show --stat --oneline 801330bee7f4ce17ebea37b828ef6791d8c37a54`
 - `git diff --check a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...ef72243e1c7039bc8c7778a33dadf44c61947d60`
+- `git diff --check ef72243e1c7039bc8c7778a33dadf44c61947d60...801330bee7f4ce17ebea37b828ef6791d8c37a54`
 - `gh pr view 1 --json url,state,isDraft,mergeable,headRefOid,baseRefName,statusCheckRollup`
 
-If PR #1 has a later audit/CI-only head, audit implementation at `ef72243e` and separately verify that descendant changes only publish the audit handoff or extend the workflow timeout; they must not alter product behavior.
+Audit product behavior at `ef72243e`, then separately audit the report scheduler diff through `801330be`. If PR #1 has a later head, verify that remaining descendants only publish audit/handoff material; they must not alter product or measurement behavior.
 
 ### 2. Inspect the safety-critical diff
 
@@ -267,7 +291,7 @@ Expected behavior is not “everything green.” Expected behavior is:
 - no course text or local absolute path in the report;
 - identical exact-head inputs produce the same canonical evidence and digest when declared runtime outcomes are deterministic.
 
-The all-rendered command is intentionally long because it opens every declared route/state and resolves every candidate. Prefer the exact-head workflow artifact for independent evidence rather than weakening the collector.
+The all-rendered command is intentionally substantial because it opens every declared route/state and resolves every candidate. It may use at most the declared two isolated workers. Prefer the exact-head workflow artifact for independent evidence rather than weakening the collector.
 
 ### 5. Run the complete release gate
 
@@ -336,6 +360,8 @@ Severity meanings:
 - [PR #1](https://github.com/deanguedo-arch/canvas-helper/pull/1)
 - [Implementation commit `ef72243e`](https://github.com/deanguedo-arch/canvas-helper/commit/ef72243e1c7039bc8c7778a33dadf44c61947d60)
 - [Implementation comparison](https://github.com/deanguedo-arch/canvas-helper/compare/a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...ef72243e1c7039bc8c7778a33dadf44c61947d60)
+- [Census scheduler correction `801330be`](https://github.com/deanguedo-arch/canvas-helper/commit/801330bee7f4ce17ebea37b828ef6791d8c37a54)
+- [Scheduler-only comparison](https://github.com/deanguedo-arch/canvas-helper/compare/ef72243e1c7039bc8c7778a33dadf44c61947d60...801330bee7f4ce17ebea37b828ef6791d8c37a54)
 - [Accepted Direct Editing GREEN baseline](2026-08-13-studio-direct-editing-green-go-verdict.md)
 - [Original audit protocol](2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md)
 - [Phase 0.5 contracts](../plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md)
