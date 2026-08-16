@@ -1249,6 +1249,46 @@ test("Rename course synchronizes declared surfaces, validates, and remains safel
   }
 });
 
+test("factory Rename records a metadata-only boundary and rolls back when rebuild fails", async () => {
+  const fixture = await createFixture();
+  try {
+    const manifestPath = path.join(fixture.repoRoot, "projects", SLUG, "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
+    manifest.authoring = {
+      driverId: "legacy-snapshot-v1",
+      familyId: "legacy-snapshot",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+    };
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    const beforeConfiguredManifest = await readFile(manifestPath, "utf8");
+    const beforeHtml = await readFile(fixture.sourcePath, "utf8");
+
+    await assert.rejects(
+      renameCourseForStudio({
+        projectSlug: SLUG,
+        title: "Interrupted factory rename",
+        repoRoot: fixture.repoRoot,
+        hooks: {
+          runRebuild() { throw new Error("simulated factory rebuild failure"); }
+        }
+      }),
+      /simulated factory rebuild failure/i
+    );
+
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), beforeHtml);
+    assert.equal(await readFile(manifestPath, "utf8"), beforeConfiguredManifest);
+    await assert.rejects(
+      readFile(path.join(fixture.repoRoot, "projects", SLUG, "meta", "studio-course.json"), "utf8"),
+      { code: "ENOENT" }
+    );
+    const status = await getCourseEditStatus(SLUG, fixture.repoRoot);
+    assert.equal(status.available, true);
+    assert.equal(status.canUndo, false);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("export freshness is tied to workspace and artifact bytes with separate SCORM variants", async () => {
   const fixture = await createFixture();
   try {
@@ -1680,7 +1720,32 @@ test("generated override replay rejects parent and child edits from separate bat
 test("editing contracts reject browser-supplied paths and unsafe content", () => {
   assert.equal(sanitizeCourseEditRichText("<b>Good</b><iframe>bad</iframe>"), "<strong>Good</strong>");
   assert.throws(() => sanitizeCourseEditUrl("javascript:alert(1)", "href"), /unsupported/i);
+  for (const unsafe of [
+    "JaVaScRiPt:alert(1)",
+    "java\tscript:alert(1)",
+    "java\rscript:alert(1)",
+    "java\nscript:alert(1)",
+    "java%09script:alert(1)",
+    "java%250ascript:alert(1)",
+    "javascript%3Aalert(1)",
+    "//example.invalid/course.html",
+    "/outside.html",
+    "..%2foutside.html",
+    "%2e%2e/outside.html",
+    "..\\outside.html",
+    "%5coutside.html",
+    "relative%ZZ.html"
+  ]) {
+    assert.throws(() => sanitizeCourseEditUrl(unsafe, "href"), /control|unsupported|workspace|percent/i, unsafe);
+  }
   assert.throws(() => sanitizeCourseEditUrl("../outside.png", "src"), /cannot leave/i);
+  assert.throws(
+    () => sanitizeCourseEditRichText('<a href="java%09script:alert(1)">unsafe</a>'),
+    /control|unsupported/i
+  );
+  assert.equal(sanitizeCourseEditUrl("https://example.invalid/lesson", "href"), "https://example.invalid/lesson");
+  assert.equal(sanitizeCourseEditUrl("mailto:teacher@example.invalid", "href"), "mailto:teacher@example.invalid");
+  assert.equal(sanitizeCourseEditUrl("assets/photo%20one.png", "src"), "assets/photo%20one.png");
   assert.equal(isCourseEditApplyRequest({
     schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
     projectSlug: SLUG,

@@ -16,6 +16,7 @@ import {
   normalizeProjectManifestPolicy,
   validateProjectManifestPolicy
 } from "./project-manifest-policy.js";
+import { collectEnglishFactoryDependencyPaths } from "./english-unit/dependencies.js";
 import type { ProjectAuthoringStatus, ProjectManifest } from "./types.js";
 
 const execFileAsync = promisify(execFile);
@@ -105,16 +106,13 @@ async function governedManifestDependencies(
     ...(manifest.referenceOnly ?? []),
     manifest.importedFirstPassOrigin?.sourcePath
   ];
-  const recipePath = path.join(repoRoot, "projects", projectSlug, "meta", "english-unit.json");
-  try {
-    const recipe = JSON.parse(await readFile(recipePath, "utf8")) as {
-      source?: { brightspaceZip?: unknown; teacherResourcesZip?: unknown };
-    };
-    values.push(recipe.source?.brightspaceZip, recipe.source?.teacherResourcesZip);
-  } catch {}
-  return [...new Set(values
+  const manifestDependencies = values
     .map((value) => safeRepoRelativeDependency(repoRoot, value))
-    .filter((value): value is string => Boolean(value)))]
+    .filter((value): value is string => Boolean(value));
+  const factoryDependencies = manifest.authoring?.driverId === "english-factory-v1"
+    ? await collectEnglishFactoryDependencyPaths({ repoRoot, projectSlug })
+    : [];
+  return [...new Set([...manifestDependencies, ...factoryDependencies])]
     .sort(codePointCompare);
 }
 

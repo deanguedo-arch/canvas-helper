@@ -177,6 +177,153 @@ async function writeManifest(repoRoot: string, value: ProjectManifest) {
   await writeFile(manifestPath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
 }
 
+async function writeJson(filePath: string, value: unknown) {
+  await mkdir(path.dirname(filePath), { recursive: true });
+  await writeFile(filePath, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+}
+
+async function createEnglishDependencyFixture() {
+  const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-english-dependencies-"));
+  const sourceRoot = path.resolve();
+  const target = JSON.parse(await readFile(
+    path.join(sourceRoot, "projects", "ela20-2-short-stories", "meta", "english-unit.json"),
+    "utf8"
+  )) as Record<string, any>;
+  const donor = JSON.parse(await readFile(
+    path.join(sourceRoot, "projects", "ela20-1-short-stories-pilot", "meta", "english-unit.json"),
+    "utf8"
+  )) as Record<string, any>;
+  target.projectSlug = "english-target";
+  target.courseCode = "ELA 20-1";
+  target.courseTitle = "English Dependency Target";
+  target.unitTitle = "Dependency Target";
+  target.derivesFromProject = "english-donor";
+  target.source.brightspaceZip = "projects/english-target/raw/target.zip";
+  target.source.teacherResourcesZip = "projects/english-target/raw/teacher.zip";
+  target.source.lessonSelectors = [{ itemId: "donor:english-donor", title: "Donor lesson", disposition: "include" }];
+  donor.projectSlug = "english-donor";
+  donor.source.brightspaceZip = "projects/english-donor/raw/donor.zip";
+  donor.source.teacherResourcesZip = "projects/english-donor/raw/donor-teacher.zip";
+
+  await git(repoRoot, ["init"]);
+  await git(repoRoot, ["config", "user.email", "readiness@example.invalid"]);
+  await git(repoRoot, ["config", "user.name", "Readiness Test"]);
+  await writeJson(path.join(repoRoot, "config", "studio-editability-policy-v1.json"), {
+    schemaVersion: 1,
+    policyId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+  });
+  await writeJson(path.join(repoRoot, "config", "english", "families", "ela20-1.json"), {
+    schemaVersion: 1,
+    courseId: "ela20-1",
+    courseCode: "ELA 20-1",
+    courseTitle: "English Language Arts 20-1",
+    profileId: "fixture",
+    profileVersion: "fixture-v1",
+    archives: [
+      {
+        id: "brightspace",
+        kind: "brightspace",
+        path: "projects/english-target/raw/target.zip",
+        sha256: "1".repeat(64)
+      },
+      {
+        id: "teacher-resources",
+        kind: "teacher-resources",
+        path: "projects/english-target/raw/teacher.zip",
+        sha256: "2".repeat(64)
+      },
+      {
+        id: "supplement",
+        kind: "supplement",
+        path: "config/english/families/fixture-supplement.txt",
+        sha256: "0".repeat(64)
+      }
+    ],
+    units: [{
+      projectSlug: "english-target",
+      unitTitle: "Dependency Target",
+      recipePath: "projects/english-target/meta/english-unit.json",
+      profileVersion: "fixture-v1",
+      activityProfile: "short-fiction",
+      brightspaceUnitIds: ["1"],
+      reviewStatus: "needs-review"
+    }]
+  });
+  await writeFile(path.join(repoRoot, "config", "english", "families", "fixture-supplement.txt"), "supplement\n", "utf8");
+  await writeJson(path.join(repoRoot, "projects", "english-target", "meta", "english-unit.json"), target);
+  await writeJson(path.join(repoRoot, "projects", "english-donor", "meta", "english-unit.json"), donor);
+  await writeManifest(repoRoot, manifest("english-target", {
+    canonicalSources: ["/legacy-checkout/scripts/lib/english-unit/factory-build.ts"],
+    authoring: {
+      driverId: "english-factory-v1",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      }
+    }
+  }));
+  await Promise.all([
+    mkdir(path.join(repoRoot, "projects", "english-target", "raw"), { recursive: true }),
+    mkdir(path.join(repoRoot, "projects", "english-donor", "raw"), { recursive: true }),
+    mkdir(path.join(repoRoot, "scripts", "lib", "english-unit"), { recursive: true })
+  ]);
+  await Promise.all([
+    writeFile(path.join(repoRoot, "projects", "english-target", "raw", "target.zip"), "target", "utf8"),
+    writeFile(path.join(repoRoot, "projects", "english-target", "raw", "teacher.zip"), "teacher", "utf8"),
+    writeFile(path.join(repoRoot, "projects", "english-donor", "raw", "donor.zip"), "donor", "utf8"),
+    writeFile(path.join(repoRoot, "projects", "english-donor", "raw", "donor-teacher.zip"), "teacher", "utf8"),
+    writeFile(path.join(repoRoot, "scripts", "build-english-unit.ts"), "export {};\n", "utf8"),
+    writeFile(path.join(repoRoot, "scripts", "lib", "english-unit", "factory-build.ts"), "export {};\n", "utf8")
+  ]);
+  await git(repoRoot, ["add", "--all"]);
+  await git(repoRoot, ["commit", "-m", "english readiness baseline"]);
+  return { repoRoot, baseline: await git(repoRoot, ["rev-parse", "HEAD"]) };
+}
+
+test("English factory recipe dependencies select governed courses in clean checkouts", async () => {
+  const fixture = await createEnglishDependencyFixture();
+  const cases = [
+    "config/english/families/ela20-1.json",
+    "projects/english-donor/meta/english-unit.json",
+    "projects/english-donor/raw/donor.zip",
+    "scripts/lib/english-unit/factory-build.ts"
+  ];
+  try {
+    for (const changedPath of cases) {
+      const cloneRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-english-clean-checkout-"));
+      await rm(cloneRoot, { recursive: true, force: true });
+      try {
+        await git(fixture.repoRoot, ["clone", "--no-local", fixture.repoRoot, cloneRoot]);
+        await git(cloneRoot, ["config", "user.email", "readiness@example.invalid"]);
+        await git(cloneRoot, ["config", "user.name", "Readiness Test"]);
+        const changedFile = path.join(cloneRoot, ...changedPath.split("/"));
+        const current = await readFile(changedFile, "utf8");
+        await writeFile(
+          changedFile,
+          changedPath.endsWith(".json") ? `${current}\n` : `${current}changed\n`,
+          "utf8"
+        );
+        await git(cloneRoot, ["add", changedPath]);
+        await git(cloneRoot, ["commit", "-m", `change ${changedPath}`]);
+        const discovered = await discoverNewCourseReadinessCandidates({
+          repoRoot: cloneRoot,
+          requestedBase: fixture.baseline,
+          policyInception: fixture.baseline
+        });
+        const candidate = discovered.candidates.find((entry) => entry.projectSlug === "english-target");
+        assert.ok(candidate, `${changedPath} must select the governed English factory target.`);
+        assert.equal(candidate.required, true, `${changedPath} must not allow a zero-required readiness pass.`);
+        assert.ok(candidate.changedPaths.includes(changedPath));
+      } finally {
+        await rm(cloneRoot, { recursive: true, force: true });
+      }
+    }
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
 test("change-aware discovery enforces additions, activation, and governed edits without retroactive legacy failure", async () => {
   const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-new-course-policy-"));
   try {

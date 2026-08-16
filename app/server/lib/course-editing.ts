@@ -158,6 +158,7 @@ type CommandResult = { ok: boolean; stdout: string; stderr: string; exitCode: nu
 type CourseEditExecutionHooks = {
   beforeDirectCommit?: () => void | Promise<void>;
   validateRendered?: typeof validateRenderedCourseEdits;
+  runRebuild?: (projectSlug: string, adapter: CourseEditAdapter, repoRoot: string) => void | Promise<void>;
 };
 
 function trimOutput(value: string) {
@@ -899,7 +900,16 @@ async function materializeLegacySnapshot(projectSlug: string, repoRoot: string) 
   }
 }
 
-async function runRebuild(projectSlug: string, adapter: CourseEditAdapter, repoRoot: string) {
+async function runRebuild(
+  projectSlug: string,
+  adapter: CourseEditAdapter,
+  repoRoot: string,
+  hooks: CourseEditExecutionHooks = {}
+) {
+  if (hooks.runRebuild) {
+    await hooks.runRebuild(projectSlug, adapter, repoRoot);
+    return;
+  }
   if (adapter === "legacy-snapshot") {
     await materializeLegacySnapshot(projectSlug, repoRoot);
     return;
@@ -2150,6 +2160,8 @@ export async function renameCourseForStudio(input: {
   projectSlug: string;
   title: string;
   repoRoot?: string;
+  /** Internal fault-injection seam used only by the server test suite. */
+  hooks?: CourseEditExecutionHooks;
 }): Promise<CourseEditBatchResult> {
   const repoRoot = input.repoRoot ?? defaultRepoRoot;
   const title = sanitizeCourseEditPlainText(input.title);
@@ -2255,8 +2267,21 @@ export async function renameCourseForStudio(input: {
         if (htmlMarkerChanges === 0) throw new Error("No canonical course title markers were updated.");
         clearPreviewInspectionDocumentCache();
       } else {
-        await runRebuild(input.projectSlug, adapter, repoRoot);
+        // A factory rebuild can fail before it has published its final output.
+        // Record the fully durable metadata-only state first, so recovery can
+        // distinguish Studio's own in-flight rename from unrelated bytes.
+        checkpoint.expectedAfter = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+        await writeCheckpoint(checkpoint, repoRoot);
+        journal = { ...journal, expectedAfter: checkpoint.expectedAfter };
+        await writeCourseEditJournal(journal, repoRoot);
+        await runRebuild(input.projectSlug, adapter, repoRoot, input.hooks);
         clearPreviewInspectionDocumentCache();
+        // Replace the metadata-only fingerprint with the actual factory
+        // output before any validation command is allowed to run.
+        checkpoint.expectedAfter = await fingerprintCheckpointBoundary(checkpoint, repoRoot);
+        await writeCheckpoint(checkpoint, repoRoot);
+        journal = { ...journal, expectedAfter: checkpoint.expectedAfter };
+        await writeCourseEditJournal(journal, repoRoot);
       }
       checkpoint.renderAfter = await courseTitleRenderChecks({ projectSlug: input.projectSlug, repoRoot, htmlPaths });
       if (checkpoint.renderAfter.length < 2 || checkpoint.renderAfter.some((check) => htmlText(check.expected.html ?? "") !== title)) {

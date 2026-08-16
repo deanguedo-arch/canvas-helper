@@ -188,19 +188,103 @@ function stripControlCharacters(value: string) {
   return value.replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "");
 }
 
-export function sanitizeCourseEditUrl(value: string, kind: "href" | "src") {
-  const trimmed = stripControlCharacters(value).trim();
-  if (!trimmed) return "";
-  if (trimmed.startsWith("#") && kind === "href") return trimmed;
-  if (/^(?:https:|mailto:|tel:)/i.test(trimmed)) {
-    if (kind === "src" && !/^https:/i.test(trimmed)) throw new Error("Images must use HTTPS or a local course path.");
-    return trimmed;
+const URL_CONTROL_CHARACTER = /[\u0000-\u001F\u007F]/;
+const URL_INTERNAL_ASCII_WHITESPACE = /[ \t\r\n\f\v]/;
+const URL_PERCENT_ENCODED_CONTROL = /%(?:0[0-9a-f]|1[0-9a-f]|7f)/i;
+const URL_SCHEME = /^[a-z][a-z0-9+.-]*:/i;
+const COURSE_URL_BASE = "https://canvas-helper.invalid/course/";
+
+function decodedUrlForSafety(value: string) {
+  let decoded = value;
+  // A browser will not recursively decode a path for navigation, but checking
+  // a small bounded number of layers keeps a double-encoded control or
+  // traversal sequence from becoming a future sanitizer bypass.
+  for (let attempt = 0; attempt < 3; attempt += 1) {
+    if (URL_CONTROL_CHARACTER.test(decoded) || URL_PERCENT_ENCODED_CONTROL.test(decoded)) {
+      throw new Error("Course URLs cannot contain control characters.");
+    }
+    let next: string;
+    try {
+      next = decodeURIComponent(decoded);
+    } catch {
+      throw new Error("Course URLs must use valid percent encoding.");
+    }
+    if (next === decoded) break;
+    decoded = next;
   }
-  if (/^[a-z][a-z0-9+.-]*:/i.test(trimmed) || trimmed.startsWith("//") || trimmed.startsWith("/")) {
+  if (URL_CONTROL_CHARACTER.test(decoded) || URL_PERCENT_ENCODED_CONTROL.test(decoded)) {
+    throw new Error("Course URLs cannot contain control characters.");
+  }
+  return decoded;
+}
+
+function rejectUnsafeLocalCourseUrl(value: string, kind: "href" | "src") {
+  const decoded = decodedUrlForSafety(value);
+  if (
+    value.startsWith("/") ||
+    value.startsWith("\\") ||
+    decoded.startsWith("/") ||
+    decoded.startsWith("\\") ||
+    value.includes("\\") ||
+    decoded.includes("\\") ||
+    URL_SCHEME.test(value) ||
+    URL_SCHEME.test(decoded)
+  ) {
     throw new Error(`Unsupported ${kind === "href" ? "link" : "image"} URL.`);
   }
-  const segments = trimmed.split(/[?#]/, 1)[0].replaceAll("\\", "/").split("/");
-  if (segments.includes("..")) throw new Error("Local course URLs cannot leave the course workspace.");
+  const localPath = decoded.split(/[?#]/, 1)[0] ?? "";
+  const segments = localPath.split("/");
+  if (segments.includes("..")) {
+    throw new Error("Local course URLs cannot leave the course workspace.");
+  }
+}
+
+export function sanitizeCourseEditUrl(value: string, kind: "href" | "src") {
+  if (URL_CONTROL_CHARACTER.test(value)) {
+    throw new Error("Course URLs cannot contain control characters.");
+  }
+  const trimmed = value.trim();
+  if (!trimmed) return "";
+  if (URL_INTERNAL_ASCII_WHITESPACE.test(trimmed) || URL_PERCENT_ENCODED_CONTROL.test(trimmed)) {
+    throw new Error("Course URLs cannot contain whitespace or control characters.");
+  }
+  const decoded = decodedUrlForSafety(trimmed);
+  if (trimmed.startsWith("#") && kind === "href") return trimmed;
+
+  const isHttps = /^https:\/\//i.test(trimmed);
+  const isMailto = /^mailto:/i.test(trimmed);
+  const isTel = /^tel:/i.test(trimmed);
+  if (isHttps || isMailto || isTel) {
+    if (kind === "src" && !isHttps) throw new Error("Images must use HTTPS or a local course path.");
+    try {
+      const parsed = new URL(trimmed, COURSE_URL_BASE);
+      if (
+        (isHttps && (parsed.protocol !== "https:" || !parsed.hostname || parsed.username || parsed.password)) ||
+        (isMailto && parsed.protocol !== "mailto:") ||
+        (isTel && parsed.protocol !== "tel:")
+      ) {
+        throw new Error("Unsupported URL scheme.");
+      }
+    } catch (error) {
+      if (error instanceof Error && /Unsupported URL scheme/.test(error.message)) throw error;
+      throw new Error(`Unsupported ${kind === "href" ? "link" : "image"} URL.`);
+    }
+    return trimmed;
+  }
+
+  if (trimmed.startsWith("//") || decoded.startsWith("//") || trimmed.startsWith("/") || decoded.startsWith("/")) {
+    throw new Error(`Unsupported ${kind === "href" ? "link" : "image"} URL.`);
+  }
+  rejectUnsafeLocalCourseUrl(trimmed, kind);
+  try {
+    const parsed = new URL(trimmed, COURSE_URL_BASE);
+    if (parsed.origin !== new URL(COURSE_URL_BASE).origin) {
+      throw new Error("Local URLs must resolve inside the course.");
+    }
+  } catch (error) {
+    if (error instanceof Error && /Local URLs must resolve/.test(error.message)) throw error;
+    throw new Error(`Unsupported ${kind === "href" ? "link" : "image"} URL.`);
+  }
   return trimmed;
 }
 
