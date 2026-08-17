@@ -1,77 +1,86 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Make Studio editability an automatic enforced acceptance requirement for every newly created or newly activated active course.
-- Status: implementation and local validation complete; GitHub publication/check conclusions belong in PR #1 because adding run IDs here would create a new untested head
+- Task: Complete PR #1 Direct Editing V1 remediation without adding the separate inline-text editor.
+- Status: local implementation and release validation complete; exact published-head CI and independent review remain required before merge.
 
 ## Summary
 
-- The user can simply ask Codex to make a course. Internal fast paths and commands are agent/CI implementation details, not user choices.
-- New and newly activated active courses must declare `studio-routine-content-v1` and pass manifest ownership, doctor, complete learner inventory, rendered coverage floors, clean residue proof, and a real HTTP Apply/reload/Undo lifecycle.
-- The gate is change-aware: it covers new active manifests, non-active→active transitions, safe-adapter onboarding, contract removal or governed-project deletion, and later governed project/resource/declared-builder changes. Git rename detection is disabled so a deletion cannot disappear into a similar new manifest.
-- Policy inception is `350d2ad4f164520123a37210fd8185cac20c4b77`. Existing pre-inception courses remain explicit legacy migration work instead of being assigned an invented percentage.
-- Direct creation emits the contract automatically. Fresh English factory and Social factory manifests receive the same obligation. Generic imports now begin `blocked` under proposal-only ownership; the existing science pilot remains blocked.
-- No learner course content was changed. User-owned duplicate, resource, transaction, handoff, report, and test-result paths remain untouched and unstaged.
+- PR #1 remains a **draft** on `codex/studio-direct-editing-v1` targeting `codex/studio-roadmap-phases`.
+- The three audited release blockers are closed: shared safe URL handling, recipe-derived English factory dependencies, and byte-exact factory Rename rollback.
+- The eleven remaining recovery and integrity findings are addressed, including durable saved-draft reopen, no persistent pre-Apply asset API, exact onboarding rollback, `course:create` signaling rollback, and preview-launch cleanup.
+- A frozen baseline verifier reports the established ten raw TypeScript diagnostics without calling raw typecheck green. A new isolated proof creates a real Studio-aware course through production `course:create` and proves inventory, thresholds, browser-local save, HTTP Normalize/Apply/reload/restart/Undo, and exact restoration.
+- No inline `contenteditable` or parent-owned in-place editor was added. That is intentionally deferred to `codex/studio-inline-text-editing-v1` after the exact PR #1 integration commit and an independent GO.
+- No learner course content was deliberately changed. The existing user-owned `projects/ready-mind/workspace/index.html` change and all unrelated untracked paths remain unstaged and untouched.
 
 ## Files changed
 
-- Contract/policy: `app/shared/course-editability.ts`, `scripts/lib/types.ts`, `scripts/lib/project-manifest-policy.ts`, `scripts/lib/new-course-readiness.ts`.
-- Enforcement/CI: `scripts/verify-new-course-readiness.ts`, `.github/workflows/new-course-readiness.yml`, `package.json`.
-- Creation workflows: `scripts/lib/codex-course.ts`, `scripts/build-english-unit.ts`, `scripts/lib/english-unit/factory-build.ts`, `scripts/lib/course-onboarding.ts`, `scripts/lib/importer.ts`.
-- Tests: `scripts/tests/new-course-readiness.test.ts`, `codex-course.test.ts`, `course-editability-inventory.test.ts`, `course-onboarding.test.ts`, `project-manifest-policy.test.ts`, `package-script-contract.test.ts`, `react-module-import.test.ts`.
-- Documentation: `AGENTS.md`, `README.md`, `ARCHITECTURE.md`, `CONTRIBUTING.md`, `docs/ops/FAST_PATHS.md`, the real-time plans, the Codex/English/Social workflow guides, and the new audit packet.
+- Safety and mutation authority: `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-render-validation.ts`, `app/server/routes/course-edits.ts`, `app/server/studio-server.ts`, `app/shared/course-editing.ts`, and `scripts/lib/course-editing/html.ts`.
+- Factory and creation authority: `scripts/lib/english-unit/dependencies.ts`, `scripts/lib/english-unit/factory-build.ts`, `scripts/lib/english-unit/v3-donor-lessons.ts`, `scripts/lib/codex-course.ts`, `scripts/lib/course-onboarding.ts`, and `scripts/lib/new-course-readiness.ts`.
+- New evidence gates: `scripts/verify-typecheck-baseline.ts`, `config/typecheck-baseline-v1.json`, `scripts/verify-fresh-course-studio-proof.ts`, `package.json`, `.github/workflows/new-course-readiness.yml`, and `.github/workflows/studio-direct-editing.yml`.
+- Regression coverage: `scripts/tests/course-editing.test.ts`, `scripts/tests/course-onboarding.test.ts`, `scripts/tests/codex-course.test.ts`, `scripts/tests/new-course-readiness.test.ts`, `scripts/tests/package-script-contract.test.ts`, and `scripts/tests/studio-architecture.test.ts`.
+- Independent-review packet: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`.
+
+## What changed
+
+- URL values now reject raw/encoded control characters, internal whitespace, malformed decoding, protocol-relative/root-absolute/backslash/traversal forms, and executable schemes. One sanitizer governs preview normalization, saved drafts, rich-text links, Apply, and final learner output.
+- English factory readiness now derives output dependencies from recipes and donors rather than trusting generated manifest claims. Missing output-affecting dependencies fail closed and stored dependency paths are repository-relative.
+- Rename captures both the post-metadata intermediate and final rebuilt fingerprints, then restores the exact pre-Rename write boundary on command, timeout, title, doctor, or rendered-validation failure.
+- Saved drafts reopen by durable edit identity through read-only `POST /api/course-edits/reopen`; obsolete stored node IDs are discarded and Studio performs a current Resolve before preview or saving.
+- The typecheck baseline gate verifies exactly the known ten normalized diagnostics and fails for additions, removals, changes, or a newly introduced diagnostic in a file changed after the baseline capture. Raw `typecheck` still exits `2` with those ten established diagnostics.
+- The fresh-course proof runs in a temporary clean clone and deletes its generated test course afterward. It does not alter the real catalog or worktree.
 
 ## Verification run
 
-- `npm run test:new-course-readiness` — 7/7 passed, including anchor integrity, malformed/new manifests, missing/unsafe contract, numerical-floor, activation, contract removal, deletion, shared-dependency, and legacy-grandfathering cases.
-- `npm run test:course-editability` — 17/17 passed, including a real rendered fresh-course threshold through production Resolve.
-- `npm run test:course-onboarding` — 3/3 passed.
-- `npm run test:metadata-policy` — 29/29 passed.
-- `LEARNER_MODE=off npx tsx --test --test-concurrency=1 scripts/tests/react-module-import.test.ts scripts/tests/doc-bundle-import.test.ts scripts/tests/project-recovery.test.ts` — 5/5 passed.
-- `npm run test:studio-inspection` — 158/158 passed.
-- `npm run validate:manifests` — all 65 manifests passed.
-- `npm run build:studio` — passed, 85 modules.
-- `git diff --check` — passed.
-- `npm run typecheck -- --pretty false` — retained the same ten unrelated legacy builder/factory diagnostics; no diagnostic points at this change.
-- `npm run test:english-course` — 168/186 passed and retained 18 unrelated baseline failures involving missing legacy workspaces and older content/evidence contracts; focused English transaction and changed-boundary tests passed.
-- Pre-commit readiness smoke at policy inception — pass with zero required courses, which is expected because this change adds enforcement code rather than a learner course. Exact-head CI must repeat it after publication.
+At implementation head `311d4a4426b3e685481325347fb5fb2a85097d4b`:
+
+- `npm run test:course-editing` — 50/50 passed.
+- `npm run test:course-onboarding` — 5/5 passed.
+- `npm run test:codex-course` — 5/5 passed.
+- `npm run test:new-course-readiness` — 10/10 passed.
+- `npm run test:course-editability` — 17/17 passed.
+- `npm run test:exports` — 55/55 passed.
+- `npm run build:studio` — passed.
+- `npm run verify:typecheck-baseline` — passed; raw `npm run typecheck -- --pretty false` exited `2` with the exact established ten diagnostics.
+- `npx playwright test -c e2e/playwright.config.ts e2e/specs/inspection.spec.ts --grep "direct edits persist"` — passed.
+- `npm run test:studio-release` — passed: 162 focused contracts, 58/58 inspection E2E, smoke, and strict project contract.
+- `npm run verify:fresh-course-studio-proof -- --report .runtime/fresh-course-studio-proof-local.json` — passed: complete inventory, 26/27 blocks, and 793/818 teacher-text code units, plus real reversible lifecycle.
+- `npm run verify:course-editing-pilots` — passed for Direct, English factory, Social factory, and legacy snapshot; each restored its exact boundary.
+- `npm run verify:course-onboarding -- --all` — 63/63 passed. Existing `ready-mind` checkpoint was safely skipped rather than overwritten.
+- `git diff --check` — passed before documentation-only updates.
 
 ## Source of truth
 
-- New-course policy and thresholds: `scripts/lib/new-course-readiness.ts`.
-- Exact-head orchestrator: `scripts/verify-new-course-readiness.ts`.
-- Versioned shared contract: `app/shared/course-editability.ts` and `scripts/lib/types.ts`.
-- CI authority/artifacts: `.github/workflows/new-course-readiness.yml` and PR #1 checks.
-- Product workflow: `docs/workflows/codex-studio-course.md`.
-- Independent audit instructions: `docs/audits/2026-08-15-new-course-studio-editability-enforcement-audit.md`.
+- Audit instructions and explicit claims: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`.
+- Core write, rollback, and Undo authority: `app/server/lib/course-editing.ts` and `app/server/lib/course-edit-transaction.ts`.
+- Read-only draft reopen and request boundary: `app/server/routes/course-edits.ts` and `app/server/studio-server.ts`.
+- Factory dependency authority: `scripts/lib/english-unit/dependencies.ts`.
+- Fresh course and typecheck evidence: `scripts/verify-fresh-course-studio-proof.ts` and `scripts/verify-typecheck-baseline.ts`.
+- Published CI authority: `.github/workflows/studio-direct-editing.yml`, `.github/workflows/new-course-readiness.yml`, and PR #1 artifacts for the final published SHA.
 
-## Fragile areas / what might drift
+## Fragile areas / watchouts
 
-- CI uses `fetch-depth: 0`. The durable `config/studio-editability-policy-v1.json` anchor keeps bootstrap safe across merge or squash histories; an unanchored or insufficient local checkout fails closed.
-- A governed shared dependency is rechecked only when it is declared through the manifest, same-slug resource boundary, or English recipe source fields. New factories must keep dependencies explicit.
-- Coverage thresholds prove ordinary teacher-content breadth, not arbitrary DOM mutation. Runtime quizzes, simulations, scoring, and behavior-rich components remain Annotation-only or require dedicated editors.
-- The gate deliberately fails a new English/Social course that does not meet coverage; it does not lower the floor or silently activate it.
-- The filesystem lock remains cooperative for external writers. Do not run Studio Apply concurrently with manual, Git, Codex, or standalone builder writes.
+- The Studio filesystem lock coordinates Studio processes, not arbitrary concurrent Codex, Git, manual-editor, or standalone-builder writers. Those writers must not run during Apply.
+- A portable filesystem compare-and-swap cannot close the tiny reread-to-rename interval against an uncooperative external writer. The transaction and drift checks fail closed where they can observe it; this remains an operational contract.
+- The frozen baseline intentionally compares changed files since baseline capture. One pre-existing diagnostic is in a file that earlier PR work had already changed, so it cannot honestly enforce the plan's stricter literal “any file changed anywhere in PR” wording without treating an inherited baseline diagnostic as newly introduced.
+- Local render checks are bounded. Brightspace/deployed-host behavior, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain separate acceptance.
+- Coverage and catalog lifecycle evidence do not mean every visible legacy element is editable; runtime/behavior-rich/ambiguous elements remain Annotation-only or need dedicated controls.
 
 ## Next prompt should assume
 
-- Any from-scratch course request routes automatically to the Studio-aware Direct contract unless the user explicitly names an owning English/Social family.
-- Any new import is previewable but blocked until onboarded and measured.
-- Any new active course must pass the exact-head new-course workflow; do not hand-add a Studio flag or copy a legacy manifest.
-- PR #1 remains unmerged unless the repository owner explicitly authorizes merge.
+- Do not add the inline-text UI, `contenteditable`, or Full Preview editing to PR #1.
+- After PR #1 is integrated at an independently approved exact SHA, create `codex/studio-inline-text-editing-v1` from that exact commit—not by assuming `main`—and implement the separate inline-editing plan.
+- Keep Apply as the first course-file and course-asset write. Save draft remains browser-local state only.
 
 ## What still needs validation
 
-- Confirm the final push and PR executions of `New course Studio readiness` match the exact published head and inspect `new-course-studio-readiness-evidence`.
-- Retain the existing Direct Editing release/census workflows at the same exact head.
-- Independent ChatGPT Pro review should use the new audit packet and adversarial checklist.
-- Teacher rollout, Brightspace/deployed-host, cross-browser SCORM, delayed-interaction, and full-WCAG acceptance remain separate product gates.
+- Publish the scoped commits, then inspect matching push and PR-context executions of `Studio Direct Editing release gate`, `New course Studio readiness`, and the all-catalog editability census. Download/inspect their same-SHA evidence artifacts.
+- Obtain an independent review verdict before making PR #1 ready for review or merging it.
 
-## Known risks / follow-up
+## Known risks
 
-- Existing legacy courses are not converted by this change; they remain the measured migration queue.
-- A future new factory can be blocked by honest low coverage. The fix is source ownership/renderer/inventory work, not an exemption.
-- Local `.runtime` reports and user-owned duplicate paths make a local worktree dirty; exact evidence must come from a clean checkout.
+- The local worktree is intentionally dirty because of user-owned course and untracked data. The isolated fresh-course proof is clean-clone evidence; GitHub exact-head workflows are the release authority.
+- `npm run report:course-editability -- --all --allow-incomplete` remains an exhaustive CI evidence job, not a local claim of global legacy element coverage.
 
 ## Exact next command
 
@@ -79,12 +88,10 @@
 
 ## Exact next file to open
 
-`docs/audits/2026-08-15-new-course-studio-editability-enforcement-audit.md`
+`docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`
 
 ## Do not do next / warnings
 
-- Do not merge PR #1 without repository-owner authorization.
-- Do not add `editabilityContract` to current legacy manifests merely to improve a number.
-- Do not weaken, skip, or average the coverage floors.
-- Do not treat a blocked import, page map, no-target outcome, or partial lifecycle as active readiness.
-- Do not stage or delete unrelated untracked reports, duplicate resources, transaction folders, or alternate handoff files.
+- Do not merge, post review replies, or resolve review threads without explicit repository-owner authorization.
+- Do not stage `projects/ready-mind/workspace/index.html`, `.runtime/**`, duplicate resource paths, transaction folders, or alternate handoff files.
+- Do not describe raw typecheck as green or claim final GitHub evidence before the final published SHA has completed.

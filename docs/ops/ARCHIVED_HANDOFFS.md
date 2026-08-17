@@ -8410,3 +8410,15 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `app/shared/course-editability.ts`, `scripts/lib/course-editability/`, `app/server/lib/course-edit-preview.ts`, `app/server/lib/course-edit-preview-assets.ts`, `app/server/preview-bridge-runtime.ts`, and `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`.
 - Preserved boundary: coverage remained evidence rather than Edit authority; user-owned duplicate/resource/transaction/handoff/test paths stayed unstaged; teacher rollout, Brightspace, deployed-host, cross-browser SCORM, and full-WCAG acceptance remained external.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-15: automatic new-course Studio readiness
+
+- Project: `repo-wide`.
+- Task: Make Studio editability an automatic enforced acceptance requirement for every newly created or newly activated active course.
+- Status: implementation and local validation complete; superseded by the Direct Editing V1 remediation and release-evidence handoff.
+- What changed: governed new Direct, English, and Social courses must declare `studio-routine-content-v1` and pass manifest ownership, doctor, complete learner inventory, rendered coverage floors, residue proof, and a real HTTP Apply/reload/Undo lifecycle. Creation routes through the Studio-aware scaffold; generic imports start blocked.
+- Verification: `test:new-course-readiness` (7/7), `test:course-editability` (17/17), `test:course-onboarding` (3/3), `test:metadata-policy` (29/29), focused import/recovery tests (5/5), `test:studio-inspection` (158/158), manifest validation (65), Studio production build, and diff checks passed. Raw typecheck retained its established ten unrelated diagnostics.
+- Source of truth: `scripts/lib/new-course-readiness.ts`, `scripts/verify-new-course-readiness.ts`, `app/shared/course-editability.ts`, `.github/workflows/new-course-readiness.yml`, and `docs/audits/2026-08-15-new-course-studio-editability-enforcement-audit.md`.
+- Preserved boundary: no learner course content changed; user-owned duplicate, resource, transaction, handoff, report, test-result, and `ready-mind` worktree changes remained untouched and unstaged.
+- Fragile areas: the filesystem lock is cooperative for external writers; coverage proves ordinary authored-content breadth rather than arbitrary DOM mutation; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain external acceptance.
+- Next command at archival time: `gh pr checks 1 --watch`.
