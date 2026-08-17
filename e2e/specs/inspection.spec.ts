@@ -426,15 +426,42 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
     fullPreview = await fullPreviewPromise;
     await fullPreview.waitForLoadState("domcontentloaded");
     const standaloneCourse = fullPreview.frameLocator('[data-canvas-helper-standalone-course="true"]');
-    await expect(standaloneCourse.locator('[data-canvas-helper-edit-preview-overlay="true"]')).toContainText("E2E Fixture Workspace — applied");
-    await expect(fullPreview.locator('[data-canvas-helper-preview-edit-message="true"]')).toContainText("Full Preview is display-only");
-    await expect(fullPreview.locator('[data-canvas-helper-preview-edit-html="true"]')).toBeHidden();
-    await expect(fullPreview.locator('[data-canvas-helper-preview-edit-save="true"]')).toBeHidden();
+    const standaloneHeading = standaloneCourse.getByRole("heading", { name: "E2E Fixture Workspace" });
+    await expect(standaloneHeading).toBeVisible();
+    await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-inspect-active", "true");
+    await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-edit-map-active", "true");
+    await expect(fullPreview.locator('[data-canvas-helper-full-preview-ready-guard="true"]')).toBeHidden();
+    const standaloneLearnerStorageBefore = await standaloneCourse.locator("body").evaluate(() => {
+      const scope = window as typeof window & { __fullPreviewInlineEditorEvents?: string[] };
+      scope.__fullPreviewInlineEditorEvents = [];
+      ["keydown", "input", "paste"].forEach((type) => window.addEventListener(type, () => scope.__fullPreviewInlineEditorEvents?.push(type)));
+      return JSON.stringify(localStorage);
+    });
+    const standaloneBounds = await standaloneHeading.boundingBox();
+    expect(standaloneBounds).toBeTruthy();
+    await fullPreview.mouse.click((standaloneBounds?.x ?? 0) + 12, (standaloneBounds?.y ?? 0) + 12);
+    const standaloneInlineEditor = fullPreview.getByTestId("course-full-preview-inline-text-editor");
+    await expect(standaloneInlineEditor).toBeVisible();
+    await standaloneInlineEditor.fill("E2E Fixture Workspace — Full Preview");
+    await expect(page.getByTestId("course-edit-inline-panel-text")).toHaveValue("E2E Fixture Workspace — Full Preview");
+    await expect(standaloneCourse.getByRole("heading", { name: "E2E Fixture Workspace" })).toHaveText("E2E Fixture Workspace");
+    await expect(standaloneCourse.locator('[data-canvas-helper-edit-preview-overlay="true"]')).toHaveCount(0);
+    expect(await standaloneCourse.locator("body").evaluate(() => {
+      const scope = window as typeof window & { __fullPreviewInlineEditorEvents?: string[] };
+      return { events: scope.__fullPreviewInlineEditorEvents ?? [], storage: JSON.stringify(localStorage) };
+    })).toEqual({ events: [], storage: standaloneLearnerStorageBefore });
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+    const standalonePanelText = fullPreview.locator('[data-canvas-helper-preview-edit-html="true"]');
+    await expect(standalonePanelText).toContainText("E2E Fixture Workspace — Full Preview");
+    await standalonePanelText.fill("E2E Fixture Workspace — applied");
+    await expect(standaloneInlineEditor).toHaveText("E2E Fixture Workspace — applied");
+    await expect(page.getByTestId("course-edit-inline-panel-text")).toHaveValue("E2E Fixture Workspace — applied");
+    await fullPreview.getByRole("button", { name: "Save text draft" }).click();
+    await expect(standaloneInlineEditor).toHaveCount(0);
+    await expect(page.getByTestId("course-edit-draft")).toContainText("E2E Fixture Workspace — applied");
     await fullPreview.close();
     fullPreview = null;
 
-    await page.getByTestId("course-edit-inline-composer").getByRole("button", { name: "Edit in course" }).click();
-    await expect(inlineEditor).toBeVisible();
     await expect(liveOverlay).toHaveCount(0);
     await page.getByTestId("course-edit-apply").click();
     applied = true;

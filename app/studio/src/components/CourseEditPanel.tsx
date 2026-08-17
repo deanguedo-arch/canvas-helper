@@ -453,7 +453,7 @@ function InlineTextComposer({
       {!editor.previewAvailable ? (
         <p className="course-edit-status neutral">Preview unavailable until page opens.</p>
       ) : editor.previewOwner === "none" && editor.status === "saved" ? (
-        <p className="course-edit-live-preview-note">Draft saved. Click Edit in course to review it in place, or open Full Preview for a display-only check.</p>
+        <p className="course-edit-live-preview-note">Draft saved. Click Edit in course or select the same text in Full Preview to continue editing it in place.</p>
       ) : (
         <p className="course-edit-live-preview-note">This panel and the course preview share the same draft. Click the visible text to return to the in-place caret.</p>
       )}

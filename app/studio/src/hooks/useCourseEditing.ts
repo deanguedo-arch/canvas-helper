@@ -42,13 +42,13 @@ type LivePreviewContext = {
 };
 
 type PendingInlinePreviewOwner = {
-  owner: "parent-inline";
+  owner: "parent-inline" | "standalone-inline";
   previewSessionId: string;
   revision: number;
   targetNodeId: string;
 };
 
-export type CourseEditPreviewOwner = "parent-inline" | "child-inert" | "none";
+export type CourseEditPreviewOwner = "parent-inline" | "standalone-inline" | "child-inert" | "none";
 export type CourseEditInlineEditorStatus =
   | "clean"
   | "editing"
@@ -67,6 +67,8 @@ export type CourseEditInlineEditorState = {
   canonicalDocument: CourseEditEditorDocument | null;
   canonicalPatch: CourseEditPatch | null;
   canonicalPatchDigest: string;
+  /** Session token for the trusted Studio-owned in-place editing surface. */
+  inlineSessionId: string;
   localRevision: number;
   canonicalRevision: number;
   savedDraftId: string | null;
@@ -86,6 +88,7 @@ const EMPTY_INLINE_EDITOR: CourseEditInlineEditorState = {
   canonicalDocument: null,
   canonicalPatch: null,
   canonicalPatchDigest: "",
+  inlineSessionId: "",
   localRevision: 0,
   canonicalRevision: 0,
   savedDraftId: null,
@@ -615,16 +618,17 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     return normalizeInlineEditor(current.localRevision);
   }, [normalizeInlineEditor]);
 
-  const clearChildPreviewBeforeParentEditor = useCallback((
+  const clearChildPreviewBeforeInlineEditor = useCallback((
     current: CourseEditInlineEditorState,
-    currentTarget: CourseEditTarget
+    currentTarget: CourseEditTarget,
+    owner: "parent-inline" | "standalone-inline"
   ) => {
     const context = previewContextRef.current;
     if (current.previewOwner !== "child-inert" || !context?.command || context.command.action !== "render" || !currentTarget.identity) {
       return false;
     }
     pendingInlinePreviewOwnerRef.current = {
-      owner: "parent-inline",
+      owner,
       previewSessionId: context.previewSessionId,
       revision: context.revision + 1,
       targetNodeId: currentTarget.identity.nodeId
@@ -638,7 +642,10 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     return true;
   }, [closeLivePreview, replaceInlineEditor]);
 
-  const beginInlineEditor = useCallback((current: CourseEditTarget) => {
+  const beginInlineEditor = useCallback((
+    current: CourseEditTarget,
+    owner: "parent-inline" | "standalone-inline" = "parent-inline"
+  ) => {
     if (busy) return false;
     const document = inlineEditorDocumentForTarget(current);
     if (!document || !current.identity) return false;
@@ -651,13 +658,15 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       existing.status !== "detached"
     ) {
       setTarget(current);
-      if (clearChildPreviewBeforeParentEditor(existing, current)) return true;
+      if (clearChildPreviewBeforeInlineEditor(existing, current, owner)) return true;
       replaceInlineEditor({
         ...existing,
         target: current,
-        previewOwner: "parent-inline",
+        previewOwner: owner,
         previewAvailable: true,
-        message: "Continue editing in the course preview."
+        message: owner === "standalone-inline"
+          ? "Continue editing in Full Preview."
+          : "Continue editing in the course preview."
       });
       return true;
     }
@@ -670,23 +679,26 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       canonicalDocument: document,
       canonicalPatch: {},
       canonicalPatchDigest: "",
+      inlineSessionId: previewSessionId(),
       localRevision: 0,
       canonicalRevision: 0,
       savedDraftId: draftsRef.current.find((draft) => draft.identity.targetId === current.identity?.targetId)?.id ?? null,
-      previewOwner: "parent-inline",
+      previewOwner: owner,
       previewAvailable: true,
-      message: "Type directly in the course preview. The course files remain unchanged until Apply."
+      message: owner === "standalone-inline"
+        ? "Type directly in Full Preview. The course files remain unchanged until Apply."
+        : "Type directly in the course preview. The course files remain unchanged until Apply."
     });
     return true;
-  }, [busy, clearChildPreviewBeforeParentEditor, closeLivePreview, replaceInlineEditor]);
+  }, [busy, clearChildPreviewBeforeInlineEditor, closeLivePreview, replaceInlineEditor]);
 
   const setInlinePreviewOwner = useCallback((owner: CourseEditPreviewOwner) => {
     const current = inlineEditorRef.current;
     const currentTarget = current.target;
     if (!currentTarget || !current.rawDocument || current.status === "detached") return false;
     if (current.previewOwner === owner) return true;
-    if (owner === "parent-inline" && clearChildPreviewBeforeParentEditor(current, currentTarget)) return true;
-    if (owner === "parent-inline") closeLivePreview();
+    if ((owner === "parent-inline" || owner === "standalone-inline") && clearChildPreviewBeforeInlineEditor(current, currentTarget, owner)) return true;
+    if (owner === "parent-inline" || owner === "standalone-inline") closeLivePreview();
     const next = { ...current, previewOwner: owner };
     replaceInlineEditor(next);
     if (
@@ -698,7 +710,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       void normalizeLivePreview(currentTarget, next.canonicalPatch);
     }
     return true;
-  }, [clearChildPreviewBeforeParentEditor, closeLivePreview, normalizeLivePreview, replaceInlineEditor]);
+  }, [clearChildPreviewBeforeInlineEditor, closeLivePreview, normalizeLivePreview, replaceInlineEditor]);
 
   const setInlinePreviewAvailable = useCallback((available: boolean) => {
     const current = inlineEditorRef.current;
@@ -983,6 +995,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       canonicalDocument: document,
       canonicalPatch: draft.patch,
       canonicalPatchDigest: draft.canonicalPatchDigest ?? "",
+      inlineSessionId: previewSessionId(),
       localRevision: 0,
       canonicalRevision: 0,
       savedDraftId: draft.id,
@@ -1344,11 +1357,11 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     previewFeedback,
     inlineEditor,
     hasLivePreview: previewCommand?.action === "render" || (
-      inlineEditor.previewOwner === "parent-inline" &&
+      ["parent-inline", "standalone-inline"].includes(inlineEditor.previewOwner) &&
       inlineEditor.status !== "detached" &&
       Boolean(inlineEditor.target)
     ),
-    hasInteractiveInlinePreview: inlineEditor.previewOwner === "parent-inline" && inlineEditor.status !== "detached" && Boolean(inlineEditor.target),
+    hasInteractiveInlinePreview: ["parent-inline", "standalone-inline"].includes(inlineEditor.previewOwner) && inlineEditor.status !== "detached" && Boolean(inlineEditor.target),
     resolveSelection,
     previewTargetPatch,
     closeLivePreview,

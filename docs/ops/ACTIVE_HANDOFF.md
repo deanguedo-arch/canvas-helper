@@ -1,82 +1,89 @@
 # Handoff
 
 - Project: `repo-wide`
-- Task: Deliver the separate safe inline plain-text editing follow-up for Canvas Studio.
-- Status: published and ready for independent audit; hosted release CI requires an authorized pull request because the push workflow is intentionally scoped to the prior baseline branch.
+- Task: Extend safe Studio inline plain-text editing so it works directly over eligible text in both embedded Studio and Full Preview.
+- Status: committed locally; publication, exact-head hosted evidence, and independent audit remain.
 
 ## Summary
 
-- The implementation is committed at `26216b5a29a0eb1cfc288061a2d5b25bdc2dffb9` on `codex/studio-inline-text-editing-v1`, based on the integrated Direct Editing baseline `842213301920798cc1f979c34218e939d4940f61`.
-- Embedded Studio now offers a Studio-owned in-place caret for source-safe plain-text headings, paragraphs, list items, and captions. It never makes the learner element editable or changes course files before Apply.
-- Review & Apply and the parent in-place editor share one canonical working-draft controller. Saved drafts reopen through durable identity and can be edited off-page with an explicit preview-unavailable state.
-- Full Preview is deliberately display-only: it may show the normalized inert overlay, but it offers no caret or mutation controls.
-- The complete local Studio release gate passed. Raw TypeScript typecheck remains honestly red only for the established ten unrelated diagnostics; the frozen baseline verifier passed.
-- The branch is published to `origin/codex/studio-inline-text-editing-v1`. The existing release workflow does not run on a bare push of this follow-up branch, so no hosted run is claimed.
+- The existing inline-text baseline is committed at `26216b5a29a0eb1cfc288061a2d5b25bdc2dffb9` on `codex/studio-inline-text-editing-v1`, based on Direct Editing baseline `842213301920798cc1f979c34218e939d4940f61`.
+- The current branch head adds parity: eligible text can now be edited with a caret directly at its visual location in both the embedded Studio preview and Full Preview. Review & Apply remains synchronized with the same authoritative working draft.
+- The Full Preview caret is a trusted Studio-origin host overlay above the isolated learner iframe. It is never a learner-frame `contenteditable` element.
+- A startup guard prevents an early Full Preview click from reaching learner controls before the nested inspection shield has confirmed Edit mode. One exclusive visual lease prevents embedded caret, Full Preview caret, and inert child presentation from overlapping.
+- Before Apply, typing, Save draft, and preview presentation remain browser-local. Apply retains the established protected write, rebuild, rendered validation, checkpoint, and Undo lifecycle.
+- No learner course content or user-owned changes in the original checkout were touched by this linked-worktree follow-up.
 
 ## Files changed
 
-- Browser/server editing contracts and canonical normalization: `app/shared/course-editing.ts`, `app/server/lib/course-editing.ts`, `app/server/routes/course-edits.ts`, `app/server/studio-server.ts`, and `scripts/lib/course-editing/html.ts`.
-- Safe bridge and standalone handoff: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
-- Studio interaction: `app/studio/src/hooks/useCourseEditing.ts`, `app/studio/src/App.tsx`, `app/studio/src/components/CourseInlineTextEditor.tsx`, `app/studio/src/components/CourseEditPanel.tsx`, `app/studio/src/components/InspectorPanel.tsx`, `app/studio/src/components/PreviewPane.tsx`, and `app/studio/src/precision-editor.css`.
-- Regression evidence: `e2e/specs/inspection.spec.ts`, `scripts/tests/course-editing.test.ts`, and `scripts/tests/studio-architecture.test.ts`.
-- Audit and operational record: `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`, `ARCHITECTURE.md`, and this handoff.
+- Full Preview bridge contract and trusted host renderer: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Shared visual-owner and canonical draft state: `app/studio/src/hooks/useCourseEditing.ts` and `app/studio/src/App.tsx`.
+- Teacher-facing panel copy: `app/studio/src/components/CourseEditPanel.tsx`.
+- Browser proof: `e2e/specs/inspection.spec.ts`.
+- Architecture and audit record: `ARCHITECTURE.md`, `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`, and this handoff.
 
 ## What changed
 
-- Added bounded `POST /api/course-edits/normalize`, which re-resolves durable target identity and returns canonical plain text, patch, digest, representation, and current target without a filesystem write.
-- Added a single shared controller with 200 ms revision-safe normalization, Save/Cmd-Ctrl-Enter flush, shared saved/unsaved draft editing, periodic source revalidation, and detached/reopen/rebase recovery after source drift.
-- Added a parent-owned `plaintext-only` in-place editor. Paste becomes text; paragraph line breaks normalize to `<br>`; headings, list items, and captions stay single-line.
-- Added one visual-owner contract: active caret is parent-owned, panel/saved/full-preview presentation is child-inert, and off-page/detached work has no visual owner.
-- Fixed Full Preview state handoff so a newly ready standalone surface receives the canonical display command without replaying the same revision into an already-rendered embedded surface. The standalone child handshake is bounded and retried safely through the initial iframe race.
-- Full Preview editing is explicitly blocked while retaining normalized display-only preview.
+- Added a bounded, versioned `studio-set-inline-editor` bridge command and `preview-inline-editor-action` response. They carry only session/revision, opaque target identity, bounded plain text, validated geometry, and safe presentation values.
+- Added `standalone-inline` to the single preview-owner state. Embedded Studio uses `parent-inline`; Full Preview uses `standalone-inline`; panel display uses the existing `child-inert`; off-page or detached work has no visual owner.
+- Full Preview now creates its own `contenteditable="plaintext-only"` field in the trusted Studio host, positions it over the selected learner text, forces plain-text paste, handles IME, Escape, and Cmd/Ctrl+Enter, and forwards only bounded draft actions to Studio.
+- Both direct caret surfaces and Review & Apply share the same normalizer, revisions, source-drift handling, saved-draft reopen, Save, Apply, and Undo paths. Full Preview never owns a second persistent or editable copy.
+- Screenshot and Review Set capture are blocked while an unapplied embedded or Full Preview interactive caret is visible.
 
-## Why this changed
+## Verification run
 
-- Teachers asked to edit text visually where it appears while still being able to revise the same change in Review & Apply.
-- A trusted Studio overlay preserves learner DOM identity, listeners, forms, completion state, and browser storage until the existing protected Apply lifecycle.
-- Durable server normalization, source drift recovery, and one display owner prevent optimistic UI from becoming a false edit or overwriting newer course work.
+At the committed local implementation state:
+
+- `npm run build:studio` — passed.
+- `npm run verify:typecheck-baseline` — passed: exactly the ten established diagnostics and none in changed files. Raw typecheck remains intentionally non-green with that reviewed baseline.
+- `E2E_STUDIO_PORT=49389 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above"` — passed. It exercises embedded caret editing, Full Preview host caret editing, synchronized panel changes, Save/Apply/Undo, and proves the learner heading, source bytes, keyboard/input/paste handlers, and browser storage stay unchanged before Apply.
+- `npm run test:course-editing` — passed.
+- `npm run test:studio-inspection` — passed.
+- `npm run test:studio-release` — passed at the clean exact branch head: 163 focused contracts, production build, 59 inspection E2E, platform smoke, and strict project contract. Its report records the matching commit, `workingTreeClean: true`, and `sourceChangedDuringRun: false`.
+- `git diff --check` — passed.
 
 ## Source of truth
 
-- Audit instructions, claims, commands, and remaining limits: `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
-- Canonical inline-draft state: `app/studio/src/hooks/useCourseEditing.ts`.
-- Server authority: `app/server/lib/course-editing.ts` and `app/server/routes/course-edits.ts`.
-- Learner isolation and display bridge: `app/studio/src/components/CourseInlineTextEditor.tsx`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Audit instructions, supported behavior, and known boundaries: `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
+- Canonical inline-draft state and visual-owner lease: `app/studio/src/hooks/useCourseEditing.ts`.
+- Full Preview trusted-host isolation: `app/server/preview-bridge-runtime.ts`.
+- Cross-origin bridge validation: `app/shared/preview-bridge.ts` and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Existing protected filesystem authority: `app/server/lib/course-editing.ts` and `app/server/routes/course-edits.ts`.
 
 ## Fragile areas / watchouts
 
-- The initial inline surface is intentionally limited to text-only `h1`–`h6`, `p`, `li`, and `figcaption`; it is not evidence that every legacy element is directly editable.
-- Full Preview has no caret by design. A future exclusive editing-lease change is required before direct Full Preview typing can be considered.
-- The filesystem lock coordinates Studio processes, not arbitrary Codex, Git, manual-editor, or standalone-builder writers. Those writers must not run during Apply.
-- Local gates prove the bounded local workflow, not Brightspace/deployed-host behavior, full WCAG, delayed learner interactions, cross-browser SCORM, or the teacher rollout.
+- Direct in-place typing is intentionally limited to source-safe text-only `h1`–`h6`, `p`, `li`, and `figcaption`. Links, images, rich/nested markup, controls, navigation, simulations, quizzes, runtime-owned content, and ambiguous generated nodes are not newly made directly editable.
+- The Full Preview host must remain Studio-owned. Do not move the caret layer into the isolated learner iframe, relay arbitrary teacher keyboard events, or permit selectors, paths, arbitrary CSS, or JavaScript through the bridge.
+- The filesystem lock is cooperative among Studio processes; non-participating Codex, Git, manual-editor, or builder writes must not overlap Apply.
+- Local verification proves the bounded Studio workflow, not Brightspace/deployed-host behavior, full WCAG, delayed learner interaction, cross-browser SCORM, or the teacher rollout.
 
 ## Next prompt should assume
 
-- The branch is ready for an independent code audit after the commits are published; use the audit packet rather than claiming general availability.
-- Preserve the plain-text-only boundary and do not broaden to rich text, links, images, styles, or Full Preview caret editing in this follow-up without a separate design and audit.
-- Keep Apply as the first course-file and course-asset mutation. Browser-local Save is not permission to write a project.
+- Both embedded Studio and Full Preview now support the same safe direct plain-text caret experience, synchronized with Review & Apply.
+- Keep Apply as the first course-file and course-asset write. Browser-local Save remains non-mutating.
+- Preserve the narrow plain-text boundary unless a future, separately designed control safely supports rich text, links, images, styles, or runtime components.
 
 ## What still needs validation
 
-- Obtain an independent audit verdict using `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
-- If hosted evidence is required, obtain explicit authorization to open a draft pull request; its pull-request context will trigger the Studio Direct Editing release gate. Do not treat the intentionally absent branch-push run as a failure or as a pass.
-- Before general availability, run the planned five-teacher/twenty-session rollout and separate Brightspace/deployed-host/cross-browser SCORM acceptance.
+- Publish only the scoped committed files listed above, then have an independent auditor inspect the exact resulting head using the audit packet.
+- If hosted evidence is required, obtain explicit repository-owner authorization to open a pull request. Do not claim hosted CI until its exact head has completed.
+- Before general availability, complete the planned five-teacher/twenty-session rollout plus Brightspace/deployed-host, full-WCAG, delayed-interaction, and cross-browser SCORM acceptance.
 
 ## Known risks
 
-- The safe user experience is strong for ordinary plain text, but it does not make runtime-owned content, generated ambiguous siblings, navigation, simulations, quizzes, or arbitrary styled markup editable.
-- A failed raw typecheck should remain reported as expected baseline noise, never as green. The verifier is the passing gate for no new diagnostics.
+- The overlay deliberately mimics the original text but cannot make every visual/runtime surface editable. A green outline remains a selection aid, not write authority.
+- Geometry is refreshed over the private bridge while the caret is active. The source and rendered identity still control write authority; a drifted or missing target detaches rather than saving or applying.
+- Raw TypeScript typecheck remains expected baseline noise and must never be described as green.
 
 ## Exact next command
 
-`git ls-remote --heads origin refs/heads/codex/studio-inline-text-editing-v1`
+`npm run test:studio-release`
 
 ## Exact next file to open
 
-`docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`
+`app/server/preview-bridge-runtime.ts`
 
 ## Do not do next / warnings
 
-- Do not edit `projects/ready-mind/workspace/index.html` or any unrelated user-owned file in the original checkout; this follow-up was isolated in a linked worktree.
-- Do not call raw typecheck green, make a universal-editability claim, or describe Full Preview as caret-editable.
+- Do not touch `projects/ready-mind/workspace/index.html`, `.runtime/**`, or unrelated files in the original checkout.
+- Do not claim universal element-level editability, learner-frame editing, or published/hosted evidence before the scoped commit and authorized CI evidence exist.
 - Do not post or resolve GitHub review threads without explicit repository-owner authorization.

@@ -4,12 +4,13 @@
 - Repository: [`deanguedo-arch/canvas-helper`](https://github.com/deanguedo-arch/canvas-helper)
 - Follow-up branch: `codex/studio-inline-text-editing-v1`
 - Base: Direct Editing baseline integration [`84221330`](https://github.com/deanguedo-arch/canvas-helper/commit/842213301920798cc1f979c34218e939d4940f61)
-- Implementation commit: [`26216b5a`](https://github.com/deanguedo-arch/canvas-helper/commit/26216b5a29a0eb1cfc288061a2d5b25bdc2dffb9)
+- Baseline inline implementation: [`26216b5a`](https://github.com/deanguedo-arch/canvas-helper/commit/26216b5a29a0eb1cfc288061a2d5b25bdc2dffb9)
+- Full Preview parity implementation: audit the current exact branch head; `26216b5a` alone predates the Full Preview host caret.
 - Requested verdict: **GO**, **GO WITH CONDITIONS**, or **REQUEST CHANGES** for the inline-text follow-up only
 
 ## Scope and non-negotiable boundary
 
-This is the intentionally separate follow-up to the merged Direct Editing safety baseline. It provides plain-text in-place editing inside embedded Studio and direct editing of the same draft in Review & Apply.
+This is the intentionally separate follow-up to the merged Direct Editing safety baseline. It provides plain-text in-place editing inside embedded Studio, Full Preview, and Review & Apply through one shared draft controller.
 
 It does **not** make the learner page itself editable. At every stage before Apply:
 
@@ -28,7 +29,7 @@ The audit should reject any implementation path that makes the learner element `
 | Embedded Studio preview | Click an eligible text target and type with a caret directly over its visual location. | None before Apply. The editor is a Studio-owned parent overlay. |
 | Review & Apply | Edit the same unsaved or saved draft in the `Course text` field. | None before Apply. |
 | Saved draft on another page | Continue editing in Review & Apply; it is marked **Preview unavailable until page opens**. `Jump to location` re-resolves it before display. | None before Apply. |
-| Full Preview | Shows the canonical, inert display overlay only. It has no caret, no editable HTML field, and no Save/Apply/Undo authority. | None. |
+| Full Preview | Click an eligible text target and type with a caret at that visual location. Its Review & Apply panel edits the same working draft. | None before Apply. The editor is a trusted Studio-host overlay above the isolated learner iframe. |
 
 The initial in-place target set is deliberately narrow:
 
@@ -76,14 +77,15 @@ It receives a bounded geometry and safe presentation snapshot from the already-i
 The visual owner is always exactly one of:
 
 ```ts
-type CourseEditPreviewOwner = "parent-inline" | "child-inert" | "none";
+type CourseEditPreviewOwner = "parent-inline" | "standalone-inline" | "child-inert" | "none";
 ```
 
-- Active caret: `parent-inline` owns presentation.
+- Active embedded caret: `parent-inline` owns presentation.
+- Active Full Preview caret: `standalone-inline` owns presentation in the trusted Studio host, above the isolated learner iframe.
 - Panel edit or saved-draft display: `child-inert` owns the existing inert learner-frame overlay.
 - Off-page or detached draft: `none`.
 
-The previous owner is cleared before the next one is shown. Parent and child overlays are never intentionally stacked. Screenshots and Review Set capture are blocked while an unapplied interactive parent editor is active.
+The previous owner is cleared before the next one is shown. Embedded, Full Preview, and child overlays are never intentionally stacked. Screenshots and Review Set capture are blocked while either unapplied interactive caret editor is active.
 
 ## Saved drafts and source drift
 
@@ -102,27 +104,29 @@ Reload and re-resolve this target before saving or applying.
 
 If the durable target still exists unchanged, reopening reattaches it. If its text changed, the draft remains detached until the teacher explicitly chooses **Rebase**. Missing, ambiguous, runtime-owned, and unsupported targets remain copy/discard only. There is deliberately no **Keep editing** action after external drift.
 
-## Full Preview boundary and bridge ordering
+## Full Preview editing and bridge ordering
 
-Full Preview is explicitly display-only in this release. Its draft controls are visually and functionally restricted; the parent-in-place editor never opens there. Opening Full Preview while a teacher has an active caret requires them to Save, Discard, or stay in embedded Studio.
+Full Preview supports the same deliberately narrow plain-text target set as embedded Studio. Selecting an eligible target starts a `standalone-inline` lease and places a `contenteditable="plaintext-only"` field in the trusted Studio-origin Full Preview host at the target's reported geometry. The isolated learner iframe remains untouched: it receives no teacher keyboard, input, paste, selector, filesystem path, arbitrary CSS, or script.
 
-The private bridge in [`app/shared/preview-bridge.ts`](../../app/shared/preview-bridge.ts), [`app/server/preview-bridge-runtime.ts`](../../app/server/preview-bridge-runtime.ts), and [`app/studio/src/hooks/usePreviewScrollSync.ts`](../../app/studio/src/hooks/usePreviewScrollSync.ts) carries only a versioned, bounded render command. The standalone host caches the already validated display command until its cross-origin learner iframe establishes its MessageChannel. A bounded retry handles the iframe's initial `about:blank` race.
+The Full Preview Review & Apply controls and the caret dispatch only bounded `input`, `save`, or `cancel` actions with a session ID, monotonic revision, and opaque target ID. Studio reuses its canonical normalizer and the same authoritative working draft; Full Preview never owns a second editable copy. Save remains browser-local, while Apply and Undo continue to call the existing protected Studio lifecycle.
 
-When a new Full Preview reports ready, Studio sends the current display command to that newly ready surface only. It does **not** replay the same revision into the already-rendered embedded iframe: repeated render revisions are correctly rejected by the bridge, and a rejected duplicate must never clear a previously successful preview. This exact failure mode has an automated regression test.
+The private bridge in [`app/shared/preview-bridge.ts`](../../app/shared/preview-bridge.ts), [`app/server/preview-bridge-runtime.ts`](../../app/server/preview-bridge-runtime.ts), and [`app/studio/src/hooks/usePreviewScrollSync.ts`](../../app/studio/src/hooks/usePreviewScrollSync.ts) carries only versioned, bounded commands. The standalone host caches validated state until its cross-origin learner iframe establishes its MessageChannel. A startup guard prevents pointer events from reaching the learner until the nested inspection shield confirms the current mode; a bounded retry handles the initial `about:blank` race.
 
-## Evidence at the implementation commit
+There is exactly one visual owner. Opening Full Preview releases an embedded caret to the inert child presentation; selecting the visible text in Full Preview acquires the standalone host caret. Switching back, saving, canceling, navigating, drifting, or applying clears that lease before another owner can appear. The existing display command is still seeded to a newly ready standalone surface only: it does **not** replay the same revision into the already-rendered embedded iframe, so a duplicate cannot clear a valid presentation.
 
-Run from the linked clean worktree at `26216b5a` before documentation-only updates:
+## Evidence at the baseline and current local Full Preview parity state
+
+The first two rows below are retained baseline evidence from `26216b5a`. The remaining rows are current local evidence for the Full Preview parity change and must be rerun by an independent auditor at the exact committed head:
 
 | Check | Result |
 | --- | --- |
-| `npm run test:course-editing` | 51/51 passed |
-| `npm run test:studio-release` | 163 focused contracts, Studio production build, 59/59 inspection E2E, platform smoke, and strict project contract passed |
-| `E2E_STUDIO_PORT=49387 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above" --repeat-each=6` | 6/6 passed after the Full Preview handoff fix |
-| `E2E_STUDIO_PORT=49388 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|external source drift detaches" --repeat-each=3` | 6/6 passed |
-| `npm run verify:typecheck-baseline` | passed; no changed-file diagnostic |
+| `npm run test:course-editing` | baseline: 51/51 passed; current local parity run passed |
+| `npm run test:studio-release` | current local parity run passed at a clean exact branch head: 163 focused contracts, Studio production build, 59/59 inspection E2E, platform smoke, and strict project contract. The report records the matching commit, `workingTreeClean: true`, and `sourceChangedDuringRun: false`. |
+| `E2E_STUDIO_PORT=49389 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above"` | current local parity run passed; exercises both direct caret surfaces and learner isolation |
+| `npm run test:studio-inspection` | current local parity run passed |
+| `npm run verify:typecheck-baseline` | current local parity run passed; no changed-file diagnostic |
 | raw `npm run typecheck -- --pretty false` | expected exit `2` with exactly ten established unrelated diagnostics |
-| `git diff --check` | passed before documentation-only updates |
+| `git diff --check` | current local parity run passed |
 
 The new Playwright coverage proves, among other things:
 
@@ -131,7 +135,8 @@ The new Playwright coverage proves, among other things:
 - learner `keydown`, `input`, and `paste` handlers are not invoked;
 - browser storage remains unchanged before Apply;
 - saved drafts can be reopened and edited from Review & Apply;
-- the embedded child overlay, parent caret overlay, and Full Preview display-only overlay hand off without overlap;
+- the embedded child overlay, embedded caret overlay, and Full Preview host caret hand off without overlap;
+- Full Preview typing leaves its learner heading, event handlers, browser storage, and course source unchanged before Save/Apply;
 - Apply then Undo uses the inherited protected lifecycle;
 - external source drift detaches the proposed text and requires explicit rebase.
 
@@ -173,19 +178,19 @@ Review these questions directly in code:
 3. Can a stale normalizer reply, duplicate bridge command, source drift, navigation, or Full Preview connection mutate or clear a newer authoritative draft?
 4. Is the learner iframe independent of teacher keyboard/paste events and original subtree changes before Apply?
 5. Can a saved draft reopen without a stored node ID and recover safely when its target changed?
-6. Does Full Preview remain no-caret, display-only in both UI and bridge paths?
+6. Does Full Preview use only the trusted host caret and the same controller, never a learner-frame caret or a second draft state?
 7. Do the documentation and user-facing claims stay within the narrow supported element set?
 
 ## Claims intentionally not made
 
 - This is not a claim that every legacy course or every visible element is editable in real time.
-- This is not Full Preview caret editing; that requires a later exclusive editing-lease change.
+- This is not direct `contenteditable` editing of the learner page; Full Preview's caret lives only in its trusted host layer.
 - This is not a complete WCAG audit, Brightspace/deployed-host acceptance, delayed-interaction proof, cross-browser SCORM proof, or teacher-rollout evidence.
 - The existing filesystem lock remains a cooperative Studio-writer protocol. Codex, Git, manual editing, and standalone builders must not touch the same course while Apply is running.
 
 ## Recommended verdict rubric
 
-Return **REQUEST CHANGES** if any new path changes the learner DOM before Apply, raw teacher content bypasses server normalization, saved drafts trust a stale node ID, source drift allows save/apply without re-resolution, Full Preview exposes a caret or mutation controls, duplicate preview messages can clear a valid display, or tests merely assert component state without checking learner isolation.
+Return **REQUEST CHANGES** if any new path changes the learner DOM before Apply, raw teacher content bypasses server normalization, saved drafts trust a stale node ID, source drift allows save/apply without re-resolution, Full Preview exposes a learner-frame caret or a second authoritative draft copy, duplicate preview messages can clear a valid display, or tests merely assert component state without checking learner isolation.
 
 Return **GO WITH CONDITIONS** only for the clearly external acceptance work: five distinct teachers across twenty predetermined sessions, Brightspace/deployed-host behavior, full WCAG, delayed learner interactions, and cross-browser SCORM.
 

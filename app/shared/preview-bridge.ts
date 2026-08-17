@@ -1,6 +1,7 @@
 import { isPreviewContentHealth } from "./preview-health.js";
 import {
   COURSE_EDIT_MAX_DRAFTS,
+  COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS,
   COURSE_EDIT_MAX_HTML_CODE_UNITS,
   COURSE_EDIT_MAX_ID_CODE_UNITS,
   COURSE_EDIT_MAX_STATUS_CODE_UNITS,
@@ -48,6 +49,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-mode",
   "preview-edit-preview-ack",
   "preview-edit-action",
+  "preview-inline-editor-action",
   "preview-review-action",
   "preview-return-to-studio",
   "preview-health",
@@ -61,6 +63,7 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-set-inspect-mode",
   "studio-set-edit-visual-mode",
   "studio-set-edit-preview",
+  "studio-set-inline-editor",
   "studio-request-inspect-current",
   "studio-focus-inspect-node",
   "studio-show-inspect-node",
@@ -127,6 +130,30 @@ export type PreviewInlineTargetState = {
   visible: boolean;
   presentation: SafePresentationSnapshot;
 };
+
+/**
+ * A Studio-owned text layer for the standalone Full Preview host. The learner
+ * document receives only opaque geometry and never receives keyboard input.
+ */
+export type PreviewInlineEditorStatus = "clean" | "editing" | "normalizing" | "valid" | "invalid" | "saved";
+
+export type PreviewInlineEditorCommand = {
+  schemaVersion: typeof PREVIEW_BRIDGE_VERSION;
+  active: boolean;
+  sessionId: string;
+  revision: number;
+  targetId: string;
+  target: PreviewInlineTargetState | null;
+  text: string;
+  allowsLineBreaks: boolean;
+  status: PreviewInlineEditorStatus;
+};
+
+export type PreviewInlineEditorAction = (
+  | { action: "input"; sessionId: string; revision: number; targetId: string; text: string }
+  | { action: "save"; sessionId: string; revision: number; targetId: string }
+  | { action: "cancel"; sessionId: string; revision: number; targetId: string }
+) & { requestId?: string };
 
 export type PreviewInspectPayload = {
   nodeId: string | null;
@@ -366,11 +393,11 @@ function hasOnlyKeys(value: Record<string, unknown>, keys: readonly string[]) {
   return Object.keys(value).every((key) => allowed.has(key));
 }
 
-function isBoundedString(value: unknown, maximumLength: number) {
+function isBoundedString(value: unknown, maximumLength: number): value is string {
   return typeof value === "string" && value.length <= maximumLength;
 }
 
-function isBoundedNonEmptyString(value: unknown, maximumLength: number) {
+function isBoundedNonEmptyString(value: unknown, maximumLength: number): value is string {
   return typeof value === "string" && value.length > 0 && value.length <= maximumLength;
 }
 
@@ -444,6 +471,77 @@ function isSafePresentationSnapshot(value: unknown): value is SafePresentationSn
     ["left", "right", "center", "justify", "start", "end"].includes(String(textAlign)) &&
     isSafePresentationValue(value.color, 64) &&
     ["normal", "pre", "pre-wrap", "pre-line", "nowrap"].includes(String(whiteSpace))
+  );
+}
+
+function isPreviewInlineTargetState(value: unknown): value is PreviewInlineTargetState {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, ["schemaVersion", "targetNodeId", "geometry", "viewport", "visible", "presentation"]) &&
+    value.schemaVersion === PREVIEW_BRIDGE_VERSION &&
+    isBoundedNonEmptyString(value.targetNodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
+    isGeometry(value.geometry) &&
+    isViewport(value.viewport) &&
+    typeof value.visible === "boolean" &&
+    isSafePresentationSnapshot(value.presentation)
+  );
+}
+
+export function isPreviewInlineEditorCommand(value: unknown): value is PreviewInlineEditorCommand {
+  if (!isRecord(value)) return false;
+  const { schemaVersion, active, sessionId, revision, targetId, target, text, allowsLineBreaks, status } = value;
+  if (
+    !hasOnlyKeys(value, ["schemaVersion", "active", "sessionId", "revision", "targetId", "target", "text", "allowsLineBreaks", "status"]) ||
+    schemaVersion !== PREVIEW_BRIDGE_VERSION ||
+    typeof active !== "boolean" ||
+    typeof revision !== "number" ||
+    !Number.isSafeInteger(revision) ||
+    revision < 0 ||
+    typeof allowsLineBreaks !== "boolean" ||
+    typeof status !== "string" ||
+    !["clean", "editing", "normalizing", "valid", "invalid", "saved"].includes(status)
+  ) return false;
+  if (active === false) {
+    return (
+      sessionId === "" &&
+      targetId === "" &&
+      target === null &&
+      text === "" &&
+      allowsLineBreaks === false &&
+      status === "clean"
+    );
+  }
+  return (
+    isBoundedNonEmptyString(sessionId, 96) &&
+    /^[A-Za-z0-9-]+$/.test(sessionId) &&
+    revision > 0 &&
+    isBoundedNonEmptyString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
+    /^[a-f0-9]{24}$/.test(targetId) &&
+    isPreviewInlineTargetState(target) &&
+    isBoundedString(text, COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS)
+  );
+}
+
+export function isPreviewInlineEditorAction(value: unknown): value is PreviewInlineEditorAction {
+  if (!isRecord(value)) return false;
+  const { action, requestId, sessionId, revision, targetId, text } = value;
+  if (
+    typeof action !== "string" ||
+    (requestId !== undefined && !isBoundedNonEmptyString(requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH)) ||
+    !isBoundedNonEmptyString(sessionId, 96) ||
+    !/^[A-Za-z0-9-]+$/.test(sessionId) ||
+    typeof revision !== "number" ||
+    !Number.isSafeInteger(revision) ||
+    revision <= 0 ||
+    !isBoundedNonEmptyString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) ||
+    !/^[a-f0-9]{24}$/.test(targetId)
+  ) return false;
+  if (action === "input") {
+    return hasOnlyKeys(value, ["action", "requestId", "sessionId", "revision", "targetId", "text"]) && isBoundedString(text, COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS);
+  }
+  return (
+    (action === "save" || action === "cancel") &&
+    hasOnlyKeys(value, ["action", "requestId", "sessionId", "revision", "targetId"])
   );
 }
 
@@ -881,6 +979,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isPreviewCourseEditAck(payload);
     case "preview-edit-action":
       return isPreviewCourseEditAction(payload);
+    case "preview-inline-editor-action":
+      return isPreviewInlineEditorAction(payload);
     case "preview-review-action":
       return isPreviewReviewAction(payload);
     case "preview-return-to-studio":
@@ -910,6 +1010,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isRecord(payload) && Object.keys(payload).every((key) => key === "enabled") && typeof payload.enabled === "boolean";
     case "studio-set-edit-preview":
       return isPreviewCourseEditCommand(payload);
+    case "studio-set-inline-editor":
+      return isPreviewInlineEditorCommand(payload);
     case "studio-request-inspect-current":
       return (
         isRecord(payload) &&

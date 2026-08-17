@@ -1,4 +1,5 @@
 import {
+  COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS,
   COURSE_EDIT_MAX_ID_CODE_UNITS,
   COURSE_EDIT_PAGE_MAP_MAX_ENTRIES,
   COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION
@@ -42,6 +43,7 @@ export function buildPreviewBridgeRuntime(
   var EDIT_MAP_SCHEMA_VERSION = ${COURSE_EDIT_PAGE_MAP_SCHEMA_VERSION};
   var MAX_EDIT_MAP_ENTRIES = ${COURSE_EDIT_PAGE_MAP_MAX_ENTRIES};
   var MAX_COURSE_EDIT_ID = ${COURSE_EDIT_MAX_ID_CODE_UNITS};
+  var MAX_EDITOR_TEXT = ${COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS};
   var MAX_TEXT = ${PREVIEW_BRIDGE_MAX_VISIBLE_TEXT};
   var MAX_CONTAINERS = ${PREVIEW_BRIDGE_MAX_CONTAINERS};
   var MAX_REVIEW_ITEMS = ${PREVIEW_REVIEW_MAX_ITEMS};
@@ -182,6 +184,13 @@ export function buildPreviewBridgeRuntime(
   var hostedCourseFrame = null;
   var hostedCoursePort = null;
   var hostedCourseReadyHref = "";
+  // Full Preview is a Studio-owned host around a cross-origin learner frame.
+  // Keep a short-lived host guard above that frame until its own inspection
+  // shield acknowledges the requested mode, so an eager click cannot reach
+  // learner controls before safe selection capture is armed.
+  var hostedCourseInteractionReady = false;
+  var hostedCourseGuard = null;
+  var hostedCourseGuardLabel = null;
   // The standalone host can connect to Studio before its nested learner frame
   // has finished booting. Retain only the already-validated bridge command so
   // it can be delivered once that frame is ready instead of being lost.
@@ -200,6 +209,12 @@ export function buildPreviewBridgeRuntime(
   var hostedCourseHandshakeTimer = 0;
   var hostedCourseRecoveryMessage = "";
   var hostedFocusRequest = null;
+  var hostedInlineEditor = null;
+  var hostedInlineEditorField = null;
+  var hostedInlineEditorStatus = null;
+  var hostedInlineEditorCommand = null;
+  var hostedInlineEditorInputRevision = 0;
+  var hostedInlineEditorPositionHandle = 0;
   var reconnectTimer = 0;
   var reconnectAttempts = 0;
   var lastNavigationIdentity = "";
@@ -257,6 +272,49 @@ export function buildPreviewBridgeRuntime(
       return true;
     } catch (_) {
       return false;
+    }
+  }
+
+  function ensureHostedCourseGuard() {
+    if (!hostMode) return null;
+    if (hostedCourseGuard) return hostedCourseGuard;
+    var guard = document.createElement("div");
+    guard.setAttribute("data-canvas-helper-full-preview-ready-guard", "true");
+    guard.setAttribute("aria-live", "polite");
+    guard.setAttribute("role", "status");
+    guard.style.position = "fixed";
+    guard.style.inset = "0";
+    guard.style.zIndex = "2147483645";
+    guard.style.display = "none";
+    guard.style.alignItems = "center";
+    guard.style.justifyContent = "center";
+    guard.style.pointerEvents = "auto";
+    guard.style.background = "rgba(248,250,252,.06)";
+    guard.style.color = "#18212f";
+    guard.style.font = "600 13px/1.35 system-ui, sans-serif";
+    var label = document.createElement("span");
+    label.textContent = "Preparing safe editing…";
+    label.style.padding = "7px 10px";
+    label.style.border = "1px solid rgba(100,116,139,.45)";
+    label.style.borderRadius = "7px";
+    label.style.background = "rgba(255,255,255,.94)";
+    label.style.boxShadow = "0 2px 8px rgba(15,23,42,.12)";
+    guard.appendChild(label);
+    (document.body || document.documentElement).appendChild(guard);
+    hostedCourseGuard = guard;
+    hostedCourseGuardLabel = label;
+    return guard;
+  }
+
+  function updateHostedCourseGuard() {
+    if (!hostMode) return;
+    var guard = ensureHostedCourseGuard();
+    if (!guard) return;
+    var active = Boolean(inspectEnabled && !hostedCourseInteractionReady);
+    guard.style.display = active ? "flex" : "none";
+    guard.style.pointerEvents = active ? "auto" : "none";
+    if (hostedCourseGuardLabel) {
+      hostedCourseGuardLabel.textContent = hostedCourseRecoveryMessage || "Preparing safe editing…";
     }
   }
 
@@ -749,6 +807,262 @@ export function buildPreviewBridgeRuntime(
     renderEditPreview(command);
   }
 
+  function validInlinePresentation(value) {
+    if (!value || typeof value !== "object") return false;
+    var keys = ["fontFamily", "fontSize", "fontWeight", "fontStyle", "lineHeight", "letterSpacing", "textAlign", "color", "whiteSpace"];
+    if (Object.keys(value).length !== keys.length || !keys.every(function(key) { return Object.prototype.hasOwnProperty.call(value, key); })) return false;
+    var safeValue = function(candidate, maximum) {
+      return typeof candidate === "string" && candidate.length <= maximum && !/[;{}<>]/.test(candidate) && !/(?:url|expression|@import)\s*\(/i.test(candidate);
+    };
+    return (
+      safeValue(value.fontFamily, 240) &&
+      safeValue(value.fontSize, 32) &&
+      safeValue(value.fontWeight, 32) &&
+      ["normal", "italic", "oblique"].indexOf(value.fontStyle) >= 0 &&
+      safeValue(value.lineHeight, 32) &&
+      safeValue(value.letterSpacing, 32) &&
+      ["left", "right", "center", "justify", "start", "end"].indexOf(value.textAlign) >= 0 &&
+      safeValue(value.color, 64) &&
+      ["normal", "pre", "pre-wrap", "pre-line", "nowrap"].indexOf(value.whiteSpace) >= 0
+    );
+  }
+
+  function validHostedInlineEditorCommand(value) {
+    if (!value || typeof value !== "object") return false;
+    var keys = ["schemaVersion", "active", "sessionId", "revision", "targetId", "target", "text", "allowsLineBreaks", "status"];
+    if (Object.keys(value).length !== keys.length || !keys.every(function(key) { return Object.prototype.hasOwnProperty.call(value, key); })) return false;
+    if (value.schemaVersion !== VERSION || typeof value.active !== "boolean" || !Number.isSafeInteger(value.revision) || value.revision < 0 || typeof value.allowsLineBreaks !== "boolean" || ["clean", "editing", "normalizing", "valid", "invalid", "saved"].indexOf(value.status) < 0) return false;
+    if (!value.active) return value.sessionId === "" && value.targetId === "" && value.target === null && value.text === "" && value.allowsLineBreaks === false && value.status === "clean";
+    var target = value.target;
+    return Boolean(
+      typeof value.sessionId === "string" && /^[A-Za-z0-9-]{1,96}$/.test(value.sessionId) &&
+      value.revision > 0 &&
+      typeof value.targetId === "string" && /^[a-f0-9]{24}$/.test(value.targetId) &&
+      typeof value.text === "string" && value.text.length <= MAX_EDITOR_TEXT &&
+      target && typeof target === "object" &&
+      target.schemaVersion === VERSION &&
+      typeof target.targetNodeId === "string" && /^ch1:[a-f0-9]{24}:[1-9][0-9]*$/.test(target.targetNodeId) &&
+      target.geometry && typeof target.geometry === "object" &&
+      ["x", "y", "width", "height"].every(function(key) { return Number.isFinite(target.geometry[key]) && Math.abs(target.geometry[key]) <= 10000000; }) &&
+      target.geometry.width >= 0 && target.geometry.height >= 0 &&
+      target.viewport && typeof target.viewport === "object" &&
+      Number.isInteger(target.viewport.width) && target.viewport.width >= 240 && target.viewport.width <= 2560 &&
+      Number.isInteger(target.viewport.height) && target.viewport.height >= 240 && target.viewport.height <= 2000 &&
+      typeof target.visible === "boolean" &&
+      validInlinePresentation(target.presentation)
+    );
+  }
+
+  function inlineEditorStatusText(status) {
+    if (status === "normalizing") return "Checking…";
+    if (status === "saved") return "Saved draft";
+    if (status === "valid") return "Ready to save";
+    if (status === "invalid") return "Fix this text before saving";
+    return "Draft";
+  }
+
+  function removeHostedInlineEditor() {
+    if (hostedInlineEditorPositionHandle) {
+      window.cancelAnimationFrame(hostedInlineEditorPositionHandle);
+      hostedInlineEditorPositionHandle = 0;
+    }
+    if (hostedInlineEditor && hostedInlineEditor.parentNode) hostedInlineEditor.parentNode.removeChild(hostedInlineEditor);
+    hostedInlineEditor = null;
+    hostedInlineEditorField = null;
+    hostedInlineEditorStatus = null;
+    hostedInlineEditorCommand = null;
+    hostedInlineEditorInputRevision = 0;
+  }
+
+  function positionHostedInlineEditor() {
+    hostedInlineEditorPositionHandle = 0;
+    var command = hostedInlineEditorCommand;
+    var frame = hostedCourseFrame;
+    if (!hostMode || !hostedInlineEditor || !command || !command.active || !frame || !command.target || !command.target.visible) {
+      if (hostedInlineEditor) hostedInlineEditor.style.display = "none";
+      return;
+    }
+    var frameRect = frame.getBoundingClientRect();
+    var target = command.target;
+    var scaleX = frameRect.width / Math.max(1, target.viewport.width);
+    var scaleY = frameRect.height / Math.max(1, target.viewport.height);
+    hostedInlineEditor.style.display = "block";
+    hostedInlineEditor.style.left = Math.round(frameRect.left + target.geometry.x * scaleX) + "px";
+    hostedInlineEditor.style.top = Math.round(frameRect.top + target.geometry.y * scaleY) + "px";
+    hostedInlineEditor.style.width = Math.max(1, Math.round(target.geometry.width * scaleX)) + "px";
+    hostedInlineEditor.style.minHeight = Math.max(1, Math.round(target.geometry.height * scaleY)) + "px";
+  }
+
+  function scheduleHostedInlineEditorPosition() {
+    if (!hostedInlineEditor || hostedInlineEditorPositionHandle) return;
+    hostedInlineEditorPositionHandle = window.requestAnimationFrame(positionHostedInlineEditor);
+  }
+
+  function hostedInlineEditorText() {
+    if (!hostedInlineEditorField) return "";
+    return String(hostedInlineEditorField.innerText || hostedInlineEditorField.textContent || "").replace(/\r\n?/g, "\n");
+  }
+
+  function sendHostedInlineEditorAction(action) {
+    var command = hostedInlineEditorCommand;
+    if (!command || !command.active || !hostMode) return;
+    var revision = hostedInlineEditorInputRevision + 1;
+    hostedInlineEditorInputRevision = revision;
+    var payload = {
+      action: action,
+      sessionId: command.sessionId,
+      revision: revision,
+      targetId: command.targetId
+    };
+    if (action === "input") {
+      var text = hostedInlineEditorText();
+      if (text.length > MAX_EDITOR_TEXT) {
+        if (hostedInlineEditorStatus) hostedInlineEditorStatus.textContent = "Text is too long to save.";
+        if (hostedInlineEditorField) hostedInlineEditorField.setAttribute("aria-invalid", "true");
+        return;
+      }
+      payload.text = text;
+      if (hostedInlineEditorField) hostedInlineEditorField.removeAttribute("aria-invalid");
+    }
+    send("preview-inline-editor-action", payload);
+  }
+
+  function setHostedInlinePresentation(field, presentation) {
+    if (!field || !presentation) return;
+    field.style.fontFamily = presentation.fontFamily;
+    field.style.fontSize = presentation.fontSize;
+    field.style.fontWeight = presentation.fontWeight;
+    field.style.fontStyle = presentation.fontStyle;
+    field.style.lineHeight = presentation.lineHeight;
+    field.style.letterSpacing = presentation.letterSpacing;
+    field.style.textAlign = presentation.textAlign;
+    field.style.color = presentation.color;
+    field.style.whiteSpace = presentation.whiteSpace === "nowrap" ? "pre-wrap" : presentation.whiteSpace;
+  }
+
+  function applyHostedInlineEditorCommand(command) {
+    if (!hostMode || !validHostedInlineEditorCommand(command)) return;
+    if (!command.active) {
+      removeHostedInlineEditor();
+      return;
+    }
+    var previous = hostedInlineEditorCommand;
+    if (previous && previous.sessionId === command.sessionId && command.revision < previous.revision) return;
+    var newSession = !previous || previous.sessionId !== command.sessionId;
+    hostedInlineEditorCommand = command;
+    if (!hostedInlineEditor) {
+      var stage = document.createElement("div");
+      stage.setAttribute("data-canvas-helper-full-preview-inline-editor", "true");
+      stage.style.position = "fixed";
+      stage.style.zIndex = "2147483646";
+      stage.style.boxSizing = "border-box";
+      stage.style.pointerEvents = "none";
+      stage.style.background = "rgba(255,255,255,.88)";
+      var field = document.createElement("div");
+      field.setAttribute("data-testid", "course-full-preview-inline-text-editor");
+      field.setAttribute("role", "textbox");
+      field.setAttribute("aria-label", "Edit course text in place");
+      field.setAttribute("contenteditable", "plaintext-only");
+      field.setAttribute("spellcheck", "true");
+      field.style.boxSizing = "border-box";
+      field.style.display = "block";
+      field.style.width = "100%";
+      field.style.minHeight = "inherit";
+      field.style.margin = "0";
+      field.style.padding = "0";
+      field.style.overflow = "hidden";
+      field.style.border = "1px solid #1473e6";
+      field.style.outline = "2px solid rgba(20,115,230,.35)";
+      field.style.outlineOffset = "1px";
+      field.style.background = "transparent";
+      field.style.caretColor = "currentColor";
+      field.style.pointerEvents = "auto";
+      field.style.userSelect = "text";
+      field.addEventListener("input", function() {
+        if (!field.hasAttribute("data-canvas-helper-composing")) sendHostedInlineEditorAction("input");
+      });
+      field.addEventListener("compositionstart", function() { field.setAttribute("data-canvas-helper-composing", "true"); });
+      field.addEventListener("compositionend", function() {
+        field.removeAttribute("data-canvas-helper-composing");
+        sendHostedInlineEditorAction("input");
+      });
+      field.addEventListener("paste", function(event) {
+        event.preventDefault();
+        var text = event.clipboardData ? String(event.clipboardData.getData("text/plain") || "") : "";
+        if (!hostedInlineEditorCommand || !hostedInlineEditorCommand.allowsLineBreaks) text = text.replace(/\r?\n/g, " ");
+        try { document.execCommand("insertText", false, text); } catch (_) { field.textContent += text; }
+        sendHostedInlineEditorAction("input");
+      });
+      field.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") {
+          event.preventDefault();
+          sendHostedInlineEditorAction("cancel");
+          return;
+        }
+        if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+          event.preventDefault();
+          sendHostedInlineEditorAction("save");
+          return;
+        }
+        if (event.key === "Enter" && (!hostedInlineEditorCommand || !hostedInlineEditorCommand.allowsLineBreaks)) event.preventDefault();
+      });
+      var status = document.createElement("span");
+      status.setAttribute("data-canvas-helper-full-preview-inline-editor-status", "true");
+      status.setAttribute("aria-live", "polite");
+      status.style.position = "absolute";
+      status.style.top = "-20px";
+      status.style.left = "0";
+      status.style.padding = "2px 6px";
+      status.style.border = "1px solid #64748b";
+      status.style.borderRadius = "4px";
+      status.style.color = "#18212f";
+      status.style.background = "#ffffff";
+      status.style.font = "600 11px/1.2 system-ui, sans-serif";
+      status.style.pointerEvents = "none";
+      stage.appendChild(field);
+      stage.appendChild(status);
+      (document.body || document.documentElement).appendChild(stage);
+      hostedInlineEditor = stage;
+      hostedInlineEditorField = field;
+      hostedInlineEditorStatus = status;
+    }
+    if (hostedInlineEditorField) {
+      hostedInlineEditorField.setAttribute("aria-multiline", command.allowsLineBreaks ? "true" : "false");
+      hostedInlineEditorField.setAttribute("contenteditable", "plaintext-only");
+      setHostedInlinePresentation(hostedInlineEditorField, command.target.presentation);
+      if (!hostedInlineEditorField.hasAttribute("data-canvas-helper-composing") && hostedInlineEditorField.textContent !== command.text) {
+        hostedInlineEditorField.textContent = command.text;
+      }
+    }
+    if (hostedInlineEditorStatus) hostedInlineEditorStatus.textContent = inlineEditorStatusText(command.status);
+    if (
+      editHtml &&
+      editState.target &&
+      editState.target.targetId === command.targetId &&
+      document.activeElement !== editHtml &&
+      editHtml.textContent !== command.text
+    ) {
+      editHtml.textContent = command.text;
+    }
+    scheduleHostedInlineEditorPosition();
+    if (newSession && hostedInlineEditorField) {
+      window.requestAnimationFrame(function() {
+        if (!hostedInlineEditorField || hostedInlineEditorCommand !== command) return;
+        try {
+          hostedInlineEditorField.focus({ preventScroll: true });
+          var range = document.createRange();
+          range.selectNodeContents(hostedInlineEditorField);
+          range.collapse(false);
+          var selection = window.getSelection();
+          if (selection) {
+            selection.removeAllRanges();
+            selection.addRange(range);
+          }
+        } catch (_) {}
+      });
+    }
+  }
+
   function editMapDistanceToRect(x, y, rect) {
     var dx = x < rect.left ? rect.left - x : x > rect.right ? x - rect.right : 0;
     var dy = y < rect.top ? rect.top - y : y > rect.bottom ? y - rect.bottom : 0;
@@ -1166,16 +1480,17 @@ export function buildPreviewBridgeRuntime(
 
   function updateStandaloneControls(options) {
     if (!inspectControl) return;
+    var canEditHere = hostMode || window.top !== window;
     inspectControl.textContent = inspectEnabled && !editModeEnabled ? "Annotating" : "Annotate";
     inspectControl.setAttribute("aria-pressed", inspectEnabled && !editModeEnabled ? "true" : "false");
     inspectControl.style.background = "#ffffff";
     inspectControl.style.color = inspectEnabled && !editModeEnabled ? "#1473e6" : "#18212f";
     if (editControl) {
-      editControl.textContent = window.top === window ? "Drafts" : editModeEnabled ? "Editing" : "Edit";
-      editControl.setAttribute("aria-pressed", window.top === window ? "false" : editModeEnabled ? "true" : "false");
-      editControl.disabled = window.top === window ? editState.busy : !editState.available || editState.busy;
+      editControl.textContent = canEditHere ? (editModeEnabled ? "Editing" : "Edit") : "Drafts";
+      editControl.setAttribute("aria-pressed", canEditHere && editModeEnabled ? "true" : "false");
+      editControl.disabled = canEditHere ? (!editState.available || editState.busy) : editState.busy;
       editControl.style.opacity = editControl.disabled ? "0.48" : "1";
-      editControl.style.color = window.top === window ? "#18212f" : editModeEnabled ? "#1473e6" : "#18212f";
+      editControl.style.color = canEditHere && editModeEnabled ? "#1473e6" : "#18212f";
     }
     if (previewControls) {
       previewControls.style.background = inspectEnabled ? "#1473e6" : "#ffffff";
@@ -1183,7 +1498,9 @@ export function buildPreviewBridgeRuntime(
       previewControls.style.color = inspectEnabled ? "#ffffff" : "#18212f";
     }
     if (previewStatus) previewStatus.style.color = inspectEnabled ? "#ffffff" : "#475569";
-    if (inspectEnabled) {
+    if (hostMode && inspectEnabled && !hostedCourseInteractionReady) {
+      setStandaloneStatus(hostedCourseRecoveryMessage || "Preparing safe editing…");
+    } else if (inspectEnabled) {
       setStandaloneStatus(
         studioConnected
           ? editModeEnabled
@@ -1241,6 +1558,16 @@ export function buildPreviewBridgeRuntime(
     return editState.selectedDraft.baseline;
   }
 
+  function hostedInlineEditorMatchesTarget(target) {
+    return Boolean(
+      hostMode &&
+      hostedInlineEditorCommand &&
+      hostedInlineEditorCommand.active &&
+      target &&
+      target.targetId === hostedInlineEditorCommand.targetId
+    );
+  }
+
   function currentEditPatch() {
     var source = currentEditSource();
     if (!source) return null;
@@ -1270,6 +1597,12 @@ export function buildPreviewBridgeRuntime(
       editPreviewActionTimer = 0;
       var target = editState.target;
       if (!target || target.eligibility !== "editable" || editState.busy) return;
+      if (hostedInlineEditorMatchesTarget(target) && editHtml) {
+        var inlineText = String(editHtml.innerText || editHtml.textContent || "").replace(/\r\n?/g, "\n");
+        if (hostedInlineEditorField && hostedInlineEditorField.textContent !== inlineText) hostedInlineEditorField.textContent = inlineText;
+        sendHostedInlineEditorAction("input");
+        return;
+      }
       var patch = currentEditPatch();
       if (patch) sendEditAction({ action: "preview-target", targetId: target.targetId, patch: patch });
       else sendEditAction({ action: "clear-preview", targetId: target.targetId });
@@ -1281,8 +1614,8 @@ export function buildPreviewBridgeRuntime(
   }
 
   function populateEditComposer() {
-    if (window.top === window) {
-      if (editTargetText) editTargetText.textContent = "Full Preview is display-only. Edit this course in embedded Studio, then return here to inspect the normalized draft.";
+    if (window.top === window && !hostMode) {
+      if (editTargetText) editTargetText.textContent = "Open this course through Studio to edit it safely.";
       setEditFieldVisibility(editHtml, false);
       if (editFormat) editFormat.style.display = "none";
       setEditFieldVisibility(editHref, false);
@@ -1299,25 +1632,31 @@ export function buildPreviewBridgeRuntime(
       ? editState.selectedDraft
       : null;
     var source = currentEditSource();
+    var inlineTextTarget = hostedInlineEditorMatchesTarget(target);
     var nextComposerKey = target
       ? "target:" + target.targetId + (selectedDraft ? ":draft:" + selectedDraft.id : "")
       : selectedDraft ? "draft:" + selectedDraft.id : "";
-    if (editTargetText) editTargetText.textContent = target
+    if (editTargetText) editTargetText.textContent = inlineTextTarget
+      ? "Editing this text in place. This editor stays synchronized with the selected course text."
+      : target
       ? (target.originalText || target.tagName || "Selected element")
       : selectedDraft
         ? "Editing saved draft: " + (selectedDraft.afterText || selectedDraft.tagName || "Draft change")
         : editState.available ? "Click a course element to edit it." : editState.unavailableReason || "This course is annotation-only.";
-    setEditFieldVisibility(editHtml, Boolean(source && source.capabilities.richText));
-    if (editFormat) editFormat.style.display = source && source.capabilities.richText ? "flex" : "none";
-    setEditFieldVisibility(editHref, Boolean(source && source.capabilities.link));
-    setEditFieldVisibility(editSrc, Boolean(source && source.capabilities.image));
-    setEditFieldVisibility(editAlt, Boolean(source && source.capabilities.image));
-    setEditFieldVisibility(editTitle, Boolean(source));
-    if (editStyleControls && editStyleControls.container) editStyleControls.container.style.display = source && source.capabilities.styles ? "grid" : "none";
+    setEditFieldVisibility(editHtml, Boolean(inlineTextTarget || (source && source.capabilities.richText)));
+    if (editFormat) editFormat.style.display = !inlineTextTarget && source && source.capabilities.richText ? "flex" : "none";
+    setEditFieldVisibility(editHref, Boolean(!inlineTextTarget && source && source.capabilities.link));
+    setEditFieldVisibility(editSrc, Boolean(!inlineTextTarget && source && source.capabilities.image));
+    setEditFieldVisibility(editAlt, Boolean(!inlineTextTarget && source && source.capabilities.image));
+    setEditFieldVisibility(editTitle, Boolean(!inlineTextTarget && source));
+    if (editStyleControls && editStyleControls.container) editStyleControls.container.style.display = !inlineTextTarget && source && source.capabilities.styles ? "grid" : "none";
     if (nextComposerKey && editComposerKey !== nextComposerKey) {
       editComposerKey = nextComposerKey;
       var selectedPatch = selectedDraft ? selectedDraft.patch || {} : {};
-      if (editHtml) editHtml.innerHTML = selectedPatch.html !== undefined ? selectedPatch.html : source.originalHtml || "";
+      if (editHtml) {
+        if (inlineTextTarget && hostedInlineEditorCommand) editHtml.textContent = hostedInlineEditorCommand.text;
+        else editHtml.innerHTML = selectedPatch.html !== undefined ? selectedPatch.html : source.originalHtml || "";
+      }
       if (editHref) editHref.value = selectedPatch.href !== undefined ? selectedPatch.href || "" : source.attributes.href || "";
       if (editSrc) editSrc.value = selectedPatch.src !== undefined ? selectedPatch.src || "" : source.attributes.src || "";
       if (editAlt) editAlt.value = selectedPatch.alt !== undefined ? selectedPatch.alt || "" : source.attributes.alt || "";
@@ -1328,7 +1667,7 @@ export function buildPreviewBridgeRuntime(
       editComposerKey = "";
     }
     if (editSave) {
-      editSave.textContent = selectedDraft ? "Update draft" : "Save draft change";
+      editSave.textContent = inlineTextTarget ? "Save text draft" : selectedDraft ? "Update draft" : "Save draft change";
       editSave.disabled = (!target && !selectedDraft) || (target && target.eligibility !== "editable") || editState.busy;
       editSave.style.opacity = editSave.disabled ? "0.48" : "1";
     }
@@ -1353,6 +1692,7 @@ export function buildPreviewBridgeRuntime(
 
   function renderEditPanel() {
     if (!editPanel || !editToggle) return;
+    var canEditHere = hostMode || window.top !== window;
     editToggle.textContent = "Draft Changes (" + editState.drafts.length + ")";
     editToggle.setAttribute("aria-expanded", editPanelOpen ? "true" : "false");
     editPanel.style.display = editPanelOpen ? "block" : "none";
@@ -1380,9 +1720,9 @@ export function buildPreviewBridgeRuntime(
         summary.style.width = "100%";
         summary.style.textAlign = "left";
         summary.style.overflowWrap = "anywhere";
-        summary.disabled = editState.busy || window.top === window;
+        summary.disabled = editState.busy || !canEditHere;
         summary.style.opacity = summary.disabled ? "0.48" : "1";
-        if (window.top !== window) summary.addEventListener("click", function() { sendEditAction({ action: "reopen-draft", draftId: draft.id }); });
+        if (canEditHere) summary.addEventListener("click", function() { sendEditAction({ action: "reopen-draft", draftId: draft.id }); });
         var actions = document.createElement("div");
         actions.style.display = "flex";
         actions.style.gap = "5px";
@@ -1394,7 +1734,7 @@ export function buildPreviewBridgeRuntime(
           move.setAttribute("aria-label", entry[1] < 0 ? "Move draft up" : "Move draft down");
           stylePreviewControlButton(move);
           move.disabled = true;
-          if (window.top !== window) {
+          if (canEditHere) {
             move.disabled = editState.busy || (entry[1] < 0 ? index === 0 : index === editState.drafts.length - 1);
             move.addEventListener("click", function() { sendEditAction({ action: "reorder-draft", draftId: draft.id, direction: entry[1] }); });
           }
@@ -1404,8 +1744,8 @@ export function buildPreviewBridgeRuntime(
         remove.type = "button";
         remove.textContent = "Remove";
         stylePreviewControlButton(remove);
-        remove.disabled = window.top === window || editState.busy;
-        if (window.top !== window) remove.addEventListener("click", function() { sendEditAction({ action: "remove-draft", draftId: draft.id }); });
+        remove.disabled = !canEditHere || editState.busy;
+        if (canEditHere) remove.addEventListener("click", function() { sendEditAction({ action: "remove-draft", draftId: draft.id }); });
         actions.appendChild(remove);
         row.appendChild(summary);
         row.appendChild(actions);
@@ -1414,18 +1754,18 @@ export function buildPreviewBridgeRuntime(
     }
     if (editApply) {
       editApply.textContent = editState.busy ? "Working…" : "Apply " + editState.drafts.length + (editState.drafts.length === 1 ? " change" : " changes");
-      editApply.disabled = window.top === window || editState.busy || !editState.drafts.length;
+      editApply.disabled = !canEditHere || editState.busy || !editState.drafts.length;
       editApply.style.opacity = editApply.disabled ? "0.48" : "1";
     }
     if (editUndo) {
-      editUndo.style.display = window.top === window ? "none" : editState.canUndo ? "inline-flex" : "none";
+      editUndo.style.display = !canEditHere ? "none" : editState.canUndo ? "inline-flex" : "none";
       editUndo.disabled = true;
-      if (window.top !== window) editUndo.disabled = editState.busy;
+      if (canEditHere) editUndo.disabled = editState.busy;
     }
     if (editMessage) {
       var exportMessage = editState.exportsOutOfDate ? " Exports out of date: " + editState.staleExportTargets.join(", ") + "." : "";
-      editMessage.textContent = boundedString((window.top === window
-        ? "Full Preview is display-only. Use embedded Studio to edit, save, apply, or undo drafts."
+      editMessage.textContent = boundedString((!canEditHere
+        ? "Open this course through Studio to edit it safely."
         : editState.error || editState.status || editState.unavailableReason) + exportMessage, 300);
       editMessage.style.color = editState.error ? "#9a3412" : editState.exportsOutOfDate ? "#805100" : "#475569";
     }
@@ -1914,7 +2254,7 @@ export function buildPreviewBridgeRuntime(
     editButton.setAttribute("data-canvas-helper-preview-edit", "true");
     stylePreviewControlButton(editButton);
     editButton.addEventListener("click", function() {
-      if (window.top === window) {
+      if (window.top === window && !hostMode) {
         setEditPanelOpen(true);
         return;
       }
@@ -2153,6 +2493,10 @@ export function buildPreviewBridgeRuntime(
     saveEdit.style.color = "#ffffff";
     saveEdit.addEventListener("click", function() {
       if (editState.busy) return;
+      if (hostedInlineEditorMatchesTarget(editState.target)) {
+        sendHostedInlineEditorAction("save");
+        return;
+      }
       var patch = currentEditPatch();
       if (!patch) return;
       if (editState.target) {
@@ -2896,6 +3240,7 @@ export function buildPreviewBridgeRuntime(
         pendingHostedKeyboardEntry = false;
       }
       if (inspectModeChanged) updateStandaloneControls();
+      updateHostedCourseGuard();
       if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
       if (!inspectEnabled && notifyStudio && inspectControl) {
         window.requestAnimationFrame(function() { inspectControl.focus(); });
@@ -2923,6 +3268,10 @@ export function buildPreviewBridgeRuntime(
     // actually change this preview's mode.
     if (inspectModeChanged) updateStandaloneControls();
     updateEditMapVisuals();
+    // The nested Full Preview learner acknowledges mode setup directly to its
+    // host. It is deliberately not forwarded to Studio: a delayed initial
+    // "off" acknowledgement must never turn off a newer Studio edit session.
+    if (window.top !== window) send("preview-hosted-inspect-ready", { enabled: inspectEnabled });
     if (notifyStudio) send("preview-inspect-mode", { enabled: inspectEnabled });
   }
 
@@ -3084,6 +3433,8 @@ export function buildPreviewBridgeRuntime(
       var target = hostedTargetUrl(value);
       if (!target || !hostedCourseFrame) return;
       hostedCourseReadyHref = "";
+      hostedCourseInteractionReady = false;
+      updateHostedCourseGuard();
       hostedCourseHealth = null;
       setHostedCourseRecovery("");
       scheduleHostedCourseHealthTimeout();
@@ -3105,6 +3456,8 @@ export function buildPreviewBridgeRuntime(
       hostedCourseConnectPending = false;
       hostedCourseConnectAttempts = 0;
       hostedCourseReadyHref = data.payload.href;
+      hostedCourseInteractionReady = false;
+      updateHostedCourseGuard();
       replaceHostedTargetInLocation(hostedCourseReadyHref);
       send("preview-ready", data.payload);
       var shouldStartFromKeyboard = inspectEnabled && pendingHostedKeyboardEntry;
@@ -3131,10 +3484,13 @@ export function buildPreviewBridgeRuntime(
     }
     if (data.type === "preview-navigation" && data.payload && typeof data.payload.href === "string") {
       hostedCourseReadyHref = data.payload.href;
+      hostedCourseInteractionReady = false;
+      updateHostedCourseGuard();
       hostedCourseHealth = null;
       setHostedCourseRecovery("");
       scheduleHostedCourseHealthTimeout();
       reviewSelection = null;
+      removeHostedInlineEditor();
       reviewLocalMessage = "The course page changed. Select an element again.";
       renderReviewPanel();
       flushHostedFocusRequest();
@@ -3151,8 +3507,15 @@ export function buildPreviewBridgeRuntime(
         setStandaloneStatus("Selection ready.");
       }
     }
+    if (data.type === "preview-hosted-inspect-ready" && data.payload && typeof data.payload.enabled === "boolean") {
+      if (data.payload.enabled === inspectEnabled) {
+        hostedCourseInteractionReady = true;
+      }
+      updateHostedCourseGuard();
+    }
     if (data.type === "preview-inspect-mode" && data.payload && typeof data.payload.enabled === "boolean") {
       inspectEnabled = Boolean(data.payload.enabled);
+      updateHostedCourseGuard();
       document.documentElement.setAttribute("data-canvas-helper-inspect-active", inspectEnabled ? "true" : "false");
       if (!inspectEnabled) pendingHostedKeyboardEntry = false;
       updateStandaloneControls({ renderReview: false });
@@ -3226,6 +3589,7 @@ export function buildPreviewBridgeRuntime(
       if (!editModeEnabled) {
         hostedEditPreview = null;
         removeEditPreviewOverlay();
+        removeHostedInlineEditor();
       }
       keyboardCandidateCacheDirty = true;
       if (hostMode) sendHostedCourse("studio-set-edit-visual-mode", { enabled: editModeEnabled });
@@ -3238,6 +3602,9 @@ export function buildPreviewBridgeRuntime(
         sendHostedCourse("studio-set-edit-preview", hostedEditPreview);
       }
       else applyEditPreviewCommand(event.data.payload);
+    }
+    if (event.data.type === "studio-set-inline-editor" && hostMode) {
+      applyHostedInlineEditorCommand(event.data.payload);
     }
     if (
       event.data.type === "studio-request-inspect-current" &&
@@ -3279,6 +3646,7 @@ export function buildPreviewBridgeRuntime(
       studioConnected = false;
       reviewCopyTransaction = null;
       reviewCopyPending = false;
+      removeHostedInlineEditor();
       if (port) { try { port.close(); } catch (_) {} }
       port = null;
       updateStandaloneControls({ renderReview: false });
@@ -3493,6 +3861,7 @@ export function buildPreviewBridgeRuntime(
   window.addEventListener("scroll", scheduleEditPreviewPosition, { passive: true });
   document.addEventListener("scroll", scheduleEditPreviewPosition, true);
   window.addEventListener("resize", scheduleEditPreviewPosition, { passive: true });
+  window.addEventListener("resize", scheduleHostedInlineEditorPosition, { passive: true });
   if (!hostMode) {
     lastNavigationIdentity = pageIdentity(location.href);
     ["pushState", "replaceState"].forEach(function(methodName) {
@@ -3711,6 +4080,9 @@ export function buildPreviewBridgeRuntime(
         hostedCourseFrame.addEventListener("load", function() {
           clearHostedCourseConnectRetry();
           resetHostedCourseConnection();
+          hostedCourseReadyHref = "";
+          hostedCourseInteractionReady = false;
+          updateHostedCourseGuard();
           hostedCourseConnectAttempts = 0;
           scheduleHostedCourseConnectRetry();
         });
