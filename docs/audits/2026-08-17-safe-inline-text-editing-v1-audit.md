@@ -121,7 +121,7 @@ The first two rows below are retained baseline evidence from `26216b5a`. The rem
 | Check | Result |
 | --- | --- |
 | `npm run test:course-editing` | baseline: 51/51 passed; current local parity run passed |
-| `npm run test:studio-release` | earlier transfer baseline passed at clean commit `c7551075386941886ad7c4dea302b3e10f388ba7`; rerun at the exact keyboard-fix commit before treating this row as current evidence. |
+| `npm run test:studio-release` | passed at clean exact keyboard-fix commit `f74dedbac59a150dbc1ae605e69c48f429f7e0d8`: 163 focused contracts, Studio production build, 60/60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`. |
 | `E2E_STUDIO_PORT=49391 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` | passed locally; uses real keyboard input in both direct caret surfaces, exercises active-caret transfer, and proves learner isolation |
 | `npm run test:studio-inspection` | current local parity run passed |
 | `npm run verify:typecheck-baseline` | current local parity run passed; no changed-file diagnostic |

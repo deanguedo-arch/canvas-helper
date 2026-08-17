@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Extend safe Studio inline plain-text editing so it works directly over eligible text in both embedded Studio and Full Preview.
-- Status: local keyboard fix ready for its exact-head release gate; publication, exact-head hosted evidence, and independent audit remain.
+- Status: local keyboard fix committed and verified; publication, exact-head hosted evidence, and independent audit remain.
 
 ## Summary
 
@@ -41,7 +41,7 @@ At the committed local implementation state:
 - `E2E_STUDIO_PORT=49391 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` — passed. It uses physical keyboard input in embedded Studio and Full Preview, exercises active-caret transfer, synchronized panel changes, Save/Apply/Undo, and proves the learner heading, source bytes, keyboard/input/paste handlers, and browser storage stay unchanged before Apply.
 - `npm run test:course-editing` — passed.
 - `npm run test:studio-inspection` — passed.
-- `npm run test:studio-release` — earlier active-caret-transfer baseline passed at clean commit `c7551075386941886ad7c4dea302b3e10f388ba7`; rerun at the exact keyboard-fix commit before treating this handoff as fresh release evidence.
+- `npm run test:studio-release` — passed at clean exact keyboard-fix commit `f74dedbac59a150dbc1ae605e69c48f429f7e0d8`: 163 focused contracts, production build, 60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`.
 - `git diff --check` — passed.
 
 ## Source of truth
