@@ -395,7 +395,10 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
     const inlineEditor = page.getByTestId("course-inline-text-editor");
     await expect(inlineEditor).toBeVisible();
     const inlineField = inlineEditor.getByRole("textbox", { name: "Edit course text in place" });
-    await inlineField.fill("E2E Fixture Workspace — draft");
+    await expect(inlineField).toHaveAttribute("tabindex", "0");
+    await inlineField.focus();
+    await page.keyboard.press("ControlOrMeta+A");
+    await page.keyboard.type("E2E Fixture Workspace — draft");
     await expect(page.getByTestId("course-edit-inline-panel-text")).toHaveValue("E2E Fixture Workspace — draft");
     const liveOverlay = workspaceFrame.locator('[data-canvas-helper-edit-preview-overlay="true"]');
     await expect(liveOverlay).toHaveCount(0);
@@ -442,7 +445,10 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
     await fullPreview.mouse.click((standaloneBounds?.x ?? 0) + 12, (standaloneBounds?.y ?? 0) + 12);
     const standaloneInlineEditor = fullPreview.getByTestId("course-full-preview-inline-text-editor");
     await expect(standaloneInlineEditor).toBeVisible();
-    await standaloneInlineEditor.fill("E2E Fixture Workspace — Full Preview");
+    await expect(standaloneInlineEditor).toHaveAttribute("tabindex", "0");
+    await standaloneInlineEditor.focus();
+    await fullPreview.keyboard.press("ControlOrMeta+A");
+    await fullPreview.keyboard.type("E2E Fixture Workspace — Full Preview");
     await expect(page.getByTestId("course-edit-inline-panel-text")).toHaveValue("E2E Fixture Workspace — Full Preview");
     await expect(standaloneCourse.getByRole("heading", { name: "E2E Fixture Workspace" })).toHaveText("E2E Fixture Workspace");
     await expect(standaloneCourse.locator('[data-canvas-helper-edit-preview-overlay="true"]')).toHaveCount(0);

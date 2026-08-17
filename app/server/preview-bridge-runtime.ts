@@ -940,6 +940,16 @@ export function buildPreviewBridgeRuntime(
     field.style.whiteSpace = presentation.whiteSpace === "nowrap" ? "pre-wrap" : presentation.whiteSpace;
   }
 
+  function configureHostedPlainTextEditor(field) {
+    if (!field) return;
+    // Native plaintext-only support is inconsistent: some browser engines
+    // advertise it but accept focus without accepting teacher keystrokes.
+    // The trusted host instead uses the broadly supported editor mode and
+    // enforces plain text at every browser and server boundary.
+    field.setAttribute("contenteditable", "true");
+    field.setAttribute("data-canvas-helper-plain-text-fallback", "true");
+  }
+
   function applyHostedInlineEditorCommand(command) {
     if (!hostMode || !validHostedInlineEditorCommand(command)) return;
     if (!command.active) {
@@ -962,8 +972,9 @@ export function buildPreviewBridgeRuntime(
       field.setAttribute("data-testid", "course-full-preview-inline-text-editor");
       field.setAttribute("role", "textbox");
       field.setAttribute("aria-label", "Edit course text in place");
-      field.setAttribute("contenteditable", "plaintext-only");
+      configureHostedPlainTextEditor(field);
       field.setAttribute("spellcheck", "true");
+      field.setAttribute("tabindex", "0");
       field.style.boxSizing = "border-box";
       field.style.display = "block";
       field.style.width = "100%";
@@ -976,6 +987,7 @@ export function buildPreviewBridgeRuntime(
       field.style.outlineOffset = "1px";
       field.style.background = "transparent";
       field.style.caretColor = "currentColor";
+      field.style.cursor = "text";
       field.style.pointerEvents = "auto";
       field.style.userSelect = "text";
       field.addEventListener("input", function() {
@@ -993,6 +1005,11 @@ export function buildPreviewBridgeRuntime(
         try { document.execCommand("insertText", false, text); } catch (_) { field.textContent += text; }
         sendHostedInlineEditorAction("input");
       });
+      field.addEventListener("beforeinput", function(event) {
+        var inputType = String(event.inputType || "");
+        if (inputType === "insertFromDrop" || inputType === "insertFromPaste" || inputType.indexOf("format") === 0) event.preventDefault();
+      });
+      field.addEventListener("drop", function(event) { event.preventDefault(); });
       field.addEventListener("keydown", function(event) {
         if (event.key === "Escape") {
           event.preventDefault();
@@ -1028,7 +1045,7 @@ export function buildPreviewBridgeRuntime(
     }
     if (hostedInlineEditorField) {
       hostedInlineEditorField.setAttribute("aria-multiline", command.allowsLineBreaks ? "true" : "false");
-      hostedInlineEditorField.setAttribute("contenteditable", "plaintext-only");
+      configureHostedPlainTextEditor(hostedInlineEditorField);
       setHostedInlinePresentation(hostedInlineEditorField, command.target.presentation);
       if (!hostedInlineEditorField.hasAttribute("data-canvas-helper-composing") && hostedInlineEditorField.textContent !== command.text) {
         hostedInlineEditorField.textContent = command.text;
@@ -3190,7 +3207,20 @@ export function buildPreviewBridgeRuntime(
     dragging = false;
   }
 
+  function isHostedInlineEditorTarget(target) {
+    return Boolean(
+      hostMode &&
+      hostedInlineEditorField &&
+      target &&
+      (target === hostedInlineEditorField || hostedInlineEditorField.contains(target))
+    );
+  }
+
   function onInspectKeydown(event) {
+    // Full Preview normally captures keyboard input to keep the learner frame
+    // inert in Edit mode. The one exception is Studio's own host overlay.
+    // Let its local key handler process typing, Escape, and Cmd/Ctrl+Enter.
+    if (isHostedInlineEditorTarget(event.target)) return;
     if (reviewLightbox && event.key === "Escape") {
       event.preventDefault();
       event.stopImmediatePropagation();

@@ -106,7 +106,9 @@ export function CourseInlineTextEditor({
       <div
         ref={elementRef}
         className="course-inline-text-editor-field"
-        contentEditable="plaintext-only"
+        contentEditable="true"
+        data-canvas-helper-plain-text-fallback="true"
+        tabIndex={0}
         role="textbox"
         aria-multiline={allowsLineBreaks}
         aria-label="Edit course text in place"
@@ -124,6 +126,11 @@ export function CourseInlineTextEditor({
           document.execCommand("insertText", false, allowsLineBreaks ? text : text.replace(/\n/g, " "));
           sync();
         }}
+        onBeforeInput={(event) => {
+          const inputType = event.nativeEvent.inputType ?? "";
+          if (inputType === "insertFromDrop" || inputType === "insertFromPaste" || inputType.startsWith("format")) event.preventDefault();
+        }}
+        onDrop={(event) => event.preventDefault()}
         onKeyDown={(event) => {
           if (event.key === "Escape") {
             event.preventDefault();

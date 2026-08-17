@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Extend safe Studio inline plain-text editing so it works directly over eligible text in both embedded Studio and Full Preview.
-- Status: local fix committed after verification; publication, exact-head hosted evidence, and independent audit remain.
+- Status: local keyboard fix ready for its exact-head release gate; publication, exact-head hosted evidence, and independent audit remain.
 
 ## Summary
 
@@ -17,6 +17,7 @@
 
 - Full Preview bridge contract and trusted host renderer: `app/shared/preview-bridge.ts`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
 - Shared visual-owner and canonical draft state: `app/studio/src/hooks/useCourseEditing.ts` and `app/studio/src/App.tsx`.
+- Embedded Studio host editor: `app/studio/src/components/CourseInlineTextEditor.tsx`.
 - Teacher-facing panel copy: `app/studio/src/components/CourseEditPanel.tsx`.
 - Browser proof: `e2e/specs/inspection.spec.ts`.
 - Architecture and audit record: `ARCHITECTURE.md`, `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`, and this handoff.
@@ -25,7 +26,8 @@
 
 - Added a bounded, versioned `studio-set-inline-editor` bridge command and `preview-inline-editor-action` response. They carry only session/revision, opaque target identity, bounded plain text, validated geometry, and safe presentation values.
 - Added `standalone-inline` to the single preview-owner state. Embedded Studio uses `parent-inline`; Full Preview uses `standalone-inline`; panel display uses the existing `child-inert`; off-page or detached work has no visual owner.
-- Full Preview now creates its own `contenteditable="plaintext-only"` field in the trusted Studio host, positions it over the selected learner text, forces plain-text paste, handles IME, Escape, and Cmd/Ctrl+Enter, and forwards only bounded draft actions to Studio.
+- Full Preview and embedded Studio now use a broadly compatible Studio-owned `contenteditable` text field with mandatory paste/drop/format filtering, plain-text extraction, and server normalization. This avoids browsers that visually focus `plaintext-only` but reject teacher keystrokes.
+- Full Preview's selection keyboard shield now exempts only the trusted host text field. Typing, Escape, and Cmd/Ctrl+Enter reach that field; the learner iframe remains protected from all teacher keyboard events.
 - Opening Full Preview from an active embedded editor keeps the durable target, waits for the standalone bridge to be ready, and transfers its caret to the corresponding text in the trusted host. Bounded retries prevent the popup's initial connection race from silently losing the edit.
 - Both direct caret surfaces and Review & Apply share the same normalizer, revisions, source-drift handling, saved-draft reopen, Save, Apply, and Undo paths. Full Preview never owns a second persistent or editable copy.
 - Screenshot and Review Set capture are blocked while an unapplied embedded or Full Preview interactive caret is visible.
@@ -36,10 +38,10 @@ At the committed local implementation state:
 
 - `npm run build:studio` — passed.
 - `npm run verify:typecheck-baseline` — passed: exactly the ten established diagnostics and none in changed files. Raw typecheck remains intentionally non-green with that reviewed baseline.
-- `E2E_STUDIO_PORT=49390 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` — passed. It exercises embedded caret editing, active-caret transfer into Full Preview, synchronized panel changes, Save/Apply/Undo, and proves the learner heading, source bytes, keyboard/input/paste handlers, and browser storage stay unchanged before Apply.
+- `E2E_STUDIO_PORT=49391 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` — passed. It uses physical keyboard input in embedded Studio and Full Preview, exercises active-caret transfer, synchronized panel changes, Save/Apply/Undo, and proves the learner heading, source bytes, keyboard/input/paste handlers, and browser storage stay unchanged before Apply.
 - `npm run test:course-editing` — passed.
 - `npm run test:studio-inspection` — passed.
-- `npm run test:studio-release` — passed at clean exact implementation commit `c7551075386941886ad7c4dea302b3e10f388ba7`: 163 focused contracts, production build, 60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`.
+- `npm run test:studio-release` — earlier active-caret-transfer baseline passed at clean commit `c7551075386941886ad7c4dea302b3e10f388ba7`; rerun at the exact keyboard-fix commit before treating this handoff as fresh release evidence.
 - `git diff --check` — passed.
 
 ## Source of truth

@@ -70,7 +70,7 @@ Typing is immediately reflected in both surfaces. Normalization is debounced for
 
 ### In-place presentation is not learner-DOM mutation
 
-[`app/studio/src/components/CourseInlineTextEditor.tsx`](../../app/studio/src/components/CourseInlineTextEditor.tsx) renders an absolutely positioned Studio-parent layer over the embedded iframe. It uses `contenteditable="plaintext-only"` with a controlled plain-text fallback, intercepts paste as text, keeps heading/list/caption targets single-line, and maps paragraph line breaks to canonical `<br>` only after server normalization.
+[`app/studio/src/components/CourseInlineTextEditor.tsx`](../../app/studio/src/components/CourseInlineTextEditor.tsx) renders an absolutely positioned Studio-parent layer over the embedded iframe. It uses the broadly supported standard `contenteditable` mode with mandatory plain-text paste/drop/format filtering, keeps heading/list/caption targets single-line, and maps paragraph line breaks to canonical `<br>` only after server normalization.
 
 It receives a bounded geometry and safe presentation snapshot from the already-inspected opaque node. It never receives a learner selector, filesystem path, arbitrary CSS, JavaScript, or teacher event stream for the learner frame.
 
@@ -106,7 +106,7 @@ If the durable target still exists unchanged, reopening reattaches it. If its te
 
 ## Full Preview editing and bridge ordering
 
-Full Preview supports the same deliberately narrow plain-text target set as embedded Studio. Selecting an eligible target starts a `standalone-inline` lease and places a `contenteditable="plaintext-only"` field in the trusted Studio-origin Full Preview host at the target's reported geometry. The isolated learner iframe remains untouched: it receives no teacher keyboard, input, paste, selector, filesystem path, arbitrary CSS, or script.
+Full Preview supports the same deliberately narrow plain-text target set as embedded Studio. Selecting an eligible target starts a `standalone-inline` lease and places a sanitized standard `contenteditable` field in the trusted Studio-origin Full Preview host at the target's reported geometry. Full Preview's selection keyboard guard exempts only that host field, so typing, Escape, and Cmd/Ctrl+Enter reach it without reaching the learner. The isolated learner iframe remains untouched: it receives no teacher keyboard, input, paste, selector, filesystem path, arbitrary CSS, or script.
 
 The Full Preview Review & Apply controls and the caret dispatch only bounded `input`, `save`, or `cancel` actions with a session ID, monotonic revision, and opaque target ID. Studio reuses its canonical normalizer and the same authoritative working draft; Full Preview never owns a second editable copy. Save remains browser-local, while Apply and Undo continue to call the existing protected Studio lifecycle.
 
@@ -121,8 +121,8 @@ The first two rows below are retained baseline evidence from `26216b5a`. The rem
 | Check | Result |
 | --- | --- |
 | `npm run test:course-editing` | baseline: 51/51 passed; current local parity run passed |
-| `npm run test:studio-release` | passed at clean exact implementation commit `c7551075386941886ad7c4dea302b3e10f388ba7`: 163 focused contracts, Studio production build, 60/60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`. |
-| `E2E_STUDIO_PORT=49390 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` | passed locally; exercises both direct caret surfaces, active-caret transfer, and learner isolation |
+| `npm run test:studio-release` | earlier transfer baseline passed at clean commit `c7551075386941886ad7c4dea302b3e10f388ba7`; rerun at the exact keyboard-fix commit before treating this row as current evidence. |
+| `E2E_STUDIO_PORT=49391 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` | passed locally; uses real keyboard input in both direct caret surfaces, exercises active-caret transfer, and proves learner isolation |
 | `npm run test:studio-inspection` | current local parity run passed |
 | `npm run verify:typecheck-baseline` | current local parity run passed; no changed-file diagnostic |
 | raw `npm run typecheck -- --pretty false` | expected exit `2` with exactly ten established unrelated diagnostics |
