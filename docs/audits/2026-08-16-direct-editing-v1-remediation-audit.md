@@ -26,7 +26,7 @@ Apply → protected course-file and course-asset mutation, rebuild, render valid
 
 At the local evidence head, the remediation implements the three release blockers and the eleven listed follow-up findings. The focused suites, full local Studio release gate, real Direct/English/Social/snapshot pilots, all-course onboarding acceptance, frozen diagnostic gate, and isolated fresh-course lifecycle proof passed.
 
-That is not final publication evidence. The reviewer must verify the exact published PR head and matching GitHub artifacts before issuing GO. This packet deliberately does not claim that GitHub CI has already passed for commits that had not yet been published when it was written.
+That is not final publication evidence. The reviewer must verify an exact-head push run and a PR merge-context run derived from the same published PR head before issuing GO. This packet deliberately does not claim that GitHub CI has already passed for commits that had not yet been published when it was written.
 
 No learner course content was intentionally changed. The user-owned `ready-mind` workspace edit and unrelated untracked local data were preserved and excluded from staging.
 
@@ -111,7 +111,7 @@ The proof must run production `course:create` inside an isolated temporary clean
 4. HTTP Normalize, Apply, learner reload, server restart, Undo;
 5. exact source/resource restoration.
 
-The local evidence report at `311d4a44` was `.runtime/fresh-course-studio-proof-local.json` and recorded 26/27 primary blocks plus 793/818 teacher-text code units. Treat the final GitHub `fresh-course-studio-proof` artifact at the published SHA as authority.
+The local evidence report at `311d4a44` was `.runtime/fresh-course-studio-proof-local.json` and recorded 26/27 primary blocks plus 793/818 teacher-text code units. Treat the final exact-head push `fresh-course-studio-proof` artifact as authority. A PR-context artifact normally records GitHub's synthetic merge commit; confirm that its run metadata's `headSha` is the same reviewed branch head rather than incorrectly demanding that its internal `git rev-parse HEAD` equal the branch SHA.
 
 ## Typecheck gate, stated honestly
 
@@ -144,14 +144,14 @@ The real adapter pilots are `mental-health-wellness` (Direct), `ela20-1-short-st
 
 ## Required GitHub evidence
 
-After the commits are published, verify that each matching SHA has:
+After the commits are published, verify both contexts derived from the final branch head:
 
-1. **Studio Direct Editing release gate** — focused editing and editability tests, export contracts, full Studio release gate, four real adapter pilots, all-course onboarding lifecycle, expected raw typecheck report, frozen baseline pass, and artifacts.
-2. **All-catalog editability census** — complete exhaustive census evidence uploaded separately from the release gate; do not substitute a partial or local dirty-worktree result.
-3. **New course Studio readiness** — fresh-course proof, frozen baseline pass, and readiness artifact at the same SHA.
-4. A PR-context run for PR #1 at the same head, not merely an old push run.
+1. An **exact-head push** run of **Studio Direct Editing release gate** — focused editing and editability tests, export contracts, full Studio release gate, four real adapter pilots, all-course onboarding lifecycle, expected raw typecheck report, frozen baseline pass, and artifacts whose recorded commit equals the branch head.
+2. Its **all-catalog editability census** — complete exhaustive census evidence uploaded separately from the release gate; do not substitute a partial or local dirty-worktree result.
+3. An exact-head push run of **New course Studio readiness** — fresh-course proof, frozen baseline pass, and readiness artifact whose recorded commit equals the branch head.
+4. Matching **PR-context** runs for PR #1. GitHub may execute these against a synthetic merge commit; require their run metadata `headSha` to equal the reviewed branch head and confirm that the merge ref contains that head.
 
-The reviewer should reject a green-looking outcome if artifacts are from a different SHA, report truncated/incomplete data as a valid percentage, or omit one required job.
+The reviewer should reject a green-looking outcome if a push artifact's recorded commit differs from the branch head, a PR-context run is not derived from that head, a report publishes truncated/incomplete data as a valid percentage, or one required job is missing.
 
 ## Auditor commands
 
@@ -180,7 +180,7 @@ npm run verify:course-onboarding -- --all
 gh pr view 1 --json isDraft,headRefOid,baseRefName,statusCheckRollup
 ```
 
-Then download the same-SHA artifacts from the three required workflows above. Do not rerun external Brightspace acceptance under this PR unless it is deliberately added as its own separately scoped release gate.
+Then download exact-head push artifacts and the corresponding PR merge-context artifacts from the required workflows above. Do not rerun external Brightspace acceptance under this PR unless it is deliberately added as its own separately scoped release gate.
 
 ## Claims intentionally not made
 
@@ -191,8 +191,8 @@ Then download the same-SHA artifacts from the three required workflows above. Do
 
 ## Verdict rubric
 
-Return **REQUEST CHANGES** if any sanitizer path bypasses the shared rules; a factory dependency can silently vanish; Rename leaves known partial bytes; saved draft reopen relies on its stale node ID or writes; the fresh proof is vacuous/not production-backed; raw typecheck is described as green; or matching exact-head workflow/artifact evidence is missing.
+Return **REQUEST CHANGES** if any sanitizer path bypasses the shared rules; a factory dependency can silently vanish; Rename leaves known partial bytes; saved draft reopen relies on its stale node ID or writes; the fresh proof is vacuous/not production-backed; raw typecheck is described as green; an exact-head push artifact is missing; or a PR-context run is not derived from that exact head.
 
 Return **GO WITH CONDITIONS** only for explicitly external acceptance such as teacher rollout, Brightspace, deployed-host, cross-browser SCORM, delayed interactions, or full WCAG—not for an in-repository bypass.
 
-Return **GO** only when the code, local reproduction, and all same-SHA GitHub artifacts agree that PR #1 is remediation-only and safe to integrate. After that GO and integration, begin the separate inline-text editing branch from the exact integrated commit.
+Return **GO** only when the code, local reproduction, exact-head push artifacts, and the corresponding PR merge-context artifacts agree that PR #1 is remediation-only and safe to integrate. After that GO and integration, begin the separate inline-text editing branch from the exact integrated commit.

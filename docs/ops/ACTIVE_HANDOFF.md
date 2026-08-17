@@ -56,7 +56,7 @@ At implementation head `311d4a4426b3e685481325347fb5fb2a85097d4b`:
 - Read-only draft reopen and request boundary: `app/server/routes/course-edits.ts` and `app/server/studio-server.ts`.
 - Factory dependency authority: `scripts/lib/english-unit/dependencies.ts`.
 - Fresh course and typecheck evidence: `scripts/verify-fresh-course-studio-proof.ts` and `scripts/verify-typecheck-baseline.ts`.
-- Published CI authority: `.github/workflows/studio-direct-editing.yml`, `.github/workflows/new-course-readiness.yml`, and PR #1 artifacts for the final published SHA.
+- Published CI authority: `.github/workflows/studio-direct-editing.yml`, `.github/workflows/new-course-readiness.yml`, exact-head push artifacts, and PR #1 merge-context artifacts derived from the final branch head.
 
 ## Fragile areas / watchouts
 
@@ -74,7 +74,7 @@ At implementation head `311d4a4426b3e685481325347fb5fb2a85097d4b`:
 
 ## What still needs validation
 
-- Publish the scoped commits, then inspect matching push and PR-context executions of `Studio Direct Editing release gate`, `New course Studio readiness`, and the all-catalog editability census. Download/inspect their same-SHA evidence artifacts.
+- Publish the scoped commits, then inspect exact-head push and PR merge-context executions of `Studio Direct Editing release gate`, `New course Studio readiness`, and the all-catalog editability census. The push artifact's recorded commit must equal the branch head; the PR artifact may record GitHub's synthetic merge commit while the run's `headSha` remains that same branch head.
 - Obtain an independent review verdict before making PR #1 ready for review or merging it.
 
 ## Known risks

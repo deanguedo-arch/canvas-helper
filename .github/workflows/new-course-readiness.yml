@@ -11,6 +11,7 @@ on:
       - "config/studio-editability-policy-v1.json"
       - "config/typecheck-baseline-v1.json"
       - ".github/workflows/new-course-readiness.yml"
+      - ".github/workflows/studio-direct-editing.yml"
   push:
     branches:
       - main
@@ -24,6 +25,7 @@ on:
       - "config/studio-editability-policy-v1.json"
       - "config/typecheck-baseline-v1.json"
       - ".github/workflows/new-course-readiness.yml"
+      - ".github/workflows/studio-direct-editing.yml"
   workflow_dispatch: {}
 
 concurrency:
