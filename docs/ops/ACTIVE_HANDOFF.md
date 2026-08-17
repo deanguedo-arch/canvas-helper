@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Deliver the separate safe inline plain-text editing follow-up for Canvas Studio.
-- Status: ready for independent audit and exact-head CI after publication.
+- Status: published and ready for independent audit; hosted release CI requires an authorized pull request because the push workflow is intentionally scoped to the prior baseline branch.
 
 ## Summary
 
@@ -11,6 +11,7 @@
 - Review & Apply and the parent in-place editor share one canonical working-draft controller. Saved drafts reopen through durable identity and can be edited off-page with an explicit preview-unavailable state.
 - Full Preview is deliberately display-only: it may show the normalized inert overlay, but it offers no caret or mutation controls.
 - The complete local Studio release gate passed. Raw TypeScript typecheck remains honestly red only for the established ten unrelated diagnostics; the frozen baseline verifier passed.
+- The branch is published to `origin/codex/studio-inline-text-editing-v1`. The existing release workflow does not run on a bare push of this follow-up branch, so no hosted run is claimed.
 
 ## Files changed
 
@@ -57,8 +58,8 @@
 
 ## What still needs validation
 
-- Push this exact branch, then inspect the exact-head CI evidence for the final published SHA.
 - Obtain an independent audit verdict using `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
+- If hosted evidence is required, obtain explicit authorization to open a draft pull request; its pull-request context will trigger the Studio Direct Editing release gate. Do not treat the intentionally absent branch-push run as a failure or as a pass.
 - Before general availability, run the planned five-teacher/twenty-session rollout and separate Brightspace/deployed-host/cross-browser SCORM acceptance.
 
 ## Known risks
@@ -68,7 +69,7 @@
 
 ## Exact next command
 
-`gh run list --branch codex/studio-inline-text-editing-v1 --limit 10`
+`git ls-remote --heads origin refs/heads/codex/studio-inline-text-editing-v1`
 
 ## Exact next file to open
 

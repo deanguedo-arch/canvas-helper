@@ -135,6 +135,19 @@ The new Playwright coverage proves, among other things:
 - Apply then Undo uses the inherited protected lifecycle;
 - external source drift detaches the proposed text and requires explicit rebase.
 
+## Publication and hosted-CI status
+
+The follow-up branch is published, but this repository intentionally limits the existing **Studio Direct Editing release gate** push trigger to `codex/studio-direct-editing-v1`. A push of this separate follow-up branch therefore creates no hosted run by itself. The current zero-run result is expected from the checked-in workflow policy, not a green CI claim.
+
+An authorized pull request will trigger the Studio Direct Editing release gate because that workflow accepts all pull-request contexts. Do not create that pull request or claim its results without repository-owner authorization. The New Course Studio Readiness workflow has narrower changed-path filters and is not the acceptance authority for this Studio-only follow-up unless a future change touches its governed inputs.
+
+Before issuing a final hosted-CI verdict, confirm the branch head and run status explicitly:
+
+```bash
+git ls-remote --heads origin refs/heads/codex/studio-inline-text-editing-v1
+gh run list --branch codex/studio-inline-text-editing-v1 --limit 10
+```
+
 ## Auditor checklist
 
 Audit this change as a follow-up from the exact published branch head, not from an arbitrary local checkout:
@@ -176,4 +189,4 @@ Return **REQUEST CHANGES** if any new path changes the learner DOM before Apply,
 
 Return **GO WITH CONDITIONS** only for the clearly external acceptance work: five distinct teachers across twenty predetermined sessions, Brightspace/deployed-host behavior, full WCAG, delayed learner interactions, and cross-browser SCORM.
 
-Return **GO** for this repository change only if the exact published head passes its CI/release evidence and the review confirms the boundaries above.
+Return **GO** for this repository change only if the independent review confirms the boundaries above and, when an authorized PR is opened, its exact-head hosted release evidence agrees with the reviewed commit.
