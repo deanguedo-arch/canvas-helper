@@ -420,6 +420,15 @@ export function App() {
   const standaloneInlineCommandStateRef = useRef({ signature: "", revision: 0 });
   const [standaloneInlineCommandRevision, setStandaloneInlineCommandRevision] = useState(0);
   const standaloneInlineInputRevisionsRef = useRef(new Map<string, number>());
+  const inlineEditorStateRef = useRef(courseEditing.inlineEditor);
+  inlineEditorStateRef.current = courseEditing.inlineEditor;
+  const pendingStandaloneInlineTransferRef = useRef<{
+    nodeId: string;
+    targetId: string;
+    attempts: number;
+  } | null>(null);
+  const standaloneInlineTransferPendingRef = useRef(false);
+  const transferInlineEditorToStandaloneRef = useRef<() => void>(() => undefined);
   const reviewScopeRef = useRef({ selectedSlug, workspaceTarget });
   reviewScopeRef.current = { selectedSlug, workspaceTarget };
 
@@ -1051,6 +1060,9 @@ export function App() {
     },
     onPreviewReady: (mode, href, source) => {
       if (source === "embedded") previewRecovery.markBridgeReady(mode, href);
+      if (mode === "workspace" && source === "standalone") {
+        transferInlineEditorToStandaloneRef.current();
+      }
     },
     onPreviewHealth: (mode, health, source) => {
       if (source === "embedded") previewRecovery.markContentHealth(mode, health);
@@ -1095,6 +1107,63 @@ export function App() {
   cancelStandaloneReviewCopyRef.current = cancelStandaloneReviewCopy;
   const requestCurrentInspectionSelectionRef = useRef(requestCurrentInspectionSelection);
   requestCurrentInspectionSelectionRef.current = requestCurrentInspectionSelection;
+
+  const transferInlineEditorToStandalone = useCallback(() => {
+    const pending = pendingStandaloneInlineTransferRef.current;
+    const inline = inlineEditorStateRef.current;
+    if (
+      !pending ||
+      standaloneInlineTransferPendingRef.current ||
+      inline.status === "detached" ||
+      !inline.target?.identity ||
+      inline.target.identity.nodeId !== pending.nodeId ||
+      inline.target.identity.targetId !== pending.targetId
+    ) {
+      if (
+        pending &&
+        (!inline.target?.identity ||
+          inline.target.identity.nodeId !== pending.nodeId ||
+          inline.target.identity.targetId !== pending.targetId ||
+          inline.status === "detached")
+      ) {
+        pendingStandaloneInlineTransferRef.current = null;
+      }
+      return;
+    }
+    if (pending.attempts >= 3) {
+      pendingStandaloneInlineTransferRef.current = null;
+      return;
+    }
+    pending.attempts += 1;
+    standaloneInlineTransferPendingRef.current = true;
+    void requestCurrentInspectionSelectionRef.current("workspace", pending.nodeId, "standalone")
+      .then((selection) => {
+        const current = inlineEditorStateRef.current;
+        if (
+          !current.target?.identity ||
+          current.status === "detached" ||
+          current.target.identity.nodeId !== pending.nodeId ||
+          current.target.identity.targetId !== pending.targetId ||
+          selection.nodeId !== pending.nodeId
+        ) {
+          pendingStandaloneInlineTransferRef.current = null;
+          return;
+        }
+        setStandaloneInlineEditorSelection(selection);
+        setInlineEditorSelection(null);
+        courseEditing.setInlinePreviewOwner("standalone-inline");
+        pendingStandaloneInlineTransferRef.current = null;
+      })
+      .catch(() => {
+        // The Full Preview may still be reconnecting. Retrying remains bound
+        // to this durable identity and stops after a few bounded attempts.
+        window.setTimeout(() => transferInlineEditorToStandaloneRef.current(), 150);
+      })
+      .finally(() => {
+        standaloneInlineTransferPendingRef.current = false;
+      });
+  }, [courseEditing.setInlinePreviewOwner]);
+  transferInlineEditorToStandaloneRef.current = transferInlineEditorToStandalone;
 
   useEffect(() => {
     const inline = courseEditing.inlineEditor;
@@ -3266,10 +3335,23 @@ export function App() {
   };
 
   const handleOpenWorkspacePreview = () => {
+    const activeInline = inlineEditorStateRef.current;
+    if (
+      activeInline.previewOwner === "parent-inline" &&
+      activeInline.status !== "detached" &&
+      activeInline.target?.identity
+    ) {
+      pendingStandaloneInlineTransferRef.current = {
+        nodeId: activeInline.target.identity.nodeId,
+        targetId: activeInline.target.identity.targetId,
+        attempts: 0
+      };
+    }
     if (courseEditing.hasInteractiveInlinePreview) {
       // Full Preview receives the same canonical draft, but it must acquire
-      // the editing lease itself. This releases the embedded caret first so
-      // two Studio-owned editors can never cover the same learner element.
+      // the editing lease. This releases the embedded caret first so two
+      // Studio-owned editors can never cover the same learner element; once
+      // Full Preview is ready, the durable target below transfers its caret.
       courseEditing.setInlinePreviewOwner("child-inert");
       setInlineEditorSelection(null);
       setStandaloneInlineEditorSelection(null);
@@ -3293,6 +3375,7 @@ export function App() {
     }
     if (focusStandalonePreview("workspace", workspaceTarget ? getTargetKey(workspaceTarget) : "")) {
       showSavedInlineDraft();
+      transferInlineEditorToStandaloneRef.current();
       setReviewSetStatus("Returned to the open full preview.", "success");
       return;
     }

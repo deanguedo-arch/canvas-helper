@@ -495,6 +495,40 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
   }
 });
 
+test("@inspection opening Full Preview transfers an active in-place caret to the same visible text", async ({ page }) => {
+  let fullPreview: import("@playwright/test").Page | null = null;
+  try {
+    await openProjectInStudio(page, "e2e-fixture");
+    await page.getByTestId("edit-toggle").click();
+
+    const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+    const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+    const bounds = await heading.boundingBox();
+    expect(bounds).toBeTruthy();
+    await page.mouse.click((bounds?.x ?? 0) + 12, (bounds?.y ?? 0) + 12);
+
+    const embeddedInlineEditor = page.getByTestId("course-inline-text-editor");
+    await expect(embeddedInlineEditor).toBeVisible();
+    await embeddedInlineEditor.getByRole("textbox", { name: "Edit course text in place" }).fill("E2E Fixture Workspace — carried into Full Preview");
+
+    const fullPreviewPromise = page.waitForEvent("popup");
+    await page.getByTestId("open-workspace-preview-toggle").click();
+    fullPreview = await fullPreviewPromise;
+    await fullPreview.waitForLoadState("domcontentloaded");
+    const standaloneCourse = fullPreview.frameLocator('[data-canvas-helper-standalone-course="true"]');
+    await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-edit-map-active", "true");
+    await expect(fullPreview.locator('[data-canvas-helper-full-preview-ready-guard="true"]')).toBeHidden();
+
+    const standaloneInlineEditor = fullPreview.getByTestId("course-full-preview-inline-text-editor");
+    await expect(standaloneInlineEditor).toBeVisible();
+    await expect(standaloneInlineEditor).toHaveText("E2E Fixture Workspace — carried into Full Preview");
+    await expect(page.getByTestId("course-inline-text-editor")).toHaveCount(0);
+    await expect(standaloneCourse.getByRole("heading", { name: "E2E Fixture Workspace" })).toHaveText("E2E Fixture Workspace");
+  } finally {
+    await fullPreview?.close().catch(() => undefined);
+  }
+});
+
 test("@inspection external source drift detaches the in-place draft until it is explicitly rebased", async ({ page }) => {
   const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
   const original = await readFile(fixtureSource, "utf8");

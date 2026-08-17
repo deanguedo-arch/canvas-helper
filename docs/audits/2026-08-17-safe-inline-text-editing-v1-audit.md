@@ -112,7 +112,7 @@ The Full Preview Review & Apply controls and the caret dispatch only bounded `in
 
 The private bridge in [`app/shared/preview-bridge.ts`](../../app/shared/preview-bridge.ts), [`app/server/preview-bridge-runtime.ts`](../../app/server/preview-bridge-runtime.ts), and [`app/studio/src/hooks/usePreviewScrollSync.ts`](../../app/studio/src/hooks/usePreviewScrollSync.ts) carries only versioned, bounded commands. The standalone host caches validated state until its cross-origin learner iframe establishes its MessageChannel. A startup guard prevents pointer events from reaching the learner until the nested inspection shield confirms the current mode; a bounded retry handles the initial `about:blank` race.
 
-There is exactly one visual owner. Opening Full Preview releases an embedded caret to the inert child presentation; selecting the visible text in Full Preview acquires the standalone host caret. Switching back, saving, canceling, navigating, drifting, or applying clears that lease before another owner can appear. The existing display command is still seeded to a newly ready standalone surface only: it does **not** replay the same revision into the already-rendered embedded iframe, so a duplicate cannot clear a valid presentation.
+There is exactly one visual owner. Opening Full Preview from an active embedded caret transfers that same durable target to the standalone host as soon as its bridge is ready, so the teacher keeps editing at the same visible text without a second click. Directly selecting eligible text in Full Preview can also acquire the standalone host caret. Switching back, saving, canceling, navigating, drifting, or applying clears that lease before another owner can appear. The existing display command is still seeded to a newly ready standalone surface only: it does **not** replay the same revision into the already-rendered embedded iframe, so a duplicate cannot clear a valid presentation.
 
 ## Evidence at the baseline and current local Full Preview parity state
 
@@ -121,8 +121,8 @@ The first two rows below are retained baseline evidence from `26216b5a`. The rem
 | Check | Result |
 | --- | --- |
 | `npm run test:course-editing` | baseline: 51/51 passed; current local parity run passed |
-| `npm run test:studio-release` | current local parity run passed at a clean exact branch head: 163 focused contracts, Studio production build, 59/59 inspection E2E, platform smoke, and strict project contract. The report records the matching commit, `workingTreeClean: true`, and `sourceChangedDuringRun: false`. |
-| `E2E_STUDIO_PORT=49389 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above"` | current local parity run passed; exercises both direct caret surfaces and learner isolation |
+| `npm run test:studio-release` | rerun at the exact commit that adds the active-caret transfer before treating this row as current evidence. |
+| `E2E_STUDIO_PORT=49390 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` | passed locally; exercises both direct caret surfaces, active-caret transfer, and learner isolation |
 | `npm run test:studio-inspection` | current local parity run passed |
 | `npm run verify:typecheck-baseline` | current local parity run passed; no changed-file diagnostic |
 | raw `npm run typecheck -- --pretty false` | expected exit `2` with exactly ten established unrelated diagnostics |
