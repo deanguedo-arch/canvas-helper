@@ -1038,6 +1038,15 @@ export async function importProject(options: ImportProjectOptions) {
     preferredWorkflows: [inferredProjectType],
     canonicalEntry: paths.workspaceEntrypoint,
     canonicalSources,
+    authoring: {
+      driverId: "proposal-only-v1",
+      familyId: "imported-workspace-v1",
+      studioEditing: {
+        enabled: false,
+        renameCourse: false,
+        imageAssets: false
+      }
+    },
     generatedOutputs: [],
     injectedComponents: [],
     importedFirstPassOrigin: {
@@ -1052,10 +1061,10 @@ export async function importProject(options: ImportProjectOptions) {
         notes: "Default export target for imported projects."
       }
     ],
-    authoringStatus: "active",
+    authoringStatus: "blocked",
     referenceOnly: [],
     sourceOfTruthNotes:
-      "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
+      "Imported workspace sources remain reviewable but are not automatically Studio-editable. Onboard explicit ownership, complete learner surfaces, rendered coverage, and a reversible lifecycle before changing authoringStatus to active. Treat generated exports and runtime bundles as derived output.",
     createdAt: timestamp,
     updatedAt: timestamp
   };

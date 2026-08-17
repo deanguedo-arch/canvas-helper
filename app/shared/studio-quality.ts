@@ -47,7 +47,7 @@ export const STUDIO_SCREENSHOT_LIMITS = {
 } as const;
 
 export const STUDIO_BRIDGE_LIMITS = {
-  messageUtf8Bytes: 8_192,
+  messageUtf8Bytes: 64 * 1_024,
   visibleTextCodeUnits: 320,
   scrollContainers: 8,
   standaloneSessionTokenMinCodeUnits: 16,

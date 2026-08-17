@@ -7,8 +7,8 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\sportswellness\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\sportswellness\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-17T20:09:27.795Z",
@@ -17,16 +17,31 @@
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\sportswellness\\workspace\\index.html",
+  "canonicalEntry": "projects/sportswellness/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\sportswellness\\workspace\\index.html"
+    "projects/sportswellness/workspace/index.html"
   ],
   "generatedOutputs": [],
   "injectedComponents": [],
   "authoring": {
     "driverId": "direct-workspace-v1",
     "familyId": "sportswellness",
-    "qualityProfile": "direct-workspace"
+    "qualityProfile": "direct-workspace",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
   },
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
@@ -66,8 +81,8 @@
       "athlete_visualization_master_v1"
     ]
   },
-  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output.",
+  "sourceOfTruthNotes": "Edit workspace sources listed in canonicalSources. Treat generated exports and runtime bundles as derived output. Studio onboarding: Explicit canonical workspace ownership retained.",
   "createdAt": "2026-04-14T15:24:04.645Z",
-  "updatedAt": "2026-06-23T14:53:09.577Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-05-19T15:57:48.271Z"
 }

@@ -1,8 +1,13 @@
 import path from "node:path";
+import { mkdirSync } from "node:fs";
 import type { IncomingMessage, ServerResponse } from "node:http";
 
 import type { Plugin, ViteDevServer } from "vite";
 
+import {
+  STUDIO_PROJECTS_CHANGED_EVENT,
+  STUDIO_PROJECT_CHANGE_SIGNAL
+} from "../shared/project-discovery.js";
 import {
   PREVIEW_STANDALONE_REJOIN_PARAM,
   PREVIEW_STANDALONE_SESSION_PARAM
@@ -15,6 +20,28 @@ import { sendJson } from "./lib/response";
 import { buildStandalonePreviewHost } from "./standalone-preview-host";
 
 type RouteHandler = (url: string, request: IncomingMessage, response: ServerResponse) => Promise<boolean>;
+
+const RESERVED_PROJECT_DIRECTORIES = new Set(["assessments", "incoming", "processed", "resources"]);
+
+export function isStudioProjectManifestPath(filePath: string, root = process.cwd()) {
+  const relative = path.relative(path.join(root, "projects"), path.resolve(filePath));
+  const segments = relative.split(path.sep);
+  return segments.length === 3
+    && /^[a-z0-9]+(?:[._-][a-z0-9]+)*$/.test(segments[0] ?? "")
+    && !RESERVED_PROJECT_DIRECTORIES.has(segments[0] ?? "")
+    && segments[1] === "meta"
+    && segments[2] === "project.json";
+}
+
+export function ensureStudioProjectChangeSignalDirectory(root = process.cwd()) {
+  const signalPath = path.join(root, STUDIO_PROJECT_CHANGE_SIGNAL);
+  // Chokidar cannot reliably subscribe to an exact file below a directory
+  // that does not exist yet on Linux. Create only the operational signal
+  // directory before registering the watcher so a clean checkout receives
+  // the first course:create notification as reliably as an existing one.
+  mkdirSync(path.dirname(signalPath), { recursive: true });
+  return signalPath;
+}
 
 export function hasTrustedStandalonePreviewNavigation(request: IncomingMessage, studioOrigin: string) {
   if (
@@ -43,6 +70,7 @@ let reviewScreenshotRouteHandler: RouteHandler | null = null;
 let previewCaptureRouteHandler: RouteHandler | null = null;
 let previewPreflightRouteHandler: RouteHandler | null = null;
 let courseBuildBriefRouteHandler: RouteHandler | null = null;
+let courseEditsRouteHandler: RouteHandler | null = null;
 
 async function loadRouteHandler(server: ViteDevServer, moduleName: string, exportName: string) {
   const routeModulePath = path.join(process.cwd(), "app", "server", "routes", `${moduleName}.ts`);
@@ -134,6 +162,13 @@ async function getCourseBuildBriefRouteHandler(server: ViteDevServer) {
   return courseBuildBriefRouteHandler;
 }
 
+async function getCourseEditsRouteHandler(server: ViteDevServer) {
+  if (!courseEditsRouteHandler) {
+    courseEditsRouteHandler = await loadRouteHandler(server, "course-edits", "handleCourseEditsRoute");
+  }
+  return courseEditsRouteHandler;
+}
+
 async function handleRequest(
   server: ViteDevServer,
   request: IncomingMessage,
@@ -209,6 +244,11 @@ async function handleRequest(
   }
 
   if (url.startsWith("/api/projects/")) {
+    const courseEditsHandler = await getCourseEditsRouteHandler(server);
+    if (await courseEditsHandler(url, request, response)) {
+      return;
+    }
+
     const commandsHandler = await getCommandsRouteHandler(server);
     if (await commandsHandler(url, request, response)) {
       return;
@@ -241,6 +281,18 @@ async function handleRequest(
 
   if (url === "/api/inspection/resolve") {
     const handler = await getInspectionRouteHandler(server);
+    if (await handler(url, request, response)) {
+      return;
+    }
+  }
+
+  if (
+    url === "/api/course-edits/resolve" ||
+    url === "/api/course-edits/reopen" ||
+    url === "/api/course-edits/preview/normalize" ||
+    url === "/api/course-edits/preview/clear"
+  ) {
+    const handler = await getCourseEditsRouteHandler(server);
     if (await handler(url, request, response)) {
       return;
     }
@@ -314,6 +366,25 @@ export function createStudioServerPlugin(): Plugin {
   return {
     name: "studio-server",
     configureServer(server) {
+      const projectManifestGlob = path.join(process.cwd(), "projects", "*", "meta", "project.json");
+      const projectChangeSignal = ensureStudioProjectChangeSignalDirectory();
+      let projectRefreshTimer: ReturnType<typeof setTimeout> | null = null;
+      const scheduleProjectRefresh = (filePath: string) => {
+        if (
+          !isStudioProjectManifestPath(filePath)
+          && path.resolve(filePath) !== path.resolve(projectChangeSignal)
+        ) return;
+        if (projectRefreshTimer) clearTimeout(projectRefreshTimer);
+        projectRefreshTimer = setTimeout(() => {
+          projectRefreshTimer = null;
+          server.ws.send({ type: "custom", event: STUDIO_PROJECTS_CHANGED_EVENT });
+        }, 60);
+      };
+      server.watcher.add([projectManifestGlob, projectChangeSignal]);
+      server.watcher.on("add", scheduleProjectRefresh);
+      server.watcher.on("change", scheduleProjectRefresh);
+      server.watcher.on("unlink", scheduleProjectRefresh);
+
       const startPreviewServer = () => {
         const startup = ensurePreviewServer(server);
         if (startup) {
@@ -326,6 +397,10 @@ export function createStudioServerPlugin(): Plugin {
         server.httpServer?.once("listening", startPreviewServer);
       }
       server.httpServer?.once("close", () => {
+        if (projectRefreshTimer) clearTimeout(projectRefreshTimer);
+        server.watcher.off("add", scheduleProjectRefresh);
+        server.watcher.off("change", scheduleProjectRefresh);
+        server.watcher.off("unlink", scheduleProjectRefresh);
         if (isolatedPreviewServer) {
           void isolatedPreviewServer.close().catch(() => undefined);
         }

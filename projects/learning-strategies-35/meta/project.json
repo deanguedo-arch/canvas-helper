@@ -7,20 +7,20 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\index.html",
+  "canonicalEntry": "projects/learning-strategies-35/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\course-data.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\content\\module-index.css"
+    "projects/learning-strategies-35/workspace/index.html",
+    "projects/learning-strategies-35/workspace/main.js",
+    "projects/learning-strategies-35/workspace/styles.css",
+    "projects/learning-strategies-35/workspace/course-data.js",
+    "projects/learning-strategies-35/workspace/content/module-index.css"
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
@@ -47,13 +47,12 @@
   ],
   "authoringStatus": "active",
   "generatedOutputs": [],
-  "regenerateCommand": "python projects/learning-strategies-35/meta/build_forensics_style_course.py",
   "injectedComponents": [],
   "referenceOnly": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\workspace\\references",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\learning-strategies-35\\raw\\original.html"
+    "projects/learning-strategies-35/workspace/references",
+    "projects/learning-strategies-35/raw/original.html"
   ],
-  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP with the project-local builder if the import mapping changes. Quiz and assignment arrays are intentionally empty until those passes are requested.",
+  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP with the project-local builder if the import mapping changes. Quiz and assignment arrays are intentionally empty until those passes are requested. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: python projects/learning-strategies-35/meta/build_forensics_style_course.py Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "googleHosted": {
     "trackedStorageKeys": [
       "learning-strategies-35.progress",
@@ -67,6 +66,26 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-21T10:50:28",
-  "updatedAt": "2026-06-23T14:53:08.727Z",
-  "workspaceApprovedAt": "2026-06-12T19:37:02.158Z"
+  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "workspaceApprovedAt": "2026-06-12T19:37:02.158Z",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "builder-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

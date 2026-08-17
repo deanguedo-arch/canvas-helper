@@ -8,20 +8,55 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\calmmodule2\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-21T17:03:08.570Z",
   "createdAt": "2026-03-06T20:40:30.861Z",
-  "updatedAt": "2026-06-23T14:53:08.547Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-05-19T15:57:41.782Z",
-  "migrationState": "legacy",
-  "preferredWorkflows": [],
-  "canonicalSources": [],
+  "migrationState": "migrated",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalSources": [
+    "projects/calmmodule2/workspace/index.html",
+    "projects/calmmodule2/workspace/main.jsx",
+    "projects/calmmodule2/workspace/styles.css"
+  ],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "exportTargets": [],
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Canonical workspace preview and export target."
+    }
+  ],
   "authoringStatus": "active",
-  "referenceOnly": []
+  "referenceOnly": [],
+  "projectType": "conversion",
+  "canonicalEntry": "projects/calmmodule2/workspace/index.html",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "migrated-legacy-workspace",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  },
+  "sourceOfTruthNotes": "Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio."
 }

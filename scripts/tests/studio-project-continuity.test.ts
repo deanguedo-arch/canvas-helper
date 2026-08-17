@@ -8,7 +8,12 @@ import {
   toggleFavoriteProject,
   touchRecentProject
 } from "../../app/studio/src/lib/project-library.js";
-import { formatProjectSlugLabel, getProjectLabel } from "../../app/studio/src/lib/project-display.js";
+import {
+  formatProjectSlugLabel,
+  getProjectLabel,
+  isStudioProjectVisible,
+  orderProjectSlugs
+} from "../../app/studio/src/lib/project-display.js";
 import type { ProjectBundle } from "../../app/studio/src/lib/types.js";
 import {
   clearStoredReviewSet,
@@ -20,6 +25,8 @@ import {
   saveStoredReviewSet
 } from "../../app/studio/src/lib/review-set-storage.js";
 import { createReviewSetItem } from "../../app/studio/src/lib/review-set.js";
+import { loadCourseEditDrafts, saveCourseEditDrafts } from "../../app/studio/src/lib/course-edit-storage.js";
+import type { CourseEditDraft } from "../../app/shared/course-editing.js";
 import type { InspectionResolution } from "../../app/shared/inspection.js";
 import {
   loadWorkspacePageSelections,
@@ -87,6 +94,13 @@ test("Studio turns repository slugs into readable course names without replacing
   assert.equal(getProjectLabel(curatedTitleProject), "Social 10-1: Globalization and Identity");
 });
 
+test("explicitly onboarded legacy Social courses remain visible in Studio", () => {
+  const slug = "social30-1-related-issue-1";
+  const project = { manifest: { slug } } as ProjectBundle;
+  assert.equal(isStudioProjectVisible(project), true);
+  assert.deepEqual(orderProjectSlugs([slug]), [slug]);
+});
+
 function withLocalStorage(run: (values: Map<string, string>) => void) {
   const originalWindow = Object.getOwnPropertyDescriptor(globalThis, "window");
   const values = new Map<string, string>();
@@ -148,6 +162,48 @@ test("project library, last page, and separate empty Review Sets persist safely"
     assert.equal(clearStoredReviewSet("alpha"), true);
     assert.equal(loadStoredReviewSet("alpha"), null);
     assert.equal(loadStoredReviewSet("beta")?.sessionId, betaSession);
+  });
+});
+
+test("course edit drafts stay separate by project and reject unsafe persisted identities", () => {
+  withLocalStorage((values) => {
+    const makeDraft = (projectSlug: string, id: string): CourseEditDraft => ({
+      id,
+      createdAt: 1,
+      updatedAt: 2,
+      identity: {
+        targetId: "a".repeat(24),
+        projectSlug,
+        htmlPath: "index.html",
+        nodeId: `ch1:${"b".repeat(24)}:1`,
+        sourceDigest: "c".repeat(64),
+        elementDigest: "d".repeat(64),
+        editId: null,
+        tagName: "h1",
+        adapter: "direct"
+      },
+      beforeText: "Before",
+      afterText: "After",
+      baseline: {
+        originalHtml: "Before",
+        attributes: { href: "", src: "", alt: "", title: "" },
+        currentStyle: { textStyle: "default", fontFamily: "default", fontSize: "default", textTone: "default", alignment: "default", spacing: "default" },
+        capabilities: { richText: true, link: false, image: false, styles: true, styleKeys: ["fontFamily", "textTone", "alignment", "spacing"] }
+      },
+      patch: { html: "After" }
+    });
+    const alpha = makeDraft("alpha", "draft-alpha");
+    const beta = makeDraft("beta", "draft-beta");
+    assert.equal(saveCourseEditDrafts("alpha", [alpha]), true);
+    assert.equal(saveCourseEditDrafts("beta", [beta]), true);
+    assert.deepEqual(loadCourseEditDrafts("alpha"), [alpha]);
+    assert.deepEqual(loadCourseEditDrafts("beta"), [beta]);
+    assert.equal(saveCourseEditDrafts("alpha", [makeDraft("beta", "wrong-project")]), false);
+
+    const storageKey = [...values.keys()].find((key) => key.includes("course-edit-drafts"));
+    assert.ok(storageKey);
+    values.set(storageKey, JSON.stringify({ version: 1, projects: [{ projectSlug: "alpha", updatedAt: Date.now(), drafts: [{ ...alpha, filesystemPath: "/tmp/escape" }] }] }));
+    assert.deepEqual(loadCourseEditDrafts("alpha"), []);
   });
 });
 

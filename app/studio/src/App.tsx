@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState, type MouseEvent } fr
 
 import { CommandToolbar } from "./components/CommandToolbar";
 import { AnnotationModeBar } from "./components/AnnotationModeBar";
+import { EditModeBar } from "./components/EditModeBar";
 import { CourseToolbar } from "./components/CourseToolbar";
 import { InspectorPanel } from "./components/InspectorPanel";
 import { NewProjectPanel } from "./components/NewProjectPanel";
@@ -13,6 +14,7 @@ import { WhatsNewPanel } from "./components/WhatsNewPanel";
 import { WorkspacePicker } from "./components/WorkspacePicker";
 import { useLayoutPreferences } from "./hooks/useLayoutPreferences";
 import { useInspectionDraft } from "./hooks/useInspectionDraft";
+import { useCourseEditing } from "./hooks/useCourseEditing";
 import { usePreviewScrollSync } from "./hooks/usePreviewScrollSync";
 import { usePreviewRuntime } from "./hooks/usePreviewRuntime";
 import { usePreviewRecovery } from "./hooks/usePreviewRecovery";
@@ -58,11 +60,15 @@ import {
 } from "../../shared/inspection.js";
 import type {
   PreviewInspectPayload,
+  PreviewCourseEditAction,
+  PreviewCourseEditActionResult,
+  PreviewCourseEditState,
   PreviewReviewAction,
   PreviewReviewActionResult,
   PreviewReviewState
 } from "../../shared/preview-bridge.js";
 import { STUDIO_BRIDGE_LIMITS, STUDIO_REVIEW_LIMITS } from "../../shared/studio-quality.js";
+import type { CourseEditDraft } from "../../shared/course-editing.js";
 
 const {
   items: {
@@ -292,6 +298,8 @@ export function App() {
   const [whatsNewOpen, setWhatsNewOpen] = useState(false);
   const whatsNewTriggerRef = useRef<HTMLElement | null>(null);
   const [inspectEnabled, setInspectEnabled] = useState(false);
+  const [selectionMode, setSelectionMode] = useState<"off" | "annotate" | "edit">("off");
+  const [standaloneSelectedEditDraftId, setStandaloneSelectedEditDraftId] = useState("");
   const inspectionDraft = useInspectionDraft(previewMode);
   const {
     resolution: inspectionResolution,
@@ -358,6 +366,7 @@ export function App() {
   const reviewUndoRef = useRef<ReviewUndo | null>(null);
   const reviewUndoTimerRef = useRef<number | null>(null);
   const standaloneReviewActionRef = useRef<(mode: PreviewMode, action: PreviewReviewAction) => void>(() => undefined);
+  const standaloneCourseEditActionRef = useRef<(mode: PreviewMode, action: PreviewCourseEditAction) => void>(() => undefined);
   const prepareReviewSetRef = useRef<() => void>(() => undefined);
   const focusReviewSetItemRef = useRef<(
     itemId: string,
@@ -368,7 +377,6 @@ export function App() {
     () => projects.find((project) => project.manifest.slug === selectedSlug) ?? null,
     [projects, selectedSlug]
   );
-
   const resolvedWorkspaceHtmlPath = useMemo(() => {
     if (!selectedProject) {
       return "index.html";
@@ -398,6 +406,12 @@ export function App() {
       htmlPath: resolvedWorkspaceHtmlPath
     };
   }, [resolvedWorkspaceHtmlPath, selectedProject]);
+  const courseEditing = useCourseEditing(selectedSlug, async () => {
+    resetInspection(true);
+    setStandaloneSelectedEditDraftId("");
+    await refreshProjects(true);
+  });
+  const lastEditSelectionRef = useRef<PreviewInspectPayload | null>(null);
   const reviewScopeRef = useRef({ selectedSlug, workspaceTarget });
   reviewScopeRef.current = { selectedSlug, workspaceTarget };
 
@@ -702,6 +716,7 @@ export function App() {
   }, [disposeReviewUndo, releaseReviewCopyReservation, selectedSlug, setReviewSetStatus]);
 
   useEffect(() => {
+    lastEditSelectionRef.current = null;
     resetInspection(true);
   }, [inspectionContextKey, resetInspection]);
 
@@ -714,8 +729,26 @@ export function App() {
   const resolveInspection = async (
     mode: PreviewMode,
     selection: PreviewInspectPayload,
-    source: "embedded" | "standalone"
+    source: "embedded" | "standalone",
+    requestedMode: "off" | "annotate" | "edit" = selectionMode
   ) => {
+    if (requestedMode === "edit") {
+      if (mode !== "workspace" || !workspaceTarget?.projectSlug || !selection.nodeId) {
+        courseEditing.clearSelection();
+        return;
+      }
+      lastEditSelectionRef.current = selection;
+      setStandaloneSelectedEditDraftId("");
+      setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+      return await courseEditing.resolveSelection({
+        projectSlug: workspaceTarget.projectSlug,
+        root: "workspace",
+        htmlPath: workspaceTarget.htmlPath,
+        selection
+      });
+      return;
+    }
+    if (requestedMode !== "annotate") return;
     const inspectionRun = inspectionDraft.begin(mode, source, selection);
     const requestScopeVersion = inspectionRun.scopeVersion;
     const isCurrentRequest = inspectionRun.isCurrent;
@@ -859,6 +892,9 @@ export function App() {
     restorePreviewLocation,
     syncStandaloneReviewSet,
     sendStandaloneReviewActionResult,
+    syncStandaloneCourseEditing,
+    sendStandaloneCourseEditActionResult,
+    refreshStandalonePreview,
     cancelStandaloneReviewCopy
   } = usePreviewScrollSync({
     previewMode,
@@ -869,9 +905,19 @@ export function App() {
     referenceTarget: resolvedReference.target,
     previewOrigin,
     inspectEnabled,
+    editEnabled: selectionMode === "edit",
+    courseEditPreview: courseEditing.previewCommand,
     onInspectSelection: (mode, selection, source) => void resolveInspection(mode, selection, source),
     onInspectModeChange: (enabled, source) => {
       setInspectEnabled(enabled);
+      if (!enabled) {
+        setSelectionMode("off");
+        courseEditing.setEnabled(false);
+      } else if (source === "standalone" && selectionMode !== "edit") {
+        setSelectionMode("annotate");
+        courseEditing.setEnabled(false);
+        courseEditing.clearSelection();
+      }
       if (!enabled && source === "embedded") {
         window.requestAnimationFrame(() => {
           document.querySelector<HTMLElement>('[data-testid="inspect-toggle"]')?.focus();
@@ -881,6 +927,7 @@ export function App() {
     onPreviewNavigation: (mode, href, source) => {
       if (source === "embedded") previewRecovery.markNavigation(mode, href);
       if (mode === "workspace") {
+        courseEditing.clearSelection();
         resetInspection(true);
       }
     },
@@ -894,12 +941,43 @@ export function App() {
       if (source === "embedded") previewRecovery.addDiagnostic(mode, diagnostic);
     },
     onPreviewReviewAction: (mode, action) => standaloneReviewActionRef.current(mode, action),
+    onPreviewEditAction: (mode, action) => standaloneCourseEditActionRef.current(mode, action),
+    onCourseEditPreviewAck: (mode, ack, source) => {
+      if (mode === "workspace" && source === "embedded") courseEditing.acknowledgePreview(ack);
+    },
     onStandaloneReturn: () => {
       setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
       window.focus();
     }
   });
   cancelStandaloneReviewCopyRef.current = cancelStandaloneReviewCopy;
+
+  const annotateLastEditSelection = () => {
+    const selection = lastEditSelectionRef.current;
+    if (!selection || !workspaceTarget) return;
+    setSelectionMode("annotate");
+    courseEditing.setEnabled(false);
+    courseEditing.clearSelection();
+    setStandaloneSelectedEditDraftId("");
+    setPreviewInspectMode(true);
+    setInspectEnabled(true);
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    void resolveInspection("workspace", selection, "embedded", "annotate");
+  };
+
+  const previousWorkspacePreviewSourceRef = useRef(previewSources.workspace);
+  useEffect(() => {
+    const previous = previousWorkspacePreviewSourceRef.current;
+    previousWorkspacePreviewSourceRef.current = previewSources.workspace;
+    if (
+      !previous ||
+      !previewSources.workspace ||
+      previous === previewSources.workspace ||
+      !workspaceTarget ||
+      !standalonePreviewMatchesTarget("workspace", getTargetKey(workspaceTarget))
+    ) return;
+    refreshStandalonePreview("workspace", previewSources.workspace);
+  }, [previewSources.workspace, refreshStandalonePreview, standalonePreviewMatchesTarget, workspaceTarget]);
 
   const stopAnnotationMode = useCallback(() => {
     if (reviewSetRelinkItemIdRef.current) {
@@ -909,10 +987,13 @@ export function App() {
     }
     setPreviewInspectMode(false);
     setInspectEnabled(false);
+    setSelectionMode("off");
+    courseEditing.setEnabled(false);
+    courseEditing.clearSelection();
     window.requestAnimationFrame(() => {
       document.querySelector<HTMLElement>('[data-testid="inspect-toggle"]')?.focus();
     });
-  }, [setPreviewInspectMode, setReviewSetStatus]);
+  }, [courseEditing, setPreviewInspectMode, setReviewSetStatus]);
 
   useEffect(() => {
     if (!inspectEnabled) {
@@ -964,6 +1045,9 @@ export function App() {
   };
 
   const reviewSetAddAvailability = useMemo(() => {
+    if (courseEditing.hasLivePreview) {
+      return { canAdd: false, reason: "Reset or save the unapplied live preview before adding review evidence." };
+    }
     if (reviewSetCopying) {
       return { canAdd: false, reason: "Copying this Review Set…" };
     }
@@ -998,7 +1082,7 @@ export function App() {
       return { canAdd: false, reason: `Keep the teacher note to ${REVIEW_SET_NOTE_MAX_BYTES} bytes or fewer.` };
     }
     return { canAdd: true, reason: "" };
-  }, [inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetCopying, reviewSetItems, reviewSetSaving, selectedSlug]);
+  }, [courseEditing.hasLivePreview, inspectionPreviewMode, inspectionRequest, inspectionResolution, inspectionTeacherNote, previewMode, reviewSetCopying, reviewSetItems, reviewSetSaving, selectedSlug]);
 
   const addCurrentInspectionToReviewSet = async () => {
     if (!reviewSetAddAvailability.canAdd || !inspectionResolution || !inspectionRequest) {
@@ -1984,6 +2068,54 @@ export function App() {
     );
   }, [preparedReviewSet, previewReviewState, reviewSetPacketReady, syncStandaloneReviewSet]);
 
+  const previewCourseEditState = useMemo<PreviewCourseEditState>(() => {
+    const target = courseEditing.target;
+    const selectedDraft = courseEditing.drafts.find((draft) => draft.id === standaloneSelectedEditDraftId) ?? null;
+    return {
+      projectSlug: selectedSlug,
+      enabled: selectionMode === "edit",
+      available: courseEditing.status.available,
+      unavailableReason: courseEditing.status.unavailableReason.slice(0, 240),
+      target: target ? {
+        eligibility: target.eligibility,
+        reason: target.reason.slice(0, 240),
+        targetId: target.identity?.targetId ?? "",
+        tagName: target.identity?.tagName ?? "",
+        originalHtml: target.originalHtml,
+        originalText: target.originalText,
+        capabilities: target.capabilities,
+        attributes: target.attributes,
+        currentStyle: target.currentStyle
+      } : null,
+      drafts: courseEditing.drafts.map((draft) => ({
+        id: draft.id,
+        targetId: draft.identity.targetId,
+        tagName: draft.identity.tagName,
+        beforeText: draft.beforeText.slice(0, STUDIO_BRIDGE_LIMITS.visibleTextCodeUnits),
+        afterText: draft.afterText.slice(0, STUDIO_BRIDGE_LIMITS.visibleTextCodeUnits)
+      })),
+      selectedDraft: selectedDraft ? {
+        id: selectedDraft.id,
+        targetId: selectedDraft.identity.targetId,
+        tagName: selectedDraft.identity.tagName,
+        beforeText: selectedDraft.beforeText.slice(0, STUDIO_BRIDGE_LIMITS.visibleTextCodeUnits),
+        afterText: selectedDraft.afterText.slice(0, STUDIO_BRIDGE_LIMITS.visibleTextCodeUnits),
+        baseline: selectedDraft.baseline,
+        patch: selectedDraft.patch
+      } : null,
+      busy: courseEditing.busy,
+      canUndo: courseEditing.status.canUndo,
+      exportsOutOfDate: courseEditing.status.exportsOutOfDate,
+      staleExportTargets: courseEditing.status.staleExportTargets.slice(0, 12),
+      status: (courseEditing.feedback.tone === "error" ? "" : courseEditing.feedback.message).slice(0, 240),
+      error: (courseEditing.feedback.tone === "error" ? courseEditing.feedback.message : "").slice(0, 240)
+    };
+  }, [courseEditing.busy, courseEditing.drafts, courseEditing.feedback, courseEditing.status, courseEditing.target, selectedSlug, selectionMode, standaloneSelectedEditDraftId]);
+
+  useEffect(() => {
+    syncStandaloneCourseEditing("workspace", previewCourseEditState);
+  }, [previewCourseEditState, syncStandaloneCourseEditing]);
+
   const copyReviewSet = () => {
     if (!preparedReviewSet || !reviewSetPacketReady || reviewSetSavingRef.current || reviewSetCopyingRef.current) {
       return;
@@ -2193,29 +2325,33 @@ export function App() {
       });
     };
     const standaloneTarget = reviewScopeRef.current.workspaceTarget;
+    if (action.action === "request-state") {
+      if (
+        mode === "workspace" &&
+        standaloneTarget &&
+        standalonePreviewMatchesTarget(mode, getTargetKey(standaloneTarget))
+      ) {
+        syncStandaloneReviewSet(
+          mode,
+          previewReviewState,
+          reviewSetPacketReady && preparedReviewSet
+            ? { packet: preparedReviewSet.packet, packetId: preparedReviewSet.packetId, itemIds: preparedReviewSet.itemIds, reviewSessionId: reviewSessionIdRef.current }
+            : { packet: "", packetId: "", itemIds: [], reviewSessionId: reviewSessionIdRef.current }
+        );
+      }
+      return;
+    }
     if (
       mode !== "workspace" ||
       !standaloneTarget ||
       !standalonePreviewMatchesTarget(mode, getTargetKey(standaloneTarget))
     ) {
-      if (action.action !== "request-state") {
-        respond({
-          ok: false,
-          message: "This full preview belongs to a different course page. Open Full Preview again.",
-          clearDraft: false
-        });
-      }
+      respond({
+        ok: false,
+        message: "This full preview belongs to a different course page. Open Full Preview again.",
+        clearDraft: false
+      });
       revokeStandalonePreview(mode);
-      return;
-    }
-    if (action.action === "request-state") {
-      syncStandaloneReviewSet(
-        mode,
-        previewReviewState,
-        mode === "workspace" && reviewSetPacketReady && preparedReviewSet
-          ? { packet: preparedReviewSet.packet, packetId: preparedReviewSet.packetId, itemIds: preparedReviewSet.itemIds, reviewSessionId: reviewSessionIdRef.current }
-          : { packet: "", packetId: "", itemIds: [], reviewSessionId: reviewSessionIdRef.current }
-      );
       return;
     }
     if (action.action === "begin-copy") {
@@ -2513,7 +2649,153 @@ export function App() {
     }
   };
 
+  standaloneCourseEditActionRef.current = (mode, action) => {
+    const respond = (result: Omit<PreviewCourseEditActionResult, "requestId">) => {
+      sendStandaloneCourseEditActionResult(mode, {
+        ...result,
+        ...(action.requestId ? { requestId: action.requestId } : {})
+      });
+    };
+    const standaloneTarget = reviewScopeRef.current.workspaceTarget;
+    if (action.action === "request-state") {
+      if (
+        mode === "workspace" &&
+        standaloneTarget &&
+        standalonePreviewMatchesTarget(mode, getTargetKey(standaloneTarget))
+      ) {
+        syncStandaloneCourseEditing(mode, previewCourseEditState);
+      }
+      return;
+    }
+    if (
+      mode !== "workspace" ||
+      !standaloneTarget ||
+      !standalonePreviewMatchesTarget(mode, getTargetKey(standaloneTarget))
+    ) {
+      respond({ ok: false, message: "This full preview belongs to a different course page. Open Full Preview again." });
+      revokeStandalonePreview(mode);
+      return;
+    }
+    if (action.action === "set-mode") {
+      if (action.enabled && (!courseEditing.status.available || courseEditing.busy)) {
+        respond({ ok: false, message: courseEditing.status.unavailableReason || "This course is annotation-only." });
+        return;
+      }
+      const nextMode = action.enabled ? "edit" : action.nextMode === "annotate" ? "annotate" : "off";
+      setSelectionMode(nextMode);
+      courseEditing.setEnabled(action.enabled);
+      if (!action.enabled) courseEditing.clearSelection();
+      setPreviewInspectMode(nextMode !== "off");
+      setInspectEnabled(nextMode !== "off");
+      if (nextMode !== "off") setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+      respond({
+        ok: true,
+        message: nextMode === "edit" ? "Edit mode is on." : nextMode === "annotate" ? "Annotate mode is on." : "Edit mode is off. Drafts are still saved."
+      });
+      return;
+    }
+    if (action.action === "annotate-selection") {
+      setSelectionMode("annotate");
+      courseEditing.setEnabled(false);
+      courseEditing.clearSelection();
+      setStandaloneSelectedEditDraftId("");
+      setPreviewInspectMode(true);
+      setInspectEnabled(true);
+      setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+      void resolveInspection(mode, action.selection, "standalone", "annotate").then(() => {
+        respond({ ok: true, message: "Annotation ready. Add a note for Codex." });
+      }).catch(() => {
+        respond({ ok: false, message: "Studio could not reopen that selection for annotation." });
+      });
+      return;
+    }
+    if (courseEditing.busy) {
+      respond({ ok: false, message: "Wait for the current course edit to finish." });
+      return;
+    }
+    if (action.action === "preview-target") {
+      if (courseEditing.target?.identity?.targetId === action.targetId) {
+        courseEditing.previewTargetPatch(action.patch);
+      }
+      return;
+    }
+    if (action.action === "clear-preview") {
+      if (courseEditing.target?.identity?.targetId === action.targetId) courseEditing.closeLivePreview();
+      return;
+    }
+    if (action.action === "save-target") {
+      if (courseEditing.target?.identity?.targetId !== action.targetId) {
+        respond({ ok: false, message: "That selection changed. Click the course element again." });
+        return;
+      }
+      void courseEditing.saveTarget(action.patch).then((saved) => {
+        respond({ ok: saved, message: saved ? "Draft saved." : "Studio could not save this draft." });
+      });
+      return;
+    }
+    if (action.action === "reopen-draft") {
+      const draft = courseEditing.drafts.find((entry) => entry.id === action.draftId);
+      if (!draft) {
+        respond({ ok: false, message: "That draft is no longer saved." });
+        return;
+      }
+      void reopenCourseEditDraft(draft, "standalone").then((reopened) => {
+        respond({
+          ok: reopened,
+          message: reopened
+            ? "Draft reopened on the learner page."
+            : "The saved learner element moved. Select it again before editing."
+        });
+      }).catch(() => {
+        respond({ ok: false, message: "Studio could not reopen that draft on the learner page." });
+      });
+      return;
+    }
+    if (action.action === "select-draft") {
+      const exists = courseEditing.drafts.some((draft) => draft.id === action.draftId);
+      if (exists) courseEditing.clearSelection();
+      setStandaloneSelectedEditDraftId(exists ? action.draftId : "");
+      respond({ ok: exists, message: exists ? "Draft opened." : "That draft is no longer saved." });
+      return;
+    }
+    if (action.action === "update-draft") {
+      const updated = courseEditing.patchDraft(action.draftId, action.patch);
+      respond({ ok: updated, message: updated ? "Draft updated." : "That draft is no longer saved." });
+      return;
+    }
+    if (action.action === "remove-draft") {
+      const exists = courseEditing.drafts.some((draft) => draft.id === action.draftId);
+      if (exists) courseEditing.removeDraft(action.draftId);
+      if (standaloneSelectedEditDraftId === action.draftId) setStandaloneSelectedEditDraftId("");
+      respond({ ok: exists, message: exists ? "Draft removed." : "That draft is no longer saved." });
+      return;
+    }
+    if (action.action === "reorder-draft") {
+      const exists = courseEditing.drafts.some((draft) => draft.id === action.draftId);
+      if (exists) courseEditing.reorderDraft(action.draftId, action.direction);
+      respond({ ok: exists, message: exists ? "Draft moved." : "That draft is no longer saved." });
+      return;
+    }
+    if (action.action === "apply") {
+      void courseEditing.apply().then((ok) => {
+        if (ok) setStandaloneSelectedEditDraftId("");
+        respond({ ok, message: ok ? "Changes applied and checked." : "Studio could not apply these changes." });
+      });
+      return;
+    }
+    if (action.action === "undo") {
+      void courseEditing.undo().then((ok) => {
+        if (ok) setStandaloneSelectedEditDraftId("");
+        respond({ ok, message: ok ? "Last edit batch undone." : "Studio could not undo the last batch." });
+      });
+    }
+  };
+
   const captureInspectionScreenshot = () => {
+    if (courseEditing.hasLivePreview) {
+      screenshotAnnotation.reportError("Reset or save the unapplied live preview before capturing review evidence.");
+      return;
+    }
     if (!inspectionResolution?.selection.nodeId || !inspectionRequest) {
       screenshotAnnotation.reportError("Select a source-mapped preview element before capturing a screenshot.");
       return;
@@ -2622,6 +2904,51 @@ export function App() {
   };
   focusReviewSetItemRef.current = focusReviewSetItem;
 
+  const reopenCourseEditDraft = async (
+    draft: CourseEditDraft,
+    source: "embedded" | "standalone" = "embedded"
+  ) => {
+    if (
+      courseEditing.busy ||
+      draft.identity.projectSlug !== selectedSlug
+    ) return false;
+    const reopened = await courseEditing.reopenDraft(draft);
+    if (reopened?.status !== "resolved" || !reopened.target.identity) return false;
+    const currentIdentity = reopened.target.identity;
+    courseEditing.closeLivePreview();
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    setWorkspaceHtmlSelections((current) => ({
+      ...current,
+      [currentIdentity.projectSlug]: currentIdentity.htmlPath
+    }));
+    saveWorkspacePageSelection(currentIdentity.projectSlug, currentIdentity.htmlPath);
+    setPreviewMode("workspace");
+    setSelectionMode("edit");
+    courseEditing.setEnabled(true);
+    setPreviewInspectMode(true);
+    setInspectEnabled(true);
+    await new Promise<void>((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(() => resolve())));
+    const focused = await focusPreviewInspectionSelection("workspace", currentIdentity.nodeId, {
+      source,
+      ...(draft.pageHref ? { pageHref: draft.pageHref } : {})
+    });
+    if (!focused) return false;
+    const selection = await requestCurrentInspectionSelection("workspace", currentIdentity.nodeId, source);
+    const target = await resolveInspection("workspace", selection, source, "edit");
+    const freshIdentity = target?.identity;
+    if (
+      !target ||
+      target.eligibility !== "editable" ||
+      !freshIdentity ||
+      freshIdentity.targetId !== currentIdentity.targetId ||
+      freshIdentity.sourceDigest !== currentIdentity.sourceDigest
+    ) return false;
+    if (!courseEditing.rebindDraft(draft.id, target)) return false;
+    setStandaloneSelectedEditDraftId(source === "standalone" ? draft.id : "");
+    courseEditing.previewTargetPatch(draft.patch, draft.pendingAssets?.[0], target);
+    return true;
+  };
+
   const relinkReviewSetItem = (itemId: string) => {
     if (blockReviewMutationDuringCapture()) return;
     const item = reviewSetItemsRef.current.find((candidate) => candidate.id === itemId);
@@ -2662,6 +2989,7 @@ export function App() {
   };
 
   const setCompareMode = (compareMode: boolean) => {
+    courseEditing.closeLivePreview();
     persistAllVisibleScrollPositions();
     setLayoutPreferences((current) => ({ ...current, compareMode }));
   };
@@ -2671,12 +2999,14 @@ export function App() {
     persistAllVisibleScrollPositions();
     syncFocusModeScrollPosition(previewMode, nextMode);
     if (nextMode !== previewMode) {
+      courseEditing.closeLivePreview();
       resetInspection(true);
     }
     setPreviewMode(nextMode);
   };
 
   const handleOpenWorkspacePreview = () => {
+    courseEditing.closeLivePreview();
     persistAllVisibleScrollPositions();
     if (!previewSources.workspace || !["ready", "warning"].includes(previewRecovery.states.workspace.phase)) {
       setReviewSetStatus("The full preview will be available after this page passes its preview check.", "warning");
@@ -2702,6 +3032,7 @@ export function App() {
   };
 
   const handleDeviceChange = (mode: PreviewMode, device: "desktop" | "tablet" | "mobile") => {
+    courseEditing.closeLivePreview();
     setLayoutPreferences((current) => ({
       ...current,
       devices: {
@@ -2712,6 +3043,7 @@ export function App() {
   };
 
   const handleZoomChange = (mode: PreviewMode, zoom: number) => {
+    courseEditing.closeLivePreview();
     setLayoutPreferences((current) => ({
       ...current,
       zooms: {
@@ -2723,9 +3055,11 @@ export function App() {
 
   const handleWorkspaceProjectChange = (slug: string) => {
     if (blockReviewMutationDuringCapture()) return;
+    if (slug === selectedSlug) return;
     persistAllVisibleScrollPositions();
     revokeStandalonePreview("workspace");
     resetInspection(true);
+    if (inspectEnabled) stopAnnotationMode();
     setSelectedSlug(slug);
   };
 
@@ -2733,6 +3067,7 @@ export function App() {
     if (blockReviewMutationDuringCapture()) return;
     revokeStandalonePreview("workspace");
     resetInspection(true);
+    if (inspectEnabled) stopAnnotationMode();
     setWorkspaceHtmlSelections((current) => ({
       ...current,
       [selectedSlug]: htmlPath
@@ -2760,10 +3095,13 @@ export function App() {
   };
 
   const toggleAnnotationMode = (keyboardEntry = false) => {
-    if (inspectEnabled) {
+    if (selectionMode === "annotate") {
       stopAnnotationMode();
       return;
     }
+    courseEditing.setEnabled(false);
+    courseEditing.clearSelection();
+    setSelectionMode("annotate");
     if (previewMode !== "workspace") {
       handlePreviewModeChange("workspace");
     }
@@ -2775,14 +3113,30 @@ export function App() {
     }
   };
 
+  const toggleCourseEditMode = (keyboardEntry = false) => {
+    if (selectionMode === "edit") {
+      stopAnnotationMode();
+      return;
+    }
+    if (!courseEditing.status.available || courseEditing.busy) return;
+    if (previewMode !== "workspace") handlePreviewModeChange("workspace");
+    resetInspection(true);
+    setSelectionMode("edit");
+    courseEditing.setEnabled(true);
+    setPreviewInspectMode(true);
+    setInspectEnabled(true);
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    if (keyboardEntry) beginKeyboardPreviewInspection();
+  };
+
   useEffect(() => {
-    if (!inspectEnabled || inspectionResolving || !inspectionResolution) return;
+    if (selectionMode !== "annotate" || inspectionResolving || !inspectionResolution) return;
     window.requestAnimationFrame(() => {
       const note = document.querySelector<HTMLTextAreaElement>('[data-testid="inspection-teacher-note"]');
       note?.focus();
       if (note) inspectionDraft.finishVisibleFeedback();
     });
-  }, [inspectEnabled, inspectionDraft.finishVisibleFeedback, inspectionResolution, inspectionResolving]);
+  }, [inspectionDraft.finishVisibleFeedback, inspectionResolution, inspectionResolving, selectionMode]);
 
   const openReviewSet = () => {
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
@@ -2838,7 +3192,11 @@ export function App() {
             picker={workspacePicker}
             layoutPreferences={layoutPreferences}
             previewMode={previewMode}
-            inspectEnabled={inspectEnabled}
+            inspectEnabled={selectionMode === "annotate"}
+            editEnabled={selectionMode === "edit"}
+            editAvailable={courseEditing.status.available && !courseEditing.busy}
+            editUnavailableReason={courseEditing.status.unavailableReason}
+            editDraftCount={courseEditing.drafts.length}
             inspectAvailable={Boolean(previewOrigin) && ["ready", "warning"].includes(previewRecovery.states.workspace.phase)}
             hasWorkspacePreview={Boolean(previewSources.workspace) && ["ready", "warning"].includes(previewRecovery.states.workspace.phase)}
             reviewSetCount={reviewSetItems.length}
@@ -2848,6 +3206,7 @@ export function App() {
             onDeviceChange={handleDeviceChange}
             onZoomChange={handleZoomChange}
             onToggleInspect={toggleAnnotationMode}
+            onToggleEdit={toggleCourseEditMode}
             onToggleInspector={() => {
               const opening = !layoutPreferences.inspectorOpen;
               setLayoutPreferences((current) => ({ ...current, inspectorOpen: !current.inspectorOpen }));
@@ -2858,7 +3217,7 @@ export function App() {
           />
         ) : null}
 
-        {inspectEnabled && studioMode === "course" ? (
+        {selectionMode === "annotate" && studioMode === "course" ? (
           <AnnotationModeBar
             savedCount={reviewSetItems.length}
             selectionReady={Boolean(inspectionResolution?.selection.nodeId)}
@@ -2867,6 +3226,16 @@ export function App() {
             onCapture={captureInspectionScreenshot}
             onCancelCapture={cancelReviewCapture}
             onOpenReviewSet={openReviewSet}
+            onDone={stopAnnotationMode}
+          />
+        ) : null}
+
+        {selectionMode === "edit" && studioMode === "course" ? (
+          <EditModeBar
+            draftCount={courseEditing.drafts.length}
+            selectionReady={courseEditing.target?.eligibility === "editable"}
+            busy={courseEditing.busy}
+            onOpenDrafts={() => setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }))}
             onDone={stopAnnotationMode}
           />
         ) : null}
@@ -3025,13 +3394,41 @@ export function App() {
 
             {layoutPreferences.inspectorOpen ? (
               <InspectorPanel
-                inspectEnabled={inspectEnabled}
+                editEnabled={selectionMode === "edit"}
+                editTarget={courseEditing.target}
+                editResolving={courseEditing.resolving}
+                editDrafts={courseEditing.drafts}
+                editBusy={courseEditing.busy}
+                editFeedback={courseEditing.feedback}
+                editCanUndo={courseEditing.status.canUndo}
+                editUndoUnavailableReason={courseEditing.status.undoUnavailableReason}
+                editCanRenameCourse={courseEditing.status.canRenameCourse}
+                editCourseTitle={courseEditing.status.courseTitle}
+                editExportsOutOfDate={courseEditing.status.exportsOutOfDate}
+                editStaleExportTargets={courseEditing.status.staleExportTargets}
+                editPreviewFeedback={courseEditing.previewFeedback}
+                editHasLivePreview={courseEditing.hasLivePreview}
+                onPreviewEditTarget={courseEditing.previewTargetPatch}
+                onClearEditPreview={courseEditing.closeLivePreview}
+                onSaveEditTarget={courseEditing.saveTarget}
+                onUpdateEditDraft={courseEditing.editDraft}
+                onReopenEditDraft={(draft) => { void reopenCourseEditDraft(draft); }}
+                onRemoveEditDraft={courseEditing.removeDraft}
+                onReorderEditDraft={courseEditing.reorderDraft}
+                onApplyEditDrafts={() => void courseEditing.apply()}
+                onUndoEditBatch={() => void courseEditing.undo()}
+                onExportEditDrafts={courseEditing.exportDrafts}
+                onImportEditDrafts={courseEditing.importDrafts}
+                onUploadEditImage={courseEditing.uploadImage}
+                onRenameCourse={courseEditing.renameCourse}
+                onAnnotateEditTarget={annotateLastEditSelection}
+                inspectEnabled={selectionMode === "annotate"}
                 inspectionResolution={inspectionResolution}
                 inspectionResolving={inspectionResolving}
                 inspectionTeacherNote={inspectionTeacherNote}
                 inspectionIssueCategory={inspectionIssueCategory}
                 screenshotSupported={screenshotAnnotation.isSupported}
-                screenshotCanCapture={Boolean(inspectionResolution?.selection.nodeId) && screenshotAnnotation.drafts.length < REVIEW_SCREENSHOT_MAX_PER_ITEM}
+                screenshotCanCapture={!courseEditing.hasLivePreview && Boolean(inspectionResolution?.selection.nodeId) && screenshotAnnotation.drafts.length < REVIEW_SCREENSHOT_MAX_PER_ITEM}
                 screenshotStatus={screenshotAnnotation.status}
                 screenshotError={screenshotAnnotation.error}
                 screenshots={screenshotAnnotation.drafts}

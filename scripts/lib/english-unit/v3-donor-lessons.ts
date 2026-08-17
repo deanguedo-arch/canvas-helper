@@ -671,6 +671,30 @@ async function inspectDerivedRecipePlan(input: {
   });
 }
 
+/**
+ * Exposes only the durable recipe/source boundary used by V3 data hydration.
+ * Readiness must include these inputs even when no donor lesson selector is
+ * present, because `derivesFromProject` can still change learner output.
+ */
+export async function inspectEnglishV3DerivedRecipeDependency(input: {
+  repoRoot: string;
+  recipe: EnglishUnitRecipeV3;
+}): Promise<{
+  requestedProjectSlug: string;
+  resolvedProjectSlug: string;
+  recipePath: string;
+  sourcePath: string;
+} | null> {
+  const plan = await inspectDerivedRecipePlan(input);
+  if (!plan) return null;
+  return {
+    requestedProjectSlug: plan.requestedProjectSlug,
+    resolvedProjectSlug: plan.resolvedProjectSlug,
+    recipePath: plan.recipePath,
+    sourcePath: plan.sourcePath
+  };
+}
+
 function matchDonorReadings(target: EnglishUnitRecipeV3, donor: EnglishUnitRecipeV1 | EnglishUnitRecipeV2) {
   const donorsByIdentity = new Map<string, EnglishReadingRecipe[]>();
   for (const reading of donor.readings) {

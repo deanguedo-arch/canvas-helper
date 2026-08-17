@@ -1,0 +1,56 @@
+{
+  "schemaVersion": 1,
+  "capturedAgainstRevision": "a98b9ba368fc473fadf3fc6473afece14cbed371",
+  "diagnostics": [
+    {
+      "file": "scripts/build-ela-short-stories.ts",
+      "code": "TS2684",
+      "message": "The 'this' context of type 'Cheerio<Element> | Cheerio<Document>' is not assignable to method's 'this' of type 'Cheerio<Element>'."
+    },
+    {
+      "file": "scripts/build-ela20-novel-study.ts",
+      "code": "TS2353",
+      "message": "Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'."
+    },
+    {
+      "file": "scripts/build-ela20-novel-study.ts",
+      "code": "TS2353",
+      "message": "Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'."
+    },
+    {
+      "file": "scripts/build-ela20-novel-study.ts",
+      "code": "TS2353",
+      "message": "Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'."
+    },
+    {
+      "file": "scripts/build-ela20-novel-study.ts",
+      "code": "TS2353",
+      "message": "Object literal may only specify known properties, and 'decodeEntities' does not exist in type 'CheerioOptions'."
+    },
+    {
+      "file": "scripts/build-forensics-module1-static.ts",
+      "code": "TS2769",
+      "message": "No overload matches this call."
+    },
+    {
+      "file": "scripts/build-forensics-module1-static.ts",
+      "code": "TS2345",
+      "message": "Argument of type 'D2LMapItem | null' is not assignable to parameter of type 'D2LMapItem | undefined'."
+    },
+    {
+      "file": "scripts/build-social20-related-issues.ts",
+      "code": "TS7053",
+      "message": "Element implicitly has an 'any' type because expression of type 'string' can't be used to index type '{ \"social20-1-related-issue-1-option-2\": { vocabulary: { title: string; prompt: string; answer: string[]; }[]; events: { title: string; prompt: string; answer: string[]; }[]; mainIdeas: { title: string; prompt: string; answer: string[]; }[]; }; \"social20-1-related-issue-2-option-2\": { ...; }; \"social20-1-related-iss...'."
+    },
+    {
+      "file": "scripts/lib/english-unit/factory-render.ts",
+      "code": "TS2322",
+      "message": "Type '{ title: string; href: string; kind: \"external\"; }[]' is not assignable to type 'EnglishSupportingResource[]'."
+    },
+    {
+      "file": "scripts/lib/english-unit/factory-resources.ts",
+      "code": "TS2353",
+      "message": "Object literal may only specify known properties, and 'ocrPageSegmentationMode' does not exist in type 'PdfTextExtractionOptions'."
+    }
+  ]
+}

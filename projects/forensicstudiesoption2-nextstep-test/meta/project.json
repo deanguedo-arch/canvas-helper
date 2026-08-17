@@ -7,19 +7,19 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\workspace\\index.html",
+  "canonicalEntry": "projects/forensicstudiesoption2-nextstep-test/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensicstudiesoption2-nextstep-test\\workspace\\course-data.js"
+    "projects/forensicstudiesoption2-nextstep-test/workspace/index.html",
+    "projects/forensicstudiesoption2-nextstep-test/workspace/main.js",
+    "projects/forensicstudiesoption2-nextstep-test/workspace/styles.css",
+    "projects/forensicstudiesoption2-nextstep-test/workspace/course-data.js"
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
@@ -42,7 +42,7 @@
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Next Step Module 1 tester copy. Active tester is scoped to Module 1 only with no locks, sign-in, hosted bridge, or browser save behavior. Edit forensicstudiesoption2-nextstep-test workspace files only; original forensicstudiesoption2 remains untouched.",
+  "sourceOfTruthNotes": "Next Step Module 1 tester copy. Active tester is scoped to Module 1 only with no locks, sign-in, hosted bridge, or browser save behavior. Edit forensicstudiesoption2-nextstep-test workspace files only; original forensicstudiesoption2 remains untouched. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "googleHosted": {
     "authMode": "none",
     "injectBridge": false,
@@ -52,10 +52,30 @@
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-12T18:44:10.040Z",
   "workspaceApprovedAt": "2026-06-08T16:48:07.094Z",
-  "updatedAt": "2026-06-23T14:53:08.708Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "nextStepPaletteTest": {
     "copiedFromProject": "forensicstudiesoption2",
     "copiedAt": "2026-05-29T16:39:10.196Z",
     "scope": "workspace/content/chapter-1 through chapter-9 index.html files were redesigned with inline Next Step palette styling while preserving source media paths and local progress bridge scripts."
+  },
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
   }
 }

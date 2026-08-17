@@ -8,10 +8,10 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "createdAt": "2026-06-08T21:31:19.092Z",
-  "updatedAt": "2026-06-23T14:53:08.663Z",
+  "updatedAt": "2026-08-13T13:08:16.727Z",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-06-08T21:31:19.092Z",
@@ -21,12 +21,12 @@
     "conversion",
     "injection/integration"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html",
+  "canonicalEntry": "projects/ela30-1-modern-drama/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\workspace\\index.html"
+    "projects/ela30-1-modern-drama/workspace/index.html"
   ],
   "generatedOutputs": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\exports\\ela30-1-modern-drama-v2.zip"
+    "projects/ela30-1-modern-drama/exports/ela30-1-modern-drama-v2.zip"
   ],
   "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"/Users/deanguedo/Downloads/Streetcar_Named_Desire_playback-safe.mp4\" --slug ela30-1-modern-drama --force",
   "injectedComponents": [
@@ -79,9 +79,19 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\ela30-1-modern-drama\\raw\\original.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\resources\\ela30-1-modern-drama"
+    "projects/ela30-1-modern-drama/raw/original.html",
+    "projects/resources/ela30-1-modern-drama"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material.",
-  "workspaceApprovedAt": "2026-06-18T21:13:05.825Z"
+  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"/Users/deanguedo/Downloads/Streetcar_Named_Desire_playback-safe.mp4\" --slug ela30-1-modern-drama --force Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "workspaceApprovedAt": "2026-06-18T21:13:05.825Z",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "builder-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

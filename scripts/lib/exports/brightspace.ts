@@ -2,7 +2,8 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 import { fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
-import { getProjectPaths } from "../paths.js";
+import { getProjectPaths, repoRoot } from "../paths.js";
+import { recordCourseExportEvidence } from "../course-editing/export-freshness.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 
 import {
@@ -57,6 +58,7 @@ ${externalDependencies.length > 0 ? "- This export still depends on external CDN
 
   await writeTextFile(path.join(paths.brightspaceExportDir, "export-report.md"), report);
   await markProjectWorkspaceApproved(projectSlug);
+  await recordCourseExportEvidence({ repoRoot, projectSlug, target: "brightspace", artifactPath: paths.brightspaceExportDir });
 
   return {
     projectSlug,
@@ -74,6 +76,7 @@ export async function exportProjectToBrightspacePackage(
   const zipPath = path.join(paths.exportsDir, `${projectSlug}-brightspace.zip`);
 
   await createZipFromDirectory(paths.brightspaceExportDir, zipPath);
+  await recordCourseExportEvidence({ repoRoot, projectSlug, target: "brightspace-package", artifactPath: zipPath });
 
   return {
     ...brightspaceExport,

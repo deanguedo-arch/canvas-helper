@@ -8314,3 +8314,111 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: compact mode retained source ownership, rebuild, validation, screenshot paths, and untrusted-content boundaries; no learner-course artifact changed.
 - Implementation commit: `fed14efb`.
 - Next command at archival time: `sed -n '1,420p' app/studio/src/lib/review-set-storage.ts`.
+
+## Archived Active Handoff — 2026-08-12: closed visual review loop
+
+- Project: `repo-wide`.
+- Task: Close Canvas Studio's visual-review-to-Codex loop with compact handoffs and persistent Verify Changes.
+- Status: complete and release-verified on checkpoint `74b0c3ee`; superseded by Studio Direct Editing V1.
+- Verification: `npm run test:studio-release` passed 93 focused contracts, production build, 55 inspection E2E tests, platform smoke, and the strict neutral-project contract; focused post-hardening checks and independent reviewers also passed.
+- Source of truth: `app/studio/src/lib/review-set.ts`, `app/studio/src/lib/review-set-storage.ts`, `app/studio/src/App.tsx`, `app/shared/preview-bridge.ts`, and `app/server/preview-bridge-runtime.ts`.
+- Preserved boundary: no learner-course source, workspace, raw file, or export changed; unrelated local intake, resource, duplicate-source, and test-result folders remained unstaged.
+- Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-12: Direct Editing V1 red-team audit
+
+- Project: `repo-wide`.
+- Task: Audit Direct Editing for concurrency, recovery, generated ownership, rendered learner results, and real-course rollout readiness.
+- Status: audit complete; superseded by the rollout-hardening implementation.
+- Verification at archival time: 12/12 course-editing tests, 109/109 focused Studio tests, Studio build, Mental Health doctor/verify/browser reload, and the prior release gate passed; repository typecheck retained unrelated legacy-builder diagnostics.
+- Source of truth: `app/server/lib/course-editing.ts`, `app/shared/course-editing.ts`, `scripts/lib/course-editing/`, `app/studio/src/hooks/useCourseEditing.ts`, and `app/studio/src/lib/course-edit-storage.ts`.
+- Key unresolved state at archival time: drift-unsafe Undo, process-local locking, inferred course eligibility, no learner-render postcondition, incomplete English/Social pilots, and teacher/editor/export gaps.
+- Preserved boundary: the audit changed no course content and retained the teacher's latest Mental Health heading state.
+- Next command at archival time: `npm run test:course-editing`.
+
+## Archived Active Handoff — 2026-08-12: Direct Editing rollout hardening
+
+- Project: `repo-wide`.
+- Task: Close all 23 Studio Direct Editing audit findings and prove the hardened boundary on real Direct, English, and Social courses.
+- Status: complete on `codex/studio-direct-editing-v1`; superseded by the Edit-mode visual-boundary handoff.
+- Verification: 26/26 course-editing tests, three reversible real-course pilots, 123 focused Studio contracts, production build, 56/56 inspection E2E tests, platform smoke, strict project contract, export suites, authoring/metadata/build checks, and diff checks passed; repository typecheck retained only established unrelated baseline errors.
+- Source of truth: `app/shared/course-editing.ts`, `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `app/server/lib/course-edit-render-validation.ts`, `scripts/lib/course-editing/`, and `docs/audits/2026-08-12-studio-direct-editing-rollout-hardening.md`.
+- Preserved boundary: only `mental-health-wellness`, `ela20-1-short-stories-pilot`, and `social30-1-related-issue-1-option-2` were real-course onboarded; `e2e-fixture` remained test-only and all inferred legacy courses remained annotation-only.
+- Recovery note: conflict copies discovered during rollback testing were moved, not deleted, to `/tmp/canvas-helper-studio-edit-conflicts.JRfcN3/2026-08-12/`; user-owned duplicate folders remained untouched.
+- Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-12: Edit-mode visual boundary
+
+- Project: `repo-wide`.
+- Task: Make Studio Edit mode show the real editable boundary before selection and route unsupported selections directly to Annotate.
+- Status: complete; superseded by the Codex-to-Studio new-course contract.
+- Verification: 124/124 focused Studio contracts, production build, 57/57 inspection E2E scenarios, platform smoke, and the strict project contract passed under the source-locked release gate; TypeScript retained only established unrelated legacy-builder diagnostics.
+- Source of truth: `app/shared/course-editing.ts`, `app/server/lib/course-editing.ts`, `app/server/lib/preview-inspection.ts`, `app/server/preview-bridge-runtime.ts`, and `app/studio/src/hooks/usePreviewScrollSync.ts`.
+- Preserved boundary: the visual map remained informational and server writes remained authoritative; real-course eligibility stayed limited to the approved Direct, English, and Social pilots.
+- Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-13: Codex-to-Studio new-course contract
+
+- Project: `repo-wide`.
+- Task: Make every net-new course authored from scratch in Codex start with an explicit Studio-ready source contract and appear in an already-open Studio.
+- Status: complete; superseded by the all-course catalog onboarding handoff.
+- Verification: 3/3 Codex-course contracts, 128 focused Studio contracts, production build, 58/58 inspection E2E scenarios, platform smoke, and strict project contract passed under the source-locked release gate at that handoff.
+- Source of truth: `scripts/lib/codex-course.ts`, `scripts/create-codex-course.ts`, `docs/workflows/codex-studio-course.md`, and `app/shared/project-discovery.ts`.
+- Preserved boundary: `course:create` refuses overwrite, creates Direct canonical HTML/CSS plus a raw baseline, and signals a running Studio; imported and factory courses retained their owning workflows.
+- Next command at archival time: `npm run studio:codex`.
+
+## Archived Active Handoff — 2026-08-13: all-course catalog onboarding
+
+- Project: `repo-wide`.
+- Task: Bring every source-backed course into an explicit Studio authoring contract without running unsafe legacy replacement builders.
+- Status: implementation complete on `codex/studio-direct-editing-v1`; superseded by the independent Direct Editing remediation handoff.
+- Verification at archival time: 63 enabled projects passed the catalog lifecycle, onboarding was retain-only, 65 manifests were valid, focused Studio contracts and the release gate passed, and temporary edits were restored. The archived handoff's 84-directory/19-archive count came from the locally dirty checkout; clean Git evidence later corrected this to 66 tracked directories and one tracked package archive without changing the 63 enabled projects.
+- Source of truth: `scripts/lib/course-onboarding.ts`, `scripts/lib/course-authoring/context.ts`, `projects/<slug>/meta/project.json`, and `docs/audits/2026-08-13-course-catalog-onboarding.md`.
+- Preserved boundary: snapshot courses kept their current workspace as the protected baseline, package output was not promoted to source, and user-owned local duplicate/archive material remained unstaged.
+- Implementation commit: `1b221ee9ad9594a7166572494448e1db32f6e0e1`.
+- Next command at archival time: `npm run test:studio-release`.
+
+## Archived Active Handoff — 2026-08-13: independent Direct Editing remediation
+
+- Project: `repo-wide`.
+- Task: Close every actionable finding from the independent Canvas Studio Direct Editing audit and prepare an exact, GitHub-verifiable re-audit packet.
+- Status: complete on `codex/studio-direct-editing-v1` at reviewed head `e71241433e173c7617dbf5ea5e5ddcc5bf712c11`; superseded by the measured real-time editability and controlled-rollout plan.
+- Independent result: **GREEN / GO**. The earlier NO-GO is superseded; the auditor found no remaining release-blocking P0 and approved PR #1 for merge followed by controlled real-world rollout.
+- Verification: exact-head run `31753504317` and PR-merge run `31753507312` passed 149 focused contracts, 58 inspection E2E scenarios, smoke, strict project contract, 4/4 real adapter pilots, 63/63 catalog acceptance, and artifact upload; the exact-head report recorded no source drift.
+- Source of truth: `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `app/server/lib/course-edit-render-validation.ts`, `app/server/lib/preview-inspection.ts`, `scripts/lib/course-editing/export-freshness.ts`, and `docs/audits/2026-08-13-chatgpt-studio-course-editing-audit-brief.md`.
+- Preserved boundary: the lock remains cooperative for non-Studio writers, local render/accessibility checks remain bounded, Brightspace and cross-browser package checks remain external, and unsupported runtime-owned content remains Annotation only.
+- Catalog truth: 66 tracked project directories, 65 manifests, and 63 enabled source-backed projects; 50 reversible edit outcomes, 12 no-source-owned-text-target outcomes, and one no-learner-stable-text-target outcome.
+- User-owned duplicate, archive, resource, test-result, and transaction paths remained untouched and unstaged.
+- Next command at archival time: `sed -n '1,280p' docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`.
+
+## Archived Active Handoff — 2026-08-14: real-time Phase 0.5 specification
+
+- Project: `repo-wide`.
+- Task: Resolve the first real-time plan audit with authoritative learner-surface, candidate, read-only census, preview-authority, image, ordering, reset, and rollout contracts.
+- Status: specification complete at the handoff; superseded by the live-preview and measured-editability implementation.
+- Verification at archival time: documentation links and diff checks, Studio build, manifest validation, and inherited Direct Editing gates passed; the repository typecheck retained ten unrelated builder/factory diagnostics.
+- Source of truth: `docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`, `docs/plans/2026-08-13-studio-real-time-editability-and-rollout.md`, and `docs/audits/2026-08-13-chatgpt-pro-real-time-editability-audit-plan.md`.
+- Preserved boundary: the handoff made no implementation or course-content claim; user-owned duplicate/resource/transaction/test paths remained unstaged.
+- Next command at archival time: `git diff a5645d2ef8e40487b6afa7c9d4a95fadd8dc233a...HEAD -- docs/plans/2026-08-14-studio-real-time-editability-phase-0-5-contracts.md`.
+
+## Archived Active Handoff — 2026-08-15: measured real-time editability implementation
+
+- Project: `repo-wide`.
+- Task: Implement the Phase 0.5 rendered census, inert real-time preview, memory-only images, explicit catalog inventories, new-course fixture, and independent audit evidence.
+- Status: complete at `350d2ad4f164520123a37210fd8185cac20c4b77`; superseded by automatic new-course Studio readiness enforcement.
+- Verification: exact-head push run `31863569567` and PR run `31863574034` passed the release gate and exhaustive census jobs; 63/63 catalog lifecycles passed, 57/65 inventories were complete, and the aggregate percentage remained correctly null while inventories were incomplete.
+- Source of truth: `app/shared/course-editability.ts`, `scripts/lib/course-editability/`, `app/server/lib/course-edit-preview.ts`, `app/server/lib/course-edit-preview-assets.ts`, `app/server/preview-bridge-runtime.ts`, and `docs/audits/2026-08-14-chatgpt-pro-real-time-editability-implementation-audit.md`.
+- Preserved boundary: coverage remained evidence rather than Edit authority; user-owned duplicate/resource/transaction/handoff/test paths stayed unstaged; teacher rollout, Brightspace, deployed-host, cross-browser SCORM, and full-WCAG acceptance remained external.
+- Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-15: automatic new-course Studio readiness
+
+- Project: `repo-wide`.
+- Task: Make Studio editability an automatic enforced acceptance requirement for every newly created or newly activated active course.
+- Status: implementation and local validation complete; superseded by the Direct Editing V1 remediation and release-evidence handoff.
+- What changed: governed new Direct, English, and Social courses must declare `studio-routine-content-v1` and pass manifest ownership, doctor, complete learner inventory, rendered coverage floors, residue proof, and a real HTTP Apply/reload/Undo lifecycle. Creation routes through the Studio-aware scaffold; generic imports start blocked.
+- Verification: `test:new-course-readiness` (7/7), `test:course-editability` (17/17), `test:course-onboarding` (3/3), `test:metadata-policy` (29/29), focused import/recovery tests (5/5), `test:studio-inspection` (158/158), manifest validation (65), Studio production build, and diff checks passed. Raw typecheck retained its established ten unrelated diagnostics.
+- Source of truth: `scripts/lib/new-course-readiness.ts`, `scripts/verify-new-course-readiness.ts`, `app/shared/course-editability.ts`, `.github/workflows/new-course-readiness.yml`, and `docs/audits/2026-08-15-new-course-studio-editability-enforcement-audit.md`.
+- Preserved boundary: no learner course content changed; user-owned duplicate, resource, transaction, handoff, report, test-result, and `ready-mind` worktree changes remained untouched and unstaged.
+- Fragile areas: the filesystem lock is cooperative for external writers; coverage proves ordinary authored-content breadth rather than arbitrary DOM mutation; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain external acceptance.
+- Next command at archival time: `gh pr checks 1 --watch`.

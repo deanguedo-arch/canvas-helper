@@ -1,30 +1,31 @@
 {
   "id": "ela20-1-short-stories-pilot",
   "slug": "ela20-1-short-stories-pilot",
+  "title": "Short Stories",
   "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202671307.zip",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202671307.zip",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202671307.zip",
   "createdAt": "2026-07-13T15:59:37.377Z",
-  "updatedAt": "2026-07-28T15:02:15.523Z",
+  "updatedAt": "2026-08-13T13:08:16.727Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/workspace/index.html",
+  "canonicalEntry": "projects/ela20-1-short-stories-pilot/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/meta/english-unit.json",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/meta/prompt-pack.md",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/render.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/literary-terms.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+    "projects/ela20-1-short-stories-pilot/workspace/index.html",
+    "projects/ela20-1-short-stories-pilot/meta/english-unit.json",
+    "projects/ela20-1-short-stories-pilot/meta/prompt-pack.md",
+    "scripts/build-english-unit.ts",
+    "scripts/lib/english-unit/render.ts",
+    "scripts/lib/english-unit/literary-terms.ts",
+    "scripts/lib/next-step-course-shell.ts"
   ],
   "generatedOutputs": [],
   "regenerateCommand": "npm run build:english-unit -- --project ela20-1-short-stories-pilot",
@@ -47,12 +48,22 @@
     }
   ],
   "authoringStatus": "active",
+  "authoring": {
+    "driverId": "english-factory-v1",
+    "familyId": "english-course-factory",
+    "qualityProfile": "english-unit",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
+    }
+  },
   "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202671307.zip",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela20-1-short-stories-pilot/raw/drive-download-20260713T151534Z-2-001.zip",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/workspace/index.html"
+    "projects/ela20-1-short-stories-pilot/raw/D2LExport_6668_CBE System ELA 20-1 (Winter 2020)_202671307.zip",
+    "projects/ela20-1-short-stories-pilot/raw/drive-download-20260713T151534Z-2-001.zip",
+    "projects/ela30-1-short-stories/workspace/index.html"
   ],
-  "sourceOfTruthNotes": "The editable workspace is generated from meta/english-unit.json, the immutable imported source ZIPs, and scripts/build-english-unit.ts. The teacher/SPO archive controls organization and assigned texts; Brightspace supplies lessons. The finished ELA 30-1 Short Stories workspace is the visual and interaction reference; ELA 20-1 content remains course-specific. Edit the recipe or reusable renderer for durable decisions; do not patch exports.",
+  "sourceOfTruthNotes": "The editable workspace is generated from meta/english-unit.json, the immutable imported source ZIPs, and scripts/build-english-unit.ts. The teacher/SPO archive controls organization and assigned texts; Brightspace supplies lessons. The finished ELA 30-1 Short Stories workspace is the visual and interaction reference; ELA 20-1 content remains course-specific. Edit the recipe or reusable renderer for durable decisions; do not patch exports. Studio onboarding: Materialized English source archives and staged factory are available.",
   "injectedComponents": [],
   "learningSource": "other",
   "learningTrust": "auto",

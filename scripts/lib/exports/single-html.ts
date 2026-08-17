@@ -1,7 +1,8 @@
 import path from "node:path";
 
 import { fileExists, ensureDir } from "../fs.js";
-import { getProjectPaths } from "../paths.js";
+import { getProjectPaths, repoRoot } from "../paths.js";
+import { recordCourseExportEvidence } from "../course-editing/export-freshness.js";
 import { markProjectWorkspaceApproved } from "../projects.js";
 
 import {
@@ -30,6 +31,7 @@ export async function exportProjectToSingleHtml(
   await ensureDir(singleHtmlExportDir);
   await writeSingleHtmlOutputBundle(outputPath, bundle);
   await markProjectWorkspaceApproved(projectSlug);
+  await recordCourseExportEvidence({ repoRoot, projectSlug, target: "html", artifactPath: outputPath });
 
   return {
     projectSlug,

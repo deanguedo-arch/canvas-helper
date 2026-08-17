@@ -21,9 +21,15 @@ type FixtureOptions = {
   sourceOfTruthNotes?: string;
   authoringStatus?: string;
   authoring?: {
-    driverId: "direct-workspace-v1" | "english-factory-v1" | "social-related-issues-v1" | "proposal-only-v1";
+    driverId:
+      | "direct-workspace-v1"
+      | "english-factory-v1"
+      | "social-related-issues-v1"
+      | "legacy-snapshot-v1"
+      | "proposal-only-v1";
     familyId?: string;
     sourceResourceIds?: string[];
+    studioEditing?: { enabled: boolean; renameCourse?: boolean; imageAssets?: boolean };
   };
 };
 
@@ -177,6 +183,52 @@ test("normalizes only a legacy Windows path anchored to this checkout", async ()
   }
 });
 
+test("a declared Direct project may keep shared canonical code outside workspace without making it editable", async () => {
+  const fixture = await createFixture({
+    authoring: {
+      driverId: "direct-workspace-v1",
+      studioEditing: { enabled: true }
+    }
+  });
+  try {
+    const sharedPath = path.join(fixture.repoRoot, "scripts", "shared-renderer.ts");
+    await mkdir(path.dirname(sharedPath), { recursive: true });
+    await writeFile(sharedPath, "export {};", "utf8");
+    const manifestPath = path.join(fixture.metaDir, "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as Record<string, unknown>;
+    manifest.canonicalSources = [fixture.indexPath, sharedPath];
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+
+    const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
+    assert.equal(report.status, "pass");
+    assert.equal(report.project?.authoringMode, "direct");
+    assert.deepEqual(report.project?.editableSources.map((entry) => entry.repoRelative), ["projects/course/workspace/index.html"]);
+    assert.deepEqual(report.project?.sharedSources.map((entry) => entry.repoRelative), ["scripts/shared-renderer.ts"]);
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("a declared legacy snapshot stores edits as overrides and protects the materialized workspace", async () => {
+  const fixture = await createFixture({
+    authoring: {
+      driverId: "legacy-snapshot-v1",
+      familyId: "legacy-snapshot",
+      studioEditing: { enabled: true, imageAssets: true }
+    }
+  });
+  try {
+    const report = await inspectCourseAuthoringProject(fixture.slug, fixture.repoRoot);
+    assert.equal(report.status, "pass");
+    assert.equal(report.project?.driverId, "legacy-snapshot-v1");
+    assert.equal(report.project?.authoringMode, "factory");
+    assert.equal(report.project?.editableSources[0]?.repoRelative, "projects/course/meta/studio-edits.json");
+    assert.ok(report.project?.protectedPaths.some((entry) => entry.repoRelative === "projects/course/workspace"));
+  } finally {
+    await rm(fixture.repoRoot, { recursive: true, force: true });
+  }
+});
+
 test("fails closed for unresolved absolute paths, traversal, protected zones, and symlink escapes", async (t) => {
   await t.test("unresolved Windows path", async () => {
     const fixture = await createFixture({
@@ -322,8 +374,8 @@ test("uses a declared shared Social driver instead of treating generated workspa
     assert.equal(report.status, "pass");
     assert.equal(report.project?.driverId, "social-related-issues-v1");
     assert.equal(report.project?.driverSource, "declared");
-    assert.equal(report.project?.authoringMode, "proposal-only");
-    assert.deepEqual(report.project?.editableSources, []);
+    assert.equal(report.project?.authoringMode, "factory");
+    assert.equal(report.project?.editableSources[0]?.repoRelative, "projects/course/meta/studio-edits.json");
     assert.ok(report.project?.protectedPaths.some((entry) => entry.repoRelative === "projects/course/workspace"));
     assert.ok(report.project?.sharedSources.some((entry) => entry.repoRelative.endsWith("social30-fixture.zip")));
   } finally {
@@ -352,7 +404,7 @@ test("course:list derives readiness from the same doctor inspection", async () =
     assert.deepEqual(readyRows, [
       {
         slug: fixture.slug,
-        readiness: "direct-ready",
+        readiness: "not-onboarded",
         lifecycle: "active",
         driver: "direct-workspace-v1",
         driverSource: "legacy-inferred",

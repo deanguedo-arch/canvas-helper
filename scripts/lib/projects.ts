@@ -1,5 +1,5 @@
 import path from "node:path";
-import { readdir, readFile } from "node:fs/promises";
+import { opendir, readdir, readFile } from "node:fs/promises";
 
 import { fileExists, latestMtimeMs, listFilesRecursive, readJsonFile, writeJsonFile } from "./fs.js";
 import { getProcessedProjectPaths, getProjectPaths, processedRoot, projectsRoot } from "./paths.js";
@@ -9,52 +9,88 @@ import { normalizeProjectManifestPolicy } from "./project-manifest-policy.js";
 
 const RESERVED_PROJECT_DIRS = new Set(["incoming", "processed", "resources"]);
 const HTML_FILE_SCAN_SKIP_DIRS = new Set([".git", "assets", "exports", "node_modules"]);
-const HIDDEN_STUDIO_PROJECT_SLUGS = new Set([
-  "social30-1-related-issue-1",
-  "social30-1-related-issue-2",
-  "social30-1-related-issue-3",
-  "social30-1-related-issue-4"
-]);
+const COPIED_RESOURCE_DIR_PATTERN = /^resources(?:\s+\d+|\s+copy(?:\s+\d+)?)$/i;
+const DEFAULT_HTML_SCAN_MAX_ENTRIES = 20_000;
+const DEFAULT_HTML_SCAN_MAX_ENTRIES_PER_DIRECTORY = 5_000;
+const DEFAULT_HTML_SCAN_MAX_DEPTH = 16;
 
 function normalizeSlash(value: string) {
   return value.replace(/\\/g, "/");
 }
 
 function shouldSkipHtmlFileScanDir(name: string) {
-  return HTML_FILE_SCAN_SKIP_DIRS.has(name) || /^assets(?:\b|[\s._-])/i.test(name) || /^workspace\.(?:previous|stuck)-/.test(name);
+  return HTML_FILE_SCAN_SKIP_DIRS.has(name)
+    || /^assets(?:\b|[\s._-])/i.test(name)
+    || COPIED_RESOURCE_DIR_PATTERN.test(name)
+    || /^workspace\.(?:previous|stuck)-/.test(name);
 }
 
-async function listHtmlFiles(dirPath: string) {
+type StudioHtmlScanOptions = {
+  maxEntries?: number;
+  maxEntriesPerDirectory?: number;
+  maxDepth?: number;
+};
+
+function htmlPathWithin(root: string, filePath: string) {
+  const relativePath = normalizeSlash(path.relative(root, filePath));
+  if (!relativePath || relativePath === ".." || relativePath.startsWith("../") || path.isAbsolute(relativePath)) {
+    return null;
+  }
+  const extension = path.extname(relativePath).toLowerCase();
+  return extension === ".html" || extension === ".htm" ? relativePath : null;
+}
+
+/**
+ * Discover previewable HTML without allowing an accidental archive/resource
+ * copy to make the Studio project picker recursively crawl forever.
+ * Declared entrypoints are seeded first so the canonical page remains visible
+ * even when the bounded fallback reaches its traversal limit.
+ */
+export async function listStudioHtmlFiles(
+  dirPath: string,
+  preferredFilePaths: string[] = [],
+  options: StudioHtmlScanOptions = {}
+) {
   if (!(await fileExists(dirPath))) {
     return [] as string[];
   }
 
-  const files: string[] = [];
-  async function visit(currentDir: string) {
-    const entries = await readdir(currentDir, { withFileTypes: true });
-    await Promise.all(
-      entries.map(async (entry) => {
-        const entryPath = path.join(currentDir, entry.name);
-        if (entry.isDirectory()) {
-          if (shouldSkipHtmlFileScanDir(entry.name)) {
-            return;
-          }
-          await visit(entryPath);
-          return;
-        }
-        files.push(entryPath);
-      })
-    );
+  const files = new Set<string>();
+  for (const preferredFilePath of preferredFilePaths) {
+    const relativePath = htmlPathWithin(dirPath, preferredFilePath);
+    if (relativePath && await fileExists(preferredFilePath)) files.add(relativePath);
   }
 
-  await visit(dirPath);
-  return files
-    .filter((filePath) => {
-      const extension = path.extname(filePath).toLowerCase();
-      return extension === ".html" || extension === ".htm";
-    })
-    .map((filePath) => normalizeSlash(path.relative(dirPath, filePath)))
-    .sort((left, right) => left.localeCompare(right));
+  const maxEntries = options.maxEntries ?? DEFAULT_HTML_SCAN_MAX_ENTRIES;
+  const maxEntriesPerDirectory = options.maxEntriesPerDirectory ?? DEFAULT_HTML_SCAN_MAX_ENTRIES_PER_DIRECTORY;
+  const maxDepth = options.maxDepth ?? DEFAULT_HTML_SCAN_MAX_DEPTH;
+  const pending = [{ directoryPath: dirPath, depth: 0 }];
+  let inspectedEntries = 0;
+
+  while (pending.length > 0 && inspectedEntries < maxEntries) {
+    const current = pending.shift();
+    if (!current) break;
+    const directory = await opendir(current.directoryPath);
+    let directoryEntries = 0;
+    for await (const entry of directory) {
+      directoryEntries += 1;
+      inspectedEntries += 1;
+      if (directoryEntries > maxEntriesPerDirectory || inspectedEntries > maxEntries) break;
+
+      const entryPath = path.join(current.directoryPath, entry.name);
+      if (entry.isDirectory()) {
+        if (current.depth < maxDepth && !shouldSkipHtmlFileScanDir(entry.name)) {
+          pending.push({ directoryPath: entryPath, depth: current.depth + 1 });
+        }
+        continue;
+      }
+      if (!entry.isFile()) continue;
+      const relativePath = htmlPathWithin(dirPath, entryPath);
+      if (relativePath) files.add(relativePath);
+    }
+  }
+
+  return [...files].sort((left, right) => left.localeCompare(right));
 }
 
 function normalizeLearningSource(value: string | undefined) {
@@ -224,7 +260,6 @@ export async function listProjectSlugs() {
 
   return availability
     .filter((entry) => entry.hasManifest)
-    .filter((entry) => !HIDDEN_STUDIO_PROJECT_SLUGS.has(entry.slug))
     .map((entry) => entry.slug)
     .sort((left, right) => left.localeCompare(right));
 }
@@ -308,8 +343,8 @@ export async function readStudioProjectBundle(slug: string): Promise<StudioProje
     readOptionalFile(paths.importLogPath),
     latestExistingMtimeMs([rawEntrypoint], paths.rawDir),
     latestExistingMtimeMs([workspaceEntrypoint, workspaceScript, workspaceStyles], paths.workspaceDir),
-    listHtmlFiles(paths.rawDir),
-    listHtmlFiles(paths.workspaceDir)
+    listStudioHtmlFiles(paths.rawDir, [rawEntrypoint]),
+    listStudioHtmlFiles(paths.workspaceDir, [workspaceEntrypoint])
   ]);
 
   return {

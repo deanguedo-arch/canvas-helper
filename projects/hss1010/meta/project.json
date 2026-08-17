@@ -8,8 +8,8 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-21T17:03:33.121Z",
@@ -18,12 +18,12 @@
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
+  "canonicalEntry": "projects/hss1010/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\hss1010\\workspace\\hss-study.css"
+    "projects/hss1010/workspace/index.html",
+    "projects/hss1010/workspace/main.js",
+    "projects/hss1010/workspace/styles.css",
+    "projects/hss1010/workspace/hss-study.css"
   ],
   "generatedOutputs": [],
   "injectedComponents": [],
@@ -41,8 +41,28 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace canonicalSources only. Keep raw and exports as derived/reference artifacts.",
+  "sourceOfTruthNotes": "Edit workspace canonicalSources only. Keep raw and exports as derived/reference artifacts. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "createdAt": "2026-03-12T19:28:57.168Z",
-  "updatedAt": "2026-06-23T14:53:08.718Z",
-  "workspaceApprovedAt": "2026-04-21T17:03:33.121Z"
+  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "workspaceApprovedAt": "2026-04-21T17:03:33.121Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

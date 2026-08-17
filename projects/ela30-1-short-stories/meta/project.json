@@ -7,22 +7,21 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
   "createdAt": "2026-06-21T14:13:24.514Z",
-  "updatedAt": "2026-07-28T15:02:16.916Z",
+  "updatedAt": "2026-08-14T17:52:27.429Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion",
     "injection/integration"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/workspace/index.html",
+  "canonicalEntry": "projects/ela30-1-short-stories/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/workspace/index.html"
+    "projects/ela30-1-short-stories/workspace/index.html"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npx tsx scripts/build-ela-short-stories.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip\" --slug ela30-1-short-stories --force",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
@@ -43,9 +42,9 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip"
+    "projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical Short Stories course shell. Regenerate SCORM after workspace edits. Evidence Bank retrofit 1.0.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature. English writing-sequence retrofit 1.0.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.1 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.2 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.3 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.2.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.3.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. Evidence Bank retrofit 1.1.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature.",
+  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical Short Stories course shell. Regenerate SCORM after workspace edits. Evidence Bank retrofit 1.0.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature. English writing-sequence retrofit 1.0.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.1 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.2 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.3 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.2.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.3.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. Evidence Bank retrofit 1.1.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-ela-short-stories.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip\" --slug ela30-1-short-stories --force Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "injectedComponents": [
     {
       "id": "ela30-evidence-bank-v2",
@@ -70,5 +69,171 @@
       "canvas-helper:ela30-1-short-stories:manual-evidence-notes"
     ]
   },
-  "workspaceApprovedAt": "2026-07-28T15:02:16.916Z"
+  "workspaceApprovedAt": "2026-07-28T15:02:16.916Z",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "builder-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#short-stories-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-characters-and-characterization",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-introduction-to-elements-of-fiction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-11-suggestions-for-reading-short-stories",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-12-literary-terms",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13-writing-a-personal-response-to-text-s",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#story-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#story-questions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#writing",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#film-room",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-topic-interpretation",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-one",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-two",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-three",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-conclusion-revision",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-prompt-impression",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-text-evidence",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-knowledge-experience",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-form-perspective",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-response-plan",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-draft-revise",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

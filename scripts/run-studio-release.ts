@@ -20,7 +20,11 @@ function requestedPort() {
 }
 
 async function commandOutput(command: string, args: string[]) {
-  const { stdout } = await execFileAsync(command, args, { cwd: repoRoot, encoding: "utf8" });
+  const { stdout } = await execFileAsync(command, args, {
+    cwd: repoRoot,
+    encoding: "utf8",
+    timeout: 30_000
+  });
   return stdout.trim();
 }
 
@@ -38,7 +42,10 @@ async function main() {
   try {
     const branch = await commandOutput("git", ["branch", "--show-current"]);
     const commit = await commandOutput("git", ["rev-parse", "HEAD"]);
-    const workingTreeStatus = await commandOutput("git", ["status", "--short", "--untracked-files=all"]);
+    // Directory-level untracked reporting is enough to establish a dirty tree.
+    // The release fingerprint below still walks every in-scope source byte, while
+    // avoiding an unbounded crawl through unrelated course intake/resource trees.
+    const workingTreeStatus = await commandOutput("git", ["status", "--short", "--untracked-files=normal"]);
     const sourceStateBefore = await fingerprintStudioReleaseSource();
     const result = await runStudioReleaseSteps(createStudioReleaseSteps(port), undefined, {
       beforeStep: async (step) => {

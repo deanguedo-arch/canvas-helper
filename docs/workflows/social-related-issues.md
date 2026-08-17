@@ -52,10 +52,12 @@ It never writes:
 
 For another related issue that uses the same validated export:
 
-1. Add or update that project's explicit Social `authoring` contract, including `sourceResourceIds`.
+1. Add or update that project's explicit Social `authoring` contract, including `sourceResourceIds` and the versioned `studio-routine-content-v1` editability profile.
 2. Use the same named resource only if its unit mapping is actually appropriate.
 3. Rebuild one exact issue with `--only`.
 4. Review generated content before treating it as release-ready.
+
+The profile is an acceptance obligation, not permission to patch generated output. Studio resolves edits through the Social factory adapter, rebuilds transactionally, verifies the rendered result, and retains exact Undo. A new Social course cannot be accepted as `active` or `ready-for-export` until the exact-head new-course gate proves complete learner inventory, the routine-content coverage floors, and a real Apply → rebuild/reload → Undo lifecycle.
 
 For a new source export, first add it to the Social resource manifest with its checksum and provenance. Do not create a duplicate source ZIP in every issue folder.
 
@@ -66,6 +68,7 @@ Run the focused checks:
 ```bash
 npm run test:social-build
 npm run course:doctor -- --project <issue-slug>
+npm run verify:new-course-readiness -- --base <comparison-sha>
 npm run test:e2e:project -- --project <issue-slug>
 git diff --check
 ```

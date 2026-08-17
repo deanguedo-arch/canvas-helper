@@ -13,25 +13,29 @@ export type StudioRelease = {
 
 export const CURRENT_STUDIO_RELEASE: StudioRelease = {
   version: "2026.08",
-  date: "August 11, 2026",
-  title: "Precision review workflow",
-  summary: "A faster, steadier way to inspect any course, collect visual feedback, and hand one verified review to Codex.",
+  date: "August 14, 2026",
+  title: "Live, safe course editing",
+  summary: "Eligible courses now preview routine changes immediately, save canonical drafts, and apply or undo them through the protected Studio workflow.",
   notes: [
     {
-      title: "Annotate in place",
-      summary: "Select course content with a pointer or keyboard, add a plain-language note, and keep up to three marked screenshots with it."
+      title: "Preview before you write",
+      summary: "Supported changes appear in a non-mutating overlay while you type; Save stores a canonical draft and Apply remains the first course-file write."
     },
     {
-      title: "Keep the review together",
-      summary: "Review Sets now stay with each course, survive Studio and Full Preview changes, and can be named, reorganized, exported, or restored."
+      title: "See and edit in place",
+      summary: "Mapped areas show the available action; use text, links, safe images, curated styles, or course rename, while unsupported content routes to Annotate."
     },
     {
-      title: "Recover instead of guessing",
-      summary: "Blank, delayed, or unsupported pages show a useful recovery path instead of appearing to work."
+      title: "Review before applying",
+      summary: "Drafts persist without silent expiry, reopen across Studio and Full Preview, show visual comparisons, and support local backup."
     },
     {
-      title: "Move with confidence",
-      summary: "Keyboard focus, narrow windows, large pages, and screenshot work now share explicit accessibility and performance checks."
+      title: "Apply safely and undo",
+      summary: "Studio atomically locks and journals each batch, preserves unknown crash-recovery changes, validates the settled learner result, and refuses Undo after newer work."
+    },
+    {
+      title: "Bring the source-backed catalog forward",
+      summary: "Active source-backed, new, and imported courses use explicit ownership; runtime content routes to Annotate, packages stay protected, and target inputs plus artifact bytes track exports."
     }
   ]
 };

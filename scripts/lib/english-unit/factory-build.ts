@@ -6,6 +6,11 @@ import path from "node:path";
 import JSZip from "jszip";
 
 import {
+  STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+  STUDIO_ROUTINE_CONTENT_PROFILE_ID
+} from "../../../app/shared/course-editability.js";
+
+import {
   renderEnglishActivityProfile,
   type EnglishActivityProfile,
   type EnglishMaterialHook,
@@ -63,6 +68,8 @@ import { transformWritingFoundationsLessons } from "./writing-foundations-lesson
 import { ensureStandardEnglishWritingProfile } from "./writing-sequence-renderer.js";
 import { runEnglishFactoryOutputTransaction } from "./factory-transaction.js";
 import { stageAndPromoteEnglishWorkspace } from "./workspace-staging.js";
+import { englishFactoryRepoRelativePath } from "./dependencies.js";
+import { applyStoredCourseEdits } from "../course-editing/overrides.js";
 
 const LOGO_RELATIVE_PATH = path.join("docs", "design", "next-step", "assets", "nxt-ce-logo-white-with-ce.png");
 const FORBIDDEN_LEARNER_PATTERNS: Array<{ label: string; pattern: RegExp }> = [
@@ -472,7 +479,7 @@ async function writeMetadata(input: {
       .join(", ");
     await writeFile(
       promptPackPath,
-      `# ${input.recipe.courseCode} ${input.recipe.unitTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: ${input.recipe.activityProfile.kind} (${input.recipe.profileVersion})\n- Exact included Brightspace IDs: ${includedIds}\n- Exact excluded Brightspace IDs: ${excludedIds || "none"}\n- Canonical recipe: projects/${input.recipe.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.recipe.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.recipe.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.recipe.projectSlug}\n\n## Authoring boundary\n\nEdit the recipe for source, placement, profile, or wording decisions. Put bespoke activity code or data under the preserved custom paths. The factory owns index.html and assets/generated; do not patch exports.\n\n## Review blockers\n\n${input.recipe.acceptance.reviewItems.map((item) => `- ${item}`).join("\n")}\n\nFinal SCORM packaging remains blocked until the recipe is ready-for-export and project E2E passes.\n`,
+      `# ${input.recipe.courseCode} ${input.recipe.unitTitle} Prompt Pack\n\n- Mode: DEFAULT\n- Workflow: conversion\n- Activity profile: ${input.recipe.activityProfile.kind} (${input.recipe.profileVersion})\n- Exact included Brightspace IDs: ${includedIds}\n- Exact excluded Brightspace IDs: ${excludedIds || "none"}\n- Canonical recipe: projects/${input.recipe.projectSlug}/meta/english-unit.json\n- Canonical learner source: projects/${input.recipe.projectSlug}/workspace/index.html\n- Preserved custom source: projects/${input.recipe.projectSlug}/workspace/components and workspace/assets/custom\n- Rebuild command: npm run build:english-unit -- --project ${input.recipe.projectSlug}\n- Studio editability profile: studio-routine-content-v1\n\n## Authoring boundary\n\nEdit the recipe for source, placement, profile, or wording decisions. Put bespoke activity code or data under the preserved custom paths. The factory owns index.html and assets/generated; do not patch exports. The automatic new-course gate must pass before a newly created active unit is accepted.\n\n## Review blockers\n\n${input.recipe.acceptance.reviewItems.map((item) => `- ${item}`).join("\n")}\n\nFinal SCORM packaging remains blocked until the recipe is ready-for-export and project E2E passes.\n`,
       "utf8"
     );
   }
@@ -480,18 +487,47 @@ async function writeMetadata(input: {
   const projectPath = path.join(input.metaDir, "project.json");
   let existing: Record<string, unknown> = {};
   try { existing = JSON.parse(await readFile(projectPath, "utf8")); } catch { existing = {}; }
-  const workspaceEntry = path.join(input.projectDir, "workspace", "index.html");
-  const recipePath = path.join(input.metaDir, "english-unit.json");
+  const toRepoRelative = (value: string, label: string) => (
+    englishFactoryRepoRelativePath(input.repoRoot, value, label)
+  );
+  const workspaceEntryPath = path.join(input.projectDir, "workspace", "index.html");
+  const workspaceEntry = toRepoRelative(workspaceEntryPath, "workspace entry");
+  const recipePath = toRepoRelative(path.join(input.metaDir, "english-unit.json"), "recipe");
+  const promptPack = toRepoRelative(promptPackPath, "prompt pack");
   const customSources = input.recipe.customComponents
     .filter((component) => component.enabled)
     .flatMap((component) => [component.source, component.assetRoot].filter((entry): entry is string => Boolean(entry)))
-    .map((entry) => path.join(input.projectDir, entry));
+    .map((entry) => toRepoRelative(path.join(input.projectDir, entry), "custom component source"));
+  const implementationSources = [
+    path.join(input.repoRoot, "scripts", "build-english-unit.ts"),
+    path.join(input.repoRoot, "scripts", "lib", "english-unit", "factory-build.ts"),
+    path.join(input.repoRoot, "scripts", "lib", "english-unit", "activity-profile-renderers.ts"),
+    ...(input.recipe.schemaVersion === 3 ? [
+      path.join(input.repoRoot, "scripts", "lib", "english-unit", "v3-profile-renderer.ts"),
+      path.join(input.repoRoot, "scripts", "lib", "english-unit", "v3-runtime-sanitizer.ts"),
+      path.join(input.repoRoot, "scripts", "lib", "english-unit", "v3-donor-lessons.ts"),
+      path.join(input.repoRoot, "scripts", "lib", "english-unit", "writing-foundations-lessons.ts")
+    ] : []),
+    path.join(input.repoRoot, "scripts", "lib", "next-step-course-shell.ts")
+  ].map((entry) => toRepoRelative(entry, "factory implementation"));
+  const existingReferenceOnly = (((existing.referenceOnly as string[] | undefined) ?? [])
+    .filter((entry) => typeof entry === "string" && entry.trim())
+    .flatMap((entry) => {
+      try {
+        return [toRepoRelative(entry, "existing reference")];
+      } catch {
+        // Older manifests could contain a source path from another checkout.
+        // It cannot be a portable factory dependency, so replace it with the
+        // current recipe-owned input instead of retaining a misleading path.
+        return [];
+      }
+    }));
   const now = input.report.generatedAt;
   const projectJson = {
     ...existing,
     id: input.recipe.projectSlug,
     slug: input.recipe.projectSlug,
-    sourcePath: input.brightspacePath,
+    sourcePath: toRepoRelative(input.brightspacePath, "Brightspace source"),
     inputKind: "brightspace-zip",
     previewModes: ["workspace"],
     workspaceEntrypoint: workspaceEntry,
@@ -504,24 +540,25 @@ async function writeMetadata(input: {
     canonicalSources: [
       workspaceEntry,
       recipePath,
-      promptPackPath,
-      path.join(input.repoRoot, "scripts", "build-english-unit.ts"),
-      path.join(input.repoRoot, "scripts", "lib", "english-unit", "factory-build.ts"),
-      path.join(input.repoRoot, "scripts", "lib", "english-unit", "activity-profile-renderers.ts"),
-      ...(input.recipe.schemaVersion === 3 ? [
-        path.join(input.repoRoot, "scripts", "lib", "english-unit", "v3-profile-renderer.ts"),
-        path.join(input.repoRoot, "scripts", "lib", "english-unit", "v3-runtime-sanitizer.ts"),
-        path.join(input.repoRoot, "scripts", "lib", "english-unit", "v3-donor-lessons.ts"),
-        path.join(input.repoRoot, "scripts", "lib", "english-unit", "writing-foundations-lessons.ts")
-      ] : []),
-      path.join(input.repoRoot, "scripts", "lib", "next-step-course-shell.ts"),
+      promptPack,
+      ...implementationSources,
       ...customSources
     ],
     generatedOutputs: [],
     regenerateCommand: `npm run build:english-unit -- --project ${input.recipe.projectSlug}`,
+    authoring: existing.authoring ?? {
+      driverId: "english-factory-v1",
+      familyId: "english-unit",
+      qualityProfile: "english-unit",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true },
+      editabilityContract: {
+        schemaVersion: STUDIO_EDITABILITY_CONTRACT_SCHEMA_VERSION,
+        profileId: STUDIO_ROUTINE_CONTENT_PROFILE_ID
+      }
+    },
     importedFirstPassOrigin: {
       sourceSystem: "brightspace",
-      sourcePath: input.brightspacePath,
+      sourcePath: toRepoRelative(input.brightspacePath, "Brightspace source"),
       importedAt: (existing.importedFirstPassOrigin as { importedAt?: string } | undefined)?.importedAt ?? now,
       notes: input.recipe.schemaVersion === 3
         ? `${input.recipe.unitTitle} V3 derived factory conversion from ${input.recipe.derivesFromProject} using the ${input.recipe.activityProfile.kind} activity profile.`
@@ -533,10 +570,10 @@ async function writeMetadata(input: {
       { target: "html", enabled: true, notes: "Canonical editable workspace preview." }
     ],
     referenceOnly: Array.from(new Set([
-      ...(((existing.referenceOnly as string[] | undefined) ?? []).filter((entry) => typeof entry === "string" && entry.trim())),
-      input.brightspacePath,
-      input.teacherPath,
-      ...(input.additionalReferenceOnly ?? [])
+      ...existingReferenceOnly,
+      toRepoRelative(input.brightspacePath, "Brightspace source"),
+      toRepoRelative(input.teacherPath, "teacher resource source"),
+      ...(input.additionalReferenceOnly ?? []).map((entry) => toRepoRelative(entry, "additional reference"))
     ])),
     sourceOfTruthNotes: "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
     injectedComponents: input.recipe.customComponents
@@ -546,7 +583,7 @@ async function writeMetadata(input: {
   const e2ePath = path.join(input.metaDir, "e2e-contract.json");
   await writeEnglishLearnerE2EContract({
     projectSlug: input.recipe.projectSlug,
-    html: await readFile(workspaceEntry, "utf8"),
+    html: await readFile(workspaceEntryPath, "utf8"),
     contractPath: e2ePath,
     quizTitle: input.recipe.activityProfile.kind === "film-study" ? "Film Study Questions" : "Questions"
   });
@@ -789,7 +826,8 @@ export async function buildEnglishFactoryProject(input: { repoRoot: string; proj
         renderedProfile = renderEnglishActivityProfile(profile, { videos });
       }
       renderedRoutes = renderedProfile.pages.map((page) => page.id);
-      const html = renderEnglishFactoryUnit({ recipe, lessons: builtLessons, activityProfile: renderedProfile, resources: preparedResources, videos });
+      const renderedHtml = renderEnglishFactoryUnit({ recipe, lessons: builtLessons, activityProfile: renderedProfile, resources: preparedResources, videos });
+      const html = await applyStoredCourseEdits({ repoRoot: input.repoRoot, projectSlug: recipe.projectSlug, html: renderedHtml, workspaceDir: stageDir });
       validateLearnerHtml(html, recipe, renderedRoutes);
       await writeFile(path.join(stageDir, "index.html"), html, "utf8");
     },

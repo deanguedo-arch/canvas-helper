@@ -7,18 +7,18 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/raw/original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/workspace/index.html",
+  "canonicalEntry": "projects/next-step-simple-ops-webapp/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/workspace/styles.css",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/workspace/app.js"
+    "projects/next-step-simple-ops-webapp/workspace/index.html",
+    "projects/next-step-simple-ops-webapp/workspace/styles.css",
+    "projects/next-step-simple-ops-webapp/workspace/app.js"
   ],
   "authoringStatus": "active",
   "exportTargets": [
@@ -31,18 +31,38 @@
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/next-step-simple-ops-webapp/raw/original.html"
+    "projects/next-step-simple-ops-webapp/raw/original.html"
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
     "sourcePath": "/Users/deanguedo/Downloads/next_step_simple_ops_webapp_design_package.zip",
     "importedAt": "2026-06-01T00:00:00.000Z"
   },
-  "sourceOfTruthNotes": "This is a displayed Canvas Helper project for the Next Step Simple Ops web app. Edit workspace/index.html, workspace/styles.css, and workspace/app.js. Spreadsheet data is pulled through the Apps Script JSONP bridge when a deployed Apps Script web app URL is entered in the project Settings view.",
+  "sourceOfTruthNotes": "This is a displayed Canvas Helper project for the Next Step Simple Ops web app. Edit workspace/index.html, workspace/styles.css, and workspace/app.js. Spreadsheet data is pulled through the Apps Script JSONP bridge when a deployed Apps Script web app URL is entered in the project Settings view. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-06-01T00:00:00.000Z",
   "createdAt": "2026-06-01T00:00:00.000Z",
-  "updatedAt": "2026-06-23T14:53:08.737Z",
-  "workspaceApprovedAt": "2026-06-01T00:00:00.000Z"
+  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "workspaceApprovedAt": "2026-06-01T00:00:00.000Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

@@ -7,19 +7,19 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "generated-course",
   "preferredWorkflows": [
     "generated-course"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\workspace\\index.html",
+  "canonicalEntry": "projects/worldreligions30-option2/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\worldreligions30-option2\\workspace\\course-data.js"
+    "projects/worldreligions30-option2/workspace/index.html",
+    "projects/worldreligions30-option2/workspace/main.js",
+    "projects/worldreligions30-option2/workspace/styles.css",
+    "projects/worldreligions30-option2/workspace/course-data.js"
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "other",
@@ -37,9 +37,29 @@
   "generatedOutputs": [],
   "injectedComponents": [],
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit the workspace shell files. Chapter PDFs are local library assets. Quiz content is generated from the booklet DOCX sources into workspace/course-data.js.",
+  "sourceOfTruthNotes": "Edit the workspace shell files. Chapter PDFs are local library assets. Quiz content is generated from the booklet DOCX sources into workspace/course-data.js. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-22T15:18:22.457Z",
-  "updatedAt": "2026-06-23T14:53:09.631Z"
+  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

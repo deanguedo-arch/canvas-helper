@@ -2,7 +2,8 @@ import { readFile } from "node:fs/promises";
 import path from "node:path";
 
 import { fileExists, listFilesRecursive, writeTextFile } from "../fs.js";
-import { getProjectPaths } from "../paths.js";
+import { getProjectPaths, repoRoot } from "../paths.js";
+import { recordCourseExportEvidence } from "../course-editing/export-freshness.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 import {
   buildScormBridgeScript,
@@ -107,6 +108,12 @@ export async function exportProjectToScormPackage(
   const zipPath = path.join(paths.exportsDir, `${projectSlug}-${zipLabel}.zip`);
   await createZipFromDirectory(scormExportDir, zipPath);
   await markProjectWorkspaceApproved(projectSlug);
+  await recordCourseExportEvidence({
+    repoRoot,
+    projectSlug,
+    target: version === "1.2" ? "scorm12" : "scorm2004",
+    artifactPath: zipPath
+  });
 
   return {
     projectSlug,

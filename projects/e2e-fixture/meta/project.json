@@ -8,20 +8,60 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/e2e-fixture/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/e2e-fixture/raw/original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-04-17T20:08:49.339Z",
   "createdAt": "2026-03-16T00:00:00.000Z",
-  "updatedAt": "2026-06-23T14:53:08.554Z",
+  "updatedAt": "2026-08-14T15:12:06.041Z",
   "workspaceApprovedAt": "2026-04-17T20:08:49.339Z",
-  "migrationState": "legacy",
-  "preferredWorkflows": [],
-  "canonicalSources": [],
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/e2e-fixture/workspace/index.html",
+  "canonicalSources": [
+    "projects/e2e-fixture/workspace/index.html",
+    "projects/e2e-fixture/workspace/alternate.html"
+  ],
   "generatedOutputs": [],
   "injectedComponents": [],
-  "exportTargets": [],
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Workspace HTML used by Studio platform tests."
+    }
+  ],
   "authoringStatus": "active",
-  "referenceOnly": []
+  "referenceOnly": [
+    "projects/e2e-fixture/raw/original.html"
+  ],
+  "sourceOfTruthNotes": "The workspace index and alternate page are canonical editable sources for the Studio interaction fixture. Studio onboarding: Explicit canonical workspace ownership retained.",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "studio-e2e-fixture",
+    "qualityProfile": "direct-workspace",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "alternate.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": true,
+      "imageAssets": true
+    }
+  }
 }

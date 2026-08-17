@@ -1,5 +1,28 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+
+# Preserve imported course assets byte-for-byte. Some valid PDF and Office
+# files contain no NUL bytes and can otherwise be misclassified as text.
+*.pdf binary
+*.doc binary
+*.docx binary
+*.ppt binary
+*.pptx binary
+*.pps binary
+*.ppsx binary
+*.rtf binary
+*.mp3 binary
+*.wav binary
+*.m4a binary
+*.mov binary
+*.mp4 binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.webp binary
+*.zip binary
+
 projects/ela30-1-modern-drama/workspace/assets/media/*.mp4 filter=lfs diff=lfs merge=lfs -text
 projects/ela30-1-shakespeare-othello/workspace/assets/film-room/*.mp4 filter=lfs diff=lfs merge=lfs -text
 projects/ela20-1-feature-film/raw/*.zip filter=lfs diff=lfs merge=lfs -text

@@ -176,7 +176,7 @@ function renderSidebar(options: NextStepCourseShellOptions) {
       <button id="sidebar-toggle" class="sidebar-toggle-button" type="button" aria-label="Toggle sidebar">
         <span class="material-symbols-outlined" aria-hidden="true">dock_to_left</span>
       </button>
-      <h1 class="sidebar-title">${escapeHtml(options.courseTitle)}</h1>
+      <h1 class="sidebar-title" data-canvas-helper-course-title>${escapeHtml(options.courseTitle)}</h1>
       <p class="sidebar-course-label">${escapeHtml(options.courseCode)}</p>
     </div>
     <nav class="course-nav" aria-label="Course navigation">
@@ -227,7 +227,7 @@ function renderOverview(options: NextStepCourseShellOptions) {
   const completionLabel = options.completionLabel ?? "lessons";
   return `<section id="overview" class="course-page">
     <p class="course-kicker">Course overview</p>
-    <h2>${escapeHtml(options.courseTitle)}</h2>
+    <h2 data-canvas-helper-course-title>${escapeHtml(options.courseTitle)}</h2>
     <p class="page-intro">${escapeHtml(options.overviewIntro)}</p>
     <section class="unit-outcomes" aria-labelledby="outcomes-title">
       <h3 id="outcomes-title" class="unit-outcomes-lead">I can...</h3>
@@ -1640,7 +1640,7 @@ export function renderNextStepCourseShell(options: NextStepCourseShellOptions): 
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>${escapeHtml(options.courseCode)} | ${escapeHtml(options.courseTitle)}</title>
+  <title data-canvas-helper-course-title>${escapeHtml(options.courseCode)} | ${escapeHtml(options.courseTitle)}</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;700;800&family=IBM+Plex+Sans:wght@500;700&family=Work+Sans:wght@400;500;700&display=swap" rel="stylesheet">

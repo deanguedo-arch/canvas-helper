@@ -7,20 +7,20 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\index.html",
+  "canonicalEntry": "projects/aboriginal-studies-30/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\course-data.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\styles.css",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\aboriginal-studies-30\\workspace\\pdf-viewer.html"
+    "projects/aboriginal-studies-30/workspace/index.html",
+    "projects/aboriginal-studies-30/workspace/course-data.js",
+    "projects/aboriginal-studies-30/workspace/main.js",
+    "projects/aboriginal-studies-30/workspace/styles.css",
+    "projects/aboriginal-studies-30/workspace/pdf-viewer.html"
   ],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
@@ -42,10 +42,9 @@
   ],
   "authoringStatus": "active",
   "generatedOutputs": [],
-  "regenerateCommand": "python projects/aboriginal-studies-30/meta/build_sports_style_course.py",
   "injectedComponents": [],
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP and Course Materials folder when the source mapping changes.",
+  "sourceOfTruthNotes": "Edit workspace files for course shell changes. Regenerate from the source Brightspace ZIP and Course Materials folder when the source mapping changes. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: python projects/aboriginal-studies-30/meta/build_sports_style_course.py Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "googleHosted": {
     "trackedStorageKeys": [
       "aboriginal-studies-30.progress",
@@ -57,6 +56,16 @@
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-26T12:20:25",
-  "updatedAt": "2026-06-23T14:53:08.521Z",
-  "workspaceApprovedAt": "2026-05-26T12:20:25"
+  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "workspaceApprovedAt": "2026-05-26T12:20:25",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "builder-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

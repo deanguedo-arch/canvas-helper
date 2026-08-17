@@ -7,9 +7,45 @@ import type {
   ScreenshotDraft
 } from "../lib/review-workbench";
 import { InspectionPanel } from "./InspectionPanel";
+import { CourseEditPanel } from "./CourseEditPanel";
+import type {
+  CourseEditDraft,
+  CourseEditPatch,
+  CourseEditPendingAssetReference,
+  CourseEditPendingImage,
+  CourseEditTarget
+} from "../../../shared/course-editing.js";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
+  editEnabled: boolean;
+  editTarget: CourseEditTarget | null;
+  editResolving: boolean;
+  editDrafts: CourseEditDraft[];
+  editBusy: boolean;
+  editFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error" };
+  editCanUndo: boolean;
+  editUndoUnavailableReason: string;
+  editCanRenameCourse: boolean;
+  editCourseTitle: string;
+  editExportsOutOfDate: boolean;
+  editStaleExportTargets: string[];
+  editPreviewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
+  editHasLivePreview: boolean;
+  onPreviewEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
+  onClearEditPreview: () => void;
+  onSaveEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
+  onUpdateEditDraft: (draft: CourseEditDraft) => void;
+  onReopenEditDraft: (draft: CourseEditDraft) => void;
+  onRemoveEditDraft: (id: string) => void;
+  onReorderEditDraft: (id: string, direction: -1 | 1) => void;
+  onApplyEditDrafts: () => void;
+  onUndoEditBatch: () => void;
+  onExportEditDrafts: () => string;
+  onImportEditDrafts: (source: string) => boolean;
+  onUploadEditImage: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
+  onRenameCourse: (title: string) => Promise<boolean>;
+  onAnnotateEditTarget: () => void;
   inspectEnabled: boolean;
   inspectionResolution: InspectionResolution | null;
   inspectionResolving: boolean;
@@ -83,6 +119,34 @@ type InspectorPanelProps = {
 };
 
 export function InspectorPanel({
+  editEnabled,
+  editTarget,
+  editResolving,
+  editDrafts,
+  editBusy,
+  editFeedback,
+  editCanUndo,
+  editUndoUnavailableReason,
+  editCanRenameCourse,
+  editCourseTitle,
+  editExportsOutOfDate,
+  editStaleExportTargets,
+  editPreviewFeedback,
+  editHasLivePreview,
+  onPreviewEditTarget,
+  onClearEditPreview,
+  onSaveEditTarget,
+  onUpdateEditDraft,
+  onReopenEditDraft,
+  onRemoveEditDraft,
+  onReorderEditDraft,
+  onApplyEditDrafts,
+  onUndoEditBatch,
+  onExportEditDrafts,
+  onImportEditDrafts,
+  onUploadEditImage,
+  onRenameCourse,
+  onAnnotateEditTarget,
   inspectEnabled,
   inspectionResolution,
   inspectionResolving,
@@ -158,6 +222,38 @@ export function InspectorPanel({
 
   return (
     <aside className="inspector" aria-label="Annotations">
+      {editEnabled || editDrafts.length > 0 || editCanUndo || editExportsOutOfDate ? (
+        <CourseEditPanel
+          enabled={editEnabled}
+          target={editTarget}
+          resolving={editResolving}
+          drafts={editDrafts}
+          busy={editBusy}
+          feedback={editFeedback}
+          canUndo={editCanUndo}
+          undoUnavailableReason={editUndoUnavailableReason}
+          canRenameCourse={editCanRenameCourse}
+          courseTitle={editCourseTitle}
+          exportsOutOfDate={editExportsOutOfDate}
+          staleExportTargets={editStaleExportTargets}
+          previewFeedback={editPreviewFeedback}
+          hasLivePreview={editHasLivePreview}
+          onPreviewTarget={onPreviewEditTarget}
+          onClearLivePreview={onClearEditPreview}
+          onSaveTarget={onSaveEditTarget}
+          onUpdateDraft={onUpdateEditDraft}
+          onReopenDraft={onReopenEditDraft}
+          onRemoveDraft={onRemoveEditDraft}
+          onReorderDraft={onReorderEditDraft}
+          onApply={onApplyEditDrafts}
+          onUndo={onUndoEditBatch}
+          onExportDrafts={onExportEditDrafts}
+          onImportDrafts={onImportEditDrafts}
+          onUploadImage={onUploadEditImage}
+          onRenameCourse={onRenameCourse}
+          onAnnotateTarget={onAnnotateEditTarget}
+        />
+      ) : null}
       {showComposer ? (
         <InspectionPanel
           inspectEnabled={inspectEnabled}

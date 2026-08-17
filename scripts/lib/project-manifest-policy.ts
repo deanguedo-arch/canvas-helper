@@ -6,6 +6,10 @@ import type {
   ProjectType,
   WorkflowType
 } from "./types.js";
+import {
+  isProjectLearnerSurfacesV1,
+  isProjectStudioEditabilityContractV1
+} from "../../app/shared/course-editability.js";
 
 const PROJECT_TYPES = new Set<ProjectType>(["conversion", "generated-course", "hybrid"]);
 const WORKFLOW_TYPES = new Set<WorkflowType>(["conversion", "generated-course", "injection/integration"]);
@@ -29,6 +33,7 @@ const AUTHORING_DRIVER_IDS = new Set([
   "direct-workspace-v1",
   "english-factory-v1",
   "social-related-issues-v1",
+  "legacy-snapshot-v1",
   "proposal-only-v1"
 ]);
 
@@ -181,11 +186,30 @@ function normalizeAuthoringContract(value: unknown): ProjectManifest["authoring"
   const familyId = toTrimmedString(record.familyId);
   const qualityProfile = toTrimmedString(record.qualityProfile);
   const sourceResourceIds = normalizeStringList(record.sourceResourceIds);
+  const studioEditingRecord = record.studioEditing && typeof record.studioEditing === "object" && !Array.isArray(record.studioEditing)
+    ? record.studioEditing as Record<string, unknown>
+    : null;
+  const studioEditing = studioEditingRecord && typeof studioEditingRecord.enabled === "boolean"
+    ? {
+        enabled: studioEditingRecord.enabled,
+        ...(typeof studioEditingRecord.renameCourse === "boolean" ? { renameCourse: studioEditingRecord.renameCourse } : {}),
+        ...(typeof studioEditingRecord.imageAssets === "boolean" ? { imageAssets: studioEditingRecord.imageAssets } : {})
+      }
+    : undefined;
+  const learnerSurfaces = isProjectLearnerSurfacesV1(record.learnerSurfaces)
+    ? record.learnerSurfaces
+    : undefined;
+  const editabilityContract = isProjectStudioEditabilityContractV1(record.editabilityContract)
+    ? record.editabilityContract
+    : undefined;
   return {
     driverId: driverId as NonNullable<ProjectManifest["authoring"]>["driverId"],
-    familyId: familyId || undefined,
-    sourceResourceIds: sourceResourceIds.length > 0 ? sourceResourceIds : undefined,
-    qualityProfile: qualityProfile || undefined
+    ...(familyId ? { familyId } : {}),
+    ...(sourceResourceIds.length > 0 ? { sourceResourceIds } : {}),
+    ...(qualityProfile ? { qualityProfile } : {}),
+    ...(studioEditing ? { studioEditing } : {}),
+    ...(learnerSurfaces ? { learnerSurfaces } : {}),
+    ...(editabilityContract ? { editabilityContract } : {})
   };
 }
 
@@ -248,6 +272,34 @@ export function validateProjectManifestPolicy(manifest: ProjectManifest): Projec
 
   if (manifest.authoring !== undefined && !normalized.authoring) {
     errors.push("`authoring` is present but does not declare a supported `driverId`.");
+  }
+
+  if (
+    manifest.authoring &&
+    Object.hasOwn(manifest.authoring, "learnerSurfaces") &&
+    !normalized.authoring?.learnerSurfaces
+  ) {
+    errors.push("`authoring.learnerSurfaces` is present but does not match the versioned learner-surface contract.");
+  }
+
+  if (
+    manifest.authoring &&
+    Object.hasOwn(manifest.authoring, "editabilityContract") &&
+    !normalized.authoring?.editabilityContract
+  ) {
+    errors.push("`authoring.editabilityContract` is present but does not match a supported versioned Studio editability profile.");
+  }
+
+  if (normalized.authoring?.editabilityContract) {
+    if (normalized.authoring.studioEditing?.enabled !== true) {
+      errors.push("A Studio editability contract requires `authoring.studioEditing.enabled: true`.");
+    }
+    if (
+      normalized.authoring.driverId === "legacy-snapshot-v1" ||
+      normalized.authoring.driverId === "proposal-only-v1"
+    ) {
+      errors.push("A new-course Studio editability contract cannot use a legacy snapshot or proposal-only driver.");
+    }
   }
 
   if (requiresSourceOfTruth(normalized.authoringStatus)) {

@@ -1,0 +1,87 @@
+# Codex-to-Studio Course Workflow
+
+Use this workflow for a net-new learner course authored from scratch in Codex. The outcome is a canonical course that opens in Studio immediately and keeps routine teacher changes directly editable.
+
+The teacher does not have to choose this workflow, know `FAST_PATHS.md`, or run these commands. “Make me a course” is enough: Codex selects this contract automatically for a from-scratch course and uses the owning English/Social workflow when that family is explicitly requested.
+
+Do not use it to ingest an existing Brightspace course or to create an English/Social factory unit. Those workflows have separate source ownership and rebuild contracts.
+
+## 1. Create the project contract first
+
+```bash
+npm run course:create -- \
+  --slug <slug> \
+  --title "<course title>" \
+  --course-code "<course code>" \
+  --summary "<one-sentence learner-facing summary>"
+```
+
+The command refuses unsafe slugs and existing projects. It stages the complete project, validates its manifest and authoring doctor, then atomically promotes:
+
+- `projects/<slug>/workspace/index.html` — canonical learner page
+- `projects/<slug>/workspace/styles.css` — canonical presentation source
+- `projects/<slug>/workspace/course.js` — canonical progressive-enhancement runtime with its generated practice control explicitly marked Annotation only
+- `projects/<slug>/raw/**` — immutable starting baseline/reference
+- `projects/<slug>/meta/project.json` — `codex-studio-direct-v1` ownership contract
+- `projects/<slug>/meta/prompt-pack.md` — course-specific continuation rules
+
+If Studio is running, the promoted course appears automatically in its picker.
+
+The manifest also declares the versioned `studio-routine-content-v1` editability profile. That marker is an obligation, not a flag that grants editing: the exact-head gate must still measure the finished rendered course and complete a reversible public-route lifecycle.
+
+## 2. Author for both learners and teachers
+
+Develop the actual course only in its canonical workspace and declared assets. Preserve these conditions:
+
+- Visible text, ordinary links, and normal image elements that teachers should change stay in HTML.
+- JavaScript attaches interactions instead of replacing routine content after load.
+- Every visible course-name surface that Rename should synchronize has `data-canvas-helper-course-title`.
+- Repeated or reorderable content has semantic, durable `data-canvas-helper-edit-key` values.
+- New assets live under `workspace/assets/**` or enter through Studio's validated image workflow.
+- Raw baselines, runtime bundles, and exports never become editable source.
+- Standard headings, prose, lists, links, images, captions, and synchronized course-name surfaces must satisfy the fresh-course coverage contract; intentionally runtime-owned controls are marked `data-canvas-helper-studio-edit="annotation-only"` rather than hidden from measurement.
+
+Interactive course code is allowed. The boundary is visible: source-owned supported elements show an Edit action, while runtime-created or replaced elements show **Annotation only** and can move directly into a Codex Review Set.
+
+## 3. Verify source ownership
+
+```bash
+npm run course:doctor -- --project <slug>
+npm run verify -- --project <slug> --mode workspace
+npm run report:course-editability -- --project <slug>
+npm run test:new-course-readiness
+```
+
+The doctor must report `direct-ready`, declared `direct-workspace-v1` ownership, and Studio editing enabled. The coverage report must have a complete learner inventory and retain the new-course block/text/category/capability floors exercised by `npm run test:new-course-readiness`. Fix the canonical contract rather than forcing eligibility.
+
+CI then runs `verify:new-course-readiness` against the correct Git comparison base, repeats production rendered measurement, and uploads content-free exact-head evidence. The change-aware gate covers a newly added active course, a blocked course promoted to active, a safe adapter newly onboarded onto an older course, and every later project/resource change to a governed course.
+
+## 4. Prove the real Studio lifecycle
+
+1. Open the course in Studio.
+2. Select **Edit** and inspect the visual map for the actual current page.
+3. Confirm course-name surfaces show **Rename course** and routine content shows its supported action.
+4. Change one supported value and confirm the inert preview overlay updates before Save while the learner element and course files remain unchanged.
+5. Save the canonical draft, reopen it on its real page, and apply it.
+6. Reload the course and confirm the rendered learner result survived.
+7. Use **Undo last batch** and confirm the exact original result returns.
+
+Do not use Undo after Codex, a builder, or another tool changes the course; Studio will disable it when the boundary drifts.
+
+The CI lifecycle must return `pass`; a page map, no-target result, skipped checkpoint, or failed restoration does not satisfy new-course readiness.
+
+## 5. Add interaction acceptance when needed
+
+When the course gains navigation, assessments, stored responses, conditional content, or other learner behavior, create `projects/<slug>/meta/e2e-contract.json` and run:
+
+```bash
+npm run test:e2e:project -- --project <slug>
+```
+
+Package and cross-browser persistence acceptance remain separate export-stage gates.
+
+Generic imports and unresolved legacy sources start `blocked`. They can be previewed, inspected, and migrated, but previewability alone cannot make them active or Studio-editable. Direct, English factory, and Social factory output becomes active only with the same versioned contract and the same measured gate.
+
+## Changing ownership later
+
+If the course eventually becomes generated output from a builder, stop treating workspace HTML as Direct source. Declare the factory/adapter, move durable edits into owning recipes or course-only overrides, define the transactional rebuild write set, and pass a reversible real-course pilot before re-enabling Studio Edit. Preview and Annotate can remain available while that onboarding is incomplete.

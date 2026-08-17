@@ -8,8 +8,8 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-05-12T18:44:09.883Z",
@@ -18,13 +18,13 @@
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\index.html",
+  "canonicalEntry": "projects/forensics35/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\main.jsx",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\course-shell-data.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\forensics35\\workspace\\d2l-map-data.js"
+    "projects/forensics35/workspace/index.html",
+    "projects/forensics35/workspace/main.jsx",
+    "projects/forensics35/workspace/main.js",
+    "projects/forensics35/workspace/course-shell-data.js",
+    "projects/forensics35/workspace/d2l-map-data.js"
   ],
   "generatedOutputs": [],
   "injectedComponents": [],
@@ -58,8 +58,28 @@
   },
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Edit workspace sources only. Keep raw/exports immutable and regenerate hosted output via export scripts.",
+  "sourceOfTruthNotes": "Edit workspace sources only. Keep raw/exports immutable and regenerate hosted output via export scripts. Studio onboarding: Canonical workspace ownership made explicit; shared non-workspace sources remain read-only in Studio.",
   "createdAt": "2026-03-18T14:44:01.332Z",
-  "updatedAt": "2026-06-23T14:53:08.698Z",
-  "workspaceApprovedAt": "2026-06-18T23:03:16.924Z"
+  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "workspaceApprovedAt": "2026-06-18T23:03:16.924Z",
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "explicit-workspace-source",
+    "qualityProfile": "direct-rendered-course",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

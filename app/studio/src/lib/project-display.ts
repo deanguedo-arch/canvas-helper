@@ -1,12 +1,5 @@
 import type { ProjectBundle } from "./types";
 
-const HIDDEN_STUDIO_PROJECT_SLUGS = new Set([
-  "social30-1-related-issue-1",
-  "social30-1-related-issue-2",
-  "social30-1-related-issue-3",
-  "social30-1-related-issue-4"
-]);
-
 const PROJECT_GROUP_ORDER = ["Conversion projects", "Generated courses", "Hybrid courses", "Legacy projects"];
 
 const PROJECT_ACRONYMS = new Set(["ai", "calm", "cte", "ela", "hss", "scorm"]);
@@ -70,7 +63,7 @@ export function getProjectStatusLabel(project: ProjectBundle) {
 }
 
 export function isStudioProjectVisible(project: ProjectBundle) {
-  return !HIDDEN_STUDIO_PROJECT_SLUGS.has(project.manifest.slug);
+  return Boolean(project.manifest.slug);
 }
 
 export function getVisibleStudioProjects(projects: ProjectBundle[]) {
@@ -100,6 +93,5 @@ export function getProjectMetadataGroups(projects: ProjectBundle[]) {
 
 export function orderProjectSlugs(slugs: string[]) {
   return slugs
-    .filter((slug) => !HIDDEN_STUDIO_PROJECT_SLUGS.has(slug))
     .sort((left, right) => getProjectLabel(left).localeCompare(getProjectLabel(right)));
 }

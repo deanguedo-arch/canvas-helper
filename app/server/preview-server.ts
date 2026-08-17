@@ -8,6 +8,10 @@ import {
 } from "./lib/preview-runtime-relay";
 import { handlePreviewRoutes } from "./routes/preview";
 import { parsePreviewCapabilityPath } from "../shared/preview-path.js";
+import {
+  parsePendingCourseEditImagePath,
+  readPendingCourseEditImageForPreview
+} from "./lib/course-edit-preview-assets";
 
 export type IsolatedPreviewServer = {
   origin: string;
@@ -17,6 +21,7 @@ export type IsolatedPreviewServer = {
 
 export type IsolatedPreviewServerOptions = {
   studioOrigin: string;
+  repoRoot?: string;
 };
 
 function sendNotFound(response: ServerResponse) {
@@ -134,7 +139,8 @@ async function handlePreviewServerRequest(
   request: IncomingMessage,
   response: ServerResponse,
   studioOrigin: string,
-  capabilities: Map<string, PreviewCapabilityEntry>
+  capabilities: Map<string, PreviewCapabilityEntry>,
+  repoRoot?: string
 ) {
   applyPreviewSecurityHeaders(response, studioOrigin);
   const method = (request.method || "GET").toUpperCase();
@@ -155,6 +161,24 @@ async function handlePreviewServerRequest(
   }
 
   if (pathname.startsWith("/_canvas-helper/p/")) {
+    const pendingImagePath = parsePendingCourseEditImagePath(pathname);
+    if (pendingImagePath) {
+      const capability = authorizeExistingPreviewCapability(pendingImagePath.capabilityToken, capabilities);
+      const image = capability
+        ? readPendingCourseEditImageForPreview(pendingImagePath.capabilityToken, pendingImagePath.imageId)
+        : null;
+      if (!capability || !image) {
+        response.statusCode = 404;
+        response.setHeader("Content-Type", "text/plain; charset=utf-8");
+        response.end("Pending edit image unavailable");
+        return;
+      }
+      response.statusCode = 200;
+      response.setHeader("Content-Type", image.mimeType);
+      response.setHeader("Content-Length", String(image.byteLength));
+      response.end(method === "HEAD" ? undefined : image.bytes);
+      return;
+    }
     const runtimeRelay = parsePreviewRuntimeRelayPath(pathname);
     if (runtimeRelay) {
       const capability = authorizeExistingPreviewCapability(runtimeRelay.token, capabilities);
@@ -190,7 +214,8 @@ async function handlePreviewServerRequest(
     await handlePreviewRoutes(authorized.previewPath, request, response, {
       bridgeScriptPath: "/_canvas-helper/preview-bridge.js",
       publicPathPrefix: authorized.publicPrefix,
-      registerRuntimeSource: (source) => registerPreviewRuntimeSource(capability, source)
+      registerRuntimeSource: (source) => registerPreviewRuntimeSource(capability, source),
+      repoRoot
     });
     return;
   }
@@ -213,7 +238,7 @@ export async function startIsolatedPreviewServer(options: IsolatedPreviewServerO
   const studioOrigin = studioUrl.origin;
   const previewCapabilities = new Map<string, PreviewCapabilityEntry>();
   const server = createServer((request, response) => {
-    void handlePreviewServerRequest(request, response, studioOrigin, previewCapabilities).catch(() => {
+    void handlePreviewServerRequest(request, response, studioOrigin, previewCapabilities, options.repoRoot).catch(() => {
       if (!response.headersSent) {
         response.statusCode = 500;
         response.setHeader("Content-Type", "text/plain; charset=utf-8");

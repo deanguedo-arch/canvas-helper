@@ -7,23 +7,22 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-4/workspace/index.html",
-  "rawEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-4/raw/README.md",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-23T14:42:20.708Z",
-  "updatedAt": "2026-06-23T14:53:09.569Z",
+  "updatedAt": "2026-08-14T17:52:27.429Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-4/workspace/index.html",
+  "canonicalEntry": "projects/social30-1-related-issue-4/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-4/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-social30-related-issues.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+    "projects/social30-1-related-issue-4/workspace/index.html",
+    "scripts/build-social30-related-issues.ts",
+    "scripts/lib/next-step-course-shell.ts"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npx tsx scripts/build-social30-related-issues.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip\" --only social30-1-related-issue-4",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
@@ -45,9 +44,9 @@
   "authoringStatus": "active",
   "referenceOnly": [
     "/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/social30-1-related-issue-4/raw/README.md"
+    "projects/social30-1-related-issue-4/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The shared Brightspace ZIP is not duplicated per issue. Regenerate this workspace through scripts/build-social30-related-issues.ts and the shared Next Step shell.",
+  "sourceOfTruthNotes": "The shared Brightspace ZIP is not duplicated per issue. Regenerate this workspace through scripts/build-social30-related-issues.ts and the shared Next Step shell. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-social30-related-issues.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip\" --only social30-1-related-issue-4 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 4",
     "issueQuestion": "To what extent should my actions as a citizen be shaped by an ideology?",
@@ -59,5 +58,121 @@
   "injectedComponents": [],
   "learningSource": "other",
   "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-23T14:42:20.708Z"
+  "learningUpdatedAt": "2026-06-23T14:42:20.708Z",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "social-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-u7citizen-u7-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-u7citizen-s1-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-3-u7citizen-l1-roadblocks-to-active-citizenship",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-4-u7citizen-l2-making-it-personal",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-u7citizen-l3-making-it-better",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-u7citizen-s1-summary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-u7citizen-s2-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-8-u7citizen-l1-finding-your-ideological-peers",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-9-u7citizen-l2-to-follow-to-lead-or-to-walk-away",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-10-u7citizen-s3-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-11-u7citizen-l1-tools-for-action",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-12-u7citizen-l2-my-issues-my-actions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13-u7citizen-u7-summary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#issue-inquiry",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#source-analysis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#position-builder",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

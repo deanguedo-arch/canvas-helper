@@ -1105,6 +1105,307 @@ pre {
   background: #fff;
 }
 
+.edit-mode-bar {
+  background: #1269d3;
+}
+
+.course-edit-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+}
+
+.course-edit-panel .section-header p,
+.course-edit-intro,
+.course-edit-apply-note {
+  margin: 0.15rem 0 0;
+  color: var(--ink-soft);
+  font-size: 0.76rem;
+  line-height: 1.4;
+}
+
+.course-edit-composer,
+.course-edit-drafts {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.course-edit-composer {
+  min-inline-size: 0;
+  margin: 0;
+  border-right: 0;
+  border-bottom: 0;
+  border-left: 0;
+  padding-top: 0.8rem;
+  border-top: 1px solid rgba(99, 120, 154, 0.18);
+}
+
+.course-edit-format-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.course-edit-format-bar button,
+.course-edit-inline-editor button {
+  min-height: 32px;
+  padding: 0.35rem 0.55rem;
+  border: 1px solid rgba(85, 108, 145, 0.24);
+  border-radius: 8px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.78);
+  cursor: pointer;
+  font-size: 0.75rem;
+}
+
+.course-edit-field,
+.course-edit-upload,
+.edit-select-field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.course-edit-field > span,
+.course-edit-upload > span,
+.edit-select-field > span {
+  color: var(--ink);
+  font-size: 0.74rem;
+  font-weight: 700;
+}
+
+.course-edit-field input,
+.course-edit-field textarea,
+.course-edit-link-tool input,
+.course-edit-contenteditable,
+.course-edit-inline-editor textarea,
+.edit-select-field select {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 0.62rem 0.68rem;
+  border: 1px solid rgba(85, 108, 145, 0.24);
+  border-radius: 9px;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.84);
+  font: inherit;
+}
+
+.course-edit-rich-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+}
+
+.course-edit-contenteditable {
+  min-height: 8rem;
+  max-height: 22rem;
+  overflow: auto;
+  white-space: normal;
+  line-height: 1.55;
+}
+
+.course-edit-contenteditable:focus {
+  border-color: #2b6fb3;
+  outline: 3px solid rgba(43, 111, 179, 0.16);
+}
+
+.course-edit-link-tool,
+.course-edit-backup-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.course-edit-link-tool input {
+  min-width: 0;
+  flex: 1;
+}
+
+.course-edit-backup-actions {
+  flex-wrap: wrap;
+}
+
+.course-edit-rename {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding: 0.7rem;
+  border: 1px solid rgba(85, 108, 145, 0.18);
+  border-radius: 9px;
+  background: rgba(247, 250, 255, 0.68);
+}
+
+.course-edit-rename small {
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+  line-height: 1.4;
+}
+
+.course-edit-field textarea,
+.course-edit-inline-editor textarea {
+  resize: vertical;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+
+.course-edit-field small {
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+}
+
+.course-edit-upload {
+  padding: 0.65rem;
+  border: 1px dashed rgba(85, 108, 145, 0.34);
+  border-radius: 9px;
+  background: rgba(247, 250, 255, 0.72);
+}
+
+.course-edit-upload input {
+  max-width: 100%;
+  font-size: 0.74rem;
+}
+
+.course-edit-upload small {
+  color: var(--ink-soft);
+  font-size: 0.7rem;
+}
+
+.course-edit-style-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.course-edit-before-after {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.55rem;
+}
+
+.course-edit-before-after > div {
+  min-width: 0;
+  padding: 0.62rem;
+  border: 1px solid rgba(85, 108, 145, 0.16);
+  border-radius: 9px;
+  background: rgba(255, 255, 255, 0.5);
+}
+
+.course-edit-visual iframe {
+  display: block;
+  width: 100%;
+  height: 110px;
+  margin-top: 0.35rem;
+  border: 0;
+  border-radius: 6px;
+  background: #fff;
+}
+
+.course-edit-before-after span {
+  color: var(--ink-soft);
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.course-edit-before-after p {
+  margin: 0.3rem 0 0;
+  overflow-wrap: anywhere;
+  font-size: 0.75rem;
+  line-height: 1.4;
+}
+
+.course-edit-preview-caption {
+  color: var(--ink);
+}
+
+.course-edit-live-preview-note {
+  margin: 0;
+  padding: 0.65rem 0;
+  border-top: 1px solid rgba(85, 108, 145, 0.16);
+  border-bottom: 1px solid rgba(85, 108, 145, 0.16);
+  color: var(--ink-soft);
+  font-size: 0.73rem;
+  line-height: 1.45;
+}
+
+.course-edit-live-preview-status {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.course-edit-live-preview-status .course-edit-status {
+  min-width: 0;
+  flex: 1;
+}
+
+.course-edit-draft {
+  padding: 0.75rem 0;
+  border-top: 1px solid rgba(85, 108, 145, 0.16);
+}
+
+.course-edit-target-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.course-edit-draft-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.55rem;
+}
+
+.course-edit-draft-heading > div,
+.course-edit-inline-editor {
+  display: flex;
+  gap: 0.3rem;
+}
+
+.course-edit-inline-editor {
+  margin-top: 0.6rem;
+  flex-direction: column;
+}
+
+.course-edit-status {
+  margin: 0;
+  padding: 0.55rem 0.65rem;
+  border-radius: 8px;
+  color: var(--ink-soft);
+  background: rgba(227, 234, 245, 0.62);
+  font-size: 0.73rem;
+  line-height: 1.4;
+}
+
+.course-edit-status.success { color: #166534; background: #e8f6eb; }
+.course-edit-status.warning { color: #805100; background: #fff4d8; }
+.course-edit-status.error { color: #9a3412; background: #ffebe4; }
+.course-edit-status.progress { color: #174a96; background: #e5efff; }
+
+.course-edit-unsupported {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.course-edit-apply {
+  width: 100%;
+}
+
+@media (max-width: 560px) {
+  .course-edit-style-grid,
+  .course-edit-before-after {
+    grid-template-columns: 1fr;
+  }
+}
+
 .screenshot-annotation {
   display: flex;
   flex-direction: column;

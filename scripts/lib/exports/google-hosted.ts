@@ -14,7 +14,8 @@ import {
   getGoogleHostedExportLabel,
   injectGoogleHostedBridgeTag
 } from "../google-hosted.js";
-import { getProjectPaths } from "../paths.js";
+import { getProjectPaths, repoRoot } from "../paths.js";
+import { recordCourseExportEvidence } from "../course-editing/export-freshness.js";
 import { loadRequiredCompletionItemsFromWorkspace } from "../progress-report.js";
 import { loadProjectManifest, markProjectWorkspaceApproved } from "../projects.js";
 
@@ -326,6 +327,7 @@ export async function exportProjectToGoogleHosted(
 
   const finalFiles = await listFilesRecursive(googleHostedExportDir);
   await markProjectWorkspaceApproved(projectSlug);
+  await recordCourseExportEvidence({ repoRoot, projectSlug, target: "google-hosted", artifactPath: googleHostedExportDir });
 
   return {
     projectSlug,

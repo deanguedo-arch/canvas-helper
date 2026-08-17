@@ -1,4 +1,4 @@
-import type { PreviewGeometry, PreviewScrollState, PreviewViewport } from "./preview-bridge.js";
+import type { PreviewGeometry, PreviewInspectPayload, PreviewScrollState, PreviewViewport } from "./preview-bridge.js";
 import { STUDIO_PACKET_LIMITS, STUDIO_REVIEW_LIMITS, STUDIO_SCREENSHOT_LIMITS } from "./studio-quality.js";
 
 export const INSPECTION_PACKET_MAX_BYTES = STUDIO_PACKET_LIMITS.inspectionUtf8Bytes;
@@ -26,6 +26,7 @@ export type InspectionSelection = {
   viewport: PreviewViewport;
   scroll: PreviewScrollState;
   pageHref: string;
+  rendered?: PreviewInspectPayload["rendered"];
 };
 
 export type InspectionResolveRequest = {

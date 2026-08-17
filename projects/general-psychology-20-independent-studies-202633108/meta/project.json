@@ -8,8 +8,8 @@
     "raw",
     "workspace"
   ],
-  "workspaceEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\index.html",
-  "rawEntrypoint": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\raw\\original.html",
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/original.html",
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-06-05T15:52:05.767Z",
@@ -18,22 +18,22 @@
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\index.html",
+  "canonicalEntry": "projects/general-psychology-20-independent-studies-202633108/workspace/index.html",
   "canonicalSources": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\index.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\main.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assessment-delivery.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-behaviourism-quiz.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-humanism-quiz.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-learning-techniques-matching.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-defense-mechanisms-quiz.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\assets\\gp20-identifying-behaviour-disorders-quiz.html",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\meta\\build-shell-from-manifest.ps1"
+    "projects/general-psychology-20-independent-studies-202633108/workspace/index.html",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/main.js",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/assessment-delivery.js",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/assets/gp20-behaviourism-quiz.html",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/assets/gp20-humanism-quiz.html",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/assets/gp20-learning-techniques-matching.html",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/assets/gp20-defense-mechanisms-quiz.html",
+    "projects/general-psychology-20-independent-studies-202633108/workspace/assets/gp20-identifying-behaviour-disorders-quiz.html",
+    "projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1"
   ],
   "generatedOutputs": [
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\workspace\\course-shell-data.js",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\meta\\d2l-course-map.json",
-    "C:\\Users\\dean.guedo\\Documents\\GitHub\\canvas-helper\\projects\\general-psychology-20-independent-studies-202633108\\meta\\d2l-course-map.md"
+    "projects/general-psychology-20-independent-studies-202633108/workspace/course-shell-data.js",
+    "projects/general-psychology-20-independent-studies-202633108/meta/d2l-course-map.json",
+    "projects/general-psychology-20-independent-studies-202633108/meta/d2l-course-map.md"
   ],
   "regenerateCommand": "powershell -ExecutionPolicy Bypass -File projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1",
   "injectedComponents": [],
@@ -66,8 +66,48 @@
   },
   "authoringStatus": "active",
   "referenceOnly": [],
-  "sourceOfTruthNotes": "Use workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and workspace/assets/*.html as editable canonical sources. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding course structure.",
+  "sourceOfTruthNotes": "Use workspace/index.html, workspace/main.js, workspace/assessment-delivery.js, and workspace/assets/*.html as editable canonical sources. Regenerate course-shell-data.js and D2L map artifacts from meta/build-shell-from-manifest.ps1. Do not replace this project with the generic build:course-shell output unless intentionally rebuilding course structure. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: powershell -ExecutionPolicy Bypass -File projects/general-psychology-20-independent-studies-202633108/meta/build-shell-from-manifest.ps1 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "createdAt": "2026-04-09T19:29:15.518Z",
-  "updatedAt": "2026-06-23T14:53:08.710Z",
-  "workspaceApprovedAt": "2026-06-15T15:31:59.487Z"
+  "updatedAt": "2026-08-14T15:12:06.041Z",
+  "workspaceApprovedAt": "2026-06-15T15:31:59.487Z",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "builder-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "assets/gp20-behaviourism-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-defense-mechanisms-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-humanism-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-identifying-behaviour-disorders-quiz.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "assets/gp20-learning-techniques-matching.html",
+          "route": ""
+        },
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

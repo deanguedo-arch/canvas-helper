@@ -173,6 +173,8 @@ test("isolated HTML previews receive transient opaque nodes and the bridge witho
 
     assert.equal(handled, true);
     assert.match(getBody(), /data-canvas-helper-inspect-node="ch1:/);
+    assert.match(getBody(), /data-canvas-helper-course-edit-map="v1"/);
+    assert.match(getBody(), /"available":false/);
     assert.match(getBody(), /_canvas-helper\/preview-bridge\.js"/);
     assert.doesNotMatch(getBody(), /__ch_(?:nonce|studio|frame)/);
     assert.ok(getBody().indexOf("data-canvas-helper-preview-bridge") < getBody().indexOf("window.courseScript"));

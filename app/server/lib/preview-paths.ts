@@ -1,7 +1,7 @@
 import path from "node:path";
 import { realpath } from "node:fs/promises";
 
-import { getProjectPaths, resourcesRoot } from "../../../scripts/lib/paths.ts";
+import { getProjectPaths, repoRoot as defaultRepoRoot, resourcesRoot } from "../../../scripts/lib/paths.ts";
 
 import { isPathInside, isSafeProjectSlug } from "./validation";
 
@@ -106,9 +106,20 @@ function assertSafeSlug(slug: string) {
   }
 }
 
-export async function getPreviewPath(mode: "raw" | "workspace", slug: string, relativePath?: string) {
+export async function getPreviewPath(
+  mode: "raw" | "workspace",
+  slug: string,
+  relativePath?: string,
+  repoRoot = defaultRepoRoot
+) {
   assertSafeSlug(slug);
-  const paths = getProjectPaths(slug);
+  const paths = repoRoot === defaultRepoRoot
+    ? getProjectPaths(slug)
+    : {
+        root: path.join(repoRoot, "projects", slug),
+        rawDir: path.join(repoRoot, "projects", slug, "raw"),
+        workspaceDir: path.join(repoRoot, "projects", slug, "workspace")
+      };
   const baseDir = mode === "raw" ? paths.rawDir : paths.workspaceDir;
   const defaultFile = mode === "raw" ? "original.html" : "index.html";
   return resolveContainedPreviewPath({
@@ -118,13 +129,23 @@ export async function getPreviewPath(mode: "raw" | "workspace", slug: string, re
   });
 }
 
-export async function getReferencePreviewPath(mode: "raw" | "extracted", slug: string, relativePath?: string) {
+export async function getReferencePreviewPath(
+  mode: "raw" | "extracted",
+  slug: string,
+  relativePath?: string,
+  repoRoot = defaultRepoRoot
+) {
   assertSafeSlug(slug);
-  const paths = getProjectPaths(slug);
+  const paths = repoRoot === defaultRepoRoot
+    ? getProjectPaths(slug)
+    : {
+        resourceDir: path.join(repoRoot, "projects", "resources", slug),
+        resourceExtractedDir: path.join(repoRoot, "projects", "resources", slug, "_extracted")
+      };
   const baseDir = mode === "raw" ? paths.resourceDir : paths.resourceExtractedDir;
   return resolveContainedPreviewPath({
     baseDir,
-    trustedRoot: resourcesRoot,
+    trustedRoot: repoRoot === defaultRepoRoot ? resourcesRoot : path.join(repoRoot, "projects", "resources"),
     relativePath: decodePreviewRelativePath(relativePath, "")
   });
 }

@@ -6,30 +6,29 @@
   "previewModes": [
     "workspace"
   ],
-  "workspaceEntrypoint": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-short-stories/workspace/index.html",
+  "workspaceEntrypoint": "workspace/index.html",
   "createdAt": "2026-07-22T16:58:01.146Z",
-  "updatedAt": "2026-07-28T15:02:14.787Z",
+  "updatedAt": "2026-08-14T17:52:27.429Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-short-stories/workspace/index.html",
+  "canonicalEntry": "projects/ela10-2-short-stories/workspace/index.html",
   "canonicalSources": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-short-stories/workspace/index.html",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-short-stories/meta/english-unit.json",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-2-short-stories/meta/prompt-pack.md",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/build-english-unit.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/factory-build.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/activity-profile-renderers.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-profile-renderer.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-runtime-sanitizer.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/v3-donor-lessons.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/english-unit/writing-foundations-lessons.ts",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/scripts/lib/next-step-course-shell.ts"
+    "projects/ela10-2-short-stories/workspace/index.html",
+    "projects/ela10-2-short-stories/meta/english-unit.json",
+    "projects/ela10-2-short-stories/meta/prompt-pack.md",
+    "scripts/build-english-unit.ts",
+    "scripts/lib/english-unit/factory-build.ts",
+    "scripts/lib/english-unit/activity-profile-renderers.ts",
+    "scripts/lib/english-unit/v3-profile-renderer.ts",
+    "scripts/lib/english-unit/v3-runtime-sanitizer.ts",
+    "scripts/lib/english-unit/v3-donor-lessons.ts",
+    "scripts/lib/english-unit/writing-foundations-lessons.ts",
+    "scripts/lib/next-step-course-shell.ts"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npm run build:english-unit -- --project ela10-2-short-stories",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
     "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
@@ -50,18 +49,180 @@
     }
   ],
   "referenceOnly": [
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/config/english/families/ela10-2.json",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/ela10-1-short-stories/meta/english-unit.json",
-    "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip"
+    "projects/resources/ela10-2/_sources/f1319deb2ada7c4ea36d86a9fe172058daa2d9f4baf7edb541acb38c44e36e53.zip",
+    "projects/resources/ela10-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
+    "config/english/families/ela10-2.json",
+    "projects/resources/ela10-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
+    "projects/resources/ela10-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
+    "projects/ela10-1-short-stories/meta/english-unit.json",
+    "projects/resources/ela10-1/_sources/98a7423518aa49d55b37e75f4a7a44037949c06416146e806705b85c933cbf49.normalized.zip"
   ],
-  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved.",
+  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npm run build:english-unit -- --project ela10-2-short-stories Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "injectedComponents": [],
   "learningSource": "other",
   "learningTrust": "auto",
   "learningUpdatedAt": "2026-07-24T18:24:08.881Z",
-  "workspaceApprovedAt": "2026-07-28T15:02:14.787Z"
+  "workspaceApprovedAt": "2026-07-28T15:02:14.787Z",
+  "rawEntrypoint": "raw/original.html",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "english-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-what-do-good-readers-do",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-storytelling",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-reading-short-stories",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-short-story-terms",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13-writing-a-short-story-analysis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-14-literary-terms-review",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-prompt-controlling-idea",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-introduction-thesis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-body-assigned-text",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-body-studied-work",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-body-personal-connection",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-conclusion-revision",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#literary-exploration-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-prompt-impression",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-text-evidence",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-knowledge-experience",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-form-perspective",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-response-plan",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-draft-revise",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#story-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#story-questions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#writing-studio",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
 }

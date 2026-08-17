@@ -30,6 +30,128 @@ Read first:
 
 Do not start by searching the whole repo. The shared command contract is the source of truth.
 
+## Codex-Created Studio Course
+
+This is an internal agent retrieval path, not a choice the teacher has to make. When the user asks Codex to make a course, route here automatically unless an explicit English/Social/import workflow owns the source.
+
+Read first:
+- `docs/workflows/codex-studio-course.md`
+- `scripts/create-codex-course.ts`
+- `scripts/lib/codex-course.ts`
+- `app/shared/project-discovery.ts`
+- `projects/<slug>/meta/prompt-pack.md` after creation
+
+Start every net-new course authored from scratch in Codex with:
+
+```bash
+npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"
+```
+
+Rules:
+- Never overwrite or copy a legacy project as the starting point.
+- Author the created canonical workspace HTML/CSS, not raw or exports.
+- Keep routine teacher-editable content source-owned and visibly mapped; runtime-replaced content must remain Annotation only.
+- Use an owning factory workflow instead for imported, English, or Social conversion work.
+- Keep the versioned `studio-routine-content-v1` manifest contract. A new active course, a newly activated course, or a later change to a governed course is rejected unless the automatic exact-head readiness gate passes.
+- Generic imports and unresolved legacy sources remain `blocked`; previewability alone must never make them active or Studio-editable.
+
+Verification floor:
+- `npm run test:codex-course`
+- `npm run test:new-course-readiness`
+- `npm run course:doctor -- --project <slug>`
+- `npm run verify -- --project <slug> --mode workspace`
+- `npm run verify:new-course-readiness -- --base <comparison-sha>` after the course change is committed; CI supplies the comparison SHA automatically and records rendered coverage plus apply/reload/Undo evidence
+- `npm run test:e2e:project -- --project <slug>` when learner interactions exist
+
+## Existing Course Catalog Onboarding
+
+Read first:
+- `docs/audits/2026-08-13-course-catalog-onboarding.md`
+- `scripts/lib/course-onboarding.ts`
+- `scripts/onboard-courses.ts`
+- `scripts/verify-course-onboarding.ts`
+- `scripts/lib/course-authoring/context.ts`
+
+Commands:
+
+```bash
+npm run course:onboard -- --all
+npm run course:onboard -- --all --apply --report .runtime/course-onboarding-report.json
+npm run verify:course-onboarding -- --all
+```
+
+Rules:
+- Audit before applying. Every directory must be Direct, English factory, Social factory, legacy snapshot, blocked, reference-only, or package archive.
+- Never create editability by flag alone. The declared driver, canonical boundary, transaction write set, and learner-render postcondition must agree.
+- Use `legacy-snapshot-v1` only when the current workspace is the recoverable baseline and the old replacement builder cannot safely be used. Preserve and document that builder; do not call it from Studio.
+- Do not create manifests for package-only directories until a canonical source is recovered or intentionally imported.
+- A successful apply must doctor every enabled project, notify a running Studio, and produce a retain-only next audit.
+
+Verification floor:
+- `npm run test:course-onboarding`
+- retain-only `npm run course:onboard -- --all`
+- `npm run verify:course-onboarding -- --all`
+- `npm run test:authoring-context`
+- `npm run test:studio-inspection`
+- `npm run build:studio`
+
+## Studio Direct Editing
+
+Read first:
+- `app/shared/course-editing.ts`
+- `app/server/lib/course-editing.ts`
+- `app/server/lib/course-edit-transaction.ts`
+- `app/server/lib/course-edit-render-validation.ts`
+- `app/server/lib/course-edit-image.ts`
+- `app/server/lib/course-edit-preview.ts`
+- `app/server/lib/course-edit-preview-assets.ts`
+- `app/server/routes/course-edits.ts`
+- `app/shared/course-editability.ts`
+- `scripts/lib/course-editability/inventory.ts`
+- `scripts/lib/course-editability/rendered.ts`
+- `scripts/lib/course-editability/scoring.ts`
+- `scripts/lib/course-editability/report.ts`
+- `scripts/lib/course-editing/html.ts`
+- `scripts/lib/course-editing/overrides.ts`
+- `scripts/lib/course-editing/export-freshness.ts`
+- `app/studio/src/hooks/useCourseEditing.ts`
+- `app/studio/src/lib/course-edit-storage.ts`
+- `app/studio/src/components/CourseEditPanel.tsx`
+- `app/shared/preview-bridge.ts`
+- `app/server/preview-bridge-runtime.ts`
+
+Rules:
+- Enable Edit only for a passing `course:doctor` project with a declared supported adapter and explicit `authoring.studioEditing.enabled`. Previewability and inferred ownership are not editability.
+- Keep the page editability map server-authored, bounded, keyed by opaque inspection node IDs, and informational only. Compare source signatures with the rendered DOM before drawing editable outlines; a visual map must never authorize a write.
+- In Edit mode, keep action labels, visible-area count, outline toggle, runtime-owned dashed state, proximity-limited container targeting, and the direct Annotate fallback consistent in embedded and Full Preview.
+- Keep typing preview server-normalized and presentation-only. The inert overlay must not mutate the learner subtree; Save stores the canonical patch/digest and Apply remains the first repository write.
+- Keep every preview command/ACK bound to one session, monotonic revision, project, page, source digest, node, and canonical patch digest. A closed generation cannot be repainted.
+- Keep pending image bytes fully decoded, bounded, memory-only, and capability scoped. Apply owns transactional materialization; an expired pending asset fails the batch residue-free.
+- Treat element coverage as read-only evidence, never edit authority. Use adapter-owned learner inventories, rendered semantic collection, and actual Resolve parity; incomplete/truncated/state-writing surfaces receive no percentage.
+- The browser sends only an opaque target identity and approved patch. It never supplies, selects, or stores a filesystem path.
+- Preflight every draft before writing. Rebase an unrelated page change only when the selected element digest is unchanged; identify a stale draft by item and fail the whole batch without writes. Direct pages must still be declared canonical editable files.
+- Sanitize rich text and URLs and apply only curated style tokens. Arbitrary HTML/CSS/JavaScript remains a Codex workflow.
+- Direct adapters edit canonical workspace files. English and Social adapters store course-only metadata overrides and rebuild; never patch their generated workspace output as source.
+- Atomically claim the complete-owner filesystem lock, snapshot the whole transactional write boundary, durably journal each phase and terminal cleanup, terminate timed-out process groups, validate static and rendered learner results, restore only known before/after/partial states, and retain only the latest successful batch for Undo. Unknown external crash state must remain untouched for manual recovery.
+- Undo must prove the entire boundary still matches the applied result. Newer manual, Codex, or builder work disables Undo; never force a restore over drift.
+- Keep Draft Changes per course and shared across Studio and Full Preview. Full Preview is a bridge consumer, not a second persistent owner.
+- Keep draft baselines complete, use delta-only patches, reject no-ops, never silently expire drafts, and preserve strict JSON backup/restore.
+- Keep image uploads content-addressed in the canonical project resource library and materialized through owning rebuilds. Keep Rename as one marked, checkpointed multi-surface operation.
+- Reject ambiguous identical repeated content unless the canonical source supplies a durable edit key.
+- Derive freshness from the target-specific manifest/metadata/workspace/exporter graph and artifact fingerprints recorded by exporters. Keep SCORM 1.2 and 2004 independent.
+- Treat the lock as cooperative: do not run non-participating manual, Git, Codex, or builder writes concurrently with Direct Apply.
+- Do not run any repository writer during `report:course-editability`; concurrent changes must fail its residue proof and make the aggregate non-publishable.
+
+Verification floor:
+- `npm run test:course-editing`
+- `npm run test:course-editability`
+- `npm run test:studio-inspection`
+- `npm run verify:course-editing-pilots`
+- `npm run test:exports` when artifact evidence changes
+- `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "direct edits persist"`
+- `npm run build:studio`
+- `npm run report:course-editability -- --all --inventory-only --allow-incomplete`
+
 ## Studio Inspect + Codex Handoff
 
 Read first:
@@ -59,7 +181,7 @@ Rules:
 - Preflight every selected HTML page through the exact isolated-preview origin before mounting it. Keep the response teacher-safe and bounded: missing page/runtime/style, unsupported runtime, empty source, or ready. After mount, require the private bridge's bounded `preview-health` report so a successful document load cannot hide an empty runtime. Keep Retry, page choice, and the preview-issue handoff in Studio; technical details stay collapsed by default.
 - Preserve live course fidelity: allow presentation-only HTTPS styles, fonts, images, media, and frames in the isolated preview CSP. Keep arbitrary external scripts, form submissions, and nonlocal browser data connections blocked. Legacy script/module compatibility belongs only in the capability-scoped runtime relay: use exact versioned library/path/query allowlists, per-capability declared/transitive source binding, JavaScript-only MIME handling, no credentials, revalidated bounded redirects, pinned known unversioned runtimes, bounded concurrency/response/timeout/cache/parser limits, syntax-aware rewriting, and regression tests. Local/reference `HEAD` must exit before reads or transformation, relay `HEAD` must remain cache-only, local scripts over 512 KiB must remain untouched, and approved ESM over 2 MiB must be rejected. Never loosen `script-src` to `https:` or turn the relay into a general proxy.
 - A preview selection is evidence, not source authority. Resolve canonical targets only through the project driver and fail closed as `unknown` when it cannot be proved.
-- Generated Social and English workspaces remain output; packets point to their builder/factory source and rebuild flow.
+- Generated Social and English workspaces remain output; Review Set packets point to their builder/factory source and rebuild flow, while eligible Edit-mode changes are stored as course-only metadata overrides consumed by that builder.
 - Keep source routes, file paths, commands, packet text, and preview diagnostics out of the normal annotation UI. They remain resolver-owned data inside the copied Review Set packet.
 - Review Set preparation is automatic after each save or note edit. Copy must stay disabled until every saved route has been revalidated against current repository state.
 - A standalone workspace preview must preserve the original Studio session and expose Annotate, the shared Review Set, and the trusted return control only in the Studio-origin host, never inside the cross-origin course iframe. Keep one-time bootstrap, bounded reload rejoin, and focus-acknowledgement flows. Do not replace them with wildcard messaging, iframe DOM reads, URL-carried selection text, course-owned opener access, or preview-owned persistent storage.
@@ -123,7 +245,7 @@ Use:
 - `npm run course:list -- --all` to distinguish actual readiness from a project lifecycle label; do not treat `active` as permission to edit or rebuild.
 - `npm run course:doctor -- --project <slug>` before building a compact course brief
 - `npm run context:project -- --project <slug>` only after the doctor passes
-- Treat Studio as a local read-only inspection and handoff surface. Course changes belong in the declared canonical source or owning rebuild flow.
+- Treat Annotate as a local inspection and handoff surface. Edit mode may change a course only through its declared direct source or supported owning rebuild adapter.
 
 Verification floor:
 - `npm run test:authoring-context`

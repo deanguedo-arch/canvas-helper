@@ -36,6 +36,13 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 - `npm run studio:codex:auto` (Codex desktop app + intake watcher on macOS)
 - `npm run studio:codex:migrate` (Codex app + explicit project layout migration)
 - `npm run studio:codex:session` (Codex app starter with prompt templates)
+- `npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"` (new Codex-authored, Studio-ready course)
+- `npm run course:list -- --all` (all source-backed projects plus package/archive classifications)
+- `npm run course:onboard -- --all [--apply]` (audit or transactionally onboard the existing catalog)
+- `npm run verify:course-onboarding -- --all` (rendered reversible catalog acceptance)
+- `npm run verify:new-course-readiness -- --base <comparison-sha>` (automatic exact-head gate for every new, activated, or governed course; CI supplies the base)
+- `npm run report:course-editability -- --all [--allow-incomplete]` (read-only rendered element coverage; incomplete inventories receive no percentage)
+- `npm run test:course-editability` (learner-surface, browser-isolation, scoring, and report-digest contracts)
 - `npm run test:studio-release` (complete, isolated Studio release gate)
 - `npm run import -- "<path-to-html-or-folder>" --slug <slug>`
 - `npm run incoming:refresh`
@@ -87,23 +94,85 @@ Repo-level authoring enforcement defaults live in `config/authoring-preferences.
 3. Use Studio `Refresh Intake` or run `npm run incoming:refresh` (recommended); continuous watcher mode is optional (`npm run watch:incoming`)
 4. Imported sources are snapshotted to `projects/processed/<slug>/source/`
 5. Studio edits and previews the canonical project at `projects/<slug>/...`; if that canonical root is missing but the processed snapshot still exists, Studio rebuilds it automatically from `projects/processed/<slug>/source/`
-6. Edit only `projects/<slug>/workspace/`
-7. Use Studio to compare raw vs workspace
+6. Edit declared canonical sources only. For routine changes on eligible courses, use Studio **Edit** mode; otherwise edit the owning workspace, recipe, metadata override, or builder source identified by `course:doctor`.
+7. Use Studio to compare raw vs workspace, or collect a reviewed Draft Changes batch before applying it.
 8. Run `analyze` and `refs` to refresh workspace structure plus classified resource artifacts
 9. Run `blueprint`, `assessment-map`, and `lesson-packets` to build outline-first planning artifacts before generation-heavy work
 10. Run export commands as needed
 11. Run `validate:manifests` when project source-of-truth metadata changed
 12. Capture a handoff before stopping
 
+## Create a Course in Codex and Open It in Studio
+
+As a user, you can simply ask Codex to make the course. You do not need to choose a fast path or remember the commands below; they document the workflow Codex and CI use automatically.
+
+For a net-new course authored from scratch, start with the repository contract instead of copying an older project:
+
+```bash
+npm run course:create -- \
+  --slug applied-learning-20 \
+  --title "Applied Learning 20" \
+  --course-code "AL 20" \
+  --summary "Learners investigate evidence, make decisions, and explain their reasoning."
+```
+
+The command creates a validated `generated-course` project with canonical HTML and CSS, an immutable raw baseline, a prompt pack, an explicitly enabled `direct-workspace-v1` authoring contract, and the versioned `studio-routine-content-v1` acceptance profile. It never overwrites an existing project. If Studio is already open, the new course appears in the picker automatically; opening **Edit** immediately shows the live visual map of Rename, text, link, and image targets.
+
+Continue course development in `projects/<slug>/workspace/`. Keep normal teacher-editable content in the HTML, use `data-canvas-helper-edit-key` on durable elements, and use `data-canvas-helper-course-title` on every course-name surface that Rename must synchronize. JavaScript can add behavior, but content it replaces at runtime becomes visibly **Annotation only** because Studio cannot safely prove where to persist it.
+
+Before handoff, Codex runs the focused checks below. The change-aware CI gate then independently renders every declared learner surface, requires at least 90% block and teacher-text coverage plus the promised category/capability floors, and performs a real Apply → reload → Undo cycle against the exact commit.
+
+```bash
+npm run course:doctor -- --project <slug>
+npm run verify -- --project <slug> --mode workspace
+npm run test:new-course-readiness
+```
+
+Courses imported from Brightspace or built through the English/Social factories keep their owning intake and rebuild workflows. A fresh English factory or Social factory course receives the same versioned readiness obligation; a generic import or unresolved legacy source starts `blocked` and is not silently treated as Studio-ready. Only activation after complete inventory, rendered coverage, and reversible lifecycle proof is accepted.
+
+## Bring an Existing Course Catalog Into Studio
+
+Use a dry audit first, then apply the complete manifest batch transactionally:
+
+```bash
+npm run course:onboard -- --all
+npm run course:onboard -- --all --apply --report .runtime/course-onboarding-report.json
+npm run verify:course-onboarding -- --all
+```
+
+The onboarding workflow never equates “has HTML” with “safe to edit.” It assigns an explicit Direct, English factory, Social factory, preserved legacy snapshot, blocked, reference-only, or package-archive outcome. A legacy snapshot keeps the current workspace as the protected learner baseline, stores Studio changes as replayable course overrides, and quarantines any old builder that could replace those changes. Package-only directories remain accounted for without pretending an export is source.
+
+The current catalog outcome and exceptions are recorded in [docs/audits/2026-08-13-course-catalog-onboarding.md](docs/audits/2026-08-13-course-catalog-onboarding.md). Courses created through `course:create` receive explicit Studio ownership at creation. Future imports begin blocked and must prove ownership plus readiness before activation, so previewability cannot silently recreate the legacy catch-up problem.
+
+Element coverage is a separate read-only measurement and never grants edit authority. `report:course-editability` uses adapter-owned page/route/state inventories, a rendered Chromium semantic collector, and the production Resolve path. Runtime-created content remains in the denominator; missing states, browser-state writes, truncation, time/memory limits, or repository drift make the affected score null. Run the command only while other builders, Git operations, Studio Apply, and course writers are idle so its before/after residue proof can be publishable.
+
+## Studio Direct Editing
+
+Studio has a separate **Edit** mode only for projects that pass `course:doctor` and explicitly declare both a supported `authoring.driverId` and `authoring.studioEditing.enabled: true`. Unclassified inferred projects remain **not onboarded** even when their workspace can be previewed; the current source-backed catalog has been explicitly classified through `course:onboard`. Turning on Edit shows a server-authored map of the current page: supported regions receive restrained outlines, hover labels identify **Edit text**, **Edit link**, **Replace image**, or **Rename course**, and the page toolbar reports the visible editable-area count with a show/hide toggle. JavaScript-replaced or otherwise unsupported regions use a dashed **Annotation only** selection with the reason and a direct **Annotate this for Codex** action. Clicking surrounding layout automatically selects a nearby safe child only when the map can prove one.
+
+For a supported target, Studio normalizes the proposed change on the server and displays it immediately in an inert visual overlay while the teacher types. The overlay does not replace or mutate the learner element, and no course file is written. **Save draft** stores the bounded canonical patch and digest; **Apply changes** is still the first filesystem mutation and revalidates that exact patch through the existing lock, checkpoint, rebuild, rendered-result, export-freshness, and Undo boundary. Preview messages carry a session and monotonic revision so stale typing or clear messages cannot repaint newer work. Temporary image bytes are fully decoded and kept only in bounded server memory until Apply materializes them inside the same transaction; an expired image requires re-upload rather than falling back to a preview URL.
+
+Click a supported region, then save one or more changes into the course-specific **Draft Changes** panel. Drafts do not silently expire, follow the course between Studio and Full Preview, can be reopened for every patch type, and have local JSON backup/restore. Visual before/after frames accompany accessible text captions.
+
+**Apply changes** preflights every draft before writing, atomically claims a complete cross-process lock owner, writes a durable recovery journal and complete checkpoint, safely rebases unchanged targets after unrelated page edits, and refuses a changed selected element. Interrupted recovery automatically restores only a recorded before, after, or pathwise known-partial boundary; any unknown external bytes enter manual recovery without being overwritten. English and Social factories rebuild from stored overrides; legacy snapshots materialize overrides into their preserved baseline without running the quarantined old builder. Studio then runs `course:doctor`, workspace verification, and an isolated Playwright learner render after bounded local page settlement. That render confirms the requested result and applies edited-target visibility, name, alt-text, heading, contrast, and image-decoding checks. These checks are not a full WCAG audit and do not prove behavior triggered later by navigation or interaction. A failed check rolls back the entire batch. **Undo last batch** runs only when the complete checkpoint boundary still matches the applied result; newer Codex, builder, or manual work makes Undo unavailable instead of being overwritten.
+
+The teacher editor decodes HTML entities, provides rich-text/list/link controls, emits only changed fields, rejects no-op drafts, and restricts visual tokens by element type. PNG/JPEG/GIF uploads are fully decoded under bounded byte, channel, frame, and pixel limits, stored under a full content digest, safely completed on retry, and checked again through the learner browser before an image edit succeeds. **Rename course** synchronizes marked sidebar and overview headings, document title, project metadata, stored course metadata, and declared runtime title data as one undoable operation. Background images, responsive source sets, semantic heading-level changes, layout redesign, new JavaScript activities, assessment/scoring logic, arbitrary HTML/CSS, complex section moves, family-wide changes, and publishing remain Codex or explicit command workflows.
+
+Export status is computed from a target-specific input graph plus the actual generated artifact bytes or directory tree. Inputs include the target identity, workspace, normalized project manifest, Studio title/edit metadata, package dependency state, and the recursive local exporter implementation graph. CLI and Studio exports record the same evidence, and SCORM 1.2 and SCORM 2004 have independent freshness states. Use `npm run verify:course-editing-pilots` to repeat the reversible real Direct, English, Social, and legacy-snapshot route-level pilots; each restarts the HTTP server before Undo and requires byte-for-byte restoration.
+
+The filesystem lock coordinates Studio and other Canvas Helper writers that use the transaction protocol. Direct publication also rereads each source immediately before its atomic replacement, but there is no portable filesystem compare-and-swap in the current Node implementation. A non-cooperating manual, Codex, Git, or builder write in the final read-to-rename interval is therefore unsupported. Do not run those writers concurrently with Apply; repository mutators should use the shared lock protocol. Detectable later drift still disables Undo and unknown crash-recovery states remain untouched.
+
+Legacy direct-course rebuilds must also fail closed. The onboarded Mental Health builder refuses to overwrite a workspace containing applied Studio edit markers unless an operator intentionally supplies `--allow-studio-edit-overwrite`; every newly onboarded legacy direct builder needs equivalent preservation or refusal behavior.
+
 ## Studio Inspect + Codex Handoff
 
-Studio has no model-provider integration and does not write course sources. Use **Annotate** when one or more visible course elements need focused changes:
+Studio has no model-provider integration. Use **Annotate** when a change is outside safe direct-edit capabilities or when one or more visible course elements need focused work from Codex:
 
 1. Open the project, turn on **Annotate**, then click an element or drag across one source-mapped learner-facing area. An ambiguous drag remains visual-only so it cannot point Codex at the wrong source.
 2. Write what should change, optionally capture up to three marked course screenshots, and choose **Save annotation**.
 3. Repeat for up to five annotations, edit or review them in the persistent Review Set, then choose **Copy Review Set for Codex** and paste the one handoff into a Codex task.
 
-The right rail deliberately shows only the current annotation and the Review Set. Studio still resolves the canonical source, rebuild route, and validation command behind the scenes, then includes those details in the bounded copied handoff. Generated Social and English workspace HTML remains display output rather than an editable source.
+The right rail deliberately shows only the current annotation and the Review Set. Studio still resolves the canonical source, rebuild route, and validation command behind the scenes, then includes those details in the bounded copied handoff. Generated Social and English workspace HTML remains display output: Edit mode records course-only overrides and asks the owning builder to regenerate it rather than patching generated HTML.
 
 **Open preview** opens a trusted full-page host while keeping the course itself isolated in a capability-scoped iframe. It has the same blue annotation mode: click or drag, add a note or screenshot, save to the shared Review Set, and copy the complete set without returning to Studio. **Return to Studio** closes a connected full preview and brings back the original Studio session. An already-open full preview can rejoin after Studio reload, and **Show** navigates its course iframe to the saved HTML page before reporting a confirmed highlight. Saved annotations, notes, and screenshot references survive for seven days; switching to another course asks before clearing the current set.
 
@@ -111,7 +180,7 @@ The live preview is served from a separate local loopback origin and communicate
 
 **Screenshot** is optional and course-only. It does not open an operating-system screen-sharing picker. Canvas Helper opens the exact capability-scoped local preview in a bounded capture browser, restores its saved scroll state, rechecks the full page identity (including course query and hash state) plus the selected element, draws the blue numbered marker, and blocks outside HTTP requests, WebSockets, WebRTC, service workers, and dedicated/shared workers. It verifies those guards in the main document and runnable local child frames while skipping empty or browser-generated blocked-error frames so iframe-heavy courses cannot stall capture. Each annotation may keep up to three PNGs under the ignored `.runtime/studio-review-sets/` cache. Display, removal, and copy all verify each path against the exact session, project, annotation, and selected node. Review Set V3 lists only those safe repo-relative paths—never base64 pixels, blob URLs, or absolute paths. Screenshot files and the private version-6 persistence record expire after seven days.
 
-Use **What’s new** in the Studio header for the current concise product release. The durable release note is [docs/releases/2026-08-11-canvas-studio.md](docs/releases/2026-08-11-canvas-studio.md). Before publishing shared Studio behavior, run `npm run test:studio-release`; its ignored report is written to `.runtime/studio-release-report.json`.
+Use **What’s new** in the Studio header for the current concise product release. The durable release note is [docs/releases/2026-08-12-canvas-studio-direct-editing.md](docs/releases/2026-08-12-canvas-studio-direct-editing.md). Before publishing shared Studio behavior, run `npm run test:studio-release`; its ignored report is written to `.runtime/studio-release-report.json`.
 
 ## Workflow Types
 
@@ -259,9 +328,9 @@ Optional override flags for convert/export/deploy:
 - Run `npm run course:list -- --all` to see whether a project is actually `direct-ready`, `factory-ready`, `proposal-only`, or `blocked`; lifecycle `active` alone is not a readiness signal.
 - For active migrated course work, run `npm run course:doctor -- --project <slug>` before using a course context; it validates source ownership and paths without changing the manifest
 - When that doctor passes, use `npm run context:project -- --project <slug>` for the compact (at most 5,000 UTF-8 bytes) source-of-truth brief; it intentionally excludes whole blueprints, resource catalogs, and prompt-pack content and does not write files
-- Studio does not call model providers or write course sources. Use the compact source contract to give Codex a focused, reviewable brief; make course changes through the declared canonical source or owning rebuild flow.
+- Studio does not call model providers. Annotate and Review Set never write course sources; Edit mode may write only an explicitly onboarded direct source or supported owning rebuild override through the transactional server workflow. Use the compact source contract for everything outside that boundary.
 - An English factory course is only `factory-ready` when both source archives named by its recipe are materialized (not missing or LFS pointers). Its owned workspace, resource copies/extractions, and generated metadata are rollback-safe; recipes and teacher-authored custom paths are preserved.
-- Social related-issues work is a proposal/rebuild workflow: name a checksum-verified resource in `projects/resources/social30-1-related-issues/resource-manifest.json`, then rebuild with `npm run build:social30 -- --resource <resource-id> --only <issue-slug>`. Do not pass a personal `--zip` path or hand-edit the generated workspace.
+- Social related-issues work is a proposal/rebuild workflow unless its manifest explicitly declares and enables the supported Studio adapter. In either case, name a checksum-verified resource in `projects/resources/social30-1-related-issues/resource-manifest.json`; never pass a personal `--zip` path or hand-edit the generated workspace.
 - Start a new Science course with `intake:science-pilot`, not a generic factory. It copies and hashes the real ZIP sources, creates a blocked planning contract, and gives the red-team / green-team review the same small set of metadata files before one representative unit is built.
 - Use `npm run headroom` only when you intentionally need to regenerate a prompt pack, with `--project <slug>` / `--all` for explicit targeting
 - Use `npm run headroom:all` only when you intentionally need Canvas Helper-wide prompt-pack refresh

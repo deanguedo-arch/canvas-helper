@@ -1,3 +1,8 @@
+import type {
+  ProjectLearnerSurfacesV1,
+  ProjectStudioEditabilityContractV1
+} from "../../app/shared/course-editability.js";
+
 export type InputKind = "html" | "text-html" | "brightspace-zip" | "resource-pack";
 export type PreviewMode = "raw" | "workspace";
 export type BrightspaceTarget = "course-page" | "scorm";
@@ -91,13 +96,28 @@ export type ProjectManifest = {
      * The code-owned workflow that owns edits and rebuilds for this project.
      * This is deliberately independent of legacy regenerateCommand strings.
      */
-    driverId: "direct-workspace-v1" | "english-factory-v1" | "social-related-issues-v1" | "proposal-only-v1";
+    driverId:
+      | "direct-workspace-v1"
+      | "english-factory-v1"
+      | "social-related-issues-v1"
+      | "legacy-snapshot-v1"
+      | "proposal-only-v1";
     /** A stable family identifier when a project shares an authoring workflow with siblings. */
     familyId?: string;
     /** Stable IDs from a project resource manifest; never host-machine source paths. */
     sourceResourceIds?: string[];
     /** The named quality profile that governs the project's focused verification. */
     qualityProfile?: string;
+    /** Explicit teacher-facing Studio editing approval. Inference never enables it. */
+    studioEditing?: {
+      enabled: boolean;
+      renameCourse?: boolean;
+      imageAssets?: boolean;
+    };
+    /** Exhaustive learner page/route/state declaration for census-capable direct and snapshot projects. */
+    learnerSurfaces?: ProjectLearnerSurfacesV1;
+    /** Versioned acceptance profile required for every newly activated Studio-editable course. */
+    editabilityContract?: ProjectStudioEditabilityContractV1;
   };
   injectedComponents?: {
     id: string;

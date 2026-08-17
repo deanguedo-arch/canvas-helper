@@ -13,7 +13,12 @@ import {
   PREVIEW_STANDALONE_REJOIN_PARAM,
   PREVIEW_STANDALONE_SESSION_PARAM,
   previewBridgeMessageByteLength,
+  type PreviewCourseEditAck,
   type PreviewDiagnostic,
+  type PreviewCourseEditAction,
+  type PreviewCourseEditActionResult,
+  type PreviewCourseEditCommand,
+  type PreviewCourseEditState,
   type PreviewInspectCurrentPayload,
   type PreviewInspectFocusedPayload,
   type PreviewInspectPayload,
@@ -50,6 +55,8 @@ type UsePreviewScrollSyncOptions = {
   referenceTarget: ReferenceTarget;
   previewOrigin: string;
   inspectEnabled: boolean;
+  editEnabled: boolean;
+  courseEditPreview: PreviewCourseEditCommand | null;
   onInspectSelection: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectModeChange?: (enabled: boolean, source: PreviewSurface) => void;
@@ -57,13 +64,15 @@ type UsePreviewScrollSyncOptions = {
   onPreviewReady?: (mode: PreviewMode, href: string, source: PreviewSurface) => void;
   onPreviewHealth?: (mode: PreviewMode, health: PreviewContentHealth, source: PreviewSurface) => void;
   onPreviewReviewAction?: (mode: PreviewMode, action: PreviewReviewAction) => void;
+  onPreviewEditAction?: (mode: PreviewMode, action: PreviewCourseEditAction) => void;
+  onCourseEditPreviewAck?: (mode: PreviewMode, ack: PreviewCourseEditAck, source: PreviewSurface) => void;
   onStandaloneReturn?: (mode: PreviewMode) => void;
   onPreviewDiagnostic?: (mode: PreviewMode, diagnostic: PreviewDiagnostic, source: PreviewSurface) => void;
 };
 
 type BridgeState = Pick<
   UsePreviewScrollSyncOptions,
-  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled"
+  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled" | "editEnabled" | "courseEditPreview"
 >;
 
 type PendingInspectionRequest = {
@@ -188,6 +197,8 @@ export function usePreviewScrollSync({
   referenceTarget,
   previewOrigin,
   inspectEnabled,
+  editEnabled,
+  courseEditPreview,
   onInspectSelection,
   onInspectHover,
   onInspectModeChange,
@@ -195,6 +206,8 @@ export function usePreviewScrollSync({
   onPreviewReady,
   onPreviewHealth,
   onPreviewReviewAction,
+  onPreviewEditAction,
+  onCourseEditPreviewAck,
   onStandaloneReturn,
   onPreviewDiagnostic
 }: UsePreviewScrollSyncOptions) {
@@ -248,18 +261,22 @@ export function usePreviewScrollSync({
     workspaceTarget,
     referenceTarget,
     previewOrigin,
-    inspectEnabled
+    inspectEnabled,
+    editEnabled,
+    courseEditPreview
   });
-  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic });
+  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onCourseEditPreviewAck, onStandaloneReturn, onPreviewDiagnostic });
   stateRef.current = {
     previewMode,
     selectedProject,
     workspaceTarget,
     referenceTarget,
     previewOrigin,
-    inspectEnabled
+    inspectEnabled,
+    editEnabled,
+    courseEditPreview
   };
-  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onStandaloneReturn, onPreviewDiagnostic };
+  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onCourseEditPreviewAck, onStandaloneReturn, onPreviewDiagnostic };
 
   const getModeTarget = (mode: PreviewMode) => {
     const current = stateRef.current;
@@ -324,9 +341,12 @@ export function usePreviewScrollSync({
       | "studio-request-state"
       | "studio-restore-scroll"
       | "studio-set-inspect-mode"
+      | "studio-set-edit-visual-mode"
+      | "studio-set-edit-preview"
       | "studio-request-inspect-current"
       | "studio-focus-inspect-node"
       | "studio-show-inspect-node"
+      | "studio-refresh-preview"
       | "studio-disconnect-standalone"
       | "studio-cancel-review-copy",
     payload: unknown
@@ -393,7 +413,7 @@ export function usePreviewScrollSync({
 
   const postStandaloneBridgeCommand = (
     mode: PreviewMode,
-    type: "studio-set-review-state" | "studio-set-review-packet" | "studio-review-action-result",
+    type: "studio-set-review-state" | "studio-set-review-packet" | "studio-review-action-result" | "studio-set-edit-state" | "studio-edit-action-result" | "studio-refresh-preview",
     payload: unknown
   ) => {
     const port = primaryStandalonePort(mode);
@@ -467,6 +487,10 @@ export function usePreviewScrollSync({
         restoreStoredScrollPosition(mode);
         postBridgeCommand(mode, "studio-request-state", null);
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && stateRef.current.inspectEnabled });
+        postBridgeCommand(mode, "studio-set-edit-visual-mode", { enabled: mode === "workspace" && stateRef.current.editEnabled });
+        if (mode === "workspace" && stateRef.current.courseEditPreview) {
+          postBridgeCommand(mode, "studio-set-edit-preview", stateRef.current.courseEditPreview);
+        }
         if (mode === "workspace" && source === "embedded") flushPendingKeyboardInspection();
         flushPendingFocusRequest(mode, source);
         inspectionCallbacksRef.current.onPreviewReady?.(
@@ -547,9 +571,17 @@ export function usePreviewScrollSync({
         inspectionCallbacksRef.current.onInspectModeChange?.(enabled, source);
         break;
       }
+      case "preview-edit-preview-ack":
+        inspectionCallbacksRef.current.onCourseEditPreviewAck?.(mode, data.payload as PreviewCourseEditAck, source);
+        break;
       case "preview-review-action":
         if (source === "standalone") {
           inspectionCallbacksRef.current.onPreviewReviewAction?.(mode, data.payload as PreviewReviewAction);
+        }
+        break;
+      case "preview-edit-action":
+        if (source === "standalone") {
+          inspectionCallbacksRef.current.onPreviewEditAction?.(mode, data.payload as PreviewCourseEditAction);
         }
         break;
       case "preview-return-to-studio":
@@ -792,6 +824,18 @@ export function usePreviewScrollSync({
     postStandaloneBridgeCommand(mode, "studio-review-action-result", result);
   };
 
+  const syncStandaloneCourseEditing = (mode: PreviewMode, state: PreviewCourseEditState) => {
+    postStandaloneBridgeCommand(mode, "studio-set-edit-state", state);
+  };
+
+  const sendStandaloneCourseEditActionResult = (mode: PreviewMode, result: PreviewCourseEditActionResult) => {
+    postStandaloneBridgeCommand(mode, "studio-edit-action-result", result);
+  };
+
+  const refreshStandalonePreview = (mode: PreviewMode, href: string) => {
+    postStandaloneBridgeCommand(mode, "studio-refresh-preview", { href });
+  };
+
   const cancelStandaloneReviewCopy = (mode: PreviewMode, copyId: string, message: string) => {
     postBridgeCommand(mode, "studio-cancel-review-copy", { copyId, message });
   };
@@ -882,7 +926,7 @@ export function usePreviewScrollSync({
       existing?.port.close();
       const rejoinToken = legacyInitial
         ? standaloneRejoinTokenRefs.current[mode]
-        : event.data.payload.rejoinToken;
+        : "rejoinToken" in event.data.payload ? event.data.payload.rejoinToken : "";
       const targetKey = hostRejoin && existing?.window === sourceWindow
         ? existing.targetKey
         : standaloneTargetKeyRefs.current[mode] || (mode === "workspace"
@@ -945,6 +989,20 @@ export function usePreviewScrollSync({
     return () => window.clearTimeout(timer);
   }, [previewMode, selectedProject, referenceTarget]);
 
+  useEffect(() => {
+    previewModes.forEach((mode) => {
+      postBridgeCommand(mode, "studio-set-edit-visual-mode", {
+        enabled: mode === "workspace" && editEnabled
+      });
+    });
+  }, [editEnabled]);
+
+  useEffect(() => {
+    if (courseEditPreview) {
+      postBridgeCommand("workspace", "studio-set-edit-preview", courseEditPreview);
+    }
+  }, [courseEditPreview]);
+
   return {
     registerPreviewFrame,
     attachPreviewPersistence,
@@ -965,6 +1023,9 @@ export function usePreviewScrollSync({
     restorePreviewLocation,
     syncStandaloneReviewSet,
     sendStandaloneReviewActionResult,
+    syncStandaloneCourseEditing,
+    sendStandaloneCourseEditActionResult,
+    refreshStandalonePreview,
     cancelStandaloneReviewCopy
   };
 }

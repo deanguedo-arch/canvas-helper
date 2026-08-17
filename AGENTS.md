@@ -32,6 +32,8 @@ Goals:
 - expand depth, hierarchy, navigation, and interaction quality
 - produce coherent export-ready modules
 
+For a net-new course, the user only needs to ask for the course. The agent must route creation through the Studio-aware course or owning factory workflow automatically; do not make the user choose an internal fast path or remember a verification command. A newly created or newly activated `active`/`ready-for-export` course is not complete until the automatic new-course readiness gate proves its versioned editability contract, complete learner inventory, rendered routine-content thresholds, and reversible Studio lifecycle. Imported or unresolved legacy material must remain `blocked` until that proof exists.
+
 ### 3) `injection/integration`
 
 Use for externally generated interactive activities inserted into existing course surfaces.
@@ -40,6 +42,47 @@ Goals:
 - import and normalize component code
 - place components surgically
 - preserve traceability and source-of-truth clarity
+
+## Codex-to-Studio New Course Contract
+
+Every net-new learner course authored from scratch in Codex must begin with the checked-in scaffold command:
+
+```bash
+npm run course:create -- --slug <slug> --title "<title>" --course-code "<code>" --summary "<summary>"
+```
+
+- Run the command before adding lessons, activities, or assets. Do not handcraft a project root or copy a legacy course as the starting point.
+- Continue authoring only in the created canonical files under `projects/<slug>/workspace/**` and operational metadata under `projects/<slug>/meta/**`.
+- Keep routine teacher-editable text, links, and images in canonical HTML. JavaScript may attach behavior, but it must not replace those visible elements after load.
+- Keep synchronized course-name surfaces marked with `data-canvas-helper-course-title` and durable repeated/reorderable content marked with `data-canvas-helper-edit-key`.
+- The scaffold must remain `course:doctor`-passing, explicitly `direct-workspace-v1`, and Studio-editable. A running Studio discovers it automatically.
+- If the course later requires a generated workspace or family builder, do not keep claiming Direct ownership. Introduce a supported adapter, stored overrides, rebuild path, and reversible pilot before enabling Edit for that generated boundary.
+- Imported, conversion, English-factory, and Social-factory work must use their owning intake/factory workflow rather than this from-scratch scaffold.
+
+Completion floor for a new Codex course:
+
+- `npm run course:doctor -- --project <slug>`
+- `npm run verify -- --project <slug> --mode workspace`
+- visually inspect the Edit map in Studio
+- apply one reversible draft, reload, and Undo
+- add and run `npm run test:e2e:project -- --project <slug>` when learner interactions are added
+
+## Existing Course Catalog Contract
+
+Use the checked-in catalog workflow for legacy course onboarding; never make a project editable by adding only a boolean flag:
+
+```bash
+npm run course:onboard -- --all
+npm run course:onboard -- --all --apply --report .runtime/course-onboarding-report.json
+npm run verify:course-onboarding -- --all
+```
+
+- The audit must assign every project directory one explicit outcome: Direct, English factory, Social factory, preserved legacy snapshot, blocked, reference-only, or package archive.
+- `legacy-snapshot-v1` preserves the current workspace as the learner baseline and quarantines any legacy builder that could replace Studio work. Do not run that old builder through Studio.
+- Package/export-only directories are catalogued but are not editable sources. Recover or intentionally import a canonical source before creating an authorable manifest.
+- Keep runtime-owned content visibly Annotation only. Catalog membership does not mean every rendered node is a safe direct-edit target.
+- A catalog apply must be transactional, doctor every enabled project, signal a running Studio only after success, and be idempotent on its next audit.
+- The completion floor is `test:course-onboarding`, a clean retain-only audit, `verify:course-onboarding -- --all`, focused Studio tests, and the active handoff/audit update.
 
 ## Architecture Map
 
@@ -110,6 +153,7 @@ Every project must treat artifact roles explicitly:
 - Direct bundle/runtime patching is emergency-only.
 - Any emergency runtime patch must be documented in project metadata and handoff output.
 - Reference-only files must be declared so they are not mistaken for active execution paths.
+- Every newly created or newly activated active course must declare `authoring.editabilityContract: { schemaVersion: 1, profileId: "studio-routine-content-v1" }` and pass `npm run verify:new-course-readiness`; removing the contract or changing a governed project/resource boundary causes the same gate to rerun.
 
 ## Project Metadata Standard
 
@@ -352,6 +396,7 @@ When creating or reshaping UI artifacts:
 ## Verification Floor
 
 - Run the smallest meaningful set of checks for the touched area.
+- For a net-new course or a change to a governed new course, run `npm run test:new-course-readiness` and the automatic `verify:new-course-readiness` exact-head gate. Direct, English factory, and Social factory courses may become active only after it passes; imported, proposal-only, and unresolved legacy work remains blocked.
 - For repo-wide architecture or governance changes, the minimum floor is:
   - `npm.cmd run typecheck`
   - `npm.cmd run build:studio`
