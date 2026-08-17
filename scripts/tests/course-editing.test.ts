@@ -30,18 +30,19 @@ import {
   courseEditCanonicalPatchDigest,
   getCourseEditStatus,
   markCourseExportCurrent,
+  reopenCourseEditTarget,
   recoverInterruptedCourseEdit,
   renameCourseForStudio,
   resolveCourseEditPageMap,
   resolveCourseEditTarget,
   restoreCheckpointDirectoryInPlace,
-  uploadCourseEditImageAsset,
   undoCourseEditBatch
 } from "../../app/server/lib/course-editing.ts";
 import {
   clearCourseEditPreview,
   normalizeCourseEditPreview
 } from "../../app/server/lib/course-edit-preview.ts";
+import { validateRenderedCourseEdits } from "../../app/server/lib/course-edit-render-validation.ts";
 import {
   pendingCourseEditImageStateForTests,
   storePendingCourseEditImage
@@ -49,7 +50,7 @@ import {
 import { decoratePreviewHtml } from "../../app/server/lib/preview-inspection.ts";
 import {
   applyCourseEditOverridesToHtml,
-  syncStoredCourseEditAssets,
+  applyStoredCourseTitleToHtml,
   type StoredCourseEditOverride
 } from "../lib/course-editing/overrides.ts";
 import {
@@ -1146,89 +1147,6 @@ test("no-op drafts and unsafe heading size controls are rejected", async () => {
   }
 });
 
-test("validated image uploads are content-addressed and survive generated workspace rebuilds", async () => {
-  const fixture = await createFixture();
-  try {
-    const png = Buffer.from("iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNk+A8AAQUBAScY42YAAAAASUVORK5CYII=", "base64");
-    const uploaded = await uploadCourseEditImageAsset({
-      projectSlug: SLUG,
-      htmlPath: "lesson.html",
-      bytes: png,
-      repoRoot: fixture.repoRoot
-    });
-    assert.equal(uploaded.src.startsWith("assets/custom/studio/"), true);
-    assert.equal(uploaded.width, 1);
-    assert.equal(uploaded.height, 1);
-    assert.equal(await readFile(path.join(fixture.repoRoot, uploaded.repoRelativePath), "base64"), png.toString("base64"));
-    const stagedWorkspace = path.join(fixture.repoRoot, ".runtime", "asset-stage");
-    await syncStoredCourseEditAssets(fixture.repoRoot, SLUG, stagedWorkspace);
-    const filename = path.basename(uploaded.repoRelativePath);
-    assert.equal(await readFile(path.join(stagedWorkspace, "assets", "custom", "studio", filename), "base64"), png.toString("base64"));
-    const workspaceAsset = path.join(
-      fixture.repoRoot,
-      "projects",
-      SLUG,
-      "workspace",
-      "assets",
-      "custom",
-      "studio",
-      filename
-    );
-    await rm(workspaceAsset, { force: true });
-    await assert.rejects(
-      uploadCourseEditImageAsset({
-        projectSlug: SLUG,
-        htmlPath: "index.html",
-        bytes: png,
-        repoRoot: fixture.repoRoot,
-        afterCanonicalPublish: () => { throw new Error("simulated asset interruption"); }
-      }),
-      /simulated asset interruption/i
-    );
-    assert.equal(await readFile(path.join(fixture.repoRoot, uploaded.repoRelativePath), "base64"), png.toString("base64"));
-    await uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: png, repoRoot: fixture.repoRoot });
-    assert.equal(await readFile(workspaceAsset, "base64"), png.toString("base64"));
-    await writeFile(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "image.png"), png);
-    const imageTarget = await resolveElement(fixture.repoRoot, fixture.sourcePath, "img", "index.html");
-    const now = Date.now();
-    await applyCourseEditBatch({
-      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
-      projectSlug: SLUG,
-      drafts: [{
-        id: "image-draft",
-        createdAt: now,
-        updatedAt: now,
-        identity: imageTarget.identity,
-        beforeText: imageTarget.originalText,
-        afterText: "Uploaded course image",
-        baseline: {
-          originalHtml: imageTarget.originalHtml,
-          attributes: imageTarget.attributes,
-          currentStyle: imageTarget.currentStyle,
-          capabilities: imageTarget.capabilities
-        },
-        patch: { src: uploaded.src, alt: "Uploaded course image" },
-        canonicalPatchDigest: courseEditCanonicalPatchDigest({ src: uploaded.src, alt: "Uploaded course image" })
-      }]
-    }, fixture.repoRoot);
-    assert.match(await readFile(fixture.sourcePath, "utf8"), /assets\/custom\/studio/);
-    await undoCourseEditBatch(SLUG, fixture.repoRoot);
-    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
-    await assert.rejects(
-      uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: Buffer.from("not an image"), repoRoot: fixture.repoRoot }),
-      /PNG, JPEG, or GIF/i
-    );
-    for (const truncated of [png.subarray(0, 24), Buffer.from("GIF89a\u0001\u0000\u0001\u0000"), Buffer.from([0xff, 0xd8, 0xff, 0xe0, 0, 8, 0, 0, 0, 0, 0, 0])]) {
-      await assert.rejects(
-        uploadCourseEditImageAsset({ projectSlug: SLUG, htmlPath: "index.html", bytes: truncated, repoRoot: fixture.repoRoot }),
-        /decode|validated PNG, JPEG, or GIF/i
-      );
-    }
-  } finally {
-    await fixture.cleanup();
-  }
-});
-
 test("Rename course synchronizes declared surfaces, validates, and remains safely undoable", async () => {
   const fixture = await createFixture();
   try {
@@ -1743,6 +1661,10 @@ test("editing contracts reject browser-supplied paths and unsafe content", () =>
     () => sanitizeCourseEditRichText('<a href="java%09script:alert(1)">unsafe</a>'),
     /control|unsupported/i
   );
+  assert.throws(
+    () => sanitizeCourseEditRichText(`<strong>${"x".repeat(24_000)}</strong>`),
+    /too long after sanitization/i
+  );
   assert.equal(sanitizeCourseEditUrl("https://example.invalid/lesson", "href"), "https://example.invalid/lesson");
   assert.equal(sanitizeCourseEditUrl("mailto:teacher@example.invalid", "href"), "mailto:teacher@example.invalid");
   assert.equal(sanitizeCourseEditUrl("assets/photo%20one.png", "src"), "assets/photo%20one.png");
@@ -1785,6 +1707,95 @@ test("editing contracts reject browser-supplied paths and unsafe content", () =>
   }), false);
 });
 
+test("course title synchronization updates every safe marked non-void element", () => {
+  const source = [
+    "<title data-canvas-helper-course-title>Old</title>",
+    "<h1 data-canvas-helper-course-title>Old</h1>",
+    "<h4 data-canvas-helper-course-title>Old</h4>",
+    "<h5 data-canvas-helper-course-title>Old</h5>",
+    "<h6 data-canvas-helper-course-title>Old</h6>",
+    "<p data-canvas-helper-course-title>Old</p>",
+    "<span data-canvas-helper-course-title>Old</span>",
+    "<img data-canvas-helper-course-title alt=\"Old\">"
+  ].join("");
+  const updated = applyStoredCourseTitleToHtml(source, "New & Ready");
+  for (const tagName of ["title", "h1", "h4", "h5", "h6", "p", "span"]) {
+    assert.match(updated, new RegExp(`<${tagName}[^>]*>New &amp; Ready<\\/${tagName}>`, "i"));
+  }
+  assert.match(updated, /<img data-canvas-helper-course-title alt="Old">/i);
+});
+
+test("saved drafts reopen through durable identity and distinguish target drift from unrelated page drift", async () => {
+  const fixture = await createFixture();
+  try {
+    const keyed = ORIGINAL_HTML.replace("<h1>Hello teacher</h1>", "<h1 data-canvas-helper-edit-key=\"reopen-heading\">Hello teacher</h1>");
+    await writeFile(fixture.sourcePath, keyed, "utf8");
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    const initial = await reopenCourseEditTarget(target.identity, fixture.repoRoot);
+    assert.equal(initial.status, "resolved");
+    if (initial.status !== "resolved") throw new Error("Expected the durable target to reopen.");
+    assert.notEqual(initial.target.identity?.nodeId, "");
+
+    await writeFile(fixture.sourcePath, keyed.replace("Original paragraph", "An unrelated later paragraph"), "utf8");
+    const unrelated = await reopenCourseEditTarget(target.identity, fixture.repoRoot);
+    assert.equal(unrelated.status, "resolved");
+    if (unrelated.status !== "resolved") throw new Error("Expected unrelated source drift to resolve.");
+    assert.notEqual(unrelated.target.identity?.sourceDigest, target.identity.sourceDigest);
+
+    await writeFile(
+      fixture.sourcePath,
+      keyed.replace("Hello teacher", "Current heading text").replace("Original paragraph", "An unrelated later paragraph"),
+      "utf8"
+    );
+    const changed = await reopenCourseEditTarget(target.identity, fixture.repoRoot);
+    assert.equal(changed.status, "target-changed");
+    if (changed.status !== "target-changed") throw new Error("Expected target drift to be reported.");
+    assert.equal(changed.currentTarget.originalText, "Current heading text");
+
+    const missing = await reopenCourseEditTarget({ ...target.identity, editId: null }, fixture.repoRoot);
+    assert.equal(missing.status, "missing");
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("render validation closes the isolated preview server when Chromium launch fails", async () => {
+  const fixture = await createFixture();
+  try {
+    const source = await readFile(fixture.sourcePath, "utf8");
+    const heading = collectEditableHtmlElements(source, SLUG, "index.html")?.find((element) => element.tagName === "h1");
+    assert.ok(heading);
+    let closed = false;
+    await assert.rejects(
+      validateRenderedCourseEdits({
+        repoRoot: fixture.repoRoot,
+        projectSlug: SLUG,
+        checks: [{
+          htmlPath: "index.html",
+          tagName: heading.tagName,
+          pathKey: heading.pathKey,
+          editId: heading.editId,
+          expected: { html: source.slice(heading.innerStart, heading.innerEnd) }
+        }],
+        hooks: {
+          async startPreviewServer() {
+            return {
+              origin: "http://127.0.0.1:9",
+              studioOrigin: "http://127.0.0.1:9",
+              async close() { closed = true; }
+            };
+          },
+          async launchBrowser() { throw new Error("simulated Chromium launch failure"); }
+        }
+      }),
+      /simulated Chromium launch failure/i
+    );
+    assert.equal(closed, true);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("course edit HTTP routes reject oversized resolve, rename, and apply bodies", async () => {
   const fixture = await createFixture();
   const server = await startCourseEditRouteServer(fixture.repoRoot);
@@ -1802,6 +1813,15 @@ test("course edit HTTP routes reject oversized resolve, rename, and apply bodies
       assert.equal(response.ok, false);
       assert.match((await response.text()), /bytes or smaller/i);
     }
+    const malformed = await fetch(`${server.origin}/api/projects/%E0%A4%A/course-edits/status`);
+    assert.equal(malformed.status, 400);
+    assert.match(await malformed.text(), /invalid project slug/i);
+    const retiredAssetRoute = await fetch(`${server.origin}/api/projects/${SLUG}/course-edits/assets`, {
+      method: "POST",
+      body: "retired"
+    });
+    assert.equal(retiredAssetRoute.status, 404);
+    await assert.rejects(access(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "assets", "custom", "studio")));
     assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
   } finally {
     await server.close();

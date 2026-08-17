@@ -199,6 +199,62 @@ test("Codex course creation refuses unsafe slugs and never overwrites an existin
   }
 });
 
+test("Codex course creation removes its untouched published tree when Studio signaling fails", async () => {
+  const fixture = await createRepo();
+  try {
+    await assert.rejects(
+      createCodexStudioCourse({
+        repoRoot: fixture.repoRoot,
+        slug: SLUG,
+        title: TITLE,
+        courseCode: "AL 20",
+        summary: "A practical course that connects evidence, decisions, and reflection.",
+        now: CREATED_AT,
+        hooks: {
+          writeStudioChangeSignal() { throw new Error("simulated Studio signal failure"); }
+        }
+      }),
+      /simulated Studio signal failure/i
+    );
+    await assert.rejects(stat(path.join(fixture.repoRoot, "projects", SLUG)), { code: "ENOENT" });
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("Codex course creation preserves a published tree changed during failed Studio signaling", async () => {
+  const fixture = await createRepo();
+  try {
+    await assert.rejects(
+      createCodexStudioCourse({
+        repoRoot: fixture.repoRoot,
+        slug: SLUG,
+        title: TITLE,
+        courseCode: "AL 20",
+        summary: "A practical course that connects evidence, decisions, and reflection.",
+        now: CREATED_AT,
+        hooks: {
+          async writeStudioChangeSignal() {
+            await writeFile(
+              path.join(fixture.repoRoot, "projects", SLUG, "workspace", "index.html"),
+              "external newer work\n",
+              "utf8"
+            );
+            throw new Error("simulated Studio signal failure");
+          }
+        }
+      }),
+      /simulated Studio signal failure/i
+    );
+    assert.equal(
+      await readFile(path.join(fixture.repoRoot, "projects", SLUG, "workspace", "index.html"), "utf8"),
+      "external newer work\n"
+    );
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("a Codex-created course survives Studio apply, reload resolution, and Undo", async () => {
   const fixture = await createRepo();
   try {

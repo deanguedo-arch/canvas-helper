@@ -9,6 +9,7 @@ on:
       - "package.json"
       - "config/english/**"
       - "config/studio-editability-policy-v1.json"
+      - "config/typecheck-baseline-v1.json"
       - ".github/workflows/new-course-readiness.yml"
   push:
     branches:
@@ -21,6 +22,7 @@ on:
       - "package.json"
       - "config/english/**"
       - "config/studio-editability-policy-v1.json"
+      - "config/typecheck-baseline-v1.json"
       - ".github/workflows/new-course-readiness.yml"
   workflow_dispatch: {}
 
@@ -54,6 +56,12 @@ jobs:
       - name: Run new-course policy and generator contracts
         run: npm run test:new-course-readiness
 
+      - name: Verify the frozen TypeScript diagnostic baseline
+        run: npm run verify:typecheck-baseline
+
+      - name: Prove a fresh production Codex course is Studio-ready
+        run: npm run verify:fresh-course-studio-proof -- --report .runtime/fresh-course-studio-proof.json
+
       - name: Verify changed new and governed courses
         env:
           COURSE_READINESS_BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
@@ -77,3 +85,4 @@ jobs:
             .runtime/new-course-readiness.json
             .runtime/new-course-editability-report.json
             .runtime/course-onboarding-verification.json
+            .runtime/fresh-course-studio-proof.json

@@ -10,6 +10,7 @@ import {
   type CourseEditPendingAssetReference,
   type CourseEditPendingImage,
   type CourseEditPatch,
+  type CourseEditReopenResult,
   type CourseEditPreviewNormalizeRequest,
   type CourseEditPreviewNormalizeResult,
   type CourseEditResolveRequest,
@@ -264,10 +265,10 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   }, [closeLivePreview]);
 
   const normalizeLivePreview = useCallback(async (
+    current: CourseEditTarget,
     patch: CourseEditPatch,
     pendingAssets: readonly CourseEditPendingAssetReference[] = []
   ) => {
-    const current = target;
     if (!current?.identity || current.eligibility !== "editable") return null;
     const context = previewContextFor(current);
     if (!context) {
@@ -333,15 +334,21 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     } finally {
       if (previewAbortRef.current === controller) previewAbortRef.current = null;
     }
-  }, [closeLivePreview, previewContextFor, target]);
+  }, [closeLivePreview, previewContextFor]);
 
-  const previewTargetPatch = useCallback((patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => {
+  const previewTargetPatch = useCallback((
+    patch: CourseEditPatch,
+    pendingAsset?: CourseEditPendingAssetReference,
+    freshlyResolvedTarget?: CourseEditTarget
+  ) => {
     if (busy) return;
+    const current = freshlyResolvedTarget ?? target;
+    if (!current) return;
     if (!Object.keys(patch).length) {
       closeLivePreview();
       return;
     }
-    void normalizeLivePreview(patch, pendingAsset ? [pendingAsset] : []);
+    void normalizeLivePreview(current, patch, pendingAsset ? [pendingAsset] : []);
   }, [busy, closeLivePreview, normalizeLivePreview]);
 
   const saveTarget = useCallback(async (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => {
@@ -362,7 +369,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       return false;
     }
     setBusy(true);
-    const normalized = await normalizeLivePreview(patch, pendingAsset ? [pendingAsset] : []);
+    const normalized = await normalizeLivePreview(current, patch, pendingAsset ? [pendingAsset] : []);
     if (!normalized) {
       setBusy(false);
       setFeedback({ message: "Studio could not save this draft because its learner preview was not valid.", tone: "error" });
@@ -421,6 +428,50 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     editDraft({ ...draft, patch, afterText, updatedAt: Date.now() });
     return true;
   }, [busy, editDraft]);
+
+  const reopenDraft = useCallback(async (draft: CourseEditDraft): Promise<CourseEditReopenResult | null> => {
+    if (busy || draft.identity.projectSlug !== activeProjectRef.current) return null;
+    try {
+      const response = await fetch("/api/course-edits/reopen", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, identity: draft.identity })
+      });
+      const result = await responseJson<CourseEditReopenResult>(response, "Studio could not reopen this saved draft.");
+      if (result.status === "resolved") {
+        setFeedback({ message: "Saved draft located. Studio is checking its current learner-page selection.", tone: "progress" });
+      } else if (result.status === "target-changed") {
+        setFeedback({ message: "The saved element changed in the course. Its draft was preserved, but it must be rebased onto the current content before saving or applying.", tone: "warning" });
+      } else {
+        setFeedback({ message: result.reason, tone: "warning" });
+      }
+      return result;
+    } catch (error) {
+      setFeedback({ message: error instanceof Error ? error.message : "Studio could not reopen this saved draft.", tone: "error" });
+      return null;
+    }
+  }, [busy]);
+
+  const rebindDraft = useCallback((id: string, current: CourseEditTarget) => {
+    if (!current.identity || current.eligibility !== "editable") return false;
+    const existing = draftsRef.current.find((draft) => draft.id === id);
+    if (!existing) return false;
+    const next: CourseEditDraft = {
+      ...existing,
+      identity: current.identity,
+      beforeText: current.originalText,
+      baseline: {
+        originalHtml: current.originalHtml,
+        attributes: current.attributes,
+        currentStyle: current.currentStyle,
+        capabilities: current.capabilities
+      },
+      canonicalPatchDigest: undefined,
+      updatedAt: Date.now()
+    };
+    replaceDrafts(draftsRef.current.map((draft) => draft.id === id ? next : draft));
+    return true;
+  }, [replaceDrafts]);
 
   const removeDraft = useCallback((id: string) => {
     if (busy) return;
@@ -637,6 +688,8 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     saveTarget,
     editDraft,
     patchDraft,
+    reopenDraft,
+    rebindDraft,
     removeDraft,
     reorderDraft,
     apply,
@@ -647,5 +700,5 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     renameCourse,
     clearSelection,
     refreshStatus
-  }), [acknowledgePreview, apply, busy, clearSelection, closeLivePreview, drafts, editDraft, enabled, exportDrafts, feedback, importDrafts, patchDraft, previewCommand, previewFeedback, previewTargetPatch, refreshStatus, removeDraft, renameCourse, reorderDraft, resolveSelection, resolving, saveTarget, status, target, undo, uploadImage]);
+  }), [acknowledgePreview, apply, busy, clearSelection, closeLivePreview, drafts, editDraft, enabled, exportDrafts, feedback, importDrafts, patchDraft, previewCommand, previewFeedback, previewTargetPatch, refreshStatus, removeDraft, renameCourse, reopenDraft, rebindDraft, reorderDraft, resolveSelection, resolving, saveTarget, status, target, undo, uploadImage]);
 }

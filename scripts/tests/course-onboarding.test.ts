@@ -1,5 +1,5 @@
 import assert from "node:assert/strict";
-import { mkdir, mkdtemp, readFile, rm, writeFile } from "node:fs/promises";
+import { chmod, mkdir, mkdtemp, readFile, rm, stat, writeFile } from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
 import test from "node:test";
@@ -126,17 +126,82 @@ test("bulk onboarding explicitly classifies legacy sources and is idempotent", a
   }
 });
 
-test("bulk onboarding fails closed for an unmanifested source directory", async () => {
+test("bulk onboarding records an unmanifested source directory as blocked without inventing ownership", async () => {
   const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-course-onboarding-unclassified-"));
   try {
     const workspaceRoot = path.join(repoRoot, "projects", "unknown-course", "workspace");
     await mkdir(workspaceRoot, { recursive: true });
     await writeFile(path.join(workspaceRoot, "index.html"), "<main>Unknown source</main>\n", "utf8");
-    await assert.rejects(
-      onboardCourseCatalog({ repoRoot, apply: true, now: FIRST_RUN }),
-      /has no project manifest and is not a package-only archive/i
-    );
+    const report = await onboardCourseCatalog({ repoRoot, apply: true, now: FIRST_RUN });
+    assert.deepEqual(report.counts, {
+      direct: 0,
+      "english-factory": 0,
+      "social-factory": 0,
+      "legacy-snapshot": 0,
+      blocked: 1,
+      "reference-only": 0,
+      "package-archive": 0
+    });
+    assert.deepEqual(report.entries, [{
+      slug: "unknown-course",
+      classification: "blocked",
+      studioEditing: "disabled",
+      action: "classify",
+      reason: "No project manifest was found. Catalog onboarding did not invent canonical source authority; establish an explicit source contract before enabling Studio writes."
+    }]);
+    await assert.rejects(readFile(path.join(repoRoot, "projects", "unknown-course", "meta", "project.json")));
     await assert.rejects(readFile(path.join(repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL)));
+  } finally {
+    await rm(repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("onboarding recomputes Rename permission from current title markers", async () => {
+  const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-course-onboarding-rename-"));
+  try {
+    await createLegacyProject(repoRoot, "stale-rename");
+    const manifestPath = path.join(repoRoot, "projects", "stale-rename", "meta", "project.json");
+    const manifest = JSON.parse(await readFile(manifestPath, "utf8")) as ProjectManifest;
+    manifest.authoring = {
+      driverId: "direct-workspace-v1",
+      studioEditing: { enabled: true, renameCourse: true, imageAssets: true }
+    };
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
+    await onboardCourseCatalog({ repoRoot, apply: true, now: FIRST_RUN });
+    const next = JSON.parse(await readFile(manifestPath, "utf8")) as ProjectManifest;
+    assert.equal(next.authoring?.studioEditing?.renameCourse, false);
+  } finally {
+    await rm(repoRoot, { recursive: true, force: true });
+  }
+});
+
+test("onboarding rollback restores exact original bytes, modes, and prior signal presence", async () => {
+  const repoRoot = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-course-onboarding-rollback-"));
+  try {
+    await createLegacyProject(repoRoot, "rollback-course");
+    const manifestPath = path.join(repoRoot, "projects", "rollback-course", "meta", "project.json");
+    const originalManifest = await readFile(manifestPath);
+    await chmod(manifestPath, 0o640);
+    const signalPath = path.join(repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL);
+    await mkdir(path.dirname(signalPath), { recursive: true });
+    const originalSignal = Buffer.from("pre-existing non-JSON signal bytes\n");
+    await writeFile(signalPath, originalSignal);
+    await chmod(signalPath, 0o600);
+
+    await assert.rejects(
+      onboardCourseCatalog({
+        repoRoot,
+        apply: true,
+        now: FIRST_RUN,
+        hooks: { afterStudioSignalWritten() { throw new Error("simulated signal failure"); } }
+      }),
+      /simulated signal failure/i
+    );
+
+    assert.deepEqual(await readFile(manifestPath), originalManifest);
+    assert.equal((await stat(manifestPath)).mode & 0o777, 0o640);
+    assert.deepEqual(await readFile(signalPath), originalSignal);
+    assert.equal((await stat(signalPath)).mode & 0o777, 0o600);
   } finally {
     await rm(repoRoot, { recursive: true, force: true });
   }

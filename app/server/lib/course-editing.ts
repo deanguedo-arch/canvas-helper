@@ -20,6 +20,7 @@ import {
   type CourseEditPendingAssetReference,
   type CourseEditPatch,
   type CourseEditPreviewRepresentation,
+  type CourseEditReopenResult,
   type CourseEditResolveRequest,
   type CourseEditStylePatch,
   type CourseEditStatus,
@@ -82,7 +83,6 @@ import {
   type CourseEditPathFingerprint,
   type CourseEditTransactionJournal
 } from "./course-edit-transaction";
-import { validateCourseEditImage } from "./course-edit-image";
 import {
   consumePendingCourseEditImage,
   getPendingCourseEditImageForApply
@@ -653,6 +653,80 @@ export async function resolveCourseEditTarget(request: CourseEditResolveRequest,
     element,
     originalHtml
   });
+}
+
+/**
+ * Reopens a stored draft by its durable edit identity rather than its old
+ * preview node. It is intentionally read-only: the caller must still obtain
+ * a fresh rendered selection and run normal Resolve before it can preview or
+ * save against the returned target.
+ */
+export async function reopenCourseEditTarget(
+  identity: CourseEditTargetIdentity,
+  repoRoot = defaultRepoRoot
+): Promise<CourseEditReopenResult> {
+  if (!identity.editId) {
+    return {
+      status: "missing",
+      reason: "This older draft has no durable edit identity. Select the current learner element again before editing it."
+    };
+  }
+  const { project, adapter, reason } = await resolveCourseProject(identity.projectSlug, repoRoot);
+  if (!project || !adapter || adapter !== identity.adapter) {
+    return { status: "unsupported", reason: reason || "The course edit adapter changed after this draft was saved." };
+  }
+  let sourcePath: string;
+  let document: PreviewInspectionDocument | null;
+  try {
+    sourcePath = await resolveEditWorkspacePath(identity.projectSlug, identity.htmlPath, repoRoot);
+    document = await loadPreviewInspectionDocument(sourcePath);
+  } catch {
+    return { status: "missing", reason: "The saved learner page is no longer available in this course workspace." };
+  }
+  if (!document) {
+    return { status: "missing", reason: "Studio can no longer inspect the saved learner page safely." };
+  }
+  const htmlPath = relativeWorkspacePath(sourcePath, identity.projectSlug, repoRoot);
+  const elements = collectEditableHtmlElements(document.source, identity.projectSlug, htmlPath);
+  if (!elements) return { status: "missing", reason: "Studio can no longer map the saved learner page." };
+  const element = elements.find((candidate) => candidate.editId === identity.editId && candidate.tagName === identity.tagName);
+  if (!element) {
+    return {
+      status: "missing",
+      reason: "The saved element no longer has the same durable identity. Select the current learner element again before editing it."
+    };
+  }
+  if (!element.replaySafe) {
+    return {
+      status: "unsupported",
+      reason: "This repeated element is no longer safe to reopen without a durable data-canvas-helper-edit-key."
+    };
+  }
+  const location = [...document.nodeLocations.entries()].find(([, candidate]) => (
+    candidate.sourceStart === element.sourceStart && candidate.tagName === element.tagName
+  ));
+  if (!location) return { status: "missing", reason: "The saved element is no longer inspectable in the learner preview." };
+  const currentIdentity = targetIdentity({
+    projectSlug: identity.projectSlug,
+    htmlPath,
+    nodeId: location[0],
+    sourceDigest: document.sourceDigest,
+    elementDigest: courseEditElementDigest(document.source, element),
+    editId: element.editId,
+    tagName: element.tagName,
+    adapter
+  });
+  const currentTarget = buildEditableTarget({
+    identity: currentIdentity,
+    element,
+    originalHtml: document.source.slice(element.innerStart, element.innerEnd)
+  });
+  if (currentTarget.eligibility !== "editable") {
+    return { status: "unsupported", reason: currentTarget.reason };
+  }
+  return currentIdentity.elementDigest === identity.elementDigest
+    ? { status: "resolved", target: currentTarget }
+    : { status: "target-changed", currentTarget };
 }
 
 function canonicalCourseEditPatch(patch: CourseEditPatch): CourseEditPatch {
@@ -2061,72 +2135,6 @@ export async function undoCourseEditBatch(projectSlug: string, repoRoot = defaul
       appliedCount: 0,
       message: "The last Studio edit batch was undone and the course was validated.",
       warnings: staleTargets.length ? ["Existing export packages are out of date until you publish them again."] : []
-    };
-  });
-}
-
-async function ensureCourseEditAssetDirectory(repoRoot: string, segments: string[]) {
-  let cursor = repoRoot;
-  for (const segment of segments) {
-    cursor = path.join(cursor, segment);
-    try {
-      const stats = await lstat(cursor);
-      if (stats.isSymbolicLink() || !stats.isDirectory()) throw new Error("Studio image storage must use real directories inside this checkout.");
-    } catch (error) {
-      if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-      await mkdir(cursor);
-    }
-  }
-  return cursor;
-}
-
-export async function uploadCourseEditImageAsset(input: {
-  projectSlug: string;
-  htmlPath: string;
-  bytes: Buffer;
-  repoRoot?: string;
-  afterCanonicalPublish?: () => void | Promise<void>;
-}) {
-  const repoRoot = input.repoRoot ?? defaultRepoRoot;
-  const image = await validateCourseEditImage(input.bytes);
-  return await withProjectEditLock(input.projectSlug, "asset-upload", repoRoot, async () => {
-    const { project, adapter, reason } = await resolveCourseProject(input.projectSlug, repoRoot);
-    if (!project || !adapter) throw new Error(reason || "This course cannot accept Studio image assets.");
-    if (!project.studioEditing.imageAssets) throw new Error("This course has not been explicitly onboarded for Studio image uploads.");
-    await resolveEditWorkspacePath(input.projectSlug, input.htmlPath, repoRoot);
-    const digest = createHash("sha256").update(input.bytes).digest("hex");
-    const filename = `${digest}.${image.extension}`;
-    const resourceDir = await ensureCourseEditAssetDirectory(repoRoot, ["projects", "resources", input.projectSlug, "studio-assets"]);
-    const workspaceDir = await ensureCourseEditAssetDirectory(repoRoot, ["projects", input.projectSlug, "workspace", "assets", "custom", "studio"]);
-    const resourcePath = path.join(resourceDir, filename);
-    const workspacePath = path.join(workspaceDir, filename);
-    const publish = async (targetPath: string) => {
-      try {
-        const stats = await lstat(targetPath);
-        if (!stats.isFile() || stats.isSymbolicLink()) throw new Error("A Studio asset path is not a regular file.");
-        if (!(await readFile(targetPath)).equals(input.bytes)) {
-          throw new Error("A content-addressed Studio asset does not match its recorded digest.");
-        }
-      } catch (error) {
-        if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
-        await durableAtomicWrite(targetPath, input.bytes, 0o644);
-      }
-    };
-    // The canonical resource is published first. Both destinations are keyed
-    // by the full content digest and verified on retry, so interruption can
-    // leave only an unreferenced canonical copy and a retry safely completes.
-    await publish(resourcePath);
-    await input.afterCanonicalPublish?.();
-    await publish(workspacePath);
-    const workspaceRelative = `assets/custom/studio/${filename}`;
-    const src = path.posix.relative(path.posix.dirname(input.htmlPath), workspaceRelative) || filename;
-    return {
-      src,
-      repoRelativePath: path.relative(repoRoot, resourcePath).split(path.sep).join("/"),
-      mimeType: image.mimeType,
-      width: image.width,
-      height: image.height,
-      byteLength: input.bytes.length
     };
   });
 }

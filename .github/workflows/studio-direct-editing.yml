@@ -40,6 +40,21 @@ jobs:
       - name: Run focused Direct Editing tests
         run: npm run test:course-editing
 
+      - name: Record the expected raw TypeScript diagnostic baseline
+        run: |
+          mkdir -p .runtime
+          set +e
+          npm run typecheck -- --pretty false > .runtime/raw-typecheck.txt 2>&1
+          typecheck_status=$?
+          cat .runtime/raw-typecheck.txt
+          if [[ "$typecheck_status" -ne 2 ]]; then
+            echo "Expected the established raw typecheck exit code 2; received $typecheck_status." >&2
+            exit 1
+          fi
+
+      - name: Verify no TypeScript diagnostic changed from the frozen baseline
+        run: npm run verify:typecheck-baseline
+
       - name: Run editability census contracts
         run: npm run test:course-editability
 
@@ -65,6 +80,7 @@ jobs:
             .runtime/studio-release-report.json
             .runtime/course-editing-pilots.json
             .runtime/course-onboarding-verification.json
+            .runtime/raw-typecheck.txt
 
   editability-census:
     runs-on: ubuntu-latest

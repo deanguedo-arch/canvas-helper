@@ -1,5 +1,5 @@
-import { randomUUID } from "node:crypto";
-import { rename, rm } from "node:fs/promises";
+import { createHash, randomUUID } from "node:crypto";
+import { lstat, readFile, readdir, rename, rm } from "node:fs/promises";
 import path from "node:path";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.js";
@@ -24,6 +24,10 @@ export type CreateCodexStudioCourseInput = {
   courseCode?: string;
   summary?: string;
   now?: string;
+  /** Internal fault-injection seam used only by the course-creation tests. */
+  hooks?: {
+    writeStudioChangeSignal?: (input: { target: string; value: unknown }) => void | Promise<void>;
+  };
 };
 
 export type CreatedCodexStudioCourse = {
@@ -56,6 +60,28 @@ function escapeHtml(value: string) {
     .replaceAll(">", "&gt;")
     .replaceAll('"', "&quot;")
     .replaceAll("'", "&#39;");
+}
+
+async function createdCourseTreeFingerprint(root: string) {
+  const hash = createHash("sha256");
+  const walk = async (target: string, relative: string): Promise<void> => {
+    const entry = await lstat(target);
+    if (entry.isSymbolicLink()) throw new Error("A newly created course cannot contain symbolic links.");
+    if (entry.isDirectory()) {
+      hash.update(`directory:${relative}\u0000${entry.mode}\n`);
+      const children = await readdir(target, { withFileTypes: true });
+      children.sort((left, right) => left.name < right.name ? -1 : left.name > right.name ? 1 : 0);
+      for (const child of children) {
+        await walk(path.join(target, child.name), relative ? `${relative}/${child.name}` : child.name);
+      }
+      return;
+    }
+    if (!entry.isFile()) throw new Error("A newly created course contains an unsupported filesystem entry.");
+    hash.update(`file:${relative}\u0000${entry.mode}\u0000${entry.size}\n`);
+    hash.update(await readFile(target));
+  };
+  await walk(root, "");
+  return hash.digest("hex");
 }
 
 export function renderCodexStudioCourseHtml(input: {
@@ -473,6 +499,7 @@ export async function createCodexStudioCourse(input: CreateCodexStudioCourseInpu
 
   const stagingParent = path.join(repoRoot, ".runtime", "course-create");
   const stageRepoRoot = path.join(stagingParent, `${slug}-${randomUUID()}`);
+  let publishedFingerprint: string | null = null;
   await ensureDir(stageRepoRoot);
   try {
     const stagedProjectRoot = await writeStagedCourse({ stageRepoRoot, slug, title, courseCode, summary, now });
@@ -481,12 +508,29 @@ export async function createCodexStudioCourse(input: CreateCodexStudioCourseInpu
       throw new Error(`Project appeared while creating it: projects/${slug}. No existing files were changed.`);
     }
     await rename(stagedProjectRoot, targetProjectRoot);
-    await writeJsonFile(path.join(repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL), {
+    publishedFingerprint = await createdCourseTreeFingerprint(targetProjectRoot);
+    const signal = {
       projectSlug: slug,
       changedAt: now,
       nonce: randomUUID()
-    });
+    };
+    const signalPath = path.join(repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL);
+    if (input.hooks?.writeStudioChangeSignal) {
+      await input.hooks.writeStudioChangeSignal({ target: signalPath, value: signal });
+    } else {
+      await writeJsonFile(signalPath, signal);
+    }
   } catch (error) {
+    if (publishedFingerprint && await fileExists(targetProjectRoot)) {
+      try {
+        if (await createdCourseTreeFingerprint(targetProjectRoot) === publishedFingerprint) {
+          await rm(targetProjectRoot, { recursive: true, force: true });
+        }
+      } catch {
+        // A changed or otherwise uninspectable published tree is left in
+        // place; it may contain work written after Studio published it.
+      }
+    }
     await rm(stageRepoRoot, { recursive: true, force: true });
     throw error;
   }

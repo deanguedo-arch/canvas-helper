@@ -4,6 +4,7 @@ import {
   isCourseEditApplyRequest,
   isCourseEditPreviewClearRequest,
   isCourseEditPreviewNormalizeRequest,
+  isCourseEditReopenRequest,
   isCourseRenameRequest,
   type CourseEditResolveRequest
 } from "../../shared/course-editing.js";
@@ -12,9 +13,9 @@ import { isPreviewInspectPayload } from "../../shared/preview-bridge.js";
 import {
   applyCourseEditBatch,
   getCourseEditStatus,
+  reopenCourseEditTarget,
   resolveCourseEditTarget,
   renameCourseForStudio,
-  uploadCourseEditImageAsset,
   undoCourseEditBatch
 } from "../lib/course-editing";
 import { MAX_COURSE_EDIT_IMAGE_BYTES } from "../lib/course-edit-image";
@@ -34,6 +35,7 @@ const COURSE_EDIT_RESOLVE_MAX_BYTES = 262_144;
 const COURSE_EDIT_APPLY_MAX_BYTES = 4_194_304;
 const COURSE_EDIT_RENAME_MAX_BYTES = 16_384;
 const COURSE_EDIT_PREVIEW_MAX_BYTES = 131_072;
+const COURSE_EDIT_REOPEN_MAX_BYTES = 65_536;
 
 type CourseEditsRouteOptions = {
   repoRoot?: string;
@@ -104,7 +106,15 @@ function pendingImageBindingFromHeaders(request: IncomingMessage, projectSlug: s
   return { projectSlug, htmlPath, targetId, sourceDigest, targetNodeId, previewSessionId, pageIdentity };
 }
 
-export async function handleCourseEditsRoute(
+function decodeProjectSlug(value: string) {
+  try {
+    return decodeURIComponent(value);
+  } catch {
+    return null;
+  }
+}
+
+async function handleCourseEditsRouteInner(
   url: string,
   request: IncomingMessage,
   response: ServerResponse,
@@ -160,11 +170,32 @@ export async function handleCourseEditsRoute(
     return true;
   }
 
-  const match = url.match(/^\/api\/projects\/([^/]+)\/course-edits\/(status|apply|undo|assets|preview-assets|rename)$/);
+  if (url === "/api/course-edits/reopen") {
+    if (request.method !== "POST") {
+      sendJson(response, 405, { error: "Method not allowed." });
+      return true;
+    }
+    try {
+      const body = await readRequestJson<unknown>(request, {
+        maxBytes: COURSE_EDIT_REOPEN_MAX_BYTES,
+        description: "Course edit reopen requests"
+      });
+      if (!isCourseEditReopenRequest(body)) {
+        sendJson(response, 400, { error: "Invalid bounded course edit reopen request." });
+        return true;
+      }
+      sendJson(response, 200, await reopenCourseEditTarget(body.identity, repoRoot));
+    } catch (error) {
+      sendJson(response, 400, { error: safeError(error) });
+    }
+    return true;
+  }
+
+  const match = url.match(/^\/api\/projects\/([^/]+)\/course-edits\/(status|apply|undo|preview-assets|rename)$/);
   if (!match) return false;
-  const projectSlug = decodeURIComponent(match[1]);
+  const projectSlug = decodeProjectSlug(match[1]);
   const action = match[2];
-  if (!isSafeProjectSlug(projectSlug)) {
+  if (!projectSlug || !isSafeProjectSlug(projectSlug)) {
     sendJson(response, 400, { error: "Invalid project slug." });
     return true;
   }
@@ -192,20 +223,6 @@ export async function handleCourseEditsRoute(
       sendJson(response, 200, await storePendingCourseEditImage({
         ...binding,
         bytes: await readBoundedImage(request)
-      }));
-      return true;
-    }
-    if (action === "assets") {
-      const htmlPathHeader = request.headers["x-canvas-helper-html-path"];
-      const htmlPath = Array.isArray(htmlPathHeader) ? htmlPathHeader[0] : htmlPathHeader;
-      if (!htmlPath || htmlPath.length > 2_048 || htmlPath.startsWith("/") || htmlPath.includes("\\") || htmlPath.split("/").some((part) => !part || part === "." || part === "..")) {
-        throw new Error("The image upload is missing a safe course page path.");
-      }
-      sendJson(response, 200, await uploadCourseEditImageAsset({
-        projectSlug,
-        htmlPath,
-        bytes: await readBoundedImage(request),
-        repoRoot
       }));
       return true;
     }
@@ -238,4 +255,27 @@ export async function handleCourseEditsRoute(
     sendJson(response, 422, { error: safeError(error) });
   }
   return true;
+}
+
+/**
+ * Route modules are loaded dynamically by Studio. Keep a final boundary here
+ * so a malformed path or a later async regression cannot become an unhandled
+ * rejection in the server process.
+ */
+export async function handleCourseEditsRoute(
+  url: string,
+  request: IncomingMessage,
+  response: ServerResponse,
+  options: CourseEditsRouteOptions = {}
+) {
+  try {
+    return await handleCourseEditsRouteInner(url, request, response, options);
+  } catch (error) {
+    if (!response.headersSent && !response.writableEnded) {
+      sendJson(response, 400, { error: safeError(error) });
+    } else if (!response.writableEnded) {
+      response.end();
+    }
+    return true;
+  }
 }

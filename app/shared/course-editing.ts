@@ -89,6 +89,16 @@ export type CourseEditTarget = {
   currentStyle: Required<CourseEditStylePatch>;
 };
 
+export type CourseEditReopenRequest = {
+  schemaVersion: typeof COURSE_EDIT_SCHEMA_VERSION;
+  identity: CourseEditTargetIdentity;
+};
+
+export type CourseEditReopenResult =
+  | { status: "resolved"; target: CourseEditTarget }
+  | { status: "target-changed"; currentTarget: CourseEditTarget }
+  | { status: "missing" | "unsupported"; reason: string };
+
 export type CourseEditPageMapEntry = {
   nodeId: string;
   tagName: string;
@@ -307,6 +317,15 @@ export function isCourseEditTargetIdentity(value: unknown): value is CourseEditT
     (value.editId === null || (isBoundedString(value.editId, COURSE_EDIT_MAX_ID_CODE_UNITS, false) && /^che[12]:[a-f0-9]{24}$/.test(value.editId))) &&
     isBoundedString(value.tagName, 24, false) &&
     isCourseEditAdapter(value.adapter)
+  );
+}
+
+export function isCourseEditReopenRequest(value: unknown): value is CourseEditReopenRequest {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, ["schemaVersion", "identity"]) &&
+    value.schemaVersion === COURSE_EDIT_SCHEMA_VERSION &&
+    isCourseEditTargetIdentity(value.identity)
   );
 }
 

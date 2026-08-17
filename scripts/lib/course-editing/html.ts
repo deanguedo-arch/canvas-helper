@@ -341,7 +341,11 @@ export function sanitizeCourseEditRichText(value: string) {
   parser.write(value);
   parser.end();
   while (emitted.length) output += `</${emitted.pop()}>`;
-  return output.trim().slice(0, 24_000);
+  const sanitized = output.trim();
+  if (sanitized.length > 24_000) {
+    throw new Error("Rich text is too long after sanitization. Shorten this edit before saving it.");
+  }
+  return sanitized;
 }
 
 export function isSafeCourseEditRichTextSource(value: string) {

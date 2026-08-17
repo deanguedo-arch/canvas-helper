@@ -76,9 +76,15 @@ function escapedHtml(value: string) {
 
 export function applyStoredCourseTitleToHtml(html: string, title: string) {
   const escaped = escapedHtml(title);
+  const unsafeOrVoid = new Set([
+    "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr",
+    "script", "style", "template", "iframe", "object", "embed", "svg", "math"
+  ]);
   return html.replace(
-    new RegExp(`(<(title|h1|h2|h3)\\b[^>]*\\b${STUDIO_COURSE_TITLE_ATTRIBUTE}(?:\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+))?[^>]*>)[\\s\\S]*?(<\\/\\2\\s*>)`, "gi"),
-    (_match, opening: string, _tagName: string, closing: string) => `${opening}${escaped}${closing}`
+    new RegExp(`(<([a-z][a-z0-9-]*)\\b[^>]*\\b${STUDIO_COURSE_TITLE_ATTRIBUTE}(?:\\s*=\\s*(?:"[^"]*"|'[^']*'|[^\\s>]+))?[^>]*>)[\\s\\S]*?(<\\/\\2\\s*>)`, "gi"),
+    (match, opening: string, tagName: string, closing: string) => (
+      unsafeOrVoid.has(tagName.toLowerCase()) ? match : `${opening}${escaped}${closing}`
+    )
   );
 }
 

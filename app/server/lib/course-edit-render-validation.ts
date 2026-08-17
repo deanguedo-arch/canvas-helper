@@ -139,16 +139,25 @@ export async function validateRenderedCourseEdits(input: {
   repoRoot: string;
   projectSlug: string;
   checks: CourseEditRenderCheck[];
+  /** Internal fault-injection seams used only by render-validation tests. */
+  hooks?: {
+    startPreviewServer?: typeof startIsolatedPreviewServer;
+    launchBrowser?: typeof chromium.launch;
+  };
 }) {
   if (!input.checks.length) return;
   const checks = await resolvedBrowserChecks(input);
   const studioOrigin = "http://127.0.0.1:9";
-  const preview = await startIsolatedPreviewServer({ studioOrigin, repoRoot: input.repoRoot });
-  const browser = await chromium.launch({
-    headless: true,
-    args: ["--force-webrtc-ip-handling-policy=disable_non_proxied_udp"]
-  });
+  const preview = await (input.hooks?.startPreviewServer ?? startIsolatedPreviewServer)({ studioOrigin, repoRoot: input.repoRoot });
+  const launchBrowser = input.hooks?.launchBrowser
+    ? input.hooks.launchBrowser
+    : (options: Parameters<typeof chromium.launch>[0]) => chromium.launch(options);
+  let browser: Awaited<ReturnType<typeof chromium.launch>> | null = null;
   try {
+    browser = await launchBrowser({
+      headless: true,
+      args: ["--force-webrtc-ip-handling-policy=disable_non_proxied_udp"]
+    });
     const context = await browser.newContext({ serviceWorkers: "block" });
     await context.addInitScript(() => {
       for (const name of ["RTCPeerConnection", "webkitRTCPeerConnection", "Worker", "SharedWorker"]) {
@@ -291,7 +300,7 @@ export async function validateRenderedCourseEdits(input: {
       await page.close();
     }
   } finally {
-    await browser.close().catch(() => undefined);
+    await browser?.close().catch(() => undefined);
     await preview.close().catch(() => undefined);
   }
 }

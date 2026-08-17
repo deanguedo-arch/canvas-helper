@@ -1,5 +1,5 @@
 import { randomUUID } from "node:crypto";
-import { lstat, mkdir, readFile, readdir, rename, rm, writeFile } from "node:fs/promises";
+import { chmod, lstat, mkdir, readFile, readdir, rename, rm, rmdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 
 import { STUDIO_PROJECT_CHANGE_SIGNAL } from "../../app/shared/project-discovery.js";
@@ -80,6 +80,13 @@ type ManifestCandidate = {
   path: string;
   manifest: ProjectManifest;
   entry: CourseOnboardingEntry;
+};
+
+type OnboardingFileBackup = {
+  target: string;
+  content: Buffer | null;
+  mode: number | null;
+  createdParentDirectories: string[];
 };
 
 function slash(value: string) {
@@ -172,7 +179,13 @@ async function collectLegacyWorkspaceSources(repoRoot: string, slug: string) {
 async function titleMarkerCount(repoRoot: string, slug: string) {
   try {
     const html = await readFile(path.join(repoRoot, "projects", slug, "workspace", "index.html"), "utf8");
-    return (html.match(/data-canvas-helper-course-title\b/g) ?? []).length;
+    const unsafeOrVoid = new Set([
+      "area", "base", "br", "col", "embed", "hr", "img", "input", "link", "meta", "param", "source", "track", "wbr",
+      "script", "style", "template", "iframe", "object", "svg", "math"
+    ]);
+    return [...html.matchAll(/<([a-z][a-z0-9-]*)\b[^>]*\bdata-canvas-helper-course-title\b[^>]*>/gi)]
+      .filter((match) => !unsafeOrVoid.has(match[1]!.toLowerCase()))
+      .length;
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code === "ENOENT") return 0;
     throw error;
@@ -494,7 +507,10 @@ async function buildManifestCandidate(input: {
           : {}),
       studioEditing: {
         enabled,
-        renameCourse: enabled && (manifest.authoring?.studioEditing?.renameCourse === true || renameCourse),
+        // Rename is enabled only when the current rendered source still
+        // carries enough synchronized title markers. A previous onboarding
+        // flag is not proof that those markers survived later course changes.
+        renameCourse: enabled && renameCourse,
         imageAssets: enabled
       }
     },
@@ -506,14 +522,53 @@ async function buildManifestCandidate(input: {
 }
 
 async function atomicWriteJson(target: string, value: unknown) {
+  await atomicWriteBytes(target, Buffer.from(`${JSON.stringify(value, null, 2)}\n`, "utf8"), 0o644);
+}
+
+async function atomicWriteBytes(target: string, content: Buffer, mode: number) {
   await mkdir(path.dirname(target), { recursive: true });
   const temporary = `${target}.course-onboard-${process.pid}-${Date.now()}`;
   try {
-    await writeFile(temporary, `${JSON.stringify(value, null, 2)}\n`, "utf8");
+    await writeFile(temporary, content, { mode });
+    await chmod(temporary, mode);
     await rename(temporary, target);
   } finally {
     await rm(temporary, { force: true });
   }
+}
+
+async function snapshotOnboardingFile(target: string): Promise<OnboardingFileBackup> {
+  const createdParentDirectories: string[] = [];
+  let cursor = path.dirname(target);
+  while (!(await exists(cursor))) {
+    createdParentDirectories.push(cursor);
+    const parent = path.dirname(cursor);
+    if (parent === cursor) break;
+    cursor = parent;
+  }
+  try {
+    const entry = await lstat(target);
+    if (!entry.isFile() || entry.isSymbolicLink()) throw new Error("Onboarding rollback supports regular files only.");
+    return { target, content: await readFile(target), mode: entry.mode, createdParentDirectories };
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== "ENOENT") throw error;
+    return { target, content: null, mode: null, createdParentDirectories };
+  }
+}
+
+async function restoreOnboardingFile(backup: OnboardingFileBackup) {
+  if (backup.content === null) {
+    await rm(backup.target, { force: true });
+    for (const directory of backup.createdParentDirectories) {
+      try {
+        await rmdir(directory);
+      } catch (error) {
+        if (!["ENOENT", "ENOTEMPTY", "EEXIST"].includes((error as NodeJS.ErrnoException).code ?? "")) throw error;
+      }
+    }
+    return;
+  }
+  await atomicWriteBytes(backup.target, backup.content, backup.mode ?? 0o644);
 }
 
 async function buildCandidates(repoRoot: string, now: string) {
@@ -554,9 +609,14 @@ async function buildCandidates(repoRoot: string, now: string) {
     if (!current) {
       const reason = await packageArchiveReason(path.join(projectsRoot, slug));
       if (!reason) {
-        throw new Error(
-          `${slug} has no project manifest and is not a package-only archive. Establish its source contract before catalog onboarding.`
-        );
+        entries.push({
+          slug,
+          classification: "blocked",
+          studioEditing: "disabled",
+          action: "classify",
+          reason: "No project manifest was found. Catalog onboarding did not invent canonical source authority; establish an explicit source contract before enabling Studio writes."
+        });
+        continue;
       }
       entries.push({
         slug,
@@ -621,6 +681,8 @@ export async function onboardCourseCatalog(options: {
   repoRoot: string;
   apply?: boolean;
   now?: string;
+  /** Internal fault-injection seam used only by the onboarding tests. */
+  hooks?: { afterStudioSignalWritten?: () => void | Promise<void> };
 }): Promise<CourseOnboardingReport> {
   const repoRoot = path.resolve(options.repoRoot);
   const now = options.now ?? new Date().toISOString();
@@ -629,11 +691,14 @@ export async function onboardCourseCatalog(options: {
     .sort((left, right) => left.slug.localeCompare(right.slug));
 
   if (options.apply) {
-    const backups = new Map<string, Buffer | null>();
+    const backups = new Map<string, OnboardingFileBackup>();
+    const rememberBackup = async (target: string) => {
+      if (!backups.has(target)) backups.set(target, await snapshotOnboardingFile(target));
+    };
     try {
       const changedCandidates = built.candidates.filter((candidate) => candidate.entry.action !== "retain");
       for (const candidate of changedCandidates) {
-        backups.set(candidate.path, await exists(candidate.path) ? await readFile(candidate.path) : null);
+        await rememberBackup(candidate.path);
         await atomicWriteJson(candidate.path, candidate.manifest);
       }
       for (const candidate of built.candidates) {
@@ -647,18 +712,18 @@ export async function onboardCourseCatalog(options: {
       }
       if (changedCandidates.length > 0) {
         const signalPath = path.join(repoRoot, STUDIO_PROJECT_CHANGE_SIGNAL);
-        backups.set(signalPath, await exists(signalPath) ? await readFile(signalPath) : null);
+        await rememberBackup(signalPath);
         await atomicWriteJson(signalPath, {
           changedAt: now,
           projectCount: changedCandidates.length,
           reason: "course-catalog-onboarding",
           nonce: randomUUID()
         });
+        await options.hooks?.afterStudioSignalWritten?.();
       }
     } catch (error) {
-      for (const [target, content] of [...backups.entries()].reverse()) {
-        if (content === null) await rm(target, { force: true });
-        else await atomicWriteJson(target, JSON.parse(content.toString("utf8")));
+      for (const backup of [...backups.values()].reverse()) {
+        await restoreOnboardingFile(backup);
       }
       throw error;
     }

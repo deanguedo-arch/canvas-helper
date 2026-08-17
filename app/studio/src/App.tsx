@@ -2910,36 +2910,42 @@ export function App() {
   ) => {
     if (
       courseEditing.busy ||
-      draft.identity.projectSlug !== selectedSlug ||
-      !draft.identity.nodeId
+      draft.identity.projectSlug !== selectedSlug
     ) return false;
+    const reopened = await courseEditing.reopenDraft(draft);
+    if (reopened?.status !== "resolved" || !reopened.target.identity) return false;
+    const currentIdentity = reopened.target.identity;
     courseEditing.closeLivePreview();
     setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
     setWorkspaceHtmlSelections((current) => ({
       ...current,
-      [draft.identity.projectSlug]: draft.identity.htmlPath
+      [currentIdentity.projectSlug]: currentIdentity.htmlPath
     }));
-    saveWorkspacePageSelection(draft.identity.projectSlug, draft.identity.htmlPath);
+    saveWorkspacePageSelection(currentIdentity.projectSlug, currentIdentity.htmlPath);
     setPreviewMode("workspace");
     setSelectionMode("edit");
     courseEditing.setEnabled(true);
     setPreviewInspectMode(true);
     setInspectEnabled(true);
     await new Promise<void>((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(() => resolve())));
-    const focused = await focusPreviewInspectionSelection("workspace", draft.identity.nodeId, {
+    const focused = await focusPreviewInspectionSelection("workspace", currentIdentity.nodeId, {
       source,
       ...(draft.pageHref ? { pageHref: draft.pageHref } : {})
     });
     if (!focused) return false;
-    const selection = await requestCurrentInspectionSelection("workspace", draft.identity.nodeId, source);
+    const selection = await requestCurrentInspectionSelection("workspace", currentIdentity.nodeId, source);
     const target = await resolveInspection("workspace", selection, source, "edit");
+    const freshIdentity = target?.identity;
     if (
       !target ||
       target.eligibility !== "editable" ||
-      target.identity?.targetId !== draft.identity.targetId
+      !freshIdentity ||
+      freshIdentity.targetId !== currentIdentity.targetId ||
+      freshIdentity.sourceDigest !== currentIdentity.sourceDigest
     ) return false;
+    if (!courseEditing.rebindDraft(draft.id, target)) return false;
     setStandaloneSelectedEditDraftId(source === "standalone" ? draft.id : "");
-    courseEditing.previewTargetPatch(draft.patch, draft.pendingAssets?.[0]);
+    courseEditing.previewTargetPatch(draft.patch, draft.pendingAssets?.[0], target);
     return true;
   };
 
