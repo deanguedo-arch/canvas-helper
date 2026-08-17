@@ -8422,3 +8422,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner course content changed; user-owned duplicate, resource, transaction, handoff, report, test-result, and `ready-mind` worktree changes remained untouched and unstaged.
 - Fragile areas: the filesystem lock is cooperative for external writers; coverage proves ordinary authored-content breadth rather than arbitrary DOM mutation; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain external acceptance.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-16: Direct Editing V1 remediation
+
+- Project: `repo-wide`.
+- Task: Complete PR #1 Direct Editing V1 remediation without adding the separate inline-text editor.
+- Status: local implementation and release validation were complete; superseded after the exact baseline integration by the safe inline-text follow-up.
+- What changed: the release blockers closed shared URL sanitation, recipe-derived English factory dependency selection, and byte-exact factory Rename rollback. The remaining integrity work added durable saved-draft reopen, memory-only pre-Apply assets, exact onboarding and course-create rollback, bounded async route handling, fresh-course proof, and an honest frozen TypeScript baseline gate.
+- Verification at archival time: focused editing/onboarding/course-create/readiness/editability/export suites, Studio production build, a full Studio release gate, real Direct/English/Social/snapshot lifecycle pilots, all-catalog onboarding, the fresh-course proof, and the frozen typecheck baseline passed. Raw typecheck retained exactly ten established unrelated diagnostics.
+- Source of truth: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`, `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `scripts/lib/english-unit/dependencies.ts`, and `scripts/verify-fresh-course-studio-proof.ts`.
+- Preserved boundary: no inline editor belonged in PR #1; Save remained browser-local and Apply remained the first course-file/asset write. The Studio lock stayed cooperative for external writers, while Brightspace, deployed-host, cross-browser SCORM, full WCAG, and teacher rollout remained external acceptance.
+- Next command at archival time: create the inline follow-up from the exact integrated baseline commit, not an assumed `main` branch.
