@@ -39,7 +39,7 @@ At the committed local implementation state:
 - `E2E_STUDIO_PORT=49390 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` — passed. It exercises embedded caret editing, active-caret transfer into Full Preview, synchronized panel changes, Save/Apply/Undo, and proves the learner heading, source bytes, keyboard/input/paste handlers, and browser storage stay unchanged before Apply.
 - `npm run test:course-editing` — passed.
 - `npm run test:studio-inspection` — passed.
-- `npm run test:studio-release` — rerun at the exact commit containing the active-caret transfer before treating this handoff as fresh release evidence.
+- `npm run test:studio-release` — passed at clean exact implementation commit `c7551075386941886ad7c4dea302b3e10f388ba7`: 163 focused contracts, production build, 60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`.
 - `git diff --check` — passed.
 
 ## Source of truth
