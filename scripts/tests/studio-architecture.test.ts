@@ -56,6 +56,12 @@ test("Studio watches only exact project manifests for live course discovery", as
   assert.match(projectsHookSource, /loadProjectsOnce\(true\)/);
 });
 
+test("Studio dispatches the bounded saved-draft reopen route through the course-edit handler", async () => {
+  const source = await readFile("app/server/studio-server.ts", "utf8");
+  assert.match(source, /url === "\/api\/course-edits\/reopen"/);
+  assert.match(source, /getCourseEditsRouteHandler\(server\)/);
+});
+
 test("Studio creates the exact course-change signal directory before watching a clean checkout", async () => {
   const root = await mkdtemp(path.join(os.tmpdir(), "canvas-helper-studio-watch-"));
   try {

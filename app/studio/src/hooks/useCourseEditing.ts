@@ -349,7 +349,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       return;
     }
     void normalizeLivePreview(current, patch, pendingAsset ? [pendingAsset] : []);
-  }, [busy, closeLivePreview, normalizeLivePreview]);
+  }, [busy, closeLivePreview, normalizeLivePreview, target]);
 
   const saveTarget = useCallback(async (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => {
     if (busy) {
