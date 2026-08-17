@@ -14,7 +14,10 @@ import {
   type CourseEditApplyRequest,
   type CourseEditBatchResult,
   type CourseEditDraft,
+  type CourseEditEditorDocument,
+  type CourseEditEditorCapability,
   type CourseEditMapAction,
+  type CourseEditNormalizeResult,
   type CourseEditPageMap,
   type CourseEditPageMapEntry,
   type CourseEditPendingAssetReference,
@@ -34,8 +37,12 @@ import {
   courseEditElementDigest,
   courseEditCapabilitiesForTag,
   currentCourseEditStyle,
+  courseEditPlainTextDocumentHtml,
+  courseEditPlainTextFromHtml,
   ensureStudioEditStyles,
+  isSafeCourseEditPlainTextSource,
   isSafeCourseEditRichTextSource,
+  sanitizeCourseEditPlainTextDocument,
   sanitizeCourseEditPlainText,
   sanitizeCourseEditRichText,
   sanitizeCourseEditUrl,
@@ -396,6 +403,7 @@ function buildEditableTarget(input: {
   if (!capabilities.richText && !capabilities.link && !capabilities.image && !capabilities.styles) {
     return unsupportedTarget("This element contains complex course structure and remains annotation-only.");
   }
+  const editor = inlineTextEditorCapability(input.element, input.originalHtml);
   return {
     eligibility: "editable",
     reason: capabilities.richText ? "Ready to edit." : "Formatting inside this element is complex, so Studio will preserve its text structure.",
@@ -411,8 +419,18 @@ function buildEditableTarget(input: {
       alt: input.element.attributes.alt ?? "",
       title: input.element.attributes.title ?? ""
     },
-    currentStyle: currentCourseEditStyle(input.element.attributes)
+    currentStyle: currentCourseEditStyle(input.element.attributes),
+    ...(editor ? { editor } : {})
   };
+}
+
+const INLINE_TEXT_EDITOR_TAGS = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "p", "li", "figcaption"]);
+
+function inlineTextEditorCapability(element: EditableHtmlElement, originalHtml: string): CourseEditEditorCapability | undefined {
+  if (!INLINE_TEXT_EDITOR_TAGS.has(element.tagName) || !isSafeCourseEditPlainTextSource(originalHtml)) return undefined;
+  const allowsLineBreaks = element.tagName === "p";
+  const text = sanitizeCourseEditPlainTextDocument(courseEditPlainTextFromHtml(originalHtml), { allowLineBreaks: allowsLineBreaks });
+  return { kind: "plain-text", text, allowsLineBreaks };
 }
 
 function unavailablePageMap(projectSlug: string, htmlPath: string, sourceDigest: string, reason: string): CourseEditPageMap {
@@ -802,6 +820,25 @@ function sanitizeDraft(draft: CourseEditDraft, target: CourseEditTarget) {
   return { ...draft, patch: canonicalCourseEditPatch(patch) };
 }
 
+function previewRepresentationFor(
+  target: CourseEditTarget,
+  canonicalPatch: CourseEditPatch,
+  representationSrc?: string
+): CourseEditPreviewRepresentation {
+  const attributes = { ...target.attributes };
+  for (const name of ["href", "src", "alt", "title"] as const) {
+    const value = canonicalPatch[name];
+    if (value !== undefined) attributes[name] = value ?? "";
+  }
+  if (representationSrc !== undefined) attributes.src = representationSrc;
+  return {
+    tagName: target.identity?.tagName ?? "p",
+    html: canonicalPatch.html ?? target.originalHtml,
+    attributes,
+    style: { ...target.currentStyle, ...(canonicalPatch.style ?? {}) }
+  };
+}
+
 export async function normalizeCourseEditPatchForPreview(input: {
   identity: CourseEditTargetIdentity;
   patch: CourseEditPatch;
@@ -827,23 +864,76 @@ export async function normalizeCourseEditPatchForPreview(input: {
     patch: input.patch
   }, resolved.target);
   const canonicalPatch = normalized.patch;
-  const attributes = { ...resolved.target.attributes };
-  for (const name of ["href", "src", "alt", "title"] as const) {
-    const value = canonicalPatch[name];
-    if (value !== undefined) attributes[name] = value ?? "";
-  }
-  if (input.representationSrc !== undefined) attributes.src = input.representationSrc;
-  const representation: CourseEditPreviewRepresentation = {
-    tagName: resolved.target.identity?.tagName ?? input.identity.tagName,
-    html: canonicalPatch.html ?? resolved.target.originalHtml,
-    attributes,
-    style: { ...resolved.target.currentStyle, ...(canonicalPatch.style ?? {}) }
-  };
+  const representation = previewRepresentationFor(resolved.target, canonicalPatch, input.representationSrc);
   return {
     canonicalPatch,
     canonicalPatchDigest: courseEditCanonicalPatchDigest(canonicalPatch, input.pendingAssets),
     representation,
     target: resolved.target
+  };
+}
+
+/**
+ * Read-only canonicalization for the Studio-owned plain-text editor. The
+ * server re-resolves durable identity and shares sanitizeDraft with Apply;
+ * neither this endpoint nor its caller has any filesystem-write authority.
+ */
+export async function normalizeCourseEditEditorDocument(input: {
+  identity: CourseEditTargetIdentity;
+  document: CourseEditEditorDocument;
+  repoRoot?: string;
+}): Promise<CourseEditNormalizeResult> {
+  const resolved = await resolveFromIdentity(input.identity, input.repoRoot ?? defaultRepoRoot);
+  const editor = resolved.target.editor;
+  if (!editor || editor.kind !== "plain-text") {
+    throw new Error("This course element is not available for in-place plain-text editing.");
+  }
+  const text = sanitizeCourseEditPlainTextDocument(input.document.text, {
+    allowLineBreaks: editor.allowsLineBreaks
+  });
+  const html = courseEditPlainTextDocumentHtml(text);
+  const originalHtml = sanitizeCourseEditRichText(resolved.target.originalHtml);
+  const changed = html !== originalHtml;
+  if (!changed) {
+    const canonicalPatch: CourseEditPatch = {};
+    return {
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      document: { kind: "plain-text", text },
+      canonicalPatch,
+      canonicalPatchDigest: courseEditCanonicalPatchDigest(canonicalPatch),
+      representation: previewRepresentationFor(resolved.target, canonicalPatch),
+      target: resolved.target,
+      changed: false
+    };
+  }
+  const now = Date.now();
+  const normalized = sanitizeDraft({
+    id: "inline-editor-normalization",
+    createdAt: now,
+    updatedAt: now,
+    identity: input.identity,
+    beforeText: resolved.target.originalText,
+    afterText: text,
+    baseline: {
+      originalHtml: resolved.target.originalHtml,
+      attributes: resolved.target.attributes,
+      currentStyle: resolved.target.currentStyle,
+      capabilities: resolved.target.capabilities
+    },
+    patch: { html }
+  }, resolved.target);
+  const canonicalPatch = normalized.patch;
+  return {
+    schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+    document: {
+      kind: "plain-text",
+      text: courseEditPlainTextFromHtml(canonicalPatch.html ?? resolved.target.originalHtml)
+    },
+    canonicalPatch,
+    canonicalPatchDigest: courseEditCanonicalPatchDigest(canonicalPatch),
+    representation: previewRepresentationFor(resolved.target, canonicalPatch),
+    target: resolved.target,
+    changed: true
   };
 }
 

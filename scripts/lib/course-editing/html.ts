@@ -292,6 +292,79 @@ export function sanitizeCourseEditPlainText(value: string) {
   return stripControlCharacters(value).trim().slice(0, 24_000);
 }
 
+/**
+ * The inline Studio editor intentionally accepts text rather than HTML. Keep
+ * its canonicalization here beside the Apply sanitizer so a browser preview
+ * cannot invent markup that the server would later transform or reject.
+ */
+export function sanitizeCourseEditPlainTextDocument(value: string, options: { allowLineBreaks: boolean }) {
+  if (value.length > 24_000) {
+    throw new Error("Text is too long. Shorten this edit before saving it.");
+  }
+  const normalized = value
+    .replace(/\r\n?/g, "\n")
+    // Preserve LF for paragraph line breaks while stripping every other
+    // control character, including tabs and DEL.
+    .replace(/[\u0000-\u0008\u000B\u000C\u000E-\u001F\u007F]/g, "")
+    .trim();
+  if (!options.allowLineBreaks && normalized.includes("\n")) {
+    throw new Error("This course element is a single line. Remove the line break before saving it.");
+  }
+  if (normalized.length > 24_000) {
+    throw new Error("Text is too long. Shorten this edit before saving it.");
+  }
+  return normalized;
+}
+
+export function courseEditPlainTextDocumentHtml(value: string) {
+  return escapeHtmlText(value).replaceAll("\n", "<br>");
+}
+
+/**
+ * A source element is safe for Studio's parent-owned text overlay only when
+ * its own content is plain text with optional line breaks. Links, emphasis,
+ * controls and arbitrary nested structure stay with the existing panel or
+ * Annotation-only flow instead of being flattened by an inline editor.
+ */
+export function isSafeCourseEditPlainTextSource(value: string) {
+  let safe = true;
+  let parseFailed = false;
+  const parser = new Parser(
+    {
+      onopentag(tagName) {
+        if (tagName.toLowerCase() !== "br") safe = false;
+      },
+      onerror() {
+        parseFailed = true;
+      }
+    },
+    { decodeEntities: false, recognizeSelfClosing: true }
+  );
+  parser.write(value);
+  parser.end();
+  return safe && !parseFailed;
+}
+
+export function courseEditPlainTextFromHtml(value: string) {
+  let output = "";
+  const parser = new Parser(
+    {
+      onopentag(tagName) {
+        if (tagName.toLowerCase() === "br") output += "\n";
+      },
+      ontext(text) {
+        // Source formatting whitespace renders as a space in HTML. Only an
+        // explicit <br> above becomes a teacher-visible line break.
+        output += text.replace(/[\t\r\n\f ]+/g, " ");
+      }
+    },
+    { decodeEntities: true, recognizeSelfClosing: true }
+  );
+  parser.write(value);
+  parser.end();
+  return output.replace(/\r\n?/g, "\n");
+}
+
 export function sanitizeCourseEditRichText(value: string) {
   let output = "";
   let suppressedDepth = 0;

@@ -7,6 +7,8 @@ import {
   isCourseEditDraft,
   type CourseEditBatchResult,
   type CourseEditDraft,
+  type CourseEditEditorDocument,
+  type CourseEditNormalizeResult,
   type CourseEditPendingAssetReference,
   type CourseEditPendingImage,
   type CourseEditPatch,
@@ -37,6 +39,61 @@ type LivePreviewContext = {
   command: PreviewCourseEditCommand | null;
   lastNormalized: CourseEditPreviewNormalizeResult | null;
   requestedAt: number;
+};
+
+type PendingInlinePreviewOwner = {
+  owner: "parent-inline";
+  previewSessionId: string;
+  revision: number;
+  targetNodeId: string;
+};
+
+export type CourseEditPreviewOwner = "parent-inline" | "child-inert" | "none";
+export type CourseEditInlineEditorStatus =
+  | "clean"
+  | "editing"
+  | "normalizing"
+  | "valid"
+  | "invalid"
+  | "saved"
+  | "detached"
+  | "applying"
+  | "rejected";
+
+export type CourseEditInlineEditorState = {
+  status: CourseEditInlineEditorStatus;
+  target: CourseEditTarget | null;
+  rawDocument: CourseEditEditorDocument | null;
+  canonicalDocument: CourseEditEditorDocument | null;
+  canonicalPatch: CourseEditPatch | null;
+  canonicalPatchDigest: string;
+  localRevision: number;
+  canonicalRevision: number;
+  savedDraftId: string | null;
+  previewOwner: CourseEditPreviewOwner;
+  previewAvailable: boolean;
+  /** A detached draft can be reattached only after its durable identity is checked again. */
+  canReopen?: boolean;
+  /** Set only after Reopen returns a changed but still durable target. */
+  canRebase?: boolean;
+  message: string;
+};
+
+const EMPTY_INLINE_EDITOR: CourseEditInlineEditorState = {
+  status: "clean",
+  target: null,
+  rawDocument: null,
+  canonicalDocument: null,
+  canonicalPatch: null,
+  canonicalPatchDigest: "",
+  localRevision: 0,
+  canonicalRevision: 0,
+  savedDraftId: null,
+  previewOwner: "none",
+  previewAvailable: false,
+  canReopen: false,
+  canRebase: false,
+  message: ""
 };
 
 const EMPTY_STATUS: CourseEditStatus = {
@@ -80,6 +137,24 @@ export function courseEditPatchText(target: CourseEditTarget, patch: CourseEditP
   return target.originalText;
 }
 
+function inlineEditorDocumentForTarget(target: CourseEditTarget): CourseEditEditorDocument | null {
+  if (target.eligibility !== "editable" || target.editor?.kind !== "plain-text") return null;
+  return { kind: "plain-text", text: target.editor.text };
+}
+
+function plainTextDocumentFromHtml(html: string): CourseEditEditorDocument | null {
+  const document = new DOMParser().parseFromString(`<body>${html}</body>`, "text/html");
+  if ([...document.body.querySelectorAll("*")].some((element) => element.tagName !== "BR")) return null;
+  for (const lineBreak of [...document.body.querySelectorAll("br")]) {
+    lineBreak.replaceWith(document.createTextNode("\n"));
+  }
+  return { kind: "plain-text", text: document.body.textContent?.replace(/\r\n?/g, "\n") ?? "" };
+}
+
+function sourceDriftMessage(message: string) {
+  return /same stable edit identity|selected (?:content|element)(?:\s+\w+){0,3}\s+(?:changed|no longer)|edit target identity|adapter changed|canonical editable source|changed after the draft|no longer (?:inspect|available|map)/i.test(message);
+}
+
 export function useCourseEditing(projectSlug: string, onApplied: () => void | Promise<void>) {
   const [enabled, setEnabled] = useState(false);
   const [target, setTarget] = useState<CourseEditTarget | null>(null);
@@ -88,6 +163,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   const [status, setStatus] = useState<CourseEditStatus>({ ...EMPTY_STATUS, projectSlug });
   const [busy, setBusy] = useState(false);
   const [feedback, setFeedback] = useState<{ message: string; tone: CourseEditFeedbackTone }>({ message: "", tone: "neutral" });
+  const [inlineEditor, setInlineEditor] = useState<CourseEditInlineEditorState>(EMPTY_INLINE_EDITOR);
   const [previewCommand, setPreviewCommand] = useState<PreviewCourseEditCommand | null>(null);
   const [previewFeedback, setPreviewFeedback] = useState<{ message: string; tone: CourseEditFeedbackTone; latencyMs: number | null }>({
     message: "",
@@ -96,12 +172,22 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   });
   const resolveAbortRef = useRef<AbortController | null>(null);
   const previewAbortRef = useRef<AbortController | null>(null);
+  const inlineEditorAbortRef = useRef<AbortController | null>(null);
+  const inlineEditorTimerRef = useRef<number | null>(null);
   const previewContextRef = useRef<LivePreviewContext | null>(null);
+  const pendingInlinePreviewOwnerRef = useRef<PendingInlinePreviewOwner | null>(null);
   const resolvedPageIdentityRef = useRef("");
   const activeProjectRef = useRef(projectSlug);
   const operationRef = useRef(0);
   const draftsRef = useRef(drafts);
+  const inlineEditorRef = useRef(inlineEditor);
   draftsRef.current = drafts;
+  inlineEditorRef.current = inlineEditor;
+
+  const replaceInlineEditor = useCallback((next: CourseEditInlineEditorState) => {
+    inlineEditorRef.current = next;
+    setInlineEditor(next);
+  }, []);
 
   const replaceDrafts = useCallback((next: CourseEditDraft[]) => {
     const bounded = next.filter(isCourseEditDraft).slice(0, COURSE_EDIT_MAX_DRAFTS);
@@ -161,6 +247,18 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     setPreviewFeedback({ message, tone: "neutral", latencyMs: null });
   }, []);
 
+  const clearInlineEditor = useCallback((message = "") => {
+    if (inlineEditorTimerRef.current !== null) {
+      window.clearTimeout(inlineEditorTimerRef.current);
+      inlineEditorTimerRef.current = null;
+    }
+    inlineEditorAbortRef.current?.abort();
+    inlineEditorAbortRef.current = null;
+    pendingInlinePreviewOwnerRef.current = null;
+    closeLivePreview();
+    replaceInlineEditor({ ...EMPTY_INLINE_EDITOR, message });
+  }, [closeLivePreview, replaceInlineEditor]);
+
   const previewContextFor = useCallback((current: CourseEditTarget) => {
     if (!current.identity || current.eligibility !== "editable") return null;
     const pageIdentity = resolvedPageIdentityRef.current;
@@ -203,7 +301,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
 
   useEffect(() => {
     resolveAbortRef.current?.abort();
-    closeLivePreview();
+    clearInlineEditor();
     resolvedPageIdentityRef.current = "";
     activeProjectRef.current = projectSlug;
     operationRef.current += 1;
@@ -222,18 +320,30 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       tone: loaded.warnings.length ? "warning" : stored.length ? "success" : "neutral"
     });
     void refreshStatus(projectSlug);
-  }, [closeLivePreview, projectSlug, refreshStatus]);
+  }, [clearInlineEditor, projectSlug, refreshStatus]);
 
   useEffect(() => () => {
     resolveAbortRef.current?.abort();
     previewAbortRef.current?.abort();
+    inlineEditorAbortRef.current?.abort();
+    if (inlineEditorTimerRef.current !== null) window.clearTimeout(inlineEditorTimerRef.current);
   }, []);
 
   const resolveSelection = useCallback(async (request: CourseEditResolveRequest) => {
     const slug = activeProjectRef.current;
     if (!slug || request.projectSlug !== slug) return null;
+    const activeInline = inlineEditorRef.current;
+    if (
+      activeInline.target &&
+      !["clean", "saved"].includes(activeInline.status) &&
+      activeInline.target.identity?.nodeId !== request.selection.nodeId
+    ) {
+      setFeedback({ message: "Save, discard, or finish the current in-place text edit before selecting another element.", tone: "warning" });
+      return null;
+    }
     resolveAbortRef.current?.abort();
-    closeLivePreview();
+    if (activeInline.target && activeInline.target.identity?.nodeId !== request.selection.nodeId) clearInlineEditor();
+    else closeLivePreview();
     resolvedPageIdentityRef.current = normalizePreviewPageIdentity(request.selection.pageHref) ?? "";
     const controller = new AbortController();
     resolveAbortRef.current = controller;
@@ -262,7 +372,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
         setResolving(false);
       }
     }
-  }, [closeLivePreview]);
+  }, [clearInlineEditor, closeLivePreview]);
 
   const normalizeLivePreview = useCallback(async (
     current: CourseEditTarget,
@@ -335,6 +445,370 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       if (previewAbortRef.current === controller) previewAbortRef.current = null;
     }
   }, [closeLivePreview, previewContextFor]);
+
+  const detachInlineEditor = useCallback((message: string, currentTarget?: CourseEditTarget | null) => {
+    const current = inlineEditorRef.current;
+    if (!current.target || !current.rawDocument) return;
+    if (inlineEditorTimerRef.current !== null) {
+      window.clearTimeout(inlineEditorTimerRef.current);
+      inlineEditorTimerRef.current = null;
+    }
+    inlineEditorAbortRef.current?.abort();
+    inlineEditorAbortRef.current = null;
+    closeLivePreview();
+    setTarget(null);
+    replaceInlineEditor({
+      ...current,
+      target: currentTarget ?? current.target,
+      status: "detached",
+      previewOwner: "none",
+      previewAvailable: false,
+      canReopen: true,
+      canRebase: false,
+      message
+    });
+    setFeedback({ message, tone: "warning" });
+  }, [closeLivePreview, replaceInlineEditor]);
+
+  const normalizeInlineEditor = useCallback(async (
+    expectedRevision?: number,
+    options: { quiet?: boolean } = {}
+  ): Promise<CourseEditNormalizeResult | null> => {
+    const current = inlineEditorRef.current;
+    if (
+      busy ||
+      current.status === "detached" ||
+      current.status === "applying" ||
+      !current.target?.identity ||
+      !current.rawDocument
+    ) return null;
+    const revision = expectedRevision ?? current.localRevision;
+    if (revision !== current.localRevision) return null;
+    inlineEditorAbortRef.current?.abort();
+    const controller = new AbortController();
+    inlineEditorAbortRef.current = controller;
+    if (!options.quiet) {
+      replaceInlineEditor({
+        ...current,
+        status: "normalizing",
+        message: "Checking this text…"
+      });
+    }
+    try {
+      const response = await fetch("/api/course-edits/normalize", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+          identity: current.target.identity,
+          document: current.rawDocument
+        }),
+        signal: controller.signal
+      });
+      const normalized = await responseJson<CourseEditNormalizeResult>(response, "Studio could not check this text.");
+      const latest = inlineEditorRef.current;
+      if (
+        controller.signal.aborted ||
+        latest.localRevision !== revision ||
+        latest.target?.identity?.targetId !== current.target.identity.targetId
+      ) return null;
+      const next: CourseEditInlineEditorState = {
+        ...latest,
+        target: normalized.target,
+        canonicalDocument: normalized.document,
+        canonicalPatch: normalized.canonicalPatch,
+        canonicalPatchDigest: normalized.canonicalPatchDigest,
+        canonicalRevision: revision,
+        status: options.quiet && latest.status === "saved"
+          ? "saved"
+          : normalized.changed ? "valid" : "clean",
+        message: options.quiet && latest.status === "saved"
+          ? latest.message
+          : normalized.changed ? "Text is ready to save." : "This text matches the current course source."
+      };
+      replaceInlineEditor(next);
+      if (!options.quiet && next.previewOwner === "child-inert") {
+        if (!normalized.changed) {
+          closeLivePreview();
+        } else if (next.previewAvailable) {
+          void normalizeLivePreview(normalized.target, normalized.canonicalPatch);
+        }
+      }
+      return normalized;
+    } catch (error) {
+      if (controller.signal.aborted) return null;
+      const message = error instanceof Error ? error.message : "Studio could not check this text.";
+      if (sourceDriftMessage(message)) {
+        detachInlineEditor(
+          "Source changed externally. Your proposed text is preserved. Reopen this target against the current source before saving or applying."
+        );
+      } else {
+        const latest = inlineEditorRef.current;
+        if (latest.localRevision === revision) {
+          replaceInlineEditor({ ...latest, status: "invalid", message });
+          setFeedback({ message, tone: "warning" });
+        }
+      }
+      return null;
+    } finally {
+      if (inlineEditorAbortRef.current === controller) inlineEditorAbortRef.current = null;
+    }
+  }, [busy, closeLivePreview, detachInlineEditor, normalizeLivePreview, replaceInlineEditor]);
+
+  const revalidateInlineEditor = useCallback(() => {
+    const current = inlineEditorRef.current;
+    if (
+      !current.target ||
+      !current.rawDocument ||
+      !["clean", "valid", "saved"].includes(current.status)
+    ) return Promise.resolve(false);
+    return normalizeInlineEditor(current.localRevision, { quiet: true }).then(Boolean);
+  }, [normalizeInlineEditor]);
+
+  const setInlineEditorText = useCallback((text: string) => {
+    const current = inlineEditorRef.current;
+    if (busy || !current.target || !current.rawDocument || current.status === "detached" || current.status === "applying") return false;
+    if (current.rawDocument.text === text) return true;
+    if (inlineEditorTimerRef.current !== null) window.clearTimeout(inlineEditorTimerRef.current);
+    inlineEditorAbortRef.current?.abort();
+    const revision = current.localRevision + 1;
+    const next: CourseEditInlineEditorState = {
+      ...current,
+      rawDocument: { kind: "plain-text", text },
+      localRevision: revision,
+      status: "editing",
+      message: ""
+    };
+    replaceInlineEditor(next);
+    inlineEditorTimerRef.current = window.setTimeout(() => {
+      inlineEditorTimerRef.current = null;
+      void normalizeInlineEditor(revision);
+    }, 200);
+    return true;
+  }, [busy, normalizeInlineEditor, replaceInlineEditor]);
+
+  const flushInlineEditor = useCallback(async () => {
+    if (inlineEditorTimerRef.current !== null) {
+      window.clearTimeout(inlineEditorTimerRef.current);
+      inlineEditorTimerRef.current = null;
+    }
+    const current = inlineEditorRef.current;
+    if (!current.target || !current.rawDocument || current.status === "detached") return null;
+    if (current.canonicalRevision === current.localRevision && ["clean", "valid", "saved"].includes(current.status)) {
+      return current.canonicalPatch === null
+        ? null
+        : {
+            schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+            document: current.canonicalDocument ?? current.rawDocument,
+            canonicalPatch: current.canonicalPatch,
+            canonicalPatchDigest: current.canonicalPatchDigest,
+            representation: {
+              tagName: current.target.identity?.tagName ?? "p",
+              html: current.canonicalPatch.html ?? current.target.originalHtml,
+              attributes: current.target.attributes,
+              style: current.target.currentStyle
+            },
+            target: current.target,
+            changed: Object.keys(current.canonicalPatch).length > 0
+          };
+    }
+    return normalizeInlineEditor(current.localRevision);
+  }, [normalizeInlineEditor]);
+
+  const clearChildPreviewBeforeParentEditor = useCallback((
+    current: CourseEditInlineEditorState,
+    currentTarget: CourseEditTarget
+  ) => {
+    const context = previewContextRef.current;
+    if (current.previewOwner !== "child-inert" || !context?.command || context.command.action !== "render" || !currentTarget.identity) {
+      return false;
+    }
+    pendingInlinePreviewOwnerRef.current = {
+      owner: "parent-inline",
+      previewSessionId: context.previewSessionId,
+      revision: context.revision + 1,
+      targetNodeId: currentTarget.identity.nodeId
+    };
+    replaceInlineEditor({
+      ...current,
+      previewOwner: "none",
+      message: "Clearing the display preview before opening the in-place editor…"
+    });
+    closeLivePreview();
+    return true;
+  }, [closeLivePreview, replaceInlineEditor]);
+
+  const beginInlineEditor = useCallback((current: CourseEditTarget) => {
+    if (busy) return false;
+    const document = inlineEditorDocumentForTarget(current);
+    if (!document || !current.identity) return false;
+    if (inlineEditorTimerRef.current !== null) window.clearTimeout(inlineEditorTimerRef.current);
+    inlineEditorAbortRef.current?.abort();
+    const existing = inlineEditorRef.current;
+    if (
+      existing.target?.identity?.targetId === current.identity.targetId &&
+      existing.rawDocument &&
+      existing.status !== "detached"
+    ) {
+      setTarget(current);
+      if (clearChildPreviewBeforeParentEditor(existing, current)) return true;
+      replaceInlineEditor({
+        ...existing,
+        target: current,
+        previewOwner: "parent-inline",
+        previewAvailable: true,
+        message: "Continue editing in the course preview."
+      });
+      return true;
+    }
+    closeLivePreview();
+    setTarget(current);
+    replaceInlineEditor({
+      status: "clean",
+      target: current,
+      rawDocument: document,
+      canonicalDocument: document,
+      canonicalPatch: {},
+      canonicalPatchDigest: "",
+      localRevision: 0,
+      canonicalRevision: 0,
+      savedDraftId: draftsRef.current.find((draft) => draft.identity.targetId === current.identity?.targetId)?.id ?? null,
+      previewOwner: "parent-inline",
+      previewAvailable: true,
+      message: "Type directly in the course preview. The course files remain unchanged until Apply."
+    });
+    return true;
+  }, [busy, clearChildPreviewBeforeParentEditor, closeLivePreview, replaceInlineEditor]);
+
+  const setInlinePreviewOwner = useCallback((owner: CourseEditPreviewOwner) => {
+    const current = inlineEditorRef.current;
+    const currentTarget = current.target;
+    if (!currentTarget || !current.rawDocument || current.status === "detached") return false;
+    if (current.previewOwner === owner) return true;
+    if (owner === "parent-inline" && clearChildPreviewBeforeParentEditor(current, currentTarget)) return true;
+    if (owner === "parent-inline") closeLivePreview();
+    const next = { ...current, previewOwner: owner };
+    replaceInlineEditor(next);
+    if (
+      owner === "child-inert" &&
+      next.previewAvailable &&
+      next.canonicalPatch &&
+      Object.keys(next.canonicalPatch).length
+    ) {
+      void normalizeLivePreview(currentTarget, next.canonicalPatch);
+    }
+    return true;
+  }, [clearChildPreviewBeforeParentEditor, closeLivePreview, normalizeLivePreview, replaceInlineEditor]);
+
+  const setInlinePreviewAvailable = useCallback((available: boolean) => {
+    const current = inlineEditorRef.current;
+    const currentTarget = current.target;
+    if (!currentTarget || !current.rawDocument || current.status === "detached") return false;
+    const next = { ...current, previewAvailable: available, previewOwner: available ? current.previewOwner : "none" };
+    if (!available) closeLivePreview();
+    replaceInlineEditor(next);
+    if (
+      available &&
+      next.previewOwner === "child-inert" &&
+      next.canonicalPatch &&
+      Object.keys(next.canonicalPatch).length
+    ) {
+      void normalizeLivePreview(currentTarget, next.canonicalPatch);
+    }
+    return true;
+  }, [closeLivePreview, normalizeLivePreview, replaceInlineEditor]);
+
+  const attachInlineEditorToPreview = useCallback((currentTarget: CourseEditTarget) => {
+    const current = inlineEditorRef.current;
+    if (
+      !current.target?.identity ||
+      !current.rawDocument ||
+      current.status === "detached" ||
+      current.target.identity.targetId !== currentTarget.identity?.targetId
+    ) return false;
+    const next: CourseEditInlineEditorState = {
+      ...current,
+      target: currentTarget,
+      previewOwner: "child-inert",
+      previewAvailable: true,
+      message: "Current learner-page preview restored. Click the visible text to edit in place."
+    };
+    setTarget(currentTarget);
+    replaceInlineEditor(next);
+    if (next.canonicalPatch && Object.keys(next.canonicalPatch).length) {
+      void normalizeLivePreview(currentTarget, next.canonicalPatch);
+    }
+    return true;
+  }, [normalizeLivePreview, replaceInlineEditor]);
+
+  const saveInlineEditor = useCallback(async () => {
+    if (busy) {
+      setFeedback({ message: "Wait for the current course edit to finish.", tone: "warning" });
+      return false;
+    }
+    const normalized = await flushInlineEditor();
+    const current = inlineEditorRef.current;
+    if (!normalized || !current.target?.identity || !current.canonicalDocument || current.status === "detached") {
+      if (current.status !== "detached") setFeedback({ message: current.message || "Studio could not save this text.", tone: "error" });
+      return false;
+    }
+    if (!normalized.changed || !Object.keys(normalized.canonicalPatch).length) {
+      setFeedback({ message: "Change the text before saving this draft.", tone: "warning" });
+      return false;
+    }
+    const currentTarget = normalized.target;
+    if (!currentTarget.identity) {
+      setFeedback({ message: "This course target is no longer available. Reopen it before saving.", tone: "warning" });
+      return false;
+    }
+    const existing = current.savedDraftId
+      ? draftsRef.current.find((draft) => draft.id === current.savedDraftId)
+      : draftsRef.current.find((draft) => draft.identity.targetId === currentTarget.identity?.targetId);
+    const without = draftsRef.current.filter((draft) => draft.id !== existing?.id);
+    if (!existing && without.length >= COURSE_EDIT_MAX_DRAFTS) {
+      setFeedback({ message: `Apply or remove a draft before adding more than ${COURSE_EDIT_MAX_DRAFTS}.`, tone: "warning" });
+      return false;
+    }
+    const now = Date.now();
+    const nextDraft: CourseEditDraft = {
+      id: existing?.id ?? draftId(),
+      createdAt: existing?.createdAt ?? now,
+      updatedAt: now,
+      identity: currentTarget.identity,
+      beforeText: currentTarget.originalText,
+      afterText: current.canonicalDocument.text,
+      baseline: {
+        originalHtml: currentTarget.originalHtml,
+        attributes: currentTarget.attributes,
+        currentStyle: currentTarget.currentStyle,
+        capabilities: currentTarget.capabilities
+      },
+      patch: normalized.canonicalPatch,
+      canonicalPatchDigest: normalized.canonicalPatchDigest,
+      ...(existing?.pageHref ? { pageHref: existing.pageHref } : resolvedPageIdentityRef.current ? { pageHref: resolvedPageIdentityRef.current } : {})
+    };
+    replaceDrafts(existing
+      ? draftsRef.current.map((draft) => draft.id === existing.id ? nextDraft : draft)
+      : [...without, nextDraft]);
+    // Saving ends the active caret session. The saved draft remains available
+    // to reopen in place or as a display-only preview, but it must not keep
+    // Full Preview or review evidence blocked as an interactive editor.
+    const previewAvailable = inlineEditorRef.current.previewAvailable;
+    closeLivePreview();
+    replaceInlineEditor({
+      ...inlineEditorRef.current,
+      target: currentTarget,
+      canonicalPatch: normalized.canonicalPatch,
+      canonicalPatchDigest: normalized.canonicalPatchDigest,
+      status: "saved",
+      savedDraftId: nextDraft.id,
+      previewOwner: "none",
+      previewAvailable,
+      message: "Draft saved. The course has not changed yet."
+    });
+    setFeedback({ message: "Draft saved. The course has not changed yet.", tone: "success" });
+    return true;
+  }, [busy, closeLivePreview, flushInlineEditor, replaceDrafts, replaceInlineEditor]);
 
   const previewTargetPatch = useCallback((
     patch: CourseEditPatch,
@@ -473,6 +947,150 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     return true;
   }, [replaceDrafts]);
 
+  const activateInlineDraft = useCallback(async (draft: CourseEditDraft): Promise<CourseEditTarget | null> => {
+    if (busy || draft.identity.projectSlug !== activeProjectRef.current) return null;
+    // Do not leave a previous editor writable while this durable identity is
+    // being reopened. A late reopen result must never overwrite new teacher
+    // text that was entered against the previous target.
+    closeLivePreview();
+    replaceInlineEditor({
+      ...EMPTY_INLINE_EDITOR,
+      status: "normalizing",
+      savedDraftId: draft.id,
+      message: "Reopening this saved draft against the current course source…"
+    });
+    const reopened = await reopenDraft(draft);
+    if (reopened?.status !== "resolved" || !reopened.target.identity) return null;
+    const document = draft.patch.html === undefined
+      ? inlineEditorDocumentForTarget(reopened.target)
+      : plainTextDocumentFromHtml(draft.patch.html);
+    if (!document || reopened.target.editor?.kind !== "plain-text") {
+      setFeedback({
+        message: "This saved draft uses formatting that is not available in the first in-place text editor. Reopen it on the page to use the existing formatting controls.",
+        tone: "warning"
+      });
+      return null;
+    }
+    if (!reopened.target.editor.allowsLineBreaks && document.text.includes("\n")) {
+      setFeedback({ message: "This saved draft contains a line break that is not safe for this one-line course element.", tone: "warning" });
+      return null;
+    }
+    setTarget(reopened.target);
+    replaceInlineEditor({
+      status: "saved",
+      target: reopened.target,
+      rawDocument: document,
+      canonicalDocument: document,
+      canonicalPatch: draft.patch,
+      canonicalPatchDigest: draft.canonicalPatchDigest ?? "",
+      localRevision: 0,
+      canonicalRevision: 0,
+      savedDraftId: draft.id,
+      previewOwner: "none",
+      previewAvailable: false,
+      message: "Saved draft reopened. Preview unavailable until this learner page opens."
+    });
+    return reopened.target;
+  }, [busy, closeLivePreview, reopenDraft, replaceInlineEditor]);
+
+  const reopenInlineEditor = useCallback(async () => {
+    const current = inlineEditorRef.current;
+    if (busy || current.status !== "detached" || !current.target?.identity || !current.rawDocument) return false;
+    try {
+      const response = await fetch("/api/course-edits/reopen", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, identity: current.target.identity })
+      });
+      const reopened = await responseJson<CourseEditReopenResult>(response, "Studio could not reopen this text target.");
+      if (reopened.status === "resolved" && reopened.target.identity && reopened.target.editor?.kind === "plain-text") {
+        const revision = current.localRevision + 1;
+        const next: CourseEditInlineEditorState = {
+          ...current,
+          target: reopened.target,
+          canonicalDocument: null,
+          canonicalPatch: null,
+          canonicalPatchDigest: "",
+          localRevision: revision,
+          canonicalRevision: -1,
+          status: "editing",
+          previewOwner: "none",
+          previewAvailable: false,
+          canReopen: false,
+          canRebase: false,
+          message: "Target reopened. Checking your preserved text against the current source…"
+        };
+        setTarget(reopened.target);
+        replaceInlineEditor(next);
+        void normalizeInlineEditor(revision);
+        return true;
+      }
+      if (reopened.status === "target-changed" && reopened.currentTarget.editor?.kind === "plain-text") {
+        replaceInlineEditor({
+          ...current,
+          target: reopened.currentTarget,
+          previewOwner: "none",
+          previewAvailable: false,
+          canReopen: false,
+          canRebase: true,
+          message: "The source text changed. Compare the current text below, then explicitly rebase your proposed text before saving."
+        });
+        return false;
+      }
+      const message = reopened.status === "target-changed"
+          ? "The saved source changed and cannot be safely rebased here."
+          : "reason" in reopened ? reopened.reason : "This target is not available for in-place text editing.";
+      replaceInlineEditor({
+        ...current,
+        canReopen: false,
+        canRebase: false,
+        message
+      });
+      setFeedback({ message, tone: "warning" });
+      return false;
+    } catch (error) {
+      setFeedback({ message: error instanceof Error ? error.message : "Studio could not reopen this text target.", tone: "error" });
+      return false;
+    }
+  }, [busy, normalizeInlineEditor, replaceInlineEditor]);
+
+  const rebaseInlineEditor = useCallback(() => {
+    const current = inlineEditorRef.current;
+    if (busy || current.status !== "detached" || !current.canRebase || !current.target?.identity || !current.target.editor || !current.rawDocument) return false;
+    const revision = current.localRevision + 1;
+    const next: CourseEditInlineEditorState = {
+      ...current,
+      canonicalDocument: null,
+      canonicalPatch: null,
+      canonicalPatchDigest: "",
+      localRevision: revision,
+      canonicalRevision: -1,
+      status: "editing",
+      previewOwner: "none",
+      previewAvailable: false,
+      canReopen: false,
+      canRebase: false,
+      message: "Checking your proposed text against the current source…"
+    };
+    setTarget(current.target);
+    replaceInlineEditor(next);
+    void normalizeInlineEditor(revision);
+    return true;
+  }, [busy, normalizeInlineEditor, replaceInlineEditor]);
+
+  const copyInlineEditorText = useCallback(async () => {
+    const text = inlineEditorRef.current.rawDocument?.text ?? "";
+    if (!text || !navigator.clipboard?.writeText) return false;
+    try {
+      await navigator.clipboard.writeText(text);
+      setFeedback({ message: "Proposed text copied.", tone: "success" });
+      return true;
+    } catch {
+      setFeedback({ message: "Clipboard access is unavailable. Select and copy the preserved text manually.", tone: "warning" });
+      return false;
+    }
+  }, []);
+
   const removeDraft = useCallback((id: string) => {
     if (busy) return;
     replaceDrafts(draftsRef.current.filter((draft) => draft.id !== id));
@@ -494,6 +1112,11 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     const slug = activeProjectRef.current;
     const currentDrafts = draftsRef.current;
     if (!slug || !currentDrafts.length || busy) return false;
+    const activeInline = inlineEditorRef.current;
+    if (activeInline.target && !["clean", "saved"].includes(activeInline.status)) {
+      setFeedback({ message: "Save or discard the active in-place text edit before applying drafts.", tone: "warning" });
+      return false;
+    }
     closeLivePreview();
     const operation = ++operationRef.current;
     const submittedIds = new Set(currentDrafts.map((draft) => draft.id));
@@ -511,6 +1134,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       if (activeProjectRef.current !== slug || operationRef.current !== operation) return true;
       replaceDrafts(draftsRef.current.filter((draft) => !submittedIds.has(draft.id)));
       setTarget(null);
+      clearInlineEditor();
       setStatus(result);
       setFeedback({ message: result.message, tone: "success" });
       await onApplied();
@@ -523,7 +1147,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     } finally {
       if (activeProjectRef.current === slug && operationRef.current === operation) setBusy(false);
     }
-  }, [busy, closeLivePreview, onApplied, replaceDrafts]);
+  }, [busy, clearInlineEditor, closeLivePreview, onApplied, replaceDrafts]);
 
   const undo = useCallback(async () => {
     const slug = activeProjectRef.current;
@@ -556,9 +1180,47 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     closeLivePreview();
     setTarget(null);
     setResolving(false);
-  }, [closeLivePreview]);
+    const current = inlineEditorRef.current;
+    if (current.target && current.rawDocument) {
+      replaceInlineEditor({
+        ...current,
+        previewOwner: "none",
+        previewAvailable: false,
+        message: current.status === "detached"
+          ? current.message
+          : "Preview unavailable until this learner page opens. Your text is still available in Review & Apply."
+      });
+    }
+  }, [closeLivePreview, replaceInlineEditor]);
 
   const acknowledgePreview = useCallback((ack: PreviewCourseEditAck) => {
+    const pendingOwner = pendingInlinePreviewOwnerRef.current;
+    if (
+      pendingOwner &&
+      ack.previewSessionId === pendingOwner.previewSessionId &&
+      ack.revision === pendingOwner.revision &&
+      ack.targetNodeId === pendingOwner.targetNodeId
+    ) {
+      pendingInlinePreviewOwnerRef.current = null;
+      const current = inlineEditorRef.current;
+      if (ack.ok && ack.action === "cleared" && current.target?.identity?.nodeId === pendingOwner.targetNodeId) {
+        replaceInlineEditor({
+          ...current,
+          previewOwner: pendingOwner.owner,
+          previewAvailable: true,
+          message: "Continue editing in the course preview."
+        });
+        return true;
+      }
+      replaceInlineEditor({
+        ...current,
+        previewOwner: "none",
+        previewAvailable: false,
+        message: "Studio could not clear the display preview. Refresh this page before opening the in-place editor."
+      });
+      setPreviewFeedback({ message: ack.message, tone: "error", latencyMs: null });
+      return false;
+    }
     const context = previewContextRef.current;
     const command = context?.command;
     if (
@@ -577,7 +1239,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     });
     if (!ack.ok) closeLivePreview(ack.message);
     return ack.ok;
-  }, [closeLivePreview]);
+  }, [closeLivePreview, replaceInlineEditor]);
 
   const exportDrafts = useCallback(() => exportCourseEditDrafts(activeProjectRef.current), []);
 
@@ -680,7 +1342,13 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     feedback,
     previewCommand,
     previewFeedback,
-    hasLivePreview: previewCommand?.action === "render",
+    inlineEditor,
+    hasLivePreview: previewCommand?.action === "render" || (
+      inlineEditor.previewOwner === "parent-inline" &&
+      inlineEditor.status !== "detached" &&
+      Boolean(inlineEditor.target)
+    ),
+    hasInteractiveInlinePreview: inlineEditor.previewOwner === "parent-inline" && inlineEditor.status !== "detached" && Boolean(inlineEditor.target),
     resolveSelection,
     previewTargetPatch,
     closeLivePreview,
@@ -698,7 +1366,20 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     importDrafts,
     uploadImage,
     renameCourse,
+    beginInlineEditor,
+    setInlineEditorText,
+    setInlinePreviewOwner,
+    setInlinePreviewAvailable,
+    attachInlineEditorToPreview,
+    flushInlineEditor,
+    revalidateInlineEditor,
+    saveInlineEditor,
+    activateInlineDraft,
+    reopenInlineEditor,
+    rebaseInlineEditor,
+    copyInlineEditorText,
+    clearInlineEditor,
     clearSelection,
     refreshStatus
-  }), [acknowledgePreview, apply, busy, clearSelection, closeLivePreview, drafts, editDraft, enabled, exportDrafts, feedback, importDrafts, patchDraft, previewCommand, previewFeedback, previewTargetPatch, refreshStatus, removeDraft, renameCourse, reopenDraft, rebindDraft, reorderDraft, resolveSelection, resolving, saveTarget, status, target, undo, uploadImage]);
+  }), [acknowledgePreview, activateInlineDraft, apply, attachInlineEditorToPreview, beginInlineEditor, busy, clearInlineEditor, clearSelection, closeLivePreview, copyInlineEditorText, drafts, editDraft, enabled, exportDrafts, feedback, flushInlineEditor, importDrafts, inlineEditor, patchDraft, previewCommand, previewFeedback, previewTargetPatch, rebaseInlineEditor, refreshStatus, removeDraft, renameCourse, reopenDraft, reopenInlineEditor, rebindDraft, reorderDraft, revalidateInlineEditor, resolveSelection, resolving, saveInlineEditor, saveTarget, setInlineEditorText, setInlinePreviewAvailable, setInlinePreviewOwner, status, target, undo, uploadImage]);
 }

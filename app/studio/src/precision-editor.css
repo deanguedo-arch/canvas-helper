@@ -1245,6 +1245,79 @@ pre {
   position: relative;
 }
 
+/* Studio-owned in-place text layer. It sits above the isolated iframe and
+ * deliberately never changes the learner element below it. */
+.course-inline-text-editor {
+  position: absolute;
+  z-index: 6;
+  box-sizing: border-box;
+  pointer-events: none;
+}
+
+.course-inline-text-editor-field {
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
+  min-height: inherit;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--accent) 82%, transparent);
+  border-radius: 2px;
+  outline: 2px solid color-mix(in srgb, var(--accent) 30%, transparent);
+  outline-offset: 1px;
+  background: color-mix(in srgb, #ffffff 5%, transparent);
+  caret-color: currentColor;
+  pointer-events: auto;
+  user-select: text;
+}
+
+.course-inline-text-editor-field:focus-visible {
+  border-color: var(--accent);
+  outline-color: color-mix(in srgb, var(--accent) 56%, transparent);
+}
+
+.course-inline-text-editor-state {
+  position: absolute;
+  top: -20px;
+  left: 0;
+  padding: 2px 6px;
+  border: 1px solid var(--line-strong);
+  border-radius: 4px;
+  color: var(--ink);
+  background: #ffffff;
+  font: 600 11px/1.2 Inter, ui-sans-serif, system-ui, sans-serif;
+  pointer-events: none;
+}
+
+.course-edit-inline-composer,
+.course-edit-inline-detached {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+}
+
+.course-edit-inline-detached {
+  padding: 12px;
+  border: 1px solid #efc67a;
+  border-radius: var(--studio-radius-md);
+  background: #fff9ed;
+}
+
+.course-edit-inline-detached h3,
+.course-edit-inline-detached p {
+  margin: 0;
+}
+
+.course-edit-inline-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+}
+
 .preview-frame,
 .empty-preview,
 .resource-fallback {

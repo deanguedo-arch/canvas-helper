@@ -13,6 +13,7 @@ import {
   COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
   isCourseEditApplyRequest,
   isCourseEditDraft,
+  isCourseEditNormalizeRequest,
   type CourseEditDraft,
   type CourseEditPendingAssetReference,
   type CourseEditPendingImage,
@@ -30,6 +31,7 @@ import {
   courseEditCanonicalPatchDigest,
   getCourseEditStatus,
   markCourseExportCurrent,
+  normalizeCourseEditEditorDocument,
   reopenCourseEditTarget,
   recoverInterruptedCourseEdit,
   renameCourseForStudio,
@@ -269,6 +271,67 @@ test("live preview normalization is canonical, ordered, read-only, and fails clo
     );
     assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
   } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("plain-text inline normalization is read-only, canonical, and rejects unsupported source drift", async () => {
+  const fixture = await createFixture();
+  let server: Awaited<ReturnType<typeof startCourseEditRouteServer>> | null = null;
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    assert.deepEqual(target.editor, {
+      kind: "plain-text",
+      text: "Hello teacher",
+      allowsLineBreaks: false
+    });
+    const request = {
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      identity: target.identity,
+      document: { kind: "plain-text" as const, text: "A <teacher> & class" }
+    };
+    assert.equal(isCourseEditNormalizeRequest(request), true);
+    const normalized = await normalizeCourseEditEditorDocument({ ...request, repoRoot: fixture.repoRoot });
+    assert.equal(normalized.changed, true);
+    assert.deepEqual(normalized.document, { kind: "plain-text", text: "A <teacher> & class" });
+    assert.deepEqual(normalized.canonicalPatch, { html: "A &lt;teacher&gt; &amp; class" });
+    assert.equal(normalized.representation.html, "A &lt;teacher&gt; &amp; class");
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+
+    const noChange = await normalizeCourseEditEditorDocument({
+      ...request,
+      document: { kind: "plain-text", text: "Hello teacher" },
+      repoRoot: fixture.repoRoot
+    });
+    assert.equal(noChange.changed, false);
+    assert.deepEqual(noChange.canonicalPatch, {});
+    await assert.rejects(
+      normalizeCourseEditEditorDocument({
+        ...request,
+        document: { kind: "plain-text", text: "No\nline break" },
+        repoRoot: fixture.repoRoot
+      }),
+      /single line/i
+    );
+
+    server = await startCourseEditRouteServer(fixture.repoRoot);
+    const routed = await routeJson<{ changed: boolean; canonicalPatch: { html?: string } }>(
+      server.origin,
+      "/api/course-edits/normalize",
+      "POST",
+      request
+    );
+    assert.equal(routed.changed, true);
+    assert.equal(routed.canonicalPatch.html, "A &lt;teacher&gt; &amp; class");
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+
+    await writeFile(fixture.sourcePath, ORIGINAL_HTML.replace("Hello teacher", "Changed elsewhere"), "utf8");
+    await assert.rejects(
+      normalizeCourseEditEditorDocument({ ...request, repoRoot: fixture.repoRoot }),
+      /same stable edit identity|selected content/i
+    );
+  } finally {
+    await server?.close().catch(() => undefined);
     await fixture.cleanup();
   }
 });

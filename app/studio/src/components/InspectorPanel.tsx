@@ -15,6 +15,7 @@ import type {
   CourseEditPendingImage,
   CourseEditTarget
 } from "../../../shared/course-editing.js";
+import type { CourseEditInlineEditorState } from "../hooks/useCourseEditing";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
@@ -32,6 +33,7 @@ type InspectorPanelProps = {
   editStaleExportTargets: string[];
   editPreviewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
   editHasLivePreview: boolean;
+  editInlineEditor: CourseEditInlineEditorState;
   onPreviewEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
   onClearEditPreview: () => void;
   onSaveEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
@@ -45,6 +47,15 @@ type InspectorPanelProps = {
   onImportEditDrafts: (source: string) => boolean;
   onUploadEditImage: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
   onRenameCourse: (title: string) => Promise<boolean>;
+  onInlineEditorTextChange: (text: string) => void;
+  onSaveInlineEditor: () => Promise<boolean>;
+  onActivateInlineDraft: (draft: CourseEditDraft) => Promise<unknown>;
+  onSetInlinePreviewOwner: (owner: "parent-inline" | "child-inert" | "none") => void;
+  onReopenInlineEditor: () => Promise<boolean>;
+  onRebaseInlineEditor: () => void;
+  onCopyInlineEditorText: () => Promise<boolean>;
+  onDiscardInlineEditor: () => void;
+  onJumpToInlineEditor: () => Promise<boolean>;
   onAnnotateEditTarget: () => void;
   inspectEnabled: boolean;
   inspectionResolution: InspectionResolution | null;
@@ -133,6 +144,7 @@ export function InspectorPanel({
   editStaleExportTargets,
   editPreviewFeedback,
   editHasLivePreview,
+  editInlineEditor,
   onPreviewEditTarget,
   onClearEditPreview,
   onSaveEditTarget,
@@ -146,6 +158,15 @@ export function InspectorPanel({
   onImportEditDrafts,
   onUploadEditImage,
   onRenameCourse,
+  onInlineEditorTextChange,
+  onSaveInlineEditor,
+  onActivateInlineDraft,
+  onSetInlinePreviewOwner,
+  onReopenInlineEditor,
+  onRebaseInlineEditor,
+  onCopyInlineEditorText,
+  onDiscardInlineEditor,
+  onJumpToInlineEditor,
   onAnnotateEditTarget,
   inspectEnabled,
   inspectionResolution,
@@ -222,7 +243,7 @@ export function InspectorPanel({
 
   return (
     <aside className="inspector" aria-label="Annotations">
-      {editEnabled || editDrafts.length > 0 || editCanUndo || editExportsOutOfDate ? (
+      {editEnabled || editDrafts.length > 0 || editCanUndo || editExportsOutOfDate || Boolean(editInlineEditor.target) ? (
         <CourseEditPanel
           enabled={editEnabled}
           target={editTarget}
@@ -238,6 +259,7 @@ export function InspectorPanel({
           staleExportTargets={editStaleExportTargets}
           previewFeedback={editPreviewFeedback}
           hasLivePreview={editHasLivePreview}
+          inlineEditor={editInlineEditor}
           onPreviewTarget={onPreviewEditTarget}
           onClearLivePreview={onClearEditPreview}
           onSaveTarget={onSaveEditTarget}
@@ -251,6 +273,15 @@ export function InspectorPanel({
           onImportDrafts={onImportEditDrafts}
           onUploadImage={onUploadEditImage}
           onRenameCourse={onRenameCourse}
+          onInlineEditorTextChange={onInlineEditorTextChange}
+          onSaveInlineEditor={onSaveInlineEditor}
+          onActivateInlineDraft={onActivateInlineDraft}
+          onSetInlinePreviewOwner={onSetInlinePreviewOwner}
+          onReopenInlineEditor={onReopenInlineEditor}
+          onRebaseInlineEditor={onRebaseInlineEditor}
+          onCopyInlineEditorText={onCopyInlineEditorText}
+          onDiscardInlineEditor={onDiscardInlineEditor}
+          onJumpToInlineEditor={onJumpToInlineEditor}
           onAnnotateTarget={onAnnotateEditTarget}
         />
       ) : null}

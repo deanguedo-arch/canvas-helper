@@ -2,6 +2,7 @@ import type { IncomingMessage, ServerResponse } from "node:http";
 
 import {
   isCourseEditApplyRequest,
+  isCourseEditNormalizeRequest,
   isCourseEditPreviewClearRequest,
   isCourseEditPreviewNormalizeRequest,
   isCourseEditReopenRequest,
@@ -13,6 +14,7 @@ import { isPreviewInspectPayload } from "../../shared/preview-bridge.js";
 import {
   applyCourseEditBatch,
   getCourseEditStatus,
+  normalizeCourseEditEditorDocument,
   reopenCourseEditTarget,
   resolveCourseEditTarget,
   renameCourseForStudio,
@@ -36,6 +38,7 @@ const COURSE_EDIT_APPLY_MAX_BYTES = 4_194_304;
 const COURSE_EDIT_RENAME_MAX_BYTES = 16_384;
 const COURSE_EDIT_PREVIEW_MAX_BYTES = 131_072;
 const COURSE_EDIT_REOPEN_MAX_BYTES = 65_536;
+const COURSE_EDIT_NORMALIZE_MAX_BYTES = 65_536;
 
 type CourseEditsRouteOptions = {
   repoRoot?: string;
@@ -121,6 +124,30 @@ async function handleCourseEditsRouteInner(
   options: CourseEditsRouteOptions = {}
 ) {
   const repoRoot = options.repoRoot;
+  if (url === "/api/course-edits/normalize") {
+    if (request.method !== "POST") {
+      sendJson(response, 405, { error: "Method not allowed." });
+      return true;
+    }
+    try {
+      const body = await readRequestJson<unknown>(request, {
+        maxBytes: COURSE_EDIT_NORMALIZE_MAX_BYTES,
+        description: "Course edit text normalization requests"
+      });
+      if (!isCourseEditNormalizeRequest(body)) {
+        sendJson(response, 400, { error: "Invalid bounded course text normalization request." });
+        return true;
+      }
+      sendJson(response, 200, await normalizeCourseEditEditorDocument({
+        identity: body.identity,
+        document: body.document,
+        repoRoot
+      }));
+    } catch (error) {
+      sendJson(response, 422, { error: safeError(error) });
+    }
+    return true;
+  }
   if (url === "/api/course-edits/preview/normalize" || url === "/api/course-edits/preview/clear") {
     if (request.method !== "POST") {
       sendJson(response, 405, { error: "Method not allowed." });

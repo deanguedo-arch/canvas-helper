@@ -1,8 +1,11 @@
-import type { CSSProperties, ReactNode } from "react";
+import { useCallback, useState, type CSSProperties, type ReactNode } from "react";
 
+import type { PreviewInspectPayload } from "../../../shared/preview-bridge.js";
+import type { CourseEditInlineEditorState } from "../hooks/useCourseEditing";
 import { getReferenceResourceRenderMode } from "../reference-resource-preview";
 import type { PreviewRecoveryState } from "../lib/preview-recovery";
 import { DEVICE_PRESETS, type PreviewLayoutPreferences, type PreviewMode } from "../lib/types";
+import { CourseInlineTextEditor } from "./CourseInlineTextEditor";
 import { PreviewRecoveryPanel } from "./PreviewRecoveryPanel";
 
 type PreviewPaneProps = {
@@ -32,6 +35,14 @@ type PreviewPaneProps = {
     onOpenExtractedText: () => void;
     isViewingSelectedExtractedText: boolean;
   };
+  inlineTextEditor?: {
+    editor: CourseEditInlineEditorState;
+    selection: PreviewInspectPayload | null;
+    onChange: (text: string) => void;
+    onSave: () => Promise<boolean>;
+    onCancel: () => void;
+    onActivate: () => void;
+  };
 };
 
 export function PreviewPane({
@@ -53,8 +64,14 @@ export function PreviewPane({
   onOpenAnotherPage,
   onCopyPreviewIssue,
   picker,
-  resourcePreview
+  resourcePreview,
+  inlineTextEditor
 }: PreviewPaneProps) {
+  const [frameElement, setFrameElement] = useState<HTMLIFrameElement | null>(null);
+  const registerFrame = useCallback((node: HTMLIFrameElement | null) => {
+    setFrameElement((current) => current === node ? current : node);
+    registerPreviewFrame(mode, node);
+  }, [mode, registerPreviewFrame]);
   const devicePreset = DEVICE_PRESETS[layoutPreferences.devices[mode]];
   const zoomScale = layoutPreferences.zooms[mode] / 100;
   const previewCanvasStyle = {
@@ -214,7 +231,7 @@ export function PreviewPane({
               {canMountHtmlPreview ? (
                 <iframe
                   key={`${mode}:${previewSrc}:${recoveryState.attempt}`}
-                  ref={(node) => registerPreviewFrame(mode, node)}
+                  ref={registerFrame}
                   className={layoutPreferences.compareMode || previewMode === mode ? "preview-frame" : "preview-frame is-hidden"}
                   src={previewSrc}
                   title={`${mode} preview`}
@@ -225,6 +242,17 @@ export function PreviewPane({
                     onPreviewFrameLoad(mode);
                     onPreviewLoad(mode);
                   }}
+                />
+              ) : null}
+              {mode === "workspace" && inlineTextEditor ? (
+                <CourseInlineTextEditor
+                  editor={inlineTextEditor.editor}
+                  selection={inlineTextEditor.selection}
+                  frame={frameElement}
+                  onChange={inlineTextEditor.onChange}
+                  onSave={inlineTextEditor.onSave}
+                  onCancel={inlineTextEditor.onCancel}
+                  onActivate={inlineTextEditor.onActivate}
                 />
               ) : null}
               {!shouldUseInlineResourcePreview && recoveryState.phase !== "ready" ? (

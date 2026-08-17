@@ -15,6 +15,7 @@ import {
   type CourseEditStylePatch,
   type CourseEditTarget
 } from "../../../shared/course-editing.js";
+import type { CourseEditInlineEditorState } from "../hooks/useCourseEditing";
 
 type CourseEditPanelProps = {
   enabled: boolean;
@@ -31,6 +32,7 @@ type CourseEditPanelProps = {
   staleExportTargets: string[];
   previewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
   hasLivePreview: boolean;
+  inlineEditor: CourseEditInlineEditorState;
   onPreviewTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
   onClearLivePreview: () => void;
   onSaveTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
@@ -44,6 +46,15 @@ type CourseEditPanelProps = {
   onImportDrafts: (source: string) => boolean;
   onUploadImage: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
   onRenameCourse: (title: string) => Promise<boolean>;
+  onInlineEditorTextChange: (text: string) => void;
+  onSaveInlineEditor: () => Promise<boolean>;
+  onActivateInlineDraft: (draft: CourseEditDraft) => Promise<unknown>;
+  onSetInlinePreviewOwner: (owner: "parent-inline" | "child-inert" | "none") => void;
+  onReopenInlineEditor: () => Promise<boolean>;
+  onRebaseInlineEditor: () => void;
+  onCopyInlineEditorText: () => Promise<boolean>;
+  onDiscardInlineEditor: () => void;
+  onJumpToInlineEditor: () => Promise<boolean>;
   onAnnotateTarget: () => void;
 };
 
@@ -375,12 +386,103 @@ function TargetEditor({ target, draft, busy, onSave, onUploadImage, onPreview }:
   );
 }
 
-function DraftCard({ draft, index, count, busy, onReopen, onRemove, onReorder }: {
+function InlineTextComposer({
+  editor,
+  busy,
+  onChange,
+  onSave,
+  onSetPreviewOwner,
+  onReopen,
+  onRebase,
+  onCopy,
+  onDiscard,
+  onJump
+}: {
+  editor: CourseEditInlineEditorState;
+  busy: boolean;
+  onChange: (text: string) => void;
+  onSave: () => Promise<boolean>;
+  onSetPreviewOwner: (owner: "parent-inline" | "child-inert" | "none") => void;
+  onReopen: () => Promise<boolean>;
+  onRebase: () => void;
+  onCopy: () => Promise<boolean>;
+  onDiscard: () => void;
+  onJump: () => Promise<boolean>;
+}) {
+  const target = editor.target;
+  const value = editor.rawDocument?.text ?? "";
+  const allowsLineBreaks = target?.editor?.allowsLineBreaks ?? false;
+  if (!target || !editor.rawDocument) return null;
+  if (editor.status === "detached") {
+    return (
+      <section className="course-edit-inline-detached" data-testid="course-edit-inline-detached">
+        <h3>Source changed externally</h3>
+        <p>Your proposed text has been preserved. Reload and re-resolve this target before saving or applying.</p>
+        <label className="course-edit-field"><span>Your proposed text</span><textarea rows={allowsLineBreaks ? 4 : 2} readOnly value={value} /></label>
+        {editor.canRebase && target.editor ? <label className="course-edit-field"><span>Current course text</span><textarea rows={allowsLineBreaks ? 4 : 2} readOnly value={target.editor.text} /></label> : null}
+        <div className="course-edit-inline-actions">
+          {editor.canReopen ? <button type="button" className="primary-button" disabled={busy} onClick={() => void onReopen()}>Reopen against current source</button> : null}
+          {editor.canRebase ? <button type="button" className="ghost-button compact" disabled={busy} onClick={onRebase}>Rebase proposed text</button> : null}
+          <button type="button" className="ghost-button compact" onClick={() => void onCopy()}>Copy text</button>
+          <button type="button" className="ghost-button compact danger" disabled={busy} onClick={onDiscard}>Discard</button>
+        </div>
+      </section>
+    );
+  }
+  return (
+    <section className="course-edit-inline-composer" data-testid="course-edit-inline-composer">
+      <div className="section-header"><div><h3>Edit text</h3><p>{target.identity?.tagName.toUpperCase()} · one shared draft</p></div></div>
+      <label className="course-edit-field">
+        <span>Course text</span>
+        <textarea
+          rows={allowsLineBreaks ? 4 : 2}
+          maxLength={24_000}
+          value={value}
+          disabled={busy || editor.status === "applying"}
+          onFocus={() => onSetPreviewOwner("child-inert")}
+          onChange={(event) => onChange(allowsLineBreaks ? event.target.value : event.target.value.replace(/\r?\n/g, " "))}
+          onKeyDown={(event) => {
+            if ((event.metaKey || event.ctrlKey) && event.key === "Enter") {
+              event.preventDefault();
+              void onSave();
+            }
+          }}
+          data-testid="course-edit-inline-panel-text"
+        />
+      </label>
+      {!editor.previewAvailable ? (
+        <p className="course-edit-status neutral">Preview unavailable until page opens.</p>
+      ) : editor.previewOwner === "none" && editor.status === "saved" ? (
+        <p className="course-edit-live-preview-note">Draft saved. Click Edit in course to review it in place, or open Full Preview for a display-only check.</p>
+      ) : (
+        <p className="course-edit-live-preview-note">This panel and the course preview share the same draft. Click the visible text to return to the in-place caret.</p>
+      )}
+      {editor.message ? <p className={`course-edit-status ${editor.status === "invalid" ? "warning" : "neutral"}`}>{editor.message}</p> : null}
+      <div className="course-edit-inline-actions">
+        <button
+          type="button"
+          className="primary-button"
+          disabled={busy || editor.status === "applying" || editor.status === "clean"}
+          onClick={() => void onSave()}
+          data-testid="course-edit-inline-save"
+        >
+          Save draft
+        </button>
+        {editor.previewAvailable ? <button type="button" className="ghost-button compact" onClick={() => onSetPreviewOwner("parent-inline")}>Edit in course</button> : null}
+        {!editor.previewAvailable ? <button type="button" className="ghost-button compact" disabled={busy} onClick={() => void onJump()}>Jump to location</button> : null}
+        <button type="button" className="ghost-button compact danger" disabled={busy} onClick={onDiscard}>Discard</button>
+      </div>
+    </section>
+  );
+}
+
+function DraftCard({ draft, index, count, busy, onReopen, onEditInline, onRemove, onReorder }: {
   draft: CourseEditDraft;
   index: number;
   count: number;
   busy: boolean;
   onReopen: () => void;
+  onEditInline: () => void;
   onRemove: () => void;
   onReorder: (direction: -1 | 1) => void;
 }) {
@@ -391,6 +493,7 @@ function DraftCard({ draft, index, count, busy, onReopen, onRemove, onReorder }:
         <div>
           <button type="button" className="ghost-button compact" disabled={busy || index === 0} onClick={() => onReorder(-1)} aria-label="Move draft up">↑</button>
           <button type="button" className="ghost-button compact" disabled={busy || index === count - 1} onClick={() => onReorder(1)} aria-label="Move draft down">↓</button>
+          <button type="button" className="ghost-button compact" disabled={busy} onClick={onEditInline}>Edit in Review &amp; Apply</button>
           <button type="button" className="ghost-button compact" disabled={busy} onClick={onReopen}>Reopen on page</button>
           <button type="button" className="ghost-button compact danger" disabled={busy} onClick={onRemove}>Remove</button>
         </div>
@@ -474,7 +577,20 @@ export function CourseEditPanel(props: CourseEditPanelProps) {
           </button>
         </div>
       ) : null}
-      {props.target?.eligibility === "editable" ? (
+      {props.inlineEditor.target ? (
+        <InlineTextComposer
+          editor={props.inlineEditor}
+          busy={props.busy}
+          onChange={props.onInlineEditorTextChange}
+          onSave={props.onSaveInlineEditor}
+          onSetPreviewOwner={props.onSetInlinePreviewOwner}
+          onReopen={props.onReopenInlineEditor}
+          onRebase={props.onRebaseInlineEditor}
+          onCopy={props.onCopyInlineEditorText}
+          onDiscard={props.onDiscardInlineEditor}
+          onJump={props.onJumpToInlineEditor}
+        />
+      ) : props.target?.eligibility === "editable" ? (
         <TargetEditor
           key={props.target.identity?.targetId}
           target={props.target}
@@ -505,6 +621,7 @@ export function CourseEditPanel(props: CourseEditPanelProps) {
               count={props.drafts.length}
               busy={props.busy}
               onReopen={() => props.onReopenDraft(draft)}
+              onEditInline={() => { void props.onActivateInlineDraft(draft); }}
               onRemove={() => props.onRemoveDraft(draft.id)}
               onReorder={(direction) => props.onReorderDraft(draft.id, direction)}
             />

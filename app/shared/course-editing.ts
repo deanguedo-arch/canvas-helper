@@ -5,6 +5,7 @@ export const COURSE_EDIT_SCHEMA_VERSION = 2;
 export const COURSE_EDIT_PREVIEW_SCHEMA_VERSION = 1;
 export const COURSE_EDIT_MAX_DRAFTS = 20;
 export const COURSE_EDIT_MAX_HTML_CODE_UNITS = 24_000;
+export const COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS = 24_000;
 export const COURSE_EDIT_MAX_URL_CODE_UNITS = 2_048;
 export const COURSE_EDIT_MAX_STATUS_CODE_UNITS = 240;
 export const COURSE_EDIT_MAX_ID_CODE_UNITS = 160;
@@ -73,6 +74,22 @@ export type CourseEditTargetIdentity = {
   adapter: CourseEditAdapter;
 };
 
+/**
+ * Text-only input accepted by Studio's parent-owned in-place editor. This is
+ * deliberately not an HTML document: the server is the only authority that
+ * turns it into a sanitized CourseEditPatch.
+ */
+export type CourseEditEditorDocument = {
+  kind: "plain-text";
+  text: string;
+};
+
+export type CourseEditEditorCapability = {
+  kind: "plain-text";
+  text: string;
+  allowsLineBreaks: boolean;
+};
+
 export type CourseEditTarget = {
   eligibility: CourseEditEligibility;
   reason: string;
@@ -87,6 +104,24 @@ export type CourseEditTarget = {
     title: string;
   };
   currentStyle: Required<CourseEditStylePatch>;
+  /** Present only for source-backed h1–h6, p, li and figcaption text. */
+  editor?: CourseEditEditorCapability;
+};
+
+export type CourseEditNormalizeRequest = {
+  schemaVersion: typeof COURSE_EDIT_SCHEMA_VERSION;
+  identity: CourseEditTargetIdentity;
+  document: CourseEditEditorDocument;
+};
+
+export type CourseEditNormalizeResult = {
+  schemaVersion: typeof COURSE_EDIT_SCHEMA_VERSION;
+  document: CourseEditEditorDocument;
+  canonicalPatch: CourseEditPatch;
+  canonicalPatchDigest: string;
+  representation: CourseEditPreviewRepresentation;
+  target: CourseEditTarget;
+  changed: boolean;
 };
 
 export type CourseEditReopenRequest = {
@@ -297,6 +332,15 @@ export function isCourseEditPatch(value: unknown): value is CourseEditPatch {
   return Object.keys(value).length > 0;
 }
 
+export function isCourseEditEditorDocument(value: unknown): value is CourseEditEditorDocument {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, ["kind", "text"]) &&
+    value.kind === "plain-text" &&
+    isBoundedString(value.text, COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS)
+  );
+}
+
 export function isCourseEditTargetIdentity(value: unknown): value is CourseEditTargetIdentity {
   return (
     isRecord(value) &&
@@ -326,6 +370,16 @@ export function isCourseEditReopenRequest(value: unknown): value is CourseEditRe
     hasOnlyKeys(value, ["schemaVersion", "identity"]) &&
     value.schemaVersion === COURSE_EDIT_SCHEMA_VERSION &&
     isCourseEditTargetIdentity(value.identity)
+  );
+}
+
+export function isCourseEditNormalizeRequest(value: unknown): value is CourseEditNormalizeRequest {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, ["schemaVersion", "identity", "document"]) &&
+    value.schemaVersion === COURSE_EDIT_SCHEMA_VERSION &&
+    isCourseEditTargetIdentity(value.identity) &&
+    isCourseEditEditorDocument(value.document)
   );
 }
 

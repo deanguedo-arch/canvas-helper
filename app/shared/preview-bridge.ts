@@ -102,6 +102,32 @@ export type PreviewViewport = {
   height: number;
 };
 
+/**
+ * Bounded, presentation-only values reported from the isolated learner frame
+ * so Studio can position its own editor without receiving selectors, CSS
+ * declarations, script, or keyboard events from the learner page.
+ */
+export type SafePresentationSnapshot = {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: string;
+  fontStyle: "normal" | "italic" | "oblique";
+  lineHeight: string;
+  letterSpacing: string;
+  textAlign: "left" | "right" | "center" | "justify" | "start" | "end";
+  color: string;
+  whiteSpace: "normal" | "pre" | "pre-wrap" | "pre-line" | "nowrap";
+};
+
+export type PreviewInlineTargetState = {
+  schemaVersion: typeof PREVIEW_BRIDGE_VERSION;
+  targetNodeId: string;
+  geometry: PreviewGeometry;
+  viewport: PreviewViewport;
+  visible: boolean;
+  presentation: SafePresentationSnapshot;
+};
+
 export type PreviewInspectPayload = {
   nodeId: string | null;
   selectionKind?: "element" | "area";
@@ -124,6 +150,7 @@ export type PreviewInspectPayload = {
       title: string;
     };
   };
+  presentation?: SafePresentationSnapshot;
 };
 
 export type PreviewInspectCurrentPayload = {
@@ -334,6 +361,11 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
+function hasOnlyKeys(value: Record<string, unknown>, keys: readonly string[]) {
+  const allowed = new Set(keys);
+  return Object.keys(value).every((key) => allowed.has(key));
+}
+
 function isBoundedString(value: unknown, maximumLength: number) {
   return typeof value === "string" && value.length <= maximumLength;
 }
@@ -387,6 +419,34 @@ function isViewport(value: unknown): value is PreviewViewport {
   );
 }
 
+function isSafePresentationValue(value: unknown, maximum = 240) {
+  return (
+    typeof value === "string" &&
+    isBoundedString(value, maximum) &&
+    !/[;{}<>]/.test(value) &&
+    !/(?:url|expression|@import)\s*\(/i.test(value)
+  );
+}
+
+function isSafePresentationSnapshot(value: unknown): value is SafePresentationSnapshot {
+  if (!isRecord(value)) return false;
+  const fontStyle = value.fontStyle;
+  const textAlign = value.textAlign;
+  const whiteSpace = value.whiteSpace;
+  return (
+    hasOnlyKeys(value, ["fontFamily", "fontSize", "fontWeight", "fontStyle", "lineHeight", "letterSpacing", "textAlign", "color", "whiteSpace"]) &&
+    isSafePresentationValue(value.fontFamily) &&
+    isSafePresentationValue(value.fontSize, 32) &&
+    isSafePresentationValue(value.fontWeight, 32) &&
+    (fontStyle === "normal" || fontStyle === "italic" || fontStyle === "oblique") &&
+    isSafePresentationValue(value.lineHeight, 32) &&
+    isSafePresentationValue(value.letterSpacing, 32) &&
+    ["left", "right", "center", "justify", "start", "end"].includes(String(textAlign)) &&
+    isSafePresentationValue(value.color, 64) &&
+    ["normal", "pre", "pre-wrap", "pre-line", "nowrap"].includes(String(whiteSpace))
+  );
+}
+
 export function isPreviewScrollState(value: unknown): value is PreviewScrollState {
   if (!isRecord(value) || !isFiniteNumber(value.windowTop) || !isFiniteNumber(value.windowLeft) || !Array.isArray(value.containers)) {
     return false;
@@ -433,6 +493,7 @@ export function isPreviewInspectPayload(value: unknown): value is PreviewInspect
         )
       )
     ) &&
+    (value.presentation === undefined || isSafePresentationSnapshot(value.presentation)) &&
     (
       value.interactionStartedAt === undefined ||
       (typeof value.interactionStartedAt === "number" && Number.isFinite(value.interactionStartedAt) && value.interactionStartedAt >= 0)

@@ -489,7 +489,15 @@ export function usePreviewScrollSync({
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && stateRef.current.inspectEnabled });
         postBridgeCommand(mode, "studio-set-edit-visual-mode", { enabled: mode === "workspace" && stateRef.current.editEnabled });
         if (mode === "workspace" && stateRef.current.courseEditPreview) {
-          postBridgeCommand(mode, "studio-set-edit-preview", stateRef.current.courseEditPreview);
+          // A ready message from Full Preview must seed that one new surface,
+          // not replay the same revision into the already-rendered embedded
+          // learner. The latter correctly rejects duplicate revisions, which
+          // must never turn a successful display preview into a clear.
+          const port = source === "embedded" ? previewPortRefs.current[mode] : primaryStandalonePort(mode);
+          const message = createPreviewBridgeMessage("studio-set-edit-preview", stateRef.current.courseEditPreview);
+          if (previewBridgeMessageByteLength(message) <= PREVIEW_BRIDGE_MAX_MESSAGE_BYTES) {
+            postToPort(port, message);
+          }
         }
         if (mode === "workspace" && source === "embedded") flushPendingKeyboardInspection();
         flushPendingFocusRequest(mode, source);
@@ -948,6 +956,19 @@ export function usePreviewScrollSync({
       postToPort(nextPort, createPreviewBridgeMessage("studio-set-inspect-mode", {
         enabled: mode === "workspace" && stateRef.current.inspectEnabled
       }));
+      // The standalone host may finish connecting to Studio before its nested
+      // learner iframe is ready. Seed the host with the entire current visual
+      // edit state now; it keeps the bounded display command and replays it
+      // only after the learner bridge reports ready.
+      postToPort(nextPort, createPreviewBridgeMessage("studio-set-edit-visual-mode", {
+        enabled: mode === "workspace" && stateRef.current.editEnabled
+      }));
+      if (mode === "workspace" && stateRef.current.courseEditPreview) {
+        postToPort(nextPort, createPreviewBridgeMessage(
+          "studio-set-edit-preview",
+          stateRef.current.courseEditPreview
+        ));
+      }
     };
 
     window.addEventListener("message", receiveStandaloneBridge, true);
