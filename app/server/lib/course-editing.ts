@@ -443,7 +443,12 @@ const INLINE_TEXT_EDITOR_MULTILINE_TAGS = new Set(["p", "li", "blockquote", "fig
 function inlineTextEditorCapability(element: EditableHtmlElement, originalHtml: string): CourseEditEditorCapability | undefined {
   if (!INLINE_TEXT_EDITOR_TAGS.has(element.tagName) || !isSafeCourseEditPlainTextSource(originalHtml)) return undefined;
   const allowsLineBreaks = INLINE_TEXT_EDITOR_MULTILINE_TAGS.has(element.tagName);
-  const text = sanitizeCourseEditPlainTextDocument(courseEditPlainTextFromHtml(originalHtml), { allowLineBreaks: allowsLineBreaks });
+  const sourceText = courseEditPlainTextFromHtml(originalHtml);
+  // A source-safe heading or label may legitimately contain an explicit
+  // <br>. It remains editable through the rich-text composer, but a
+  // single-line caret must not make target resolution fail for it.
+  if (!allowsLineBreaks && sourceText.includes("\n")) return undefined;
+  const text = sanitizeCourseEditPlainTextDocument(sourceText, { allowLineBreaks: allowsLineBreaks });
   return { kind: "plain-text", text, allowsLineBreaks };
 }
 

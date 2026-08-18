@@ -270,6 +270,28 @@ test("every source-safe mapped text label exposes the in-place editor without ch
   }
 });
 
+test("a single-line source-safe element with an explicit line break stays editable through the composer", async () => {
+  const fixture = await createFixture();
+  try {
+    await writeFile(
+      fixture.sourcePath,
+      ORIGINAL_HTML.replace("<h1>Hello teacher</h1>", "<h1>Hello<br>teacher</h1>"),
+      "utf8"
+    );
+    const before = await readFile(fixture.sourcePath, "utf8");
+    const document = decoratePreviewHtml(before);
+    assert.ok(document);
+
+    const target = await resolveCourseEditTarget(requestFor(document, "h1"), fixture.repoRoot);
+    assert.equal(target.eligibility, "editable");
+    assert.equal(target.capabilities.richText, true);
+    assert.equal(target.editor, undefined);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("live preview normalization is canonical, ordered, read-only, and fails closed after clear", async () => {
   const fixture = await createFixture();
   try {
