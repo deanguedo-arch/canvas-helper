@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Recover unsaved Studio in-place text safely after reload, close, navigation, or preview loss.
-- Status: ready for clean exact-head release validation on `codex/studio-unsaved-draft-recovery-v1`.
+- Status: local implementation complete; awaiting focused PR exact-head CI and independent review.
 
 ## Summary
 
@@ -28,8 +28,9 @@
 - `npm run test:studio-inspection` — passed 172/172.
 - `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "unsaved in-place text survives reload|recovered unsaved text is discarded|external source drift detaches"` — passed 3/3. It verifies reload/reopen, source-drift storage, explicit discard, no-write-before-Apply, and no silent overwrite by a second selected target.
 - `npm run build:studio` — passed; existing bundle-size advisory remains non-blocking.
-- `npm run verify:typecheck-baseline` previously passed before the final recovery guard; rerun it with the release gate on the final documentation commit. Raw typecheck remains intentionally non-green with the ten established unrelated diagnostics.
-- `git diff --check` — passed before documentation handoff updates; rerun before commit.
+- `npm run verify:typecheck-baseline` — passed: exactly the ten reviewed unrelated diagnostics and none in changed files. Raw typecheck remains intentionally non-green.
+- `npm run test:studio-release` — passed at clean implementation-and-audit commit `ca932f76bf16fcfc8f64f4baf1c76805e51b8489`: 168 focused contracts, Studio production build, all 63 inspection E2E scenarios, platform smoke, and strict project contract. `.runtime/studio-release-report.json` recorded `workingTreeClean: true` and `sourceChangedDuringRun: false`.
+- `git diff --check` — passed before this final evidence note; rerun before committing it.
 
 ## Why this changed
 
@@ -58,9 +59,8 @@ Teachers can now type directly at the source-safe text they see. Without recover
 
 ## What still needs validation
 
-- Run the clean exact-head `npm run test:studio-release` after committing the documentation changes.
-- Re-run the frozen baseline verifier after the final commit.
-- Push this branch and open a focused draft PR only after local release evidence is clean; do not merge it without a separate exact-head review and CI.
+- Commit this final evidence note, push the branch, and open a focused draft PR.
+- Require the PR's exact-head readiness/release/census checks and an independent audit before merge.
 
 ## Known risks
 
@@ -69,7 +69,7 @@ Teachers can now type directly at the source-safe text they see. Without recover
 
 ## Exact next command
 
-`npm run test:studio-release`
+`git push -u origin codex/studio-unsaved-draft-recovery-v1`
 
 ## Exact next file to open
 

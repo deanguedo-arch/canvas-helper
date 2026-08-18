@@ -88,6 +88,7 @@ These checks ran against this working recovery branch. Re-run them on the exact 
 | `npm run build:studio` | Passed. |
 | `npm run verify:typecheck-baseline` | Passed with the reviewed ten unrelated diagnostics and no changed-file diagnostic. Raw typecheck remains intentionally non-green. |
 | Focused inspection E2E | Passed: external drift persists a rebase-required recovery; unsaved text survives full Studio reload, requires durable reopen before Save, remains byte-for-byte non-mutating before Apply, and explicit Discard removes only the local recovery. |
+| `npm run test:studio-release` | Passed at clean implementation-and-audit commit `ca932f76bf16fcfc8f64f4baf1c76805e51b8489`: 168 focused contracts, production build, all 63 inspection E2E scenarios, platform smoke, and strict project contract. The report recorded `workingTreeClean: true` and `sourceChangedDuringRun: false`. |
 
 ## Reviewer checklist
 
