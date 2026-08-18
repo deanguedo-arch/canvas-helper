@@ -5,7 +5,8 @@
 - Follow-up branch: `codex/studio-inline-text-editing-v1`
 - Base: Direct Editing baseline integration [`84221330`](https://github.com/deanguedo-arch/canvas-helper/commit/842213301920798cc1f979c34218e939d4940f61)
 - Baseline inline implementation: [`26216b5a`](https://github.com/deanguedo-arch/canvas-helper/commit/26216b5a29a0eb1cfc288061a2d5b25bdc2dffb9)
-- Full Preview parity implementation: audit the current exact branch head; `26216b5a` alone predates the Full Preview host caret.
+- Exact behavioral Gate 0 head: [`621078dd`](https://github.com/deanguedo-arch/canvas-helper/commit/621078dd126f8e633b11492a9be7f5eb5f468b0e)
+- Full Preview parity implementation: `26216b5a` alone predates the trusted host caret. The exact head above includes the Full Preview interactive-caret, transfer, keyboard, contextual-control, and rich-text-composer fallback fixes.
 - Requested verdict: **GO**, **GO WITH CONDITIONS**, or **REQUEST CHANGES** for the inline-text follow-up only
 
 ## Scope and non-negotiable boundary
@@ -120,17 +121,17 @@ There is exactly one visual owner. Opening Full Preview from an active embedded 
 
 ## Evidence at the baseline and current local Full Preview parity state
 
-The first two rows below are retained baseline evidence from `26216b5a`. The remaining rows are current local evidence for the Full Preview parity change and must be rerun by an independent auditor at the exact committed head:
+The first two rows below are retained baseline evidence from `26216b5a`. The remaining rows are current local evidence for the Full Preview parity change. The August 18 Gate 0 rerun is recorded in [`2026-08-18-studio-inline-editing-gate-0-exact-head.md`](./2026-08-18-studio-inline-editing-gate-0-exact-head.md); an independent auditor must still rerun the exact published PR head.
 
 | Check | Result |
 | --- | --- |
-| `npm run test:course-editing` | baseline: 51/51 passed; current local parity run passed |
-| `npm run test:studio-release` | passed at clean exact keyboard-fix commit `f74dedbac59a150dbc1ae605e69c48f429f7e0d8`: 163 focused contracts, Studio production build, 60/60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`. |
+| `npm run test:course-editing` | passed at exact behavioral head `621078dd`, including the line-break rich-text composer fallback |
+| `npm run test:studio-release` | passed at clean exact behavioral head `621078dd`: 164 focused contracts, Studio production build, 61 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`. |
 | `E2E_STUDIO_PORT=49391 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` | passed locally; uses real keyboard input in both direct caret surfaces, exercises active-caret transfer, and proves learner isolation |
-| `npm run test:studio-inspection` | current local parity run passed |
+| `npm run test:studio-inspection` | passed at exact behavioral head `621078dd` |
 | `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "inline edits stay above\|structured editable content"` | passed locally: static button/link labels received direct carets; the attached **Format & options** path opened a link's properties at the selected item in embedded Studio and Full Preview; nested rich text also opened its composer at the selected item with no pre-Apply write. |
 | `npm run test:e2e:smoke` and `npm run test:e2e:project -- --project e2e-fixture` | passed locally |
-| `npm run verify:typecheck-baseline` | current local parity run passed; no changed-file diagnostic |
+| `npm run verify:typecheck-baseline` | passed at exact behavioral head `621078dd`; no changed-file diagnostic |
 | raw `npm run typecheck -- --pretty false` | expected exit `2` with exactly ten established unrelated diagnostics |
 | `git diff --check` | current local parity run passed |
 

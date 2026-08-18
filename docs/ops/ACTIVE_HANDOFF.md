@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Make every safe Studio edit-map action usable at the selected learner item in both embedded Studio and Full Preview.
-- Status: local contextual-editing expansion is implemented and verified; exact-head release evidence, publication, and independent audit remain.
+- Status: ready for independent exact-head audit and focused PR; local Gate 0 passed at behavioral commit `621078dd126f8e633b11492a9be7f5eb5f468b0e`.
 
 ## Summary
 
@@ -12,6 +12,7 @@
 - The Full Preview caret is a trusted Studio-origin host overlay above the isolated learner iframe. It is never a learner-frame `contenteditable` element.
 - A startup guard prevents an early Full Preview click from reaching learner controls before the nested inspection shield has confirmed Edit mode. One exclusive visual lease prevents embedded caret, Full Preview caret, and inert child presentation from overlapping.
 - Before Apply, typing, Save draft, and preview presentation remain browser-local. Apply retains the established protected write, rebuild, rendered validation, checkpoint, and Undo lifecycle.
+- The Gate 0 catalog verifier exposed a narrow resolver regression for source-safe single-line labels with explicit `<br>` markup. Those elements now fall back to the existing rich-text composer instead of throwing during target resolution; a focused regression test covers the fallback.
 - No learner course content or user-owned changes in the original checkout were touched by this linked-worktree follow-up.
 
 ## Files changed
@@ -48,12 +49,14 @@ At the committed local implementation state:
 - `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "inline edits stay above|structured editable content"` — passed: verified direct typed caret behavior, attached link properties, and structured controls at the selected item in embedded Studio and Full Preview, with no filesystem write before Apply.
 - `npm run test:e2e:smoke` — passed.
 - `npm run test:e2e:project -- --project e2e-fixture` — passed.
-- `npm run test:studio-release` — passed at clean exact keyboard-fix commit `f74dedbac59a150dbc1ae605e69c48f429f7e0d8`: 163 focused contracts, production build, 60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`.
+- `npm run verify:course-editing-pilots` — passed 4/4: Direct, English factory, Social factory, and legacy snapshot each completed Apply, rebuild/materialization where applicable, learner render, reload, server restart, Undo, and byte-exact restoration.
+- `npm run verify:course-onboarding -- --all` — passed 63/63 after the narrow rich-text composer fallback correction.
+- `npm run test:studio-release` — passed at clean exact behavioral commit `621078dd126f8e633b11492a9be7f5eb5f468b0e`: 164 focused contracts, production build, 61 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`.
 - `git diff --check` — passed.
 
 ## Source of truth
 
-- Audit instructions, supported behavior, and known boundaries: `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
+- Audit instructions, supported behavior, and known boundaries: `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md` and `docs/audits/2026-08-18-studio-inline-editing-gate-0-exact-head.md`.
 - Canonical inline-draft state and visual-owner lease: `app/studio/src/hooks/useCourseEditing.ts`.
 - Full Preview trusted-host isolation: `app/server/preview-bridge-runtime.ts`.
 - Cross-origin bridge validation: `app/shared/preview-bridge.ts` and `app/studio/src/hooks/usePreviewScrollSync.ts`.
@@ -75,8 +78,8 @@ At the committed local implementation state:
 
 ## What still needs validation
 
-- Publish only the scoped committed files listed above, then have an independent auditor inspect the exact resulting head using the audit packet.
-- If hosted evidence is required, obtain explicit repository-owner authorization to open a pull request. Do not claim hosted CI until its exact head has completed.
+- Push the scoped branch and open a focused PR to `codex/studio-roadmap-phases`, then have an independent auditor inspect its exact published head using the audit packet.
+- Do not claim hosted CI until the PR-triggered exact head has completed.
 - Before general availability, complete the planned five-teacher/twenty-session rollout plus Brightspace/deployed-host, full-WCAG, delayed-interaction, and cross-browser SCORM acceptance.
 
 ## Known risks
@@ -87,14 +90,15 @@ At the committed local implementation state:
 
 ## Exact next command
 
-`npm run test:studio-release`
+`gh pr checks --watch`
 
 ## Exact next file to open
 
-`app/server/preview-bridge-runtime.ts`
+`docs/audits/2026-08-18-studio-inline-editing-gate-0-exact-head.md`
 
 ## Do not do next / warnings
 
 - Do not touch `projects/ready-mind/workspace/index.html`, `.runtime/**`, or unrelated files in the original checkout.
 - Do not claim universal element-level editability, learner-frame editing, or published/hosted evidence before the scoped commit and authorized CI evidence exist.
 - Do not post or resolve GitHub review threads without explicit repository-owner authorization.
+- Do not start unsaved-work recovery or structural authoring until this inline branch is independently reviewed and integrated.
