@@ -449,6 +449,12 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
     await standaloneInlineEditor.focus();
     await fullPreview.keyboard.press("ControlOrMeta+A");
     await fullPreview.keyboard.type("E2E Fixture Workspace — Full Preview");
+    // Full Preview must not repaint an older bridge command over live typing.
+    // Waiting beyond the editor's normalization debounce makes the ordering
+    // contract observable instead of relying on a timing-sensitive immediate
+    // assertion.
+    await fullPreview.waitForTimeout(350);
+    await expect(standaloneInlineEditor).toHaveText("E2E Fixture Workspace — Full Preview");
     await expect(page.getByTestId("course-edit-inline-panel-text")).toHaveValue("E2E Fixture Workspace — Full Preview");
     await expect(standaloneCourse.getByRole("heading", { name: "E2E Fixture Workspace" })).toHaveText("E2E Fixture Workspace");
     await expect(standaloneCourse.locator('[data-canvas-helper-edit-preview-overlay="true"]')).toHaveCount(0);

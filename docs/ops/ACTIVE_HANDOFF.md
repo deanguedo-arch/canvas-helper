@@ -2,7 +2,7 @@
 
 - Project: `repo-wide`
 - Task: Make every safe Studio edit-map action usable at the selected learner item in both embedded Studio and Full Preview.
-- Status: ready for independent exact-head audit and focused PR; local Gate 0 passed at behavioral commit `621078dd126f8e633b11492a9be7f5eb5f468b0e`.
+- Status: focused PR CI remediation in progress. A GitHub release-gate run found one Full Preview typing synchronization race; the narrow acknowledgment fix is locally verified and awaiting a clean exact-head release gate.
 
 ## Summary
 
@@ -13,6 +13,7 @@
 - A startup guard prevents an early Full Preview click from reaching learner controls before the nested inspection shield has confirmed Edit mode. One exclusive visual lease prevents embedded caret, Full Preview caret, and inert child presentation from overlapping.
 - Before Apply, typing, Save draft, and preview presentation remain browser-local. Apply retains the established protected write, rebuild, rendered validation, checkpoint, and Undo lifecycle.
 - The Gate 0 catalog verifier exposed a narrow resolver regression for source-safe single-line labels with explicit `<br>` markup. Those elements now fall back to the existing rich-text composer instead of throwing during target resolution; a focused regression test covers the fallback.
+- The first hosted PR release gate exposed a Full Preview race: a delayed bridge command could repaint a stale value over active teacher typing. The trusted host now receives the highest input revision Studio has accepted and refuses to repaint until that revision is acknowledged. This preserves the single authoritative draft without loosening the learner-DOM boundary.
 - No learner course content or user-owned changes in the original checkout were touched by this linked-worktree follow-up.
 
 ## Files changed
@@ -35,6 +36,7 @@
 - Added an attached **Format & options** control to both direct-caret hosts. It preserves any unsaved text as a browser-local draft before transferring that same target to the capability composer, so a teacher can edit link destinations and formatting without leaving the selected learner item.
 - Opening Full Preview from an active embedded editor keeps the durable target, waits for the standalone bridge to be ready, and transfers its caret to the corresponding text in the trusted host. Bounded retries prevent the popup's initial connection race from silently losing the edit.
 - Both direct caret surfaces and Review & Apply share the same normalizer, revisions, source-drift handling, saved-draft reopen, Save, Apply, and Undo paths. Full Preview never owns a second persistent or editable copy.
+- Full Preview bridge commands now include a bounded `acknowledgedInputRevision`. A duplicate or out-of-order command cannot reset the trusted host field while newer local typing remains unacknowledged.
 - Screenshot and Review Set capture are blocked while an unapplied embedded or Full Preview interactive caret is visible.
 
 ## Verification run
@@ -53,6 +55,8 @@ At the committed local implementation state:
 - `npm run verify:course-onboarding -- --all` — passed 63/63 after the narrow rich-text composer fallback correction.
 - `npm run test:studio-release` — passed at clean exact behavioral commit `621078dd126f8e633b11492a9be7f5eb5f468b0e`: 164 focused contracts, production build, 61 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`.
 - `git diff --check` — passed.
+- `node --import tsx --test scripts/tests/preview-security.test.ts` — passed after the acknowledgment change, including the bounded bridge-contract regression.
+- The Full Preview typing scenario passed five consecutive Chromium repetitions after waiting beyond the normalization debounce, proving that a delayed command does not overwrite the live caret value.
 
 ## Source of truth
 
@@ -78,8 +82,8 @@ At the committed local implementation state:
 
 ## What still needs validation
 
-- Push the scoped branch and open a focused PR to `codex/studio-roadmap-phases`, then have an independent auditor inspect its exact published head using the audit packet.
-- Do not claim hosted CI until the PR-triggered exact head has completed.
+- Commit and push the focused acknowledgment fix to PR #2, then wait for the exact-head release gate and editability census.
+- Do not claim hosted CI until the PR-triggered exact head has completed successfully.
 - Before general availability, complete the planned five-teacher/twenty-session rollout plus Brightspace/deployed-host, full-WCAG, delayed-interaction, and cross-browser SCORM acceptance.
 
 ## Known risks

@@ -830,10 +830,10 @@ export function buildPreviewBridgeRuntime(
 
   function validHostedInlineEditorCommand(value) {
     if (!value || typeof value !== "object") return false;
-    var keys = ["schemaVersion", "active", "sessionId", "revision", "targetId", "target", "text", "allowsLineBreaks", "status"];
+    var keys = ["schemaVersion", "active", "sessionId", "revision", "acknowledgedInputRevision", "targetId", "target", "text", "allowsLineBreaks", "status"];
     if (Object.keys(value).length !== keys.length || !keys.every(function(key) { return Object.prototype.hasOwnProperty.call(value, key); })) return false;
-    if (value.schemaVersion !== VERSION || typeof value.active !== "boolean" || !Number.isSafeInteger(value.revision) || value.revision < 0 || typeof value.allowsLineBreaks !== "boolean" || ["clean", "editing", "normalizing", "valid", "invalid", "saved"].indexOf(value.status) < 0) return false;
-    if (!value.active) return value.sessionId === "" && value.targetId === "" && value.target === null && value.text === "" && value.allowsLineBreaks === false && value.status === "clean";
+    if (value.schemaVersion !== VERSION || typeof value.active !== "boolean" || !Number.isSafeInteger(value.revision) || value.revision < 0 || !Number.isSafeInteger(value.acknowledgedInputRevision) || value.acknowledgedInputRevision < 0 || typeof value.allowsLineBreaks !== "boolean" || ["clean", "editing", "normalizing", "valid", "invalid", "saved"].indexOf(value.status) < 0) return false;
+    if (!value.active) return value.sessionId === "" && value.targetId === "" && value.target === null && value.text === "" && value.acknowledgedInputRevision === 0 && value.allowsLineBreaks === false && value.status === "clean";
     var target = value.target;
     return Boolean(
       typeof value.sessionId === "string" && /^[A-Za-z0-9-]{1,96}$/.test(value.sessionId) &&
@@ -958,8 +958,9 @@ export function buildPreviewBridgeRuntime(
       return;
     }
     var previous = hostedInlineEditorCommand;
-    if (previous && previous.sessionId === command.sessionId && command.revision < previous.revision) return;
+    if (previous && previous.sessionId === command.sessionId && command.revision <= previous.revision) return;
     var newSession = !previous || previous.sessionId !== command.sessionId;
+    if (newSession) hostedInlineEditorInputRevision = 0;
     hostedInlineEditorCommand = command;
     if (!hostedInlineEditor) {
       var stage = document.createElement("div");
@@ -1074,7 +1075,15 @@ export function buildPreviewBridgeRuntime(
       hostedInlineEditorField.setAttribute("aria-multiline", command.allowsLineBreaks ? "true" : "false");
       configureHostedPlainTextEditor(hostedInlineEditorField);
       setHostedInlinePresentation(hostedInlineEditorField, command.target.presentation);
-      if (!hostedInlineEditorField.hasAttribute("data-canvas-helper-composing") && hostedInlineEditorField.textContent !== command.text) {
+      // The host can receive a command that was composed before Studio had
+      // processed its most recent input event. It may update geometry and
+      // status, but it must not replace live teacher text until Studio has
+      // acknowledged that input revision.
+      if (
+        !hostedInlineEditorField.hasAttribute("data-canvas-helper-composing") &&
+        (newSession || command.acknowledgedInputRevision >= hostedInlineEditorInputRevision) &&
+        hostedInlineEditorField.textContent !== command.text
+      ) {
         hostedInlineEditorField.textContent = command.text;
       }
     }

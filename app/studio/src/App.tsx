@@ -421,6 +421,7 @@ export function App() {
   const standaloneInlineCommandStateRef = useRef({ signature: "", revision: 0 });
   const [standaloneInlineCommandRevision, setStandaloneInlineCommandRevision] = useState(0);
   const standaloneInlineInputRevisionsRef = useRef(new Map<string, number>());
+  const [standaloneInlineAcknowledgement, setStandaloneInlineAcknowledgement] = useState({ sessionId: "", revision: 0 });
   const inlineEditorStateRef = useRef(courseEditing.inlineEditor);
   inlineEditorStateRef.current = courseEditing.inlineEditor;
   const pendingStandaloneInlineTransferRef = useRef<{
@@ -929,6 +930,8 @@ export function App() {
       inline.previewOwner,
       inline.status,
       inline.inlineSessionId,
+      standaloneInlineAcknowledgement.sessionId,
+      standaloneInlineAcknowledgement.revision,
       identity?.targetId ?? "",
       identity?.nodeId ?? "",
       inline.rawDocument?.text ?? "",
@@ -950,7 +953,7 @@ export function App() {
       selection?.presentation?.color ?? "",
       selection?.presentation?.whiteSpace ?? ""
     ].join("\u001f");
-  }, [courseEditing.inlineEditor, standaloneInlineEditorSelection]);
+  }, [courseEditing.inlineEditor, standaloneInlineAcknowledgement, standaloneInlineEditorSelection]);
 
   useEffect(() => {
     if (standaloneInlineCommandStateRef.current.signature === standaloneInlineEditorSignature) return;
@@ -965,6 +968,9 @@ export function App() {
     const inline = courseEditing.inlineEditor;
     const identity = inline.target?.identity;
     const selection = standaloneInlineEditorSelection;
+    const acknowledgedInputRevision = standaloneInlineAcknowledgement.sessionId === inline.inlineSessionId
+      ? standaloneInlineAcknowledgement.revision
+      : 0;
     const supportedStatus = ["clean", "editing", "normalizing", "valid", "invalid", "saved"] as const;
     const active = (
       inline.previewOwner === "standalone-inline" &&
@@ -982,6 +988,7 @@ export function App() {
         active: false,
         sessionId: "",
         revision: standaloneInlineCommandRevision,
+        acknowledgedInputRevision: 0,
         targetId: "",
         target: null,
         text: "",
@@ -994,6 +1001,7 @@ export function App() {
       active: true,
       sessionId: inline.inlineSessionId,
       revision: standaloneInlineCommandRevision,
+      acknowledgedInputRevision,
       targetId: identity.targetId,
       target: {
         schemaVersion: PREVIEW_BRIDGE_VERSION,
@@ -1007,7 +1015,7 @@ export function App() {
       allowsLineBreaks: inline.target?.editor?.allowsLineBreaks ?? false,
       status: inline.status as "clean" | "editing" | "normalizing" | "valid" | "invalid" | "saved"
     };
-  }, [courseEditing.inlineEditor, standaloneInlineCommandRevision, standaloneInlineEditorSelection]);
+  }, [courseEditing.inlineEditor, standaloneInlineAcknowledgement, standaloneInlineCommandRevision, standaloneInlineEditorSelection]);
 
   const {
     registerPreviewFrame,
@@ -1105,8 +1113,10 @@ export function App() {
       standaloneInlineInputRevisionsRef.current.set(action.sessionId, action.revision);
       if (action.action === "input") {
         courseEditing.setInlineEditorText(action.text);
+        setStandaloneInlineAcknowledgement({ sessionId: action.sessionId, revision: action.revision });
         return;
       }
+      setStandaloneInlineAcknowledgement({ sessionId: action.sessionId, revision: action.revision });
       if (action.action === "save") {
         void courseEditing.saveInlineEditor();
         return;

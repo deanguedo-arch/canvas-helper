@@ -142,6 +142,12 @@ export type PreviewInlineEditorCommand = {
   active: boolean;
   sessionId: string;
   revision: number;
+  /**
+   * The newest Full Preview input event Studio has incorporated into the
+   * authoritative working draft. The trusted host must not repaint its field
+   * from a command that predates its own local typing.
+   */
+  acknowledgedInputRevision: number;
   targetId: string;
   target: PreviewInlineTargetState | null;
   text: string;
@@ -490,14 +496,17 @@ function isPreviewInlineTargetState(value: unknown): value is PreviewInlineTarge
 
 export function isPreviewInlineEditorCommand(value: unknown): value is PreviewInlineEditorCommand {
   if (!isRecord(value)) return false;
-  const { schemaVersion, active, sessionId, revision, targetId, target, text, allowsLineBreaks, status } = value;
+  const { schemaVersion, active, sessionId, revision, acknowledgedInputRevision, targetId, target, text, allowsLineBreaks, status } = value;
   if (
-    !hasOnlyKeys(value, ["schemaVersion", "active", "sessionId", "revision", "targetId", "target", "text", "allowsLineBreaks", "status"]) ||
+    !hasOnlyKeys(value, ["schemaVersion", "active", "sessionId", "revision", "acknowledgedInputRevision", "targetId", "target", "text", "allowsLineBreaks", "status"]) ||
     schemaVersion !== PREVIEW_BRIDGE_VERSION ||
     typeof active !== "boolean" ||
     typeof revision !== "number" ||
     !Number.isSafeInteger(revision) ||
     revision < 0 ||
+    typeof acknowledgedInputRevision !== "number" ||
+    !Number.isSafeInteger(acknowledgedInputRevision) ||
+    acknowledgedInputRevision < 0 ||
     typeof allowsLineBreaks !== "boolean" ||
     typeof status !== "string" ||
     !["clean", "editing", "normalizing", "valid", "invalid", "saved"].includes(status)
@@ -508,6 +517,7 @@ export function isPreviewInlineEditorCommand(value: unknown): value is PreviewIn
       targetId === "" &&
       target === null &&
       text === "" &&
+      acknowledgedInputRevision === 0 &&
       allowsLineBreaks === false &&
       status === "clean"
     );

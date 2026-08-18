@@ -325,6 +325,56 @@ test("live learner preview bridge commands carry complete ordered authority and 
   }), true);
 });
 
+test("Full Preview inline commands acknowledge typed revisions before the host can repaint them", () => {
+  const command = {
+    protocol: "canvas-helper.preview",
+    version: 1,
+    type: "studio-set-inline-editor",
+    payload: {
+      schemaVersion: 1,
+      active: true,
+      sessionId: "12345678-1234-1234-1234-123456789abc",
+      revision: 7,
+      acknowledgedInputRevision: 4,
+      targetId: "a".repeat(24),
+      target: {
+        schemaVersion: 1,
+        targetNodeId: "ch1:aaaaaaaaaaaaaaaaaaaaaaaa:1",
+        geometry: { x: 10, y: 20, width: 320, height: 44 },
+        viewport: { width: 1280, height: 720 },
+        visible: true,
+        presentation: {
+          fontFamily: "system-ui",
+          fontSize: "24px",
+          fontWeight: "700",
+          fontStyle: "normal",
+          lineHeight: "28px",
+          letterSpacing: "normal",
+          textAlign: "left",
+          color: "#111827",
+          whiteSpace: "normal"
+        }
+      },
+      text: "Latest teacher text",
+      allowsLineBreaks: false,
+      status: "editing"
+    }
+  };
+  assert.equal(isPreviewBridgeMessage(command), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    payload: { ...command.payload, acknowledgedInputRevision: -1 }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    payload: { ...command.payload, acknowledgedInputRevision: 4.5 }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...command,
+    payload: { ...command.payload, filesystemPath: "/tmp/escape" }
+  }), false);
+});
+
 test("preview runtime compatibility relays only approved course CDN scripts through the scoped origin", () => {
   const capability = "12345678-1234-1234-1234-123456789abc";
   const publicPrefix = `/_canvas-helper/p/${capability}`;
