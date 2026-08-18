@@ -73,7 +73,7 @@ Teachers can now type directly at the source-safe text they see. Without recover
 
 ## Exact next command
 
-`git push origin codex/studio-unsaved-draft-recovery-v1`
+`gh pr checks 3 --watch`
 
 ## Exact next file to open
 
