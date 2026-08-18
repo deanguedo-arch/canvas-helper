@@ -368,6 +368,35 @@ test("@inspection Edit mode shows real editable areas and routes blocked content
   await expect(page.getByTestId("edit-mode-bar")).toHaveCount(0);
 });
 
+test("@inspection a selected edit outline follows the course while it scrolls", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const runtimeControl = workspaceFrame.getByTestId("mode-toggle");
+  await runtimeControl.click();
+  await page.getByTestId("edit-toggle").click();
+  await workspaceFrame.locator("body").evaluate((body) => {
+    const tail = document.createElement("div");
+    tail.style.height = "1440px";
+    body.append(tail);
+  });
+
+  const pointerBounds = await runtimeControl.boundingBox();
+  expect(pointerBounds).toBeTruthy();
+  await page.mouse.click((pointerBounds?.x ?? 0) + 5, (pointerBounds?.y ?? 0) + 5);
+
+  const overlay = workspaceFrame.locator('[data-canvas-helper-preview-selection-overlay="true"]');
+  await expect(overlay).toBeVisible();
+  const beforeOverlay = await overlay.boundingBox();
+  expect(beforeOverlay).toBeTruthy();
+
+  await workspaceFrame.locator("body").evaluate(() => window.scrollBy({ top: 32, behavior: "auto" }));
+
+  await expect.poll(async () => {
+    const currentOverlay = await overlay.boundingBox();
+    return Boolean(currentOverlay && Math.abs(currentOverlay.y - (beforeOverlay?.y ?? 0)) > 20);
+  }).toBe(true);
+});
+
 test("@inspection inline edits stay above the learner DOM, synchronize Review & Apply, apply once, and undo safely", async ({ page }) => {
   const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
   const original = await readFile(fixtureSource, "utf8");
