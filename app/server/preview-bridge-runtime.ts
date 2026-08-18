@@ -142,6 +142,7 @@ export function buildPreviewBridgeRuntime(
   var pendingEditAnnotationId = "";
   var editComposerKey = "";
   var editLastSelection = null;
+  var editPanelPositionHandle = 0;
   var editPageMap = { available: false, reason: "This page does not include a current editability map.", entries: [] };
   var editMapEntriesByNodeId = Object.create(null);
   var editMapRuntimeByNodeId = Object.create(null);
@@ -964,7 +965,9 @@ export function buildPreviewBridgeRuntime(
       var stage = document.createElement("div");
       stage.setAttribute("data-canvas-helper-full-preview-inline-editor", "true");
       stage.style.position = "fixed";
-      stage.style.zIndex = "2147483646";
+      // The in-place caret and its attached controls must remain reachable
+      // even when the Full Preview Draft Changes surface is open below it.
+      stage.style.zIndex = "2147483647";
       stage.style.boxSizing = "border-box";
       stage.style.pointerEvents = "none";
       stage.style.background = "rgba(255,255,255,.88)";
@@ -1023,12 +1026,17 @@ export function buildPreviewBridgeRuntime(
         }
         if (event.key === "Enter" && (!hostedInlineEditorCommand || !hostedInlineEditorCommand.allowsLineBreaks)) event.preventDefault();
       });
+      var toolbar = document.createElement("div");
+      toolbar.style.position = "absolute";
+      toolbar.style.top = "-20px";
+      toolbar.style.left = "0";
+      toolbar.style.display = "inline-flex";
+      toolbar.style.alignItems = "center";
+      toolbar.style.gap = "4px";
+      toolbar.style.pointerEvents = "auto";
       var status = document.createElement("span");
       status.setAttribute("data-canvas-helper-full-preview-inline-editor-status", "true");
       status.setAttribute("aria-live", "polite");
-      status.style.position = "absolute";
-      status.style.top = "-20px";
-      status.style.left = "0";
       status.style.padding = "2px 6px";
       status.style.border = "1px solid #64748b";
       status.style.borderRadius = "4px";
@@ -1036,8 +1044,27 @@ export function buildPreviewBridgeRuntime(
       status.style.background = "#ffffff";
       status.style.font = "600 11px/1.2 system-ui, sans-serif";
       status.style.pointerEvents = "none";
+      var options = document.createElement("button");
+      options.type = "button";
+      options.setAttribute("data-testid", "course-full-preview-inline-options");
+      options.textContent = "Format & options";
+      options.style.padding = "2px 6px";
+      options.style.border = "1px solid #64748b";
+      options.style.borderRadius = "4px";
+      options.style.color = "#18212f";
+      options.style.background = "#ffffff";
+      options.style.font = "600 11px/1.2 system-ui, sans-serif";
+      options.style.cursor = "pointer";
+      options.addEventListener("mousedown", function(event) { event.preventDefault(); });
+      options.addEventListener("click", function() {
+        var active = hostedInlineEditorCommand;
+        if (!active || !active.active) return;
+        sendEditAction({ action: "open-target-options", targetId: active.targetId });
+      });
       stage.appendChild(field);
-      stage.appendChild(status);
+      toolbar.appendChild(status);
+      toolbar.appendChild(options);
+      stage.appendChild(toolbar);
       (document.body || document.documentElement).appendChild(stage);
       hostedInlineEditor = stage;
       hostedInlineEditorField = field;
@@ -1558,6 +1585,80 @@ export function buildPreviewBridgeRuntime(
     renderEditPanel();
   }
 
+  function resetEditPanelPosition() {
+    if (!editPanel) return;
+    if (editPanelPositionHandle) {
+      window.cancelAnimationFrame(editPanelPositionHandle);
+      editPanelPositionHandle = 0;
+    }
+    editPanel.style.position = "absolute";
+    editPanel.style.left = "0";
+    editPanel.style.top = "";
+    editPanel.style.right = "";
+    editPanel.style.bottom = "calc(100% + 8px)";
+    editPanel.style.width = "min(460px, calc(100vw - 24px))";
+    editPanel.style.maxHeight = "min(72vh, 680px)";
+    editPanel.removeAttribute("data-canvas-helper-preview-edit-panel-placement");
+  }
+
+  function positionEditPanelAtSelection() {
+    editPanelPositionHandle = 0;
+    var target = editState.target;
+    var selection = editLastSelection;
+    if (
+      !editPanel ||
+      !editPanelOpen ||
+      !hostMode ||
+      !target ||
+      hostedInlineEditorMatchesTarget(target) ||
+      !selection ||
+      !selection.geometry ||
+      !selection.viewport ||
+      !hostedCourseFrame
+    ) {
+      resetEditPanelPosition();
+      return;
+    }
+    var geometry = selection.geometry;
+    var viewport = selection.viewport;
+    if (
+      !Number.isFinite(geometry.x) || !Number.isFinite(geometry.y) ||
+      !Number.isFinite(geometry.width) || !Number.isFinite(geometry.height) ||
+      !Number.isFinite(viewport.width) || !Number.isFinite(viewport.height) ||
+      viewport.width <= 0 || viewport.height <= 0
+    ) {
+      resetEditPanelPosition();
+      return;
+    }
+    var frameRect = hostedCourseFrame.getBoundingClientRect();
+    var scaleX = frameRect.width / Math.max(1, viewport.width);
+    var scaleY = frameRect.height / Math.max(1, viewport.height);
+    var selectedLeft = frameRect.left + geometry.x * scaleX;
+    var selectedTop = frameRect.top + geometry.y * scaleY;
+    var selectedBottom = selectedTop + Math.max(1, geometry.height * scaleY);
+    var width = Math.min(460, Math.max(288, window.innerWidth - 24));
+    var left = Math.max(12, Math.min(selectedLeft, window.innerWidth - width - 12));
+    var panelHeight = Math.min(680, Math.max(240, editPanel.scrollHeight || 360));
+    var belowTop = selectedBottom + 10;
+    var placeAbove = belowTop + Math.min(panelHeight, window.innerHeight - 24) > window.innerHeight - 12;
+    var top = placeAbove
+      ? Math.max(12, selectedTop - Math.min(panelHeight, window.innerHeight - 24) - 10)
+      : Math.max(12, belowTop);
+    editPanel.style.position = "fixed";
+    editPanel.style.left = Math.round(left) + "px";
+    editPanel.style.top = Math.round(top) + "px";
+    editPanel.style.right = "";
+    editPanel.style.bottom = "";
+    editPanel.style.width = Math.round(width) + "px";
+    editPanel.style.maxHeight = Math.max(180, window.innerHeight - top - 12) + "px";
+    editPanel.setAttribute("data-canvas-helper-preview-edit-panel-placement", placeAbove ? "above-selection" : "below-selection");
+  }
+
+  function scheduleEditPanelPosition() {
+    if (!editPanel || editPanelPositionHandle) return;
+    editPanelPositionHandle = window.requestAnimationFrame(positionEditPanelAtSelection);
+  }
+
   function editControlValue(name, fallback) {
     if (!editStyleControls) return fallback;
     var control = editStyleControls[name];
@@ -1713,7 +1814,10 @@ export function buildPreviewBridgeRuntime(
     editToggle.textContent = "Draft Changes (" + editState.drafts.length + ")";
     editToggle.setAttribute("aria-expanded", editPanelOpen ? "true" : "false");
     editPanel.style.display = editPanelOpen ? "block" : "none";
-    if (!editPanelOpen) return;
+    if (!editPanelOpen) {
+      resetEditPanelPosition();
+      return;
+    }
     populateEditComposer();
     if (editItems) {
       while (editItems.firstChild) editItems.removeChild(editItems.firstChild);
@@ -1786,6 +1890,7 @@ export function buildPreviewBridgeRuntime(
         : editState.error || editState.status || editState.unavailableReason) + exportMessage, 300);
       editMessage.style.color = editState.error ? "#9a3412" : editState.exportsOutOfDate ? "#805100" : "#475569";
     }
+    scheduleEditPanelPosition();
   }
 
   function reviewSelectionExcerpt(selection) {
@@ -3529,6 +3634,7 @@ export function buildPreviewBridgeRuntime(
       if (editModeEnabled) {
         editLastSelection = data.payload;
         setEditPanelOpen(true);
+        scheduleEditPanelPosition();
         setStandaloneStatus("Checking this edit target…");
       } else {
         reviewSelection = data.payload;
@@ -3891,6 +3997,7 @@ export function buildPreviewBridgeRuntime(
   window.addEventListener("scroll", scheduleEditPreviewPosition, { passive: true });
   document.addEventListener("scroll", scheduleEditPreviewPosition, true);
   window.addEventListener("resize", scheduleEditPreviewPosition, { passive: true });
+  window.addEventListener("resize", scheduleEditPanelPosition, { passive: true });
   window.addEventListener("resize", scheduleHostedInlineEditorPosition, { passive: true });
   if (!hostMode) {
     lastNavigationIdentity = pageIdentity(location.href);

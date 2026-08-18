@@ -26,18 +26,20 @@ The audit should reject any implementation path that makes the learner element `
 
 | Surface | Behaviour | Write authority |
 | --- | --- | --- |
-| Embedded Studio preview | Click an eligible text target and type with a caret directly over its visual location. | None before Apply. The editor is a Studio-owned parent overlay. |
+| Embedded Studio preview | Click a safe text label and type with a caret directly over its visual location. Its attached **Format & options** control opens its link, rich-text, image, title, or curated-style editor at that same item. Structured text and images open that capability-specific editor directly. | None before Apply. Both controls are Studio-owned parent layers. |
 | Review & Apply | Edit the same unsaved or saved draft in the `Course text` field. | None before Apply. |
 | Saved draft on another page | Continue editing in Review & Apply; it is marked **Preview unavailable until page opens**. `Jump to location` re-resolves it before display. | None before Apply. |
-| Full Preview | Click an eligible text target and type with a caret at that visual location. Its Review & Apply panel edits the same working draft. | None before Apply. The editor is a trusted Studio-host overlay above the isolated learner iframe. |
+| Full Preview | Click a safe text label and type with a caret at that visual location. Its attached **Format & options** control safely transfers to the link, rich-text, image, title, or curated-style editor at that item. Structured text and images open that capability-specific editor directly. Its Review & Apply panel remains synchronized. | None before Apply. The controls are trusted Studio-host layers above the isolated learner iframe. |
 
-The initial in-place target set is deliberately narrow:
+The in-place control contract is explicit:
 
-- `h1`–`h6`, `p`, `li`, and `figcaption`;
-- text-only source content, with safe `<br>` line breaks only for paragraphs;
-- no links, emphasis, nested markup, controls, custom elements, or runtime-owned nodes.
+- source-safe plain-text elements get an actual caret: `h1`–`h6`, `p`, `li`, `blockquote`, `figcaption`, static `button` and `a` labels, `label`, `td`, `th`, `span`, `strong`, `em`, and `small`;
+- only `p`, `li`, `blockquote`, `figcaption`, `td`, and `th` may accept safe line breaks; the rest remain single-line;
+- nested/rich text, image replacement/alt text, tooltip/title, and curated styles use the shared capability composer positioned at the selected element rather than a flattening text caret; a source-safe link label begins as a caret and exposes its destination through the attached **Format & options** control;
+- synchronized course-title markers remain a distinct **Rename course** action because the operation must update every declared title surface;
+- runtime-owned controls, simulations, navigation behavior, quizzes, ambiguous generated components, and unsupported legacy surfaces remain Annotation-only.
 
-Rich text, link/image/style editing, runtime controls, simulations, navigation, quizzes, ambiguous generated components, and unsupported legacy surfaces continue through existing panel controls or remain Annotation-only. This release must not be described as literal editing of every visible element in every course.
+This release provides a contextual Studio control for every safe mapped content action. It must not be described as literal editing of every visible element in every course or as a learner-DOM editing feature.
 
 ## Authoritative data flow
 
@@ -70,7 +72,9 @@ Typing is immediately reflected in both surfaces. Normalization is debounced for
 
 ### In-place presentation is not learner-DOM mutation
 
-[`app/studio/src/components/CourseInlineTextEditor.tsx`](../../app/studio/src/components/CourseInlineTextEditor.tsx) renders an absolutely positioned Studio-parent layer over the embedded iframe. It uses the broadly supported standard `contenteditable` mode with mandatory plain-text paste/drop/format filtering, keeps heading/list/caption targets single-line, and maps paragraph line breaks to canonical `<br>` only after server normalization.
+[`app/studio/src/components/CourseInlineTextEditor.tsx`](../../app/studio/src/components/CourseInlineTextEditor.tsx) renders an absolutely positioned Studio-parent layer over the embedded iframe. It uses the broadly supported standard `contenteditable` mode with mandatory plain-text paste/drop/format filtering, keeps single-line targets single-line, and maps allowed line breaks to canonical `<br>` only after server normalization.
+
+[`app/studio/src/components/CourseInlineTargetEditor.tsx`](../../app/studio/src/components/CourseInlineTargetEditor.tsx) positions the same capability composer used by Review & Apply at an editable structured target when a caret would discard markup or use the wrong interaction, or after a teacher selects **Format & options** from a source-safe caret. It contains no independent patch or draft state: its preview and Save callbacks use the established server-normalized target path.
 
 It receives a bounded geometry and safe presentation snapshot from the already-inspected opaque node. It never receives a learner selector, filesystem path, arbitrary CSS, JavaScript, or teacher event stream for the learner frame.
 
@@ -106,7 +110,7 @@ If the durable target still exists unchanged, reopening reattaches it. If its te
 
 ## Full Preview editing and bridge ordering
 
-Full Preview supports the same deliberately narrow plain-text target set as embedded Studio. Selecting an eligible target starts a `standalone-inline` lease and places a sanitized standard `contenteditable` field in the trusted Studio-origin Full Preview host at the target's reported geometry. Full Preview's selection keyboard guard exempts only that host field, so typing, Escape, and Cmd/Ctrl+Enter reach it without reaching the learner. The isolated learner iframe remains untouched: it receives no teacher keyboard, input, paste, selector, filesystem path, arbitrary CSS, or script.
+Full Preview supports the same two-mode contract as embedded Studio. Selecting a source-safe text label starts a `standalone-inline` lease and places a sanitized standard `contenteditable` field in the trusted Studio-origin Full Preview host at the target's reported geometry. That caret includes an attached **Format & options** control, which first preserves any typed text as a browser-local draft and then opens the capability composer at the same target. Selecting a structured/image target opens that capability composer directly beside the selected element. Full Preview's selection keyboard guard exempts only the trusted caret field, so typing, Escape, and Cmd/Ctrl+Enter reach it without reaching the learner. The isolated learner iframe remains untouched: it receives no teacher keyboard, input, paste, selector, filesystem path, arbitrary CSS, or script.
 
 The Full Preview Review & Apply controls and the caret dispatch only bounded `input`, `save`, or `cancel` actions with a session ID, monotonic revision, and opaque target ID. Studio reuses its canonical normalizer and the same authoritative working draft; Full Preview never owns a second editable copy. Save remains browser-local, while Apply and Undo continue to call the existing protected Studio lifecycle.
 
@@ -124,6 +128,8 @@ The first two rows below are retained baseline evidence from `26216b5a`. The rem
 | `npm run test:studio-release` | passed at clean exact keyboard-fix commit `f74dedbac59a150dbc1ae605e69c48f429f7e0d8`: 163 focused contracts, Studio production build, 60/60 inspection E2E, platform smoke, and strict project contract. The report records `workingTreeClean: true` and `sourceChangedDuringRun: false`. |
 | `E2E_STUDIO_PORT=49391 npx playwright test -c e2e/playwright.release.config.ts --grep "inline edits stay above|opening Full Preview transfers"` | passed locally; uses real keyboard input in both direct caret surfaces, exercises active-caret transfer, and proves learner isolation |
 | `npm run test:studio-inspection` | current local parity run passed |
+| `npm run test:e2e -- e2e/specs/inspection.spec.ts --grep "inline edits stay above\|structured editable content"` | passed locally: static button/link labels received direct carets; the attached **Format & options** path opened a link's properties at the selected item in embedded Studio and Full Preview; nested rich text also opened its composer at the selected item with no pre-Apply write. |
+| `npm run test:e2e:smoke` and `npm run test:e2e:project -- --project e2e-fixture` | passed locally |
 | `npm run verify:typecheck-baseline` | current local parity run passed; no changed-file diagnostic |
 | raw `npm run typecheck -- --pretty false` | expected exit `2` with exactly ten established unrelated diagnostics |
 | `git diff --check` | current local parity run passed |
@@ -137,6 +143,9 @@ The new Playwright coverage proves, among other things:
 - saved drafts can be reopened and edited from Review & Apply;
 - the embedded child overlay, embedded caret overlay, and Full Preview host caret hand off without overlap;
 - Full Preview typing leaves its learner heading, event handlers, browser storage, and course source unchanged before Save/Apply;
+- source-safe static button labels receive a direct Studio-owned caret instead of falling back to a distant panel;
+- a source-safe link's attached **Format & options** path preserves its local draft and opens its destination field at that link in embedded Studio and Full Preview;
+- structured rich text opens the full capability composer at the selected element in both embedded Studio and Full Preview, with course bytes unchanged;
 - Apply then Undo uses the inherited protected lifecycle;
 - external source drift detaches the proposed text and requires explicit rebase.
 
@@ -179,7 +188,7 @@ Review these questions directly in code:
 4. Is the learner iframe independent of teacher keyboard/paste events and original subtree changes before Apply?
 5. Can a saved draft reopen without a stored node ID and recover safely when its target changed?
 6. Does Full Preview use only the trusted host caret and the same controller, never a learner-frame caret or a second draft state?
-7. Do the documentation and user-facing claims stay within the narrow supported element set?
+7. Does every regular editable map action expose its correct contextual Studio control, while Rename and Annotation-only states remain visibly distinct?
 
 ## Claims intentionally not made
 

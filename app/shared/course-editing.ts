@@ -104,7 +104,7 @@ export type CourseEditTarget = {
     title: string;
   };
   currentStyle: Required<CourseEditStylePatch>;
-  /** Present only for source-backed h1–h6, p, li and figcaption text. */
+  /** Present for a source-backed editable text element whose own content is plain text. */
   editor?: CourseEditEditorCapability;
 };
 

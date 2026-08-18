@@ -239,6 +239,16 @@ test("Full Preview course edit messages are bounded and never accept filesystem 
   assert.equal(isPreviewBridgeMessage({
     ...base,
     type: "preview-edit-action",
+    payload: { action: "open-target-options", targetId: "a".repeat(24), requestId: "edit-3" }
+  }), true);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "preview-edit-action",
+    payload: { action: "open-target-options", targetId: "a".repeat(24), filesystemPath: "/tmp/escape" }
+  }), false);
+  assert.equal(isPreviewBridgeMessage({
+    ...base,
+    type: "preview-edit-action",
     payload: { action: "update-draft", draftId: "draft-1", patch: { html: "x".repeat(24_001) } }
   }), false);
   assert.equal(isPreviewBridgeMessage({

@@ -354,14 +354,22 @@ function EditComposer({ target, baseline, initialPatch = {}, initialPendingAsset
   );
 }
 
-function TargetEditor({ target, draft, busy, onSave, onUploadImage, onPreview }: {
+export type CourseEditTargetComposerProps = {
   target: CourseEditTarget;
   draft?: CourseEditDraft;
   busy: boolean;
-  onSave: CourseEditPanelProps["onSaveTarget"];
-  onUploadImage: CourseEditPanelProps["onUploadImage"];
-  onPreview: CourseEditPanelProps["onPreviewTarget"];
-}) {
+  onSave: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void | Promise<boolean>;
+  onUploadImage?: (file: File, htmlPath: string) => Promise<CourseEditPendingImage | null>;
+  onPreview?: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
+};
+
+/**
+ * The same capability-specific editor is used in Review & Apply and in the
+ * small Studio-owned surface attached to a selected learner element. Keeping
+ * one composer prevents a green map outline from promising a capability that
+ * only exists in a distant side panel.
+ */
+export function CourseEditTargetComposer({ target, draft, busy, onSave, onUploadImage, onPreview }: CourseEditTargetComposerProps) {
   const baseline: CourseEditDraftBaseline = {
     originalHtml: target.originalHtml,
     attributes: target.attributes,
@@ -591,7 +599,7 @@ export function CourseEditPanel(props: CourseEditPanelProps) {
           onJump={props.onJumpToInlineEditor}
         />
       ) : props.target?.eligibility === "editable" ? (
-        <TargetEditor
+        <CourseEditTargetComposer
           key={props.target.identity?.targetId}
           target={props.target}
           draft={selectedDraft}

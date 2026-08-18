@@ -227,6 +227,49 @@ test("the page editability map identifies text, links, images, and synchronized 
   }
 });
 
+test("every source-safe mapped text label exposes the in-place editor without changing learner source", async () => {
+  const fixture = await createFixture();
+  try {
+    await writeFile(fixture.sourcePath, ORIGINAL_HTML.replace(
+      '<img src="image.png" alt="Original image">',
+      [
+        '<button type="button">Static course button</button>',
+        '<label>Static course label</label>',
+        '<blockquote>Teacher quotation</blockquote>',
+        '<span>Supporting course text</span>',
+        '<img src="image.png" alt="Original image">'
+      ].join("\n      ")
+    ), "utf8");
+    const before = await readFile(fixture.sourcePath, "utf8");
+    const document = decoratePreviewHtml(before);
+    assert.ok(document);
+
+    for (const [tagName, text, allowsLineBreaks] of [
+      ["a", "Lesson link", false],
+      ["button", "Static course button", false],
+      ["label", "Static course label", false],
+      ["blockquote", "Teacher quotation", true],
+      ["span", "Supporting course text", false]
+    ] as const) {
+      const target = await resolveCourseEditTarget(requestFor(document, tagName), fixture.repoRoot);
+      assert.equal(target.eligibility, "editable");
+      assert.deepEqual(target.editor, { kind: "plain-text", text, allowsLineBreaks });
+    }
+
+    const linkTarget = await resolveCourseEditTarget(requestFor(document, "a"), fixture.repoRoot);
+    assert.ok(linkTarget.identity);
+    const normalized = await normalizeCourseEditEditorDocument({
+      identity: linkTarget.identity,
+      document: { kind: "plain-text", text: "Updated course link" },
+      repoRoot: fixture.repoRoot
+    });
+    assert.deepEqual(normalized.canonicalPatch, { html: "Updated course link" });
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("live preview normalization is canonical, ordered, read-only, and fails closed after clear", async () => {
   const fixture = await createFixture();
   try {

@@ -501,6 +501,106 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
   }
 });
 
+test("@inspection structured editable content opens its controls at the selected element in embedded and Full Preview", async ({ page }) => {
+  const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
+  const original = await readFile(fixtureSource, "utf8");
+  let fullPreview: import("@playwright/test").Page | null = null;
+  const staticButton = '<button type="button" data-testid="inline-static-button">Static course button</button>';
+  const staticLink = '<a href="https://example.test/course" data-testid="inline-static-link">Static course link</a>';
+  const structuredTarget = '<p data-testid="inline-rich-target">Read <strong>this</strong> closely.</p>';
+  try {
+    const injectedSource = original.replace("<section class=\"renderer\" data-testid=\"quick-checkpoints\">", `${staticButton}\n      ${staticLink}\n      ${structuredTarget}\n\n      <section class=\"renderer\" data-testid=\"quick-checkpoints\">`);
+    await writeFile(fixtureSource, injectedSource, "utf8");
+    await openProjectInStudio(page, "e2e-fixture");
+    await page.getByTestId("edit-toggle").click();
+
+    const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+    const staticButtonTarget = workspaceFrame.getByTestId("inline-static-button");
+    await staticButtonTarget.scrollIntoViewIfNeeded();
+    const staticButtonBounds = await staticButtonTarget.boundingBox();
+    expect(staticButtonBounds).toBeTruthy();
+    await page.mouse.click((staticButtonBounds?.x ?? 0) + 8, (staticButtonBounds?.y ?? 0) + 8);
+    const staticButtonEditor = page.getByTestId("course-inline-text-editor");
+    await expect(staticButtonEditor).toBeVisible();
+    await expect(staticButtonEditor.getByRole("textbox", { name: "Edit course text in place" })).toHaveText("Static course button");
+    await staticButtonEditor.getByRole("textbox", { name: "Edit course text in place" }).press("Escape");
+    await expect(staticButtonEditor).toHaveCount(0);
+
+    const staticLinkTarget = workspaceFrame.getByTestId("inline-static-link");
+    await staticLinkTarget.scrollIntoViewIfNeeded();
+    const staticLinkBounds = await staticLinkTarget.boundingBox();
+    expect(staticLinkBounds).toBeTruthy();
+    await page.mouse.click((staticLinkBounds?.x ?? 0) + 8, (staticLinkBounds?.y ?? 0) + 8);
+    await expect(staticButtonEditor).toBeVisible();
+    await staticButtonEditor.getByRole("textbox", { name: "Edit course text in place" }).fill("Updated course link");
+    await staticButtonEditor.getByTestId("course-inline-text-editor-options").click();
+    const embeddedLinkComposer = page.getByTestId("course-inline-target-editor");
+    await expect(embeddedLinkComposer).toBeVisible();
+    await expect(embeddedLinkComposer.getByTestId("course-edit-html")).toContainText("Updated course link");
+    await expect(embeddedLinkComposer.getByText("Link destination", { exact: true })).toBeVisible();
+    await expect(page.getByTestId("course-edit-draft")).toContainText("Updated course link");
+    await embeddedLinkComposer.getByRole("button", { name: "Close in-place editor" }).click();
+    await expect(embeddedLinkComposer).toHaveCount(0);
+
+    const embeddedTarget = workspaceFrame.getByTestId("inline-rich-target");
+    await embeddedTarget.scrollIntoViewIfNeeded();
+    const embeddedBounds = await embeddedTarget.boundingBox();
+    expect(embeddedBounds).toBeTruthy();
+    await page.mouse.click((embeddedBounds?.x ?? 0) + 4, (embeddedBounds?.y ?? 0) + 10);
+    const embeddedComposer = page.getByTestId("course-inline-target-editor");
+    await expect(embeddedComposer).toBeVisible();
+    await expect(embeddedComposer.getByTestId("course-edit-html")).toContainText("Read this closely.");
+    await expect(embeddedTarget).toHaveText("Read this closely.");
+    expect(await readFile(fixtureSource, "utf8")).toBe(injectedSource);
+
+    const fullPreviewPromise = page.waitForEvent("popup");
+    await page.getByTestId("open-workspace-preview-toggle").click();
+    fullPreview = await fullPreviewPromise;
+    await fullPreview.waitForLoadState("domcontentloaded");
+    const standaloneCourse = fullPreview.frameLocator('[data-canvas-helper-standalone-course="true"]');
+    const standaloneLink = standaloneCourse.getByTestId("inline-static-link");
+    await expect(standaloneLink).toBeVisible();
+    const standaloneTarget = standaloneCourse.getByTestId("inline-rich-target");
+    await expect(standaloneTarget).toBeVisible();
+    await expect(standaloneCourse.locator("html")).toHaveAttribute("data-canvas-helper-edit-map-active", "true");
+    await standaloneLink.scrollIntoViewIfNeeded();
+    const standaloneLinkBounds = await standaloneLink.boundingBox();
+    expect(standaloneLinkBounds).toBeTruthy();
+    await fullPreview.mouse.click((standaloneLinkBounds?.x ?? 0) + 4, (standaloneLinkBounds?.y ?? 0) + 8);
+    const standaloneInlineEditor = fullPreview.getByTestId("course-full-preview-inline-text-editor");
+    await expect(standaloneInlineEditor).toBeVisible();
+    await standaloneInlineEditor.fill("Full Preview course link");
+    await fullPreview.getByTestId("course-full-preview-inline-options").click();
+    await expect(standaloneInlineEditor).toHaveCount(0);
+    const standalonePanel = fullPreview.locator('[data-canvas-helper-preview-edit-panel="true"]');
+    await expect(standalonePanel).toBeVisible();
+    await expect(standalonePanel).toHaveAttribute("data-canvas-helper-preview-edit-panel-placement", /selection/);
+    await expect(standalonePanel.locator('[data-canvas-helper-preview-edit-html="true"]')).toContainText("Full Preview course link");
+    await expect(standalonePanel.getByText("Link destination", { exact: true })).toBeVisible();
+
+    await standaloneTarget.scrollIntoViewIfNeeded();
+    const standaloneBounds = await standaloneTarget.boundingBox();
+    expect(standaloneBounds).toBeTruthy();
+    await fullPreview.mouse.click((standaloneBounds?.x ?? 0) + 4, (standaloneBounds?.y ?? 0) + 10);
+    await expect(standalonePanel).toBeVisible();
+    await expect(standalonePanel).toHaveAttribute("data-canvas-helper-preview-edit-panel-placement", /selection/);
+    await expect(standalonePanel.locator('[data-canvas-helper-preview-edit-html="true"]')).toContainText("Read this closely.");
+    await expect(standaloneTarget).toHaveText("Read this closely.");
+    expect(await readFile(fixtureSource, "utf8")).toBe(injectedSource);
+  } finally {
+    await fullPreview?.close().catch(() => undefined);
+    await writeFile(fixtureSource, original, "utf8");
+    await page.evaluate(() => {
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1"]) {
+        const stored = JSON.parse(localStorage.getItem(key) || "null");
+        if (!stored?.projects) continue;
+        stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
+        localStorage.setItem(key, JSON.stringify(stored));
+      }
+    }).catch(() => undefined);
+  }
+});
+
 test("@inspection opening Full Preview transfers an active in-place caret to the same visible text", async ({ page }) => {
   let fullPreview: import("@playwright/test").Page | null = null;
   try {

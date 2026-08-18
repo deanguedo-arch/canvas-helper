@@ -307,6 +307,7 @@ export type PreviewCourseEditAction = (
   | { action: "annotate-selection"; selection: PreviewInspectPayload }
   | { action: "preview-target"; targetId: string; patch: CourseEditPatch }
   | { action: "clear-preview"; targetId: string }
+  | { action: "open-target-options"; targetId: string }
   | { action: "save-target"; targetId: string; patch: CourseEditPatch }
   | { action: "select-draft"; draftId: string }
   | { action: "reopen-draft"; draftId: string }
@@ -841,12 +842,13 @@ export function isPreviewCourseEditAction(value: unknown): value is PreviewCours
     case "preview-target":
     case "save-target":
       return Object.keys(value).every((key) => ["action", "requestId", "targetId", "patch"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string) && isCourseEditPatch(value.patch);
+    case "clear-preview":
+    case "open-target-options":
+      return Object.keys(value).every((key) => ["action", "requestId", "targetId"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string);
     case "select-draft":
     case "reopen-draft":
     case "remove-draft":
       return Object.keys(value).every((key) => ["action", "requestId", "draftId"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS);
-    case "clear-preview":
-      return Object.keys(value).every((key) => ["action", "requestId", "targetId"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string);
     case "update-draft":
       return Object.keys(value).every((key) => ["action", "requestId", "draftId", "patch"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS) && isCourseEditPatch(value.patch);
     case "reorder-draft":

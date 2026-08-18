@@ -424,11 +424,25 @@ function buildEditableTarget(input: {
   };
 }
 
-const INLINE_TEXT_EDITOR_TAGS = new Set(["h1", "h2", "h3", "h4", "h5", "h6", "p", "li", "figcaption"]);
+/**
+ * Every text element that can appear in the source-backed edit map may use
+ * Studio's in-place text layer when its own source is plain text. The layer
+ * is above the learner iframe, so expanding this list never turns a learner
+ * control into contenteditable or sends keyboard events to course code.
+ *
+ * Nested markup, controls, and runtime-owned elements are still rejected by
+ * `isSafeCourseEditPlainTextSource` or by the normal resolve safeguards.
+ */
+const INLINE_TEXT_EDITOR_TAGS = new Set([
+  "h1", "h2", "h3", "h4", "h5", "h6",
+  "p", "li", "blockquote", "figcaption",
+  "button", "a", "label", "td", "th", "span", "strong", "em", "small"
+]);
+const INLINE_TEXT_EDITOR_MULTILINE_TAGS = new Set(["p", "li", "blockquote", "figcaption", "td", "th"]);
 
 function inlineTextEditorCapability(element: EditableHtmlElement, originalHtml: string): CourseEditEditorCapability | undefined {
   if (!INLINE_TEXT_EDITOR_TAGS.has(element.tagName) || !isSafeCourseEditPlainTextSource(originalHtml)) return undefined;
-  const allowsLineBreaks = element.tagName === "p";
+  const allowsLineBreaks = INLINE_TEXT_EDITOR_MULTILINE_TAGS.has(element.tagName);
   const text = sanitizeCourseEditPlainTextDocument(courseEditPlainTextFromHtml(originalHtml), { allowLineBreaks: allowsLineBreaks });
   return { kind: "plain-text", text, allowsLineBreaks };
 }

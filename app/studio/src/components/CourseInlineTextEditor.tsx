@@ -11,6 +11,7 @@ type CourseInlineTextEditorProps = {
   onSave: () => Promise<boolean>;
   onCancel: () => void;
   onActivate: () => void;
+  onOpenProperties: () => void | Promise<void>;
 };
 
 function plainTextFromElement(element: HTMLElement) {
@@ -53,13 +54,23 @@ export function CourseInlineTextEditor({
   onChange,
   onSave,
   onCancel,
-  onActivate
+  onActivate,
+  onOpenProperties
 }: CourseInlineTextEditorProps) {
   const elementRef = useRef<HTMLDivElement | null>(null);
   const focusedTargetRef = useRef("");
   const value = editor.rawDocument?.text ?? "";
   const targetId = editor.target?.identity?.targetId ?? "";
   const allowsLineBreaks = editor.target?.editor?.allowsLineBreaks ?? false;
+  const hasProperties = Boolean(
+    editor.target && (
+      editor.target.capabilities.richText ||
+      editor.target.capabilities.link ||
+      editor.target.capabilities.image ||
+      editor.target.capabilities.styles ||
+      editor.target.attributes.title
+    )
+  );
   const placement = useMemo(() => {
     if (!frame || !selection || !selection.nodeId || !targetId || selection.nodeId !== editor.target?.identity?.nodeId) return null;
     const widthScale = frame.clientWidth / Math.max(1, selection.viewport.width);
@@ -145,9 +156,22 @@ export function CourseInlineTextEditor({
           if (event.key === "Enter" && !allowsLineBreaks) event.preventDefault();
         }}
       />
-      <span className="course-inline-text-editor-state" aria-live="polite">
-        {editor.status === "normalizing" ? "Checking…" : editor.status === "saved" ? "Saved draft" : "Draft"}
-      </span>
+      <div className="course-inline-text-editor-toolbar">
+        <span className="course-inline-text-editor-state" aria-live="polite">
+          {editor.status === "normalizing" ? "Checking…" : editor.status === "saved" ? "Saved draft" : "Draft"}
+        </span>
+        {hasProperties ? (
+          <button
+            type="button"
+            className="course-inline-text-editor-options"
+            data-testid="course-inline-text-editor-options"
+            onMouseDown={(event) => event.preventDefault()}
+            onClick={() => { void onOpenProperties(); }}
+          >
+            Format &amp; options
+          </button>
+        ) : null}
+      </div>
     </div>
   );
 }
