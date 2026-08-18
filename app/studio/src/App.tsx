@@ -58,11 +58,14 @@ import {
   type InspectionResolveRequest,
   type InspectionSelection
 } from "../../shared/inspection.js";
+import { PREVIEW_BRIDGE_VERSION } from "../../shared/preview-bridge.js";
 import type {
   PreviewInspectPayload,
   PreviewCourseEditAction,
   PreviewCourseEditActionResult,
   PreviewCourseEditState,
+  PreviewInlineEditorAction,
+  PreviewInlineEditorCommand,
   PreviewReviewAction,
   PreviewReviewActionResult,
   PreviewReviewState
@@ -412,6 +415,22 @@ export function App() {
     await refreshProjects(true);
   });
   const lastEditSelectionRef = useRef<PreviewInspectPayload | null>(null);
+  const [inlineEditorSelection, setInlineEditorSelection] = useState<PreviewInspectPayload | null>(null);
+  const [inlineTargetEditorSelection, setInlineTargetEditorSelection] = useState<PreviewInspectPayload | null>(null);
+  const [standaloneInlineEditorSelection, setStandaloneInlineEditorSelection] = useState<PreviewInspectPayload | null>(null);
+  const standaloneInlineCommandStateRef = useRef({ signature: "", revision: 0 });
+  const [standaloneInlineCommandRevision, setStandaloneInlineCommandRevision] = useState(0);
+  const standaloneInlineInputRevisionsRef = useRef(new Map<string, number>());
+  const [standaloneInlineAcknowledgement, setStandaloneInlineAcknowledgement] = useState({ sessionId: "", revision: 0 });
+  const inlineEditorStateRef = useRef(courseEditing.inlineEditor);
+  inlineEditorStateRef.current = courseEditing.inlineEditor;
+  const pendingStandaloneInlineTransferRef = useRef<{
+    nodeId: string;
+    targetId: string;
+    attempts: number;
+  } | null>(null);
+  const standaloneInlineTransferPendingRef = useRef(false);
+  const transferInlineEditorToStandaloneRef = useRef<() => void>(() => undefined);
   const reviewScopeRef = useRef({ selectedSlug, workspaceTarget });
   reviewScopeRef.current = { selectedSlug, workspaceTarget };
 
@@ -717,6 +736,9 @@ export function App() {
 
   useEffect(() => {
     lastEditSelectionRef.current = null;
+    setInlineEditorSelection(null);
+    setInlineTargetEditorSelection(null);
+    setStandaloneInlineEditorSelection(null);
     resetInspection(true);
   }, [inspectionContextKey, resetInspection]);
 
@@ -735,18 +757,45 @@ export function App() {
     if (requestedMode === "edit") {
       if (mode !== "workspace" || !workspaceTarget?.projectSlug || !selection.nodeId) {
         courseEditing.clearSelection();
+        setInlineEditorSelection(null);
+        setInlineTargetEditorSelection(null);
         return;
       }
       lastEditSelectionRef.current = selection;
       setStandaloneSelectedEditDraftId("");
+      setInlineTargetEditorSelection(null);
       setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
-      return await courseEditing.resolveSelection({
+      const resolved = await courseEditing.resolveSelection({
         projectSlug: workspaceTarget.projectSlug,
         root: "workspace",
         htmlPath: workspaceTarget.htmlPath,
         selection
       });
-      return;
+      const beganInlineEditor = Boolean(
+        resolved?.eligibility === "editable" &&
+        courseEditing.beginInlineEditor(resolved, source === "standalone" ? "standalone-inline" : "parent-inline")
+      );
+      if (beganInlineEditor) {
+        if (source === "standalone") {
+          setInlineEditorSelection(null);
+          setInlineTargetEditorSelection(null);
+          setStandaloneInlineEditorSelection(selection);
+        } else {
+          setStandaloneInlineEditorSelection(null);
+          setInlineEditorSelection(selection);
+        }
+      } else if (resolved?.eligibility === "editable" && source === "embedded") {
+        // A caret is only appropriate for source-safe plain text. For every
+        // other editable capability, anchor the shared Studio composer to the
+        // element itself instead of leaving a green outline panel-only.
+        setInlineEditorSelection(null);
+        setStandaloneInlineEditorSelection(null);
+        setInlineTargetEditorSelection(selection);
+      } else {
+        setInlineEditorSelection(null);
+        setInlineTargetEditorSelection(null);
+      }
+      return resolved;
     }
     if (requestedMode !== "annotate") return;
     const inspectionRun = inspectionDraft.begin(mode, source, selection);
@@ -873,6 +922,101 @@ export function App() {
     }
   };
 
+  const standaloneInlineEditorSignature = useMemo(() => {
+    const inline = courseEditing.inlineEditor;
+    const identity = inline.target?.identity;
+    const selection = standaloneInlineEditorSelection;
+    return [
+      inline.previewOwner,
+      inline.status,
+      inline.inlineSessionId,
+      standaloneInlineAcknowledgement.sessionId,
+      standaloneInlineAcknowledgement.revision,
+      identity?.targetId ?? "",
+      identity?.nodeId ?? "",
+      inline.rawDocument?.text ?? "",
+      inline.target?.editor?.allowsLineBreaks ? "1" : "0",
+      selection?.nodeId ?? "",
+      selection?.geometry.x ?? "",
+      selection?.geometry.y ?? "",
+      selection?.geometry.width ?? "",
+      selection?.geometry.height ?? "",
+      selection?.viewport.width ?? "",
+      selection?.viewport.height ?? "",
+      selection?.presentation?.fontFamily ?? "",
+      selection?.presentation?.fontSize ?? "",
+      selection?.presentation?.fontWeight ?? "",
+      selection?.presentation?.fontStyle ?? "",
+      selection?.presentation?.lineHeight ?? "",
+      selection?.presentation?.letterSpacing ?? "",
+      selection?.presentation?.textAlign ?? "",
+      selection?.presentation?.color ?? "",
+      selection?.presentation?.whiteSpace ?? ""
+    ].join("\u001f");
+  }, [courseEditing.inlineEditor, standaloneInlineAcknowledgement, standaloneInlineEditorSelection]);
+
+  useEffect(() => {
+    if (standaloneInlineCommandStateRef.current.signature === standaloneInlineEditorSignature) return;
+    standaloneInlineCommandStateRef.current = {
+      signature: standaloneInlineEditorSignature,
+      revision: standaloneInlineCommandStateRef.current.revision + 1
+    };
+    setStandaloneInlineCommandRevision(standaloneInlineCommandStateRef.current.revision);
+  }, [standaloneInlineEditorSignature]);
+
+  const standaloneInlineEditorCommand = useMemo<PreviewInlineEditorCommand>(() => {
+    const inline = courseEditing.inlineEditor;
+    const identity = inline.target?.identity;
+    const selection = standaloneInlineEditorSelection;
+    const acknowledgedInputRevision = standaloneInlineAcknowledgement.sessionId === inline.inlineSessionId
+      ? standaloneInlineAcknowledgement.revision
+      : 0;
+    const supportedStatus = ["clean", "editing", "normalizing", "valid", "invalid", "saved"] as const;
+    const active = (
+      inline.previewOwner === "standalone-inline" &&
+      Boolean(identity) &&
+      Boolean(inline.inlineSessionId) &&
+      Boolean(inline.rawDocument) &&
+      Boolean(selection?.presentation) &&
+      selection?.nodeId === identity?.nodeId &&
+      supportedStatus.includes(inline.status as typeof supportedStatus[number]) &&
+      standaloneInlineCommandRevision > 0
+    );
+    if (!active || !identity || !selection?.presentation || !inline.rawDocument) {
+      return {
+        schemaVersion: PREVIEW_BRIDGE_VERSION,
+        active: false,
+        sessionId: "",
+        revision: standaloneInlineCommandRevision,
+        acknowledgedInputRevision: 0,
+        targetId: "",
+        target: null,
+        text: "",
+        allowsLineBreaks: false,
+        status: "clean"
+      };
+    }
+    return {
+      schemaVersion: PREVIEW_BRIDGE_VERSION,
+      active: true,
+      sessionId: inline.inlineSessionId,
+      revision: standaloneInlineCommandRevision,
+      acknowledgedInputRevision,
+      targetId: identity.targetId,
+      target: {
+        schemaVersion: PREVIEW_BRIDGE_VERSION,
+        targetNodeId: identity.nodeId,
+        geometry: selection.geometry,
+        viewport: selection.viewport,
+        visible: selection.geometry.width > 0 && selection.geometry.height > 0,
+        presentation: selection.presentation
+      },
+      text: inline.rawDocument.text,
+      allowsLineBreaks: inline.target?.editor?.allowsLineBreaks ?? false,
+      status: inline.status as "clean" | "editing" | "normalizing" | "valid" | "invalid" | "saved"
+    };
+  }, [courseEditing.inlineEditor, standaloneInlineAcknowledgement, standaloneInlineCommandRevision, standaloneInlineEditorSelection]);
+
   const {
     registerPreviewFrame,
     attachPreviewPersistence,
@@ -907,6 +1051,7 @@ export function App() {
     inspectEnabled,
     editEnabled: selectionMode === "edit",
     courseEditPreview: courseEditing.previewCommand,
+    standaloneInlineEditor: standaloneInlineEditorCommand,
     onInspectSelection: (mode, selection, source) => void resolveInspection(mode, selection, source),
     onInspectModeChange: (enabled, source) => {
       setInspectEnabled(enabled);
@@ -926,13 +1071,24 @@ export function App() {
     },
     onPreviewNavigation: (mode, href, source) => {
       if (source === "embedded") previewRecovery.markNavigation(mode, href);
-      if (mode === "workspace") {
+      // Standalone Full Preview has its own navigation lifecycle. Do not let
+      // its ready/navigation signal clear an embedded Studio draft.
+      if (mode === "workspace" && source === "embedded") {
         courseEditing.clearSelection();
+        setInlineEditorSelection(null);
+        setInlineTargetEditorSelection(null);
         resetInspection(true);
+      }
+      if (mode === "workspace" && source === "standalone" && courseEditing.inlineEditor.previewOwner === "standalone-inline") {
+        courseEditing.clearSelection();
+        setStandaloneInlineEditorSelection(null);
       }
     },
     onPreviewReady: (mode, href, source) => {
       if (source === "embedded") previewRecovery.markBridgeReady(mode, href);
+      if (mode === "workspace" && source === "standalone") {
+        transferInlineEditorToStandaloneRef.current();
+      }
     },
     onPreviewHealth: (mode, health, source) => {
       if (source === "embedded") previewRecovery.markContentHealth(mode, health);
@@ -942,8 +1098,34 @@ export function App() {
     },
     onPreviewReviewAction: (mode, action) => standaloneReviewActionRef.current(mode, action),
     onPreviewEditAction: (mode, action) => standaloneCourseEditActionRef.current(mode, action),
+    onPreviewInlineEditorAction: (mode, action) => {
+      if (mode !== "workspace") return;
+      const inline = courseEditing.inlineEditor;
+      if (
+        inline.previewOwner !== "standalone-inline" ||
+        inline.status === "detached" ||
+        !inline.target?.identity ||
+        action.sessionId !== inline.inlineSessionId ||
+        action.targetId !== inline.target.identity.targetId
+      ) return;
+      const lastRevision = standaloneInlineInputRevisionsRef.current.get(action.sessionId) ?? 0;
+      if (action.revision <= lastRevision) return;
+      standaloneInlineInputRevisionsRef.current.set(action.sessionId, action.revision);
+      if (action.action === "input") {
+        courseEditing.setInlineEditorText(action.text);
+        setStandaloneInlineAcknowledgement({ sessionId: action.sessionId, revision: action.revision });
+        return;
+      }
+      setStandaloneInlineAcknowledgement({ sessionId: action.sessionId, revision: action.revision });
+      if (action.action === "save") {
+        void courseEditing.saveInlineEditor();
+        return;
+      }
+      courseEditing.clearInlineEditor();
+      setStandaloneInlineEditorSelection(null);
+    },
     onCourseEditPreviewAck: (mode, ack, source) => {
-      if (mode === "workspace" && source === "embedded") courseEditing.acknowledgePreview(ack);
+      if (mode === "workspace") courseEditing.acknowledgePreview(ack);
     },
     onStandaloneReturn: () => {
       setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
@@ -951,6 +1133,130 @@ export function App() {
     }
   });
   cancelStandaloneReviewCopyRef.current = cancelStandaloneReviewCopy;
+  const requestCurrentInspectionSelectionRef = useRef(requestCurrentInspectionSelection);
+  requestCurrentInspectionSelectionRef.current = requestCurrentInspectionSelection;
+
+  const transferInlineEditorToStandalone = useCallback(() => {
+    const pending = pendingStandaloneInlineTransferRef.current;
+    const inline = inlineEditorStateRef.current;
+    if (
+      !pending ||
+      standaloneInlineTransferPendingRef.current ||
+      inline.status === "detached" ||
+      !inline.target?.identity ||
+      inline.target.identity.nodeId !== pending.nodeId ||
+      inline.target.identity.targetId !== pending.targetId
+    ) {
+      if (
+        pending &&
+        (!inline.target?.identity ||
+          inline.target.identity.nodeId !== pending.nodeId ||
+          inline.target.identity.targetId !== pending.targetId ||
+          inline.status === "detached")
+      ) {
+        pendingStandaloneInlineTransferRef.current = null;
+      }
+      return;
+    }
+    if (pending.attempts >= 3) {
+      pendingStandaloneInlineTransferRef.current = null;
+      return;
+    }
+    pending.attempts += 1;
+    standaloneInlineTransferPendingRef.current = true;
+    void requestCurrentInspectionSelectionRef.current("workspace", pending.nodeId, "standalone")
+      .then((selection) => {
+        const current = inlineEditorStateRef.current;
+        if (
+          !current.target?.identity ||
+          current.status === "detached" ||
+          current.target.identity.nodeId !== pending.nodeId ||
+          current.target.identity.targetId !== pending.targetId ||
+          selection.nodeId !== pending.nodeId
+        ) {
+          pendingStandaloneInlineTransferRef.current = null;
+          return;
+        }
+        setStandaloneInlineEditorSelection(selection);
+        setInlineEditorSelection(null);
+        courseEditing.setInlinePreviewOwner("standalone-inline");
+        pendingStandaloneInlineTransferRef.current = null;
+      })
+      .catch(() => {
+        // The Full Preview may still be reconnecting. Retrying remains bound
+        // to this durable identity and stops after a few bounded attempts.
+        window.setTimeout(() => transferInlineEditorToStandaloneRef.current(), 150);
+      })
+      .finally(() => {
+        standaloneInlineTransferPendingRef.current = false;
+      });
+  }, [courseEditing.setInlinePreviewOwner]);
+  transferInlineEditorToStandaloneRef.current = transferInlineEditorToStandalone;
+
+  useEffect(() => {
+    const inline = courseEditing.inlineEditor;
+    const nodeId = inline.target?.identity?.nodeId ?? "";
+    const source = inline.previewOwner === "parent-inline"
+      ? "embedded"
+      : inline.previewOwner === "standalone-inline"
+        ? "standalone"
+        : null;
+    if (
+      !source ||
+      inline.status === "detached" ||
+      !nodeId
+    ) return;
+    let disposed = false;
+    let requestPending = false;
+    const refreshGeometry = () => {
+      if (disposed || requestPending) return;
+      requestPending = true;
+      void requestCurrentInspectionSelectionRef.current("workspace", nodeId, source)
+        .then((selection) => {
+          if (disposed) return;
+          if (selection.nodeId !== nodeId) {
+            courseEditing.setInlinePreviewAvailable(false);
+            if (source === "standalone") setStandaloneInlineEditorSelection(null);
+            else setInlineEditorSelection(null);
+            return;
+          }
+          if (source === "standalone") setStandaloneInlineEditorSelection(selection);
+          else setInlineEditorSelection(selection);
+        })
+        .catch(() => {
+          if (!disposed) {
+            courseEditing.setInlinePreviewAvailable(false);
+            if (source === "standalone") setStandaloneInlineEditorSelection(null);
+            else setInlineEditorSelection(null);
+          }
+        })
+        .finally(() => { requestPending = false; });
+    };
+    refreshGeometry();
+    const timer = window.setInterval(refreshGeometry, 160);
+    window.addEventListener("resize", refreshGeometry);
+    return () => {
+      disposed = true;
+      window.clearInterval(timer);
+      window.removeEventListener("resize", refreshGeometry);
+    };
+  }, [
+    courseEditing.inlineEditor.previewOwner,
+    courseEditing.inlineEditor.status,
+    courseEditing.inlineEditor.target?.identity?.nodeId,
+    courseEditing.setInlinePreviewAvailable
+  ]);
+
+  useEffect(() => {
+    const inline = courseEditing.inlineEditor;
+    if (!inline.target || !["clean", "valid", "saved"].includes(inline.status)) return;
+    const timer = window.setInterval(() => { void courseEditing.revalidateInlineEditor(); }, 1_000);
+    return () => window.clearInterval(timer);
+  }, [
+    courseEditing.inlineEditor.status,
+    courseEditing.inlineEditor.target?.identity?.targetId,
+    courseEditing.revalidateInlineEditor
+  ]);
 
   const annotateLastEditSelection = () => {
     const selection = lastEditSelectionRef.current;
@@ -2723,6 +3029,40 @@ export function App() {
       if (courseEditing.target?.identity?.targetId === action.targetId) courseEditing.closeLivePreview();
       return;
     }
+    if (action.action === "open-target-options") {
+      const inline = inlineEditorStateRef.current;
+      if (
+        inline.previewOwner !== "standalone-inline" ||
+        inline.status === "detached" ||
+        inline.target?.identity?.targetId !== action.targetId
+      ) {
+        respond({ ok: false, message: "That text selection changed. Click it again before opening its options." });
+        return;
+      }
+      void (async () => {
+        // Switching from the caret to the capability composer must preserve
+        // current typing. Save is draft-only, so this remains non-mutating.
+        if (!["clean", "saved"].includes(inlineEditorStateRef.current.status)) {
+          const saved = await courseEditing.saveInlineEditor();
+          if (!saved) {
+            respond({ ok: false, message: "Studio could not save the current text before opening its options." });
+            return;
+          }
+        }
+        const latest = inlineEditorStateRef.current;
+        if (
+          latest.status === "detached" ||
+          latest.target?.identity?.targetId !== action.targetId
+        ) {
+          respond({ ok: false, message: "That text selection is no longer current." });
+          return;
+        }
+        courseEditing.clearInlineEditor();
+        setStandaloneInlineEditorSelection(null);
+        respond({ ok: true, message: "Formatting and properties are ready at this course item." });
+      })();
+      return;
+    }
     if (action.action === "save-target") {
       if (courseEditing.target?.identity?.targetId !== action.targetId) {
         respond({ ok: false, message: "That selection changed. Click the course element again." });
@@ -2949,6 +3289,88 @@ export function App() {
     return true;
   };
 
+  const jumpToInlineEditor = async () => {
+    const inline = courseEditing.inlineEditor;
+    const identity = inline.target?.identity;
+    if (courseEditing.busy || !identity || inline.status === "detached") return false;
+    setLayoutPreferences((current) => ({ ...current, inspectorOpen: true }));
+    setWorkspaceHtmlSelections((current) => ({ ...current, [identity.projectSlug]: identity.htmlPath }));
+    saveWorkspacePageSelection(identity.projectSlug, identity.htmlPath);
+    setPreviewMode("workspace");
+    setSelectionMode("edit");
+    courseEditing.setEnabled(true);
+    setPreviewInspectMode(true);
+    setInspectEnabled(true);
+    await new Promise<void>((resolve) => window.requestAnimationFrame(() => window.requestAnimationFrame(() => resolve())));
+    const focused = await focusPreviewInspectionSelection("workspace", identity.nodeId, { source: "embedded" });
+    if (!focused) return false;
+    const selection = await requestCurrentInspectionSelection("workspace", identity.nodeId, "embedded");
+    const current = await courseEditing.resolveSelection({
+      projectSlug: identity.projectSlug,
+      root: "workspace",
+      htmlPath: identity.htmlPath,
+      selection
+    });
+    if (!current || current.eligibility !== "editable") return false;
+    setInlineEditorSelection(selection);
+    return courseEditing.attachInlineEditorToPreview(current);
+  };
+
+  const openInlineEditorProperties = async () => {
+    const selection = inlineEditorSelection;
+    const current = inlineEditorStateRef.current;
+    const identity = current.target?.identity;
+    if (
+      !selection ||
+      !identity ||
+      selection.nodeId !== identity.nodeId ||
+      current.previewOwner !== "parent-inline" ||
+      current.status === "detached"
+    ) return;
+
+    // Do not throw away a teacher's unsaved caret text just to expose the
+    // link, image, formatting, or title controls. Saving a draft remains
+    // browser-local; only Apply writes a course file.
+    if (!["clean", "saved"].includes(current.status)) {
+      const saved = await courseEditing.saveInlineEditor();
+      if (!saved) return;
+    }
+
+    const latest = inlineEditorStateRef.current;
+    if (
+      !latest.target?.identity ||
+      latest.target.identity.targetId !== identity.targetId ||
+      latest.status === "detached"
+    ) return;
+    courseEditing.clearInlineEditor();
+    setInlineEditorSelection(null);
+    setInlineTargetEditorSelection(selection);
+  };
+
+  const activateInlineDraftInReview = async (draft: CourseEditDraft) => {
+    const reopened = await courseEditing.activateInlineDraft(draft);
+    const identity = reopened?.identity;
+    if (!identity) return false;
+    if (
+      previewMode !== "workspace" ||
+      workspaceTarget?.projectSlug !== identity.projectSlug ||
+      workspaceTarget.htmlPath !== identity.htmlPath
+    ) return true;
+
+    const focused = await focusPreviewInspectionSelection("workspace", identity.nodeId, { source: "embedded" });
+    if (!focused) return true;
+    const selection = await requestCurrentInspectionSelection("workspace", identity.nodeId, "embedded");
+    const current = await courseEditing.resolveSelection({
+      projectSlug: identity.projectSlug,
+      root: "workspace",
+      htmlPath: identity.htmlPath,
+      selection
+    });
+    if (!current || current.eligibility !== "editable" || current.identity?.targetId !== identity.targetId) return true;
+    setInlineEditorSelection(selection);
+    return courseEditing.attachInlineEditorToPreview(current);
+  };
+
   const relinkReviewSetItem = (itemId: string) => {
     if (blockReviewMutationDuringCapture()) return;
     const item = reviewSetItemsRef.current.find((candidate) => candidate.id === itemId);
@@ -3006,13 +3428,47 @@ export function App() {
   };
 
   const handleOpenWorkspacePreview = () => {
+    const activeInline = inlineEditorStateRef.current;
+    if (
+      activeInline.previewOwner === "parent-inline" &&
+      activeInline.status !== "detached" &&
+      activeInline.target?.identity
+    ) {
+      pendingStandaloneInlineTransferRef.current = {
+        nodeId: activeInline.target.identity.nodeId,
+        targetId: activeInline.target.identity.targetId,
+        attempts: 0
+      };
+    }
+    if (courseEditing.hasInteractiveInlinePreview) {
+      // Full Preview receives the same canonical draft, but it must acquire
+      // the editing lease. This releases the embedded caret first so two
+      // Studio-owned editors can never cover the same learner element; once
+      // Full Preview is ready, the durable target below transfers its caret.
+      courseEditing.setInlinePreviewOwner("child-inert");
+      setInlineEditorSelection(null);
+      setStandaloneInlineEditorSelection(null);
+    }
     courseEditing.closeLivePreview();
+    const showSavedInlineDraft = () => {
+      const inline = courseEditing.inlineEditor;
+      if (
+        inline.status === "saved" &&
+        inline.previewAvailable &&
+        inline.canonicalPatch &&
+        Object.keys(inline.canonicalPatch).length
+      ) {
+        courseEditing.setInlinePreviewOwner("child-inert");
+      }
+    };
     persistAllVisibleScrollPositions();
     if (!previewSources.workspace || !["ready", "warning"].includes(previewRecovery.states.workspace.phase)) {
       setReviewSetStatus("The full preview will be available after this page passes its preview check.", "warning");
       return;
     }
     if (focusStandalonePreview("workspace", workspaceTarget ? getTargetKey(workspaceTarget) : "")) {
+      showSavedInlineDraft();
+      transferInlineEditorToStandaloneRef.current();
       setReviewSetStatus("Returned to the open full preview.", "success");
       return;
     }
@@ -3025,6 +3481,8 @@ export function App() {
       const previewWindow = window.open(connectedHref, "_blank");
       if (!previewWindow) {
         setReviewSetStatus("The browser blocked the full preview. Allow pop-ups for Studio and try again.", "warning");
+      } else {
+        showSavedInlineDraft();
       }
     } else {
       setReviewSetStatus("The full preview could not open yet. Try again once the preview finishes loading.");
@@ -3381,6 +3839,32 @@ export function App() {
                           ) : null
                         }
                         resourcePreview={resourcePreview}
+                        inlineTextEditor={mode === "workspace" ? {
+                          editor: courseEditing.inlineEditor,
+                          selection: inlineEditorSelection,
+                          onChange: courseEditing.setInlineEditorText,
+                          onSave: courseEditing.saveInlineEditor,
+                          onCancel: () => {
+                            courseEditing.clearInlineEditor();
+                            setInlineEditorSelection(null);
+                            setInlineTargetEditorSelection(null);
+                          },
+                          onActivate: () => { courseEditing.setInlinePreviewOwner("parent-inline"); },
+                          onOpenProperties: openInlineEditorProperties
+                        } : undefined}
+                        inlineTargetEditor={mode === "workspace" ? {
+                          target: courseEditing.target,
+                          drafts: courseEditing.drafts,
+                          selection: inlineTargetEditorSelection,
+                          busy: courseEditing.busy,
+                          onSave: courseEditing.saveTarget,
+                          onUploadImage: courseEditing.uploadImage,
+                          onPreview: courseEditing.previewTargetPatch,
+                          onClose: () => {
+                            courseEditing.closeLivePreview();
+                            setInlineTargetEditorSelection(null);
+                          }
+                        } : undefined}
                       />
                     );
                   })}
@@ -3408,6 +3892,7 @@ export function App() {
                 editStaleExportTargets={courseEditing.status.staleExportTargets}
                 editPreviewFeedback={courseEditing.previewFeedback}
                 editHasLivePreview={courseEditing.hasLivePreview}
+                editInlineEditor={courseEditing.inlineEditor}
                 onPreviewEditTarget={courseEditing.previewTargetPatch}
                 onClearEditPreview={courseEditing.closeLivePreview}
                 onSaveEditTarget={courseEditing.saveTarget}
@@ -3421,6 +3906,18 @@ export function App() {
                 onImportEditDrafts={courseEditing.importDrafts}
                 onUploadEditImage={courseEditing.uploadImage}
                 onRenameCourse={courseEditing.renameCourse}
+                onInlineEditorTextChange={courseEditing.setInlineEditorText}
+                onSaveInlineEditor={courseEditing.saveInlineEditor}
+                onActivateInlineDraft={activateInlineDraftInReview}
+                onSetInlinePreviewOwner={courseEditing.setInlinePreviewOwner}
+                onReopenInlineEditor={courseEditing.reopenInlineEditor}
+                onRebaseInlineEditor={courseEditing.rebaseInlineEditor}
+                onCopyInlineEditorText={courseEditing.copyInlineEditorText}
+                onDiscardInlineEditor={() => {
+                  courseEditing.clearInlineEditor();
+                  setInlineEditorSelection(null);
+                }}
+                onJumpToInlineEditor={jumpToInlineEditor}
                 onAnnotateEditTarget={annotateLastEditSelection}
                 inspectEnabled={selectionMode === "annotate"}
                 inspectionResolution={inspectionResolution}

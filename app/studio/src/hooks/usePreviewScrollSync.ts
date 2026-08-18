@@ -19,6 +19,8 @@ import {
   type PreviewCourseEditActionResult,
   type PreviewCourseEditCommand,
   type PreviewCourseEditState,
+  type PreviewInlineEditorAction,
+  type PreviewInlineEditorCommand,
   type PreviewInspectCurrentPayload,
   type PreviewInspectFocusedPayload,
   type PreviewInspectPayload,
@@ -57,6 +59,7 @@ type UsePreviewScrollSyncOptions = {
   inspectEnabled: boolean;
   editEnabled: boolean;
   courseEditPreview: PreviewCourseEditCommand | null;
+  standaloneInlineEditor: PreviewInlineEditorCommand;
   onInspectSelection: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectHover?: (mode: PreviewMode, selection: PreviewInspectPayload, source: PreviewSurface) => void;
   onInspectModeChange?: (enabled: boolean, source: PreviewSurface) => void;
@@ -65,6 +68,7 @@ type UsePreviewScrollSyncOptions = {
   onPreviewHealth?: (mode: PreviewMode, health: PreviewContentHealth, source: PreviewSurface) => void;
   onPreviewReviewAction?: (mode: PreviewMode, action: PreviewReviewAction) => void;
   onPreviewEditAction?: (mode: PreviewMode, action: PreviewCourseEditAction) => void;
+  onPreviewInlineEditorAction?: (mode: PreviewMode, action: PreviewInlineEditorAction) => void;
   onCourseEditPreviewAck?: (mode: PreviewMode, ack: PreviewCourseEditAck, source: PreviewSurface) => void;
   onStandaloneReturn?: (mode: PreviewMode) => void;
   onPreviewDiagnostic?: (mode: PreviewMode, diagnostic: PreviewDiagnostic, source: PreviewSurface) => void;
@@ -72,7 +76,7 @@ type UsePreviewScrollSyncOptions = {
 
 type BridgeState = Pick<
   UsePreviewScrollSyncOptions,
-  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled" | "editEnabled" | "courseEditPreview"
+  "previewMode" | "selectedProject" | "workspaceTarget" | "referenceTarget" | "previewOrigin" | "inspectEnabled" | "editEnabled" | "courseEditPreview" | "standaloneInlineEditor"
 >;
 
 type PendingInspectionRequest = {
@@ -199,6 +203,7 @@ export function usePreviewScrollSync({
   inspectEnabled,
   editEnabled,
   courseEditPreview,
+  standaloneInlineEditor,
   onInspectSelection,
   onInspectHover,
   onInspectModeChange,
@@ -207,6 +212,7 @@ export function usePreviewScrollSync({
   onPreviewHealth,
   onPreviewReviewAction,
   onPreviewEditAction,
+  onPreviewInlineEditorAction,
   onCourseEditPreviewAck,
   onStandaloneReturn,
   onPreviewDiagnostic
@@ -263,9 +269,10 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled,
     editEnabled,
-    courseEditPreview
+    courseEditPreview,
+    standaloneInlineEditor
   });
-  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onCourseEditPreviewAck, onStandaloneReturn, onPreviewDiagnostic });
+  const inspectionCallbacksRef = useRef({ onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onPreviewInlineEditorAction, onCourseEditPreviewAck, onStandaloneReturn, onPreviewDiagnostic });
   stateRef.current = {
     previewMode,
     selectedProject,
@@ -274,9 +281,10 @@ export function usePreviewScrollSync({
     previewOrigin,
     inspectEnabled,
     editEnabled,
-    courseEditPreview
+    courseEditPreview,
+    standaloneInlineEditor
   };
-  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onCourseEditPreviewAck, onStandaloneReturn, onPreviewDiagnostic };
+  inspectionCallbacksRef.current = { onInspectSelection, onInspectHover, onInspectModeChange, onPreviewNavigation, onPreviewReady, onPreviewHealth, onPreviewReviewAction, onPreviewEditAction, onPreviewInlineEditorAction, onCourseEditPreviewAck, onStandaloneReturn, onPreviewDiagnostic };
 
   const getModeTarget = (mode: PreviewMode) => {
     const current = stateRef.current;
@@ -413,7 +421,7 @@ export function usePreviewScrollSync({
 
   const postStandaloneBridgeCommand = (
     mode: PreviewMode,
-    type: "studio-set-review-state" | "studio-set-review-packet" | "studio-review-action-result" | "studio-set-edit-state" | "studio-edit-action-result" | "studio-refresh-preview",
+    type: "studio-set-review-state" | "studio-set-review-packet" | "studio-review-action-result" | "studio-set-edit-state" | "studio-edit-action-result" | "studio-set-inline-editor" | "studio-refresh-preview",
     payload: unknown
   ) => {
     const port = primaryStandalonePort(mode);
@@ -489,7 +497,22 @@ export function usePreviewScrollSync({
         postBridgeCommand(mode, "studio-set-inspect-mode", { enabled: mode === "workspace" && stateRef.current.inspectEnabled });
         postBridgeCommand(mode, "studio-set-edit-visual-mode", { enabled: mode === "workspace" && stateRef.current.editEnabled });
         if (mode === "workspace" && stateRef.current.courseEditPreview) {
-          postBridgeCommand(mode, "studio-set-edit-preview", stateRef.current.courseEditPreview);
+          // A ready message from Full Preview must seed that one new surface,
+          // not replay the same revision into the already-rendered embedded
+          // learner. The latter correctly rejects duplicate revisions, which
+          // must never turn a successful display preview into a clear.
+          const port = source === "embedded" ? previewPortRefs.current[mode] : primaryStandalonePort(mode);
+          const message = createPreviewBridgeMessage("studio-set-edit-preview", stateRef.current.courseEditPreview);
+          if (previewBridgeMessageByteLength(message) <= PREVIEW_BRIDGE_MAX_MESSAGE_BYTES) {
+            postToPort(port, message);
+          }
+        }
+        if (mode === "workspace" && source === "standalone") {
+          const port = primaryStandalonePort(mode);
+          const message = createPreviewBridgeMessage("studio-set-inline-editor", stateRef.current.standaloneInlineEditor);
+          if (previewBridgeMessageByteLength(message) <= PREVIEW_BRIDGE_MAX_MESSAGE_BYTES) {
+            postToPort(port, message);
+          }
         }
         if (mode === "workspace" && source === "embedded") flushPendingKeyboardInspection();
         flushPendingFocusRequest(mode, source);
@@ -582,6 +605,11 @@ export function usePreviewScrollSync({
       case "preview-edit-action":
         if (source === "standalone") {
           inspectionCallbacksRef.current.onPreviewEditAction?.(mode, data.payload as PreviewCourseEditAction);
+        }
+        break;
+      case "preview-inline-editor-action":
+        if (source === "standalone") {
+          inspectionCallbacksRef.current.onPreviewInlineEditorAction?.(mode, data.payload as PreviewInlineEditorAction);
         }
         break;
       case "preview-return-to-studio":
@@ -948,6 +976,19 @@ export function usePreviewScrollSync({
       postToPort(nextPort, createPreviewBridgeMessage("studio-set-inspect-mode", {
         enabled: mode === "workspace" && stateRef.current.inspectEnabled
       }));
+      // The standalone host may finish connecting to Studio before its nested
+      // learner iframe is ready. Seed the host with the entire current visual
+      // edit state now; it keeps the bounded display command and replays it
+      // only after the learner bridge reports ready.
+      postToPort(nextPort, createPreviewBridgeMessage("studio-set-edit-visual-mode", {
+        enabled: mode === "workspace" && stateRef.current.editEnabled
+      }));
+      if (mode === "workspace" && stateRef.current.courseEditPreview) {
+        postToPort(nextPort, createPreviewBridgeMessage(
+          "studio-set-edit-preview",
+          stateRef.current.courseEditPreview
+        ));
+      }
     };
 
     window.addEventListener("message", receiveStandaloneBridge, true);
@@ -1002,6 +1043,10 @@ export function usePreviewScrollSync({
       postBridgeCommand("workspace", "studio-set-edit-preview", courseEditPreview);
     }
   }, [courseEditPreview]);
+
+  useEffect(() => {
+    postStandaloneBridgeCommand("workspace", "studio-set-inline-editor", standaloneInlineEditor);
+  }, [standaloneInlineEditor]);
 
   return {
     registerPreviewFrame,

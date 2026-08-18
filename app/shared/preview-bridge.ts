@@ -1,6 +1,7 @@
 import { isPreviewContentHealth } from "./preview-health.js";
 import {
   COURSE_EDIT_MAX_DRAFTS,
+  COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS,
   COURSE_EDIT_MAX_HTML_CODE_UNITS,
   COURSE_EDIT_MAX_ID_CODE_UNITS,
   COURSE_EDIT_MAX_STATUS_CODE_UNITS,
@@ -48,6 +49,7 @@ export const PREVIEW_EVENT_TYPES = [
   "preview-inspect-mode",
   "preview-edit-preview-ack",
   "preview-edit-action",
+  "preview-inline-editor-action",
   "preview-review-action",
   "preview-return-to-studio",
   "preview-health",
@@ -61,6 +63,7 @@ export const STUDIO_COMMAND_TYPES = [
   "studio-set-inspect-mode",
   "studio-set-edit-visual-mode",
   "studio-set-edit-preview",
+  "studio-set-inline-editor",
   "studio-request-inspect-current",
   "studio-focus-inspect-node",
   "studio-show-inspect-node",
@@ -102,6 +105,62 @@ export type PreviewViewport = {
   height: number;
 };
 
+/**
+ * Bounded, presentation-only values reported from the isolated learner frame
+ * so Studio can position its own editor without receiving selectors, CSS
+ * declarations, script, or keyboard events from the learner page.
+ */
+export type SafePresentationSnapshot = {
+  fontFamily: string;
+  fontSize: string;
+  fontWeight: string;
+  fontStyle: "normal" | "italic" | "oblique";
+  lineHeight: string;
+  letterSpacing: string;
+  textAlign: "left" | "right" | "center" | "justify" | "start" | "end";
+  color: string;
+  whiteSpace: "normal" | "pre" | "pre-wrap" | "pre-line" | "nowrap";
+};
+
+export type PreviewInlineTargetState = {
+  schemaVersion: typeof PREVIEW_BRIDGE_VERSION;
+  targetNodeId: string;
+  geometry: PreviewGeometry;
+  viewport: PreviewViewport;
+  visible: boolean;
+  presentation: SafePresentationSnapshot;
+};
+
+/**
+ * A Studio-owned text layer for the standalone Full Preview host. The learner
+ * document receives only opaque geometry and never receives keyboard input.
+ */
+export type PreviewInlineEditorStatus = "clean" | "editing" | "normalizing" | "valid" | "invalid" | "saved";
+
+export type PreviewInlineEditorCommand = {
+  schemaVersion: typeof PREVIEW_BRIDGE_VERSION;
+  active: boolean;
+  sessionId: string;
+  revision: number;
+  /**
+   * The newest Full Preview input event Studio has incorporated into the
+   * authoritative working draft. The trusted host must not repaint its field
+   * from a command that predates its own local typing.
+   */
+  acknowledgedInputRevision: number;
+  targetId: string;
+  target: PreviewInlineTargetState | null;
+  text: string;
+  allowsLineBreaks: boolean;
+  status: PreviewInlineEditorStatus;
+};
+
+export type PreviewInlineEditorAction = (
+  | { action: "input"; sessionId: string; revision: number; targetId: string; text: string }
+  | { action: "save"; sessionId: string; revision: number; targetId: string }
+  | { action: "cancel"; sessionId: string; revision: number; targetId: string }
+) & { requestId?: string };
+
 export type PreviewInspectPayload = {
   nodeId: string | null;
   selectionKind?: "element" | "area";
@@ -124,6 +183,7 @@ export type PreviewInspectPayload = {
       title: string;
     };
   };
+  presentation?: SafePresentationSnapshot;
 };
 
 export type PreviewInspectCurrentPayload = {
@@ -253,6 +313,7 @@ export type PreviewCourseEditAction = (
   | { action: "annotate-selection"; selection: PreviewInspectPayload }
   | { action: "preview-target"; targetId: string; patch: CourseEditPatch }
   | { action: "clear-preview"; targetId: string }
+  | { action: "open-target-options"; targetId: string }
   | { action: "save-target"; targetId: string; patch: CourseEditPatch }
   | { action: "select-draft"; draftId: string }
   | { action: "reopen-draft"; draftId: string }
@@ -334,11 +395,16 @@ function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
-function isBoundedString(value: unknown, maximumLength: number) {
+function hasOnlyKeys(value: Record<string, unknown>, keys: readonly string[]) {
+  const allowed = new Set(keys);
+  return Object.keys(value).every((key) => allowed.has(key));
+}
+
+function isBoundedString(value: unknown, maximumLength: number): value is string {
   return typeof value === "string" && value.length <= maximumLength;
 }
 
-function isBoundedNonEmptyString(value: unknown, maximumLength: number) {
+function isBoundedNonEmptyString(value: unknown, maximumLength: number): value is string {
   return typeof value === "string" && value.length > 0 && value.length <= maximumLength;
 }
 
@@ -384,6 +450,109 @@ function isViewport(value: unknown): value is PreviewViewport {
     Number.isInteger(value.height) &&
     value.height >= 240 &&
     value.height <= 2_000
+  );
+}
+
+function isSafePresentationValue(value: unknown, maximum = 240) {
+  return (
+    typeof value === "string" &&
+    isBoundedString(value, maximum) &&
+    !/[;{}<>]/.test(value) &&
+    !/(?:url|expression|@import)\s*\(/i.test(value)
+  );
+}
+
+function isSafePresentationSnapshot(value: unknown): value is SafePresentationSnapshot {
+  if (!isRecord(value)) return false;
+  const fontStyle = value.fontStyle;
+  const textAlign = value.textAlign;
+  const whiteSpace = value.whiteSpace;
+  return (
+    hasOnlyKeys(value, ["fontFamily", "fontSize", "fontWeight", "fontStyle", "lineHeight", "letterSpacing", "textAlign", "color", "whiteSpace"]) &&
+    isSafePresentationValue(value.fontFamily) &&
+    isSafePresentationValue(value.fontSize, 32) &&
+    isSafePresentationValue(value.fontWeight, 32) &&
+    (fontStyle === "normal" || fontStyle === "italic" || fontStyle === "oblique") &&
+    isSafePresentationValue(value.lineHeight, 32) &&
+    isSafePresentationValue(value.letterSpacing, 32) &&
+    ["left", "right", "center", "justify", "start", "end"].includes(String(textAlign)) &&
+    isSafePresentationValue(value.color, 64) &&
+    ["normal", "pre", "pre-wrap", "pre-line", "nowrap"].includes(String(whiteSpace))
+  );
+}
+
+function isPreviewInlineTargetState(value: unknown): value is PreviewInlineTargetState {
+  return (
+    isRecord(value) &&
+    hasOnlyKeys(value, ["schemaVersion", "targetNodeId", "geometry", "viewport", "visible", "presentation"]) &&
+    value.schemaVersion === PREVIEW_BRIDGE_VERSION &&
+    isBoundedNonEmptyString(value.targetNodeId, STUDIO_REVIEW_LIMITS.identifierCodeUnits) &&
+    isGeometry(value.geometry) &&
+    isViewport(value.viewport) &&
+    typeof value.visible === "boolean" &&
+    isSafePresentationSnapshot(value.presentation)
+  );
+}
+
+export function isPreviewInlineEditorCommand(value: unknown): value is PreviewInlineEditorCommand {
+  if (!isRecord(value)) return false;
+  const { schemaVersion, active, sessionId, revision, acknowledgedInputRevision, targetId, target, text, allowsLineBreaks, status } = value;
+  if (
+    !hasOnlyKeys(value, ["schemaVersion", "active", "sessionId", "revision", "acknowledgedInputRevision", "targetId", "target", "text", "allowsLineBreaks", "status"]) ||
+    schemaVersion !== PREVIEW_BRIDGE_VERSION ||
+    typeof active !== "boolean" ||
+    typeof revision !== "number" ||
+    !Number.isSafeInteger(revision) ||
+    revision < 0 ||
+    typeof acknowledgedInputRevision !== "number" ||
+    !Number.isSafeInteger(acknowledgedInputRevision) ||
+    acknowledgedInputRevision < 0 ||
+    typeof allowsLineBreaks !== "boolean" ||
+    typeof status !== "string" ||
+    !["clean", "editing", "normalizing", "valid", "invalid", "saved"].includes(status)
+  ) return false;
+  if (active === false) {
+    return (
+      sessionId === "" &&
+      targetId === "" &&
+      target === null &&
+      text === "" &&
+      acknowledgedInputRevision === 0 &&
+      allowsLineBreaks === false &&
+      status === "clean"
+    );
+  }
+  return (
+    isBoundedNonEmptyString(sessionId, 96) &&
+    /^[A-Za-z0-9-]+$/.test(sessionId) &&
+    revision > 0 &&
+    isBoundedNonEmptyString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) &&
+    /^[a-f0-9]{24}$/.test(targetId) &&
+    isPreviewInlineTargetState(target) &&
+    isBoundedString(text, COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS)
+  );
+}
+
+export function isPreviewInlineEditorAction(value: unknown): value is PreviewInlineEditorAction {
+  if (!isRecord(value)) return false;
+  const { action, requestId, sessionId, revision, targetId, text } = value;
+  if (
+    typeof action !== "string" ||
+    (requestId !== undefined && !isBoundedNonEmptyString(requestId, PREVIEW_INSPECT_REQUEST_ID_MAX_LENGTH)) ||
+    !isBoundedNonEmptyString(sessionId, 96) ||
+    !/^[A-Za-z0-9-]+$/.test(sessionId) ||
+    typeof revision !== "number" ||
+    !Number.isSafeInteger(revision) ||
+    revision <= 0 ||
+    !isBoundedNonEmptyString(targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) ||
+    !/^[a-f0-9]{24}$/.test(targetId)
+  ) return false;
+  if (action === "input") {
+    return hasOnlyKeys(value, ["action", "requestId", "sessionId", "revision", "targetId", "text"]) && isBoundedString(text, COURSE_EDIT_MAX_EDITOR_TEXT_CODE_UNITS);
+  }
+  return (
+    (action === "save" || action === "cancel") &&
+    hasOnlyKeys(value, ["action", "requestId", "sessionId", "revision", "targetId"])
   );
 }
 
@@ -433,6 +602,7 @@ export function isPreviewInspectPayload(value: unknown): value is PreviewInspect
         )
       )
     ) &&
+    (value.presentation === undefined || isSafePresentationSnapshot(value.presentation)) &&
     (
       value.interactionStartedAt === undefined ||
       (typeof value.interactionStartedAt === "number" && Number.isFinite(value.interactionStartedAt) && value.interactionStartedAt >= 0)
@@ -682,12 +852,13 @@ export function isPreviewCourseEditAction(value: unknown): value is PreviewCours
     case "preview-target":
     case "save-target":
       return Object.keys(value).every((key) => ["action", "requestId", "targetId", "patch"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string) && isCourseEditPatch(value.patch);
+    case "clear-preview":
+    case "open-target-options":
+      return Object.keys(value).every((key) => ["action", "requestId", "targetId"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string);
     case "select-draft":
     case "reopen-draft":
     case "remove-draft":
       return Object.keys(value).every((key) => ["action", "requestId", "draftId"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS);
-    case "clear-preview":
-      return Object.keys(value).every((key) => ["action", "requestId", "targetId"].includes(key)) && isBoundedNonEmptyString(value.targetId, COURSE_EDIT_MAX_ID_CODE_UNITS) && /^[a-f0-9]{24}$/.test(value.targetId as string);
     case "update-draft":
       return Object.keys(value).every((key) => ["action", "requestId", "draftId", "patch"].includes(key)) && isBoundedNonEmptyString(value.draftId, COURSE_EDIT_MAX_ID_CODE_UNITS) && isCourseEditPatch(value.patch);
     case "reorder-draft":
@@ -820,6 +991,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isPreviewCourseEditAck(payload);
     case "preview-edit-action":
       return isPreviewCourseEditAction(payload);
+    case "preview-inline-editor-action":
+      return isPreviewInlineEditorAction(payload);
     case "preview-review-action":
       return isPreviewReviewAction(payload);
     case "preview-return-to-studio":
@@ -849,6 +1022,8 @@ function isValidPayload(type: PreviewBridgeMessageType, payload: unknown) {
       return isRecord(payload) && Object.keys(payload).every((key) => key === "enabled") && typeof payload.enabled === "boolean";
     case "studio-set-edit-preview":
       return isPreviewCourseEditCommand(payload);
+    case "studio-set-inline-editor":
+      return isPreviewInlineEditorCommand(payload);
     case "studio-request-inspect-current":
       return (
         isRecord(payload) &&

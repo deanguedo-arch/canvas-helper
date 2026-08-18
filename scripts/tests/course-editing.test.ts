@@ -13,6 +13,7 @@ import {
   COURSE_EDIT_PREVIEW_SCHEMA_VERSION,
   isCourseEditApplyRequest,
   isCourseEditDraft,
+  isCourseEditNormalizeRequest,
   type CourseEditDraft,
   type CourseEditPendingAssetReference,
   type CourseEditPendingImage,
@@ -30,6 +31,7 @@ import {
   courseEditCanonicalPatchDigest,
   getCourseEditStatus,
   markCourseExportCurrent,
+  normalizeCourseEditEditorDocument,
   reopenCourseEditTarget,
   recoverInterruptedCourseEdit,
   renameCourseForStudio,
@@ -225,6 +227,71 @@ test("the page editability map identifies text, links, images, and synchronized 
   }
 });
 
+test("every source-safe mapped text label exposes the in-place editor without changing learner source", async () => {
+  const fixture = await createFixture();
+  try {
+    await writeFile(fixture.sourcePath, ORIGINAL_HTML.replace(
+      '<img src="image.png" alt="Original image">',
+      [
+        '<button type="button">Static course button</button>',
+        '<label>Static course label</label>',
+        '<blockquote>Teacher quotation</blockquote>',
+        '<span>Supporting course text</span>',
+        '<img src="image.png" alt="Original image">'
+      ].join("\n      ")
+    ), "utf8");
+    const before = await readFile(fixture.sourcePath, "utf8");
+    const document = decoratePreviewHtml(before);
+    assert.ok(document);
+
+    for (const [tagName, text, allowsLineBreaks] of [
+      ["a", "Lesson link", false],
+      ["button", "Static course button", false],
+      ["label", "Static course label", false],
+      ["blockquote", "Teacher quotation", true],
+      ["span", "Supporting course text", false]
+    ] as const) {
+      const target = await resolveCourseEditTarget(requestFor(document, tagName), fixture.repoRoot);
+      assert.equal(target.eligibility, "editable");
+      assert.deepEqual(target.editor, { kind: "plain-text", text, allowsLineBreaks });
+    }
+
+    const linkTarget = await resolveCourseEditTarget(requestFor(document, "a"), fixture.repoRoot);
+    assert.ok(linkTarget.identity);
+    const normalized = await normalizeCourseEditEditorDocument({
+      identity: linkTarget.identity,
+      document: { kind: "plain-text", text: "Updated course link" },
+      repoRoot: fixture.repoRoot
+    });
+    assert.deepEqual(normalized.canonicalPatch, { html: "Updated course link" });
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("a single-line source-safe element with an explicit line break stays editable through the composer", async () => {
+  const fixture = await createFixture();
+  try {
+    await writeFile(
+      fixture.sourcePath,
+      ORIGINAL_HTML.replace("<h1>Hello teacher</h1>", "<h1>Hello<br>teacher</h1>"),
+      "utf8"
+    );
+    const before = await readFile(fixture.sourcePath, "utf8");
+    const document = decoratePreviewHtml(before);
+    assert.ok(document);
+
+    const target = await resolveCourseEditTarget(requestFor(document, "h1"), fixture.repoRoot);
+    assert.equal(target.eligibility, "editable");
+    assert.equal(target.capabilities.richText, true);
+    assert.equal(target.editor, undefined);
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), before);
+  } finally {
+    await fixture.cleanup();
+  }
+});
+
 test("live preview normalization is canonical, ordered, read-only, and fails closed after clear", async () => {
   const fixture = await createFixture();
   try {
@@ -269,6 +336,67 @@ test("live preview normalization is canonical, ordered, read-only, and fails clo
     );
     assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
   } finally {
+    await fixture.cleanup();
+  }
+});
+
+test("plain-text inline normalization is read-only, canonical, and rejects unsupported source drift", async () => {
+  const fixture = await createFixture();
+  let server: Awaited<ReturnType<typeof startCourseEditRouteServer>> | null = null;
+  try {
+    const target = await resolveHeading(fixture.repoRoot, fixture.sourcePath);
+    assert.deepEqual(target.editor, {
+      kind: "plain-text",
+      text: "Hello teacher",
+      allowsLineBreaks: false
+    });
+    const request = {
+      schemaVersion: COURSE_EDIT_SCHEMA_VERSION,
+      identity: target.identity,
+      document: { kind: "plain-text" as const, text: "A <teacher> & class" }
+    };
+    assert.equal(isCourseEditNormalizeRequest(request), true);
+    const normalized = await normalizeCourseEditEditorDocument({ ...request, repoRoot: fixture.repoRoot });
+    assert.equal(normalized.changed, true);
+    assert.deepEqual(normalized.document, { kind: "plain-text", text: "A <teacher> & class" });
+    assert.deepEqual(normalized.canonicalPatch, { html: "A &lt;teacher&gt; &amp; class" });
+    assert.equal(normalized.representation.html, "A &lt;teacher&gt; &amp; class");
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+
+    const noChange = await normalizeCourseEditEditorDocument({
+      ...request,
+      document: { kind: "plain-text", text: "Hello teacher" },
+      repoRoot: fixture.repoRoot
+    });
+    assert.equal(noChange.changed, false);
+    assert.deepEqual(noChange.canonicalPatch, {});
+    await assert.rejects(
+      normalizeCourseEditEditorDocument({
+        ...request,
+        document: { kind: "plain-text", text: "No\nline break" },
+        repoRoot: fixture.repoRoot
+      }),
+      /single line/i
+    );
+
+    server = await startCourseEditRouteServer(fixture.repoRoot);
+    const routed = await routeJson<{ changed: boolean; canonicalPatch: { html?: string } }>(
+      server.origin,
+      "/api/course-edits/normalize",
+      "POST",
+      request
+    );
+    assert.equal(routed.changed, true);
+    assert.equal(routed.canonicalPatch.html, "A &lt;teacher&gt; &amp; class");
+    assert.equal(await readFile(fixture.sourcePath, "utf8"), ORIGINAL_HTML);
+
+    await writeFile(fixture.sourcePath, ORIGINAL_HTML.replace("Hello teacher", "Changed elsewhere"), "utf8");
+    await assert.rejects(
+      normalizeCourseEditEditorDocument({ ...request, repoRoot: fixture.repoRoot }),
+      /same stable edit identity|selected content/i
+    );
+  } finally {
+    await server?.close().catch(() => undefined);
     await fixture.cleanup();
   }
 });
