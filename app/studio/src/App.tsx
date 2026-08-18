@@ -1121,7 +1121,7 @@ export function App() {
         void courseEditing.saveInlineEditor();
         return;
       }
-      courseEditing.clearInlineEditor();
+      courseEditing.discardInlineEditor();
       setStandaloneInlineEditorSelection(null);
     },
     onCourseEditPreviewAck: (mode, ack, source) => {
@@ -3845,7 +3845,7 @@ export function App() {
                           onChange: courseEditing.setInlineEditorText,
                           onSave: courseEditing.saveInlineEditor,
                           onCancel: () => {
-                            courseEditing.clearInlineEditor();
+                            courseEditing.discardInlineEditor();
                             setInlineEditorSelection(null);
                             setInlineTargetEditorSelection(null);
                           },
@@ -3893,6 +3893,8 @@ export function App() {
                 editPreviewFeedback={courseEditing.previewFeedback}
                 editHasLivePreview={courseEditing.hasLivePreview}
                 editInlineEditor={courseEditing.inlineEditor}
+                editInlineRecovery={courseEditing.inlineRecovery}
+                editInlineRecoveryMessage={courseEditing.inlineRecoveryMessage}
                 onPreviewEditTarget={courseEditing.previewTargetPatch}
                 onClearEditPreview={courseEditing.closeLivePreview}
                 onSaveEditTarget={courseEditing.saveTarget}
@@ -3914,9 +3916,12 @@ export function App() {
                 onRebaseInlineEditor={courseEditing.rebaseInlineEditor}
                 onCopyInlineEditorText={courseEditing.copyInlineEditorText}
                 onDiscardInlineEditor={() => {
-                  courseEditing.clearInlineEditor();
+                  courseEditing.discardInlineEditor();
                   setInlineEditorSelection(null);
                 }}
+                onRecoverInlineEditor={courseEditing.recoverInlineEditor}
+                onCopyInlineRecoveryText={courseEditing.copyInlineRecoveryText}
+                onDiscardInlineRecovery={courseEditing.discardInlineRecovery}
                 onJumpToInlineEditor={jumpToInlineEditor}
                 onAnnotateEditTarget={annotateLastEditSelection}
                 inspectEnabled={selectionMode === "annotate"}

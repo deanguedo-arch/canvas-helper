@@ -22,12 +22,16 @@ import {
 import type { PreviewCourseEditAck, PreviewCourseEditCommand } from "../../../shared/preview-bridge.js";
 import { normalizePreviewPageIdentity } from "../../../shared/preview-path.js";
 import {
+  clearCourseEditInlineRecovery,
   exportCourseEditDrafts,
   importCourseEditDrafts,
+  loadCourseEditInlineRecovery,
   loadCourseEditDraftState,
   loadCourseEditDrafts,
+  saveCourseEditInlineRecovery,
   saveCourseEditDrafts
 } from "../lib/course-edit-storage";
+import type { CourseEditInlineRecovery } from "../lib/course-edit-storage";
 
 type CourseEditFeedbackTone = "neutral" | "progress" | "success" | "warning" | "error";
 
@@ -114,6 +118,15 @@ const EMPTY_STATUS: CourseEditStatus = {
   lastAppliedAt: null
 };
 
+const RECOVERABLE_INLINE_EDITOR_STATUSES = new Set<CourseEditInlineEditorStatus>([
+  "editing",
+  "normalizing",
+  "valid",
+  "invalid",
+  "detached",
+  "rejected"
+]);
+
 function draftId() {
   if (typeof window.crypto.randomUUID === "function") return window.crypto.randomUUID();
   return `edit-${Date.now()}-${Math.random().toString(16).slice(2)}`;
@@ -167,6 +180,8 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   const [busy, setBusy] = useState(false);
   const [feedback, setFeedback] = useState<{ message: string; tone: CourseEditFeedbackTone }>({ message: "", tone: "neutral" });
   const [inlineEditor, setInlineEditor] = useState<CourseEditInlineEditorState>(EMPTY_INLINE_EDITOR);
+  const [inlineRecovery, setInlineRecovery] = useState<CourseEditInlineRecovery | null>(() => loadCourseEditInlineRecovery(projectSlug).recovery);
+  const [inlineRecoveryMessage, setInlineRecoveryMessage] = useState("");
   const [previewCommand, setPreviewCommand] = useState<PreviewCourseEditCommand | null>(null);
   const [previewFeedback, setPreviewFeedback] = useState<{ message: string; tone: CourseEditFeedbackTone; latencyMs: number | null }>({
     message: "",
@@ -182,10 +197,14 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   const resolvedPageIdentityRef = useRef("");
   const activeProjectRef = useRef(projectSlug);
   const operationRef = useRef(0);
+  const inlineRecoveryOperationRef = useRef(0);
   const draftsRef = useRef(drafts);
   const inlineEditorRef = useRef(inlineEditor);
+  const inlineRecoveryRef = useRef(inlineRecovery);
+  const recoveryStorageUnavailableRef = useRef(false);
   draftsRef.current = drafts;
   inlineEditorRef.current = inlineEditor;
+  inlineRecoveryRef.current = inlineRecovery;
 
   const replaceInlineEditor = useCallback((next: CourseEditInlineEditorState) => {
     inlineEditorRef.current = next;
@@ -198,6 +217,58 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     setDrafts(bounded);
     const stored = saveCourseEditDrafts(activeProjectRef.current, bounded);
     if (!stored && bounded.length) setFeedback({ message: "Drafts are available in this tab, but browser storage is unavailable.", tone: "warning" });
+  }, []);
+
+  const clearStoredInlineRecovery = useCallback((slug = activeProjectRef.current) => {
+    if (!slug) return;
+    clearCourseEditInlineRecovery(slug);
+    if (inlineRecoveryRef.current?.projectSlug === slug) {
+      inlineRecoveryRef.current = null;
+      setInlineRecovery(null);
+    }
+    setInlineRecoveryMessage("");
+  }, []);
+
+  const persistInlineRecovery = useCallback((editor: CourseEditInlineEditorState) => {
+    const identity = editor.target?.identity;
+    const document = editor.rawDocument;
+    const project = activeProjectRef.current;
+    if (
+      !identity ||
+      !document ||
+      identity.projectSlug !== project ||
+      !RECOVERABLE_INLINE_EDITOR_STATUSES.has(editor.status)
+    ) return;
+
+    const existing = inlineRecoveryRef.current?.projectSlug === project
+      ? inlineRecoveryRef.current
+      : null;
+    // A detached state has already observed drift. Keep the last known
+    // identity so a reload cannot turn that drift into an implicit rebase.
+    const preserveDetachedIdentity = editor.status === "detached" && Boolean(existing);
+    const now = Date.now();
+    const recovery: CourseEditInlineRecovery = {
+      projectSlug: project,
+      identity: preserveDetachedIdentity ? existing!.identity : identity,
+      document,
+      savedDraftId: editor.savedDraftId,
+      requiresRebase: editor.status === "detached" ? true : false,
+      createdAt: existing?.createdAt ?? now,
+      updatedAt: now
+    };
+    const result = saveCourseEditInlineRecovery(project, recovery);
+    inlineRecoveryRef.current = recovery;
+    setInlineRecovery(recovery);
+    if (!result.ok && !recoveryStorageUnavailableRef.current) {
+      recoveryStorageUnavailableRef.current = true;
+      setFeedback({ message: "Browser storage is unavailable, so unsaved text can only remain in this tab.", tone: "warning" });
+    }
+    if (result.evictedProjectSlug) {
+      setFeedback({
+        message: `An older unsaved text recovery for ${result.evictedProjectSlug} was removed to keep browser storage bounded.`,
+        tone: "warning"
+      });
+    }
   }, []);
 
   const closeLivePreview = useCallback((
@@ -251,6 +322,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   }, []);
 
   const clearInlineEditor = useCallback((message = "") => {
+    inlineRecoveryOperationRef.current += 1;
     if (inlineEditorTimerRef.current !== null) {
       window.clearTimeout(inlineEditorTimerRef.current);
       inlineEditorTimerRef.current = null;
@@ -302,25 +374,47 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     }
   }, []);
 
+  // Persist only raw teacher text and a durable identity. This effect is
+  // intentionally declared before the project-change effect: when a teacher
+  // switches courses, the old course is stashed before its visual editor is
+  // cleared, and never copied into the newly selected course.
+  useEffect(() => {
+    persistInlineRecovery(inlineEditor);
+  }, [inlineEditor, persistInlineRecovery]);
+
   useEffect(() => {
     resolveAbortRef.current?.abort();
     clearInlineEditor();
     resolvedPageIdentityRef.current = "";
     activeProjectRef.current = projectSlug;
+    inlineRecoveryOperationRef.current += 1;
+    recoveryStorageUnavailableRef.current = false;
     operationRef.current += 1;
     setEnabled(false);
     setTarget(null);
     setResolving(false);
     setBusy(false);
     const loaded = loadCourseEditDraftState(projectSlug);
+    const recovered = loadCourseEditInlineRecovery(projectSlug);
     const stored = loaded.drafts;
     draftsRef.current = stored;
     setDrafts(stored);
+    inlineRecoveryRef.current = recovered.recovery;
+    setInlineRecovery(recovered.recovery);
+    setInlineRecoveryMessage(recovered.recovery
+      ? recovered.recovery.requiresRebase
+        ? "Studio previously detected that the course source changed. Reopen this text to compare it with the current source before saving or applying."
+        : "Unsaved text was recovered in this browser. Reopen it against the current course before previewing, saving, or applying."
+      : "");
     setStatus({ ...EMPTY_STATUS, projectSlug });
     const restored = stored.length ? `${stored.length} draft ${stored.length === 1 ? "change" : "changes"} restored for this course.` : "";
     setFeedback({
-      message: loaded.warnings[0] ?? restored,
-      tone: loaded.warnings.length ? "warning" : stored.length ? "success" : "neutral"
+      message: loaded.warnings[0] ?? recovered.warnings[0] ?? (recovered.recovery
+        ? recovered.recovery.requiresRebase
+          ? "Unsaved text recovered after a source change. Reopen it to compare with the current course before continuing."
+          : "Unsaved text recovered. Reopen it against the current course before continuing."
+        : restored),
+      tone: loaded.warnings.length || recovered.warnings.length ? "warning" : stored.length || recovered.recovery ? "success" : "neutral"
     });
     void refreshStatus(projectSlug);
   }, [clearInlineEditor, projectSlug, refreshStatus]);
@@ -335,6 +429,11 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
   const resolveSelection = useCallback(async (request: CourseEditResolveRequest) => {
     const slug = activeProjectRef.current;
     if (!slug || request.projectSlug !== slug) return null;
+    if (inlineRecoveryRef.current && !inlineEditorRef.current.target) {
+      setFeedback({ message: "Reopen or discard the recovered text before selecting another course element.", tone: "warning" });
+      return null;
+    }
+    inlineRecoveryOperationRef.current += 1;
     const activeInline = inlineEditorRef.current;
     if (
       activeInline.target &&
@@ -530,6 +629,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
           : normalized.changed ? "Text is ready to save." : "This text matches the current course source."
       };
       replaceInlineEditor(next);
+      if (next.status === "clean") clearStoredInlineRecovery();
       if (!options.quiet && next.previewOwner === "child-inert") {
         if (!normalized.changed) {
           closeLivePreview();
@@ -556,7 +656,7 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     } finally {
       if (inlineEditorAbortRef.current === controller) inlineEditorAbortRef.current = null;
     }
-  }, [busy, closeLivePreview, detachInlineEditor, normalizeLivePreview, replaceInlineEditor]);
+  }, [busy, clearStoredInlineRecovery, closeLivePreview, detachInlineEditor, normalizeLivePreview, replaceInlineEditor]);
 
   const revalidateInlineEditor = useCallback(() => {
     const current = inlineEditorRef.current;
@@ -647,6 +747,10 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     owner: "parent-inline" | "standalone-inline" = "parent-inline"
   ) => {
     if (busy) return false;
+    if (inlineRecoveryRef.current && !inlineEditorRef.current.target) {
+      setFeedback({ message: "Reopen or discard the recovered text before starting another in-place edit.", tone: "warning" });
+      return false;
+    }
     const document = inlineEditorDocumentForTarget(current);
     if (!document || !current.identity) return false;
     if (inlineEditorTimerRef.current !== null) window.clearTimeout(inlineEditorTimerRef.current);
@@ -818,9 +922,10 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       previewAvailable,
       message: "Draft saved. The course has not changed yet."
     });
+    clearStoredInlineRecovery();
     setFeedback({ message: "Draft saved. The course has not changed yet.", tone: "success" });
     return true;
-  }, [busy, closeLivePreview, flushInlineEditor, replaceDrafts, replaceInlineEditor]);
+  }, [busy, clearStoredInlineRecovery, closeLivePreview, flushInlineEditor, replaceDrafts, replaceInlineEditor]);
 
   const previewTargetPatch = useCallback((
     patch: CourseEditPatch,
@@ -917,6 +1022,10 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
 
   const reopenDraft = useCallback(async (draft: CourseEditDraft): Promise<CourseEditReopenResult | null> => {
     if (busy || draft.identity.projectSlug !== activeProjectRef.current) return null;
+    if (inlineRecoveryRef.current && !inlineEditorRef.current.target) {
+      setFeedback({ message: "Reopen or discard the recovered text before opening another saved draft.", tone: "warning" });
+      return null;
+    }
     try {
       const response = await fetch("/api/course-edits/reopen", {
         method: "POST",
@@ -961,6 +1070,11 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
 
   const activateInlineDraft = useCallback(async (draft: CourseEditDraft): Promise<CourseEditTarget | null> => {
     if (busy || draft.identity.projectSlug !== activeProjectRef.current) return null;
+    if (inlineRecoveryRef.current && !inlineEditorRef.current.target) {
+      setFeedback({ message: "Reopen or discard the recovered text before opening another saved draft.", tone: "warning" });
+      return null;
+    }
+    inlineRecoveryOperationRef.current += 1;
     // Do not leave a previous editor writable while this durable identity is
     // being reopened. A late reopen result must never overwrite new teacher
     // text that was entered against the previous target.
@@ -1103,6 +1217,118 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
       return false;
     }
   }, []);
+
+  const recoverInlineEditor = useCallback(async () => {
+    const recovery = inlineRecoveryRef.current;
+    if (busy || !recovery || recovery.projectSlug !== activeProjectRef.current) return false;
+    const recoveryOperation = ++inlineRecoveryOperationRef.current;
+    setInlineRecoveryMessage("Checking recovered text against the current course source…");
+    setFeedback({ message: "Checking recovered text against the current course source…", tone: "progress" });
+    try {
+      const response = await fetch("/api/course-edits/reopen", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ schemaVersion: COURSE_EDIT_SCHEMA_VERSION, identity: recovery.identity })
+      });
+      const reopened = await responseJson<CourseEditReopenResult>(response, "Studio could not reopen this recovered text target.");
+      if (
+        inlineRecoveryOperationRef.current !== recoveryOperation ||
+        inlineRecoveryRef.current !== recovery ||
+        inlineEditorRef.current.target
+      ) return false;
+      if (reopened.status === "resolved" && reopened.target.identity && reopened.target.editor?.kind === "plain-text") {
+        if (!reopened.target.editor.allowsLineBreaks && recovery.document.text.includes("\n")) {
+          const message = "This recovered text contains a line break that is not safe for this one-line course element.";
+          setInlineRecoveryMessage(message);
+          setFeedback({ message, tone: "warning" });
+          return false;
+        }
+        const revision = 1;
+        const next: CourseEditInlineEditorState = {
+          status: "editing",
+          target: reopened.target,
+          rawDocument: recovery.document,
+          canonicalDocument: null,
+          canonicalPatch: null,
+          canonicalPatchDigest: "",
+          inlineSessionId: previewSessionId(),
+          localRevision: revision,
+          canonicalRevision: -1,
+          savedDraftId: recovery.savedDraftId,
+          previewOwner: "none",
+          previewAvailable: false,
+          canReopen: false,
+          canRebase: false,
+          message: "Recovered text is being checked against the current course source…"
+        };
+        setTarget(reopened.target);
+        replaceInlineEditor(next);
+        setInlineRecoveryMessage("");
+        void normalizeInlineEditor(revision);
+        return true;
+      }
+      if (reopened.status === "target-changed" && reopened.currentTarget.identity && reopened.currentTarget.editor?.kind === "plain-text") {
+        const next: CourseEditInlineEditorState = {
+          status: "detached",
+          target: reopened.currentTarget,
+          rawDocument: recovery.document,
+          canonicalDocument: null,
+          canonicalPatch: null,
+          canonicalPatchDigest: "",
+          inlineSessionId: previewSessionId(),
+          localRevision: 0,
+          canonicalRevision: -1,
+          savedDraftId: recovery.savedDraftId,
+          previewOwner: "none",
+          previewAvailable: false,
+          canReopen: false,
+          canRebase: true,
+          message: "The source text changed. Compare the current text below, then explicitly rebase your proposed text before saving."
+        };
+        setTarget(reopened.currentTarget);
+        replaceInlineEditor(next);
+        setInlineRecoveryMessage("");
+        return false;
+      }
+      const message = reopened.status === "target-changed"
+        ? "The recovered source changed and cannot be safely rebased here."
+        : "reason" in reopened ? reopened.reason : "This target is not available for in-place text editing.";
+      setInlineRecoveryMessage(message);
+      setFeedback({ message, tone: "warning" });
+      return false;
+    } catch (error) {
+      if (inlineRecoveryOperationRef.current !== recoveryOperation || inlineRecoveryRef.current !== recovery) return false;
+      const message = error instanceof Error ? error.message : "Studio could not reopen this recovered text target.";
+      setInlineRecoveryMessage(message);
+      setFeedback({ message, tone: "error" });
+      return false;
+    }
+  }, [busy, normalizeInlineEditor, replaceInlineEditor]);
+
+  const copyInlineRecoveryText = useCallback(async () => {
+    const text = inlineRecoveryRef.current?.document.text ?? "";
+    if (!text || !navigator.clipboard?.writeText) return false;
+    try {
+      await navigator.clipboard.writeText(text);
+      setFeedback({ message: "Recovered text copied.", tone: "success" });
+      return true;
+    } catch {
+      setFeedback({ message: "Clipboard access is unavailable. Select and copy the recovered text manually.", tone: "warning" });
+      return false;
+    }
+  }, []);
+
+  const discardInlineEditor = useCallback(() => {
+    inlineRecoveryOperationRef.current += 1;
+    clearStoredInlineRecovery();
+    clearInlineEditor();
+  }, [clearInlineEditor, clearStoredInlineRecovery]);
+
+  const discardInlineRecovery = useCallback(() => {
+    inlineRecoveryOperationRef.current += 1;
+    clearStoredInlineRecovery();
+    setFeedback({ message: "Recovered text discarded.", tone: "success" });
+  }, [clearStoredInlineRecovery]);
 
   const removeDraft = useCallback((id: string) => {
     if (busy) return;
@@ -1356,6 +1582,8 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     previewCommand,
     previewFeedback,
     inlineEditor,
+    inlineRecovery,
+    inlineRecoveryMessage,
     hasLivePreview: previewCommand?.action === "render" || (
       ["parent-inline", "standalone-inline"].includes(inlineEditor.previewOwner) &&
       inlineEditor.status !== "detached" &&
@@ -1391,8 +1619,12 @@ export function useCourseEditing(projectSlug: string, onApplied: () => void | Pr
     reopenInlineEditor,
     rebaseInlineEditor,
     copyInlineEditorText,
+    recoverInlineEditor,
+    copyInlineRecoveryText,
+    discardInlineEditor,
+    discardInlineRecovery,
     clearInlineEditor,
     clearSelection,
     refreshStatus
-  }), [acknowledgePreview, activateInlineDraft, apply, attachInlineEditorToPreview, beginInlineEditor, busy, clearInlineEditor, clearSelection, closeLivePreview, copyInlineEditorText, drafts, editDraft, enabled, exportDrafts, feedback, flushInlineEditor, importDrafts, inlineEditor, patchDraft, previewCommand, previewFeedback, previewTargetPatch, rebaseInlineEditor, refreshStatus, removeDraft, renameCourse, reopenDraft, reopenInlineEditor, rebindDraft, reorderDraft, revalidateInlineEditor, resolveSelection, resolving, saveInlineEditor, saveTarget, setInlineEditorText, setInlinePreviewAvailable, setInlinePreviewOwner, status, target, undo, uploadImage]);
+  }), [acknowledgePreview, activateInlineDraft, apply, attachInlineEditorToPreview, beginInlineEditor, busy, clearInlineEditor, clearSelection, closeLivePreview, copyInlineEditorText, copyInlineRecoveryText, discardInlineEditor, discardInlineRecovery, drafts, editDraft, enabled, exportDrafts, feedback, flushInlineEditor, importDrafts, inlineEditor, inlineRecovery, inlineRecoveryMessage, patchDraft, previewCommand, previewFeedback, previewTargetPatch, rebaseInlineEditor, recoverInlineEditor, refreshStatus, removeDraft, renameCourse, reopenDraft, reopenInlineEditor, rebindDraft, reorderDraft, revalidateInlineEditor, resolveSelection, resolving, saveInlineEditor, saveTarget, setInlineEditorText, setInlinePreviewAvailable, setInlinePreviewOwner, status, target, undo, uploadImage]);
 }

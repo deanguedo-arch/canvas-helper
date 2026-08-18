@@ -16,6 +16,7 @@ import type {
   CourseEditTarget
 } from "../../../shared/course-editing.js";
 import type { CourseEditInlineEditorState } from "../hooks/useCourseEditing";
+import type { CourseEditInlineRecovery } from "../lib/course-edit-storage";
 import { ReviewSetPanel } from "./ReviewSetPanel";
 
 type InspectorPanelProps = {
@@ -34,6 +35,8 @@ type InspectorPanelProps = {
   editPreviewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
   editHasLivePreview: boolean;
   editInlineEditor: CourseEditInlineEditorState;
+  editInlineRecovery: CourseEditInlineRecovery | null;
+  editInlineRecoveryMessage: string;
   onPreviewEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
   onClearEditPreview: () => void;
   onSaveEditTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
@@ -55,6 +58,9 @@ type InspectorPanelProps = {
   onRebaseInlineEditor: () => void;
   onCopyInlineEditorText: () => Promise<boolean>;
   onDiscardInlineEditor: () => void;
+  onRecoverInlineEditor: () => Promise<boolean>;
+  onCopyInlineRecoveryText: () => Promise<boolean>;
+  onDiscardInlineRecovery: () => void;
   onJumpToInlineEditor: () => Promise<boolean>;
   onAnnotateEditTarget: () => void;
   inspectEnabled: boolean;
@@ -145,6 +151,8 @@ export function InspectorPanel({
   editPreviewFeedback,
   editHasLivePreview,
   editInlineEditor,
+  editInlineRecovery,
+  editInlineRecoveryMessage,
   onPreviewEditTarget,
   onClearEditPreview,
   onSaveEditTarget,
@@ -166,6 +174,9 @@ export function InspectorPanel({
   onRebaseInlineEditor,
   onCopyInlineEditorText,
   onDiscardInlineEditor,
+  onRecoverInlineEditor,
+  onCopyInlineRecoveryText,
+  onDiscardInlineRecovery,
   onJumpToInlineEditor,
   onAnnotateEditTarget,
   inspectEnabled,
@@ -243,7 +254,7 @@ export function InspectorPanel({
 
   return (
     <aside className="inspector" aria-label="Annotations">
-      {editEnabled || editDrafts.length > 0 || editCanUndo || editExportsOutOfDate || Boolean(editInlineEditor.target) ? (
+      {editEnabled || editDrafts.length > 0 || editCanUndo || editExportsOutOfDate || Boolean(editInlineEditor.target) || Boolean(editInlineRecovery) ? (
         <CourseEditPanel
           enabled={editEnabled}
           target={editTarget}
@@ -260,6 +271,8 @@ export function InspectorPanel({
           previewFeedback={editPreviewFeedback}
           hasLivePreview={editHasLivePreview}
           inlineEditor={editInlineEditor}
+          inlineRecovery={editInlineRecovery}
+          inlineRecoveryMessage={editInlineRecoveryMessage}
           onPreviewTarget={onPreviewEditTarget}
           onClearLivePreview={onClearEditPreview}
           onSaveTarget={onSaveEditTarget}
@@ -281,6 +294,9 @@ export function InspectorPanel({
           onRebaseInlineEditor={onRebaseInlineEditor}
           onCopyInlineEditorText={onCopyInlineEditorText}
           onDiscardInlineEditor={onDiscardInlineEditor}
+          onRecoverInlineEditor={onRecoverInlineEditor}
+          onCopyInlineRecoveryText={onCopyInlineRecoveryText}
+          onDiscardInlineRecovery={onDiscardInlineRecovery}
           onJumpToInlineEditor={onJumpToInlineEditor}
           onAnnotateTarget={onAnnotateEditTarget}
         />

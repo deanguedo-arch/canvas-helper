@@ -1,15 +1,20 @@
 import {
   COURSE_EDIT_MAX_DRAFTS,
   isCourseEditDraft,
+  isCourseEditEditorDocument,
   isCourseEditPatch,
   isCourseEditTargetIdentity,
   type CourseEditDraft,
+  type CourseEditEditorDocument,
+  type CourseEditTargetIdentity,
   type CourseEditPatch
 } from "../../../shared/course-editing.js";
 
 const STORAGE_KEY = "canvas-helper/course-edit-drafts-v2";
 const LEGACY_STORAGE_KEY = "canvas-helper/course-edit-drafts-v1";
 const STORAGE_VERSION = 2;
+const INLINE_RECOVERY_STORAGE_KEY = "canvas-helper/course-edit-inline-recovery-v1";
+const INLINE_RECOVERY_STORAGE_VERSION = 1;
 const MAX_PROJECTS = 40;
 
 type StoredProjectDrafts = {
@@ -32,12 +37,77 @@ export type CourseEditDraftImportResult = CourseEditDraftLoadResult & {
   ok: boolean;
 };
 
+/**
+ * Browser-local recovery for text that has not been saved as a draft yet.
+ * It intentionally contains only a durable, server-revalidated identity and
+ * plain teacher text—never a patch, preview session, geometry, or file path.
+ */
+export type CourseEditInlineRecovery = {
+  projectSlug: string;
+  identity: CourseEditTargetIdentity;
+  document: CourseEditEditorDocument;
+  savedDraftId: string | null;
+  /** True only after Studio observed external source drift. */
+  requiresRebase: boolean;
+  createdAt: number;
+  updatedAt: number;
+};
+
+type StoredProjectInlineRecovery = {
+  projectSlug: string;
+  updatedAt: number;
+  recovery: CourseEditInlineRecovery;
+};
+
+type StoredCourseEditInlineRecoveries = {
+  version: typeof INLINE_RECOVERY_STORAGE_VERSION;
+  projects: StoredProjectInlineRecovery[];
+};
+
+export type CourseEditInlineRecoveryLoadResult = {
+  recovery: CourseEditInlineRecovery | null;
+  warnings: string[];
+};
+
+export type CourseEditInlineRecoverySaveResult = {
+  ok: boolean;
+  evictedProjectSlug: string | null;
+};
+
 function isRecord(value: unknown): value is Record<string, unknown> {
   return Boolean(value) && typeof value === "object" && !Array.isArray(value);
 }
 
 function isSafeProjectSlug(value: unknown): value is string {
   return typeof value === "string" && /^[a-z0-9][a-z0-9._-]*$/i.test(value) && value.length <= 160;
+}
+
+function isSafeDraftId(value: unknown): value is string {
+  return typeof value === "string" && /^[A-Za-z0-9._-]+$/.test(value) && value.length <= 160;
+}
+
+function isCourseEditInlineRecovery(value: unknown): value is CourseEditInlineRecovery {
+  if (!isRecord(value)) return false;
+  const allowed = new Set([
+    "projectSlug",
+    "identity",
+    "document",
+    "savedDraftId",
+    "requiresRebase",
+    "createdAt",
+    "updatedAt"
+  ]);
+  return (
+    Object.keys(value).every((key) => allowed.has(key)) &&
+    isSafeProjectSlug(value.projectSlug) &&
+    isCourseEditTargetIdentity(value.identity) &&
+    value.identity.projectSlug === value.projectSlug &&
+    isCourseEditEditorDocument(value.document) &&
+    (value.savedDraftId === null || isSafeDraftId(value.savedDraftId)) &&
+    typeof value.requiresRebase === "boolean" &&
+    typeof value.createdAt === "number" && Number.isFinite(value.createdAt) &&
+    typeof value.updatedAt === "number" && Number.isFinite(value.updatedAt)
+  );
 }
 
 function defaultStyle() {
@@ -142,6 +212,72 @@ function writeStorage(value: StoredCourseEditDrafts) {
   }
 }
 
+function parseInlineRecoveryStored(raw: string | null): { stored: StoredCourseEditInlineRecoveries; warnings: string[] } {
+  const empty: StoredCourseEditInlineRecoveries = { version: INLINE_RECOVERY_STORAGE_VERSION, projects: [] };
+  if (!raw) return { stored: empty, warnings: [] };
+  try {
+    const parsed = JSON.parse(raw) as unknown;
+    if (!isRecord(parsed) || parsed.version !== INLINE_RECOVERY_STORAGE_VERSION || !Array.isArray(parsed.projects)) {
+      return { stored: empty, warnings: ["Unsaved text recovery could not be read because its format is invalid."] };
+    }
+    const warnings: string[] = [];
+    const projects: StoredProjectInlineRecovery[] = [];
+    for (const entry of parsed.projects) {
+      if (
+        !isRecord(entry) ||
+        !isSafeProjectSlug(entry.projectSlug) ||
+        typeof entry.updatedAt !== "number" || !Number.isFinite(entry.updatedAt) ||
+        !isCourseEditInlineRecovery(entry.recovery) ||
+        entry.recovery.projectSlug !== entry.projectSlug
+      ) {
+        warnings.push("One invalid unsaved text recovery was skipped.");
+        continue;
+      }
+      projects.push({
+        projectSlug: entry.projectSlug,
+        updatedAt: entry.updatedAt,
+        recovery: entry.recovery
+      });
+    }
+    projects.sort((left, right) => right.updatedAt - left.updatedAt);
+    if (projects.length > MAX_PROJECTS) {
+      warnings.push(`Only the ${MAX_PROJECTS} most recent unsaved text recoveries were kept.`);
+    }
+    return {
+      stored: { version: INLINE_RECOVERY_STORAGE_VERSION, projects: projects.slice(0, MAX_PROJECTS) },
+      warnings
+    };
+  } catch {
+    return { stored: empty, warnings: ["Unsaved text recovery was corrupt and was not loaded."] };
+  }
+}
+
+function readInlineRecoveryStorage() {
+  const empty = {
+    stored: { version: INLINE_RECOVERY_STORAGE_VERSION, projects: [] } as StoredCourseEditInlineRecoveries,
+    warnings: [] as string[]
+  };
+  if (typeof window === "undefined") return empty;
+  try {
+    return parseInlineRecoveryStored(window.localStorage.getItem(INLINE_RECOVERY_STORAGE_KEY));
+  } catch {
+    return {
+      ...empty,
+      warnings: ["Browser storage is unavailable, so unsaved text can only remain in this tab."]
+    };
+  }
+}
+
+function writeInlineRecoveryStorage(value: StoredCourseEditInlineRecoveries) {
+  if (typeof window === "undefined") return false;
+  try {
+    window.localStorage.setItem(INLINE_RECOVERY_STORAGE_KEY, JSON.stringify(value));
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 export function loadCourseEditDraftState(projectSlug: string): CourseEditDraftLoadResult {
   if (!isSafeProjectSlug(projectSlug)) return { drafts: [], warnings: ["The selected project name is not safe for draft storage."] };
   const { stored, warnings } = readStorage();
@@ -202,4 +338,44 @@ export function importCourseEditDrafts(projectSlug: string, source: string): Cou
   } catch {
     return { ok: false, drafts: [], warnings: ["The selected draft backup is not valid JSON."] };
   }
+}
+
+export function loadCourseEditInlineRecovery(projectSlug: string): CourseEditInlineRecoveryLoadResult {
+  if (!isSafeProjectSlug(projectSlug)) {
+    return { recovery: null, warnings: ["The selected project name is not safe for unsaved text recovery."] };
+  }
+  const { stored, warnings } = readInlineRecoveryStorage();
+  return {
+    recovery: stored.projects.find((entry) => entry.projectSlug === projectSlug)?.recovery ?? null,
+    warnings
+  };
+}
+
+export function saveCourseEditInlineRecovery(
+  projectSlug: string,
+  recovery: CourseEditInlineRecovery
+): CourseEditInlineRecoverySaveResult {
+  if (
+    !isSafeProjectSlug(projectSlug) ||
+    !isCourseEditInlineRecovery(recovery) ||
+    recovery.projectSlug !== projectSlug
+  ) return { ok: false, evictedProjectSlug: null };
+  const stored = readInlineRecoveryStorage().stored;
+  const remaining = stored.projects.filter((entry) => entry.projectSlug !== projectSlug);
+  const projects = [{ projectSlug, updatedAt: recovery.updatedAt, recovery }, ...remaining];
+  const evictedProjectSlug = projects.length > MAX_PROJECTS ? projects[MAX_PROJECTS]?.projectSlug ?? null : null;
+  return {
+    ok: writeInlineRecoveryStorage({
+      version: INLINE_RECOVERY_STORAGE_VERSION,
+      projects: projects.slice(0, MAX_PROJECTS)
+    }),
+    evictedProjectSlug
+  };
+}
+
+export function clearCourseEditInlineRecovery(projectSlug: string) {
+  if (!isSafeProjectSlug(projectSlug)) return false;
+  const stored = readInlineRecoveryStorage().stored;
+  const projects = stored.projects.filter((entry) => entry.projectSlug !== projectSlug);
+  return writeInlineRecoveryStorage({ version: INLINE_RECOVERY_STORAGE_VERSION, projects });
 }
