@@ -41,6 +41,7 @@ Entries are listed in file order (older to newer within this archive).
 - 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-export)
 - 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-sportswellness-google-hosted-firebase)
 - 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-drive-backed-export)
+- 2026-08-18: docs/ops/ACTIVE_HANDOFF.md (pre-unsaved-inline-recovery)
 
 ## 2026-04-22: docs/ops/ACTIVE_HANDOFF.md (pre-apps-script-export)
 
@@ -8433,3 +8434,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`, `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `scripts/lib/english-unit/dependencies.ts`, and `scripts/verify-fresh-course-studio-proof.ts`.
 - Preserved boundary: no inline editor belonged in PR #1; Save remained browser-local and Apply remained the first course-file/asset write. The Studio lock stayed cooperative for external writers, while Brightspace, deployed-host, cross-browser SCORM, full WCAG, and teacher rollout remained external acceptance.
 - Next command at archival time: create the inline follow-up from the exact integrated baseline commit, not an assumed `main` branch.
+
+## Archived Active Handoff — 2026-08-18: Full Preview safe inline editing
+
+- Project: `repo-wide`.
+- Task: Make every safe Studio edit-map action usable at the selected learner item in embedded Studio and Full Preview without mutating learner DOM.
+- Status: complete and integrated through PR #2 at `50b29c04901612c9a1a127d3a0f26504884eaa5b` on `codex/studio-roadmap-phases`; superseded by unsaved inline-text recovery.
+- What changed: Studio-owned direct caret editing now works for source-safe mapped labels in embedded and Full Preview; structured, link, image, and style actions use the same contextual capability composer at the selected item. Review & Apply, embedded Studio, and Full Preview share one authoritative draft and one visual-owner lease.
+- Verification: the exact PR head passed the required readiness, release-gate, and editability-census GitHub checks. Local checks included production build, frozen TypeScript baseline, focused course-editing and Studio suites, 61 inspection E2E scenarios, smoke, project contract, Direct/English/Social/snapshot pilots, catalog onboarding, and repeated Full Preview typing regression coverage.
+- Source of truth: `app/studio/src/hooks/useCourseEditing.ts`, `app/server/preview-bridge-runtime.ts`, `app/shared/preview-bridge.ts`, and `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
+- Preserved boundary: the learner iframe remained non-editable; pre-Apply work stayed browser-local; Apply remained the only course-file/asset write; runtime-owned and ambiguous content remained Annotation only.
+- Next command at archival time: begin a separate recovery branch from the integrated commit.
