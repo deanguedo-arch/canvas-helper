@@ -83,6 +83,7 @@ export function buildPreviewBridgeRuntime(
   var hoverHandle = 0;
   var hoverEvent = null;
   var scrollHandle = 0;
+  var scrollStateTimer = 0;
   var lastSelectors = [];
   var scrollSelectorsInitialized = false;
   var sourceNodeCounts = null;
@@ -1409,8 +1410,17 @@ export function buildPreviewBridgeRuntime(
   function sendScrollState() { send("preview-scroll-state", captureScrollState()); }
 
   function scheduleScrollState() {
-    if (scrollHandle) return;
-    scrollHandle = window.requestAnimationFrame(function() { scrollHandle = 0; sendScrollState(); });
+    // The learner can emit a scroll event every frame. The selected outline is
+    // still positioned on the next animation frame below, but Studio only
+    // needs a recent restorable position. Sending it at a bounded cadence keeps
+    // long legacy pages responsive while preserving the exact current state for
+    // an explicit selection or capture.
+    if (scrollStateTimer) return;
+    scrollStateTimer = window.setTimeout(function() {
+      scrollStateTimer = 0;
+      if (scrollHandle) return;
+      scrollHandle = window.requestAnimationFrame(function() { scrollHandle = 0; sendScrollState(); });
+    }, 120);
   }
 
   function restoreScrollState(state) {

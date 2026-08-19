@@ -8445,3 +8445,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `app/studio/src/hooks/useCourseEditing.ts`, `app/server/preview-bridge-runtime.ts`, `app/shared/preview-bridge.ts`, and `docs/audits/2026-08-17-safe-inline-text-editing-v1-audit.md`.
 - Preserved boundary: the learner iframe remained non-editable; pre-Apply work stayed browser-local; Apply remained the only course-file/asset write; runtime-owned and ambiguous content remained Annotation only.
 - Next command at archival time: begin a separate recovery branch from the integrated commit.
+
+## Archived Active Handoff — 2026-08-19: unsaved inline-text recovery and scroll alignment
+
+- Project: `repo-wide`.
+- Task: Recover unsaved Studio in-place text safely after reload, close, navigation, or preview loss, and keep selected Edit outlines aligned while scrolling.
+- Status: complete and merged through [PR #3](https://github.com/deanguedo-arch/canvas-helper/pull/3) into `codex/studio-roadmap-phases` at merge commit `971184a7467f8cc3515ea64fb8275c20d7d6843d`.
+- Verification: the exact PR head passed GitHub readiness, release-gate, and editability-census checks; local focused Studio contracts, production build, frozen typecheck baseline, and all 64 inspection browser scenarios passed.
+- Source of truth: `app/studio/src/lib/course-edit-storage.ts`, `app/studio/src/hooks/useCourseEditing.ts`, `app/server/preview-bridge-runtime.ts`, and `docs/audits/2026-08-18-studio-unsaved-inline-recovery-v1.md`.
+- Preserved boundary: recovery remains browser-local plain text only; learner DOM and course files remain unchanged until Apply; outline anchoring never mutates learner content.
+- Next command at archival time: begin the focused edit-scroll performance follow-up.
