@@ -368,6 +368,35 @@ test("@inspection Edit mode shows real editable areas and routes blocked content
   await expect(page.getByTestId("edit-mode-bar")).toHaveCount(0);
 });
 
+test("@inspection a selected edit outline follows the course while it scrolls", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  const runtimeControl = workspaceFrame.getByTestId("mode-toggle");
+  await runtimeControl.click();
+  await page.getByTestId("edit-toggle").click();
+  await workspaceFrame.locator("body").evaluate((body) => {
+    const tail = document.createElement("div");
+    tail.style.height = "1440px";
+    body.append(tail);
+  });
+
+  const pointerBounds = await runtimeControl.boundingBox();
+  expect(pointerBounds).toBeTruthy();
+  await page.mouse.click((pointerBounds?.x ?? 0) + 5, (pointerBounds?.y ?? 0) + 5);
+
+  const overlay = workspaceFrame.locator('[data-canvas-helper-preview-selection-overlay="true"]');
+  await expect(overlay).toBeVisible();
+  const beforeOverlay = await overlay.boundingBox();
+  expect(beforeOverlay).toBeTruthy();
+
+  await workspaceFrame.locator("body").evaluate(() => window.scrollBy({ top: 32, behavior: "auto" }));
+
+  await expect.poll(async () => {
+    const currentOverlay = await overlay.boundingBox();
+    return Boolean(currentOverlay && Math.abs(currentOverlay.y - (beforeOverlay?.y ?? 0)) > 20);
+  }).toBe(true);
+});
+
 test("@inspection inline edits stay above the learner DOM, synchronize Review & Apply, apply once, and undo safely", async ({ page }) => {
   const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
   const original = await readFile(fixtureSource, "utf8");
@@ -497,7 +526,7 @@ test("@inspection inline edits stay above the learner DOM, synchronize Review & 
     }
     expect(await readFile(fixtureSource, "utf8")).toBe(original);
     await page.evaluate(() => {
-      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1"]) {
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1", "canvas-helper/course-edit-inline-recovery-v1"]) {
         const stored = JSON.parse(localStorage.getItem(key) || "null");
         if (!stored?.projects) continue;
         stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
@@ -597,7 +626,7 @@ test("@inspection structured editable content opens its controls at the selected
     await fullPreview?.close().catch(() => undefined);
     await writeFile(fixtureSource, original, "utf8");
     await page.evaluate(() => {
-      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1"]) {
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1", "canvas-helper/course-edit-inline-recovery-v1"]) {
         const stored = JSON.parse(localStorage.getItem(key) || "null");
         if (!stored?.projects) continue;
         stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
@@ -669,6 +698,14 @@ test("@inspection external source drift detaches the in-place draft until it is 
     await expect(detached.getByLabel("Your proposed text")).toHaveValue("Teacher proposal");
     await expect(page.getByTestId("course-inline-text-editor")).toHaveCount(0);
     await expect(heading).toHaveText("E2E Fixture Workspace");
+    await expect.poll(() => page.evaluate(() => {
+      const stored = JSON.parse(localStorage.getItem("canvas-helper/course-edit-inline-recovery-v1") || "null");
+      return stored?.projects?.some((entry: { projectSlug?: string; recovery?: { requiresRebase?: boolean; document?: { text?: string } } }) => (
+        entry.projectSlug === "e2e-fixture" &&
+        entry.recovery?.requiresRebase === true &&
+        entry.recovery.document?.text === "Teacher proposal"
+      )) ?? false;
+    })).toBe(true);
 
     await detached.getByRole("button", { name: "Reopen against current source" }).click();
     await expect(detached.getByLabel("Current course text")).toHaveValue("E2E Fixture Workspace — external update");
@@ -678,7 +715,115 @@ test("@inspection external source drift detaches the in-place draft until it is 
   } finally {
     await writeFile(fixtureSource, original, "utf8");
     await page.evaluate(() => {
-      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1"]) {
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1", "canvas-helper/course-edit-inline-recovery-v1"]) {
+        const stored = JSON.parse(localStorage.getItem(key) || "null");
+        if (!stored?.projects) continue;
+        stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
+        localStorage.setItem(key, JSON.stringify(stored));
+      }
+    }).catch(() => undefined);
+  }
+});
+
+test("@inspection unsaved in-place text survives reload and is re-resolved before it can be saved", async ({ page }) => {
+  const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
+  const original = await readFile(fixtureSource, "utf8");
+  try {
+    await openProjectInStudio(page, "e2e-fixture");
+    await page.getByTestId("edit-toggle").click();
+    const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+    const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+    const bounds = await heading.boundingBox();
+    expect(bounds).toBeTruthy();
+    await page.mouse.click((bounds?.x ?? 0) + 12, (bounds?.y ?? 0) + 12);
+    await page.getByTestId("course-inline-text-editor").getByRole("textbox", { name: "Edit course text in place" }).fill("Recovered teacher proposal");
+    await expect(page.getByTestId("course-edit-inline-composer")).toContainText("Text is ready to save.");
+    await expect.poll(() => page.evaluate(() => {
+      const stored = JSON.parse(localStorage.getItem("canvas-helper/course-edit-inline-recovery-v1") || "null");
+      return stored?.projects?.some((entry: { projectSlug?: string; recovery?: { document?: { text?: string } } }) => (
+        entry.projectSlug === "e2e-fixture" && entry.recovery?.document?.text === "Recovered teacher proposal"
+      )) ?? false;
+    })).toBe(true);
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+
+    // A fresh Studio load restores only a browser-local recovery prompt. It
+    // does not restore an authoritative caret or alter the learner source.
+    await openProjectInStudio(page, "e2e-fixture");
+    const recovered = page.getByTestId("course-edit-inline-recovery");
+    await expect(recovered).toBeVisible();
+    await expect(recovered.getByLabel("Your recovered text")).toHaveValue("Recovered teacher proposal");
+    await expect(page.getByTestId("course-inline-text-editor")).toHaveCount(0);
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+
+    // A pending recovery is one working draft. Starting another target cannot
+    // silently overwrite it in browser storage.
+    await page.getByTestId("edit-toggle").click();
+    const reloadedFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+    const reloadedHeading = reloadedFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+    const reloadedBounds = await reloadedHeading.boundingBox();
+    expect(reloadedBounds).toBeTruthy();
+    await page.mouse.click((reloadedBounds?.x ?? 0) + 12, (reloadedBounds?.y ?? 0) + 12);
+    await expect(recovered).toBeVisible();
+    await expect(page.getByTestId("course-edit-inline-composer")).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => {
+      const stored = JSON.parse(localStorage.getItem("canvas-helper/course-edit-inline-recovery-v1") || "null");
+      return stored?.projects?.some((entry: { projectSlug?: string; recovery?: { document?: { text?: string } } }) => (
+        entry.projectSlug === "e2e-fixture" && entry.recovery?.document?.text === "Recovered teacher proposal"
+      )) ?? false;
+    })).toBe(true);
+
+    await recovered.getByTestId("course-edit-inline-recover").click();
+    await expect(page.getByTestId("course-edit-inline-composer")).toBeVisible();
+    await expect(page.getByTestId("course-edit-inline-panel-text")).toHaveValue("Recovered teacher proposal");
+    await expect(page.getByTestId("course-edit-inline-composer")).toContainText("Text is ready to save.");
+    await page.getByTestId("course-edit-inline-save").click();
+    await expect(page.getByTestId("course-edit-draft")).toHaveCount(1);
+    await expect.poll(() => page.evaluate(() => {
+      const stored = JSON.parse(localStorage.getItem("canvas-helper/course-edit-inline-recovery-v1") || "null");
+      return !(stored?.projects?.some((entry: { projectSlug?: string }) => entry.projectSlug === "e2e-fixture"));
+    })).toBe(true);
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+  } finally {
+    await writeFile(fixtureSource, original, "utf8");
+    await page.evaluate(() => {
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1", "canvas-helper/course-edit-inline-recovery-v1"]) {
+        const stored = JSON.parse(localStorage.getItem(key) || "null");
+        if (!stored?.projects) continue;
+        stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");
+        localStorage.setItem(key, JSON.stringify(stored));
+      }
+    }).catch(() => undefined);
+  }
+});
+
+test("@inspection recovered unsaved text is discarded explicitly without writing the course", async ({ page }) => {
+  const fixtureSource = path.resolve("projects/e2e-fixture/workspace/index.html");
+  const original = await readFile(fixtureSource, "utf8");
+  try {
+    await openProjectInStudio(page, "e2e-fixture");
+    await page.getByTestId("edit-toggle").click();
+    const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+    const heading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+    const bounds = await heading.boundingBox();
+    expect(bounds).toBeTruthy();
+    await page.mouse.click((bounds?.x ?? 0) + 12, (bounds?.y ?? 0) + 12);
+    await page.getByTestId("course-inline-text-editor").getByRole("textbox", { name: "Edit course text in place" }).fill("Text that should be discarded");
+    await expect.poll(() => page.evaluate(() => Boolean(localStorage.getItem("canvas-helper/course-edit-inline-recovery-v1")))).toBe(true);
+
+    await openProjectInStudio(page, "e2e-fixture");
+    const recovered = page.getByTestId("course-edit-inline-recovery");
+    await expect(recovered).toBeVisible();
+    await recovered.getByRole("button", { name: "Discard" }).click();
+    await expect(recovered).toHaveCount(0);
+    await expect.poll(() => page.evaluate(() => {
+      const stored = JSON.parse(localStorage.getItem("canvas-helper/course-edit-inline-recovery-v1") || "null");
+      return !(stored?.projects?.some((entry: { projectSlug?: string }) => entry.projectSlug === "e2e-fixture"));
+    })).toBe(true);
+    expect(await readFile(fixtureSource, "utf8")).toBe(original);
+  } finally {
+    await writeFile(fixtureSource, original, "utf8");
+    await page.evaluate(() => {
+      for (const key of ["canvas-helper/course-edit-drafts-v2", "canvas-helper/course-edit-drafts-v1", "canvas-helper/course-edit-inline-recovery-v1"]) {
         const stored = JSON.parse(localStorage.getItem(key) || "null");
         if (!stored?.projects) continue;
         stored.projects = stored.projects.filter((entry: { projectSlug?: string }) => entry.projectSlug !== "e2e-fixture");

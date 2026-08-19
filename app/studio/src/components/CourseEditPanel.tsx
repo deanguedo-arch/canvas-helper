@@ -16,6 +16,7 @@ import {
   type CourseEditTarget
 } from "../../../shared/course-editing.js";
 import type { CourseEditInlineEditorState } from "../hooks/useCourseEditing";
+import type { CourseEditInlineRecovery } from "../lib/course-edit-storage";
 
 type CourseEditPanelProps = {
   enabled: boolean;
@@ -33,6 +34,8 @@ type CourseEditPanelProps = {
   previewFeedback: { message: string; tone: "neutral" | "progress" | "success" | "warning" | "error"; latencyMs: number | null };
   hasLivePreview: boolean;
   inlineEditor: CourseEditInlineEditorState;
+  inlineRecovery: CourseEditInlineRecovery | null;
+  inlineRecoveryMessage: string;
   onPreviewTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => void;
   onClearLivePreview: () => void;
   onSaveTarget: (patch: CourseEditPatch, pendingAsset?: CourseEditPendingAssetReference) => Promise<boolean>;
@@ -54,6 +57,9 @@ type CourseEditPanelProps = {
   onRebaseInlineEditor: () => void;
   onCopyInlineEditorText: () => Promise<boolean>;
   onDiscardInlineEditor: () => void;
+  onRecoverInlineEditor: () => Promise<boolean>;
+  onCopyInlineRecoveryText: () => Promise<boolean>;
+  onDiscardInlineRecovery: () => void;
   onJumpToInlineEditor: () => Promise<boolean>;
   onAnnotateTarget: () => void;
 };
@@ -484,6 +490,42 @@ function InlineTextComposer({
   );
 }
 
+function InlineRecoveryComposer({
+  recovery,
+  message,
+  busy,
+  onRecover,
+  onCopy,
+  onDiscard
+}: {
+  recovery: CourseEditInlineRecovery;
+  message: string;
+  busy: boolean;
+  onRecover: () => Promise<boolean>;
+  onCopy: () => Promise<boolean>;
+  onDiscard: () => void;
+}) {
+  return (
+    <section className="course-edit-inline-recovery" data-testid="course-edit-inline-recovery">
+      <h3>Unsaved text recovered</h3>
+      <p>{message || (recovery.requiresRebase
+        ? "The course source changed after this text was entered. Reopen it to compare with the current source before saving or applying."
+        : "This text stayed only in this browser. Reopen it against the current course before previewing, saving, or applying.")}</p>
+      <label className="course-edit-field">
+        <span>Your recovered text</span>
+        <textarea rows={recovery.document.text.includes("\n") ? 4 : 2} readOnly value={recovery.document.text} />
+      </label>
+      <div className="course-edit-inline-actions">
+        <button type="button" className="primary-button" disabled={busy} onClick={() => void onRecover()} data-testid="course-edit-inline-recover">
+          Reopen recovered text
+        </button>
+        <button type="button" className="ghost-button compact" onClick={() => void onCopy()}>Copy text</button>
+        <button type="button" className="ghost-button compact danger" disabled={busy} onClick={onDiscard}>Discard</button>
+      </div>
+    </section>
+  );
+}
+
 function DraftCard({ draft, index, count, busy, onReopen, onEditInline, onRemove, onReorder }: {
   draft: CourseEditDraft;
   index: number;
@@ -597,6 +639,15 @@ export function CourseEditPanel(props: CourseEditPanelProps) {
           onCopy={props.onCopyInlineEditorText}
           onDiscard={props.onDiscardInlineEditor}
           onJump={props.onJumpToInlineEditor}
+        />
+      ) : props.inlineRecovery ? (
+        <InlineRecoveryComposer
+          recovery={props.inlineRecovery}
+          message={props.inlineRecoveryMessage}
+          busy={props.busy}
+          onRecover={props.onRecoverInlineEditor}
+          onCopy={props.onCopyInlineRecoveryText}
+          onDiscard={props.onDiscardInlineRecovery}
         />
       ) : props.target?.eligibility === "editable" ? (
         <CourseEditTargetComposer

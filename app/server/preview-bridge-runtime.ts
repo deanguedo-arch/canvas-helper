@@ -95,6 +95,9 @@ export function buildPreviewBridgeRuntime(
   var temporaryFocusElement = null;
   var temporaryFocusTabIndex = null;
   var overlay = null;
+  var overlayTarget = null;
+  var overlayAppearance = null;
+  var overlayPositionHandle = 0;
   var shield = null;
   var dragStart = null;
   var dragging = false;
@@ -154,6 +157,8 @@ export function buildPreviewBridgeRuntime(
   var editMapTooltip = null;
   var editMapTooltipLabel = null;
   var editMapTooltipReason = null;
+  var editMapTooltipTarget = null;
+  var editMapTooltipPositionHandle = 0;
   var editMapRefreshTimer = 0;
   var editPreviewOverlay = null;
   var editPreviewTarget = null;
@@ -461,15 +466,40 @@ export function buildPreviewBridgeRuntime(
     }
   }
 
+  function isViewportRectVisible(rect) {
+    return Boolean(
+      rect &&
+      Number.isFinite(rect.width) &&
+      Number.isFinite(rect.height) &&
+      rect.width > 0 &&
+      rect.height > 0 &&
+      rect.right > 0 &&
+      rect.bottom > 0 &&
+      rect.left < window.innerWidth &&
+      rect.top < window.innerHeight
+    );
+  }
+
   function hideEditMapTooltip() {
+    if (editMapTooltipPositionHandle) {
+      window.cancelAnimationFrame(editMapTooltipPositionHandle);
+      editMapTooltipPositionHandle = 0;
+    }
+    editMapTooltipTarget = null;
     if (editMapTooltip) editMapTooltip.style.display = "none";
   }
 
-  function showEditMapTooltip(runtime, rect) {
-    ensureEditMapVisuals();
-    if (!editMapTooltip || !editMapTooltipLabel || !editMapTooltipReason) return;
-    editMapTooltipLabel.textContent = runtime.label;
-    editMapTooltipReason.textContent = runtime.reason;
+  function positionEditMapTooltip() {
+    editMapTooltipPositionHandle = 0;
+    if (!editMapTooltip || !editMapTooltipTarget || !editMapTooltipTarget.isConnected) {
+      hideEditMapTooltip();
+      return;
+    }
+    var rect = editMapTooltipTarget.getBoundingClientRect();
+    if (!isViewportRectVisible(rect)) {
+      editMapTooltip.style.display = "none";
+      return;
+    }
     editMapTooltip.style.display = "block";
     var tooltipRect = editMapTooltip.getBoundingClientRect();
     var left = Math.min(Math.max(8, rect.left), Math.max(8, window.innerWidth - tooltipRect.width - 8));
@@ -477,6 +507,20 @@ export function buildPreviewBridgeRuntime(
     var top = above >= 8 ? above : Math.min(window.innerHeight - tooltipRect.height - 8, rect.bottom + 8);
     editMapTooltip.style.left = left + "px";
     editMapTooltip.style.top = Math.max(8, top) + "px";
+  }
+
+  function scheduleEditMapTooltipPosition() {
+    if (!editMapTooltipTarget || editMapTooltipPositionHandle) return;
+    editMapTooltipPositionHandle = window.requestAnimationFrame(positionEditMapTooltip);
+  }
+
+  function showEditMapTooltip(runtime) {
+    ensureEditMapVisuals();
+    if (!runtime || !runtime.element || !editMapTooltip || !editMapTooltipLabel || !editMapTooltipReason) return;
+    editMapTooltipTarget = runtime.element;
+    editMapTooltipLabel.textContent = runtime.label;
+    editMapTooltipReason.textContent = runtime.reason;
+    positionEditMapTooltip();
   }
 
   function refreshEditMap() {
@@ -1405,7 +1449,7 @@ export function buildPreviewBridgeRuntime(
     return overlay;
   }
 
-  function setOverlay(rect, appearance) {
+  function applyOverlayRect(rect, appearance) {
     var element = ensureOverlay();
     if (appearance === "editable") {
       element.style.border = "2px solid #18794e";
@@ -1424,14 +1468,71 @@ export function buildPreviewBridgeRuntime(
       element.style.background = "rgba(20,115,230,.08)";
       element.style.boxShadow = "0 0 0 1px rgba(255,255,255,.9),0 0 0 4px rgba(20,115,230,.18)";
     }
-    element.style.left = Math.max(0, rect.left) + "px";
-    element.style.top = Math.max(0, rect.top) + "px";
+    // A fixed overlay must use the target's real viewport coordinates. Clamping
+    // an element that has scrolled above the viewport to zero makes its box
+    // appear stuck over unrelated learner content.
+    element.style.left = Math.round(rect.left) + "px";
+    element.style.top = Math.round(rect.top) + "px";
     element.style.width = Math.max(0, rect.width) + "px";
     element.style.height = Math.max(0, rect.height) + "px";
     element.style.display = "block";
   }
 
-  function hideOverlay() { if (overlay) overlay.style.display = "none"; }
+  function positionOverlay() {
+    overlayPositionHandle = 0;
+    if (!overlayTarget || !overlayTarget.isConnected) {
+      hideOverlay();
+      return;
+    }
+    var element = ensureOverlay();
+    var rect = overlayTarget.getBoundingClientRect();
+    if (!isViewportRectVisible(rect)) {
+      element.style.display = "none";
+      return;
+    }
+    applyOverlayRect(rect, overlayAppearance);
+  }
+
+  function scheduleOverlayPosition() {
+    // A free-form area selection has no durable element to follow. Hide it on
+    // scroll instead of leaving an old fixed rectangle over new content.
+    if (!overlayTarget) {
+      if (overlay) overlay.style.display = "none";
+      return;
+    }
+    if (overlayPositionHandle) return;
+    overlayPositionHandle = window.requestAnimationFrame(positionOverlay);
+  }
+
+  function setOverlay(rect, appearance) {
+    if (overlayPositionHandle) {
+      window.cancelAnimationFrame(overlayPositionHandle);
+      overlayPositionHandle = 0;
+    }
+    overlayTarget = null;
+    overlayAppearance = null;
+    applyOverlayRect(rect, appearance);
+  }
+
+  function setOverlayForElement(element, appearance) {
+    if (!(element instanceof Element) || !element.isConnected) {
+      hideOverlay();
+      return;
+    }
+    overlayTarget = element;
+    overlayAppearance = appearance || null;
+    positionOverlay();
+  }
+
+  function hideOverlay() {
+    if (overlayPositionHandle) {
+      window.cancelAnimationFrame(overlayPositionHandle);
+      overlayPositionHandle = 0;
+    }
+    overlayTarget = null;
+    overlayAppearance = null;
+    if (overlay) overlay.style.display = "none";
+  }
 
   function stylePreviewControlButton(control) {
     control.style.padding = "7px 9px";
@@ -2954,8 +3055,7 @@ export function buildPreviewBridgeRuntime(
     }
     focusInspectableElement(element);
     window.requestAnimationFrame(function() {
-      var rect = element.getBoundingClientRect();
-      setOverlay({ left: rect.left, top: rect.top, width: rect.width, height: rect.height });
+      setOverlayForElement(element);
       document.documentElement.setAttribute("data-canvas-helper-inspection-focus", "true");
       if (requestId) send("preview-inspect-focused", { requestId: requestId, nodeId: nodeId, focused: true });
     });
@@ -3115,12 +3215,21 @@ export function buildPreviewBridgeRuntime(
     };
   }
 
-  function selectInspection(selection, editRuntime) {
+  function selectInspection(selection, editRuntime, selectedElement) {
     if (!selection) return;
-    setOverlay(
-      { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
-      editRuntime ? editRuntime.state : undefined
-    );
+    var target = selection.selectionKind === "area"
+      ? null
+      : (selectedElement instanceof Element
+        ? selectedElement
+        : (editRuntime && editRuntime.element) || (selection.nodeId ? elementForSourceNodeId(selection.nodeId) : null));
+    if (target) {
+      setOverlayForElement(target, editRuntime ? editRuntime.state : undefined);
+    } else {
+      setOverlay(
+        { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
+        editRuntime ? editRuntime.state : undefined
+      );
+    }
     send("preview-inspect-selected", selection);
     if (editModeEnabled) editLastSelection = selection;
     if (window.top === window) {
@@ -3163,16 +3272,8 @@ export function buildPreviewBridgeRuntime(
     var selection = selectionFor(keyboardCursor, false);
     if (!selection) return null;
     var editRuntime = editModeEnabled ? mapRuntimeForElement(keyboardCursor) : null;
-    setOverlay(
-      { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
-      editRuntime ? editRuntime.state : undefined
-    );
-    if (editRuntime) showEditMapTooltip(editRuntime, {
-      left: selection.geometry.x,
-      top: selection.geometry.y,
-      right: selection.geometry.x + selection.geometry.width,
-      bottom: selection.geometry.y + selection.geometry.height
-    });
+    setOverlayForElement(keyboardCursor, editRuntime ? editRuntime.state : undefined);
+    if (editRuntime) showEditMapTooltip(editRuntime);
     try { keyboardCursor.scrollIntoView({ block: "nearest", inline: "nearest", behavior: "auto" }); } catch (_) {}
     focusInspectableElement(keyboardCursor);
     return selection;
@@ -3252,17 +3353,9 @@ export function buildPreviewBridgeRuntime(
       var editRuntime = editModeEnabled ? editMapTargetForPointer(target, pending.clientX, pending.clientY) : null;
       var selection = selectionFor(editRuntime ? editRuntime.element : target, false);
       if (!selection) return;
-      setOverlay(
-        { left: selection.geometry.x, top: selection.geometry.y, width: selection.geometry.width, height: selection.geometry.height },
-        editRuntime ? editRuntime.state : undefined
-      );
+      setOverlayForElement(editRuntime ? editRuntime.element : target, editRuntime ? editRuntime.state : undefined);
       if (editRuntime) {
-        showEditMapTooltip(editRuntime, {
-          left: selection.geometry.x,
-          top: selection.geometry.y,
-          right: selection.geometry.x + selection.geometry.width,
-          bottom: selection.geometry.y + selection.geometry.height
-        });
+        showEditMapTooltip(editRuntime);
       } else {
         hideEditMapTooltip();
       }
@@ -3311,9 +3404,11 @@ export function buildPreviewBridgeRuntime(
       }
     }
     var selectedEditRuntime = dragStart.editRuntime;
+    var selectedTarget = dragStart.target;
+    var wasDragging = dragging;
     dragStart = null;
     dragging = false;
-    selectInspection(selection, selectedEditRuntime);
+    selectInspection(selection, selectedEditRuntime, wasDragging ? null : selectedTarget);
   }
 
   function onInspectPointerCancel() {
@@ -4003,8 +4098,14 @@ export function buildPreviewBridgeRuntime(
 
   window.addEventListener("scroll", scheduleScrollState, { passive: true });
   document.addEventListener("scroll", scheduleScrollState, true);
+  window.addEventListener("scroll", scheduleOverlayPosition, { passive: true });
+  document.addEventListener("scroll", scheduleOverlayPosition, true);
+  window.addEventListener("scroll", scheduleEditMapTooltipPosition, { passive: true });
+  document.addEventListener("scroll", scheduleEditMapTooltipPosition, true);
   window.addEventListener("scroll", scheduleEditPreviewPosition, { passive: true });
   document.addEventListener("scroll", scheduleEditPreviewPosition, true);
+  window.addEventListener("resize", scheduleOverlayPosition, { passive: true });
+  window.addEventListener("resize", scheduleEditMapTooltipPosition, { passive: true });
   window.addEventListener("resize", scheduleEditPreviewPosition, { passive: true });
   window.addEventListener("resize", scheduleEditPanelPosition, { passive: true });
   window.addEventListener("resize", scheduleHostedInlineEditorPosition, { passive: true });
