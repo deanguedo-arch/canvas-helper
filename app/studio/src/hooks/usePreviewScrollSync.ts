@@ -108,6 +108,10 @@ type StandalonePreviewConnection = {
 
 const STANDALONE_REJOIN_STORAGE_KEY = "canvas-helper/standalone-preview-rejoin-v1";
 const STANDALONE_REJOIN_TTL_MS = 8 * 60 * 60 * 1_000;
+// Scroll events can arrive every animation frame. Keeping the latest position in
+// memory is immediate, but synchronously serializing the whole map to
+// localStorage on every frame makes long learner pages feel unnecessarily heavy.
+const PREVIEW_SCROLL_PERSIST_INTERVAL_MS = 240;
 
 type StandaloneRejoinState = {
   tokens: Record<PreviewMode, string>;
@@ -257,6 +261,8 @@ export function usePreviewScrollSync({
   });
   const pendingKeyboardInspectionRef = useRef(false);
   const previewScrollMapRef = useRef<PreviewScrollMap>(loadPreviewScrollMap());
+  const previewScrollPersistenceTimerRef = useRef<number | null>(null);
+  const previewScrollMapDirtyRef = useRef(false);
   const latestScrollStateRef = useRef<Record<PreviewMode, PreviewScrollPosition | null>>({
     reference: null,
     workspace: null
@@ -434,15 +440,49 @@ export function usePreviewScrollSync({
     }
   };
 
-  const persistPreviewScrollPosition = (mode: PreviewMode) => {
+  const recordPreviewScrollPosition = (mode: PreviewMode) => {
     const target = getModeTarget(mode);
     const position = latestScrollStateRef.current[mode];
     if (!target || !position) {
-      return;
+      return false;
     }
 
     previewScrollMapRef.current[getTargetKey(target)] = position;
+    previewScrollMapDirtyRef.current = true;
+    return true;
+  };
+
+  const flushPreviewScrollPositionPersistence = () => {
+    if (previewScrollPersistenceTimerRef.current !== null) {
+      window.clearTimeout(previewScrollPersistenceTimerRef.current);
+      previewScrollPersistenceTimerRef.current = null;
+    }
+    if (!previewScrollMapDirtyRef.current) {
+      return;
+    }
+    previewScrollMapDirtyRef.current = false;
     savePreviewScrollMap(previewScrollMapRef.current);
+  };
+
+  const schedulePreviewScrollPositionPersistence = () => {
+    if (!previewScrollMapDirtyRef.current || previewScrollPersistenceTimerRef.current !== null) {
+      return;
+    }
+    previewScrollPersistenceTimerRef.current = window.setTimeout(() => {
+      previewScrollPersistenceTimerRef.current = null;
+      flushPreviewScrollPositionPersistence();
+    }, PREVIEW_SCROLL_PERSIST_INTERVAL_MS);
+  };
+
+  const persistPreviewScrollPosition = (mode: PreviewMode, immediate = false) => {
+    if (!recordPreviewScrollPosition(mode)) {
+      return;
+    }
+    if (immediate) {
+      flushPreviewScrollPositionPersistence();
+    } else {
+      schedulePreviewScrollPositionPersistence();
+    }
   };
 
   const restoreStoredScrollPosition = (mode: PreviewMode) => {
@@ -457,7 +497,8 @@ export function usePreviewScrollSync({
   };
 
   const persistAllVisibleScrollPositions = () => {
-    previewModes.forEach((mode) => persistPreviewScrollPosition(mode));
+    previewModes.forEach((mode) => recordPreviewScrollPosition(mode));
+    flushPreviewScrollPositionPersistence();
   };
 
   const copyPreviewModeScrollPosition = (sourceMode: PreviewMode, targetMode: PreviewMode) => {
@@ -471,7 +512,8 @@ export function usePreviewScrollSync({
     previewScrollMapRef.current[getTargetKey(sourceTarget)] = captured;
     previewScrollMapRef.current[getTargetKey(targetTarget)] = captured;
     latestScrollStateRef.current[targetMode] = captured;
-    savePreviewScrollMap(previewScrollMapRef.current);
+    previewScrollMapDirtyRef.current = true;
+    flushPreviewScrollPositionPersistence();
     postBridgeCommand(targetMode, "studio-restore-scroll", toBridgeScrollState(captured));
   };
 
@@ -870,7 +912,7 @@ export function usePreviewScrollSync({
 
   const registerPreviewFrame = (mode: PreviewMode, node: HTMLIFrameElement | null) => {
     if (!node) {
-      persistPreviewScrollPosition(mode);
+      persistPreviewScrollPosition(mode, true);
     }
     previewFrameRefs.current[mode] = node;
   };

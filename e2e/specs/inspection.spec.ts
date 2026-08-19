@@ -380,7 +380,8 @@ test("@inspection a selected edit outline follows the course while it scrolls", 
     body.append(tail);
   });
 
-  const pointerBounds = await runtimeControl.boundingBox();
+  const editableHeading = workspaceFrame.getByRole("heading", { name: "E2E Fixture Workspace" });
+  const pointerBounds = await editableHeading.boundingBox();
   expect(pointerBounds).toBeTruthy();
   await page.mouse.click((pointerBounds?.x ?? 0) + 5, (pointerBounds?.y ?? 0) + 5);
 
@@ -395,6 +396,60 @@ test("@inspection a selected edit outline follows the course while it scrolls", 
     const currentOverlay = await overlay.boundingBox();
     return Boolean(currentOverlay && Math.abs(currentOverlay.y - (beforeOverlay?.y ?? 0)) > 20);
   }).toBe(true);
+});
+
+test("@inspection scroll persistence is coalesced while Edit mode stays responsive", async ({ page }) => {
+  await openProjectInStudio(page, "e2e-fixture");
+  await page.getByTestId("edit-toggle").click();
+  const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
+  await workspaceFrame.locator("body").evaluate((body) => {
+    const tail = document.createElement("div");
+    tail.style.height = "2400px";
+    body.append(tail);
+  });
+
+  await page.evaluate(() => {
+    const scope = window as typeof window & {
+      __previewScrollWrites?: number;
+      __previewScrollSetItem?: typeof Storage.prototype.setItem;
+    };
+    scope.__previewScrollWrites = 0;
+    scope.__previewScrollSetItem ??= Storage.prototype.setItem;
+    Storage.prototype.setItem = function(key, value) {
+      if (key === "canvas-helper/preview-scroll") {
+        scope.__previewScrollWrites = (scope.__previewScrollWrites ?? 0) + 1;
+      }
+      return scope.__previewScrollSetItem?.call(this, key, value);
+    };
+  });
+
+  await workspaceFrame.locator("body").evaluate(async () => {
+    for (let index = 0; index < 12; index += 1) {
+      window.scrollBy({ top: 48, behavior: "auto" });
+      await new Promise<void>((resolve) => window.requestAnimationFrame(() => resolve()));
+    }
+  });
+  await page.waitForTimeout(600);
+
+  const persisted = await page.evaluate(() => {
+    const scope = window as typeof window & {
+      __previewScrollWrites?: number;
+      __previewScrollSetItem?: typeof Storage.prototype.setItem;
+    };
+    const writes = scope.__previewScrollWrites ?? 0;
+    const raw = window.localStorage.getItem("canvas-helper/preview-scroll");
+    const positions = raw ? Object.values(JSON.parse(raw) as Record<string, { windowTop?: number }>) : [];
+    Storage.prototype.setItem = scope.__previewScrollSetItem ?? Storage.prototype.setItem;
+    delete scope.__previewScrollSetItem;
+    return {
+      writes,
+      restoredPosition: positions.some((position) => (position.windowTop ?? 0) > 0)
+    };
+  });
+
+  expect(persisted.writes).toBeGreaterThan(0);
+  expect(persisted.writes).toBeLessThanOrEqual(3);
+  expect(persisted.restoredPosition).toBe(true);
 });
 
 test("@inspection inline edits stay above the learner DOM, synchronize Review & Apply, apply once, and undo safely", async ({ page }) => {
