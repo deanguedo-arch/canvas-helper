@@ -8453,3 +8453,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Correction: all four courses now use preserved `legacy-snapshot-v1` workspaces sourced from the supplied Issue 1–4 SCORM ZIPs. The older Social builder is explicitly quarantined for these slugs.
 - Preserved useful work: the non-destructive Evidence Bank origin model and its E2E support were reapplied directly to the restored snapshots.
 - Next command at archival time: `git show --stat 9739184dbb2c3064ef984d0c9b1d1707efebe665`.
+
+## Archived Active Handoff — 2026-08-21: issue-specific Social 30-1 vocabulary tester
+
+- Project: Social Studies 30-1 Option Two family (`social30-1-related-issue-{1,2,3,4}-option-2`).
+- Task: Restore the four user-supplied SCORM lesson snapshots and add issue-specific, textbook-grounded Core Vocabulary plus origin-organized Evidence Banks.
+- Status: complete on unmerged branch `codex/social30-option2-evidence-origin-tester`; implementation `96f3822c53968a4cf5144fc3478eaa8df061ea5a`.
+- Verification: all four snapshot hashes and package trees were verified; doctor and workspace verification passed for each course; Studio built; 8/8 focused tests and 4/4 project E2Es passed; supplied lesson and Study Guide content remained unchanged under the tester overlay.
+- Source of truth: `projects/social30-1-related-issue-<n>-option-2/workspace/index.html`, adjacent preserved SCORM assets, `meta/project.json`, and `meta/e2e-contract.json`.
+- Preserved boundary: no PR, merge, SCORM export, Brightspace upload, or propagation outside the four Social 30-1 Option Two courses occurred at that handoff.
+- Rollback points: clean four-SCORM snapshot `9739184dbb2c3064ef984d0c9b1d1707efebe665`; issue-specific tester `96f3822c53968a4cf5144fc3478eaa8df061ea5a`.
+- Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5175 --strictPort --clearScreen false`.
