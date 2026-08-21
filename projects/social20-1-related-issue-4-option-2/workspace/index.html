@@ -1640,6 +1640,104 @@ body.sidebar-collapsed .course-frame {
   color: var(--ink);
   background: #fff;
 }
+
+.social-organized-evidence-bank {
+  margin-bottom: 24px;
+  min-height: 0;
+}
+.social-evidence-organization-note {
+  margin: 0 0 6px;
+  color: #40493B;
+  line-height: 1.55;
+}
+.social-evidence-origin-stack,
+.social-evidence-origin-items,
+.social-evidence-lesson-groups,
+.social-evidence-lesson-items {
+  display: grid;
+  gap: 14px;
+}
+.social-evidence-origin-stack { gap: 24px; }
+.social-evidence-origin-group {
+  display: grid;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid #DDE2DD;
+}
+.social-evidence-origin-group:first-child { padding-top: 0; border-top: 0; }
+.social-evidence-origin-header,
+.social-evidence-lesson-group-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.social-evidence-origin-header h4,
+.social-evidence-lesson-group-header h5 { margin: 0; color: #191C1C; }
+.social-evidence-origin-header h4 { font-size: 20px; }
+.social-evidence-origin-header p { margin: 4px 0 0; color: #40493B; line-height: 1.5; }
+.social-evidence-origin-count,
+.social-evidence-lesson-count {
+  flex: 0 0 auto;
+  color: #155608;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.social-evidence-lesson-group { display: grid; gap: 12px; }
+.social-evidence-lesson-group + .social-evidence-lesson-group { padding-top: 16px; border-top: 1px solid #ECEFEC; }
+.social-evidence-lesson-group-header h5 { font-size: 16px; line-height: 1.35; }
+.social-lesson-evidence-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #DDE2DD;
+  border-left: 5px solid #155608;
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+.social-evidence-card-title { margin: 0; color: #191C1C; font-size: 19px; line-height: 1.3; }
+.social-lesson-evidence-card p { margin: 0; color: #40493B; white-space: pre-wrap; line-height: 1.55; }
+.social-lesson-evidence-meta { color: #155608; font-size: 14px; font-weight: 800; }
+.social-evidence-card-detail { display: grid; gap: 4px; }
+.social-evidence-card-actions { padding-top: 6px; }
+.core-vocabulary-practice { margin-top: 24px; }
+.core-vocabulary-term { gap: 18px; }
+.core-vocabulary-word-structure {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-top: 1px solid #DDE2DD;
+  border-bottom: 1px solid #DDE2DD;
+  background: #F4F6F0;
+}
+.core-vocabulary-word-structure h5 { margin: 0; color: #155608; font-size: 15px; }
+.core-vocabulary-word-structure p { margin: 0; }
+.core-vocabulary-parts { color: #191C1C; font-size: 18px; }
+.core-vocabulary-frayer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.core-vocabulary-frayer label {
+  align-content: start;
+  padding: 14px;
+  border: 1px solid #DDE2DD;
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+.core-vocabulary-frayer textarea { min-height: 132px; }
+.core-vocabulary-evidence-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #DDE2DD;
+}
+.core-vocabulary-evidence-actions [data-response-collection-status] { color: #40493B; font-size: 14px; }
+.core-vocabulary-evidence-actions .external-resource-action { flex: 0 0 auto; }
+.core-vocabulary-model { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; margin: 0; padding: 0 14px 14px; }
+.core-vocabulary-model div { padding-top: 12px; border-top: 1px solid #E0D5B6; }
+.core-vocabulary-model dt { color: #155608; font-weight: 800; }
+.core-vocabulary-model dd { margin: 4px 0 0; color: #40493B; }
+
 @media (max-width: 900px) {
   .social-diploma-steps,
   .social-source-coach-steps,
@@ -1673,6 +1771,18 @@ body.sidebar-collapsed .course-frame {
   }
 }
 
+
+@media (max-width: 700px) {
+  .course-frame,
+  body.sidebar-collapsed .course-frame { width: min(100%, 900px); }
+  .core-vocabulary-frayer,
+  .core-vocabulary-model { grid-template-columns: 1fr; }
+  .core-vocabulary-evidence-actions { align-items: stretch; flex-direction: column; }
+  .core-vocabulary-evidence-actions .external-resource-action { width: 100%; }
+  .social-evidence-origin-header,
+  .social-evidence-lesson-group-header { flex-direction: column; gap: 4px; }
+}
+
 </style>
 </head>
 <body>
@@ -1704,6 +1814,10 @@ body.sidebar-collapsed .course-frame {
       <a class="course-nav-link active" href="#overview" data-page-target="overview">
         <span class="material-symbols-outlined" aria-hidden="true">dashboard</span>
         <span class="sidebar-label">Overview</span>
+      </a>
+      <a class="course-nav-link" href="#core-vocabulary" data-page-target="core-vocabulary">
+        <span class="material-symbols-outlined" aria-hidden="true">spellcheck</span>
+        <span class="sidebar-label">Core Vocabulary</span>
       </a>
       <div class="lessons-nav">
         <a class="course-nav-link lessons-toggle" href="#lessons" data-page-target="lessons" data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav">
@@ -1801,10 +1915,287 @@ body.sidebar-collapsed .course-frame {
     <div class="overview-actions" aria-label="Course status and actions">
       <span class="completed-pill"><strong data-progress-count-inline>0/21</strong> lessons complete</span>
       <span class="completed-pill">21 imported lessons</span>
+      <a class="external-resource-action" href="#core-vocabulary" data-page-target="core-vocabulary">Start Core Vocabulary</a>
       <a class="external-resource-action" href="#lesson-01" data-page-target="lesson-01">Open Lesson Frame</a>
     </div>
   </section>
-    <section id="lessons" class="course-page" hidden>
+      <section id="core-vocabulary" class="course-page social-page" hidden>
+    <p class="course-kicker">Issue 4 terminology</p>
+    <h2>Core Vocabulary</h2>
+    <p class="page-intro">These eight Tier 3 terms are drawn from <em>Exploring Nationalism</em> Chapters 13-16 and the Issue 4 lesson sequence. Use the word structure as a clue, complete the Frayer fields in your own words, and then compare your thinking with the course model.</p>
+    <section class="social-study-guide-practice core-vocabulary-practice" aria-label="Issue 4 core vocabulary practice">
+      <section class="social-study-guide-panel social-study-guide-selector" data-study-topic-scope aria-labelledby="core-vocabulary-title">
+        <div class="social-study-guide-selector-header">
+          <div>
+            <h3 id="core-vocabulary-title">Build one term at a time</h3>
+            <p>Select a term, study its parts, and complete all four Frayer sections. Your responses save automatically on this device.</p>
+          </div>
+          <label class="social-study-guide-select-label" for="core-vocabulary-select">
+            <span>Choose a term</span>
+            <select id="core-vocabulary-select" class="social-study-guide-select" data-study-topic-select="core-vocabulary">
+              <option value="pluralism" selected>Pluralism</option>
+              <option value="federalism">Federalism</option>
+              <option value="multiculturalism">Multiculturalism</option>
+              <option value="sovereignty">Sovereignty</option>
+              <option value="bilingualism">Bilingualism</option>
+              <option value="self-determination">Self-determination</option>
+              <option value="national-unity">National unity</option>
+              <option value="national-identity">National identity</option>
+            </select>
+          </label>
+        </div>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="pluralism" data-canvas-helper-edit-key="core-vocabulary-pluralism" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:pluralism:collection">
+          <div>
+            <h4>Pluralism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Pluralism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>plural</strong> (more than one) + <strong>-ism</strong> (a system or principle)</p>
+            <p><strong>Course source:</strong> Chapters 13-16; Challenges and Opportunities for Canadian Unity lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Pluralism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:pluralism:definition" placeholder="Define Pluralism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:pluralism:characteristics" placeholder="List features that identify Pluralism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:pluralism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:pluralism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Pluralism means that different peoples, cultures, identities, and perspectives can coexist within the same political community.</dd></div>
+              <div><dt>Characteristics</dt><dd>For this issue, pluralism helps students argue that Canadian national identity may need to be flexible rather than uniform.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Comparing Visions of Canada - First Nations and Self-Determination&quot; and &quot;Historical visions of Canadian National Identity - Sifton&quot;. Essential Questions: What is Canadian identity and where did it come from? Sifton wanted to attract British and American settlers in order to maintain the British identity of Canada but the need for settlers was greater than what Britain and the USA could supply.</dd></div>
+              <div><dt>Non-example</dt><dd>Forcing every group to adopt one identical identity is not pluralism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="federalism" data-canvas-helper-edit-key="core-vocabulary-federalism" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:federalism:collection" hidden>
+          <div>
+            <h4>Federalism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Federalism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>feder-</strong> (league or union) + <strong>-al</strong> (relating to a system) + <strong>-ism</strong></p>
+            <p><strong>Course source:</strong> Chapter 13; Historical Visions - Federalism lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Federalism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:federalism:definition" placeholder="Define Federalism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:federalism:characteristics" placeholder="List features that identify Federalism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:federalism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:federalism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Federalism divides powers between national and regional governments, allowing different regions or groups to have some political recognition.</dd></div>
+              <div><dt>Characteristics</dt><dd>In Canadian identity debates, federalism can help manage diversity, but it can also reveal tensions over Quebec, Indigenous peoples, regionalism, and national unity.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Historical visions of Canadian National Identity - Federalism&quot; and &quot;Historical visions of Canadian National Identity - Mac Donald&quot;. Historical visions of Canadian National Identity Federalism Essential Questions: What is Canadian identity and where did it come from? The Vision of the Fathers of Confederation: Political Union and Federalism The Fathers of Confederation were politicians from the British Canadian colonies who sought a union of the colonies in the 1860s.</dd></div>
+              <div><dt>Non-example</dt><dd>A unitary system in which regional governments have no constitutionally protected authority is not federalism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="multiculturalism" data-canvas-helper-edit-key="core-vocabulary-multiculturalism" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:multiculturalism:collection" hidden>
+          <div>
+            <h4>Multiculturalism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Multiculturalism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>multi-</strong> (many) + <strong>culture</strong> + <strong>-al</strong> + <strong>-ism</strong></p>
+            <p><strong>Course source:</strong> Chapter 14; Comparing Visions of Canada - Multiculturalism lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Multiculturalism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:multiculturalism:definition" placeholder="Define Multiculturalism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:multiculturalism:characteristics" placeholder="List features that identify Multiculturalism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:multiculturalism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:multiculturalism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Multiculturalism recognizes cultural diversity as part of public life rather than treating one culture as the only national model.</dd></div>
+              <div><dt>Characteristics</dt><dd>A strong answer judges whether multiculturalism strengthens Canadian identity by making it inclusive, or whether it creates tensions over shared values and unity.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Comparing Visions of Canada - Multiculturalism&quot; and &quot;Historical visions of Canadian National Identity - Mac Donald&quot;. In 2010, 56% of Canadians identified multiculturalism as part of their Canadian identity. (Source: Michael Dewing, Canadian Multiculturalism, Library of Parliament, 2013). Historical visions of Canadian National Identity The Fathers of Confederation Essential Questions: What is Canadian identity and where did it come from?</dd></div>
+              <div><dt>Non-example</dt><dd>Assimilation into one dominant culture is not multiculturalism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="sovereignty" data-canvas-helper-edit-key="core-vocabulary-sovereignty" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:sovereignty:collection" hidden>
+          <div>
+            <h4>Sovereignty</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Sovereignty word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>sovereign</strong> (supreme self-rule) + <strong>-ty</strong> (a state or condition)</p>
+            <p><strong>Course source:</strong> Chapters 14-15; Quebec Sovereignty Movement lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Sovereignty Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:sovereignty:definition" placeholder="Define Sovereignty in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:sovereignty:characteristics" placeholder="List features that identify Sovereignty."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:sovereignty:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:sovereignty:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Sovereignty means having authority or self-governing power over political decisions and territory.</dd></div>
+              <div><dt>Characteristics</dt><dd>It is important because debates about Quebec, Indigenous peoples, and Canada often involve who has authority and how that authority should be recognized.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Comparing Visions of Canada - The Quebec Sovereignty Movement&quot; and &quot;Historical visions of Canadian National Identity - Federalism&quot;. However, Quebec did not sign the new Constitution because it was not recognized as a distinct society. Federalism and Provincial Autonomy Concerns over provincial autonomy have always been expressed by Quebec because of a sense of alienation from English Canada and the desire to protect the French language and culture.</dd></div>
+              <div><dt>Non-example</dt><dd>Limited administrative control granted and revocable by another authority is not full sovereignty.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="bilingualism" data-canvas-helper-edit-key="core-vocabulary-bilingualism" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:bilingualism:collection" hidden>
+          <div>
+            <h4>Bilingualism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Bilingualism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>bi-</strong> (two) + <strong>lingu</strong> (language) + <strong>-ism</strong> (a policy or practice)</p>
+            <p><strong>Course source:</strong> Chapter 14; Trudeau and Comparing Visions of Canada lessons.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Bilingualism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:bilingualism:definition" placeholder="Define Bilingualism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:bilingualism:characteristics" placeholder="List features that identify Bilingualism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:bilingualism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:bilingualism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Bilingualism recognizes English and French as official languages in Canada.</dd></div>
+              <div><dt>Characteristics</dt><dd>It is useful evidence because it shows how language rights and government policy can be used to include more than one national or cultural identity.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Unit 4: Should individuals and groups in Canada embrace a national identity?&quot; and &quot;Historical Visions of Canadian National Identity - First Nations Metis&quot;. You will analyze aboriginal status and self-government, the preservation of the French-Canadian culture, bilingualism, multiculturalism, and Canada’s role in North America and the world. The Canadian government&#39;s assimilation policies were part of the imperialist belief system that European culture was “better” than other cultures.</dd></div>
+              <div><dt>Non-example</dt><dd>Translation used once at an event is not an enduring policy of bilingualism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="self-determination" data-canvas-helper-edit-key="core-vocabulary-self-determination" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:self-determination:collection" hidden>
+          <div>
+            <h4>Self-determination</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Self-determination word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>self</strong> + <strong>determine</strong> (decide) + <strong>-ation</strong> (a process)</p>
+            <p><strong>Course source:</strong> Chapters 14-15; First Nations and Self-Determination and Nunavut lessons.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Self-determination Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:self-determination:definition" placeholder="Define Self-determination in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:self-determination:characteristics" placeholder="List features that identify Self-determination."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:self-determination:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:self-determination:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Self-determination is the right and capacity of a people to decide its political status and pursue its own social, cultural, and economic development.</dd></div>
+              <div><dt>Characteristics</dt><dd>It requires meaningful collective choice, political voice, and control over decisions central to the group&#39;s future.</dd></div>
+              <div><dt>Example</dt><dd>The creation of Nunavut through negotiation provides a Canadian example of Indigenous self-determination.</dd></div>
+              <div><dt>Non-example</dt><dd>A government deciding another people&#39;s political future without their participation is not self-determination.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="national-unity" data-canvas-helper-edit-key="core-vocabulary-national-unity" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:national-unity:collection" hidden>
+          <div>
+            <h4>National unity</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="National unity word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>nation</strong> + <strong>-al</strong> + <strong>unity</strong> (being joined together)</p>
+            <p><strong>Course source:</strong> Chapters 13-16; Challenges and Opportunities for Canadian Unity lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="National unity Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-unity:definition" placeholder="Define National unity in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-unity:characteristics" placeholder="List features that identify National unity."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-unity:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-unity:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>National unity is the degree to which diverse citizens and groups maintain a shared commitment to the country and its political community.</dd></div>
+              <div><dt>Characteristics</dt><dd>It can coexist with disagreement, but depends on belonging, legitimacy, accommodation, and ways to resolve competing loyalties.</dd></div>
+              <div><dt>Example</dt><dd>Federalism, bilingualism, and multiculturalism are different Canadian strategies intended to support unity amid diversity.</dd></div>
+              <div><dt>Non-example</dt><dd>Silencing disagreement to create the appearance of agreement is not durable national unity.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="national-identity" data-canvas-helper-edit-key="core-vocabulary-national-identity" data-response-collection data-evidence-collection-id="social20-1-related-issue-4-option-2:core-vocabulary:national-identity:collection" hidden>
+          <div>
+            <h4>National identity</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should individuals and groups in Canada embrace a national identity?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="National identity word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>nation</strong> + <strong>-al</strong> + <strong>identity</strong> (shared understanding of belonging)</p>
+            <p><strong>Course source:</strong> Chapters 13-16; Historical Visions of Canadian National Identity lessons.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="National identity Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-identity:definition" placeholder="Define National identity in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-identity:characteristics" placeholder="List features that identify National identity."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-identity:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-4-option-2:core-vocabulary:national-identity:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>National identity is a shared understanding of what it means to belong to a nation.</dd></div>
+              <div><dt>Characteristics</dt><dd>It draws on stories, symbols, institutions, values, history, territory, languages, cultures, and debates about inclusion.</dd></div>
+              <div><dt>Example</dt><dd>The Macdonald, Sifton, Trudeau, Quebec, and First Nations-Metis lessons present competing visions of Canadian national identity.</dd></div>
+              <div><dt>Non-example</dt><dd>A personal hobby with no relationship to national belonging is not a national identity.</dd></div>
+            </dl>
+          </details>
+        </article>
+      </section>
+    </section>
+  </section>
+<section id="lessons" class="course-page" hidden>
     <p class="course-kicker">Lesson pathway</p>
     <h2>Lesson pathway</h2>
     <div class="resource-stack">
@@ -5614,7 +6005,7 @@ body.sidebar-collapsed .course-frame {
     <p class="course-kicker">Source response practice</p>
     <h2>Source Analysis</h2>
     <p class="page-intro">Use this routine for cartoons, images, charts, excerpts, quotations, and case studies from the Social 20-1 lessons.</p>
-    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel>
+    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel data-evidence-origin-id="source-analysis" data-evidence-origin-title="Source Analysis">
       <header class="social-document-header">
         <p>Diploma source response</p>
         <h3>Source Response Routine</h3>
@@ -5991,17 +6382,14 @@ body.sidebar-collapsed .course-frame {
     <p class="course-kicker">Evidence bank</p>
     <h2>Evidence Bank</h2>
     <p class="page-intro">Save reusable proof notes from lessons, source analysis, and your own examples.</p>
-    <section class="social-evidence-layout">
-      <article class="social-evidence-panel">
-        <h3>Lesson evidence</h3>
-        <div data-lesson-evidence-list></div>
+    <article class="social-evidence-panel social-organized-evidence-bank" aria-labelledby="organized-evidence-bank-title">
+        <h3 id="organized-evidence-bank-title">Collected Evidence</h3>
+        <p class="social-evidence-organization-note">Evidence is organized automatically by the activity where you collected it. Lesson notes are grouped again by course section.</p>
+        <div class="social-evidence-origin-stack" data-organized-evidence-list data-lesson-evidence-list data-manual-evidence-list>
+          <p class="social-empty-state" data-evidence-bank-empty>Collect evidence from vocabulary, lessons, source analysis, position building, or the notebook below and it will be organized here.</p>
+        </div>
       </article>
-      <article class="social-evidence-panel">
-        <h3>Saved proof notes</h3>
-        <div data-manual-evidence-list></div>
-      </article>
-    </section>
-    <section class="social-evidence-notebook" data-evidence-notebook-panel>
+    <section class="social-evidence-notebook" data-evidence-notebook-panel data-evidence-capture="social20-1-related-issue-4-option-2:evidence-notebook" data-evidence-contribution-id="social20-1-related-issue-4-option-2:evidence:notebook" data-evidence-origin-id="evidence-notebook" data-evidence-origin-title="Saved Directly in Evidence Bank">
       <h3>Save a proof note</h3>
       <label class="social-workbook-response">
     <span>Source or example</span>
@@ -6953,7 +7341,7 @@ body.sidebar-collapsed .course-frame {
 </main>
 <script>
 const lessonIds = ["lesson-01","lesson-02","lesson-03","lesson-04","lesson-05","lesson-06","lesson-07","lesson-08","lesson-09","lesson-10","lesson-11","lesson-12","lesson-13","lesson-14","lesson-15","lesson-16","lesson-17","lesson-18","lesson-19","lesson-20","lesson-21"];
-const pageIds = ["overview","lessons","lesson-01","lesson-02","lesson-03","lesson-04","lesson-05","lesson-06","lesson-07","lesson-08","lesson-09","lesson-10","lesson-11","lesson-12","lesson-13","lesson-14","lesson-15","lesson-16","lesson-17","lesson-18","lesson-19","lesson-20","lesson-21","issue-inquiry","source-analysis","position-builder","evidence-bank","library","film-room","study-guide","resources"];
+const pageIds = ["overview","core-vocabulary","lessons","lesson-01","lesson-02","lesson-03","lesson-04","lesson-05","lesson-06","lesson-07","lesson-08","lesson-09","lesson-10","lesson-11","lesson-12","lesson-13","lesson-14","lesson-15","lesson-16","lesson-17","lesson-18","lesson-19","lesson-20","lesson-21","issue-inquiry","source-analysis","position-builder","evidence-bank","library","film-room","study-guide","resources"];
 const navGroupIdsByPage = {};
 const STORAGE_KEY = "canvas-helper:social20-1-related-issue-4-option-2:complete";
 const RESPONSE_STORAGE_KEY = "canvas-helper:social20-1-related-issue-4-option-2:responses";
@@ -7112,33 +7500,158 @@ function getLessonEvidenceNotes(){
       const key = field.getAttribute("data-response-id");
       const storedValue = key ? responses[key] : "";
       const value = typeof storedValue === "string" ? storedValue.trim() : "";
+      const route = field.closest(".course-page")?.id || "";
       return {
         value,
         title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
         group: field.getAttribute("data-evidence-lesson-group") || "",
-        number: field.getAttribute("data-evidence-lesson-number") || ""
+        number: field.getAttribute("data-evidence-lesson-number") || "",
+        unit: route.match(/-u(\d+)/)?.[1] || ""
       };
     })
     .filter((note) => note.value);
 }
-function renderLessonEvidenceBank(){
-  const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
-  if (!lists.length) return;
-  const notes = getLessonEvidenceNotes();
-  lists.forEach((list) => {
-    if (!notes.length) {
-      list.innerHTML = '<p class="social-empty-state" data-lesson-evidence-empty>No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>';
-      return;
-    }
-    list.innerHTML = notes.map((note) => {
-      const meta = [note.number ? "Lesson " + note.number : "", note.group].filter(Boolean).join(" - ");
-      return '<article class="social-lesson-evidence-card">' +
-        '<div class="social-lesson-evidence-meta">' + escapeForHtml(meta) + '</div>' +
-        '<h4>' + escapeForHtml(note.title) + '</h4>' +
-        '<p>' + escapeForHtml(note.value) + '</p>' +
-      '</article>';
-    }).join("");
+const evidenceOriginDefinitions = [
+  {
+    id: "core-vocabulary",
+    title: "Core Vocabulary",
+    description: "Frayer collections saved from the Core Vocabulary section."
+  },
+  {
+    id: "lesson-evidence",
+    title: "Lesson Evidence",
+    description: "Notes recorded at the end of lessons, organized by course section."
+  },
+  {
+    id: "source-analysis",
+    title: "Source Analysis",
+    description: "Evidence saved while working through Source Analysis."
+  },
+  {
+    id: "position-builder",
+    title: "Position Builder",
+    description: "Evidence saved while developing a position and thesis."
+  },
+  {
+    id: "evidence-notebook",
+    title: "Saved Directly in Evidence Bank",
+    description: "Notes created in the running Evidence Bank notebook."
+  },
+  {
+    id: "other",
+    title: "Other / Legacy Notes",
+    description: "Older notes that do not yet carry a collection location."
+  }
+];
+function formatEvidenceCount(count, noun){
+  const plural = noun === "entry" ? "entries" : noun + "s";
+  return count + " " + (count === 1 ? noun : plural);
+}
+function getLessonEvidenceGroup(note){
+  if (note.group === "Unit overview" && note.unit) return "Unit " + note.unit + " overview";
+  return note.group || "Other lessons";
+}
+function getEvidenceEntryOriginId(note){
+  const explicitOrigin = typeof note.origin === "string" ? note.origin : note.origin?.id;
+  const explicitActivity = typeof note.activity === "string" ? note.activity : note.activity?.id;
+  const candidate = String(explicitOrigin || explicitActivity || note.metadata?.originId || "").trim().toLowerCase();
+  if (["core-vocabulary", "source-analysis", "position-builder", "evidence-notebook", "other"].includes(candidate)) return candidate;
+  if (candidate === "evidence-bank") return "evidence-notebook";
+  const identities = getEvidenceEntryIdentities(note);
+  if (identities.some((identity) => identity.includes(":core-vocabulary:"))) return "core-vocabulary";
+  if (identities.includes("social20-1-related-issue-4-option-2:evidence:notebook")) return "evidence-notebook";
+  if (identities.some((identity) => /^evidence-\d+$/.test(identity))) return "source-analysis";
+  return "other";
+}
+function renderLessonEvidenceCard(note){
+  return '<article class="social-lesson-evidence-card" data-evidence-origin-id="lesson-evidence" data-evidence-lesson-number="' + escapeForHtml(note.number) + '">' +
+    '<div class="social-lesson-evidence-meta">' + escapeForHtml(note.number ? "Lesson " + note.number : "Lesson note") + '</div>' +
+    '<h6 class="social-evidence-card-title">' + escapeForHtml(note.title) + '</h6>' +
+    '<p>' + escapeForHtml(note.value) + '</p>' +
+  '</article>';
+}
+function renderManualEvidenceCard(note, originId){
+  const contributionId = note.contributionId || note.responseId || note.id || "";
+  const sourceTitle = typeof note.source === "string" ? note.source : note.source?.title || note.source?.id || "";
+  const workTitle = note.work?.title || "";
+  const title = note.concept || note.activity?.title || workTitle || sourceTitle || "Saved proof note";
+  const updatedLabel = note.updatedAt
+    ? "Updated " + new Date(note.updatedAt).toLocaleDateString()
+    : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : "";
+  const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", updatedLabel].filter(Boolean);
+  const promptLabel = note.metadata?.promptLabel || "Collection";
+  const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
+  const detailLabel = note.metadata?.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
+  const detailValue = note.entryKind === "collection"
+    ? note.answer || note.detail || note.evidence || ""
+    : note.detail || note.evidence || note.answer || "";
+  const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
+  const connectionValue = String(note.analysis || note.connection || "");
+  const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
+  const counterpointValue = String(note.metadata?.counterpoint || note.counterpoint || "");
+  const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
+  return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || "individual") + '" data-evidence-origin-id="' + escapeForHtml(originId) + '">' +
+    '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+    '<h5 class="social-evidence-card-title">' + escapeForHtml(title) + '</h5>' +
+    prompt +
+    detail +
+    connection +
+    counterpoint +
+    '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
+  '</article>';
+}
+function renderLessonEvidenceGroups(notes){
+  const groupedNotes = new Map();
+  notes.forEach((note) => {
+    const groupTitle = getLessonEvidenceGroup(note);
+    if (!groupedNotes.has(groupTitle)) groupedNotes.set(groupTitle, []);
+    groupedNotes.get(groupTitle).push(note);
   });
+  return Array.from(groupedNotes.entries()).map(([groupTitle, groupNotes]) =>
+    '<section class="social-evidence-lesson-group" data-evidence-lesson-group="' + escapeForHtml(groupTitle) + '">' +
+      '<div class="social-evidence-lesson-group-header">' +
+        '<h5>' + escapeForHtml(groupTitle) + '</h5>' +
+        '<span class="social-evidence-lesson-count">' + formatEvidenceCount(groupNotes.length, "note") + '</span>' +
+      '</div>' +
+      '<div class="social-evidence-lesson-items">' + groupNotes.map(renderLessonEvidenceCard).join("") + '</div>' +
+    '</section>'
+  ).join("");
+}
+function renderEvidenceOriginGroup(definition, count, content){
+  return '<section class="social-evidence-origin-group" data-evidence-origin-group="' + escapeForHtml(definition.id) + '">' +
+    '<div class="social-evidence-origin-header">' +
+      '<div><h4>' + escapeForHtml(definition.title) + '</h4><p>' + escapeForHtml(definition.description) + '</p></div>' +
+      '<span class="social-evidence-origin-count" data-evidence-origin-count="' + count + '">' + formatEvidenceCount(count, "entry") + '</span>' +
+    '</div>' +
+    '<div class="social-evidence-origin-items">' + content + '</div>' +
+  '</section>';
+}
+function renderOrganizedEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-organized-evidence-list]"));
+  if (!lists.length) return;
+  const lessonNotes = getLessonEvidenceNotes();
+  const manualNotes = getEvidenceBankApi()?.list() || readManualEvidenceNotes();
+  const manualGroups = new Map(evidenceOriginDefinitions.map((definition) => [definition.id, []]));
+  manualNotes
+    .filter((note) => note && typeof note === "object" && !Array.isArray(note))
+    .forEach((note) => manualGroups.get(getEvidenceEntryOriginId(note))?.push(note));
+  const renderedGroups = evidenceOriginDefinitions.map((definition) => {
+    if (definition.id === "lesson-evidence") {
+      return lessonNotes.length
+        ? renderEvidenceOriginGroup(definition, lessonNotes.length, renderLessonEvidenceGroups(lessonNotes))
+        : "";
+    }
+    const notes = manualGroups.get(definition.id) || [];
+    return notes.length
+      ? renderEvidenceOriginGroup(definition, notes.length, notes.map((note) => renderManualEvidenceCard(note, definition.id)).join(""))
+      : "";
+  }).filter(Boolean).join("");
+  lists.forEach((list) => {
+    list.innerHTML = renderedGroups || '<p class="social-empty-state" data-evidence-bank-empty>Collect evidence from vocabulary, lessons, source analysis, or the notebook below and it will be organized here.</p>';
+  });
+}
+function renderLessonEvidenceBank(){
+  renderOrganizedEvidenceBank();
 }
 function getEvidenceDraftFields(key, scope){
   const root = scope || document;
@@ -7200,31 +7713,156 @@ function clearEvidenceDraft(scope){
   });
   writeResponses(responses);
 }
+function getEvidenceBankApi(){
+  const api = window.nextStepEvidenceBank;
+  return api && typeof api.upsert === "function" && typeof api.remove === "function" && typeof api.list === "function"
+    ? api
+    : null;
+}
 function renderManualEvidenceBank(){
-  const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
-  if (!lists.length) return;
+  renderOrganizedEvidenceBank();
+}
+function cloneEvidenceValue(value){
+  return typeof value === "undefined" ? undefined : JSON.parse(JSON.stringify(value));
+}
+function getEvidenceEntryIdentities(entry){
+  return [entry?.contributionId, entry?.responseId, entry?.id]
+    .map((value) => typeof value === "string" || typeof value === "number" ? String(value).trim() : "")
+    .filter((value, index, values) => value && values.indexOf(value) === index);
+}
+function upsertEvidenceEntry(entry){
+  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+    throw new TypeError("Evidence Bank entries must be objects.");
+  }
+  const incoming = cloneEvidenceValue(entry);
+  const identity = getEvidenceEntryIdentities(incoming)[0];
+  if (!identity) {
+    throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
+  }
   const notes = readManualEvidenceNotes();
-  lists.forEach((list) => {
-    if (!notes.length) {
-      list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
-      return;
+  const existing = notes.find((note) => getEvidenceEntryIdentities(note).includes(identity));
+  const now = new Date().toISOString();
+  const nextEntry = {
+    ...(existing || {}),
+    ...incoming,
+    id: identity,
+    contributionId: identity,
+    responseId: incoming.responseId || identity,
+    entryKind: incoming.entryKind || "individual",
+    createdAt: existing?.createdAt || incoming.createdAt || now,
+    updatedAt: now
+  };
+  writeManualEvidenceNotes([
+    nextEntry,
+    ...notes.filter((note) => !getEvidenceEntryIdentities(note).includes(identity))
+  ]);
+  renderManualEvidenceBank();
+  return cloneEvidenceValue(nextEntry);
+}
+function removeEvidenceEntry(identity){
+  const normalizedIdentity = typeof identity === "string" || typeof identity === "number" ? String(identity).trim() : "";
+  if (!normalizedIdentity) return false;
+  const notes = readManualEvidenceNotes();
+  const remaining = notes.filter((note) => !getEvidenceEntryIdentities(note).includes(normalizedIdentity));
+  if (remaining.length === notes.length) return false;
+  writeManualEvidenceNotes(remaining);
+  renderManualEvidenceBank();
+  return true;
+}
+function evidenceEntryMatchesFilters(entry, filters){
+  return Object.entries(filters || {}).every(([key, expected]) => {
+    if (typeof expected === "undefined") return true;
+    if (key === "contributionId" || key === "responseId" || key === "id") {
+      return getEvidenceEntryIdentities(entry).includes(String(expected));
     }
-    list.innerHTML = notes.map((note) => {
-      const title = note.concept || note.source || "Saved proof note";
-      const metaParts = [note.source || "", note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
-      const detail = note.detail ? '<div class="social-evidence-card-detail"><strong>Evidence</strong><p>' + escapeForHtml(note.detail) + '</p></div>' : "";
-      const connection = note.connection ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(note.connection) + '</p></div>' : "";
-      const counterpoint = note.counterpoint ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(note.counterpoint) + '</p></div>' : "";
-      return '<article class="social-lesson-evidence-card social-manual-evidence-card">' +
-        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
-        '<h4>' + escapeForHtml(title) + '</h4>' +
-        detail +
-        connection +
-        counterpoint +
-        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(note.id || "") + '">Remove</button></div>' +
-      '</article>';
-    }).join("");
+    if (key === "tags") {
+      const requested = Array.isArray(expected) ? expected : [expected];
+      const tags = Array.isArray(entry.tags) ? entry.tags : [];
+      return requested.every((tag) => tags.includes(tag));
+    }
+    return entry[key] === expected;
   });
+}
+function listEvidenceEntries(filters){
+  return cloneEvidenceValue(readManualEvidenceNotes().filter((entry) => evidenceEntryMatchesFilters(entry, filters)));
+}
+window.nextStepEvidenceBank = Object.freeze({
+  upsert: upsertEvidenceEntry,
+  remove: removeEvidenceEntry,
+  list: listEvidenceEntries
+});
+function setResponseCollectionStatus(collection, message){
+  const status = collection?.querySelector("[data-response-collection-status]");
+  if (status) status.textContent = message;
+}
+function getVocabularyCollectionEntries(collection){
+  const responses = readResponses();
+  return Array.from(collection.querySelectorAll(".core-vocabulary-frayer [data-response-id]")).map((field) => {
+    const responseId = field.getAttribute("data-response-id") || "";
+    const fieldName = responseId.split(":").pop()?.replaceAll("-", " ") || "Response";
+    const label = field.closest("label")?.firstChild?.textContent?.trim() || fieldName;
+    return {
+      label,
+      answer: String(responses[responseId] || field.value || "").trim(),
+      responseId
+    };
+  });
+}
+function saveVocabularyCollectionToEvidenceBank(button){
+  const collection = button?.closest("[data-response-collection]");
+  if (!collection) return;
+  const collectionId = collection.getAttribute("data-evidence-collection-id") || "";
+  if (!collectionId) {
+    setResponseCollectionStatus(collection, "This term cannot be saved right now.");
+    return;
+  }
+  const entries = getVocabularyCollectionEntries(collection);
+  const answeredEntries = entries.filter((entry) => entry.answer);
+  if (!answeredEntries.length) {
+    setResponseCollectionStatus(collection, "Complete at least one Frayer field before saving.");
+    return;
+  }
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setResponseCollectionStatus(collection, "Evidence Bank is unavailable.");
+    return;
+  }
+  const termId = collection.getAttribute("data-study-topic-id") || "term";
+  const termTitle = collection.querySelector("h4")?.textContent?.trim() || "Vocabulary term";
+  const existing = api.list({ contributionId: collectionId })[0];
+  const now = new Date().toISOString();
+  const savedResponses = answeredEntries
+    .map((entry) => entry.label + ":\n" + entry.answer)
+    .join("\n\n");
+  clearTimeout(saveTimer);
+  try {
+    api.upsert({
+      schemaVersion: 2,
+      contributionId: collectionId,
+      responseId: collectionId,
+      projectSlug: "social20-1-related-issue-4-option-2",
+      entryKind: "collection",
+      source: "Core Vocabulary",
+      origin: { id: "core-vocabulary", title: "Core Vocabulary" },
+      concept: termTitle + " Frayer Model",
+      activity: { id: "core-vocabulary", title: "Core Vocabulary" },
+      work: { id: termId, title: termTitle, kind: "text" },
+      prompt: answeredEntries.length + " of " + entries.length + " Frayer responses saved.",
+      answer: savedResponses,
+      responseIds: answeredEntries.map((entry) => entry.responseId),
+      tags: ["core-vocabulary", termId],
+      createdAt: existing?.createdAt || now,
+      updatedAt: now,
+      metadata: { promptLabel: "Collection", detailLabel: "Frayer responses" }
+    });
+  } catch {
+    setResponseCollectionStatus(collection, "Vocabulary responses could not be saved.");
+    return;
+  }
+  setResponseCollectionStatus(
+    collection,
+    existing ? termTitle + " updated in Evidence Bank." : termTitle + " saved to Evidence Bank."
+  );
 }
 function saveEvidenceDraftToNotebook(panel){
   const draft = getEvidenceDraft(panel);
@@ -7232,28 +7870,29 @@ function saveEvidenceDraftToNotebook(panel){
     setEvidenceNotebookStatus("Add a note before saving.", panel);
     return;
   }
-  const notes = readManualEvidenceNotes();
-  notes.unshift({
-    id: "evidence-" + Date.now(),
-    createdAt: new Date().toISOString(),
+  const contributionId = panel?.getAttribute("data-evidence-contribution-id") || "evidence-" + Date.now();
+  const originId = panel?.getAttribute("data-evidence-origin-id") || "other";
+  const originTitle = panel?.getAttribute("data-evidence-origin-title") || "Other / Legacy Notes";
+  upsertEvidenceEntry({
+    contributionId,
+    responseId: contributionId,
+    projectSlug: "social20-1-related-issue-4-option-2",
+    entryKind: "individual",
+    origin: { id: originId, title: originTitle },
+    activity: { id: originId, title: originTitle },
     source: draft.source,
     concept: draft.concept,
     detail: draft.detail,
     connection: draft.connection,
     counterpoint: draft.counterpoint
   });
-  writeManualEvidenceNotes(notes);
   clearEvidenceDraft(panel);
-  renderManualEvidenceBank();
   panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
   setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
 }
 function removeManualEvidenceNote(id){
   if (!id) return;
-  const notes = readManualEvidenceNotes().filter((note) => note.id !== id);
-  writeManualEvidenceNotes(notes);
-  renderManualEvidenceBank();
-  setEvidenceNotebookStatus("Removed saved note");
+  if (removeEvidenceEntry(id)) setEvidenceNotebookStatus("Removed saved note");
 }
 function restoreResponses(){
   const responses = readResponses();
@@ -7283,11 +7922,17 @@ function persistResponseField(field){
   }
   writeResponses(responses);
   renderLessonEvidenceBank();
-  const saveStatus = field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]") || document.querySelector("[data-save-status]");
+  const responseCollection = field.closest("[data-response-collection]");
+  const saveStatus = responseCollection?.querySelector("[data-response-collection-status]")
+    || field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]")
+    || document.querySelector("[data-save-status]");
   if (saveStatus) {
     saveStatus.textContent = "Saving...";
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
+    const savedMessage = responseCollection
+      ? "Draft saved locally — save to update Evidence Bank."
+      : "Saved locally";
+    saveTimer = setTimeout(() => saveStatus.textContent = savedMessage, 500);
   }
 }
 function clearPrintJob(){
@@ -7393,6 +8038,12 @@ document.addEventListener("click", (event) => {
   if (saveEvidenceButton) {
     event.preventDefault();
     saveEvidenceDraftToNotebook(saveEvidenceButton.closest("[data-evidence-notebook-panel]"));
+    return;
+  }
+  const saveResponseCollectionButton = event.target.closest("[data-save-response-collection]");
+  if (saveResponseCollectionButton) {
+    event.preventDefault();
+    saveVocabularyCollectionToEvidenceBank(saveResponseCollectionButton);
     return;
   }
   const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");
