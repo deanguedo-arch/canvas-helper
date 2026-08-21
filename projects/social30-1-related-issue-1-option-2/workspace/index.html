@@ -1341,70 +1341,23 @@ body.sidebar-collapsed .course-nav-link {
   align-items: center;
   min-height: 24px;
 }
-.social-evidence-organization-note {
-  margin: 0 0 20px;
-  color: #40493B;
-  line-height: 1.55;
-}
-.social-evidence-origin-stack,
-.social-evidence-origin-items,
-.social-evidence-lesson-groups,
-.social-evidence-lesson-items {
+.social-evidence-notebook-stack,
+.social-manual-evidence-list {
   display: grid;
   gap: 14px;
 }
-.social-evidence-origin-stack {
-  gap: 24px;
+.social-evidence-notebook-stack {
+  padding-top: 6px;
 }
-.social-evidence-origin-group {
-  display: grid;
-  gap: 14px;
-  padding-top: 22px;
-  border-top: 1px solid #DDE2DD;
-}
-.social-evidence-origin-group:first-child {
-  padding-top: 0;
-  border-top: 0;
-}
-.social-evidence-origin-header,
-.social-evidence-lesson-group-header {
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-}
-.social-evidence-origin-header h4,
-.social-evidence-lesson-group-header h5 {
+.social-evidence-subhead {
   margin: 0;
-  color: #191C1C;
-}
-.social-evidence-origin-header h4 {
-  font-size: 20px;
-}
-.social-evidence-origin-header p {
-  margin: 4px 0 0;
-  color: #40493B;
-  line-height: 1.5;
-}
-.social-evidence-origin-count,
-.social-evidence-lesson-count {
-  flex: 0 0 auto;
   color: #155608;
-  font-size: 14px;
-  font-weight: 800;
-  white-space: nowrap;
+  font-size: 18px;
+  letter-spacing: .02em;
 }
-.social-evidence-lesson-group {
+.social-lesson-evidence-list {
   display: grid;
-  gap: 12px;
-}
-.social-evidence-lesson-group + .social-evidence-lesson-group {
-  padding-top: 16px;
-  border-top: 1px solid #ECEFEC;
-}
-.social-evidence-lesson-group-header h5 {
-  font-size: 16px;
-  line-height: 1.35;
+  gap: 14px;
 }
 .social-lesson-evidence-card {
   display: grid;
@@ -1415,7 +1368,7 @@ body.sidebar-collapsed .course-nav-link {
   border-radius: 12px;
   background: #FFFFFF;
 }
-.social-evidence-card-title {
+.social-lesson-evidence-card h4 {
   margin: 0;
   color: #191C1C;
   font-size: 20px;
@@ -1439,9 +1392,6 @@ body.sidebar-collapsed .course-nav-link {
 }
 .social-evidence-card-detail strong {
   color: #155608;
-}
-.social-evidence-card-detail p {
-  white-space: pre-line;
 }
 .social-evidence-card-actions {
   display: flex;
@@ -1623,82 +1573,6 @@ body.sidebar-collapsed .course-nav-link {
 }
 .social-study-guide-recall {
   gap: 12px;
-}
-.core-vocabulary-practice {
-  margin-top: 24px;
-}
-.core-vocabulary-term {
-  gap: 18px;
-}
-.core-vocabulary-word-structure {
-  display: grid;
-  gap: 6px;
-  padding: 14px 16px;
-  border-top: 1px solid #DDE2DD;
-  border-bottom: 1px solid #DDE2DD;
-  background: #F4F6F0;
-}
-.core-vocabulary-word-structure h5 {
-  margin: 0;
-  color: #155608;
-  font-family: "IBM Plex Sans", "Aptos", sans-serif;
-  font-size: 15px;
-}
-.core-vocabulary-word-structure p {
-  margin: 0;
-}
-.core-vocabulary-parts {
-  color: #191C1C;
-  font-size: 18px;
-}
-.core-vocabulary-frayer {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 12px;
-}
-.core-vocabulary-frayer label {
-  align-content: start;
-  padding: 14px;
-  border: 1px solid #DDE2DD;
-  border-radius: 8px;
-  background: #FFFFFF;
-}
-.core-vocabulary-frayer textarea {
-  min-height: 132px;
-}
-.core-vocabulary-evidence-actions {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
-  padding-top: 14px;
-  border-top: 1px solid #DDE2DD;
-}
-.core-vocabulary-evidence-actions [data-response-collection-status] {
-  color: #40493B;
-  font-size: 14px;
-}
-.core-vocabulary-evidence-actions .external-resource-action {
-  flex: 0 0 auto;
-}
-.core-vocabulary-model {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0 18px;
-  margin: 0;
-  padding: 0 14px 14px;
-}
-.core-vocabulary-model div {
-  padding-top: 12px;
-  border-top: 1px solid #E0D5B6;
-}
-.core-vocabulary-model dt {
-  color: #155608;
-  font-weight: 800;
-}
-.core-vocabulary-model dd {
-  margin: 4px 0 0;
-  color: #40493B;
 }
 .social-support-browser {
   display: grid;
@@ -2912,24 +2786,6 @@ a:focus-visible {
     background: #155608;
   }
 }
-@media (max-width: 700px) {
-  .core-vocabulary-frayer,
-  .core-vocabulary-model {
-    grid-template-columns: 1fr;
-  }
-  .core-vocabulary-evidence-actions {
-    align-items: stretch;
-    flex-direction: column;
-  }
-  .core-vocabulary-evidence-actions .external-resource-action {
-    width: 100%;
-  }
-  .social-evidence-origin-header,
-  .social-evidence-lesson-group-header {
-    flex-direction: column;
-    gap: 4px;
-  }
-}
 </style>
 </head>
 <body>
@@ -2961,10 +2817,6 @@ a:focus-visible {
       <a class="course-nav-link active" href="#overview" data-page-target="overview">
         <span class="material-symbols-outlined" aria-hidden="true">dashboard</span>
         <span class="sidebar-label">Overview</span>
-      </a>
-      <a class="course-nav-link" href="#core-vocabulary" data-page-target="core-vocabulary">
-        <span class="material-symbols-outlined" aria-hidden="true">spellcheck</span>
-        <span class="sidebar-label">Core Vocabulary</span>
       </a>
       <div class="lessons-nav">
         <a class="course-nav-link lessons-toggle" href="#lessons" data-page-target="lessons" data-lessons-toggle="" aria-expanded="false" aria-controls="lesson-subnav">
@@ -3079,285 +2931,8 @@ a:focus-visible {
     <div class="overview-actions" aria-label="Course status and actions">
       <span class="completed-pill"><strong data-progress-count-inline="">0/23</strong> lessons complete</span>
       <span class="completed-pill">23 imported lessons</span>
-      <a class="external-resource-action" href="#core-vocabulary" data-page-target="core-vocabulary">Start Core Vocabulary</a>
       <a class="external-resource-action" href="#lesson-1-u1identity-u1-introduction" data-page-target="lesson-1-u1identity-u1-introduction">Open Lesson Frame</a>
     </div>
-  </section>
-  <section id="core-vocabulary" class="course-page social-page" hidden="">
-    <p class="course-kicker">Issue 1 terminology</p>
-    <h2>Core Vocabulary</h2>
-    <p class="page-intro">Learn eight Tier 3 terms before the lessons. Use the word structure as a clue, complete the Frayer fields in your own words, and then compare your thinking with the course model.</p>
-    <section class="social-study-guide-practice core-vocabulary-practice" aria-label="Issue 1 core vocabulary practice">
-      <section class="social-study-guide-panel social-study-guide-selector" data-study-topic-scope="" aria-labelledby="core-vocabulary-title">
-        <div class="social-study-guide-selector-header">
-          <div>
-            <h3 id="core-vocabulary-title">Build one term at a time</h3>
-            <p>Select a term, study its parts, and complete all four Frayer sections. Your responses save automatically on this device.</p>
-          </div>
-          <label class="social-study-guide-select-label" for="core-vocabulary-select">
-            <span>Choose a term</span>
-            <select id="core-vocabulary-select" class="social-study-guide-select" data-study-topic-select="core-vocabulary">
-              <option value="ideology" selected="">Ideology</option>
-              <option value="identity">Identity</option>
-              <option value="worldview">Worldview</option>
-              <option value="individualism">Individualism</option>
-              <option value="collectivism">Collectivism</option>
-              <option value="liberalism">Liberalism</option>
-              <option value="autonomy">Autonomy</option>
-              <option value="indoctrination">Indoctrination</option>
-            </select>
-          </label>
-        </div>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="ideology" data-canvas-helper-edit-key="core-vocabulary-ideology" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:ideology:collection">
-          <div>
-            <h4>Ideology</h4>
-            <p>Focus on how an organized belief system can guide identity and political choices.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Ideology word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>ide(o)-</strong> (idea) + <strong>-logy</strong> (a system or field of thought)</p>
-            <p><strong>Related forms:</strong> ideological, ideologically</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Ideology Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:ideology:definition" placeholder="Explain ideology without copying the course definition."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:ideology:characteristics" placeholder="List clues that show a set of ideas is an ideology."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:ideology:example" placeholder="Use a lesson, source, or historical example."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:ideology:non-example" placeholder="Name something that is not an ideology and explain why."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>An organized set of beliefs and values about society, government, the economy, and human nature.</dd></div>
-              <div><dt>Characteristics</dt><dd>It identifies priorities, explains how society should work, and guides decisions or action.</dd></div>
-              <div><dt>Example</dt><dd>Liberalism shapes beliefs about individual rights, private property, and the proper role of government.</dd></div>
-              <div><dt>Non-example</dt><dd>A favourite song is a personal preference unless it is connected to a broader system of beliefs and values.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="identity" data-canvas-helper-edit-key="core-vocabulary-identity" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:identity:collection" hidden="">
-          <div>
-            <h4>Identity</h4>
-            <p>Focus on the individual and collective factors that shape a sense of self.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Identity word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>ident-</strong> (same or self) + <strong>-ity</strong> (state or quality)</p>
-            <p><strong>Related forms:</strong> identify, identification, collective identity</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Identity Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:identity:definition" placeholder="Explain identity in your own words."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:identity:characteristics" placeholder="List factors that can shape identity."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:identity:example" placeholder="Use an individual or collective identity example."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:identity:non-example" placeholder="Name something temporary that does not define identity."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>How a person or group understands who they are and how they relate to others.</dd></div>
-              <div><dt>Characteristics</dt><dd>Identity can be shaped by beliefs, values, language, culture, history, relationships, and group membership.</dd></div>
-              <div><dt>Example</dt><dd>Language and cultural traditions contribute to a person's individual and collective identity.</dd></div>
-              <div><dt>Non-example</dt><dd>A temporary mood may affect behaviour, but it does not by itself form a lasting identity.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="worldview" data-canvas-helper-edit-key="core-vocabulary-worldview" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:worldview:collection" hidden="">
-          <div>
-            <h4>Worldview</h4>
-            <p>Focus on the lens people use to interpret events, sources, and social questions.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Worldview word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>world</strong> + <strong>view</strong> = a way of seeing and interpreting the world</p>
-            <p><strong>Related forms:</strong> perspective, outlook, assumptions</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Worldview Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:worldview:definition" placeholder="Explain worldview as a lens for understanding."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:worldview:characteristics" placeholder="List influences that can shape a worldview."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:worldview:example" placeholder="Show how two worldviews could interpret one source differently."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:worldview:non-example" placeholder="Name something too narrow to be a worldview."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>The lens through which a person or group interprets the world and decides what matters.</dd></div>
-              <div><dt>Characteristics</dt><dd>It grows from experiences, culture, values, spiritual beliefs, education, environment, and relationships.</dd></div>
-              <div><dt>Example</dt><dd>Different assumptions about freedom and equality can lead people to interpret the same political source differently.</dd></div>
-              <div><dt>Non-example</dt><dd>One isolated fact is information; it is not a complete lens for interpreting the world.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="individualism" data-canvas-helper-edit-key="core-vocabulary-individualism" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:individualism:collection" hidden="">
-          <div>
-            <h4>Individualism</h4>
-            <p>Focus on rights, autonomy, self-reliance, and the freedom to make personal choices.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Individualism word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>individual</strong> + <strong>-ism</strong> (a belief or system)</p>
-            <p><strong>Related forms:</strong> individualist, individualistic, individuality</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Individualism Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:individualism:definition" placeholder="Explain what individualism gives priority to."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:individualism:characteristics" placeholder="List individualist values or principles."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:individualism:example" placeholder="Connect individualism to a lesson or liberal principle."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:individualism:non-example" placeholder="Describe a choice controlled entirely by the group."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>An approach that emphasizes individual rights, autonomy, self-reliance, and personal choice.</dd></div>
-              <div><dt>Characteristics</dt><dd>It values independence, private property, competition, conscience, and responsibility for personal decisions.</dd></div>
-              <div><dt>Example</dt><dd>A person chooses beliefs and goals according to conscience rather than simply accepting a group's expectations.</dd></div>
-              <div><dt>Non-example</dt><dd>A role imposed solely because of group membership does not express individual autonomy or choice.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="collectivism" data-canvas-helper-edit-key="core-vocabulary-collectivism" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:collectivism:collection" hidden="">
-          <div>
-            <h4>Collectivism</h4>
-            <p>Focus on shared responsibility, belonging, and the needs of the group or common good.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Collectivism word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>collective</strong> (a group) + <strong>-ism</strong> (a belief or system)</p>
-            <p><strong>Related forms:</strong> collectivist, collective identity, collectivity</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Collectivism Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:collectivism:definition" placeholder="Explain what collectivism gives priority to."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:collectivism:characteristics" placeholder="List collectivist values or principles."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:collectivism:example" placeholder="Connect collectivism to community or collective identity."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:collectivism:non-example" placeholder="Describe an action concerned only with private benefit."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>An approach that emphasizes group needs, shared responsibility, cooperation, and the common good.</dd></div>
-              <div><dt>Characteristics</dt><dd>It values belonging, mutual obligation, cooperation, and decisions made for a community or collective.</dd></div>
-              <div><dt>Example</dt><dd>Community members accept shared responsibilities because collective wellbeing helps shape their identity and choices.</dd></div>
-              <div><dt>Non-example</dt><dd>Acting only for private advantage without considering any effect on the group does not express collectivism.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="liberalism" data-canvas-helper-edit-key="core-vocabulary-liberalism" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:liberalism:collection" hidden="">
-          <div>
-            <h4>Liberalism</h4>
-            <p>Focus on the ideology's central concern with individual rights, freedoms, and government by consent.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Liberalism word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>liberal</strong> (connected to freedom) + <strong>-ism</strong> (a belief or system)</p>
-            <p><strong>Related forms:</strong> liberal, classical liberal, modern liberal</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Liberalism Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:liberalism:definition" placeholder="Explain liberalism without relying on a party label."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:liberalism:characteristics" placeholder="List liberal principles from the issue lessons."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:liberalism:example" placeholder="Use Locke, rights, consent, or another course example."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:liberalism:non-example" placeholder="Describe a system that rejects liberal rights or consent."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>An ideology that values individual rights and freedoms, rule of law, consent of the governed, and limits on political power.</dd></div>
-              <div><dt>Characteristics</dt><dd>Liberal traditions differ, but commonly address autonomy, equality before law, private property, competition, and responsible government.</dd></div>
-              <div><dt>Example</dt><dd>John Locke's natural rights and consent of the governed helped shape liberal political identity.</dd></div>
-              <div><dt>Non-example</dt><dd>An absolute hereditary ruler with no legal limits or public consent does not reflect liberal government.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="autonomy" data-canvas-helper-edit-key="core-vocabulary-autonomy" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:autonomy:collection" hidden="">
-          <div>
-            <h4>Autonomy</h4>
-            <p>Focus on self-rule and the ability to make meaningful choices without outside control.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Autonomy word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>auto-</strong> (self) + <strong>-nomy</strong> (rule or law)</p>
-            <p><strong>Related forms:</strong> autonomous, autonomously</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Autonomy Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:autonomy:definition" placeholder="Explain what self-rule means for a person or group."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:autonomy:characteristics" placeholder="List conditions needed for an autonomous choice."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:autonomy:example" placeholder="Connect autonomy to identity, conscience, or rights."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:autonomy:non-example" placeholder="Describe a decision made through coercion or control."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>The freedom and capacity of a person or group to govern themselves and make independent decisions.</dd></div>
-              <div><dt>Characteristics</dt><dd>Autonomy requires meaningful choice, access to information, responsibility, and freedom from coercion.</dd></div>
-              <div><dt>Example</dt><dd>A learner examines competing ideas and chooses which beliefs should become part of their identity.</dd></div>
-              <div><dt>Non-example</dt><dd>A decision made under threat or forced obedience is not autonomous.</dd></div>
-            </dl>
-          </details>
-        </article>
-
-        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="indoctrination" data-canvas-helper-edit-key="core-vocabulary-indoctrination" data-response-collection="" data-evidence-collection-id="social30-1-related-issue-1-option-2:core-vocabulary:indoctrination:collection" hidden="">
-          <div>
-            <h4>Indoctrination</h4>
-            <p>Focus on how beliefs can be taught in ways that discourage questioning and critical analysis.</p>
-          </div>
-          <section class="core-vocabulary-word-structure" aria-label="Indoctrination word structure">
-            <h5>Word structure</h5>
-            <p class="core-vocabulary-parts"><strong>in-</strong> (into) + <strong>doctrine</strong> (a body of beliefs) + <strong>-ation</strong> (a process)</p>
-            <p><strong>Related forms:</strong> indoctrinate, indoctrinated</p>
-          </section>
-          <div class="core-vocabulary-frayer" aria-label="Indoctrination Frayer model">
-            <label>My definition<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:indoctrination:definition" placeholder="Explain indoctrination and its effect on critical thinking."></textarea></label>
-            <label>Characteristics<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:indoctrination:characteristics" placeholder="List warning signs of indoctrination."></textarea></label>
-            <label>Course example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:indoctrination:example" placeholder="Use the Hitler Youth or another lesson example."></textarea></label>
-            <label>Non-example<textarea data-response-id="social30-1-related-issue-1-option-2:core-vocabulary:indoctrination:non-example" placeholder="Describe teaching that encourages evidence and questioning."></textarea></label>
-          </div>
-          <div class="core-vocabulary-evidence-actions">
-            <span data-response-collection-status="" aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
-            <button class="external-resource-action" type="button" data-save-response-collection="">Save term to Evidence Bank</button>
-          </div>
-          <details class="social-study-guide-reveal">
-            <summary>Compare with the course model</summary>
-            <dl class="core-vocabulary-model">
-              <div><dt>Definition</dt><dd>The process of teaching a person or group to accept a biased set of beliefs without critically examining them.</dd></div>
-              <div><dt>Characteristics</dt><dd>It discourages questions, restricts competing evidence, repeats approved messages, and pressures people to conform.</dd></div>
-              <div><dt>Example</dt><dd>The Hitler Youth used education, ritual, and group pressure to connect Nazi ideology to young people's identities.</dd></div>
-              <div><dt>Non-example</dt><dd>Teaching competing perspectives and asking learners to evaluate evidence supports critical thinking rather than indoctrination.</dd></div>
-            </dl>
-          </details>
-        </article>
-      </section>
-    </section>
   </section>
     <section id="lessons" class="course-page" hidden="">
     <p class="course-kicker">Lesson pathway</p>
@@ -7465,7 +7040,7 @@ The connections people felt arose, at least in part, from a sense of their own i
     <p class="course-kicker">Source response practice</p>
     <h2>Source Analysis</h2>
     <p class="page-intro">Use this routine for political cartoons, textbook excerpts, charts, images, quotations, and case studies from the lessons.</p>
-    <article class="social-document" data-writing-activity-panel="" data-evidence-notebook-panel="" data-evidence-origin-id="source-analysis" data-evidence-origin-title="Source Analysis">
+    <article class="social-document" data-writing-activity-panel="" data-evidence-notebook-panel="">
       <header class="social-document-header">
         <p>Diploma source response</p>
         <h3>Source Response Routine</h3>
@@ -8096,20 +7671,25 @@ The connections people felt arose, at least in part, from a sense of their own i
     <p class="course-kicker">Evidence notebook</p>
     <h2>Evidence Bank</h2>
     <p class="page-intro">Collect moments you may reuse in source responses, position papers, discussions, and exam-style writing.</p>
-    <article class="social-document social-lesson-evidence-bank" aria-labelledby="organized-evidence-bank-title">
+    <article class="social-document social-lesson-evidence-bank" aria-labelledby="lesson-evidence-bank-title">
       <header class="social-document-header">
-        <p>Organized evidence</p>
-        <h3 id="organized-evidence-bank-title">Collected Evidence</h3>
-        <span>Review evidence by collection point and course section.</span>
+        <p>Lesson Evidence Notes</p>
+        <h3 id="lesson-evidence-bank-title">Collected From Lessons</h3>
+        <span>Notes saved at the end of lessons appear here automatically.</span>
       </header>
       <div class="social-document-body">
-        <p class="social-evidence-organization-note">Evidence is organized automatically by the activity where you collected it. Lesson notes are grouped again by course section.</p>
-        <div class="social-evidence-origin-stack" data-organized-evidence-list="" data-lesson-evidence-list="" data-manual-evidence-list="">
-          <p class="social-empty-state" data-evidence-bank-empty="">Collect evidence from vocabulary, lessons, source analysis, or the notebook below and it will be organized here.</p>
+        <div class="social-lesson-evidence-list" data-lesson-evidence-list="">
+          <p class="social-empty-state" data-lesson-evidence-empty="">No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>
+        </div>
+        <div class="social-evidence-notebook-stack">
+          <h4 class="social-evidence-subhead">Saved proof notes</h4>
+          <div class="social-manual-evidence-list" data-manual-evidence-list="">
+            <p class="social-empty-state" data-manual-evidence-empty="">Use the notebook below to save reusable proof notes here.</p>
+          </div>
         </div>
       </div>
     </article>
-    <article class="social-document" data-writing-activity-panel="" data-evidence-notebook-panel="" data-evidence-capture="social30-1-related-issue-1-option-2:evidence-notebook" data-evidence-contribution-id="social30-1-related-issue-1-option-2:evidence:notebook" data-evidence-origin-id="evidence-notebook" data-evidence-origin-title="Saved Directly in Evidence Bank">
+    <article class="social-document" data-writing-activity-panel="" data-evidence-notebook-panel="">
       <header class="social-document-header">
         <p>Running Evidence Notebook</p>
         <h3>Save Proof As You Move</h3>
@@ -8125,7 +7705,6 @@ The connections people felt arose, at least in part, from a sense of their own i
         <label>Possible counterpoint<textarea data-response-id="social30-1-related-issue-1-option-2:evidence:counterpoint" data-evidence-draft="counterpoint" placeholder="What would someone with a different ideological perspective say?"></textarea></label>
         <div class="social-print-actions">
           <button class="external-resource-action" type="button" data-save-evidence-note="">Save to Notes</button>
-          <button class="external-resource-action" type="button" data-print-writing="">Print / PDF</button>
           <span class="save-status" data-save-status="">Saved locally</span>
         </div>
       </div>
@@ -10596,7 +10175,7 @@ The connections people felt arose, at least in part, from a sense of their own i
 </main>
 <script src="./scorm-bridge.js"></script><script>
 const lessonIds = ["lesson-1-u1identity-u1-introduction","lesson-2-u1identity-section-1-intro","lesson-3-u1identity-l1-exploring-identity","lesson-4-u1identity-l2-exploring-beliefs-and-values","lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values","lesson-6-u1identity-section-2-introduction","lesson-7-u1identity-l1-understanding-ideology","lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people","lesson-9-u1identity-section-3-introduction","lesson-10-u1identity-l1-how-can-ideology-shape-identity","lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i","lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii","lesson-13-u2foundations-u2-introduction","lesson-14-u2foundations-u2s1-introduction","lesson-15-u2foundations-l1-basics-of-liberal-democracy","lesson-16-u2foundations-l2-ideological-perspectives","lesson-17-u2foundations-u2s2-introduction","lesson-18-u2foundations-l1-early-origins-of-liberalism","lesson-19-u2foundations-l2-development-of-classical-liberalism","lesson-20-u2foundations-u2s2-summary","lesson-21-u2foundations-u2s3-introduction","lesson-22-u2foundations-l1-life-under-classical-liberalism","lesson-23-u2foundations-l2-responses-to-classical-liberalism"];
-const pageIds = ["overview","core-vocabulary","lessons","lesson-1-u1identity-u1-introduction","lesson-2-u1identity-section-1-intro","lesson-3-u1identity-l1-exploring-identity","lesson-4-u1identity-l2-exploring-beliefs-and-values","lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values","lesson-6-u1identity-section-2-introduction","lesson-7-u1identity-l1-understanding-ideology","lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people","lesson-9-u1identity-section-3-introduction","lesson-10-u1identity-l1-how-can-ideology-shape-identity","lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i","lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii","lesson-13-u2foundations-u2-introduction","lesson-14-u2foundations-u2s1-introduction","lesson-15-u2foundations-l1-basics-of-liberal-democracy","lesson-16-u2foundations-l2-ideological-perspectives","lesson-17-u2foundations-u2s2-introduction","lesson-18-u2foundations-l1-early-origins-of-liberalism","lesson-19-u2foundations-l2-development-of-classical-liberalism","lesson-20-u2foundations-u2s2-summary","lesson-21-u2foundations-u2s3-introduction","lesson-22-u2foundations-l1-life-under-classical-liberalism","lesson-23-u2foundations-l2-responses-to-classical-liberalism","issue-inquiry","source-analysis","position-builder","evidence-bank","library","film-room","study-guide","resources"];
+const pageIds = ["overview","lessons","lesson-1-u1identity-u1-introduction","lesson-2-u1identity-section-1-intro","lesson-3-u1identity-l1-exploring-identity","lesson-4-u1identity-l2-exploring-beliefs-and-values","lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values","lesson-6-u1identity-section-2-introduction","lesson-7-u1identity-l1-understanding-ideology","lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people","lesson-9-u1identity-section-3-introduction","lesson-10-u1identity-l1-how-can-ideology-shape-identity","lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i","lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii","lesson-13-u2foundations-u2-introduction","lesson-14-u2foundations-u2s1-introduction","lesson-15-u2foundations-l1-basics-of-liberal-democracy","lesson-16-u2foundations-l2-ideological-perspectives","lesson-17-u2foundations-u2s2-introduction","lesson-18-u2foundations-l1-early-origins-of-liberalism","lesson-19-u2foundations-l2-development-of-classical-liberalism","lesson-20-u2foundations-u2s2-summary","lesson-21-u2foundations-u2s3-introduction","lesson-22-u2foundations-l1-life-under-classical-liberalism","lesson-23-u2foundations-l2-responses-to-classical-liberalism","issue-inquiry","source-analysis","position-builder","evidence-bank","library","film-room","study-guide","resources"];
 const navGroupIdsByPage = {};
 const STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:complete";
 const RESPONSE_STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:responses";
@@ -10755,153 +10334,33 @@ function getLessonEvidenceNotes(){
       const key = field.getAttribute("data-response-id");
       const storedValue = key ? responses[key] : "";
       const value = typeof storedValue === "string" ? storedValue.trim() : "";
-      const route = field.closest(".course-page")?.id || "";
       return {
         value,
         title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
         group: field.getAttribute("data-evidence-lesson-group") || "",
-        number: field.getAttribute("data-evidence-lesson-number") || "",
-        unit: route.match(/-u(\d+)/)?.[1] || ""
+        number: field.getAttribute("data-evidence-lesson-number") || ""
       };
     })
     .filter((note) => note.value);
 }
-const evidenceOriginDefinitions = [
-  {
-    id: "core-vocabulary",
-    title: "Core Vocabulary",
-    description: "Frayer collections saved from the Core Vocabulary section."
-  },
-  {
-    id: "lesson-evidence",
-    title: "Lesson Evidence",
-    description: "Notes recorded at the end of lessons, organized by course section."
-  },
-  {
-    id: "source-analysis",
-    title: "Source Analysis",
-    description: "Evidence saved while working through Source Analysis."
-  },
-  {
-    id: "evidence-notebook",
-    title: "Saved Directly in Evidence Bank",
-    description: "Notes created in the running Evidence Bank notebook."
-  },
-  {
-    id: "other",
-    title: "Other / Legacy Notes",
-    description: "Older notes that do not yet carry a collection location."
-  }
-];
-function formatEvidenceCount(count, noun){
-  const plural = noun === "entry" ? "entries" : noun + "s";
-  return count + " " + (count === 1 ? noun : plural);
-}
-function getLessonEvidenceGroup(note){
-  if (note.group === "Unit overview" && note.unit) return "Unit " + note.unit + " overview";
-  return note.group || "Other lessons";
-}
-function getEvidenceEntryOriginId(note){
-  const explicitOrigin = typeof note.origin === "string" ? note.origin : note.origin?.id;
-  const explicitActivity = typeof note.activity === "string" ? note.activity : note.activity?.id;
-  const candidate = String(explicitOrigin || explicitActivity || note.metadata?.originId || "").trim().toLowerCase();
-  if (["core-vocabulary", "source-analysis", "evidence-notebook", "other"].includes(candidate)) return candidate;
-  if (candidate === "evidence-bank") return "evidence-notebook";
-  const identities = getEvidenceEntryIdentities(note);
-  if (identities.some((identity) => identity.includes(":core-vocabulary:"))) return "core-vocabulary";
-  if (identities.includes("social30-1-related-issue-1-option-2:evidence:notebook")) return "evidence-notebook";
-  if (identities.some((identity) => /^evidence-\d+$/.test(identity))) return "source-analysis";
-  return "other";
-}
-function renderLessonEvidenceCard(note){
-  return '<article class="social-lesson-evidence-card" data-evidence-origin-id="lesson-evidence" data-evidence-lesson-number="' + escapeForHtml(note.number) + '">' +
-    '<div class="social-lesson-evidence-meta">' + escapeForHtml(note.number ? "Lesson " + note.number : "Lesson note") + '</div>' +
-    '<h6 class="social-evidence-card-title">' + escapeForHtml(note.title) + '</h6>' +
-    '<p>' + escapeForHtml(note.value) + '</p>' +
-  '</article>';
-}
-function renderManualEvidenceCard(note, originId){
-  const contributionId = note.contributionId || note.responseId || note.id || "";
-  const sourceTitle = typeof note.source === "string" ? note.source : note.source?.title || note.source?.id || "";
-  const workTitle = note.work?.title || "";
-  const title = note.concept || note.activity?.title || workTitle || sourceTitle || "Saved proof note";
-  const updatedLabel = note.updatedAt
-    ? "Updated " + new Date(note.updatedAt).toLocaleDateString()
-    : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : "";
-  const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", updatedLabel].filter(Boolean);
-  const promptLabel = note.metadata?.promptLabel || "Collection";
-  const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
-  const detailLabel = note.metadata?.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
-  const detailValue = note.entryKind === "collection"
-    ? note.answer || note.detail || note.evidence || ""
-    : note.detail || note.evidence || note.answer || "";
-  const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
-  const connectionValue = String(note.analysis || note.connection || "");
-  const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
-  const counterpointValue = String(note.metadata?.counterpoint || note.counterpoint || "");
-  const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
-  return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || "individual") + '" data-evidence-origin-id="' + escapeForHtml(originId) + '">' +
-    '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
-    '<h5 class="social-evidence-card-title">' + escapeForHtml(title) + '</h5>' +
-    prompt +
-    detail +
-    connection +
-    counterpoint +
-    '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
-  '</article>';
-}
-function renderLessonEvidenceGroups(notes){
-  const groupedNotes = new Map();
-  notes.forEach((note) => {
-    const groupTitle = getLessonEvidenceGroup(note);
-    if (!groupedNotes.has(groupTitle)) groupedNotes.set(groupTitle, []);
-    groupedNotes.get(groupTitle).push(note);
-  });
-  return Array.from(groupedNotes.entries()).map(([groupTitle, groupNotes]) =>
-    '<section class="social-evidence-lesson-group" data-evidence-lesson-group="' + escapeForHtml(groupTitle) + '">' +
-      '<div class="social-evidence-lesson-group-header">' +
-        '<h5>' + escapeForHtml(groupTitle) + '</h5>' +
-        '<span class="social-evidence-lesson-count">' + formatEvidenceCount(groupNotes.length, "note") + '</span>' +
-      '</div>' +
-      '<div class="social-evidence-lesson-items">' + groupNotes.map(renderLessonEvidenceCard).join("") + '</div>' +
-    '</section>'
-  ).join("");
-}
-function renderEvidenceOriginGroup(definition, count, content){
-  return '<section class="social-evidence-origin-group" data-evidence-origin-group="' + escapeForHtml(definition.id) + '">' +
-    '<div class="social-evidence-origin-header">' +
-      '<div><h4>' + escapeForHtml(definition.title) + '</h4><p>' + escapeForHtml(definition.description) + '</p></div>' +
-      '<span class="social-evidence-origin-count" data-evidence-origin-count="' + count + '">' + formatEvidenceCount(count, "entry") + '</span>' +
-    '</div>' +
-    '<div class="social-evidence-origin-items">' + content + '</div>' +
-  '</section>';
-}
-function renderOrganizedEvidenceBank(){
-  const lists = Array.from(document.querySelectorAll("[data-organized-evidence-list]"));
-  if (!lists.length) return;
-  const lessonNotes = getLessonEvidenceNotes();
-  const manualNotes = getEvidenceBankApi()?.list() || readManualEvidenceNotes();
-  const manualGroups = new Map(evidenceOriginDefinitions.map((definition) => [definition.id, []]));
-  manualNotes
-    .filter((note) => note && typeof note === "object" && !Array.isArray(note))
-    .forEach((note) => manualGroups.get(getEvidenceEntryOriginId(note))?.push(note));
-  const renderedGroups = evidenceOriginDefinitions.map((definition) => {
-    if (definition.id === "lesson-evidence") {
-      return lessonNotes.length
-        ? renderEvidenceOriginGroup(definition, lessonNotes.length, renderLessonEvidenceGroups(lessonNotes))
-        : "";
-    }
-    const notes = manualGroups.get(definition.id) || [];
-    return notes.length
-      ? renderEvidenceOriginGroup(definition, notes.length, notes.map((note) => renderManualEvidenceCard(note, definition.id)).join(""))
-      : "";
-  }).filter(Boolean).join("");
-  lists.forEach((list) => {
-    list.innerHTML = renderedGroups || '<p class="social-empty-state" data-evidence-bank-empty>Collect evidence from vocabulary, lessons, source analysis, or the notebook below and it will be organized here.</p>';
-  });
-}
 function renderLessonEvidenceBank(){
-  renderOrganizedEvidenceBank();
+  const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
+  if (!lists.length) return;
+  const notes = getLessonEvidenceNotes();
+  lists.forEach((list) => {
+    if (!notes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-lesson-evidence-empty>No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>';
+      return;
+    }
+    list.innerHTML = notes.map((note) => {
+      const meta = [note.number ? "Lesson " + note.number : "", note.group].filter(Boolean).join(" - ");
+      return '<article class="social-lesson-evidence-card">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(meta) + '</div>' +
+        '<h4>' + escapeForHtml(note.title) + '</h4>' +
+        '<p>' + escapeForHtml(note.value) + '</p>' +
+      '</article>';
+    }).join("");
+  });
 }
 function getEvidenceDraftFields(key, scope){
   const root = scope || document;
@@ -10963,156 +10422,31 @@ function clearEvidenceDraft(scope){
   });
   writeResponses(responses);
 }
-function getEvidenceBankApi(){
-  const api = window.nextStepEvidenceBank;
-  return api && typeof api.upsert === "function" && typeof api.remove === "function" && typeof api.list === "function"
-    ? api
-    : null;
-}
 function renderManualEvidenceBank(){
-  renderOrganizedEvidenceBank();
-}
-function cloneEvidenceValue(value){
-  return typeof value === "undefined" ? undefined : JSON.parse(JSON.stringify(value));
-}
-function getEvidenceEntryIdentities(entry){
-  return [entry?.contributionId, entry?.responseId, entry?.id]
-    .map((value) => typeof value === "string" || typeof value === "number" ? String(value).trim() : "")
-    .filter((value, index, values) => value && values.indexOf(value) === index);
-}
-function upsertEvidenceEntry(entry){
-  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
-    throw new TypeError("Evidence Bank entries must be objects.");
-  }
-  const incoming = cloneEvidenceValue(entry);
-  const identity = getEvidenceEntryIdentities(incoming)[0];
-  if (!identity) {
-    throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
-  }
+  const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
+  if (!lists.length) return;
   const notes = readManualEvidenceNotes();
-  const existing = notes.find((note) => getEvidenceEntryIdentities(note).includes(identity));
-  const now = new Date().toISOString();
-  const nextEntry = {
-    ...(existing || {}),
-    ...incoming,
-    id: identity,
-    contributionId: identity,
-    responseId: incoming.responseId || identity,
-    entryKind: incoming.entryKind || "individual",
-    createdAt: existing?.createdAt || incoming.createdAt || now,
-    updatedAt: now
-  };
-  writeManualEvidenceNotes([
-    nextEntry,
-    ...notes.filter((note) => !getEvidenceEntryIdentities(note).includes(identity))
-  ]);
-  renderManualEvidenceBank();
-  return cloneEvidenceValue(nextEntry);
-}
-function removeEvidenceEntry(identity){
-  const normalizedIdentity = typeof identity === "string" || typeof identity === "number" ? String(identity).trim() : "";
-  if (!normalizedIdentity) return false;
-  const notes = readManualEvidenceNotes();
-  const remaining = notes.filter((note) => !getEvidenceEntryIdentities(note).includes(normalizedIdentity));
-  if (remaining.length === notes.length) return false;
-  writeManualEvidenceNotes(remaining);
-  renderManualEvidenceBank();
-  return true;
-}
-function evidenceEntryMatchesFilters(entry, filters){
-  return Object.entries(filters || {}).every(([key, expected]) => {
-    if (typeof expected === "undefined") return true;
-    if (key === "contributionId" || key === "responseId" || key === "id") {
-      return getEvidenceEntryIdentities(entry).includes(String(expected));
+  lists.forEach((list) => {
+    if (!notes.length) {
+      list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
+      return;
     }
-    if (key === "tags") {
-      const requested = Array.isArray(expected) ? expected : [expected];
-      const tags = Array.isArray(entry.tags) ? entry.tags : [];
-      return requested.every((tag) => tags.includes(tag));
-    }
-    return entry[key] === expected;
+    list.innerHTML = notes.map((note) => {
+      const title = note.concept || note.source || "Saved proof note";
+      const metaParts = [note.source || "", note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
+      const detail = note.detail ? '<div class="social-evidence-card-detail"><strong>Evidence</strong><p>' + escapeForHtml(note.detail) + '</p></div>' : "";
+      const connection = note.connection ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(note.connection) + '</p></div>' : "";
+      const counterpoint = note.counterpoint ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(note.counterpoint) + '</p></div>' : "";
+      return '<article class="social-lesson-evidence-card social-manual-evidence-card">' +
+        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+        '<h4>' + escapeForHtml(title) + '</h4>' +
+        detail +
+        connection +
+        counterpoint +
+        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(note.id || "") + '">Remove</button></div>' +
+      '</article>';
+    }).join("");
   });
-}
-function listEvidenceEntries(filters){
-  return cloneEvidenceValue(readManualEvidenceNotes().filter((entry) => evidenceEntryMatchesFilters(entry, filters)));
-}
-window.nextStepEvidenceBank = Object.freeze({
-  upsert: upsertEvidenceEntry,
-  remove: removeEvidenceEntry,
-  list: listEvidenceEntries
-});
-function setResponseCollectionStatus(collection, message){
-  const status = collection?.querySelector("[data-response-collection-status]");
-  if (status) status.textContent = message;
-}
-function getVocabularyCollectionEntries(collection){
-  const responses = readResponses();
-  return Array.from(collection.querySelectorAll(".core-vocabulary-frayer [data-response-id]")).map((field) => {
-    const responseId = field.getAttribute("data-response-id") || "";
-    const fieldName = responseId.split(":").pop()?.replaceAll("-", " ") || "Response";
-    const label = field.closest("label")?.firstChild?.textContent?.trim() || fieldName;
-    return {
-      label,
-      answer: String(responses[responseId] || field.value || "").trim(),
-      responseId
-    };
-  });
-}
-function saveVocabularyCollectionToEvidenceBank(button){
-  const collection = button?.closest("[data-response-collection]");
-  if (!collection) return;
-  const collectionId = collection.getAttribute("data-evidence-collection-id") || "";
-  if (!collectionId) {
-    setResponseCollectionStatus(collection, "This term cannot be saved right now.");
-    return;
-  }
-  const entries = getVocabularyCollectionEntries(collection);
-  const answeredEntries = entries.filter((entry) => entry.answer);
-  if (!answeredEntries.length) {
-    setResponseCollectionStatus(collection, "Complete at least one Frayer field before saving.");
-    return;
-  }
-  const api = getEvidenceBankApi();
-  if (!api) {
-    setResponseCollectionStatus(collection, "Evidence Bank is unavailable.");
-    return;
-  }
-  const termId = collection.getAttribute("data-study-topic-id") || "term";
-  const termTitle = collection.querySelector("h4")?.textContent?.trim() || "Vocabulary term";
-  const existing = api.list({ contributionId: collectionId })[0];
-  const now = new Date().toISOString();
-  const savedResponses = answeredEntries
-    .map((entry) => entry.label + ":\n" + entry.answer)
-    .join("\n\n");
-  clearTimeout(saveTimer);
-  try {
-    api.upsert({
-      schemaVersion: 2,
-      contributionId: collectionId,
-      responseId: collectionId,
-      projectSlug: "social30-1-related-issue-1-option-2",
-      entryKind: "collection",
-      source: "Core Vocabulary",
-      origin: { id: "core-vocabulary", title: "Core Vocabulary" },
-      concept: termTitle + " Frayer Model",
-      activity: { id: "core-vocabulary", title: "Core Vocabulary" },
-      work: { id: termId, title: termTitle, kind: "text" },
-      prompt: answeredEntries.length + " of " + entries.length + " Frayer responses saved.",
-      answer: savedResponses,
-      responseIds: answeredEntries.map((entry) => entry.responseId),
-      tags: ["core-vocabulary", termId],
-      createdAt: existing?.createdAt || now,
-      updatedAt: now,
-      metadata: { promptLabel: "Collection", detailLabel: "Frayer responses" }
-    });
-  } catch {
-    setResponseCollectionStatus(collection, "Vocabulary responses could not be saved.");
-    return;
-  }
-  setResponseCollectionStatus(
-    collection,
-    existing ? termTitle + " updated in Evidence Bank." : termTitle + " saved to Evidence Bank."
-  );
 }
 function saveEvidenceDraftToNotebook(panel){
   const draft = getEvidenceDraft(panel);
@@ -11120,29 +10454,28 @@ function saveEvidenceDraftToNotebook(panel){
     setEvidenceNotebookStatus("Add a note before saving.", panel);
     return;
   }
-  const contributionId = panel?.getAttribute("data-evidence-contribution-id") || "evidence-" + Date.now();
-  const originId = panel?.getAttribute("data-evidence-origin-id") || "other";
-  const originTitle = panel?.getAttribute("data-evidence-origin-title") || "Other / Legacy Notes";
-  upsertEvidenceEntry({
-    contributionId,
-    responseId: contributionId,
-    projectSlug: "social30-1-related-issue-1-option-2",
-    entryKind: "individual",
-    origin: { id: originId, title: originTitle },
-    activity: { id: originId, title: originTitle },
+  const notes = readManualEvidenceNotes();
+  notes.unshift({
+    id: "evidence-" + Date.now(),
+    createdAt: new Date().toISOString(),
     source: draft.source,
     concept: draft.concept,
     detail: draft.detail,
     connection: draft.connection,
     counterpoint: draft.counterpoint
   });
+  writeManualEvidenceNotes(notes);
   clearEvidenceDraft(panel);
+  renderManualEvidenceBank();
   panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
   setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
 }
 function removeManualEvidenceNote(id){
   if (!id) return;
-  if (removeEvidenceEntry(id)) setEvidenceNotebookStatus("Removed saved note");
+  const notes = readManualEvidenceNotes().filter((note) => note.id !== id);
+  writeManualEvidenceNotes(notes);
+  renderManualEvidenceBank();
+  setEvidenceNotebookStatus("Removed saved note");
 }
 function restoreResponses(){
   const responses = readResponses();
@@ -11172,17 +10505,11 @@ function persistResponseField(field){
   }
   writeResponses(responses);
   renderLessonEvidenceBank();
-  const responseCollection = field.closest("[data-response-collection]");
-  const saveStatus = responseCollection?.querySelector("[data-response-collection-status]")
-    || field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]")
-    || document.querySelector("[data-save-status]");
+  const saveStatus = field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]") || document.querySelector("[data-save-status]");
   if (saveStatus) {
     saveStatus.textContent = "Saving...";
     clearTimeout(saveTimer);
-    const savedMessage = responseCollection
-      ? "Draft saved locally — save to update Evidence Bank."
-      : "Saved locally";
-    saveTimer = setTimeout(() => saveStatus.textContent = savedMessage, 500);
+    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
   }
 }
 function clearPrintJob(){
@@ -11288,12 +10615,6 @@ document.addEventListener("click", (event) => {
   if (saveEvidenceButton) {
     event.preventDefault();
     saveEvidenceDraftToNotebook(saveEvidenceButton.closest("[data-evidence-notebook-panel]"));
-    return;
-  }
-  const saveResponseCollectionButton = event.target.closest("[data-save-response-collection]");
-  if (saveResponseCollectionButton) {
-    event.preventDefault();
-    saveVocabularyCollectionToEvidenceBank(saveResponseCollectionButton);
     return;
   }
   const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");

@@ -11,7 +11,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-23T15:31:53.176Z",
-  "updatedAt": "2026-08-21T18:01:09Z",
+  "updatedAt": "2026-08-21T20:49:44.926Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -38,11 +38,6 @@
         {
           "htmlPath": "index.html",
           "route": "#overview",
-          "stateKey": null
-        },
-        {
-          "htmlPath": "index.html",
-          "route": "#core-vocabulary",
           "stateKey": null
         },
         {
@@ -209,10 +204,11 @@
     }
   },
   "importedFirstPassOrigin": {
-    "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_156476_ONLINE_202681940.zip",
-    "importedAt": "2026-08-19T18:23:22.000Z",
-    "notes": "Preserved SCORM 2004 snapshot recovered from the four-issue D2L export; the generated palette-shell rebuild is quarantined."
+    "sourceSystem": "provided-scorm-package",
+    "sourcePath": "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_1_NEW.zip",
+    "importedAt": "2026-08-21T20:49:44.926Z",
+    "checksumSha256": "5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a",
+    "notes": "Exact 153-file SCORM 2004 learner snapshot supplied as SOCIAL_30-1_ISSUE_1_NEW.zip; the older Social factory source is not authoritative for this Option Two course."
   },
   "exportTargets": [
     {
@@ -228,10 +224,10 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "/Users/deanguedo/Downloads/D2LExport_156476_ONLINE_202681940.zip",
+    "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_1_NEW.zip",
     "projects/social30-1-related-issue-1-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The workspace is the preserved SCORM 2004 learner snapshot recovered from D2LExport_156476_ONLINE_202681940.zip. The prior Social factory rebuild is quarantined; do not run its builder against this course. The Core Vocabulary route is an Issue 1-only tester on codex/social30-1-issue1-vocabulary-tester and has not been propagated to other issues or exports. Each term can deliberately publish one stable Frayer collection to the project-local Evidence Bank; field autosave remains draft-only and repeat saves update the same entry. The Evidence Bank organizes existing entries by collection origin: Core Vocabulary, Lesson Evidence by course section, Source Analysis, direct notebook saves, and a non-destructive legacy fallback. Studio edits are stored as bounded legacy-snapshot overrides. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "The workspace is the preserved 153-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_1_NEW.zip (5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 1 (Option Two)",
     "issueQuestion": "To what extent should ideology be the foundation of identity?",
@@ -240,6 +236,8 @@
       "U2"
     ],
     "lessonsRecovered": 23,
+    "sourcePackageSha256": "5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a",
+    "sourceFileCount": 153,
     "styleVariant": "preserved-scorm-2004"
   },
   "injectedComponents": [],
