@@ -36,13 +36,22 @@
     "printRoutes": [
       "evidence-bank"
     ],
-    "evidenceScenario": {
-      "kind": "individual",
-      "route": "evidence-bank",
-      "captureId": "social30-1-related-issue-1-option-2:evidence-notebook",
-      "contributionId": "social30-1-related-issue-1-option-2:evidence:notebook",
-      "responseId": "social30-1-related-issue-1-option-2:evidence:detail"
-    },
+    "evidenceScenarios": [
+      {
+        "kind": "individual",
+        "route": "evidence-bank",
+        "captureId": "social30-1-related-issue-1-option-2:evidence-notebook",
+        "contributionId": "social30-1-related-issue-1-option-2:evidence:notebook",
+        "responseId": "social30-1-related-issue-1-option-2:evidence:detail"
+      },
+      {
+        "kind": "collection",
+        "route": "core-vocabulary",
+        "collectionId": "social30-1-related-issue-1-option-2:core-vocabulary:ideology:collection",
+        "responseId": "social30-1-related-issue-1-option-2:core-vocabulary:ideology:definition",
+        "activateSelector": "#core-vocabulary-select option[value=\"ideology\"]"
+      }
+    ],
     "resourceChecks": [],
     "mobile": {
       "width": 390,
