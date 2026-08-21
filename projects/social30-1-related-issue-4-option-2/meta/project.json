@@ -14,7 +14,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-13T13:08:16.727Z",
   "createdAt": "2026-08-13T13:08:16.727Z",
-  "updatedAt": "2026-08-21T20:54:30.163Z",
+  "updatedAt": "2026-08-21T22:21:09.000Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -185,7 +185,7 @@
     "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_4_NEW.zip",
     "projects/social30-1-related-issue-4-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The workspace is the preserved 190-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_4_NEW.zip (b50eb2c359062fcd0bb25f545271ca007997248c916449ed47e1219d7e86b67f). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. The tester layer is confined to workspace/index.html: it adds the eight-term Core Vocabulary route, stable autosaving Frayer response IDs, explicit Evidence Bank publishing, and non-destructive evidence grouping by collection origin. The original lesson, Study Guide, manifest, bridge, and package assets remain the supplied SCORM baseline.",
+  "sourceOfTruthNotes": "The workspace is the preserved 190-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_4_NEW.zip (b50eb2c359062fcd0bb25f545271ca007997248c916449ed47e1219d7e86b67f). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. The tester layer is confined to workspace/index.html: it adds an issue-specific eight-term Core Vocabulary route grounded in the supplied textbook chapters and lesson language, stable autosaving Frayer response IDs, explicit Evidence Bank publishing, and non-destructive evidence grouping by collection origin. The original lesson, Study Guide, manifest, bridge, and package assets remain the supplied SCORM baseline.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 4 (Option Two)",
     "issueQuestion": "To what extent should my actions as a citizen be shaped by an ideology?",
@@ -197,7 +197,7 @@
     "sourceFileCount": 190,
     "styleVariant": "preserved-scorm-2004",
     "testerFeatures": [
-      "core-vocabulary-frayer-v1",
+      "core-vocabulary-frayer-issue-specific-v2",
       "evidence-bank-origin-groups-v1"
     ]
   }

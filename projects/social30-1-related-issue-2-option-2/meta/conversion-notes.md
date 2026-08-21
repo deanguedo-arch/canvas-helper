@@ -7,5 +7,7 @@
 - Lessons: 22
 - Authoring driver: `legacy-snapshot-v1`
 - Canonical entry: `workspace/index.html`
+- Core Vocabulary sources: *Perspectives on Ideology* Chapters 5-8, Unit 3-4 Study Notes, and the Issue 2 lesson sequence
+- Core Vocabulary terms: modern liberalism, mixed economy, Keynesian economics, neo-conservatism, authoritarianism, totalitarianism, communism, fascism
 
 The workspace preserves this SCORM 2004 package as its lesson baseline. The older Social factory source does not reproduce the supplied lessons and must not regenerate this course. The tester changes only `workspace/index.html` to add Core Vocabulary and organized Evidence Bank behavior; all lesson content and package assets remain from the supplied snapshot.
