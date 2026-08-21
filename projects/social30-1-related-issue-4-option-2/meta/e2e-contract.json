@@ -8,14 +8,24 @@
     "project-root",
     "workspace-preview-frame"
   ],
-  "modes": { "enabled": false },
-  "navigation": { "enabled": false },
-  "quiz": { "enabled": false, "lessonTitle": "Questions" },
-  "fallbackPanel": { "enabled": false },
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
   "learnerCourse": {
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-u7citizen-u7-introduction",
       "issue-inquiry",
@@ -24,7 +34,9 @@
       "resources"
     ],
     "hintRoutes": [],
-    "printRoutes": ["evidence-bank"],
+    "printRoutes": [
+      "evidence-bank"
+    ],
     "evidenceScenarios": [
       {
         "kind": "individual",
@@ -35,9 +47,10 @@
       },
       {
         "kind": "collection",
-        "route": "source-analysis",
-        "collectionId": "social30-1-related-issue-4-option-2:source-analysis:collection",
-        "responseId": "social30-1-related-issue-4-option-2:source:1"
+        "route": "core-vocabulary",
+        "collectionId": "social30-1-related-issue-4-option-2:core-vocabulary:ideology:collection",
+        "responseId": "social30-1-related-issue-4-option-2:core-vocabulary:ideology:definition",
+        "activateSelector": "#core-vocabulary-select option[value=\"ideology\"]"
       }
     ],
     "resourceChecks": [],
@@ -46,6 +59,7 @@
       "height": 844,
       "routes": [
         "overview",
+        "core-vocabulary",
         "lesson-1-u7citizen-u7-introduction",
         "source-analysis",
         "evidence-bank",

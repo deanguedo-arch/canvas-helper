@@ -8,4 +8,4 @@
 - Authoring driver: `legacy-snapshot-v1`
 - Canonical entry: `workspace/index.html`
 
-The workspace preserves this SCORM 2004 package file-for-file. The older Social factory source does not reproduce the supplied lessons and must not regenerate this course.
+The workspace preserves this SCORM 2004 package as its lesson baseline. The older Social factory source does not reproduce the supplied lessons and must not regenerate this course. The tester changes only `workspace/index.html` to add Core Vocabulary and organized Evidence Bank behavior; all lesson content and package assets remain from the supplied snapshot.

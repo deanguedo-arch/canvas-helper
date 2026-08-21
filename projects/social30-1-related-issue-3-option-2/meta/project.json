@@ -14,7 +14,7 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-13T13:08:16.727Z",
   "createdAt": "2026-08-13T13:08:16.727Z",
-  "updatedAt": "2026-08-21T20:49:44.926Z",
+  "updatedAt": "2026-08-21T20:54:30.163Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -41,6 +41,11 @@
         {
           "htmlPath": "index.html",
           "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
           "stateKey": null
         },
         {
@@ -230,7 +235,7 @@
     "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_3.zip",
     "projects/social30-1-related-issue-3-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The workspace is the preserved 174-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_3.zip (e25db1cbf008e5d392210907a3a22f293f209f24e1f1dc55944285eda88437e8). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides.",
+  "sourceOfTruthNotes": "The workspace is the preserved 174-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_3.zip (e25db1cbf008e5d392210907a3a22f293f209f24e1f1dc55944285eda88437e8). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. The tester layer is confined to workspace/index.html: it adds the eight-term Core Vocabulary route, stable autosaving Frayer response IDs, explicit Evidence Bank publishing, and non-destructive evidence grouping by collection origin. The original lesson, Study Guide, manifest, bridge, and package assets remain the supplied SCORM baseline.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 3 (Option Two)",
     "issueQuestion": "To what extent are the principles of liberalism viable?",
@@ -241,6 +246,10 @@
     "lessonsRecovered": 23,
     "sourcePackageSha256": "e25db1cbf008e5d392210907a3a22f293f209f24e1f1dc55944285eda88437e8",
     "sourceFileCount": 174,
-    "styleVariant": "preserved-scorm-2004"
+    "styleVariant": "preserved-scorm-2004",
+    "testerFeatures": [
+      "core-vocabulary-frayer-v1",
+      "evidence-bank-origin-groups-v1"
+    ]
   }
 }
