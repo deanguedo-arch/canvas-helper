@@ -8432,3 +8432,14 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`, `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `scripts/lib/english-unit/dependencies.ts`, and `scripts/verify-fresh-course-studio-proof.ts`.
 - Preserved boundary: no inline `contenteditable` or parent-owned in-place editor was added; the filesystem lock remained cooperative for non-Studio writers; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remained external acceptance.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-21: Issue 1 vocabulary and evidence-origin tester
+
+- Project: `social30-1-related-issue-1-option-2`.
+- Task: Add the Core Vocabulary tester and organize its Evidence Bank by collection origin.
+- Status: complete at `567ae750bae7d6d7f1d59b8823a04aa2f11c905f` on `codex/social30-1-issue1-vocabulary-tester`; superseded by the four-course Social 30-1 Option Two tester.
+- Verification: project doctor and workspace verification passed; Studio built; the project E2E suite passed with the capability-scoped mobile preview correction; visible desktop/mobile collection, grouping, reload, removal, and restoration checks passed without console errors.
+- Source of truth: `projects/social30-1-related-issue-1-option-2/workspace/index.html` and `projects/social30-1-related-issue-1-option-2/meta/project.json`.
+- Preserved boundary: no PR, merge, SCORM export, Brightspace upload, or propagation outside Issue 1 occurred at that handoff.
+- Rollback points: restored snapshot `e78f169ec7aefe531182cef39fe72a800340d9a5`, vocabulary tester `df90bec7bbe31a3847d6f9595c3f2142d9bfbf70`, and ungrouped Evidence Bank `cf32fb14ff1ab8e8d6462a5d35475bce791320dd`.
+- Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5175 --strictPort --clearScreen false`.
