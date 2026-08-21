@@ -11,7 +11,7 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-23T15:31:53.176Z",
-  "updatedAt": "2026-08-20T14:48:07.098Z",
+  "updatedAt": "2026-08-21T16:56:31Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -38,6 +38,11 @@
         {
           "htmlPath": "index.html",
           "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
           "stateKey": null
         },
         {
@@ -226,7 +231,7 @@
     "/Users/deanguedo/Downloads/D2LExport_156476_ONLINE_202681940.zip",
     "projects/social30-1-related-issue-1-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The workspace is the preserved SCORM 2004 learner snapshot recovered from D2LExport_156476_ONLINE_202681940.zip. The prior Social factory rebuild is quarantined; do not run its builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "The workspace is the preserved SCORM 2004 learner snapshot recovered from D2LExport_156476_ONLINE_202681940.zip. The prior Social factory rebuild is quarantined; do not run its builder against this course. The Core Vocabulary route is an Issue 1-only tester on codex/social30-1-issue1-vocabulary-tester and has not been propagated to other issues or exports. Studio edits are stored as bounded legacy-snapshot overrides. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 1 (Option Two)",
     "issueQuestion": "To what extent should ideology be the foundation of identity?",

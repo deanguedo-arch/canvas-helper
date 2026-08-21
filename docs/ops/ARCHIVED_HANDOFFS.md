@@ -8422,3 +8422,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner course content changed; user-owned duplicate, resource, transaction, handoff, report, test-result, and `ready-mind` worktree changes remained untouched and unstaged.
 - Fragile areas: the filesystem lock is cooperative for external writers; coverage proves ordinary authored-content breadth rather than arbitrary DOM mutation; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain external acceptance.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-21: Direct Editing V1 remediation
+
+- Project: `repo-wide`.
+- Task: Complete PR #1 Direct Editing V1 remediation without adding the separate inline-text editor.
+- Status: local implementation and release validation complete at implementation head `311d4a4426b3e685481325347fb5fb2a85097d4b`; exact published-head CI and independent review remained required before merge.
+- Verification: 50/50 course-editing tests, 5/5 onboarding tests, 5/5 Codex-course tests, 10/10 new-course-readiness tests, 17/17 editability tests, 55/55 export tests, Studio build, frozen typecheck baseline, 162 focused Studio release contracts, 58/58 inspection E2E, smoke, strict project contract, fresh-course proof, four editing pilots, and 63/63 onboarding acceptance passed.
+- Source of truth: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`, `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `scripts/lib/english-unit/dependencies.ts`, and `scripts/verify-fresh-course-studio-proof.ts`.
+- Preserved boundary: no inline `contenteditable` or parent-owned in-place editor was added; the filesystem lock remained cooperative for non-Studio writers; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remained external acceptance.
+- Next command at archival time: `gh pr checks 1 --watch`.
