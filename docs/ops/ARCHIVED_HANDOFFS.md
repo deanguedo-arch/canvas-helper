@@ -8443,3 +8443,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no PR, merge, SCORM export, Brightspace upload, or propagation outside Issue 1 occurred at that handoff.
 - Rollback points: restored snapshot `e78f169ec7aefe531182cef39fe72a800340d9a5`, vocabulary tester `df90bec7bbe31a3847d6f9595c3f2142d9bfbf70`, and ungrouped Evidence Bank `cf32fb14ff1ab8e8d6462a5d35475bce791320dd`.
 - Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5175 --strictPort --clearScreen false`.
+
+## Archived Active Handoff — 2026-08-21: builder-backed four-course Evidence Bank tester
+
+- Project: Social Studies 30-1 Option Two family (`social30-1-related-issue-{1,2,3,4}-option-2`).
+- Task: Propagate origin-organized Evidence Banks to the four selected Option Two courses.
+- Status: superseded because Issues 2–4 were rebuilt from the older `social30-1-brightspace-winter-2020` source and did not match the user-supplied SCORM lesson packages.
+- Incorrect implementation point: `363ed468de628f4793b24b665326cb778c1608cf`; documentation head: `4eb430e6289d779cec0eca9899c02bb031647193`.
+- Correction: all four courses now use preserved `legacy-snapshot-v1` workspaces sourced from the supplied Issue 1–4 SCORM ZIPs. The older Social builder is explicitly quarantined for these slugs.
+- Preserved useful work: the non-destructive Evidence Bank origin model and its E2E support were reapplied directly to the restored snapshots.
+- Next command at archival time: `git show --stat 9739184dbb2c3064ef984d0c9b1d1707efebe665`.

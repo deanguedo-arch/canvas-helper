@@ -1,112 +1,100 @@
 # Handoff
 
 - Project: Social Studies 30-1 Option Two family (`social30-1-related-issue-{1,2,3,4}-option-2`)
-- Task: Test origin-organized Evidence Banks across only the four selected Social 30-1 Option Two courses.
-- Status: complete on unmerged branch `codex/social30-option2-evidence-origin-tester`; implementation commit `363ed468de628f4793b24b665326cb778c1608cf` is published.
+- Task: Restore the four user-supplied SCORM lesson snapshots and add the Core Vocabulary plus organized Evidence Bank tester to each course.
+- Status: complete on unmerged branch `codex/social30-option2-evidence-origin-tester`; feature commit `f573667813ca210dc9f871e6acae65f717cef115` is published.
 
 ## Summary
 
 - Branch URL: https://github.com/deanguedo-arch/canvas-helper/tree/codex/social30-option2-evidence-origin-tester
-- Rollback checkpoint: `567ae750bae7d6d7f1d59b8823a04aa2f11c905f` (`feat(social): organize evidence bank by origin`).
-- Four-course tester implementation: `363ed468de628f4793b24b665326cb778c1608cf` (`feat(social): organize option two evidence banks`).
-- Issue 1 retains its accepted legacy-snapshot prototype; Issues 2–4 now use the same origin model through their canonical Social builder and shared course shell.
-- No non-Option-Two Social course changed.
-- No PR, merge, SCORM export, Brightspace upload, or propagation to Social 10/20 occurred.
+- Correct four-SCORM rollback checkpoint: `9739184dbb2c3064ef984d0c9b1d1707efebe665` (`chore(social): restore 30-1 option two snapshots`).
+- Vocabulary and organized Evidence Bank implementation: `f573667813ca210dc9f871e6acae65f717cef115` (`feat(social): add 30-1 option two vocabulary testers`).
+- Issue 1 package: `SOCIAL_30-1_ISSUE_1_NEW.zip`, SHA-256 `5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a`, 153 files, 23 lessons.
+- Issue 2 package: `SOCIAL_30-1_ISSUE_2_NEW.zip`, SHA-256 `e3a9b0798aef6adf92bf88b2222bb9f889102a5d529b95535464bb0ca533a0fb`, 130 files, 22 lessons.
+- Issue 3 package: `SOCIAL_30-1_ISSUE_3.zip`, SHA-256 `e25db1cbf008e5d392210907a3a22f293f209f24e1f1dc55944285eda88437e8`, 174 files, 23 lessons.
+- Issue 4 package: `SOCIAL_30-1_ISSUE_4_NEW.zip`, SHA-256 `b50eb2c359062fcd0bb25f545271ca007997248c916449ed47e1219d7e86b67f`, 190 files, 13 lessons.
+- No PR, merge, SCORM re-export, Brightspace upload, or propagation outside these four Option Two courses occurred.
 
 ## Files changed
 
-- `scripts/lib/next-step-course-shell.ts`
-- `scripts/build-social30-related-issues.ts`
-- `scripts/tests/next-step-course-shell-origin-groups.test.ts`
-- `e2e/lib/learner-course-assertions.ts`
-- `scripts/tests/e2e-contract-harness.test.ts`
-- `projects/social30-1-related-issue-2-option-2/meta/e2e-contract.json`
-- `projects/social30-1-related-issue-2-option-2/meta/social-build.json`
-- `projects/social30-1-related-issue-2-option-2/workspace/index.html`
-- `projects/social30-1-related-issue-3-option-2/meta/e2e-contract.json`
-- `projects/social30-1-related-issue-3-option-2/meta/social-build.json`
-- `projects/social30-1-related-issue-3-option-2/workspace/index.html`
-- `projects/social30-1-related-issue-4-option-2/meta/e2e-contract.json`
-- `projects/social30-1-related-issue-4-option-2/meta/social-build.json`
-- `projects/social30-1-related-issue-4-option-2/workspace/index.html`
+- `.gitattributes`
+- `projects/social30-1-related-issue-{1,2,3,4}-option-2/workspace/**`
+- `projects/social30-1-related-issue-{1,2,3,4}-option-2/meta/project.json`
+- `projects/social30-1-related-issue-{1,2,3,4}-option-2/meta/conversion-notes.md`
+- `projects/social30-1-related-issue-{1,2,3,4}-option-2/meta/e2e-contract.json`
+- `projects/social30-1-related-issue-{1,2,3,4}-option-2/meta/social-build.json` (removed as stale builder output)
 - `docs/ops/ACTIVE_HANDOFF.md`
 - `docs/ops/ARCHIVED_HANDOFFS.md`
 
 ## What changed
 
-- The shared shell can render one ordered Evidence Bank by collection point:
-  1. Core Vocabulary
-  2. Lesson Evidence
-  3. Source Analysis
-  4. Saved Directly in Evidence Bank
-  5. Other / Legacy Notes
-- Empty groups are omitted. Lesson notes are grouped again by course section when that metadata exists.
-- Existing entries are classified at render time; learner evidence is not rewritten or destructively migrated.
-- Unknown historical entries remain visible under Other / Legacy Notes.
-- Issues 2–4 Source Analysis pages are now stable, deliberate Evidence Bank collections with one collection ID per course.
-- Issues 2–4 direct notebook saves now record `evidence-notebook` origin metadata.
-- Existing stable response/contribution IDs, autosave, update-without-duplication, removal, and source-response preservation remain intact.
-- Issues 2–4 were regenerated only through `scripts/build-social30-related-issues.ts`; generated trailing whitespace is normalized before promotion.
-- Issues 2–4 now have project E2E contracts covering Overview, Lessons, one real lesson, Issue Inquiry, Source Analysis, Evidence Bank, Resources, direct saves, collection saves, reload restoration, removal, Print/PDF, and mobile routes.
-- Learner interaction checks use Studio's exact capability-scoped preview URL. Studio still proves course selection and route navigation; the isolated learner page prevents Studio preview-health refreshes on the large Issue 3 document from swallowing interaction clicks.
+- Replaced the mismatched Issue 2–4 generated workspaces with the exact SCORM package trees supplied by the user; Issue 1 was also reset to its supplied package before the tester layer was reapplied.
+- Preserved each package's manifest, `scorm-bridge.js`, lesson HTML, media, resource previews, source-analysis assets, and legacy theme assets.
+- Declared all four slugs as `legacy-snapshot-v1` canonical workspaces. The older Social builder is not authoritative and must not regenerate them.
+- Added `#core-vocabulary` after Overview and before Lessons in all four courses, including sidebar and Overview links.
+- Added eight terms: ideology, identity, worldview, individualism, collectivism, liberalism, autonomy, and indoctrination.
+- Each term has word structure, four autosaving Frayer fields, a course-model reveal, and one deliberate Save to Evidence Bank action.
+- Kept response IDs stable as `<slug>:core-vocabulary:<term>:<field>` and collection IDs as `<slug>:core-vocabulary:<term>:collection`.
+- Adapted each course-model example to its actual issue content: identity/foundations, resistance/authoritarianism, viability/Cold War and rights, or citizenship/action.
+- Retained the original Study Guide vocabulary checks as later retrieval practice.
+- Organized Evidence Bank entries by Core Vocabulary, lesson section, Source Analysis, direct notebook saves, and legacy fallback without rewriting existing learner data.
+- Added `core-vocabulary` to declared learner surfaces and project E2E contracts.
 
 ## Why this changed
 
-- Learners can find evidence by where they collected it before reusing it in source responses, position papers, discussions, or exam-style writing.
-- The shared builder keeps Issues 2–4 consistent without copying the legacy Issue 1 implementation into generated output by hand.
-- Capability-scoped E2E checks preserve the isolated preview security boundary while testing the actual learner runtime.
+- The previous propagation used an older Brightspace factory source and reduced Issues 2–4 to 93, 92, and 93 files instead of the supplied 130, 174, and 190-file lesson packages.
+- The supplied SCORMs are now the explicit lesson baseline, while the vocabulary/evidence tester remains a narrow direct overlay in `workspace/index.html`.
 
 ## Verification run
 
-- Remote checkpoint confirmed before edits: branch head `567ae750bae7d6d7f1d59b8823a04aa2f11c905f`.
-- Remote implementation confirmed after push: branch head `363ed468de628f4793b24b665326cb778c1608cf`.
-- `npm run test:social-build` — 7/7 passed.
-- `tsx --test scripts/tests/next-step-course-shell-origin-groups.test.ts` — 1/1 passed.
-- `npm run test:e2e:harness` — 7/7 passed.
-- `npm run course:doctor -- --project <slug>` — passed for all four Option Two slugs.
-- `npm run verify -- --project <slug> --mode workspace` — passed for all four; no missing assets, embeds, or shell resources. Only expected Google Fonts dependency warnings remain.
+- All four supplied ZIPs passed `unzip -tq` and SHA-256 verification.
+- Clean snapshot comparison before the tester layer: all four workspaces matched their extracted ZIP trees file-for-file.
+- Final snapshot comparison: only `workspace/index.html` differs from each supplied ZIP; every other package file remains identical.
+- Lesson and Study Guide section hashes remain identical to each corresponding supplied SCORM after the tester overlay.
+- `npm run course:doctor -- --project <slug>` — passed for all four; driver `legacy-snapshot-v1`.
+- `npm run verify -- --project <slug> --mode workspace` — passed for all four; no missing local assets, embeds, or shell resources. Only expected Google Fonts warnings remain.
 - `npm run build:studio` — passed.
-- `npm run test:e2e:project -- --project <slug>` — passed 1/1 for each of the four Option Two slugs after the final rebuild.
-- Project E2E covered deliberate save, update without duplication, reload restoration, removal without erasing working responses, active routes, Print/PDF, and 390x844 mobile routes.
-- Visible Issue 3 learner test at port 5175 — Source Analysis and direct notebook entries appeared in the correct order, restored after reload, and produced no browser console warnings/errors.
-- Visible desktop/mobile inspection — restrained green/charcoal styling remained consistent; cards and group headers stacked without horizontal document overflow.
-- `git diff --check` and staged diff checks — passed for the implementation commit.
-- `npm run typecheck` — retained ten established unrelated diagnostics in legacy English, Forensics, Social 20, and English-factory files; no diagnostic referenced a changed file.
+- `npx tsx --test scripts/tests/next-step-course-shell-origin-groups.test.ts scripts/tests/e2e-contract-harness.test.ts` — 8/8 passed.
+- `npm run test:e2e:project -- --project <slug>` — passed 1/1 for each of the four courses.
+- Project E2E covered desktop routes, 390x844 mobile routes, direct Evidence Bank saves, vocabulary collection saves, reload restoration, removal, Print/PDF, and uncaught mobile page errors.
+- Static tester audit — each course has the correct SCORM lesson count, eight term panels, 32 unique Frayer response fields, eight model reveals, eight Evidence Bank save controls, and issue-specific model content.
+- Visible Issue 1 check on port 5175 — Core Vocabulary navigation, eight-term selector, term switching, four-field reload restoration, model reveal, desktop layout, and one-column mobile Frayer layout verified.
+- `git diff --check` and both staged-path audits — passed.
+- Remote heads confirmed after both pushes: `9739184d` and `f5736678`.
 
 ## Source of truth
 
-- Issue 1 legacy tester: `projects/social30-1-related-issue-1-option-2/workspace/index.html`.
-- Issues 2–4 canonical builder: `scripts/build-social30-related-issues.ts`.
-- Shared Evidence Bank runtime: `scripts/lib/next-step-course-shell.ts`.
-- Issues 2–4 generated learner entries: `projects/social30-1-related-issue-{2,3,4}-option-2/workspace/index.html`.
-- Interaction contracts: `projects/social30-1-related-issue-{1,2,3,4}-option-2/meta/e2e-contract.json`.
+- Canonical learner source for each course: `projects/social30-1-related-issue-<n>-option-2/workspace/index.html` plus its adjacent preserved package assets.
+- Ownership, supplied-package hash, lesson count, and declared surfaces: `projects/social30-1-related-issue-<n>-option-2/meta/project.json`.
+- Human-readable package provenance: `projects/social30-1-related-issue-<n>-option-2/meta/conversion-notes.md`.
+- Learner interaction contracts: `projects/social30-1-related-issue-<n>-option-2/meta/e2e-contract.json`.
 
 ## Fragile areas / watchouts
 
-- Issue 1 remains a `legacy-snapshot-v1` tester and is not regenerated by the Social builder. Preserve it as a separate canonical boundary.
-- Issues 2–4 workspace HTML is generated output. Change the shared shell or Social builder, then rebuild; do not patch those generated files by hand.
-- The origin normalizer preserves explicit origin data in `metadata.originId`; unknown top-level entry fields are not a safe persistence contract.
-- Large Issue 3 embeds can make Studio's health UI refresh the iframe after content is already visible. Learner behavior is verified in the exact capability-scoped preview rather than by weakening preview security.
-- Evidence persistence is the existing local/SCORM runtime. No SCORM package or cross-browser LMS restoration was authorized in this tester.
-- The browser contains two local demonstration entries for Issue 3. They are browser-local only and are not committed course data.
+- Do not run `scripts/build-social30-related-issues.ts` against these four slugs; it uses the older source that caused the lesson mismatch.
+- The supplied ZIP files live under `/Users/deanguedo/Downloads/` and are reference-only. Their hashes and complete expanded workspaces are tracked, but the ZIP containers themselves were not added to Git.
+- Only `workspace/index.html` carries the tester overlay. Replacing it from a ZIP would restore the lesson snapshot but remove Core Vocabulary and Evidence Bank grouping.
+- Learner responses remain browser/SCORM-local. The open browser contains four previously entered Issue 1 Frayer responses used for persistence verification; they are not committed course data.
+- In-app Browser control can log its own MutationObserver instrumentation error during DOM inspection. The project E2E browser contexts reported no uncaught learner page errors.
 
 ## Next prompt should assume
 
-- Only the four Social 30-1 Option Two courses are under review.
-- The branch is published but intentionally unmerged; `567ae750` is the clean rollback point for rejecting the four-course propagation.
-- The implementation is ready for teacher accept/reject testing in the open Studio/learner tabs.
-- Search, filters, custom tags, additional collectible lesson activities, other Social levels, exports, and LMS upload remain out of scope unless explicitly approved.
+- Only the four Social Studies 30-1 Option Two courses are under review.
+- `9739184d` is the clean, correct-lesson rollback point if the entire tester is rejected.
+- `f5736678` is the published tester implementation ready for teacher review.
+- The older builder-backed `363ed468` result is superseded and must not be used as a lesson reference.
+- Studio is running from `/Users/deanguedo/Documents/GitHub/canvas-helper-social30-vocabulary-tester` on port 5175 with Issue 1 Core Vocabulary open.
 
 ## What still needs validation
 
-- Teacher acceptance of the origin order, headings, and amount of grouping across the four Option Two courses.
-- If accepted later: separately authorize SCORM export plus cross-browser/Brightspace save-and-restore validation.
+- Teacher acceptance of the eight terms, morphology wording, issue-specific course models, and Evidence Bank grouping across Issues 1–4.
+- If accepted later: separately authorize SCORM export and cross-browser/Brightspace save-and-restore validation.
 
 ## Known risks
 
-- Existing legacy entries with no recognizable origin use the Other / Legacy Notes fallback; future activities should write explicit `metadata.originId`.
-- Shared-shell changes affect other opt-in consumers only when they add `data-organized-evidence-list`; flat legacy lists remain unchanged.
-- The repository-wide typecheck is not green because of the recorded unrelated baseline diagnostics.
+- Existing unknown legacy evidence remains visible under Other / Legacy Notes rather than being destructively migrated.
+- The tester is direct snapshot work. A future factory migration needs a new verified source manifest that reproduces these exact lesson trees before ownership can change.
+- No exported package or LMS behavior is claimed yet; only the preserved workspaces and local learner runtime were validated.
 
 ## Exact next command
 
@@ -114,11 +102,11 @@
 
 ## Exact next file to open
 
-`scripts/lib/next-step-course-shell.ts`
+`projects/social30-1-related-issue-1-option-2/workspace/index.html`
 
 ## Do not do next / warnings
 
 - Do not open a PR, merge, export SCORM, upload to Brightspace, or propagate to Social 10/20 without explicit acceptance.
-- Do not patch Issues 2–4 generated workspace HTML directly; use the builder and rebuild.
+- Do not run the old Social builder against these four legacy snapshots.
 - Do not reset or clean the user's original dirty checkout.
 - Do not stage `node_modules`, `.runtime/**`, generated exports, test artifacts, or unrelated course changes.
