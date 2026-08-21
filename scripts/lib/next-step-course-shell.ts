@@ -1125,18 +1125,19 @@ function getLessonEvidenceNotes(){
       const key = field.getAttribute("data-response-id");
       const storedValue = key ? responses[key] : "";
       const value = typeof storedValue === "string" ? storedValue.trim() : "";
+      const route = field.closest(".course-page")?.id || "";
       return {
         value,
         title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
         group: field.getAttribute("data-evidence-lesson-group") || "",
-        number: field.getAttribute("data-evidence-lesson-number") || ""
+        number: field.getAttribute("data-evidence-lesson-number") || "",
+        unit: route.match(/-u(\d+)/)?.[1] || ""
       };
     })
     .filter((note) => note.value);
 }
 function renderLessonEvidenceBank(){
   const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
-  if (!lists.length) return;
   const notes = getLessonEvidenceNotes();
   lists.forEach((list) => {
     if (!notes.length) {
@@ -1152,6 +1153,7 @@ function renderLessonEvidenceBank(){
       '</article>';
     }).join("");
   });
+  renderOrganizedEvidenceBank();
 }
 function getEvidenceDraftFields(key, scope){
   const root = scope || document;
@@ -1227,9 +1229,143 @@ function getEvidenceLocatorLabel(note){
     .filter(Boolean)
     .join(" | ");
 }
+const evidenceOriginDefinitions = [
+  {
+    id: "core-vocabulary",
+    title: "Core Vocabulary",
+    description: "Vocabulary collections saved from the Core Vocabulary section."
+  },
+  {
+    id: "lesson-evidence",
+    title: "Lesson Evidence",
+    description: "Notes recorded in lessons, organized again by course section."
+  },
+  {
+    id: "source-analysis",
+    title: "Source Analysis",
+    description: "Evidence saved while working through Source Analysis."
+  },
+  {
+    id: "evidence-notebook",
+    title: "Saved Directly in Evidence Bank",
+    description: "Notes created in the running Evidence Bank notebook."
+  },
+  {
+    id: "other",
+    title: "Other / Legacy Notes",
+    description: "Older notes that do not yet carry a collection location."
+  }
+];
+function formatEvidenceCount(count, noun){
+  const plural = noun === "entry" ? "entries" : noun + "s";
+  return count + " " + (count === 1 ? noun : plural);
+}
+function getLessonEvidenceGroup(note){
+  if (note.group === "Unit overview" && note.unit) return "Unit " + note.unit + " overview";
+  return note.group || "Other lessons";
+}
+function getEvidenceEntryOriginId(note){
+  const explicitOrigin = typeof note.origin === "string" ? note.origin : note.origin?.id;
+  const explicitActivity = typeof note.activity === "string" ? note.activity : note.activity?.id;
+  const candidate = String(explicitOrigin || note.metadata?.originId || explicitActivity || "").trim().toLowerCase();
+  if (["core-vocabulary", "lesson-evidence", "source-analysis", "evidence-notebook", "other"].includes(candidate)) return candidate;
+  if (candidate === "evidence-bank") return "evidence-notebook";
+  const identities = [note.contributionId, note.responseId, note.id]
+    .map((value) => typeof value === "string" || typeof value === "number" ? String(value).trim().toLowerCase() : "")
+    .filter(Boolean);
+  if (identities.some((identity) => identity.includes(":core-vocabulary:"))) return "core-vocabulary";
+  if (identities.some((identity) => identity.includes(":source-analysis:"))) return "source-analysis";
+  if (identities.some((identity) => identity.endsWith(":evidence:notebook"))) return "evidence-notebook";
+  return "other";
+}
+function renderLessonEvidenceCard(note){
+  return '<article class="social-lesson-evidence-card" data-evidence-origin-id="lesson-evidence" data-evidence-lesson-number="' + escapeForHtml(note.number) + '">' +
+    '<div class="social-lesson-evidence-meta">' + escapeForHtml(note.number ? "Lesson " + note.number : "Lesson note") + '</div>' +
+    '<h6 class="social-evidence-card-title">' + escapeForHtml(note.title) + '</h6>' +
+    '<p>' + escapeForHtml(note.value) + '</p>' +
+  '</article>';
+}
+function renderManualEvidenceCard(note, originId){
+  const contributionId = note.contributionId || note.responseId || note.id || "";
+  const sourceTitle = note.source?.title || note.source?.id || (typeof note.source === "string" ? note.source : "");
+  const workTitle = note.work?.title || "";
+  const title = note.activity?.title || note.activity?.id || note.concept || workTitle || sourceTitle || "Saved proof note";
+  const locatorLabel = getEvidenceLocatorLabel(note);
+  const updatedLabel = note.updatedAt
+    ? "Updated " + new Date(note.updatedAt).toLocaleDateString()
+    : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : "";
+  const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", locatorLabel, updatedLabel].filter(Boolean);
+  const promptLabel = note.metadata?.promptLabel || note.promptLabel || "Question";
+  const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
+  const detailLabel = note.metadata?.detailLabel || note.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
+  const detailValue = note.entryKind === "collection" ? (note.answer || note.evidence || "") : (note.evidence || note.answer || "");
+  const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
+  const connectionValue = note.analysis || note.connection || "";
+  const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
+  const counterpointValue = note.metadata?.counterpoint || note.counterpoint || "";
+  const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
+  return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || (note.responseId ? "collection" : "individual")) + '" data-evidence-origin-id="' + escapeForHtml(originId || "other") + '">' +
+    '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+    '<h5 class="social-evidence-card-title">' + escapeForHtml(title) + '</h5>' +
+    prompt +
+    detail +
+    connection +
+    counterpoint +
+    '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
+  '</article>';
+}
+function renderLessonEvidenceGroups(notes){
+  const groupedNotes = new Map();
+  notes.forEach((note) => {
+    const groupTitle = getLessonEvidenceGroup(note);
+    if (!groupedNotes.has(groupTitle)) groupedNotes.set(groupTitle, []);
+    groupedNotes.get(groupTitle).push(note);
+  });
+  return Array.from(groupedNotes.entries()).map(([groupTitle, groupNotes]) =>
+    '<section class="social-evidence-lesson-group" data-evidence-lesson-group="' + escapeForHtml(groupTitle) + '">' +
+      '<div class="social-evidence-lesson-group-header">' +
+        '<h5>' + escapeForHtml(groupTitle) + '</h5>' +
+        '<span class="social-evidence-lesson-count">' + formatEvidenceCount(groupNotes.length, "note") + '</span>' +
+      '</div>' +
+      '<div class="social-evidence-lesson-items">' + groupNotes.map(renderLessonEvidenceCard).join("") + '</div>' +
+    '</section>'
+  ).join("");
+}
+function renderEvidenceOriginGroup(definition, count, content){
+  return '<section class="social-evidence-origin-group" data-evidence-origin-group="' + escapeForHtml(definition.id) + '">' +
+    '<div class="social-evidence-origin-header">' +
+      '<div><h4>' + escapeForHtml(definition.title) + '</h4><p>' + escapeForHtml(definition.description) + '</p></div>' +
+      '<span class="social-evidence-origin-count" data-evidence-origin-count="' + count + '">' + formatEvidenceCount(count, "entry") + '</span>' +
+    '</div>' +
+    '<div class="social-evidence-origin-items">' + content + '</div>' +
+  '</section>';
+}
+function renderOrganizedEvidenceBank(manualNotes){
+  const lists = Array.from(document.querySelectorAll("[data-organized-evidence-list]"));
+  if (!lists.length) return;
+  const lessonNotes = getLessonEvidenceNotes();
+  const notes = manualNotes || getEvidenceBankApi()?.list() || [];
+  const manualGroups = new Map(evidenceOriginDefinitions.map((definition) => [definition.id, []]));
+  notes
+    .filter((note) => note && typeof note === "object" && !Array.isArray(note))
+    .forEach((note) => manualGroups.get(getEvidenceEntryOriginId(note))?.push(note));
+  const renderedGroups = evidenceOriginDefinitions.map((definition) => {
+    if (definition.id === "lesson-evidence") {
+      return lessonNotes.length
+        ? renderEvidenceOriginGroup(definition, lessonNotes.length, renderLessonEvidenceGroups(lessonNotes))
+        : "";
+    }
+    const groupedNotes = manualGroups.get(definition.id) || [];
+    return groupedNotes.length
+      ? renderEvidenceOriginGroup(definition, groupedNotes.length, groupedNotes.map((note) => renderManualEvidenceCard(note, definition.id)).join(""))
+      : "";
+  }).filter(Boolean).join("");
+  lists.forEach((list) => {
+    list.innerHTML = renderedGroups || '<p class="social-empty-state" data-evidence-bank-empty>Collect evidence from course activities or the notebook below and it will be organized here.</p>';
+  });
+}
 function renderManualEvidenceBank(){
   const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
-  if (!lists.length) return;
   const notes = getEvidenceBankApi()?.list() || [];
   lists.forEach((list) => {
     const filterRoot = list.closest("[data-evidence-bank-filters]")?.parentElement || list.closest(".english-evidence-bank-list") || document;
@@ -1258,33 +1394,9 @@ function renderManualEvidenceBank(){
       list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
       return;
     }
-    list.innerHTML = filteredNotes.map((note) => {
-      const contributionId = note.contributionId || note.responseId || note.id || "";
-      const sourceTitle = note.source?.title || note.source?.id || (typeof note.source === "string" ? note.source : "");
-      const workTitle = note.work?.title || "";
-      const title = note.activity?.title || note.activity?.id || note.concept || sourceTitle || "Saved proof note";
-      const locatorLabel = getEvidenceLocatorLabel(note);
-      const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", locatorLabel, note.updatedAt ? "Updated " + new Date(note.updatedAt).toLocaleDateString() : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
-      const promptLabel = note.metadata?.promptLabel || note.promptLabel || "Question";
-      const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
-      const detailLabel = note.metadata?.detailLabel || note.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
-      const detailValue = note.entryKind === "collection" ? (note.answer || note.evidence || "") : (note.evidence || note.answer || "");
-      const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
-      const connectionValue = note.analysis || note.connection || "";
-      const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
-      const counterpointValue = note.metadata?.counterpoint || note.counterpoint || "";
-      const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
-      return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || (note.responseId ? "collection" : "individual")) + '">' +
-        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
-        '<h4>' + escapeForHtml(title) + '</h4>' +
-        prompt +
-        detail +
-        connection +
-        counterpoint +
-        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
-      '</article>';
-    }).join("");
+    list.innerHTML = filteredNotes.map((note) => renderManualEvidenceCard(note, getEvidenceEntryOriginId(note))).join("");
   });
+  renderOrganizedEvidenceBank(notes);
 }
 function saveEvidenceDraftToNotebook(panel){
   const draft = getEvidenceDraft(panel);
@@ -1302,6 +1414,8 @@ function saveEvidenceDraftToNotebook(panel){
   const now = new Date().toISOString();
   const sourceTitle = draft.source || "Manual evidence";
   const activityTitle = draft.concept || "Evidence entry";
+  const originId = panel?.getAttribute("data-evidence-origin-id") || "evidence-notebook";
+  const originTitle = panel?.getAttribute("data-evidence-origin-title") || "Saved Directly in Evidence Bank";
   const analysis = [draft.connection, draft.counterpoint].filter(Boolean).join("\\n\\n");
   const entry = {
     schemaVersion: 2,
@@ -1316,7 +1430,11 @@ function saveEvidenceDraftToNotebook(panel){
     tags: [],
     createdAt: now,
     updatedAt: now,
-    ...(draft.counterpoint ? { metadata: { counterpoint: draft.counterpoint } } : {})
+    metadata: {
+      originId,
+      originTitle,
+      ...(draft.counterpoint ? { counterpoint: draft.counterpoint } : {})
+    }
   };
   try {
     api.upsert(entry);
@@ -1364,6 +1482,8 @@ function saveResponseCollectionToNotebook(button){
   ).join("\\n\\n");
   const sourceTitle = collection.getAttribute("data-evidence-source") || "Short Story Questions";
   const activityTitle = collection.getAttribute("data-evidence-activity-title") || collection.getAttribute("data-evidence-concept") || "Activity";
+  const originId = collection.getAttribute("data-evidence-origin-id") || "";
+  const originTitle = collection.getAttribute("data-evidence-origin-title") || "";
   const workTitle = collection.getAttribute("data-evidence-work-title") || "";
   const locatorLabel = collection.getAttribute("data-evidence-locator") || "";
   const now = new Date().toISOString();
@@ -1392,7 +1512,9 @@ function saveResponseCollectionToNotebook(button){
     updatedAt: now,
     metadata: {
       promptLabel: collection.getAttribute("data-evidence-prompt-label") || "Question set",
-      detailLabel: collection.getAttribute("data-evidence-detail-label") || "Saved responses"
+      detailLabel: collection.getAttribute("data-evidence-detail-label") || "Saved responses",
+      ...(originId ? { originId } : {}),
+      ...(originTitle ? { originTitle } : {})
     }
   };
   if (responsePrefix) {

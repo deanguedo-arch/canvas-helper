@@ -41,7 +41,7 @@ test("validateProjectContract rejects empty deep contracts when required", async
   const contract = await loadFixture("invalid-empty-deep.json");
   assert.throws(
     () => validateProjectContract(contract, "invalid-empty-deep.json", { requireDeepTargets: true }),
-    /deep contract has no modulePassTargets or visibilityChecks/
+    /deep contract has no modulePassTargets, visibilityChecks, or enabled learnerCourse routes/
   );
 });
 
