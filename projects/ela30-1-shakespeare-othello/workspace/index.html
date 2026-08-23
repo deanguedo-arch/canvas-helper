@@ -6,7 +6,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@400;600;700;800&amp;family=IBM+Plex+Sans:wght@600&amp;family=Work+Sans:wght@400;600&amp;display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet">
 <script src="./scorm-bridge.js"></script><script id="tailwind-config">
-tailwind.config = {
+if (window.tailwind) window.tailwind.config = {
   theme: {
     extend: {
       colors: {
@@ -26122,7 +26122,7 @@ function resetCharacterDossiers(){
 
 const pageSections = Array.from(document.querySelectorAll(".course-page"));
 const visibleLessonIds = pageSections
-  .filter((section) => section.classList.contains("course-page") && section.id && !["overview", "lessons", "side-by-side", "story-bank", "story-questions", "character-notes", "writing", "film-room", "critical-essay", "critical-essay-topic-interpretation", "critical-essay-introduction", "critical-essay-body-one", "critical-essay-body-two", "critical-essay-body-three", "critical-essay-conclusion-revision", "critical-essay-preview", "personal-response", "personal-response-prompt-impression", "personal-response-text-evidence", "personal-response-knowledge-experience", "personal-response-form-perspective", "personal-response-response-plan", "personal-response-draft-revise", "personal-response-preview", "evidence-bank", "resources"].includes(section.id))
+  .filter((section) => section.classList.contains("course-page") && section.id && !["overview", "core-vocabulary", "lessons", "side-by-side", "story-bank", "story-questions", "character-notes", "writing", "film-room", "critical-essay", "critical-essay-topic-interpretation", "critical-essay-introduction", "critical-essay-body-one", "critical-essay-body-two", "critical-essay-body-three", "critical-essay-conclusion-revision", "critical-essay-preview", "personal-response", "personal-response-prompt-impression", "personal-response-text-evidence", "personal-response-knowledge-experience", "personal-response-form-perspective", "personal-response-response-plan", "personal-response-draft-revise", "personal-response-preview", "evidence-bank", "resources"].includes(section.id))
   .map((section) => section.id);
 
 function setLessonsOpen(open) {

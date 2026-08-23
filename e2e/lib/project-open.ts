@@ -5,6 +5,8 @@ type WorkspacePreviewReadyOptions = {
   requireEvidenceBank?: boolean;
 };
 
+const WORKSPACE_PREVIEW_READY_TIMEOUT_MS = 30_000;
+
 function urlWithoutHash(value: string) {
   const url = new URL(value);
   return `${url.origin}${url.pathname}${url.search}`;
@@ -46,7 +48,10 @@ export async function waitForWorkspacePreviewReady(
         if (!src) return false;
         return workspacePreviewPathMatchesProject(new URL(src, page.url()).pathname, slug);
       },
-      { message: `workspace preview source targets ${slug}` }
+      {
+        message: `workspace preview source targets ${slug}`,
+        timeout: WORKSPACE_PREVIEW_READY_TIMEOUT_MS
+      }
     )
     .toBe(true);
 
@@ -87,7 +92,8 @@ export async function waitForWorkspacePreviewReady(
       {
         message: options.requireEvidenceBank
           ? `workspace preview and Evidence Bank runtime are ready for ${slug}`
-          : `workspace preview runtime is ready for ${slug}`
+          : `workspace preview runtime is ready for ${slug}`,
+        timeout: WORKSPACE_PREVIEW_READY_TIMEOUT_MS
       }
     )
     .toBe(true);

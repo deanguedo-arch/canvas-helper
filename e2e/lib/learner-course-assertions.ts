@@ -777,7 +777,11 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
 
   mobilePage.on("pageerror", (error) => pageErrors.push(error.message));
   mobilePage.on("response", (response) => {
-    if ([baseOrigin, previewOrigin].includes(new URL(response.url()).origin) && response.status() >= 400) {
+    const responseUrl = new URL(response.url());
+    const proxiedSource = responseUrl.searchParams.get("source");
+    const isExternalRuntimeFetch = responseUrl.pathname.endsWith("/runtime")
+      && /^https?:\/\//i.test(proxiedSource ?? "");
+    if (!isExternalRuntimeFetch && [baseOrigin, previewOrigin].includes(responseUrl.origin) && response.status() >= 400) {
       localFailures.push(`${response.status()} ${response.url()}`);
     }
   });

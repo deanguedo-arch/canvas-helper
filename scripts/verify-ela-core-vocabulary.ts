@@ -49,10 +49,23 @@ function countMatches(value: string, pattern: RegExp): number {
   return Array.from(value.matchAll(pattern)).length;
 }
 
-function coursePageRoutes(html: string): string[] {
-  const routes: string[] = [];
+function coursePageSections(html: string): string[] {
+  const sections: string[] = [];
   const matcher = /<section\b(?=[^>]*\bclass=["'][^"']*\bcourse-page\b[^"']*["'])(?=[^>]*\bid=["']([^"']+)["'])[^>]*>/gi;
-  for (const match of html.matchAll(matcher)) if (!routes.includes(match[1])) routes.push(match[1]);
+  for (const match of html.matchAll(matcher)) {
+    if (sections.includes(match[1])) fail(`Duplicate course-page id #${match[1]}.`);
+    sections.push(match[1]);
+  }
+  return sections;
+}
+
+function declaredPageRoutes(html: string): string[] | undefined {
+  const declaration = html.match(/const pageIds\s*=\s*(\[[^;]+\]);/s)?.[1];
+  if (!declaration) return undefined;
+  const routes = JSON.parse(declaration);
+  if (!Array.isArray(routes) || routes.some((route) => typeof route !== "string")) {
+    fail("Course pageIds declaration is not a string array.");
+  }
   return routes;
 }
 
@@ -125,7 +138,15 @@ for (const [slug, expectation] of Object.entries(courses)) {
     if (!html.includes(`data-evidence-bank-filter="${facet}"`)) fail(`${slug}: Evidence Bank ${facet} filter is missing.`);
   }
   if (project.authoring?.driverId !== "legacy-snapshot-v1") fail(`${slug}: source boundary must remain legacy-snapshot-v1.`);
-  const htmlRoutes = coursePageRoutes(html);
+  const htmlRoutes = coursePageSections(html);
+  if (htmlRoutes.length === 0) fail(`${slug}: no learner course pages were discovered.`);
+  const declaredRoutes = declaredPageRoutes(html);
+  if (declaredRoutes && !sameArray(declaredRoutes, htmlRoutes)) fail(`${slug}: pageIds is not a complete ordered inventory of course-page sections.`);
+  for (const route of htmlRoutes) {
+    const escapedRoute = route.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+    if (!new RegExp(`<section\\b[^>]*\\bid=["']${escapedRoute}["']`, "i").test(html)) fail(`${slug}: declared page #${route} has no section.`);
+    if (!new RegExp(`data-page-target=["']${escapedRoute}["']`, "i").test(html)) fail(`${slug}: declared page #${route} has no navigation target.`);
+  }
   const metadataRoutes = (project.authoring?.learnerSurfaces?.surfaces ?? []).map((surface: { route?: string }) => String(surface.route ?? "").replace(/^#/, ""));
   const contractRoutes = contract.learnerCourse?.routes ?? [];
   if (!sameArray(metadataRoutes, htmlRoutes)) fail(`${slug}: learner-surface metadata is not a complete ordered route inventory.`);
