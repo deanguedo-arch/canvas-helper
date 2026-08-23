@@ -2240,6 +2240,9 @@ html.has-shakespeare-reader-open { overflow: hidden; }
 .core-vocabulary-save button:hover,
 .core-vocabulary-save button:focus-visible { border-color: #2d5a27; background: #2d5a27; outline: 2px solid rgba(21, 66, 18, .18); outline-offset: 2px; }
 .core-vocabulary-save-status { color: #5d6359; font-size: 13px; }
+.core-vocabulary-evidence-filter-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; margin: 18px 0; }
+.core-vocabulary-evidence-filter-grid label { display: grid; min-width: 0; gap: 6px; color: #191c1d; font: 700 13px/1.4 "IBM Plex Sans", Arial, sans-serif; }
+.core-vocabulary-evidence-filter-grid select { box-sizing: border-box; width: 100%; min-width: 0; border: 1px solid #c5c9c1; border-radius: 8px; background: #fff; padding: 9px 10px; color: #191c1d; font: 14px/1.4 "Work Sans", Arial, sans-serif; }
 @media (max-width: 760px) {
   .core-vocabulary-shell { grid-template-columns: minmax(0, 1fr); }
   .core-vocabulary-groups { display: none; }
@@ -2248,6 +2251,7 @@ html.has-shakespeare-reader-open { overflow: hidden; }
   .core-vocabulary-facts > div + div { border-top: 1px solid #e1e3e4; border-left: 0; }
   .core-vocabulary-frayer { grid-template-columns: minmax(0, 1fr); }
   .core-vocabulary-panel { padding: 16px; }
+  .core-vocabulary-evidence-filter-grid { grid-template-columns: minmax(0, 1fr); }
 }
 </style>
 <!-- canvas-helper:all-ela-core-vocabulary:styles:end -->
@@ -5477,6 +5481,12 @@ html.has-shakespeare-reader-open { overflow: hidden; }
           <h3 id="saved-evidence-title">Saved evidence</h3>
         </div>
         <button type="button" data-print-writing=""><span class="material-symbols-outlined" aria-hidden="true">print</span> Print / PDF</button>
+      </div>
+      <div class="core-vocabulary-evidence-filter-grid" data-evidence-bank-filters aria-label="Filter saved evidence">
+        <label>Activity<select data-evidence-bank-filter="activity"><option value="">All activities</option></select></label>
+        <label>Text or source<select data-evidence-bank-filter="work"><option value="">All texts and sources</option></select></label>
+        <label>Location or concept<select data-evidence-bank-filter="locator"><option value="">All locations and concepts</option></select></label>
+        <label>Entry type<select data-evidence-bank-filter="type"><option value="">All entry types</option></select></label>
       </div>
       <div class="english-evidence-card-list" data-manual-evidence-list=""></div>
     </section>

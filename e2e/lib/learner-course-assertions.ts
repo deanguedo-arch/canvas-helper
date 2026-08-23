@@ -17,11 +17,24 @@ type LearnerRouteTarget = Pick<Page, "locator"> | Pick<FrameLocator, "locator">;
 type EvidenceEntry = {
   contributionId?: string;
   responseId?: string;
+  projectSlug?: string;
+  entryKind?: string;
   detail?: string;
   evidence?: string;
   answer?: string;
   analysis?: string;
   connection?: string;
+  responseIds?: string[];
+  tags?: string[];
+  activity?: { id?: string; title?: string };
+  work?: { id?: string; title?: string; kind?: string };
+  locator?: { label?: string } | string;
+  metadata?: {
+    category?: string;
+    categoryId?: string;
+    conceptId?: string;
+    selectedSource?: { id?: string; kind?: string; title?: string };
+  };
 };
 
 type EvidenceApi = {
@@ -211,6 +224,140 @@ async function assertKnownMissingHooks(workspaceFrame: FrameLocator, learnerCour
       `${gap.requiredHook} is still a documented gap on #${gap.route}; promote the route into active checks when added`
     ).toHaveCount(0);
   }
+}
+
+async function assertCoreVocabularySurface(workspaceFrame: FrameLocator, projectSlug: string) {
+  const section = await showLearnerRoute(workspaceFrame, "core-vocabulary");
+  const root = section.locator("[data-core-vocabulary]");
+  await expect(root, "Core Vocabulary has one interaction root").toHaveCount(1);
+  const declaredCount = Number(await root.getAttribute("data-core-vocabulary-count"));
+  expect(declaredCount, "Core Vocabulary declares a positive concept count").toBeGreaterThan(0);
+
+  const terms = root.locator("[data-core-vocabulary-term]");
+  const panels = root.locator("[data-core-vocabulary-panel]");
+  const mobileSelect = root.locator("[data-core-vocabulary-select]");
+  await expect(terms, "declared Core Vocabulary selectors are present").toHaveCount(declaredCount);
+  await expect(panels, "declared Core Vocabulary panels are present").toHaveCount(declaredCount);
+  await expect(mobileSelect, "mobile concept selector is present").toHaveCount(1);
+  await expect(mobileSelect.locator("option"), "mobile selector declares every concept").toHaveCount(declaredCount);
+
+  const termRecords = await terms.evaluateAll((nodes) => nodes.map((node) => ({
+    id: node.getAttribute("data-core-vocabulary-term") || "",
+    categoryId: node.getAttribute("data-core-vocabulary-category-id") || "",
+    title: node.textContent?.trim() || "",
+    searchText: node.getAttribute("data-core-vocabulary-search-text") || ""
+  })));
+  expect(new Set(termRecords.map((record) => record.id)).size, "concept selector IDs are unique").toBe(declaredCount);
+
+  const search = root.locator("[data-core-vocabulary-search]");
+  const searchRecord = termRecords.find((record) => record.searchText.split(/\s+/u).some((part) => part && !record.title.toLowerCase().includes(part.toLowerCase()))) ?? termRecords.at(-1);
+  const searchToken = searchRecord?.searchText.split(/\s+/u).find((part) => part && !searchRecord.title.toLowerCase().includes(part.toLowerCase())) ?? searchRecord?.title ?? "";
+  await search.fill(searchToken);
+  await expect(root.locator(`[data-core-vocabulary-term="${searchRecord?.id}"]`), "related-term search keeps its concept available").toBeVisible();
+  await search.fill("");
+
+  const category = root.locator("[data-core-vocabulary-category-filter]");
+  await expect(category, "category selector is present").toHaveCount(1);
+  const firstCategory = await category.locator("option:not([value=''])").first().getAttribute("value");
+  if (firstCategory) {
+    await category.selectOption(firstCategory);
+    const visibleCategoryIds = await terms.evaluateAll((nodes) => nodes
+      .filter((node) => !(node as HTMLElement).hidden)
+      .map((node) => node.getAttribute("data-core-vocabulary-category-id")));
+    expect(visibleCategoryIds.length, "category filter retains concepts").toBeGreaterThan(0);
+    expect(visibleCategoryIds.every((value) => value === firstCategory), "category filter limits the visible selector set").toBe(true);
+    await category.selectOption("");
+  }
+
+  for (const record of termRecords) {
+    const selector = root.locator(`[data-core-vocabulary-term="${record.id}"]`);
+    await selector.evaluate((node) => (node as HTMLElement).click());
+    await expect(selector, `${record.title} selector becomes active`).toHaveAttribute("aria-selected", "true");
+    const panel = root.locator(`[data-core-vocabulary-panel="${record.id}"]`);
+    await expect(panel, `${record.title} panel is visible`).toBeVisible();
+    await expect(panel.locator("[data-core-vocabulary-source]"), `${record.title} has one source selector`).toHaveCount(1);
+    await expect(panel.locator("[data-evidence-question-number] [data-response-id]"), `${record.title} has four Frayer fields`).toHaveCount(4);
+    const responseIds = await panel.locator("[data-evidence-question-number] [data-response-id]").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("data-response-id")));
+    expect(responseIds, `${record.title} uses the complete Frayer response contract`).toEqual([
+      `${projectSlug}:core-vocabulary:${record.id}:definition`,
+      `${projectSlug}:core-vocabulary:${record.id}:characteristics`,
+      `${projectSlug}:core-vocabulary:${record.id}:example`,
+      `${projectSlug}:core-vocabulary:${record.id}:non-example`
+    ]);
+  }
+
+  const firstRecord = termRecords[0];
+  await root.locator(`[data-core-vocabulary-term="${firstRecord.id}"]`).evaluate((node) => (node as HTMLElement).click());
+  const firstPanel = root.locator(`[data-core-vocabulary-panel="${firstRecord.id}"]`);
+  const sourceSelect = firstPanel.locator("[data-core-vocabulary-source]");
+  const sourceValues = await sourceSelect.locator("option").evaluateAll((options) => options.map((option) => (option as HTMLOptionElement).value));
+  if (sourceValues.length > 1) {
+    await sourceSelect.selectOption(sourceValues[1]);
+    await expect(firstPanel, "source changes update Evidence Bank work metadata").toHaveAttribute("data-evidence-work-id", sourceValues[1]);
+    await sourceSelect.selectOption(sourceValues[0]);
+  }
+
+  const model = firstPanel.locator("details.core-vocabulary-model");
+  await expect(model, "course model reveal is present").toHaveCount(1);
+  await model.locator("summary").evaluate((node) => (node as HTMLElement).click());
+  await expect(model, "course model reveal opens").toHaveAttribute("open", "");
+
+  const lastRecord = termRecords.at(-1);
+  if (lastRecord) {
+    await mobileSelect.evaluate((node, value) => {
+      const select = node as HTMLSelectElement;
+      select.value = value;
+      select.dispatchEvent(new Event("change", { bubbles: true }));
+    }, lastRecord.id);
+    await expect(root.locator(`[data-core-vocabulary-panel="${lastRecord.id}"]`), "mobile selector changes the active concept").toBeVisible();
+  }
+}
+
+async function coreVocabularyEntry(workspaceFrame: FrameLocator, contributionId: string) {
+  return workspaceFrame.locator("body").evaluate((_, identity) => {
+    const api = (window as typeof window & { nextStepEvidenceBank?: EvidenceApi }).nextStepEvidenceBank;
+    return api?.list({ contributionId: identity })[0] ?? api?.list().find((entry) => entry.contributionId === identity) ?? null;
+  }, contributionId);
+}
+
+async function assertCoreVocabularyEntryContract(
+  workspaceFrame: FrameLocator,
+  projectSlug: string,
+  scenario: Extract<LearnerEvidenceScenario, { kind?: "collection" }>
+) {
+  const conceptId = scenario.collectionId.split(":core-vocabulary:")[1]?.replace(/:collection$/u, "") ?? "";
+  const entry = await coreVocabularyEntry(workspaceFrame, scenario.collectionId);
+  expect(entry, "Core Vocabulary Evidence Bank entry is available through the shared API").not.toBeNull();
+  expect(entry).toMatchObject({
+    contributionId: scenario.collectionId,
+    projectSlug,
+    entryKind: "collection",
+    activity: { id: "core-vocabulary", title: "Core Vocabulary" },
+    metadata: { conceptId, selectedSource: { title: expect.any(String) } }
+  });
+  expect(entry?.responseIds, "Core Vocabulary collections retain all four Frayer response IDs").toEqual([
+    `${projectSlug}:core-vocabulary:${conceptId}:definition`,
+    `${projectSlug}:core-vocabulary:${conceptId}:characteristics`,
+    `${projectSlug}:core-vocabulary:${conceptId}:example`,
+    `${projectSlug}:core-vocabulary:${conceptId}:non-example`
+  ]);
+  expect(entry?.tags, "Core Vocabulary collection is tagged for filtering").toEqual(expect.arrayContaining(["core-vocabulary", conceptId]));
+
+  const evidenceBank = await showLearnerRoute(workspaceFrame, "evidence-bank");
+  const filters: Array<[string, string]> = [
+    ["activity", entry?.activity?.title ?? "Core Vocabulary"],
+    ["work", entry?.work?.title ?? entry?.metadata?.selectedSource?.title ?? ""],
+    ["locator", typeof entry?.locator === "string" ? entry.locator : entry?.locator?.label ?? ""],
+    ["type", "collection"]
+  ];
+  for (const [facet, value] of filters) {
+    expect(value, `${facet} filter value is populated`).not.toBe("");
+    const select = evidenceBank.locator(`[data-evidence-bank-filter="${facet}"]`);
+    await expect(select, `${facet} Evidence Bank filter is present`).toHaveCount(1);
+    await expect(select.locator(`option[value="${value}"]`), `${facet} Evidence Bank filter includes the Core Vocabulary value`).toHaveCount(1);
+    await select.selectOption(value);
+  }
+  await expect(evidenceBank.locator(`[data-evidence-bank-entry="${scenario.collectionId}"]`), "combined Evidence Bank filters retain the Core Vocabulary collection").toBeVisible();
 }
 
 async function evidenceEntries(workspaceFrame: FrameLocator, identity: string) {
@@ -470,6 +617,10 @@ async function assertCollectionEvidenceScenario(
     })
     .toMatchObject({ count: 1, contributionIds: [scenario.collectionId], content: expect.stringContaining(updatedValue) });
 
+  if (scenario.route === "core-vocabulary") {
+    await assertCoreVocabularyEntryContract(workspaceFrame, projectSlug, scenario);
+  }
+
   await reloadWorkspacePreview(page, projectSlug, { requireEvidenceBank: true });
   const restoredFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
   const restoredSection = await showLearnerRoute(restoredFrame, scenario.route);
@@ -669,6 +820,9 @@ export async function assertLearnerCourseContract(
 
   const learnerCourse = contract.learnerCourse;
   await assertLearnerNavigation(page, workspaceFrame, learnerCourse);
+  if (learnerCourse.routes.includes("core-vocabulary")) {
+    await assertCoreVocabularySurface(workspaceFrame, contract.projectSlug);
+  }
   await assertHintRoutes(workspaceFrame, learnerCourse);
   await assertEvidenceScenarios(page, contract.projectSlug, learnerCourse);
   await assertPrintRoutes(workspaceFrame, learnerCourse);
