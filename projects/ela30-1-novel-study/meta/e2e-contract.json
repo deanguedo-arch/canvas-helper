@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-novel-study-clean",
+  "projectSlug": "ela30-1-novel-study",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -27,11 +27,21 @@
       "overview",
       "core-vocabulary",
       "lessons",
-      "lesson-1-novel-study-introduction",
-      "lesson-2-characteristics-of-the-novel",
-      "lesson-3-how-to-read-a-novel",
+      "lesson-1-novel-unit-introduction",
+      "lesson-3-characteristics-of-a-novel",
+      "lesson-4-how-to-read-a-novel",
+      "critical-writing",
+      "critical-writing-topic-thesis",
+      "critical-writing-introduction",
+      "critical-writing-body-beginning",
+      "critical-writing-body-middle",
+      "critical-writing-body-end",
+      "critical-writing-conclusion-revision",
+      "reading-guide",
+      "novel-study-questions",
+      "writing",
       "critical-essay",
-      "critical-essay-topic-thesis",
+      "critical-essay-topic-interpretation",
       "critical-essay-introduction",
       "critical-essay-body-one",
       "critical-essay-body-two",
@@ -46,10 +56,6 @@
       "personal-response-response-plan",
       "personal-response-draft-revise",
       "personal-response-preview",
-      "reading-guide",
-      "major-works-data",
-      "novel-study-questions",
-      "writing-studio",
       "evidence-bank",
       "resources"
     ],
@@ -58,8 +64,8 @@
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-novel-study-clean:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-novel-study-clean:core-vocabulary:audience:definition",
+        "collectionId": "ela30-1-novel-study:core-vocabulary:audience:collection",
+        "responseId": "ela30-1-novel-study:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],

@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-novel-study-clean",
+  "projectSlug": "ela30-2-novel-study",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -27,17 +27,17 @@
       "overview",
       "core-vocabulary",
       "lessons",
-      "lesson-1-novel-study-introduction",
-      "lesson-2-characteristics-of-the-novel",
+      "lesson-1-novel-unit-introduction",
+      "lesson-2-characteristics-of-a-novel",
       "lesson-3-how-to-read-a-novel",
-      "critical-essay",
-      "critical-essay-topic-thesis",
-      "critical-essay-introduction",
-      "critical-essay-body-one",
-      "critical-essay-body-two",
-      "critical-essay-body-three",
-      "critical-essay-conclusion-revision",
-      "critical-essay-preview",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
       "personal-response",
       "personal-response-prompt-impression",
       "personal-response-text-evidence",
@@ -46,20 +46,28 @@
       "personal-response-response-plan",
       "personal-response-draft-revise",
       "personal-response-preview",
+      "visual-response",
+      "visual-response-observe",
+      "visual-response-paces",
+      "visual-response-central-idea",
+      "visual-response-prose-form",
+      "visual-response-draft",
+      "visual-response-conclusion-revision",
+      "visual-response-preview",
       "reading-guide",
       "major-works-data",
       "novel-study-questions",
       "writing-studio",
       "evidence-bank",
-      "resources"
+      "materials"
     ],
     "hintRoutes": [],
     "printRoutes": [],
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-novel-study-clean:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-novel-study-clean:core-vocabulary:audience:definition",
+        "collectionId": "ela30-2-novel-study:core-vocabulary:audience:collection",
+        "responseId": "ela30-2-novel-study:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],
