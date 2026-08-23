@@ -322,7 +322,7 @@ test("preview runtime compatibility relays only approved course CDN scripts thro
   const relay = buildPreviewRuntimeRelayUrl(publicPrefix, tailwind);
   assert.equal(
     relay,
-    `${publicPrefix}/runtime?source=${encodeURIComponent("https://cdn.tailwindcss.com/3.4.17?plugins=forms")}`
+    `${publicPrefix}/runtime?source=${encodeURIComponent("https://cdn.tailwindcss.com/3.4.17?plugins=forms%400.5.10")}`
   );
   assert.deepEqual(parsePreviewRuntimeRelayPath(`${publicPrefix}/runtime`), { token: capability, publicPrefix });
   assert.equal(parsePreviewRuntimeRelayPath(`${publicPrefix}/preview/workspace/course/index.html`), null);
@@ -334,6 +334,28 @@ test("preview runtime compatibility relays only approved course CDN scripts thro
   assert.equal(normalizePreviewRuntimeSource("https://esm.sh/unapproved-package@1.0.0"), null);
   assert.equal(normalizePreviewRuntimeSource("https://esm.sh/react@19.1.1?token=course-data"), null);
   assert.equal(normalizePreviewRuntimeSource("https://cdn.tailwindcss.com?plugins=forms&token=course-data"), null);
+  assert.equal(
+    normalizePreviewRuntimeSource("https://cdn.tailwindcss.com?plugins=forms,container-queries"),
+    "https://cdn.tailwindcss.com/3.4.17?plugins=forms%400.5.10%2Ccontainer-queries%400.1.1"
+  );
+  assert.equal(
+    normalizePreviewRuntimeSource(
+      "https://cdn.tailwindcss.com/3.4.17?plugins=forms@0.5.10,container-queries@0.1.1"
+    ),
+    "https://cdn.tailwindcss.com/3.4.17?plugins=forms%400.5.10%2Ccontainer-queries%400.1.1"
+  );
+  assert.equal(
+    normalizePreviewRuntimeSource(
+      "https://cdn.tailwindcss.com/3.4.17?plugins=forms@0.5.11,container-queries@0.1.1"
+    ),
+    null
+  );
+  assert.equal(
+    normalizePreviewRuntimeSource(
+      "https://cdn.tailwindcss.com/3.4.17?plugins=forms@0.5.10,container-queries@0.1.2"
+    ),
+    null
+  );
   assert.equal(
     normalizePreviewRuntimeSource("https://unpkg.com/@babel/standalone/babel.min.js"),
     "https://unpkg.com/@babel/standalone@7.28.5/babel.min.js"
@@ -405,6 +427,45 @@ test("preview runtime compatibility relays only approved course CDN scripts thro
   assert.doesNotMatch(relayedModule, /import "\/scheduler@/);
   assert.doesNotMatch(relayedModule, /from "\.\/react-dom\.mjs"/);
   assert.match(relayedModule, /\/runtime\?source=/);
+});
+
+test("preview runtime relay fetches the exact pinned Tailwind plugin bundle", async () => {
+  const originalFetch = globalThis.fetch;
+  const capability = "88888888-1234-1234-1234-123456789abc";
+  const publicPrefix = `/_canvas-helper/p/${capability}`;
+  const source = normalizePreviewRuntimeSource(
+    "https://cdn.tailwindcss.com?plugins=forms,container-queries"
+  );
+  assert.equal(
+    source,
+    "https://cdn.tailwindcss.com/3.4.17?plugins=forms%400.5.10%2Ccontainer-queries%400.1.1"
+  );
+  let requestedSource = "";
+  try {
+    globalThis.fetch = (async (input, init) => {
+      requestedSource = String(input);
+      assert.equal(init?.redirect, "manual");
+      return new Response("window.tailwind = window.tailwind || {};", {
+        status: 200,
+        headers: { "Content-Type": "text/javascript; charset=utf-8" }
+      });
+    }) as typeof fetch;
+
+    const result = relayResponse();
+    await handlePreviewRuntimeRelay(
+      { method: "GET", url: `${publicPrefix}/runtime?source=${encodeURIComponent(source)}` } as IncomingMessage,
+      result.response,
+      publicPrefix,
+      new Set([source]),
+      () => true
+    );
+
+    assert.equal(result.response.statusCode, 200);
+    assert.equal(requestedSource, source);
+    assert.match(result.body().toString("utf8"), /window\.tailwind/);
+  } finally {
+    globalThis.fetch = originalFetch;
+  }
 });
 
 test("preview runtime relay binds declared sources, emits JavaScript only, and keeps HEAD cache-only", async () => {

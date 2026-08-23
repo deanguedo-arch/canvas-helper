@@ -44,6 +44,11 @@ type EvidenceApi = {
 
 const PRINT_HOOKS =
   "[data-worksheet-print]:visible, [data-print-questions]:visible, [data-print-writing]:visible, [data-english-writing-print]:visible";
+const TAILWIND_INK_DARK_PROJECTS = new Set([
+  "ela30-1-modern-drama",
+  "ela30-1-shakespeare-othello",
+  "ela30-1-short-stories"
+]);
 
 function learnerRouteSection(target: LearnerRouteTarget, route: string) {
   return target.locator(`section#${route}`);
@@ -764,6 +769,7 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
   const mobilePage = await page.context().newPage();
   const pageErrors: string[] = [];
   const localFailures: string[] = [];
+  const runtimeFailures: string[] = [];
   const baseOrigin = new URL(page.url()).origin;
   await waitForWorkspacePreviewReady(page, projectSlug);
   const previewFrame = page.getByTestId("workspace-preview-frame");
@@ -781,7 +787,9 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
     const proxiedSource = responseUrl.searchParams.get("source");
     const isExternalRuntimeFetch = responseUrl.pathname.endsWith("/runtime")
       && /^https?:\/\//i.test(proxiedSource ?? "");
-    if (!isExternalRuntimeFetch && [baseOrigin, previewOrigin].includes(responseUrl.origin) && response.status() >= 400) {
+    if (isExternalRuntimeFetch && [baseOrigin, previewOrigin].includes(responseUrl.origin) && response.status() >= 400) {
+      runtimeFailures.push(`${response.status()} ${proxiedSource}`);
+    } else if ([baseOrigin, previewOrigin].includes(responseUrl.origin) && response.status() >= 400) {
       localFailures.push(`${response.status()} ${response.url()}`);
     }
   });
@@ -794,6 +802,16 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
     await mobilePage.goto(mobilePreviewUrl.toString(), {
       waitUntil: "domcontentloaded"
     });
+
+    if (TAILWIND_INK_DARK_PROJECTS.has(projectSlug)) {
+      await expect
+        .poll(
+          () =>
+            mobilePage.locator(".bg-ink-dark").first().evaluate((node) => getComputedStyle(node).backgroundColor),
+          { message: `${projectSlug} applies its relayed Tailwind shell styles` }
+        )
+        .toBe("rgb(26, 28, 30)");
+    }
 
     for (const route of learnerCourse.mobile.routes) {
       const section = await showLearnerRoute(mobilePage, route);
@@ -810,6 +828,7 @@ async function assertMobileRoutes(page: Page, projectSlug: string, learnerCourse
 
     expect(pageErrors, "mobile learner preview has no uncaught page errors").toEqual([]);
     expect(localFailures, "mobile learner preview has no failed local assets").toEqual([]);
+    expect(runtimeFailures, "mobile learner preview has no failed executable runtime dependencies").toEqual([]);
   } finally {
     await mobilePage.close();
   }

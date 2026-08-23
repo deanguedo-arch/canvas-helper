@@ -10,6 +10,12 @@ export const STUDIO_PERFORMANCE_DEADLINES_MS = {
   captureStatus: 25_000
 } as const;
 
+export const STUDIO_PREVIEW_RECOVERY_DEADLINES_MS = {
+  bridgeHandshake: 50_000,
+  contentHealth: 10_000,
+  contractReady: 60_000
+} as const;
+
 /**
  * Canonical Studio review limits. Browser, bridge, server, storage, and packet
  * code may re-export compatibility names, but the numbers live here only.

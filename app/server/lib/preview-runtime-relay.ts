@@ -50,7 +50,11 @@ const APPROVED_CDNJS_PATHS = new Set([
 
 const APPROVED_ESM_PACKAGE_PATH = /^\/(?:react@19\.1\.1|react-dom@19\.1\.1|scheduler@(?:\^|%5e)?0\.26\.0|lucide-react@0\.542\.0|pdfjs-dist@4\.10\.38)(?:\/[-A-Za-z0-9._~!$&'()*+,;=:@%/]+)?$/i;
 const APPROVED_ESM_NODE_PATH = /^\/node\/[-a-z0-9._]+\.mjs$/i;
-const APPROVED_TAILWIND_PLUGINS = new Set(["forms", "forms,container-queries"]);
+const TAILWIND_PLUGIN_PINS = new Map([
+  ["forms", "forms@0.5.10"],
+  ["forms,container-queries", "forms@0.5.10,container-queries@0.1.1"]
+]);
+const APPROVED_TAILWIND_PLUGINS = new Set(TAILWIND_PLUGIN_PINS.values());
 const APPROVED_ESM_TARGETS = new Set(["es2022"]);
 const APPROVED_ESM_REACT_DEPENDENCIES = new Set(["react@19.1.1"]);
 
@@ -100,8 +104,14 @@ const pendingRuntimeFetches = new Map<string, Promise<PreviewRuntimeCacheEntry>>
 let runtimeCacheBytes = 0;
 
 function pinKnownPreviewRuntimeSource(url: URL) {
-  if (url.hostname === "cdn.tailwindcss.com" && url.pathname === "/") {
-    url.pathname = "/3.4.17";
+  if (url.hostname === "cdn.tailwindcss.com") {
+    if (url.pathname === "/") url.pathname = "/3.4.17";
+    const entries = [...url.searchParams];
+    if (url.pathname === "/3.4.17" && entries.length === 1 && entries[0][0] === "plugins") {
+      const pinnedPlugins = TAILWIND_PLUGIN_PINS.get(entries[0][1]);
+      if (pinnedPlugins) url.searchParams.set("plugins", pinnedPlugins);
+    }
+    if (url.search) url.search = url.searchParams.toString();
     return;
   }
   if (url.hostname !== "unpkg.com") return;

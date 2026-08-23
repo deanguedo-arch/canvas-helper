@@ -1,11 +1,13 @@
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 
+import { STUDIO_PREVIEW_RECOVERY_DEADLINES_MS } from "../../app/shared/studio-quality";
+
 type WorkspacePreviewReadyOptions = {
   requireEvidenceBank?: boolean;
 };
 
-const WORKSPACE_PREVIEW_READY_TIMEOUT_MS = 30_000;
+const WORKSPACE_PREVIEW_READY_TIMEOUT_MS = STUDIO_PREVIEW_RECOVERY_DEADLINES_MS.contractReady;
 
 function urlWithoutHash(value: string) {
   const url = new URL(value);

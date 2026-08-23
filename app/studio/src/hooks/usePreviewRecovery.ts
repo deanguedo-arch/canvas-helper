@@ -9,6 +9,7 @@ import {
   normalizePreviewPageIdentity,
   normalizePreviewPageRouteIdentity
 } from "../../../shared/preview-path.js";
+import { STUDIO_PREVIEW_RECOVERY_DEADLINES_MS } from "../../../shared/studio-quality.js";
 import {
   createPreviewRecoveryState,
   type PreviewRecoveryState
@@ -105,7 +106,9 @@ export function usePreviewRecovery(options: {
           }
         };
       });
-    }, stage === "bridge" ? 8_000 : 10_000);
+    }, stage === "bridge"
+      ? STUDIO_PREVIEW_RECOVERY_DEADLINES_MS.bridgeHandshake
+      : STUDIO_PREVIEW_RECOVERY_DEADLINES_MS.contentHealth);
   }, [clearModeTimeout, finishPerformanceMeasure]);
 
   useEffect(() => {

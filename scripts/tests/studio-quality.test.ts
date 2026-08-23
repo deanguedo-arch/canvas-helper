@@ -28,6 +28,7 @@ import {
   STUDIO_PACKET_LIMITS,
   STUDIO_PERFORMANCE_BUDGETS_MS,
   STUDIO_PERFORMANCE_DEADLINES_MS,
+  STUDIO_PREVIEW_RECOVERY_DEADLINES_MS,
   STUDIO_REVIEW_CACHE_LIMITS,
   STUDIO_REVIEW_LIMITS,
   STUDIO_SCREENSHOT_LIMITS,
@@ -49,6 +50,19 @@ test("Studio quality budgets keep ordinary work fast without shortening recovery
     selectionFeedback: 2_000,
     captureStatus: 25_000
   });
+  assert.deepEqual(STUDIO_PREVIEW_RECOVERY_DEADLINES_MS, {
+    bridgeHandshake: 50_000,
+    contentHealth: 10_000,
+    contractReady: 60_000
+  });
+  assert.ok(
+    STUDIO_PREVIEW_RECOVERY_DEADLINES_MS.bridgeHandshake
+      > STUDIO_PERFORMANCE_DEADLINES_MS.previewReady
+  );
+  assert.ok(
+    STUDIO_PREVIEW_RECOVERY_DEADLINES_MS.contractReady
+      >= STUDIO_PREVIEW_RECOVERY_DEADLINES_MS.bridgeHandshake
+  );
   for (const measure of ["preview-ready", "selection-feedback", "capture-status"] as const) {
     assert.ok(studioPerformanceBudget(measure) < studioPerformanceDeadline(measure));
   }
