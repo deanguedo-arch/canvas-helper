@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-writing-foundations",
       "lesson-2-complete-sentences",
@@ -54,6 +55,12 @@
       "evidence-bank"
     ],
     "evidenceScenarios": [
+      {
+        "route": "core-vocabulary",
+        "collectionId": "ela10-2-writing-foundations:core-vocabulary:audience:collection",
+        "responseId": "ela10-2-writing-foundations:core-vocabulary:audience:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
+      },
       {
         "route": "sentence-lab",
         "collectionId": "ela10-2-writing-foundations:writing-foundations:sentence-lab:collection",
@@ -86,7 +93,8 @@
         "paragraph-builder",
         "organization-lab",
         "final-paragraph",
-        "evidence-bank"
+        "evidence-bank",
+        "core-vocabulary"
       ]
     }
   }
