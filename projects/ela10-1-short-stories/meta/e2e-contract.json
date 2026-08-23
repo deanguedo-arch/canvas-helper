@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-what-do-good-readers-do",
       "lesson-5-storytelling",
@@ -90,6 +91,12 @@
     ],
     "evidenceScenarios": [
       {
+        "route": "core-vocabulary",
+        "collectionId": "ela10-1-short-stories:core-vocabulary:theme:collection",
+        "responseId": "ela10-1-short-stories:core-vocabulary:theme:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"theme\"]"
+      },
+      {
         "route": "critical-essay-topic-interpretation",
         "collectionId": "ela10-1-short-stories:critical-essay:cask-of-amontillado:topic-interpretation:collection",
         "responseId": "ela10-1-short-stories:critical-essay:cask-of-amontillado:topic-interpretation:assigned-topic",
@@ -148,6 +155,7 @@
       "height": 844,
       "routes": [
         "overview",
+        "core-vocabulary",
         "lesson-1-what-do-good-readers-do",
         "critical-essay-topic-interpretation",
         "critical-essay-introduction",
