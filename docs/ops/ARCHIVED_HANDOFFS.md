@@ -8422,3 +8422,13 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Preserved boundary: no learner course content changed; user-owned duplicate, resource, transaction, handoff, report, test-result, and `ready-mind` worktree changes remained untouched and unstaged.
 - Fragile areas: the filesystem lock is cooperative for external writers; coverage proves ordinary authored-content breadth rather than arbitrary DOM mutation; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remain external acceptance.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-23: Direct Editing V1 remediation
+
+- Project: `repo-wide`.
+- Task: Complete PR #1 Direct Editing V1 remediation without adding the separate inline-text editor.
+- Status at archival time: local implementation and release validation were complete; exact published-head CI and independent review remained required before merge.
+- Verification: 50 course-editing tests, 5 course-onboarding tests, 5 Codex-course tests, 10 new-course-readiness tests, 17 editability tests, 55 export tests, the Studio build, frozen typecheck baseline, focused inspection E2E, the 162-contract Studio release suite, fresh-course proof, four adapter pilots, and 63/63 onboarding lifecycles passed at implementation head `311d4a4426b3e685481325347fb5fb2a85097d4b`.
+- Source of truth: `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `app/server/lib/course-edit-render-validation.ts`, `app/server/routes/course-edits.ts`, `scripts/lib/english-unit/dependencies.ts`, and `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`.
+- Preserved boundary: no inline `contenteditable` editor was added; unrelated course, runtime, duplicate-resource, and transaction paths remained unstaged and untouched.
+- Next command at archival time: `gh pr checks 1 --watch`.
