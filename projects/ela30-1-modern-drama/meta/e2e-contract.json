@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-modern-play-crucible",
+  "projectSlug": "ela30-1-modern-drama",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -27,12 +27,24 @@
       "overview",
       "core-vocabulary",
       "lessons",
-      "lesson-1-modern-drama-introduction",
-      "lesson-2-characteristics-of-modern-drama",
-      "lesson-3-critical-and-analytical-response",
-      "lesson-4-student-samples",
+      "a-streetcar-named-desire-introduction",
+      "lesson-2-streetcar-overview-and-character",
+      "lesson-4-a-streetcar-named-desire-questions",
+      "lesson-5-a-streetcar-named-desire-analysis",
+      "lesson-6-the-streetcar",
+      "lesson-7-motifs",
+      "lesson-8-symbols",
+      "lesson-9-relationships",
+      "lesson-10-themes",
+      "lesson-11-song-symbolism",
+      "scene-overviews",
+      "lesson-12-writing-a-critical-and-analytical-response-to-text-s",
+      "lesson-13-samples-of-student-writing",
+      "writing",
+      "library",
+      "film-room",
       "critical-essay",
-      "critical-essay-topic-thesis",
+      "critical-essay-topic-interpretation",
       "critical-essay-introduction",
       "critical-essay-body-one",
       "critical-essay-body-two",
@@ -47,10 +59,6 @@
       "personal-response-response-plan",
       "personal-response-draft-revise",
       "personal-response-preview",
-      "play-materials",
-      "film-room",
-      "act-questions",
-      "character-notes",
       "evidence-bank",
       "resources"
     ],
@@ -59,8 +67,8 @@
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-modern-play-crucible:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-modern-play-crucible:core-vocabulary:audience:definition",
+        "collectionId": "ela30-1-modern-drama:core-vocabulary:audience:collection",
+        "responseId": "ela30-1-modern-drama:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],

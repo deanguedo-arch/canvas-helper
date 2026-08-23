@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-modern-play-crucible",
+  "projectSlug": "ela20-2-modern-play-crucible",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -31,14 +31,14 @@
       "lesson-2-characteristics-of-modern-drama",
       "lesson-3-critical-and-analytical-response",
       "lesson-4-student-samples",
-      "critical-essay",
-      "critical-essay-topic-thesis",
-      "critical-essay-introduction",
-      "critical-essay-body-one",
-      "critical-essay-body-two",
-      "critical-essay-body-three",
-      "critical-essay-conclusion-revision",
-      "critical-essay-preview",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
       "personal-response",
       "personal-response-prompt-impression",
       "personal-response-text-evidence",
@@ -47,20 +47,19 @@
       "personal-response-response-plan",
       "personal-response-draft-revise",
       "personal-response-preview",
-      "play-materials",
-      "film-room",
+      "materials",
       "act-questions",
       "character-notes",
       "evidence-bank",
-      "resources"
+      "film-room"
     ],
     "hintRoutes": [],
     "printRoutes": [],
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-modern-play-crucible:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-modern-play-crucible:core-vocabulary:audience:definition",
+        "collectionId": "ela20-2-modern-play-crucible:core-vocabulary:audience:collection",
+        "responseId": "ela20-2-modern-play-crucible:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],

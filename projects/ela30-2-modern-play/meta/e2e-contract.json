@@ -1,0 +1,93 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "ela30-2-modern-play",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Course questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "core-vocabulary",
+      "lessons",
+      "lesson-1-a-streetcar-named-desire-introduction",
+      "lesson-2-streetcar-overview-and-characters",
+      "lesson-3-a-streetcar-named-desire-questions",
+      "lesson-4-scene-overviews",
+      "lesson-5-a-streetcar-named-desire-analysis",
+      "lesson-6-the-streetcar",
+      "lesson-7-motifs",
+      "lesson-8-symbols",
+      "lesson-9-relationships",
+      "lesson-10-themes",
+      "lesson-11-song-symbolism",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
+      "personal-response",
+      "personal-response-prompt-impression",
+      "personal-response-text-evidence",
+      "personal-response-knowledge-experience",
+      "personal-response-form-perspective",
+      "personal-response-response-plan",
+      "personal-response-draft-revise",
+      "personal-response-preview",
+      "visual-response",
+      "visual-response-observe",
+      "visual-response-paces",
+      "visual-response-central-idea",
+      "visual-response-prose-form",
+      "visual-response-draft",
+      "visual-response-conclusion-revision",
+      "visual-response-preview",
+      "film-room",
+      "materials",
+      "character-notes",
+      "writing-studio",
+      "evidence-bank"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [],
+    "evidenceScenarios": [
+      {
+        "route": "core-vocabulary",
+        "collectionId": "ela30-2-modern-play:core-vocabulary:audience:collection",
+        "responseId": "ela30-2-modern-play:core-vocabulary:audience:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "core-vocabulary",
+        "lessons",
+        "evidence-bank"
+      ]
+    }
+  }
+}
