@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-shakespeare-macbeth",
+  "projectSlug": "ela30-1-shakespeare-othello",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -27,16 +27,23 @@
       "overview",
       "core-vocabulary",
       "lessons",
-      "lesson-1-shakespearean-terminology",
-      "lesson-2-characteristics-of-shakespearean-drama",
-      "lesson-3-tips-for-reading-drama-1",
-      "lesson-4-tips-for-reading-drama-2",
-      "lesson-5-shakespeare-s-world",
-      "lesson-6-reading-shakespeare",
-      "lesson-7-introduction-to-macbeth",
-      "lesson-8-macbeth-online",
-      "lesson-9-critical-response",
-      "lesson-10-critical-response-suggestions",
+      "side-by-side",
+      "shakespearean-drama-introduction",
+      "lesson-1-an-overview-of-shakespeare-s-life-times-and-themes",
+      "lesson-2-understanding-shakespeare",
+      "lesson-3-the-globe-theatre",
+      "lesson-4-shakespeare-s-world",
+      "lesson-5-shakespearean-drama-literary-devices",
+      "lesson-6-an-overview-of-othello-experiencing-the-play",
+      "lesson-7-background-to-othello",
+      "lesson-8-tragedy",
+      "lesson-9-the-principal-characters",
+      "key-topics-anticipation-guide",
+      "story-bank",
+      "story-questions",
+      "character-notes",
+      "writing",
+      "film-room",
       "critical-essay",
       "critical-essay-topic-interpretation",
       "critical-essay-introduction",
@@ -53,11 +60,6 @@
       "personal-response-response-plan",
       "personal-response-draft-revise",
       "personal-response-preview",
-      "side-by-side",
-      "play-materials",
-      "act-questions",
-      "character-notes",
-      "writing-studio",
       "evidence-bank",
       "resources"
     ],
@@ -66,8 +68,8 @@
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-shakespeare-macbeth:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-shakespeare-macbeth:core-vocabulary:audience:definition",
+        "collectionId": "ela30-1-shakespeare-othello:core-vocabulary:audience:collection",
+        "responseId": "ela30-1-shakespeare-othello:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],
