@@ -1,14 +1,14 @@
 {
   "id": "ela30-2-short-stories-visual-literacy",
   "slug": "ela30-2-short-stories-visual-literacy",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_30-2_SHORT_STORY.zip",
   "inputKind": "brightspace-zip",
   "previewModes": [
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
   "createdAt": "2026-07-22T16:31:30.963Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -16,54 +16,37 @@
   ],
   "canonicalEntry": "projects/ela30-2-short-stories-visual-literacy/workspace/index.html",
   "canonicalSources": [
-    "projects/ela30-2-short-stories-visual-literacy/workspace/index.html",
-    "projects/ela30-2-short-stories-visual-literacy/meta/english-unit.json",
-    "projects/ela30-2-short-stories-visual-literacy/meta/prompt-pack.md",
-    "scripts/build-english-unit.ts",
-    "scripts/lib/english-unit/factory-build.ts",
-    "scripts/lib/english-unit/activity-profile-renderers.ts",
-    "scripts/lib/english-unit/v3-profile-renderer.ts",
-    "scripts/lib/english-unit/v3-runtime-sanitizer.ts",
-    "scripts/lib/english-unit/v3-donor-lessons.ts",
-    "scripts/lib/english-unit/writing-foundations-lessons.ts",
-    "scripts/lib/next-step-course-shell.ts"
+    "projects/ela30-2-short-stories-visual-literacy/workspace/index.html"
   ],
   "generatedOutputs": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
-    "importedAt": "2026-07-22T16:31:30.963Z",
-    "notes": "Short Stories and Visual Literacy V3 derived factory conversion from ela30-1-short-stories using the short-fiction activity profile."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_30-2_SHORT_STORY.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved July 28 SCORM snapshot supplied for ELA 30-2 Short Stories and Visual Literacy."
   },
   "authoringStatus": "active",
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Canonical editable workspace preview."
+      "notes": "Standalone workspace preview."
     }
   ],
   "referenceOnly": [
-    "projects/resources/ela30-2/_sources/a662bf15c7bc6e03c44caae6ae3b43fbdc753714d70925dc63c92e05342e2096.zip",
-    "projects/resources/ela30-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
-    "config/english/families/ela30-2.json",
-    "projects/resources/ela30-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
-    "projects/resources/ela30-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
-    "projects/resources/ela30-2/_sources/d55d3e9a77fc75273cc02320ba68b0e920c922b2179a7686b4068f4a3e3d865f.pdf",
-    "projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip"
+    "/Users/deanguedo/Downloads/ELA_30-2_SHORT_STORY.zip",
+    "/Users/deanguedo/Downloads/ELA_30-2_SHORT_STORY (1).zip"
   ],
-  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npm run build:english-unit -- --project ela30-2-short-stories-visual-literacy Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
-  "injectedComponents": [],
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. The older duplicate snapshot is retained as a reference alternate. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "learningSource": "other",
-  "learningTrust": "auto",
-  "learningUpdatedAt": "2026-07-23T18:33:03.569Z",
-  "workspaceApprovedAt": "2026-07-28T15:02:17.496Z",
-  "rawEntrypoint": "raw/original.html",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
+  "rawEntrypoint": "raw/README.md",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
     "familyId": "english-legacy-snapshot",
@@ -73,5 +56,7 @@
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "title": "ELA 30-2 | Short Stories and Visual Literacy",
+  "brightspaceTarget": "scorm"
 }

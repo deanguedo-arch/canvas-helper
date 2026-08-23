@@ -1,97 +1,61 @@
 {
   "id": "ela30-1-modern-drama",
   "slug": "ela30-1-modern-drama",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela30-1-modern-drama/source",
-  "inputKind": "html",
-  "brightspaceTarget": "course-page",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_MODERN_PLAY.zip",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
   "previewModes": [
-    "raw",
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
-  "rawEntrypoint": "raw/original.html",
+  "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-08T21:31:19.092Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "learningSource": "other",
-  "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-08T21:31:19.092Z",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
-    "conversion",
-    "injection/integration"
+    "conversion"
   ],
   "canonicalEntry": "projects/ela30-1-modern-drama/workspace/index.html",
   "canonicalSources": [
     "projects/ela30-1-modern-drama/workspace/index.html"
   ],
-  "generatedOutputs": [
-    "projects/ela30-1-modern-drama/exports/ela30-1-modern-drama-v2.zip"
-  ],
-  "regenerateCommand": "npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"/Users/deanguedo/Downloads/Streetcar_Named_Desire_playback-safe.mp4\" --slug ela30-1-modern-drama --force",
-  "injectedComponents": [
-    {
-      "id": "critical-response-workshop",
-      "source": "C:\\Users\\dean.guedo\\Downloads\\critical_response_activity.tsx",
-      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
-      "status": "active",
-      "notes": "Converted from the external TSX activity into the static Writing Studio shell."
-    },
-    {
-      "id": "thesis-builder-workshop",
-      "source": "C:\\Users\\dean.guedo\\Downloads\\thesis_builder_activity.tsx",
-      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
-      "status": "active",
-      "notes": "Converted from the external thesis builder TSX into the static Thesis Workshop panel."
-    },
-    {
-      "id": "evidence-collector-workshop",
-      "source": "C:\\Users\\dean.guedo\\Downloads\\evidence_collector_activity.tsx",
-      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
-      "status": "active",
-      "notes": "Converted from the external evidence collector TSX into the static Writing Studio shell."
-    },
-    {
-      "id": "paragraph-architect-workshop",
-      "source": "C:\\Users\\dean.guedo\\Downloads\\petal_paragraph_architect.tsx",
-      "target": "projects/ela30-1-modern-drama/workspace/index.html#writing",
-      "status": "active",
-      "notes": "Converted from the external PETAL paragraph architect TSX into the static Writing Studio shell."
-    }
-  ],
+  "generatedOutputs": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip",
-    "importedAt": "2026-06-08T21:31:19.092Z",
-    "notes": "D2L/Brightspace Streetcar unit kept as the lesson source of truth. Next Step source package supplies Library documents, and the local playback-safe movie path supplies the Film Room asset. Next Step source: C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_MODERN_PLAY.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved SCORM snapshot supplied for ELA 30-1 Modern Play / A Streetcar Named Desire."
   },
   "exportTargets": [
     {
-      "target": "brightspace",
+      "target": "scorm",
       "enabled": true,
-      "notes": "Authoring frame intended for Brightspace lesson integration."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Standalone HTML preview for shaping the repeatable master lesson process."
+      "notes": "Standalone workspace preview."
     }
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "projects/ela30-1-modern-drama/raw/original.html",
-    "projects/resources/ela30-1-modern-drama"
+    "/Users/deanguedo/Downloads/ELA_30-1_MODERN_PLAY.zip"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical master lesson frame. Treat raw and resources as imported reference material. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-ela-modern-drama.ts --zip \"C:\\Users\\dean.guedo\\Downloads\\D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_20266815.zip\" --nextstep-zip \"C:\\Users\\dean.guedo\\Downloads\\English 30-1 nextstep.zip\" --movie \"/Users/deanguedo/Downloads/Streetcar_Named_Desire_playback-safe.mp4\" --slug ela30-1-modern-drama --force Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
-  "workspaceApprovedAt": "2026-06-18T21:13:05.825Z",
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
-    "familyId": "builder-legacy-snapshot",
+    "familyId": "english-legacy-snapshot",
     "qualityProfile": "legacy-snapshot-rendered",
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "title": "ELA 30-1 - A Streetcar Named Desire"
 }

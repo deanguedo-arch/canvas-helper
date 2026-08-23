@@ -1,14 +1,14 @@
 {
   "id": "ela20-2-short-stories",
   "slug": "ela20-2-short-stories",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_20-2_SHORT_STORY.zip",
   "inputKind": "brightspace-zip",
   "previewModes": [
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
   "createdAt": "2026-07-22T16:34:18.611Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -16,53 +16,36 @@
   ],
   "canonicalEntry": "projects/ela20-2-short-stories/workspace/index.html",
   "canonicalSources": [
-    "projects/ela20-2-short-stories/workspace/index.html",
-    "projects/ela20-2-short-stories/meta/english-unit.json",
-    "projects/ela20-2-short-stories/meta/prompt-pack.md",
-    "scripts/build-english-unit.ts",
-    "scripts/lib/english-unit/factory-build.ts",
-    "scripts/lib/english-unit/activity-profile-renderers.ts",
-    "scripts/lib/english-unit/v3-profile-renderer.ts",
-    "scripts/lib/english-unit/v3-runtime-sanitizer.ts",
-    "scripts/lib/english-unit/v3-donor-lessons.ts",
-    "scripts/lib/english-unit/writing-foundations-lessons.ts",
-    "scripts/lib/next-step-course-shell.ts"
+    "projects/ela20-2-short-stories/workspace/index.html"
   ],
   "generatedOutputs": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
-    "importedAt": "2026-07-22T16:34:18.611Z",
-    "notes": "Short Stories V3 derived factory conversion from ela20-1-short-stories-pilot using the short-fiction activity profile."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_20-2_SHORT_STORY.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved SCORM snapshot supplied for ELA 20-2 Short Stories."
   },
   "authoringStatus": "active",
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Canonical editable workspace preview."
+      "notes": "Standalone workspace preview."
     }
   ],
   "referenceOnly": [
-    "projects/resources/ela20-2/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
-    "projects/resources/ela20-2/_sources/cea6d0cc7cb840c4099011f9f71e10711a996ca5f49d75c586dbc172829877be.zip",
-    "config/english/families/ela20-2.json",
-    "projects/resources/ela20-2/_sources/90a7e3ee34527e9c0eb9ae5ad4953f04cbc9867f881a9121e6fad0266c183fcf.doc",
-    "projects/resources/ela20-2/_sources/425beada71fb9f830e58e225b22752ad75c429b7e1bbb40b50e3524089458eef.docx",
-    "projects/ela20-1-short-stories-pilot/meta/english-unit.json"
+    "/Users/deanguedo/Downloads/ELA_20-2_SHORT_STORY.zip"
   ],
-  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npm run build:english-unit -- --project ela20-2-short-stories Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
-  "injectedComponents": [],
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "learningSource": "other",
-  "learningTrust": "auto",
-  "learningUpdatedAt": "2026-07-23T23:52:58.693Z",
-  "workspaceApprovedAt": "2026-07-28T15:02:16.264Z",
-  "rawEntrypoint": "raw/original.html",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
+  "rawEntrypoint": "raw/README.md",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
     "familyId": "english-legacy-snapshot",
@@ -72,5 +55,7 @@
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "title": "ELA 20-2 | Short Stories",
+  "brightspaceTarget": "scorm"
 }

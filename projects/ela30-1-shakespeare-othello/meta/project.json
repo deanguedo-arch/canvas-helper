@@ -1,16 +1,16 @@
 {
   "id": "ela30-1-shakespeare-othello",
   "slug": "ela30-1-shakespeare-othello",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela30-1-shakespeare-othello/source",
-  "inputKind": "html",
-  "brightspaceTarget": "course-page",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_SHAKESPEARE_OTHELLO.zip",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
   "previewModes": [
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
-  "rawEntrypoint": "raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661644.zip",
+  "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-21T14:13:26.779Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -23,39 +23,39 @@
   "generatedOutputs": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661644.zip",
-    "importedAt": "2026-06-21T14:13:26.779Z",
-    "notes": "D2L/Brightspace Shakespeare: Othello unit converted into the Streetcar-style ELA 30-1 course shell."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_SHAKESPEARE_OTHELLO.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved SCORM snapshot supplied for ELA 30-1 Shakespeare: Othello."
   },
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "Authoring frame intended for Brightspace SCORM upload after review."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Standalone HTML preview for shaping the replicated Shakespeare: Othello unit."
+      "notes": "Standalone workspace preview."
     }
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "projects/ela30-1-shakespeare-othello/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661644.zip"
+    "/Users/deanguedo/Downloads/ELA_30-1_SHAKESPEARE_OTHELLO.zip"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical Shakespeare: Othello course shell. Regenerate SCORM after workspace edits. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-ela-shakespeare-othello.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661644.zip\" --slug ela30-1-shakespeare-othello --force Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
-  "injectedComponents": [],
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "learningSource": "other",
-  "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-21T14:13:26.779Z",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
-    "familyId": "builder-legacy-snapshot",
+    "familyId": "english-legacy-snapshot",
     "qualityProfile": "legacy-snapshot-rendered",
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "title": "ELA 30-1 - Shakespeare: Othello"
 }

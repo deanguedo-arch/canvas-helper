@@ -1,14 +1,14 @@
 {
   "id": "ela20-1-modern-play-crucible",
   "slug": "ela20-1-modern-play-crucible",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_20-1_CRUCIBLE.zip",
   "inputKind": "brightspace-zip",
   "previewModes": [
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
   "createdAt": "2026-07-14T18:06:53.150Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -16,59 +16,192 @@
   ],
   "canonicalEntry": "projects/ela20-1-modern-play-crucible/workspace/index.html",
   "canonicalSources": [
-    "projects/ela20-1-modern-play-crucible/workspace/index.html",
-    "projects/ela20-1-modern-play-crucible/meta/english-unit.json",
-    "projects/ela20-1-modern-play-crucible/meta/prompt-pack.md",
-    "scripts/build-english-unit.ts",
-    "scripts/lib/english-unit/factory-build.ts",
-    "scripts/lib/english-unit/activity-profile-renderers.ts",
-    "scripts/lib/next-step-course-shell.ts"
+    "projects/ela20-1-modern-play-crucible/workspace/index.html"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npm run build:english-unit -- --project ela20-1-modern-play-crucible",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
-    "importedAt": "2026-07-14T18:06:53.150Z",
-    "notes": "Modern Play - The Crucible factory conversion using the modern-drama activity profile."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_20-1_CRUCIBLE.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved SCORM snapshot supplied for ELA 20-1 Modern Play - The Crucible."
   },
   "authoringStatus": "active",
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Canonical editable workspace preview."
+      "notes": "Standalone workspace preview."
     }
   ],
   "referenceOnly": [
-    "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
-    "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip"
+    "/Users/deanguedo/Downloads/ELA_20-1_CRUCIBLE.zip"
   ],
-  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved. Studio onboarding: Materialized English source archives and staged factory are available.",
-  "injectedComponents": [
-    {
-      "id": "crucible-character-conflict",
-      "slot": "act-tracker",
-      "mode": "extend",
-      "source": "workspace/components/crucible-character-conflict/component.html",
-      "assetRoot": "workspace/assets/custom/crucible-character-conflict",
-      "enabled": false
-    }
-  ],
-  "rawEntrypoint": "raw/original.html",
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "rawEntrypoint": "raw/README.md",
   "authoring": {
-    "driverId": "english-factory-v1",
-    "familyId": "english-course-factory",
-    "qualityProfile": "english-unit",
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "english-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-modern-drama-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-characteristics-of-modern-drama",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-3-critical-and-analytical-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-4-student-samples",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-topic-thesis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-one",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-two",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-three",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-conclusion-revision",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-prompt-impression",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-text-evidence",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-knowledge-experience",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-form-perspective",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-response-plan",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-draft-revise",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#play-materials",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#film-room",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#act-questions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#character-notes",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "learningSource": "other",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
+  "title": "ELA 20-1 | Modern Play - The Crucible",
+  "brightspaceTarget": "scorm"
 }

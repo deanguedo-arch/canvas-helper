@@ -1,0 +1,61 @@
+{
+  "id": "005f8aae-ca47-4f6c-945f-bf792f7e725b",
+  "slug": "ela30-1-novel-study",
+  "title": "ELA 30-1 | Novel Study",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_NOVEL_STUDY.zip",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/README.md",
+  "createdAt": "2026-08-21T00:00:00.000Z",
+  "updatedAt": "2026-08-21T17:40:21.279Z",
+  "learningSource": "other",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T00:00:00.000Z",
+  "migrationState": "migrated",
+  "projectType": "conversion",
+  "preferredWorkflows": [
+    "conversion"
+  ],
+  "canonicalEntry": "projects/ela30-1-novel-study/workspace/index.html",
+  "canonicalSources": [
+    "projects/ela30-1-novel-study/workspace/index.html"
+  ],
+  "generatedOutputs": [],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "brightspace",
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_NOVEL_STUDY.zip",
+    "importedAt": "2026-08-21T00:00:00.000Z",
+    "notes": "Preserved SCORM snapshot supplied for the ELA 30-1 Novel Study course."
+  },
+  "exportTargets": [
+    {
+      "target": "scorm",
+      "enabled": true,
+      "notes": "SCORM package for Brightspace upload."
+    },
+    {
+      "target": "html",
+      "enabled": true,
+      "notes": "Standalone workspace preview."
+    }
+  ],
+  "authoringStatus": "active",
+  "referenceOnly": [
+    "/Users/deanguedo/Downloads/ELA_30-1_NOVEL_STUDY.zip"
+  ],
+  "sourceOfTruthNotes": "The workspace is the preserved SCORM learner snapshot. The prior or future factory output is not authoritative for this course; keep the supplied package boundary intact and use the legacy snapshot adapter for Studio edits. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "authoring": {
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "english-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "studioEditing": {
+      "enabled": true,
+      "renameCourse": false,
+      "imageAssets": true
+    }
+  }
+}

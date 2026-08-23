@@ -1,21 +1,20 @@
 {
   "id": "ela30-1-short-stories",
   "slug": "ela30-1-short-stories",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/ela30-1-short-stories/source",
-  "inputKind": "html",
-  "brightspaceTarget": "course-page",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY.zip",
+  "inputKind": "brightspace-zip",
+  "brightspaceTarget": "scorm",
   "previewModes": [
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
-  "rawEntrypoint": "raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
+  "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-21T14:13:24.514Z",
-  "updatedAt": "2026-08-14T17:52:27.429Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
-    "conversion",
-    "injection/integration"
+    "conversion"
   ],
   "canonicalEntry": "projects/ela30-1-short-stories/workspace/index.html",
   "canonicalSources": [
@@ -24,55 +23,34 @@
   "generatedOutputs": [],
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip",
-    "importedAt": "2026-06-21T14:13:24.514Z",
-    "notes": "D2L/Brightspace Short Stories unit converted into the Streetcar-style ELA 30-1 course shell."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved July 28 SCORM snapshot supplied for ELA 30-1 Short Stories."
   },
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "Authoring frame intended for Brightspace SCORM upload after review."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Standalone HTML preview for shaping the replicated Short Stories unit."
+      "notes": "Standalone workspace preview."
     }
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "projects/ela30-1-short-stories/raw/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip"
+    "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY.zip",
+    "/Users/deanguedo/Downloads/ELA_30-1_SHORT_STORY (1).zip"
   ],
-  "sourceOfTruthNotes": "Edit workspace/index.html as the canonical Short Stories course shell. Regenerate SCORM after workspace edits. Evidence Bank retrofit 1.0.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature. English writing-sequence retrofit 1.0.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.1 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.2 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.1.3 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.2.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. English writing-sequence retrofit 1.3.0 is applied with npm run retrofit:english-writing -- --project ela30-1-short-stories. Evidence Bank retrofit 1.1.0 is applied deterministically with npm run retrofit:english-evidence -- --project <slug>. The canonical workspace remains the source of truth; do not rerun a destructive legacy builder to reproduce this feature. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-ela-short-stories.ts --zip \"/Users/deanguedo/Downloads/D2LExport_6670_CBE System ELA 30-1 (Winter 2020)_202661528.zip\" --slug ela30-1-short-stories --force Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
-  "injectedComponents": [
-    {
-      "id": "ela30-evidence-bank-v2",
-      "source": "scripts/lib/english-unit/ela30-evidence-retrofit.ts",
-      "target": "projects/ela30-1-short-stories/workspace/index.html#evidence-bank",
-      "status": "active",
-      "notes": "Shared central Evidence Bank, deliberate activity saves, stable contribution IDs, and SCORM-compatible learner-state storage."
-    },
-    {
-      "id": "english-writing-sequences-v1",
-      "source": "scripts/lib/english-unit/writing-sequence-renderer.ts",
-      "target": "projects/ela30-1-short-stories/workspace/index.html",
-      "status": "active",
-      "notes": "Standard Critical Essay and Personal Response lesson sequences; only missing sequences are injected."
-    }
-  ],
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. The older duplicate snapshot is retained as a reference alternate. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
   "learningSource": "other",
-  "learningTrust": "auto",
-  "learningUpdatedAt": "2026-06-21T14:13:24.514Z",
-  "googleHosted": {
-    "trackedStorageKeys": [
-      "canvas-helper:ela30-1-short-stories:manual-evidence-notes"
-    ]
-  },
-  "workspaceApprovedAt": "2026-07-28T15:02:16.916Z",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
   "authoring": {
     "driverId": "legacy-snapshot-v1",
-    "familyId": "builder-legacy-snapshot",
+    "familyId": "english-legacy-snapshot",
     "qualityProfile": "legacy-snapshot-rendered",
     "learnerSurfaces": {
       "schemaVersion": 1,
@@ -235,5 +213,6 @@
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "title": "ELA 30-1 - Short Stories"
 }

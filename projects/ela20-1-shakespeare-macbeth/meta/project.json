@@ -1,14 +1,14 @@
 {
   "id": "ela20-1-shakespeare-macbeth",
   "slug": "ela20-1-shakespeare-macbeth",
-  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
+  "sourcePath": "/Users/deanguedo/Downloads/ELA_20-1_SHAKESPEARE_MERCHANT.zip",
   "inputKind": "brightspace-zip",
   "previewModes": [
     "workspace"
   ],
   "workspaceEntrypoint": "workspace/index.html",
   "createdAt": "2026-07-14T18:06:36.161Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T17:56:52.052Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
@@ -16,59 +16,227 @@
   ],
   "canonicalEntry": "projects/ela20-1-shakespeare-macbeth/workspace/index.html",
   "canonicalSources": [
-    "projects/ela20-1-shakespeare-macbeth/workspace/index.html",
-    "projects/ela20-1-shakespeare-macbeth/meta/english-unit.json",
-    "projects/ela20-1-shakespeare-macbeth/meta/prompt-pack.md",
-    "scripts/build-english-unit.ts",
-    "scripts/lib/english-unit/factory-build.ts",
-    "scripts/lib/english-unit/activity-profile-renderers.ts",
-    "scripts/lib/next-step-course-shell.ts"
+    "projects/ela20-1-shakespeare-macbeth/workspace/index.html"
   ],
   "generatedOutputs": [],
-  "regenerateCommand": "npm run build:english-unit -- --project ela20-1-shakespeare-macbeth",
   "importedFirstPassOrigin": {
     "sourceSystem": "brightspace",
-    "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
-    "importedAt": "2026-07-14T18:06:36.161Z",
-    "notes": "Shakespearean Drama - Macbeth factory conversion using the shakespeare-drama activity profile."
+    "sourcePath": "/Users/deanguedo/Downloads/ELA_20-1_SHAKESPEARE_MERCHANT.zip",
+    "importedAt": "2026-08-21T17:34:56.000Z",
+    "notes": "Preserved SCORM snapshot supplied for ELA 20-1 Shakespearean Drama - Macbeth."
   },
   "authoringStatus": "active",
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "Export individually only after the recipe is ready-for-export and verification passes."
+      "notes": "SCORM package for Brightspace upload after review."
     },
     {
       "target": "html",
       "enabled": true,
-      "notes": "Canonical editable workspace preview."
+      "notes": "Standalone workspace preview."
     }
   ],
   "referenceOnly": [
-    "projects/resources/ela20-1/_sources/de70945ff9b907b1d63e719c890140bd69c65051f85a47c5ef657f715138f36c.zip",
-    "projects/resources/ela20-1/_sources/6428dad0b2cad78baebf70f81a1ec0085a9a649e7aa7dc780b2b129bdc963c1d.zip",
-    "projects/resources/ela20-1/_sources/e3024a3265517f915612b58ee98347c3f2d80ef8c42e80a94fe64b02429369a4.zip"
+    "/Users/deanguedo/Downloads/ELA_20-1_SHAKESPEARE_MERCHANT.zip"
   ],
-  "sourceOfTruthNotes": "Edit meta/english-unit.json and workspace/components or workspace/assets/custom. Factory-owned index/assets/generated output is replaced through a safe staged build; custom component paths are preserved. Studio onboarding: Materialized English source archives and staged factory are available.",
-  "injectedComponents": [
-    {
-      "id": "macbeth-side-by-side-data",
-      "slot": "custom:side-by-side-companion",
-      "mode": "extend",
-      "source": "workspace/components/shakespeare-side-by-side/scenes.json",
-      "enabled": true
-    }
-  ],
-  "rawEntrypoint": "raw/original.html",
+  "sourceOfTruthNotes": "The workspace is the supplied SCORM learner snapshot and is the canonical editable boundary. Any prior English builder or generated output is quarantined; do not run it through Studio or replace this snapshot without an explicit new import. Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "rawEntrypoint": "raw/README.md",
   "authoring": {
-    "driverId": "english-factory-v1",
-    "familyId": "english-course-factory",
-    "qualityProfile": "english-unit",
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "english-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-shakespearean-terminology",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-characteristics-of-shakespearean-drama",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-3-tips-for-reading-drama-1",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-4-tips-for-reading-drama-2",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-shakespeare-s-world",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-reading-shakespeare",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-introduction-to-macbeth",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-8-macbeth-online",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-9-critical-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-10-critical-response-suggestions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-topic-interpretation",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-one",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-two",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-body-three",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-conclusion-revision",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#critical-essay-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-prompt-impression",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-text-evidence",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-knowledge-experience",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-form-perspective",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-response-plan",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-draft-revise",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#personal-response-preview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#side-by-side",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#play-materials",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#act-questions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#character-notes",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#writing-studio",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
+    },
     "studioEditing": {
       "enabled": true,
       "renameCourse": false,
       "imageAssets": true
     }
-  }
+  },
+  "learningSource": "other",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-21T17:34:56.000Z",
+  "title": "ELA 20-1 | Shakespearean Drama - Macbeth",
+  "brightspaceTarget": "scorm"
 }

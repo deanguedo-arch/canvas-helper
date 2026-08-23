@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<manifest identifier="ela30-2-modern-drama-streetcar-scorm-2004" version="1.0"
+  xmlns="http://www.imsglobal.org/xsd/imscp_v1p1"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3"
+  xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3"
+  xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3"
+  xmlns:imsss="http://www.imsglobal.org/xsd/imsss"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="
+    http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd
+    http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd
+    http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd
+    http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd
+    http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>2004 4th Edition</schemaversion>
+  </metadata>
+  <organizations default="ORG-1">
+    <organization identifier="ORG-1">
+      <title>ela30-2-modern-drama-streetcar</title>
+      <item identifier="ITEM-1" identifierref="RES-1">
+        <title>ela30-2-modern-drama-streetcar</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES-1" type="webcontent" adlcp:scormType="sco" href="index.html">
+      <file href="assets/generated/brand/nxt-ce-logo-white-with-ce.png" />
+      <file href="assets/generated/donor-lessons/modern-drama/a-streetcar-named-desire-introduction-tennessee-williams-pjoto.jpg" />
+      <file href="assets/generated/donor-lessons/modern-drama/a-streetcar-named-desire-questions-a-streetcar-named-desire-questions.pdf" />
+      <file href="assets/generated/donor-lessons/modern-drama/motifs-motif-of-the-blue-piano.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/motifs-psychological-weapons-in-a-streetcar-named-desire.m4a" />
+      <file href="assets/generated/donor-lessons/modern-drama/motifs-the-paper-moon-motif.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/motifs-unpacking-belle-reve.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/motifs-varsouviana-polka-motif.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/streetcar-overview-and-characters-the-brando-curse-and-forbidden-subtext.m4a" />
+      <file href="assets/generated/donor-lessons/modern-drama/symbols-decoding-floral-symbolism.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/symbols-light-motif-in-streetcar.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/the-streetcar-tumblr-nc4q62fugl1tkj7qpo1-1280.jpg" />
+      <file href="assets/generated/donor-lessons/modern-drama/themes-class-in-streetcar.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/themes-desire-and-destruction.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/themes-repression-dependence.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/themes-streetcar-passion-desire.mp4" />
+      <file href="assets/generated/donor-lessons/modern-drama/themes-truth-vs.mp4" />
+      <file href="assets/generated/resources/belle-reve-motif-unpacking-belle-reve.mp4" />
+      <file href="assets/generated/resources/blue-piano-motif-motif-of-the-blue-piano.mp4" />
+      <file href="assets/generated/resources/class-theme-class-in-streetcar.mp4" />
+      <file href="assets/generated/resources/floral-symbolism-decoding-floral-symbolism.mp4" />
+      <file href="assets/generated/resources/light-symbolism-light-motif-in-streetcar.mp4" />
+      <file href="assets/generated/resources/paper-moon-motif-the-paper-moon-motif.mp4" />
+      <file href="assets/generated/resources/passion-theme-streetcar-passion-desire.mp4" />
+      <file href="assets/generated/resources/psychological-weapons-audio-psychological-weapons-in-a-streetcar-named-desire.m4a" />
+      <file href="assets/generated/resources/repression-theme-repression-dependence.mp4" />
+      <file href="assets/generated/resources/streetcar-audio-overview-the-brando-curse-and-forbidden-subtext.m4a" />
+      <file href="assets/generated/resources/streetcar-cbe-reading-guide-cbe-streetcar-reading-guide.pdf" />
+      <file href="assets/generated/resources/streetcar-full-film-streetcar-named-desire-movie.mp4" />
+      <file href="assets/generated/resources/streetcar-nextstep-booklet-nextstep-unit5-streetcar.docx" />
+      <file href="assets/generated/resources/streetcar-primary-text-a-streetcar-named-desire.pdf" />
+      <file href="assets/generated/resources/truth-theme-truth-vs.mp4" />
+      <file href="assets/generated/resources/varsouviana-polka-motif-varsouviana-polka-motif.mp4" />
+      <file href="index 2.html" />
+      <file href="index.html" />
+      <file href="scorm-bridge.js" />
+    </resource>
+  </resources>
+</manifest>
