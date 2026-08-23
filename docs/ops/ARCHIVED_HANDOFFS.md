@@ -8432,3 +8432,15 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `app/server/lib/course-edit-render-validation.ts`, `app/server/routes/course-edits.ts`, `scripts/lib/english-unit/dependencies.ts`, and `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`.
 - Preserved boundary: no inline `contenteditable` editor was added; unrelated course, runtime, duplicate-resource, and transaction paths remained unstaged and untouched.
 - Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-23: ELA 10-1 vocabulary and Evidence Bank tester
+
+- Project: `ela10-1-short-stories`.
+- Task: Build an isolated English 10-1 Core Vocabulary and Evidence Bank tester.
+- Status at archival time: complete and pushed on `codex/ela10-1-vocabulary-evidence-tester`; superseded by the all-ELA rollout handoff.
+- Rollback authority: `fda171dc56371019a55e56dfb8363a28c346ae79`.
+- Implementation commits: scoped-preview repair `c7cfc5f9db8c188b99d7016554af131badc1052c` and tester `323f1c8c10d32c8d280c235bed82ad14bc5fa785`.
+- Verification: doctor, workspace verification, Studio build, project E2E, smoke, typecheck baseline, structural/preservation audits, and visible desktop/mobile interaction checks passed. The tester provided 45 course-specific concepts, 180 autosaving Frayer fields, 45 model reveals, and stable whole-entry Evidence Bank collection.
+- Source of truth: `projects/ela10-1-short-stories/workspace/index.html`, with ownership and learner routes in `projects/ela10-1-short-stories/meta/project.json` and `meta/e2e-contract.json`; the historical English factory remained quarantined.
+- Preserved boundary: no pull request, merge, factory rebuild, SCORM export, or Brightspace upload occurred.
+- Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5176 --clearScreen false`.

@@ -1,85 +1,112 @@
 # Handoff
 
-- Project: `ela10-1-short-stories`
-- Task: Build an isolated English 10-1 Core Vocabulary and Evidence Bank tester.
-- Status: complete and pushed on `codex/ela10-1-vocabulary-evidence-tester`; intentionally unmerged with no pull request, SCORM export, or Brightspace upload.
+- Project: all 21 active `ela*` catalog projects
+- Task: Roll out course-specific Core Vocabulary and Evidence Bank collection across the active ELA catalog.
+- Status: complete and pushed on `codex/all-ela-vocabulary-evidence-rollout`; intentionally unmerged with no pull request, factory rebuild, SCORM export, or Brightspace upload.
 
 ## Summary
 
-- Rollback checkpoint: `fda171dc56371019a55e56dfb8363a28c346ae79`.
-- Scoped-preview E2E repair: `c7cfc5f9db8c188b99d7016554af131badc1052c` (`fix(e2e): use scoped learner preview URLs`).
-- Tester implementation: `323f1c8c10d32c8d280c235bed82ad14bc5fa785` (`feat(english): add ELA 10-1 vocabulary evidence tester`).
-- Branch: [codex/ela10-1-vocabulary-evidence-tester](https://github.com/deanguedo-arch/canvas-helper/tree/codex/ela10-1-vocabulary-evidence-tester).
-- The first remote branch state at the rollback SHA was confirmed before editing; each implementation commit was pushed and its remote head was confirmed.
-- The tester adds `#core-vocabulary` after Overview and before Lessons, with 45 searchable parent concepts across four course-specific clusters.
-- Each concept has a definition, word/phrase structure or origin note, nested related terms, course location, source selector, four autosaving Frayer fields, a course-grounded model reveal, and a deliberate whole-entry Evidence Bank collection action.
-- Core Vocabulary collections upsert by stable concept ID and organize through Activity, Text, Locator, and Type filters. Removing an entry does not erase the working Frayer draft.
-- The existing Short Story Terms and Literary Terms Review sections are byte-for-byte unchanged from the rollback commit.
+- Rollback point one: `131fb195ee68c9171c2e10287c97ac90fe32bde7` (accepted ELA 10-1 tester head).
+- Rollback point two: `e69444aaac631f3a507c86240955929b0a892c1e` (`chore(english): checkpoint restored ELA snapshots`).
+- Branch: [codex/all-ela-vocabulary-evidence-rollout](https://github.com/deanguedo-arch/canvas-helper/tree/codex/all-ela-vocabulary-evidence-rollout).
+- Family commits:
+  - Writing Foundations: `7a8432c706e40c340574baa3cbcb66a550c22288`.
+  - Short Fiction: `92a852e6ffb9f2c689c118620d50027fae0fbf5c`.
+  - Film: `f50e2051c5464fa61aebf006346212b17e18baa6`.
+  - Modern Drama: `b8a0383c525aeeba678d7410bc540309d662f101`.
+  - Novel: `c46eb398d9a1be85f3454d80403595cec7af6c33`.
+  - Shakespeare: `75e65a6e909da4e96ed36e18e9b0b5c8d3b34299`.
+- Shared contract commit: `ab97f5c6fc9fe1927989632bbde5376a2ae3ced0` (`test(english): verify ELA vocabulary contracts`).
+- Final implementation repair: `186dced8db6dde110f6c208c565806bf19129f0d` (`fix(english): harden restored ELA learner routes`); the remote branch was confirmed at this SHA before the documentation commit.
+- The catalog now contains 21 distinct, source-driven inventories totalling 959 parent concepts. Every course has its own sources, location labels, models, and stream/family emphasis.
+- Studio is running on port `5177` with ELA 20-1 Film Study open on `#core-vocabulary` in desktop view.
 
 ## Files changed
 
-- Scoped learner-preview repair: `e2e/lib/learner-course-assertions.ts`.
-- Durable learner source: `projects/ela10-1-short-stories/workspace/index.html`.
-- Learner surfaces and ownership metadata: `projects/ela10-1-short-stories/meta/project.json` and `projects/ela10-1-short-stories/meta/conversion-notes.md`.
-- Project learner contract: `projects/ela10-1-short-stories/meta/e2e-contract.json`.
-- Handoff state: `docs/ops/ACTIVE_HANDOFF.md` and `docs/ops/ARCHIVED_HANDOFFS.md`.
+- Restored snapshot checkpoint and LFS rules: `.gitattributes`, plus complete `workspace/**` and `meta/project.json` snapshots for the 18 ELA 20/30 projects.
+- Durable learner sources: `projects/<each active ela slug>/workspace/index.html` for all 21 active ELA projects.
+- Learner inventory/contracts: `projects/<each active ela slug>/meta/project.json` and `projects/<each active ela slug>/meta/e2e-contract.json`.
+- Factory-quarantine notes where present: selected `projects/<slug>/meta/prompt-pack.md` and `projects/<slug>/meta/conversion-notes.md`.
+- Shared verification: `e2e/lib/learner-course-assertions.ts`, `e2e/lib/project-open.ts`, `package.json`, `scripts/tests/e2e-contract-harness.test.ts`, and `scripts/verify-ela-core-vocabulary.ts`.
+- Operational record: `docs/ops/ACTIVE_HANDOFF.md` and `docs/ops/ARCHIVED_HANDOFFS.md`.
 
 ## What changed
 
-- Studio project E2E now derives mobile checks from the already-authorized iframe URL instead of requesting an unsecured preview path.
-- Core Vocabulary provides 45 concepts, 180 Frayer response fields, 45 model reveals, and 45 stable collection IDs.
-- Response IDs follow `ela10-1-short-stories:core-vocabulary:<concept-id>:<field>`; collection IDs end in `:<concept-id>:collection`.
-- A collection requires at least one completed field but records all four Frayer response IDs. Schema-v2 metadata includes the category, category ID, concept ID, selected source, and `core-vocabulary` tag.
-- Source choices cover the course lessons/guides and the five assigned readings: *The Cask of Amontillado*, *Flight into Danger*, *The Flying Machine*, *Harrison Bergeron*, and *I Am a Rock*.
-- Evidence Bank filters now expose Activity, Text or source, Location or concept, and Entry type while preserving existing collection rendering and public API behavior.
-- Desktop uses a two-column concept browser; mobile uses a searchable single-column selector and one-column Frayer layout.
+- Every active ELA course has `#core-vocabulary` after Overview and before Lessons, with sidebar, Overview, and Evidence Bank links.
+- Each concept provides a course-grounded definition, honest word/phrase structure note, related terms, course location, source selector, four autosaving Frayer fields, model reveal, and deliberate whole-entry Evidence Bank action.
+- Response IDs follow `<slug>:core-vocabulary:<concept-id>:<field>`; collection IDs end in `:<concept-id>:collection`.
+- Evidence entries upsert through the unchanged `window.nextStepEvidenceBank` API and organize by Activity `Core Vocabulary`, selected source, concept locator, and type `collection`. Removing a collection leaves draft responses intact.
+- Source inventories distinguish ELA streams and families rather than copying the ELA 10-1 tester list.
+- Existing glossary, short-story-term, literary-term, and review sections remain separate retrieval-practice surfaces.
+- All learner-surface metadata and E2E contracts declare complete ordered course-route inventories.
+- The shared verifier discovers actual `.course-page` sections and enforces a complete ordered match with inline route declarations, metadata, and E2E contracts, preventing hidden orphan routes.
+- Seven preserved Critical Writing Workbook pages in ELA 30-1 Feature Film and Novel Study are now directly navigable and correctly chained.
+
+## Why this changed
+
+- The accepted ELA 10-1 tester established a usable vocabulary-to-evidence workflow. This rollout adapts it to each course's actual lessons, guides, questions, and assigned works while preserving the recovered SCORM learner baselines.
 
 ## Verification run
 
-At tester implementation `323f1c8c10d32c8d280c235bed82ad14bc5fa785`:
-
-- `npm run course:doctor -- --project ela10-1-short-stories` — passed (`legacy-snapshot-v1`).
-- `npm run verify -- --project ela10-1-short-stories --mode workspace` — passed; only the pre-existing Google Fonts external-dependency warnings remain.
-- `npm run build:studio` — passed.
-- `npm run test:e2e:project -- --project ela10-1-short-stories` — passed, 1/1 in 53.0 seconds.
+- Snapshot intake: all 18 selected Downloads ZIP hashes and exact workspace trees matched `.runtime/english-snapshot-restore-2026-08-21.json` before the checkpoint commit.
+- `npm run course:doctor -- --project <slug>` — passed for all 21 active ELA projects (`legacy-snapshot-v1`).
+- `npm run verify -- --project <slug> --mode workspace` — passed for all 21 projects; preserved external Google Fonts warnings remain informational.
+- `npm run test:e2e:project -- --project <slug>` — passed for all 21 project contracts. The final repaired ELA 30-1 Feature Film and Novel Study contracts passed on the first run after their seven-route exposure.
+- Project E2E covers autosave privacy, deliberate collection, all four response IDs, update without duplication, filter placement, reload restoration, removal without draft loss, selectors, model reveals, source changes, and mobile overflow.
+- `npm run verify:ela-core-vocabulary` — passed for all 21 courses and confirmed 21 distinct inventories. Final learner route counts include 40 for ELA 30-1 Feature Film and 34 for ELA 30-1 Novel Study.
+- `npm run build:studio` — passed (85 modules).
 - `npm run test:e2e:smoke` — passed, 1/1.
-- `npm run verify:typecheck-baseline` — passed; the frozen ten established diagnostics remain and none is in a changed file.
+- `npm run test:e2e:harness` — passed, 7/7.
+- `npm run verify:typecheck-baseline` — passed; the ten established diagnostics remain and none is in a changed file.
+- `git lfs fsck --pointers HEAD` — passed (`Git LFS fsck OK`). Crucible and both ELA 30-2 Streetcar MP4 directories are pointer-backed along with the pre-existing Streetcar/Othello paths.
 - `git diff --check` — passed.
-- Structural contract audit — passed: 45 concept panels, 45 selectors, 180 Frayer fields, 45 collections, and 45 model reveals.
-- Preservation audit — passed: Short Story Terms SHA-256 `9f1f351d208df704beb731f01f8f37b303402f488a09b6b1eed79694f72fabf4`; Literary Terms Review SHA-256 `7c4dea4ad04aa85abda7973b0021d15f7952e5d9ecb4b96f98c9baa513414ce4`; both match the rollback source exactly.
-- Visible browser audit — passed on desktop and mobile: search and nested term selection, all four draft fields, source switching, model reveal, deliberate collect, filter location, reload restoration, update without duplication, removal without draft loss, no console errors, and no horizontal mobile overflow.
-- `npm run test:e2e:harness` was also sampled and remains 6/7 because an untouched baseline assertion expects the older wording of the current deep-contract validation error. Neither involved file differs from the rollback commit; this is not introduced by the tester.
+- Visible desktop/mobile browser audits passed for ELA 10-2 Writing Foundations, ELA 20-2 Short Stories, ELA 30-2 Short Stories and Visual Literacy, ELA 30-1 Feature Film, Modern Drama, Novel Study, Shakespeare Othello, ELA 30-1 Short Stories, and the final ELA 20-1 Film Study review.
+- The final ELA 20-1 Film review confirmed 42 concepts, 42 source selectors, 42 model reveals, concept selection, model reveal, zero broken images, 1067/1067 desktop width, 429/429 mobile width, and no new browser errors.
 
 ## Source of truth
 
-- The preserved learner source is `projects/ela10-1-short-stories/workspace/index.html`.
-- Project ownership and learner-surface declarations are in `projects/ela10-1-short-stories/meta/project.json`.
-- The historical `english-unit.json` recipe and English factory rebuild are quarantined for this `legacy-snapshot-v1` tester and are not the write authority.
-- The branch rollback authority is `fda171dc56371019a55e56dfb8363a28c346ae79`.
+- Canonical learner sources: `projects/<slug>/workspace/index.html` for each of the 21 active ELA projects.
+- Ownership, route inventory, and learner contracts: each project's `meta/project.json` and `meta/e2e-contract.json`.
+- Every project remains `legacy-snapshot-v1`; historical `english-unit.json` recipes and English factory commands are quarantined and are not write authority.
+- Git rollback authority: `131fb195ee68c9171c2e10287c97ac90fe32bde7`, then restored-snapshot checkpoint `e69444aaac631f3a507c86240955929b0a892c1e`.
 
 ## Fragile areas / watchouts
 
-- Do not run `npm run build:english-unit -- --project ela10-1-short-stories`; it can replace the preserved workspace and erase the tester.
-- The legacy learner source contains a large inline runtime. Keep future edits surgical and re-run the project E2E contract after changing routes, persistence, or Evidence Bank behavior.
-- Evidence and draft state are browser-local and origin-scoped. Brightspace/SCORM cross-browser persistence has not been tested because export and LMS work are explicitly outside this tester.
-- The scoped-preview helper is shared E2E infrastructure; keep its capability-bearing URL behavior intact.
+- Do not run an English factory rebuild; it can replace the preserved `workspace/index.html` sources and erase this rollout.
+- Five repaired ELA 30-1 snapshots use older route/runtime variants. Their ordered route declarations, lesson exclusion lists, Tailwind guards, and navigation targets must stay aligned with the rendered `<section class="course-page">` inventory.
+- `e2e/lib/project-open.ts` and `e2e/lib/learner-course-assertions.ts` are shared infrastructure. Keep capability-bearing preview URLs, the bounded 30-second readiness wait, and the narrow external-runtime exclusion intact.
+- Evidence and draft state remain origin-scoped browser storage. SCORM/LMS cross-browser persistence was not tested because export and Brightspace work are outside this branch.
+- Large restored media depends on Git LFS availability. A clone without LFS objects will not have complete Crucible, Streetcar, or Othello media.
+- `node_modules` is a local untracked symlink used by the running worktree Studio and must never be staged.
 
 ## Next prompt should assume
 
-- Review the tester on the isolated branch before deciding whether to accept, revise, or discard it.
-- Keep the tester limited to `ela10-1-short-stories`; do not propagate to other English courses until the structure and vocabulary depth are accepted.
-- Keep the current whole-Frayer collection contract and Evidence Bank filters unless learner testing identifies a specific usability issue.
+- The all-ELA implementation and verification are complete on the isolated branch and ready for human catalog review.
+- Keep the branch unmerged until the 21-course review is accepted.
+- Preserve the whole-Frayer collection contract and course-specific inventories unless learner review identifies a specific change.
+- No export or LMS deployment has occurred.
+
+## What still needs validation
+
+- Human content review can still request term, definition, or source-label refinements before acceptance.
+- SCORM packaging, Brightspace upload, and LMS cross-browser persistence remain intentionally out of scope until this tester rollout is accepted.
+
+## Known risks
+
+- A future direct edit can add a learner section without updating route declarations; `npm run verify:ela-core-vocabulary` and the project E2E contracts are the required protection.
+- External source labels can drift if a preserved lesson is later renamed without updating its course inventory.
+- Git LFS quota and availability remain prerequisites for complete media checkout on another machine.
 
 ## Exact next command
 
-`npm run studio -- --host 127.0.0.1 --port 5176 --clearScreen false`
+`npm run studio -- --host 127.0.0.1 --port 5177 --strictPort --clearScreen false`
 
 ## Exact next file to open
 
-`projects/ela10-1-short-stories/workspace/index.html`
+`projects/ela20-1-feature-film/workspace/index.html`
 
 ## Do not do next / warnings
 
-- Do not merge this branch or open a pull request without explicit approval.
-- Do not rebuild the English unit, export SCORM, upload to Brightspace, or propagate the tester to other courses yet.
-- Do not stage the tester worktree's local `node_modules` symlink or any `.runtime/**`, `dist/**`, exports, archives, or unrelated course paths.
+- Do not merge or open a pull request without explicit approval.
+- Do not run an English factory rebuild, export SCORM, or upload to Brightspace.
+- Do not stage `node_modules`, `.runtime/**`, `dist/**`, exports, archives, raw ZIPs, or unrelated projects.
