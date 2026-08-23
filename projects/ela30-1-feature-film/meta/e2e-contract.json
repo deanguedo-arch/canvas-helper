@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-feature-film",
+  "projectSlug": "ela30-1-feature-film",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Film Study Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -27,15 +27,25 @@
       "overview",
       "core-vocabulary",
       "lessons",
-      "lesson-1-film-study-overview",
-      "lesson-2-a-brief-history-of-film",
-      "lesson-3-formal-elements-of-film",
-      "lesson-4-editing-and-sound",
-      "lesson-5-film-editing-techniques",
-      "lesson-6-camera-shots-and-angles",
-      "lesson-7-mise-en-scene",
-      "lesson-8-composition-and-camera-movement",
-      "lesson-9-sound-in-film",
+      "lesson-4-film-study-introduction",
+      "lesson-5-a-brief-history-of-film",
+      "lesson-6-elements-of-film",
+      "lesson-7-elements-of-film-continued",
+      "lesson-8-editing-and-transitions",
+      "lesson-9-film-shots-and-angles",
+      "lesson-10-examining-mise-en-scene",
+      "lesson-11-camera-movement-in-film-and-video",
+      "lesson-12-sound-in-film",
+      "critical-writing",
+      "critical-writing-topic-thesis",
+      "critical-writing-introduction",
+      "critical-writing-body-beginning",
+      "critical-writing-body-middle",
+      "critical-writing-body-end",
+      "critical-writing-conclusion-revision",
+      "viewing-guide",
+      "film-study-questions",
+      "film-room",
       "critical-essay",
       "critical-essay-topic-interpretation",
       "critical-essay-introduction",
@@ -46,25 +56,22 @@
       "critical-essay-preview",
       "personal-response",
       "personal-response-prompt-impression",
-      "personal-response-film-evidence",
+      "personal-response-text-evidence",
       "personal-response-knowledge-experience",
       "personal-response-form-perspective",
       "personal-response-response-plan",
       "personal-response-draft-revise",
       "personal-response-preview",
-      "viewing-guide",
-      "film-study-questions",
-      "film-room",
-      "resources",
-      "evidence-bank"
+      "evidence-bank",
+      "resources"
     ],
     "hintRoutes": [],
     "printRoutes": [],
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-feature-film:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-feature-film:core-vocabulary:audience:definition",
+        "collectionId": "ela30-1-feature-film:core-vocabulary:audience:collection",
+        "responseId": "ela30-1-feature-film:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],

@@ -1,6 +1,6 @@
 {
   "$schema": "../../../e2e/project-e2e-contract.schema.json",
-  "projectSlug": "ela20-1-feature-film",
+  "projectSlug": "ela20-2-feature-film",
   "requiredTestIds": [
     "studio-shell",
     "course-studio-tab",
@@ -16,7 +16,7 @@
   },
   "quiz": {
     "enabled": false,
-    "lessonTitle": "Film Study Questions"
+    "lessonTitle": "Course questions"
   },
   "fallbackPanel": {
     "enabled": false
@@ -36,17 +36,17 @@
       "lesson-7-mise-en-scene",
       "lesson-8-composition-and-camera-movement",
       "lesson-9-sound-in-film",
-      "critical-essay",
-      "critical-essay-topic-interpretation",
-      "critical-essay-introduction",
-      "critical-essay-body-one",
-      "critical-essay-body-two",
-      "critical-essay-body-three",
-      "critical-essay-conclusion-revision",
-      "critical-essay-preview",
+      "literary-exploration",
+      "literary-exploration-prompt-controlling-idea",
+      "literary-exploration-introduction-thesis",
+      "literary-exploration-body-assigned-text",
+      "literary-exploration-body-studied-work",
+      "literary-exploration-body-personal-connection",
+      "literary-exploration-conclusion-revision",
+      "literary-exploration-preview",
       "personal-response",
       "personal-response-prompt-impression",
-      "personal-response-film-evidence",
+      "personal-response-text-evidence",
       "personal-response-knowledge-experience",
       "personal-response-form-perspective",
       "personal-response-response-plan",
@@ -55,16 +55,16 @@
       "viewing-guide",
       "film-study-questions",
       "film-room",
-      "resources",
-      "evidence-bank"
+      "evidence-bank",
+      "materials"
     ],
     "hintRoutes": [],
     "printRoutes": [],
     "evidenceScenarios": [
       {
         "route": "core-vocabulary",
-        "collectionId": "ela20-1-feature-film:core-vocabulary:audience:collection",
-        "responseId": "ela20-1-feature-film:core-vocabulary:audience:definition",
+        "collectionId": "ela20-2-feature-film:core-vocabulary:audience:collection",
+        "responseId": "ela20-2-feature-film:core-vocabulary:audience:definition",
         "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
       }
     ],
