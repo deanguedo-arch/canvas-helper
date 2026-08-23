@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-short-stories-introduction",
       "lesson-2-lesson-1-characters-and-characterization",
@@ -90,6 +91,12 @@
       "evidence-bank"
     ],
     "evidenceScenarios": [
+      {
+        "route": "core-vocabulary",
+        "collectionId": "ela20-2-short-stories:core-vocabulary:audience:collection",
+        "responseId": "ela20-2-short-stories:core-vocabulary:audience:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
+      },
       {
         "route": "literary-exploration-prompt-controlling-idea",
         "collectionId": "ela20-2-short-stories:literary-exploration:lamp-at-noon:prompt-controlling-idea:collection",
@@ -188,7 +195,8 @@
         "story-questions",
         "writing-studio",
         "story-bank",
-        "evidence-bank"
+        "evidence-bank",
+        "core-vocabulary"
       ]
     }
   }

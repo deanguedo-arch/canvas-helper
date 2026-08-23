@@ -2378,13 +2378,13 @@ html.has-shakespeare-reader-open { overflow: hidden; }
     <p class="course-kicker">Core vocabulary</p>
     <h2>Language for Reading and Responding</h2>
     <p class="core-vocabulary-intro">Use these concept clusters while you read, discuss, and write about the five course texts. Choose a concept, study its word structure and course connection, then build a Frayer entry in your own words. Your fields save locally; nothing enters the Evidence Bank until you choose to collect it.</p>
-    <div class="core-vocabulary-shell" data-core-vocabulary>
+    <div class="core-vocabulary-shell" data-core-vocabulary data-core-vocabulary-project="ela10-1-short-stories" data-core-vocabulary-count="45" data-core-vocabulary-family="short-fiction">
       <aside class="core-vocabulary-browser" aria-label="Core vocabulary concepts">
         <label for="core-vocabulary-search">Search concepts and related terms
           <input id="core-vocabulary-search" type="search" data-core-vocabulary-search placeholder="Try theme, climax, or metaphor">
         </label>
         <label class="core-vocabulary-filter" for="core-vocabulary-category">Category
-          <select id="core-vocabulary-category" data-core-vocabulary-category>
+          <select id="core-vocabulary-category" data-core-vocabulary-category-filter>
             <option value="">All categories</option>
             <option value="reading-responding">Reading and responding</option>
             <option value="story-form-structure">Story form and structure</option>
@@ -8406,7 +8406,7 @@ updateComplete();
   const panels = Array.from(root.querySelectorAll("[data-core-vocabulary-panel]"));
   const groups = Array.from(root.querySelectorAll("[data-core-vocabulary-group]"));
   const search = root.querySelector("[data-core-vocabulary-search]");
-  const category = root.querySelector("[data-core-vocabulary-category]");
+  const category = root.querySelector("[data-core-vocabulary-category-filter]");
   const mobileSelect = root.querySelector("[data-core-vocabulary-select]");
   const empty = root.querySelector("[data-core-vocabulary-empty]");
   let activeId = buttons.find(function(button){ return button.getAttribute("aria-selected") === "true"; })?.getAttribute("data-core-vocabulary-term") || buttons[0]?.getAttribute("data-core-vocabulary-term") || "";

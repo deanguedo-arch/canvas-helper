@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-what-do-good-readers-do",
       "lesson-5-storytelling",
@@ -90,6 +91,12 @@
       "evidence-bank"
     ],
     "evidenceScenarios": [
+      {
+        "route": "core-vocabulary",
+        "collectionId": "ela10-2-short-stories:core-vocabulary:audience:collection",
+        "responseId": "ela10-2-short-stories:core-vocabulary:audience:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
+      },
       {
         "route": "literary-exploration-prompt-controlling-idea",
         "collectionId": "ela10-2-short-stories:literary-exploration:cask-of-amontillado:prompt-controlling-idea:collection",
@@ -188,7 +195,8 @@
         "story-questions",
         "writing-studio",
         "story-bank",
-        "evidence-bank"
+        "evidence-bank",
+        "core-vocabulary"
       ]
     }
   }

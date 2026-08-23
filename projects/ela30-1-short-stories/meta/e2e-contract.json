@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "short-stories-introduction",
       "lesson-1-characters-and-characterization",
@@ -36,8 +37,6 @@
       "story-questions",
       "writing",
       "film-room",
-      "evidence-bank",
-      "resources",
       "critical-essay",
       "critical-essay-topic-interpretation",
       "critical-essay-introduction",
@@ -53,7 +52,9 @@
       "personal-response-form-perspective",
       "personal-response-response-plan",
       "personal-response-draft-revise",
-      "personal-response-preview"
+      "personal-response-preview",
+      "evidence-bank",
+      "resources"
     ],
     "hintRoutes": [
       "story-questions",
@@ -89,6 +90,12 @@
       "personal-response-preview"
     ],
     "evidenceScenarios": [
+      {
+        "route": "core-vocabulary",
+        "collectionId": "ela30-1-short-stories:core-vocabulary:audience:collection",
+        "responseId": "ela30-1-short-stories:core-vocabulary:audience:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
+      },
       {
         "kind": "collection",
         "route": "story-questions",
@@ -129,7 +136,8 @@
         "evidence-bank",
         "resources",
         "critical-essay-topic-interpretation",
-        "personal-response-prompt-impression"
+        "personal-response-prompt-impression",
+        "core-vocabulary"
       ]
     }
   }

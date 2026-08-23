@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-short-stories-introduction",
       "lesson-2-lesson-1-characters-and-characterization",
@@ -112,6 +113,12 @@
       "evidence-bank"
     ],
     "evidenceScenarios": [
+      {
+        "route": "core-vocabulary",
+        "collectionId": "ela30-2-short-stories-visual-literacy:core-vocabulary:audience:collection",
+        "responseId": "ela30-2-short-stories-visual-literacy:core-vocabulary:audience:definition",
+        "activateSelector": "[data-core-vocabulary-term=\"audience\"]"
+      },
       {
         "route": "literary-exploration-prompt-controlling-idea",
         "collectionId": "ela30-2-short-stories-visual-literacy:literary-exploration:god-is-not-a-fish-inspector:prompt-controlling-idea:collection",
@@ -202,7 +209,8 @@
         "story-questions",
         "writing-studio",
         "story-bank",
-        "evidence-bank"
+        "evidence-bank",
+        "core-vocabulary"
       ]
     }
   }

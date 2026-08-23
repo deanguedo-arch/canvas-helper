@@ -1,3 +1,6 @@
+<!-- canvas-helper:legacy-snapshot-source-boundary -->
+> Source-of-truth safeguard: this project is a preserved `legacy-snapshot-v1` course. Edit `workspace/index.html` directly. Historical English factory or rebuild commands below are reference-only and must not be run against this workspace.
+
 # ELA 30-2 Short Stories and Visual Literacy Prompt Pack
 
 - Mode: DEFAULT
