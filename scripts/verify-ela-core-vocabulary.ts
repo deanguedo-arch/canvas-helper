@@ -415,6 +415,20 @@ for (const [slug, expectation] of Object.entries(courses)) {
   if (Number.isFinite(totalLessons) && progressIds && totalLessons !== progressIds.length) {
     fail(`${slug}: totalLessons ${totalLessons} does not match ${progressIds.length} progress items.`);
   }
+  if (progressIds) {
+    $routes("[data-progress-count], [data-progress-count-inline]").each((_, element) => {
+      const initialProgress = $routes(element).text().match(/\b\d+\s*\/\s*(\d+)\b/);
+      if (initialProgress && Number(initialProgress[1]) !== progressIds.length) {
+        fail(`${slug}: initial progress total ${initialProgress[1]} does not match ${progressIds.length} progress items.`);
+      }
+    });
+    $routes(".completed-pill").each((_, element) => {
+      const courseTotal = $routes(element).text().match(/\b(\d+)\s+course lessons\b/i);
+      if (courseTotal && Number(courseTotal[1]) !== progressIds.length) {
+        fail(`${slug}: displayed course total ${courseTotal[1]} does not match ${progressIds.length} progress items.`);
+      }
+    });
+  }
   const evidenceScenarios = contract.learnerCourse.evidenceScenarios ?? (contract.learnerCourse.evidenceScenario ? [contract.learnerCourse.evidenceScenario] : []);
   if (!evidenceScenarios.some((scenario: { route?: string; collectionId?: string; responseId?: string }) => {
     if (scenario.route !== "core-vocabulary") return false;
