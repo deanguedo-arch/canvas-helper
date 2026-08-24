@@ -6832,7 +6832,7 @@ html.has-shakespeare-reader-open { overflow: hidden; }
 </main>
 <script>
 const lessonIds = ["lesson-1-what-do-good-readers-do","lesson-5-storytelling","lesson-6-reading-short-stories","lesson-7-short-story-terms","lesson-13-writing-a-short-story-analysis","lesson-14-literary-terms-review"];
-const completionIds = ["lesson-1-what-do-good-readers-do","lesson-2-reading-strategies","lesson-3-literary-devices","lesson-4-annotating-readings","lesson-5-storytelling","lesson-6-reading-short-stories","lesson-7-short-story-terms","lesson-8-characters","lesson-9-setting","lesson-10-endings","lesson-11-conflict","lesson-12-point-of-view","lesson-13-writing-a-short-story-analysis","lesson-14-literary-terms-review"];
+const completionIds = ["lesson-1-what-do-good-readers-do","lesson-3-literary-devices","lesson-4-annotating-readings","lesson-5-storytelling","lesson-6-reading-short-stories","lesson-7-short-story-terms","lesson-8-characters","lesson-9-setting","lesson-10-endings","lesson-11-conflict","lesson-12-point-of-view","lesson-13-writing-a-short-story-analysis","lesson-14-literary-terms-review"];
 const completionLabel = "lessons";
 const pageIds = ["overview","core-vocabulary","lessons","lesson-1-what-do-good-readers-do","lesson-5-storytelling","lesson-6-reading-short-stories","lesson-7-short-story-terms","lesson-13-writing-a-short-story-analysis","lesson-14-literary-terms-review","critical-essay","critical-essay-topic-interpretation","critical-essay-introduction","critical-essay-body-one","critical-essay-body-two","critical-essay-body-three","critical-essay-conclusion-revision","critical-essay-preview","personal-response","personal-response-prompt-impression","personal-response-text-evidence","personal-response-knowledge-experience","personal-response-form-perspective","personal-response-response-plan","personal-response-draft-revise","personal-response-preview","story-bank","story-questions","writing-studio","evidence-bank","resources"];
 const navGroupIdsByPage = {"critical-essay":"critical-essay","critical-essay-topic-interpretation":"critical-essay","critical-essay-introduction":"critical-essay","critical-essay-body-one":"critical-essay","critical-essay-body-two":"critical-essay","critical-essay-body-three":"critical-essay","critical-essay-conclusion-revision":"critical-essay","critical-essay-preview":"critical-essay","personal-response":"personal-response","personal-response-prompt-impression":"personal-response","personal-response-text-evidence":"personal-response","personal-response-knowledge-experience":"personal-response","personal-response-form-perspective":"personal-response","personal-response-response-plan":"personal-response","personal-response-draft-revise":"personal-response","personal-response-preview":"personal-response"};
@@ -8404,6 +8404,23 @@ updateComplete();
   if(!root) return;
   const buttons = Array.from(root.querySelectorAll("[data-core-vocabulary-term]"));
   const panels = Array.from(root.querySelectorAll("[data-core-vocabulary-panel]"));
+  const frayerFields = new Set(["definition", "characteristics", "example", "non-example"]);
+  panels.forEach(function(panel){
+    const conceptId = panel.getAttribute("data-core-vocabulary-panel") || "";
+    const termButton = buttons.find(function(button){ return button.getAttribute("data-core-vocabulary-term") === conceptId; });
+    const conceptTitle = panel.querySelector(".core-vocabulary-panel-header h3")?.textContent?.trim() || termButton?.textContent?.trim() || conceptId;
+    const categoryTitle = panel.querySelector(".core-vocabulary-category")?.textContent?.trim() || "Core Vocabulary";
+    const categoryId = termButton?.getAttribute("data-core-vocabulary-category-id") || "";
+    panel.setAttribute("data-core-vocabulary-concept-title", conceptTitle);
+    panel.setAttribute("data-core-vocabulary-category", categoryTitle);
+    if(categoryId) panel.setAttribute("data-core-vocabulary-category-id", categoryId);
+    panel.querySelectorAll("textarea[data-response-id]").forEach(function(field){
+      const fieldId = String(field.getAttribute("data-response-id") || "").split(":").pop() || "";
+      if(frayerFields.has(fieldId)) field.setAttribute("data-core-vocabulary-field", fieldId);
+    });
+    panel.querySelector("details.core-vocabulary-model")?.setAttribute("data-core-vocabulary-model", "");
+    panel.querySelector("[data-save-response-collection]")?.setAttribute("data-core-vocabulary-save", "");
+  });
   const groups = Array.from(root.querySelectorAll("[data-core-vocabulary-group]"));
   const search = root.querySelector("[data-core-vocabulary-search]");
   const category = root.querySelector("[data-core-vocabulary-category-filter]");

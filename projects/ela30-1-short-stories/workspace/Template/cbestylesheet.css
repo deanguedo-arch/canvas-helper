@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css?family=Lato');
+
+/* Snapshot adaptation: an inactive legacy block that referenced an unavailable icon was removed. */
+
+/***********General Styles************/
+
+html{
+	font-family: 'Lato', sans-serif;
+}
+
+body{
+	font-family: Lato, sans-serif;
+	text-align: left;
+}
+/*------Columns------*/
+
+.column2flex {
+  float: left;
+  flex: 50%;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display:table;
+  clear: both;
+}
+
+/*------Table------*/
+
+.DataTable { /*create tables for data with blue headers*/
+	border: 1px solid #494C4E;
+	margin: auto;
+	border-collapse: separate;
+	border-spacing: 0;
+	border-radius: 11px;
+}
+
+.DataTable th {
+	background-color: #006FBF;
+	font-weight: bold;
+	padding-top: 12px;
+	padding-bottom: 12px;
+	color: #ffffff;
+}
+
+.DataTable td, .DataTable th {
+	border: 1px solid #494C4E;
+	padding: 8px;
+}
+
+.DataTable td {
+	color: #494C4E;
+}
+
+.DataTable tr:nth-child(odd) {background-color: #F2F3F5;} /*Striped row color*/
+
+.DataTable tr:hover {background-color: #D3D9E3;} /*Hover color for rows*/
+
+.DataTable tr:first-child th:first-child {border-top-left-radius: 10px;}
+
+.DataTable tr:first-child th:last-child {border-top-right-radius: 10px;}
+
+.DataTable tr:last-child td:first-child {border-bottom-left-radius: 10px;}
+
+.DataTable tr:last-child td:last-child {border-bottom-right-radius: 10px;}
+
+/*------HEADER & FOOTER ------*/
+
+#header {
+	background: #006FBF; /*Change the header background color here */
+	padding: 10px;
+	border-radius: 10px;
+}
+
+#header h1 {
+	color: #fff;
+	font-size: 2.5em;
+	font-weight: normal;
+	text-align: left;
+}
+
+#footer{
+    color: #FFFFFF;
+	text-align: center;
+	padding: 10px;
+	font-size: 0.8em;
+	background-color: #006FBF;
+	border-radius: 10px;
+}
+
+/*------FORMATTING ------*/
+p {
+	line-height:1.4em;
+	color:#494C4E;
+}
+
+a {
+	text-decoration:none;
+	color: #006FBF;
+}
+
+a:hover{
+	color:#006FBF;
+	border-bottom:1px solid #006FBF;
+}
+
+
+h2{
+	color: #494C4E;
+	font-weight: bold;
+	padding-top: 12px;
+	padding-bottom: 5px;
+}
+
+h3{
+	color: #494C4E;
+	font-size: 1.2em;
+	font-weight: bold;
+	padding-top: 12px;
+	padding-bottom: 5px;
+}
+
+h4{ /*used for definition or example boxes in lesson content*/
+	color: #494C4E;
+	font-style: italic;
+	font-weight: bold;
+	margin: 0;
+}
+
+ul li { /*adds spacing to bullet lists*/
+	margin: 6px;
+	color: #494C4E;
+	line-height: 1.4em;
+}
+
+ol li { /*adds spacing to numbered lists*/
+	margin: 6px;
+	color: #494C4E;
+	line-height: 1.4em;
+}
+
+.CentreAlign { /*horizontally centre any text or image*/
+	text-align:center;
+}
+
+.VertAlignTop { /*vertically align any text or image to the top*/
+	vertical-align:text-top;
+}
+
+.VertAlignMiddle { /*vertically align any text or image to the middle*/
+	vertical-align: middle;
+}
+
+.BlackBorder { /*add a black border to any image or text*/
+	border: 1px solid #494C4E;
+}
+
+.Example { /*adds a black border and padding to example boxes in lesson content*/
+	border: 1px solid #494C4E;
+	padding: 5px;
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+
+.Definition { /*adds a black border, padding and a background colour to definitions in lesson content*/
+	background-color: #FAE1E2;
+	margin: 20px 30px 20px 30px;
+	padding: 5px;
+	border-radius: 10px;
+}
+
+.Indent {
+    padding: 0px 0px 0px 25px;
+	margin-bottom: 0.75em;
+	margin-top: 0.75em;
+}
+/*------TEXT WRAPPING ------*/
+
+.TextWrapLeft { /*place text on the left of an image and wrap it*/
+	float: right;
+	margin: 10px;
+}
+
+.TextWrapRight { /*place text on the right of an image and wrap it*/
+	float: left;
+	margin: 10px;
+}
+
+.text_line { /*stop text wrapping around image*/
+    clear: both;
+    margin-bottom: 2px;
+}
+
+/*------IMAGES ------*/
+
+img.Rounded { /*rounded image edges*/
+	border-radius: 10px;
+}
+
+img.RoundedBorder { /*rounded borders for an image*/
+	border: 1px solid #ddd;
+    border-radius: 10px;
+    padding: 5px;
+    width: 150px;
+}
+
+figure { /*use this with figcaption to put caption below image and wrap text around both*/
+    display: table;
+    width: 1px;
+}
+
+figcaption {
+	display: block;
+	font-size: 0.7em;
+}
+
+/*------FEATURE BOXES------*/
+#internet{
+	border: 4px solid #A5FABD;
+	padding: 0 5px 5px 7px;
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+
+#textbook{
+	border: 4px solid #00BDDD;
+	padding: 0 5px 5px 7px;
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+
+#quiz{
+	border: 4px solid #AFA1FF;
+	padding: 0 5px 5px 7px;
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+
+#review{
+	border: 4px solid #D3D9E3;
+	padding: 0 5px 5px 7px;
+	margin: 20px 0px 20px 0px;
+	border-radius: 10px;
+}
+
+h2.InternetHeader{
+	margin: 0;
+	padding: 0 9px 5px 9px;
+	background-color: #A5FABD;
+	border-radius: 0 0 10px 10px;
+	display: inline;
+}
+
+h2.TextbookHeader{
+	margin: 0;
+	padding: 0 9px 5px 9px;
+	background-color: #00BDDD;
+	border-radius: 0 0 10px 10px;
+	display: inline;
+}
+
+h2.QuizHeader{
+	margin: 0;
+	padding: 0 9px 5px 9px;
+	background-color: #AFA1FF;
+	border-radius: 0 0 10px 10px;
+	display: inline;
+}
+
+h2.ReviewHeader{
+	margin: 0;
+	padding: 0 9px 5px 9px;
+	background-color: #D3D9E3;
+	border-radius: 0 0 10px 10px;
+	display: inline;
+}
