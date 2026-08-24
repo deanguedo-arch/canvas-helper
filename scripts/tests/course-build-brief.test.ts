@@ -8,15 +8,41 @@ import {
   type CourseDoctorReport
 } from "../lib/course-authoring/context.ts";
 
-test("course build brief keeps direct, factory, snapshot, and proposal-only routes distinct", async () => {
-  const [directReport, factoryReport, snapshotReport] = await Promise.all([
+test("course build brief keeps direct, English factory, legacy snapshot, Social snapshot, and proposal-only routes distinct", async () => {
+  const [directReport, englishSnapshotReport, socialSnapshotReport] = await Promise.all([
     inspectCourseAuthoringProject("forensics35"),
     inspectCourseAuthoringProject("ela20-1-modern-play-crucible"),
     inspectCourseAuthoringProject("social10-1-related-issue-1-option-2")
   ]);
   const direct = buildCourseBuildBrief(directReport);
-  const factory = buildCourseBuildBrief(factoryReport);
-  const snapshot = buildCourseBuildBrief(snapshotReport);
+  const englishSnapshot = buildCourseBuildBrief(englishSnapshotReport);
+  const socialSnapshot = buildCourseBuildBrief(socialSnapshotReport);
+  const englishFactory = buildCourseBuildBrief({
+    slug: "english-factory-fixture",
+    status: "pass",
+    issues: [],
+    normalizedLegacyPathCount: 0,
+    project: {
+      slug: "english-factory-fixture",
+      driverId: "english-factory-v1",
+      driverSource: "declared",
+      authoringMode: "factory",
+      canonicalSources: [{
+        kind: "file",
+        repoRelative: "projects/english-factory-fixture/meta/english-unit.json",
+        exists: true
+      }],
+      editableSources: [{
+        kind: "file",
+        repoRelative: "projects/english-factory-fixture/meta/english-unit.json",
+        exists: true
+      }],
+      protectedPaths: [],
+      sharedSources: [],
+      regenerateCommand: "npm run build:english-unit -- --project english-factory-fixture",
+      studioEditing: { enabled: false, renameCourse: false, imageAssets: false }
+    }
+  } satisfies CourseDoctorReport);
   const proposal = buildCourseBuildBrief({
     slug: "proposal-fixture",
     status: "pass",
@@ -40,16 +66,25 @@ test("course build brief keeps direct, factory, snapshot, and proposal-only rout
   assert.ok(direct.editableSources.includes("projects/forensics35/workspace/index.html"));
   assert.equal(direct.generatedOutput, false);
 
-  assert.equal(factory.status, "ready");
-  assert.equal(factory.mode, "factory");
-  assert.equal(factory.generatedOutput, true);
-  assert.ok(factory.editableSources.includes("projects/ela20-1-modern-play-crucible/meta/english-unit.json"));
+  assert.equal(englishFactory.status, "ready");
+  assert.equal(englishFactory.mode, "factory");
+  assert.equal(englishFactory.driver, "english-factory-v1");
+  assert.equal(englishFactory.generatedOutput, true);
+  assert.deepEqual(englishFactory.editableSources, ["projects/english-factory-fixture/meta/english-unit.json"]);
+  assert.equal(englishFactory.rebuildCommand, "npm run build:english-unit -- --project english-factory-fixture");
 
-  assert.equal(snapshot.status, "ready");
-  assert.equal(snapshot.mode, "factory");
-  assert.equal(snapshot.driver, "legacy-snapshot-v1");
-  assert.equal(snapshot.generatedOutput, true);
-  assert.ok(snapshot.editableSources.includes("projects/social10-1-related-issue-1-option-2/meta/studio-edits.json"));
+  assert.equal(englishSnapshot.status, "ready");
+  assert.equal(englishSnapshot.mode, "factory");
+  assert.equal(englishSnapshot.driver, "legacy-snapshot-v1");
+  assert.equal(englishSnapshot.generatedOutput, true);
+  assert.equal(englishSnapshot.rebuildCommand, null);
+  assert.ok(englishSnapshot.editableSources.includes("projects/ela20-1-modern-play-crucible/meta/studio-edits.json"));
+
+  assert.equal(socialSnapshot.status, "ready");
+  assert.equal(socialSnapshot.mode, "factory");
+  assert.equal(socialSnapshot.driver, "legacy-snapshot-v1");
+  assert.equal(socialSnapshot.generatedOutput, true);
+  assert.ok(socialSnapshot.editableSources.includes("projects/social10-1-related-issue-1-option-2/meta/studio-edits.json"));
 
   assert.equal(proposal.status, "proposal-only");
   assert.equal(proposal.mode, "proposal-only");

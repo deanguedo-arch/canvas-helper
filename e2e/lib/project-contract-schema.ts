@@ -158,10 +158,19 @@ const LearnerAccessNoticeCheckSchema = z
   })
   .strict();
 
+const LearnerLinkedPageCheckSchema = z
+  .object({
+    route: LearnerRouteId,
+    kind: z.literal("linked-page"),
+    href: NonEmptyString
+  })
+  .strict();
+
 const LearnerResourceCheckSchema = z.discriminatedUnion("kind", [
   LearnerDocumentReaderCheckSchema,
   LearnerMediaCheckSchema,
-  LearnerAccessNoticeCheckSchema
+  LearnerAccessNoticeCheckSchema,
+  LearnerLinkedPageCheckSchema
 ]);
 
 const LearnerMobileSchema = z

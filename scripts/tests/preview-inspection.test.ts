@@ -66,17 +66,17 @@ test("Social provenance never recommends its generated workspace HTML as an edit
   assert.equal(resolution.sourceExcerpt, null);
 });
 
-test("English provenance routes generated workspace selections to the recipe and rebuild flow", async () => {
+test("English legacy snapshot provenance keeps the preserved workspace as the bounded source target", async () => {
   const slug = "ela20-1-modern-play-crucible";
   const { nodeId, previewFilePath } = await firstSourceNode(slug);
   const resolution = await resolvePreviewInspection(requestFor(slug, nodeId), previewFilePath);
 
   assert.equal(resolution.resolution, "bounded");
   assert.equal(resolution.generated, true);
-  assert.equal(resolution.primaryEditTarget, `projects/${slug}/meta/english-unit.json`);
+  assert.equal(resolution.primaryEditTarget, `projects/${slug}/workspace/index.html`);
   assert.equal(resolution.primaryEditLine, null);
-  assert.notEqual(resolution.primaryEditTarget, `projects/${slug}/workspace/index.html`);
-  assert.equal(resolution.rebuildCommand, `npm run build:english-unit -- --project ${slug}`);
+  assert.equal(resolution.rebuildCommand, null);
+  assert.match(resolution.warnings.join(" "), /preserved legacy snapshot/i);
   assert.equal(resolution.sourceExcerpt, null);
 });
 

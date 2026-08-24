@@ -104,6 +104,31 @@ async function assertLearnerNavigation(page: Page, workspaceFrame: FrameLocator,
   }
 }
 
+async function assertLearnerCompletionReachesTotal(workspaceFrame: FrameLocator) {
+  const completionControls = workspaceFrame.locator("[data-complete-id]");
+  const completionIds = await completionControls.evaluateAll((controls) => [
+    ...new Set(controls.map((control) => control.getAttribute("data-complete-id") ?? "").filter(Boolean))
+  ]);
+  if (completionIds.length === 0) return;
+
+  await completionControls.evaluateAll((controls) => {
+    const activated = new Set<string>();
+    controls.forEach((control) => {
+      const completionId = control.getAttribute("data-complete-id") ?? "";
+      if (!completionId || activated.has(completionId)) return;
+      activated.add(completionId);
+      (control as HTMLElement).click();
+    });
+  });
+
+  const progress = workspaceFrame.locator(".top-progress-shell");
+  await expect
+    .poll(() => progress.innerText(), {
+      message: `course completion reaches ${completionIds.length} / ${completionIds.length}`
+    })
+    .toMatch(new RegExp(`${completionIds.length}\\s*\\/\\s*${completionIds.length}`));
+}
+
 async function assertHintRoutes(workspaceFrame: FrameLocator, learnerCourse: EnabledLearnerCourse) {
   for (const route of learnerCourse.hintRoutes) {
     const section = await showLearnerRoute(workspaceFrame, route);
@@ -184,6 +209,37 @@ async function assertPrintRoutes(workspaceFrame: FrameLocator, learnerCourse: En
 async function assertResourceChecks(workspaceFrame: FrameLocator, learnerCourse: EnabledLearnerCourse) {
   for (const check of learnerCourse.resourceChecks) {
     const section = await showLearnerRoute(workspaceFrame, check.route);
+
+    if (check.kind === "linked-page") {
+      const link = section.locator(`a[href="${check.href}"]`).first();
+      await expect(link, `linked learner page ${check.href} exists on #${check.route}`).toHaveCount(1);
+      const result = await link.evaluate(async (node) => {
+        const href = node.getAttribute("href") ?? "";
+        const pageUrl = new URL(href, document.baseURI);
+        const pageResponse = await fetch(pageUrl);
+        const markup = await pageResponse.text();
+        const parsed = new DOMParser().parseFromString(markup, "text/html");
+        const dependencyUrls = Array.from(parsed.querySelectorAll<HTMLElement>("link[href], script[src], img[src]"))
+          .map((dependency) => dependency.getAttribute("href") ?? dependency.getAttribute("src") ?? "")
+          .filter(Boolean)
+          .map((dependency) => new URL(dependency, pageUrl))
+          .filter((dependency) => dependency.origin === pageUrl.origin);
+        const dependencyStatuses = await Promise.all(dependencyUrls.map(async (dependency) => ({
+          url: dependency.pathname,
+          status: (await fetch(dependency)).status
+        })));
+        return {
+          pageStatus: pageResponse.status,
+          dependencyStatuses
+        };
+      });
+      expect(result.pageStatus, `${check.href} loads in the scoped preview`).toBeLessThan(400);
+      expect(
+        result.dependencyStatuses.filter((dependency) => dependency.status >= 400),
+        `${check.href} has no failed local page dependencies`
+      ).toEqual([]);
+      continue;
+    }
 
     if (check.kind === "access-notice") {
       await expect(
@@ -280,14 +336,27 @@ async function assertCoreVocabularySurface(workspaceFrame: FrameLocator, project
     await expect(selector, `${record.title} selector becomes active`).toHaveAttribute("aria-selected", "true");
     const panel = root.locator(`[data-core-vocabulary-panel="${record.id}"]`);
     await expect(panel, `${record.title} panel is visible`).toBeVisible();
+    await expect(panel, `${record.title} declares its concept title`).toHaveAttribute("data-core-vocabulary-concept-title", /\S/u);
+    await expect(panel, `${record.title} declares its category`).toHaveAttribute("data-core-vocabulary-category", /\S/u);
+    await expect(panel, `${record.title} keeps its selector category ID`).toHaveAttribute("data-core-vocabulary-category-id", record.categoryId);
     await expect(panel.locator("[data-core-vocabulary-source]"), `${record.title} has one source selector`).toHaveCount(1);
     await expect(panel.locator("[data-evidence-question-number] [data-response-id]"), `${record.title} has four Frayer fields`).toHaveCount(4);
+    await expect(panel.locator("[data-core-vocabulary-field]"), `${record.title} exposes all four Frayer field hooks`).toHaveCount(4);
+    await expect(panel.locator("[data-core-vocabulary-model]"), `${record.title} exposes its course-model hook`).toHaveCount(1);
+    await expect(panel.locator("[data-core-vocabulary-save]"), `${record.title} exposes its collection hook`).toHaveCount(1);
     const responseIds = await panel.locator("[data-evidence-question-number] [data-response-id]").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("data-response-id")));
     expect(responseIds, `${record.title} uses the complete Frayer response contract`).toEqual([
       `${projectSlug}:core-vocabulary:${record.id}:definition`,
       `${projectSlug}:core-vocabulary:${record.id}:characteristics`,
       `${projectSlug}:core-vocabulary:${record.id}:example`,
       `${projectSlug}:core-vocabulary:${record.id}:non-example`
+    ]);
+    const fieldIds = await panel.locator("[data-core-vocabulary-field]").evaluateAll((nodes) => nodes.map((node) => node.getAttribute("data-core-vocabulary-field")));
+    expect(fieldIds, `${record.title} exposes the complete Frayer field hook contract`).toEqual([
+      "definition",
+      "characteristics",
+      "example",
+      "non-example"
     ]);
   }
 
@@ -843,6 +912,7 @@ export async function assertLearnerCourseContract(
 
   const learnerCourse = contract.learnerCourse;
   await assertLearnerNavigation(page, workspaceFrame, learnerCourse);
+  await assertLearnerCompletionReachesTotal(workspaceFrame);
   if (learnerCourse.routes.includes("core-vocabulary")) {
     await assertCoreVocabularySurface(workspaceFrame, contract.projectSlug);
   }
