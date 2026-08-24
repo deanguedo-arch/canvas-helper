@@ -8444,3 +8444,15 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: `projects/ela10-1-short-stories/workspace/index.html`, with ownership and learner routes in `projects/ela10-1-short-stories/meta/project.json` and `meta/e2e-contract.json`; the historical English factory remained quarantined.
 - Preserved boundary: no pull request, merge, factory rebuild, SCORM export, or Brightspace upload occurred.
 - Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5176 --clearScreen false`.
+
+## Archived Active Handoff — 2026-08-23: all-ELA vocabulary and Evidence Bank rollout
+
+- Project: all 21 active `ela*` catalog projects.
+- Task: Extend the accepted ELA 10-1 Core Vocabulary and Evidence Bank tester across the active ELA catalog with source-specific inventories.
+- Status at archival time: implementation and initial validation were complete and pushed on `codex/all-ela-vocabulary-evidence-rollout`; superseded by the fine-tooth learner-defect repair handoff.
+- Rollback authority: accepted tester head `131fb195ee68c9171c2e10287c97ac90fe32bde7` and restored-snapshot checkpoint `e69444aaac631f3a507c86240955929b0a892c1e`.
+- Implementation result: 21 distinct inventories containing 959 concepts, four autosaving Frayer fields per concept, deliberate whole-entry Evidence Bank collection, complete route metadata, and project-level E2E contracts.
+- Verification at archival time: all 21 doctor/workspace checks, shared vocabulary verification, Studio build, smoke, harness, typecheck baseline, LFS integrity, and the original 21-project E2E matrix passed; later fine-tooth work repaired source-preserved defects and replaced this validation record.
+- Source of truth: each project remains `legacy-snapshot-v1`, with canonical learner content in `projects/<slug>/workspace/index.html` and contracts in `projects/<slug>/meta/project.json` plus `meta/e2e-contract.json`.
+- Preserved boundary: no English factory rebuild, pull request, merge, SCORM export, Brightspace upload, raw-source edit, or unrelated dirty-checkout change occurred.
+- Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5177 --strictPort --clearScreen false`.
