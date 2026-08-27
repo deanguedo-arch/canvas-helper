@@ -2,7 +2,7 @@
 
 - Project: consolidated Social and ELA course catalog
 - Task: make the accepted Social Option Two and ELA Core Vocabulary/Evidence Bank rollouts available from one daily Canvas Helper workspace.
-- Status: integration in progress on `codex/course-catalog-social-ela`. The clean ELA rollout (`4867dda8`) is the base; the accepted Social rollout is being merged without changing the preserved SCORM ZIP sources.
+- Status: consolidated and ready for daily Studio review on `codex/course-catalog-social-ela` at `32877134`. The clean ELA rollout (`4867dda8`) is the base; the accepted Social rollout is merged without changing the preserved SCORM ZIP sources.
 
 ## Summary
 
@@ -12,11 +12,13 @@
 - Included Social scope: Option Two Social 10-1, 20-1, and 30-1 vocabulary/Evidence Bank work from the accepted Social rollout.
 - Excluded scope: SCORM export, Brightspace upload, historical English/Social factory rebuilds, and unrelated Direct Editing experiments.
 
-## Verification / next work
+## Verification
 
-- Resolve the three integration conflicts by retaining both ELA and Social operational records and combining their E2E contracts.
-- Run the focused E2E contracts for representative Social and ELA courses, build Studio, and check the working tree before publishing.
-- Push this integration branch only after the validation passes, then launch Studio from this worktree as the daily catalog.
+- `npm run build:studio` passed.
+- `npm run test:e2e:project -- --project ela10-1-short-stories` passed.
+- `npm run test:e2e:project -- --project social20-1-related-issue-4-option-2` passed.
+- The integration initially exposed an ELA-only DOM assertion being applied to Social vocabulary. The shared assertion now limits that specialized contract to ELA while retaining Social's scoped-preview Evidence Bank checks.
+- `git diff --check` passed before the merge commit.
 
 ## Source of truth and safeguards
 
@@ -26,7 +28,7 @@
 
 ## Exact next command
 
-`npm run test:e2e:project -- --project ela10-1-short-stories`
+`npm run studio -- --host 127.0.0.1 --port 5177 --strictPort --clearScreen false`
 
 ## Exact next file to open
 
