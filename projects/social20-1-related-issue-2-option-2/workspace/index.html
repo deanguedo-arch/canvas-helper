@@ -1640,6 +1640,104 @@ body.sidebar-collapsed .course-frame {
   color: var(--ink);
   background: #fff;
 }
+
+.social-organized-evidence-bank {
+  margin-bottom: 24px;
+  min-height: 0;
+}
+.social-evidence-organization-note {
+  margin: 0 0 6px;
+  color: #40493B;
+  line-height: 1.55;
+}
+.social-evidence-origin-stack,
+.social-evidence-origin-items,
+.social-evidence-lesson-groups,
+.social-evidence-lesson-items {
+  display: grid;
+  gap: 14px;
+}
+.social-evidence-origin-stack { gap: 24px; }
+.social-evidence-origin-group {
+  display: grid;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid #DDE2DD;
+}
+.social-evidence-origin-group:first-child { padding-top: 0; border-top: 0; }
+.social-evidence-origin-header,
+.social-evidence-lesson-group-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.social-evidence-origin-header h4,
+.social-evidence-lesson-group-header h5 { margin: 0; color: #191C1C; }
+.social-evidence-origin-header h4 { font-size: 20px; }
+.social-evidence-origin-header p { margin: 4px 0 0; color: #40493B; line-height: 1.5; }
+.social-evidence-origin-count,
+.social-evidence-lesson-count {
+  flex: 0 0 auto;
+  color: #155608;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.social-evidence-lesson-group { display: grid; gap: 12px; }
+.social-evidence-lesson-group + .social-evidence-lesson-group { padding-top: 16px; border-top: 1px solid #ECEFEC; }
+.social-evidence-lesson-group-header h5 { font-size: 16px; line-height: 1.35; }
+.social-lesson-evidence-card {
+  display: grid;
+  gap: 8px;
+  padding: 16px;
+  border: 1px solid #DDE2DD;
+  border-left: 5px solid #155608;
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+.social-evidence-card-title { margin: 0; color: #191C1C; font-size: 19px; line-height: 1.3; }
+.social-lesson-evidence-card p { margin: 0; color: #40493B; white-space: pre-wrap; line-height: 1.55; }
+.social-lesson-evidence-meta { color: #155608; font-size: 14px; font-weight: 800; }
+.social-evidence-card-detail { display: grid; gap: 4px; }
+.social-evidence-card-actions { padding-top: 6px; }
+.core-vocabulary-practice { margin-top: 24px; }
+.core-vocabulary-term { gap: 18px; }
+.core-vocabulary-word-structure {
+  display: grid;
+  gap: 6px;
+  padding: 14px 16px;
+  border-top: 1px solid #DDE2DD;
+  border-bottom: 1px solid #DDE2DD;
+  background: #F4F6F0;
+}
+.core-vocabulary-word-structure h5 { margin: 0; color: #155608; font-size: 15px; }
+.core-vocabulary-word-structure p { margin: 0; }
+.core-vocabulary-parts { color: #191C1C; font-size: 18px; }
+.core-vocabulary-frayer { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; }
+.core-vocabulary-frayer label {
+  align-content: start;
+  padding: 14px;
+  border: 1px solid #DDE2DD;
+  border-radius: 8px;
+  background: #FFFFFF;
+}
+.core-vocabulary-frayer textarea { min-height: 132px; }
+.core-vocabulary-evidence-actions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding-top: 14px;
+  border-top: 1px solid #DDE2DD;
+}
+.core-vocabulary-evidence-actions [data-response-collection-status] { color: #40493B; font-size: 14px; }
+.core-vocabulary-evidence-actions .external-resource-action { flex: 0 0 auto; }
+.core-vocabulary-model { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 0 18px; margin: 0; padding: 0 14px 14px; }
+.core-vocabulary-model div { padding-top: 12px; border-top: 1px solid #E0D5B6; }
+.core-vocabulary-model dt { color: #155608; font-weight: 800; }
+.core-vocabulary-model dd { margin: 4px 0 0; color: #40493B; }
+
 @media (max-width: 900px) {
   .social-diploma-steps,
   .social-source-coach-steps,
@@ -1673,6 +1771,18 @@ body.sidebar-collapsed .course-frame {
   }
 }
 
+
+@media (max-width: 700px) {
+  .course-frame,
+  body.sidebar-collapsed .course-frame { width: min(100%, 900px); }
+  .core-vocabulary-frayer,
+  .core-vocabulary-model { grid-template-columns: 1fr; }
+  .core-vocabulary-evidence-actions { align-items: stretch; flex-direction: column; }
+  .core-vocabulary-evidence-actions .external-resource-action { width: 100%; }
+  .social-evidence-origin-header,
+  .social-evidence-lesson-group-header { flex-direction: column; gap: 4px; }
+}
+
 </style>
 </head>
 <body>
@@ -1704,6 +1814,10 @@ body.sidebar-collapsed .course-frame {
       <a class="course-nav-link active" href="#overview" data-page-target="overview">
         <span class="material-symbols-outlined" aria-hidden="true">dashboard</span>
         <span class="sidebar-label">Overview</span>
+      </a>
+      <a class="course-nav-link" href="#core-vocabulary" data-page-target="core-vocabulary">
+        <span class="material-symbols-outlined" aria-hidden="true">spellcheck</span>
+        <span class="sidebar-label">Core Vocabulary</span>
       </a>
       <div class="lessons-nav">
         <a class="course-nav-link lessons-toggle" href="#lessons" data-page-target="lessons" data-lessons-toggle aria-expanded="false" aria-controls="lesson-subnav">
@@ -1841,10 +1955,287 @@ body.sidebar-collapsed .course-frame {
     <div class="overview-actions" aria-label="Course status and actions">
       <span class="completed-pill"><strong data-progress-count-inline>0/55</strong> lessons complete</span>
       <span class="completed-pill">55 imported lessons</span>
+      <a class="external-resource-action" href="#core-vocabulary" data-page-target="core-vocabulary">Start Core Vocabulary</a>
       <a class="external-resource-action" href="#lesson-01" data-page-target="lesson-01">Open Lesson Frame</a>
     </div>
   </section>
-    <section id="lessons" class="course-page" hidden>
+      <section id="core-vocabulary" class="course-page social-page" hidden>
+    <p class="course-kicker">Issue 2 terminology</p>
+    <h2>Core Vocabulary</h2>
+    <p class="page-intro">These eight Tier 3 terms are drawn from <em>Exploring Nationalism</em> Chapters 4-8 and the Issue 2 lesson sequence. Use the word structure as a clue, complete the Frayer fields in your own words, and then compare your thinking with the course model.</p>
+    <section class="social-study-guide-practice core-vocabulary-practice" aria-label="Issue 2 core vocabulary practice">
+      <section class="social-study-guide-panel social-study-guide-selector" data-study-topic-scope aria-labelledby="core-vocabulary-title">
+        <div class="social-study-guide-selector-header">
+          <div>
+            <h3 id="core-vocabulary-title">Build one term at a time</h3>
+            <p>Select a term, study its parts, and complete all four Frayer sections. Your responses save automatically on this device.</p>
+          </div>
+          <label class="social-study-guide-select-label" for="core-vocabulary-select">
+            <span>Choose a term</span>
+            <select id="core-vocabulary-select" class="social-study-guide-select" data-study-topic-select="core-vocabulary">
+              <option value="national-interest" selected>National Interest</option>
+              <option value="ultranationalism">Ultranationalism</option>
+              <option value="foreign-policy">Foreign Policy</option>
+              <option value="imperialism">Imperialism</option>
+              <option value="militarism">Militarism</option>
+              <option value="self-determination">Self-determination</option>
+              <option value="appeasement">Appeasement</option>
+              <option value="genocide">Genocide</option>
+            </select>
+          </label>
+        </div>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="national-interest" data-canvas-helper-edit-key="core-vocabulary-national-interest" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:national-interest:collection">
+          <div>
+            <h4>National Interest</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="National Interest word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>nation</strong> + <strong>-al</strong> + <strong>interest</strong> (a goal or advantage)</p>
+            <p><strong>Course source:</strong> Chapters 4-8; What is National Interest? lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="National Interest Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:national-interest:definition" placeholder="Define National Interest in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:national-interest:characteristics" placeholder="List features that identify National Interest."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:national-interest:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:national-interest:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>National interest means the goals a country pursues to protect or advance its security, economic well-being, values, territory, power, or identity.</dd></div>
+              <div><dt>Characteristics</dt><dd>The key writing move is to judge extent: national interest may be legitimate, but it needs limits when it threatens human rights, peace, or other nations.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;How do nations pursue their national interests?&quot; and &quot;What is national interest?&quot;. Statements of intention are one thing but the best indicator of national interest is the way a nation state interacts with other nation states. National interest Like you, nations (actually, the governments of nations) have an idea about who they are and what they need to be content.</dd></div>
+              <div><dt>Non-example</dt><dd>A leader&#39;s private financial benefit is not automatically a national interest.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="ultranationalism" data-canvas-helper-edit-key="core-vocabulary-ultranationalism" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:ultranationalism:collection" hidden>
+          <div>
+            <h4>Ultranationalism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Ultranationalism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>ultra-</strong> (beyond or extreme) + <strong>nationalism</strong></p>
+            <p><strong>Course source:</strong> Chapters 6-7; Ultranationalism and Nazi Germany lessons.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Ultranationalism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:ultranationalism:definition" placeholder="Define Ultranationalism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:ultranationalism:characteristics" placeholder="List features that identify Ultranationalism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:ultranationalism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:ultranationalism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Ultranationalism is an extreme form of nationalism that places the nation above other groups, rights, or moral limits.</dd></div>
+              <div><dt>Characteristics</dt><dd>It is powerful evidence against unlimited pursuit of national interest because it shows how national pride can become aggression, scapegoating, or genocide.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Ultranationalism - Fascism in Germany and Italy&quot; and &quot;Ultranationalism - The Nazi Party Rise to Power&quot;. Ultranationalism: Extreme nationalism makes frequent use everywhere of nationalistic symbols such as slogans, songs, flags, images of patriots, propaganda. These posters are a direct reflection of how peoples’ emotions, fears, and prejudices were turned into extreme nationalism or ultranationalism.</dd></div>
+              <div><dt>Non-example</dt><dd>Ordinary pride that respects other nations&#39; rights is not ultranationalism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="foreign-policy" data-canvas-helper-edit-key="core-vocabulary-foreign-policy" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:foreign-policy:collection" hidden>
+          <div>
+            <h4>Foreign Policy</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Foreign Policy word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>foreign</strong> (outside the state) + <strong>policy</strong> (a planned course of action)</p>
+            <p><strong>Course source:</strong> Chapters 4-8; How Do Nations Pursue Their National Interests? lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Foreign Policy Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:foreign-policy:definition" placeholder="Define Foreign Policy in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:foreign-policy:characteristics" placeholder="List features that identify Foreign Policy."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:foreign-policy:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:foreign-policy:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Foreign policy is the set of decisions and actions a state uses in its relationships with other states and international actors.</dd></div>
+              <div><dt>Characteristics</dt><dd>In Social 20-1, foreign policy is a practical way national interest becomes action: alliance, appeasement, isolationism, interventionism, diplomacy, or war.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;How do nations pursue their national interests?&quot; and &quot;American Interventionism&quot;. Statements of intention are one thing but the best indicator of national interest is the way a nation state interacts with other nation states. A Tradition of American Interventionism Although the USA had operated under a policy of non-intervention in Europe, national interests in other areas began to present themselves in other ways.</dd></div>
+              <div><dt>Non-example</dt><dd>A city rule about local parking is domestic policy, not foreign policy.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="imperialism" data-canvas-helper-edit-key="core-vocabulary-imperialism" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:imperialism:collection" hidden>
+          <div>
+            <h4>Imperialism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Imperialism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>imperial</strong> (empire) + <strong>-ism</strong> (a system or practice)</p>
+            <p><strong>Course source:</strong> Chapter 5; Causes of World War I: Imperialism lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Imperialism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:imperialism:definition" placeholder="Define Imperialism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:imperialism:characteristics" placeholder="List features that identify Imperialism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:imperialism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:imperialism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Imperialism is the extension of power over other peoples or territories for political, economic, military, or cultural gain.</dd></div>
+              <div><dt>Characteristics</dt><dd>It connects to national interest because states may claim colonies, resources, markets, or prestige as benefits while ignoring the costs imposed on others.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Causes of World War I: Imperialism&quot; and &quot;Legacies of Imperialism - The Rise of African Nation-States&quot;. To explore the links between national interest, nationalism, imperialism and World War I, we will focus on European imperialism in Africa while keeping in mind that European powers had colonies on every continent. The borders created multi-national states in a continent of many peoples, languages, and cultures.</dd></div>
+              <div><dt>Non-example</dt><dd>Cooperation between equal sovereign states is not imperialism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="militarism" data-canvas-helper-edit-key="core-vocabulary-militarism" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:militarism:collection" hidden>
+          <div>
+            <h4>Militarism</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Militarism word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>military</strong> + <strong>-ism</strong> (a doctrine or practice)</p>
+            <p><strong>Course source:</strong> Chapter 5; Causes of World War I: Militarism lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Militarism Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:militarism:definition" placeholder="Define Militarism in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:militarism:characteristics" placeholder="List features that identify Militarism."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:militarism:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:militarism:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Militarism is the belief that military strength and readiness are central to national power and security.</dd></div>
+              <div><dt>Characteristics</dt><dd>It can intensify national interest when leaders treat arms, alliances, and military planning as proof of strength instead of asking whether conflict is justified.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;Causes of World War I: Militarism&quot; and &quot;How do nations pursue their national interests?&quot;. The changing balance of power led Britain to change its policy of isolation and to increase the size of the Navy and to seek military alliances. Some political leaders in Canada believe that supporting the USA in wartime is in Canada’s best interest because Canada benefits from the goodwill of the world’s most powerful military nation with whom we share national borders.</dd></div>
+              <div><dt>Non-example</dt><dd>Maintaining a small defensive service under civilian control is not necessarily militarism.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="self-determination" data-canvas-helper-edit-key="core-vocabulary-self-determination" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:self-determination:collection" hidden>
+          <div>
+            <h4>Self-determination</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Self-determination word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>self</strong> + <strong>determine</strong> (decide) + <strong>-ation</strong> (a process)</p>
+            <p><strong>Course source:</strong> Chapter 8; National Self-Determination and Decolonization lessons.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Self-determination Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:self-determination:definition" placeholder="Define Self-determination in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:self-determination:characteristics" placeholder="List features that identify Self-determination."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:self-determination:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:self-determination:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Self-determination is the idea that peoples should have a meaningful say in their own political future.</dd></div>
+              <div><dt>Characteristics</dt><dd>It matters because peace settlements can fail when they redraw borders or punish enemies without respecting the identities and interests of affected peoples.</dd></div>
+              <div><dt>Example</dt><dd>From the unit content, connect this answer to &quot;National Self-Determination - To What Extent Should Nations Pursue National Interest?&quot; and &quot;National Self-Determination - Decolonization&quot;. The United Nations Charter and Self-Determination of Peoples After World War Two, the question of human rights became more prominent in international relations. It includes various guidelines for self-determination as outlined in the UN&#39;s 1960&#39;s effort to promote decolonization by passing the Declaration on Decolonization and the Declaration on the Granting of Independence to Colonial Countries and Peoples.</dd></div>
+              <div><dt>Non-example</dt><dd>A colonial power choosing another people&#39;s government for them is not self-determination.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="appeasement" data-canvas-helper-edit-key="core-vocabulary-appeasement" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:appeasement:collection" hidden>
+          <div>
+            <h4>Appeasement</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Appeasement word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>appease</strong> (calm through concession) + <strong>-ment</strong> (an action or policy)</p>
+            <p><strong>Course source:</strong> Chapter 7; British and French Appeasement lesson.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Appeasement Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:appeasement:definition" placeholder="Define Appeasement in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:appeasement:characteristics" placeholder="List features that identify Appeasement."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:appeasement:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:appeasement:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Appeasement is a policy of granting concessions to an aggressive state in an attempt to avoid a larger conflict.</dd></div>
+              <div><dt>Characteristics</dt><dd>It responds to threats with compromise, may buy time, and risks encouraging further aggression.</dd></div>
+              <div><dt>Example</dt><dd>Britain and France accepted Hitler&#39;s demand for the Sudetenland in the 1938 Munich Agreement.</dd></div>
+              <div><dt>Non-example</dt><dd>An equal treaty negotiation without aggression or coercive threats is not appeasement.</dd></div>
+            </dl>
+          </details>
+        </article>
+
+        <article class="social-study-topic-panel core-vocabulary-term" data-study-topic-panel="core-vocabulary" data-study-topic-id="genocide" data-canvas-helper-edit-key="core-vocabulary-genocide" data-response-collection data-evidence-collection-id="social20-1-related-issue-2-option-2:core-vocabulary:genocide:collection" hidden>
+          <div>
+            <h4>Genocide</h4>
+            <p>Use this term to explain and evaluate the issue question: To what extent should national interest be pursued?</p>
+          </div>
+          <section class="core-vocabulary-word-structure" aria-label="Genocide word structure">
+            <h5>Word structure</h5>
+            <p class="core-vocabulary-parts"><strong>geno-</strong> (people or group) + <strong>-cide</strong> (killing)</p>
+            <p><strong>Course source:</strong> Chapters 7-8; Ultranationalism and Genocide and Holocaust lessons.</p>
+          </section>
+          <div class="core-vocabulary-frayer" aria-label="Genocide Frayer model">
+            <label>My definition<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:genocide:definition" placeholder="Define Genocide in your own words."></textarea></label>
+            <label>Characteristics<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:genocide:characteristics" placeholder="List features that identify Genocide."></textarea></label>
+            <label>Course example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:genocide:example" placeholder="Use a textbook or lesson example."></textarea></label>
+            <label>Non-example<textarea data-response-id="social20-1-related-issue-2-option-2:core-vocabulary:genocide:non-example" placeholder="Name a contrast and explain why it does not fit."></textarea></label>
+          </div>
+          <div class="core-vocabulary-evidence-actions">
+            <span data-response-collection-status aria-live="polite">Draft saves automatically. Save when this term is ready.</span>
+            <button class="external-resource-action" type="button" data-save-response-collection>Save term to Evidence Bank</button>
+          </div>
+          <details class="social-study-guide-reveal">
+            <summary>Compare with the course model</summary>
+            <dl class="core-vocabulary-model">
+              <div><dt>Definition</dt><dd>Genocide consists of deliberate acts intended to destroy, in whole or in part, a national, ethnic, racial, or religious group.</dd></div>
+              <div><dt>Characteristics</dt><dd>It involves group-targeted intent and may include killing, severe harm, destructive living conditions, prevention of births, or forced transfer of children.</dd></div>
+              <div><dt>Example</dt><dd>The Holocaust shows how Nazi ultranationalism, dehumanization, law, and state power were used in genocide.</dd></div>
+              <div><dt>Non-example</dt><dd>A conventional battle directed at an opposing armed force, without intent to destroy a protected group, is not genocide.</dd></div>
+            </dl>
+          </details>
+        </article>
+      </section>
+    </section>
+  </section>
+<section id="lessons" class="course-page" hidden>
     <p class="course-kicker">Lesson pathway</p>
     <h2>Lesson pathway</h2>
     <div class="resource-stack">
@@ -8315,7 +8706,7 @@ You may choose this topic to discuss with your classmates as one of your current
     <p class="course-kicker">Source response practice</p>
     <h2>Source Analysis</h2>
     <p class="page-intro">Use this routine for cartoons, images, charts, excerpts, quotations, and case studies from the Social 20-1 lessons.</p>
-    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel>
+    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel data-evidence-origin-id="source-analysis" data-evidence-origin-title="Source Analysis">
       <header class="social-document-header">
         <p>Diploma source response</p>
         <h3>Source Response Routine</h3>
@@ -8703,17 +9094,14 @@ You may choose this topic to discuss with your classmates as one of your current
     <p class="course-kicker">Evidence bank</p>
     <h2>Evidence Bank</h2>
     <p class="page-intro">Save reusable proof notes from lessons, source analysis, and your own examples.</p>
-    <section class="social-evidence-layout">
-      <article class="social-evidence-panel">
-        <h3>Lesson evidence</h3>
-        <div data-lesson-evidence-list></div>
+    <article class="social-evidence-panel social-organized-evidence-bank" aria-labelledby="organized-evidence-bank-title">
+        <h3 id="organized-evidence-bank-title">Collected Evidence</h3>
+        <p class="social-evidence-organization-note">Evidence is organized automatically by the activity where you collected it. Lesson notes are grouped again by course section.</p>
+        <div class="social-evidence-origin-stack" data-organized-evidence-list data-lesson-evidence-list data-manual-evidence-list>
+          <p class="social-empty-state" data-evidence-bank-empty>Collect evidence from vocabulary, lessons, source analysis, position building, or the notebook below and it will be organized here.</p>
+        </div>
       </article>
-      <article class="social-evidence-panel">
-        <h3>Saved proof notes</h3>
-        <div data-manual-evidence-list></div>
-      </article>
-    </section>
-    <section class="social-evidence-notebook" data-evidence-notebook-panel>
+    <section class="social-evidence-notebook" data-evidence-notebook-panel data-evidence-capture="social20-1-related-issue-2-option-2:evidence-notebook" data-evidence-contribution-id="social20-1-related-issue-2-option-2:evidence:notebook" data-evidence-origin-id="evidence-notebook" data-evidence-origin-title="Saved Directly in Evidence Bank">
       <h3>Save a proof note</h3>
       <label class="social-workbook-response">
     <span>Source or example</span>
@@ -10241,7 +10629,7 @@ You may choose this topic to discuss with your classmates as one of your current
 </main>
 <script>
 const lessonIds = ["lesson-01","lesson-02","lesson-03","lesson-04","lesson-05","lesson-06","lesson-07","lesson-08","lesson-09","lesson-10","lesson-11","lesson-12","lesson-13","lesson-14","lesson-15","lesson-16","lesson-17","lesson-18","lesson-19","lesson-20","lesson-21","lesson-22","lesson-23","lesson-24","lesson-25","lesson-26","lesson-27","lesson-28","lesson-29","lesson-30","lesson-31","lesson-32","lesson-33","lesson-34","lesson-35","lesson-36","lesson-37","lesson-38","lesson-39","lesson-40","lesson-41","lesson-42","lesson-43","lesson-44","lesson-45","lesson-46","lesson-47","lesson-48","lesson-49","lesson-50","lesson-51","lesson-52","lesson-53","lesson-54","lesson-55"];
-const pageIds = ["overview","lessons","lesson-01","lesson-02","lesson-03","lesson-04","lesson-05","lesson-06","lesson-07","lesson-08","lesson-09","lesson-10","lesson-11","lesson-12","lesson-13","lesson-14","lesson-15","lesson-16","lesson-17","lesson-18","lesson-19","lesson-20","lesson-21","lesson-22","lesson-23","lesson-24","lesson-25","lesson-26","lesson-27","lesson-28","lesson-29","lesson-30","lesson-31","lesson-32","lesson-33","lesson-34","lesson-35","lesson-36","lesson-37","lesson-38","lesson-39","lesson-40","lesson-41","lesson-42","lesson-43","lesson-44","lesson-45","lesson-46","lesson-47","lesson-48","lesson-49","lesson-50","lesson-51","lesson-52","lesson-53","lesson-54","lesson-55","issue-inquiry","source-analysis","position-builder","evidence-bank","library","film-room","study-guide","resources"];
+const pageIds = ["overview","core-vocabulary","lessons","lesson-01","lesson-02","lesson-03","lesson-04","lesson-05","lesson-06","lesson-07","lesson-08","lesson-09","lesson-10","lesson-11","lesson-12","lesson-13","lesson-14","lesson-15","lesson-16","lesson-17","lesson-18","lesson-19","lesson-20","lesson-21","lesson-22","lesson-23","lesson-24","lesson-25","lesson-26","lesson-27","lesson-28","lesson-29","lesson-30","lesson-31","lesson-32","lesson-33","lesson-34","lesson-35","lesson-36","lesson-37","lesson-38","lesson-39","lesson-40","lesson-41","lesson-42","lesson-43","lesson-44","lesson-45","lesson-46","lesson-47","lesson-48","lesson-49","lesson-50","lesson-51","lesson-52","lesson-53","lesson-54","lesson-55","issue-inquiry","source-analysis","position-builder","evidence-bank","library","film-room","study-guide","resources"];
 const navGroupIdsByPage = {};
 const STORAGE_KEY = "canvas-helper:social20-1-related-issue-2-option-2:complete";
 const RESPONSE_STORAGE_KEY = "canvas-helper:social20-1-related-issue-2-option-2:responses";
@@ -10400,33 +10788,158 @@ function getLessonEvidenceNotes(){
       const key = field.getAttribute("data-response-id");
       const storedValue = key ? responses[key] : "";
       const value = typeof storedValue === "string" ? storedValue.trim() : "";
+      const route = field.closest(".course-page")?.id || "";
       return {
         value,
         title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
         group: field.getAttribute("data-evidence-lesson-group") || "",
-        number: field.getAttribute("data-evidence-lesson-number") || ""
+        number: field.getAttribute("data-evidence-lesson-number") || "",
+        unit: route.match(/-u(\d+)/)?.[1] || ""
       };
     })
     .filter((note) => note.value);
 }
-function renderLessonEvidenceBank(){
-  const lists = Array.from(document.querySelectorAll("[data-lesson-evidence-list]"));
-  if (!lists.length) return;
-  const notes = getLessonEvidenceNotes();
-  lists.forEach((list) => {
-    if (!notes.length) {
-      list.innerHTML = '<p class="social-empty-state" data-lesson-evidence-empty>No lesson evidence notes yet. Add one from any lesson and it will appear here.</p>';
-      return;
-    }
-    list.innerHTML = notes.map((note) => {
-      const meta = [note.number ? "Lesson " + note.number : "", note.group].filter(Boolean).join(" - ");
-      return '<article class="social-lesson-evidence-card">' +
-        '<div class="social-lesson-evidence-meta">' + escapeForHtml(meta) + '</div>' +
-        '<h4>' + escapeForHtml(note.title) + '</h4>' +
-        '<p>' + escapeForHtml(note.value) + '</p>' +
-      '</article>';
-    }).join("");
+const evidenceOriginDefinitions = [
+  {
+    id: "core-vocabulary",
+    title: "Core Vocabulary",
+    description: "Frayer collections saved from the Core Vocabulary section."
+  },
+  {
+    id: "lesson-evidence",
+    title: "Lesson Evidence",
+    description: "Notes recorded at the end of lessons, organized by course section."
+  },
+  {
+    id: "source-analysis",
+    title: "Source Analysis",
+    description: "Evidence saved while working through Source Analysis."
+  },
+  {
+    id: "position-builder",
+    title: "Position Builder",
+    description: "Evidence saved while developing a position and thesis."
+  },
+  {
+    id: "evidence-notebook",
+    title: "Saved Directly in Evidence Bank",
+    description: "Notes created in the running Evidence Bank notebook."
+  },
+  {
+    id: "other",
+    title: "Other / Legacy Notes",
+    description: "Older notes that do not yet carry a collection location."
+  }
+];
+function formatEvidenceCount(count, noun){
+  const plural = noun === "entry" ? "entries" : noun + "s";
+  return count + " " + (count === 1 ? noun : plural);
+}
+function getLessonEvidenceGroup(note){
+  if (note.group === "Unit overview" && note.unit) return "Unit " + note.unit + " overview";
+  return note.group || "Other lessons";
+}
+function getEvidenceEntryOriginId(note){
+  const explicitOrigin = typeof note.origin === "string" ? note.origin : note.origin?.id;
+  const explicitActivity = typeof note.activity === "string" ? note.activity : note.activity?.id;
+  const candidate = String(explicitOrigin || explicitActivity || note.metadata?.originId || "").trim().toLowerCase();
+  if (["core-vocabulary", "source-analysis", "position-builder", "evidence-notebook", "other"].includes(candidate)) return candidate;
+  if (candidate === "evidence-bank") return "evidence-notebook";
+  const identities = getEvidenceEntryIdentities(note);
+  if (identities.some((identity) => identity.includes(":core-vocabulary:"))) return "core-vocabulary";
+  if (identities.includes("social20-1-related-issue-2-option-2:evidence:notebook")) return "evidence-notebook";
+  if (identities.some((identity) => /^evidence-\d+$/.test(identity))) return "source-analysis";
+  return "other";
+}
+function renderLessonEvidenceCard(note){
+  return '<article class="social-lesson-evidence-card" data-evidence-origin-id="lesson-evidence" data-evidence-lesson-number="' + escapeForHtml(note.number) + '">' +
+    '<div class="social-lesson-evidence-meta">' + escapeForHtml(note.number ? "Lesson " + note.number : "Lesson note") + '</div>' +
+    '<h6 class="social-evidence-card-title">' + escapeForHtml(note.title) + '</h6>' +
+    '<p>' + escapeForHtml(note.value) + '</p>' +
+  '</article>';
+}
+function renderManualEvidenceCard(note, originId){
+  const contributionId = note.contributionId || note.responseId || note.id || "";
+  const sourceTitle = typeof note.source === "string" ? note.source : note.source?.title || note.source?.id || "";
+  const workTitle = note.work?.title || "";
+  const title = note.concept || note.activity?.title || workTitle || sourceTitle || "Saved proof note";
+  const updatedLabel = note.updatedAt
+    ? "Updated " + new Date(note.updatedAt).toLocaleDateString()
+    : note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : "";
+  const metaParts = [sourceTitle, workTitle && workTitle !== sourceTitle ? workTitle : "", updatedLabel].filter(Boolean);
+  const promptLabel = note.metadata?.promptLabel || "Collection";
+  const prompt = note.prompt ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(promptLabel) + '</strong><p>' + escapeForHtml(note.prompt) + '</p></div>' : "";
+  const detailLabel = note.metadata?.detailLabel || (note.entryKind === "collection" ? "Saved responses" : "Evidence");
+  const detailValue = note.entryKind === "collection"
+    ? note.answer || note.detail || note.evidence || ""
+    : note.detail || note.evidence || note.answer || "";
+  const detail = detailValue ? '<div class="social-evidence-card-detail"><strong>' + escapeForHtml(detailLabel) + '</strong><p>' + escapeForHtml(detailValue) + '</p></div>' : "";
+  const connectionValue = String(note.analysis || note.connection || "");
+  const connection = connectionValue ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(connectionValue) + '</p></div>' : "";
+  const counterpointValue = String(note.metadata?.counterpoint || note.counterpoint || "");
+  const counterpoint = counterpointValue && !connectionValue.includes(counterpointValue) ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(counterpointValue) + '</p></div>' : "";
+  return '<article class="social-lesson-evidence-card social-manual-evidence-card" data-evidence-bank-entry="' + escapeForHtml(contributionId) + '" data-evidence-bank-entry-kind="' + escapeForHtml(note.entryKind || "individual") + '" data-evidence-origin-id="' + escapeForHtml(originId) + '">' +
+    '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
+    '<h5 class="social-evidence-card-title">' + escapeForHtml(title) + '</h5>' +
+    prompt +
+    detail +
+    connection +
+    counterpoint +
+    '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(contributionId) + '">Remove</button></div>' +
+  '</article>';
+}
+function renderLessonEvidenceGroups(notes){
+  const groupedNotes = new Map();
+  notes.forEach((note) => {
+    const groupTitle = getLessonEvidenceGroup(note);
+    if (!groupedNotes.has(groupTitle)) groupedNotes.set(groupTitle, []);
+    groupedNotes.get(groupTitle).push(note);
   });
+  return Array.from(groupedNotes.entries()).map(([groupTitle, groupNotes]) =>
+    '<section class="social-evidence-lesson-group" data-evidence-lesson-group="' + escapeForHtml(groupTitle) + '">' +
+      '<div class="social-evidence-lesson-group-header">' +
+        '<h5>' + escapeForHtml(groupTitle) + '</h5>' +
+        '<span class="social-evidence-lesson-count">' + formatEvidenceCount(groupNotes.length, "note") + '</span>' +
+      '</div>' +
+      '<div class="social-evidence-lesson-items">' + groupNotes.map(renderLessonEvidenceCard).join("") + '</div>' +
+    '</section>'
+  ).join("");
+}
+function renderEvidenceOriginGroup(definition, count, content){
+  return '<section class="social-evidence-origin-group" data-evidence-origin-group="' + escapeForHtml(definition.id) + '">' +
+    '<div class="social-evidence-origin-header">' +
+      '<div><h4>' + escapeForHtml(definition.title) + '</h4><p>' + escapeForHtml(definition.description) + '</p></div>' +
+      '<span class="social-evidence-origin-count" data-evidence-origin-count="' + count + '">' + formatEvidenceCount(count, "entry") + '</span>' +
+    '</div>' +
+    '<div class="social-evidence-origin-items">' + content + '</div>' +
+  '</section>';
+}
+function renderOrganizedEvidenceBank(){
+  const lists = Array.from(document.querySelectorAll("[data-organized-evidence-list]"));
+  if (!lists.length) return;
+  const lessonNotes = getLessonEvidenceNotes();
+  const manualNotes = getEvidenceBankApi()?.list() || readManualEvidenceNotes();
+  const manualGroups = new Map(evidenceOriginDefinitions.map((definition) => [definition.id, []]));
+  manualNotes
+    .filter((note) => note && typeof note === "object" && !Array.isArray(note))
+    .forEach((note) => manualGroups.get(getEvidenceEntryOriginId(note))?.push(note));
+  const renderedGroups = evidenceOriginDefinitions.map((definition) => {
+    if (definition.id === "lesson-evidence") {
+      return lessonNotes.length
+        ? renderEvidenceOriginGroup(definition, lessonNotes.length, renderLessonEvidenceGroups(lessonNotes))
+        : "";
+    }
+    const notes = manualGroups.get(definition.id) || [];
+    return notes.length
+      ? renderEvidenceOriginGroup(definition, notes.length, notes.map((note) => renderManualEvidenceCard(note, definition.id)).join(""))
+      : "";
+  }).filter(Boolean).join("");
+  lists.forEach((list) => {
+    list.innerHTML = renderedGroups || '<p class="social-empty-state" data-evidence-bank-empty>Collect evidence from vocabulary, lessons, source analysis, or the notebook below and it will be organized here.</p>';
+  });
+}
+function renderLessonEvidenceBank(){
+  renderOrganizedEvidenceBank();
 }
 function getEvidenceDraftFields(key, scope){
   const root = scope || document;
@@ -10488,31 +11001,156 @@ function clearEvidenceDraft(scope){
   });
   writeResponses(responses);
 }
+function getEvidenceBankApi(){
+  const api = window.nextStepEvidenceBank;
+  return api && typeof api.upsert === "function" && typeof api.remove === "function" && typeof api.list === "function"
+    ? api
+    : null;
+}
 function renderManualEvidenceBank(){
-  const lists = Array.from(document.querySelectorAll("[data-manual-evidence-list]"));
-  if (!lists.length) return;
+  renderOrganizedEvidenceBank();
+}
+function cloneEvidenceValue(value){
+  return typeof value === "undefined" ? undefined : JSON.parse(JSON.stringify(value));
+}
+function getEvidenceEntryIdentities(entry){
+  return [entry?.contributionId, entry?.responseId, entry?.id]
+    .map((value) => typeof value === "string" || typeof value === "number" ? String(value).trim() : "")
+    .filter((value, index, values) => value && values.indexOf(value) === index);
+}
+function upsertEvidenceEntry(entry){
+  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+    throw new TypeError("Evidence Bank entries must be objects.");
+  }
+  const incoming = cloneEvidenceValue(entry);
+  const identity = getEvidenceEntryIdentities(incoming)[0];
+  if (!identity) {
+    throw new TypeError("Evidence Bank entries require a contributionId or responseId.");
+  }
   const notes = readManualEvidenceNotes();
-  lists.forEach((list) => {
-    if (!notes.length) {
-      list.innerHTML = '<p class="social-empty-state" data-manual-evidence-empty>Use the notebook below to save reusable proof notes here.</p>';
-      return;
+  const existing = notes.find((note) => getEvidenceEntryIdentities(note).includes(identity));
+  const now = new Date().toISOString();
+  const nextEntry = {
+    ...(existing || {}),
+    ...incoming,
+    id: identity,
+    contributionId: identity,
+    responseId: incoming.responseId || identity,
+    entryKind: incoming.entryKind || "individual",
+    createdAt: existing?.createdAt || incoming.createdAt || now,
+    updatedAt: now
+  };
+  writeManualEvidenceNotes([
+    nextEntry,
+    ...notes.filter((note) => !getEvidenceEntryIdentities(note).includes(identity))
+  ]);
+  renderManualEvidenceBank();
+  return cloneEvidenceValue(nextEntry);
+}
+function removeEvidenceEntry(identity){
+  const normalizedIdentity = typeof identity === "string" || typeof identity === "number" ? String(identity).trim() : "";
+  if (!normalizedIdentity) return false;
+  const notes = readManualEvidenceNotes();
+  const remaining = notes.filter((note) => !getEvidenceEntryIdentities(note).includes(normalizedIdentity));
+  if (remaining.length === notes.length) return false;
+  writeManualEvidenceNotes(remaining);
+  renderManualEvidenceBank();
+  return true;
+}
+function evidenceEntryMatchesFilters(entry, filters){
+  return Object.entries(filters || {}).every(([key, expected]) => {
+    if (typeof expected === "undefined") return true;
+    if (key === "contributionId" || key === "responseId" || key === "id") {
+      return getEvidenceEntryIdentities(entry).includes(String(expected));
     }
-    list.innerHTML = notes.map((note) => {
-      const title = note.concept || note.source || "Saved proof note";
-      const metaParts = [note.source || "", note.createdAt ? "Saved " + new Date(note.createdAt).toLocaleDateString() : ""].filter(Boolean);
-      const detail = note.detail ? '<div class="social-evidence-card-detail"><strong>Evidence</strong><p>' + escapeForHtml(note.detail) + '</p></div>' : "";
-      const connection = note.connection ? '<div class="social-evidence-card-detail"><strong>Why it matters</strong><p>' + escapeForHtml(note.connection) + '</p></div>' : "";
-      const counterpoint = note.counterpoint ? '<div class="social-evidence-card-detail"><strong>Counterpoint</strong><p>' + escapeForHtml(note.counterpoint) + '</p></div>' : "";
-      return '<article class="social-lesson-evidence-card social-manual-evidence-card">' +
-        '<div class="social-lesson-evidence-meta">' + escapeForHtml(metaParts.join(" - ")) + '</div>' +
-        '<h4>' + escapeForHtml(title) + '</h4>' +
-        detail +
-        connection +
-        counterpoint +
-        '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-evidence-note="' + escapeForHtml(note.id || "") + '">Remove</button></div>' +
-      '</article>';
-    }).join("");
+    if (key === "tags") {
+      const requested = Array.isArray(expected) ? expected : [expected];
+      const tags = Array.isArray(entry.tags) ? entry.tags : [];
+      return requested.every((tag) => tags.includes(tag));
+    }
+    return entry[key] === expected;
   });
+}
+function listEvidenceEntries(filters){
+  return cloneEvidenceValue(readManualEvidenceNotes().filter((entry) => evidenceEntryMatchesFilters(entry, filters)));
+}
+window.nextStepEvidenceBank = Object.freeze({
+  upsert: upsertEvidenceEntry,
+  remove: removeEvidenceEntry,
+  list: listEvidenceEntries
+});
+function setResponseCollectionStatus(collection, message){
+  const status = collection?.querySelector("[data-response-collection-status]");
+  if (status) status.textContent = message;
+}
+function getVocabularyCollectionEntries(collection){
+  const responses = readResponses();
+  return Array.from(collection.querySelectorAll(".core-vocabulary-frayer [data-response-id]")).map((field) => {
+    const responseId = field.getAttribute("data-response-id") || "";
+    const fieldName = responseId.split(":").pop()?.replaceAll("-", " ") || "Response";
+    const label = field.closest("label")?.firstChild?.textContent?.trim() || fieldName;
+    return {
+      label,
+      answer: String(responses[responseId] || field.value || "").trim(),
+      responseId
+    };
+  });
+}
+function saveVocabularyCollectionToEvidenceBank(button){
+  const collection = button?.closest("[data-response-collection]");
+  if (!collection) return;
+  const collectionId = collection.getAttribute("data-evidence-collection-id") || "";
+  if (!collectionId) {
+    setResponseCollectionStatus(collection, "This term cannot be saved right now.");
+    return;
+  }
+  const entries = getVocabularyCollectionEntries(collection);
+  const answeredEntries = entries.filter((entry) => entry.answer);
+  if (!answeredEntries.length) {
+    setResponseCollectionStatus(collection, "Complete at least one Frayer field before saving.");
+    return;
+  }
+  const api = getEvidenceBankApi();
+  if (!api) {
+    setResponseCollectionStatus(collection, "Evidence Bank is unavailable.");
+    return;
+  }
+  const termId = collection.getAttribute("data-study-topic-id") || "term";
+  const termTitle = collection.querySelector("h4")?.textContent?.trim() || "Vocabulary term";
+  const existing = api.list({ contributionId: collectionId })[0];
+  const now = new Date().toISOString();
+  const savedResponses = answeredEntries
+    .map((entry) => entry.label + ":\n" + entry.answer)
+    .join("\n\n");
+  clearTimeout(saveTimer);
+  try {
+    api.upsert({
+      schemaVersion: 2,
+      contributionId: collectionId,
+      responseId: collectionId,
+      projectSlug: "social20-1-related-issue-2-option-2",
+      entryKind: "collection",
+      source: "Core Vocabulary",
+      origin: { id: "core-vocabulary", title: "Core Vocabulary" },
+      concept: termTitle + " Frayer Model",
+      activity: { id: "core-vocabulary", title: "Core Vocabulary" },
+      work: { id: termId, title: termTitle, kind: "text" },
+      prompt: answeredEntries.length + " of " + entries.length + " Frayer responses saved.",
+      answer: savedResponses,
+      responseIds: answeredEntries.map((entry) => entry.responseId),
+      tags: ["core-vocabulary", termId],
+      createdAt: existing?.createdAt || now,
+      updatedAt: now,
+      metadata: { promptLabel: "Collection", detailLabel: "Frayer responses" }
+    });
+  } catch {
+    setResponseCollectionStatus(collection, "Vocabulary responses could not be saved.");
+    return;
+  }
+  setResponseCollectionStatus(
+    collection,
+    existing ? termTitle + " updated in Evidence Bank." : termTitle + " saved to Evidence Bank."
+  );
 }
 function saveEvidenceDraftToNotebook(panel){
   const draft = getEvidenceDraft(panel);
@@ -10520,28 +11158,29 @@ function saveEvidenceDraftToNotebook(panel){
     setEvidenceNotebookStatus("Add a note before saving.", panel);
     return;
   }
-  const notes = readManualEvidenceNotes();
-  notes.unshift({
-    id: "evidence-" + Date.now(),
-    createdAt: new Date().toISOString(),
+  const contributionId = panel?.getAttribute("data-evidence-contribution-id") || "evidence-" + Date.now();
+  const originId = panel?.getAttribute("data-evidence-origin-id") || "other";
+  const originTitle = panel?.getAttribute("data-evidence-origin-title") || "Other / Legacy Notes";
+  upsertEvidenceEntry({
+    contributionId,
+    responseId: contributionId,
+    projectSlug: "social20-1-related-issue-2-option-2",
+    entryKind: "individual",
+    origin: { id: originId, title: originTitle },
+    activity: { id: originId, title: originTitle },
     source: draft.source,
     concept: draft.concept,
     detail: draft.detail,
     connection: draft.connection,
     counterpoint: draft.counterpoint
   });
-  writeManualEvidenceNotes(notes);
   clearEvidenceDraft(panel);
-  renderManualEvidenceBank();
   panel?.querySelectorAll("[data-practice-source-region]").forEach(initializePracticeSourceRegion);
   setEvidenceNotebookStatus("Saved to Evidence Bank", panel);
 }
 function removeManualEvidenceNote(id){
   if (!id) return;
-  const notes = readManualEvidenceNotes().filter((note) => note.id !== id);
-  writeManualEvidenceNotes(notes);
-  renderManualEvidenceBank();
-  setEvidenceNotebookStatus("Removed saved note");
+  if (removeEvidenceEntry(id)) setEvidenceNotebookStatus("Removed saved note");
 }
 function restoreResponses(){
   const responses = readResponses();
@@ -10571,11 +11210,17 @@ function persistResponseField(field){
   }
   writeResponses(responses);
   renderLessonEvidenceBank();
-  const saveStatus = field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]") || document.querySelector("[data-save-status]");
+  const responseCollection = field.closest("[data-response-collection]");
+  const saveStatus = responseCollection?.querySelector("[data-response-collection-status]")
+    || field.closest("[data-writing-activity-panel]")?.querySelector("[data-save-status]")
+    || document.querySelector("[data-save-status]");
   if (saveStatus) {
     saveStatus.textContent = "Saving...";
     clearTimeout(saveTimer);
-    saveTimer = setTimeout(() => saveStatus.textContent = "Saved locally", 500);
+    const savedMessage = responseCollection
+      ? "Draft saved locally — save to update Evidence Bank."
+      : "Saved locally";
+    saveTimer = setTimeout(() => saveStatus.textContent = savedMessage, 500);
   }
 }
 function clearPrintJob(){
@@ -10681,6 +11326,12 @@ document.addEventListener("click", (event) => {
   if (saveEvidenceButton) {
     event.preventDefault();
     saveEvidenceDraftToNotebook(saveEvidenceButton.closest("[data-evidence-notebook-panel]"));
+    return;
+  }
+  const saveResponseCollectionButton = event.target.closest("[data-save-response-collection]");
+  if (saveResponseCollectionButton) {
+    event.preventDefault();
+    saveVocabularyCollectionToEvidenceBank(saveResponseCollectionButton);
     return;
   }
   const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");

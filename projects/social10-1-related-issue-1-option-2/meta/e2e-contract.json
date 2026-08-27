@@ -1,0 +1,70 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "social10-1-related-issue-1-option-2",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Questions"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "core-vocabulary",
+      "lessons",
+      "lesson-01",
+      "issue-inquiry",
+      "source-analysis",
+      "evidence-bank",
+      "resources"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "evidence-bank"
+    ],
+    "evidenceScenarios": [
+      {
+        "kind": "individual",
+        "route": "evidence-bank",
+        "captureId": "social10-1-related-issue-1-option-2:evidence-notebook",
+        "contributionId": "social10-1-related-issue-1-option-2:evidence:notebook",
+        "responseId": "social10-1-related-issue-1-option-2:evidence:detail"
+      },
+      {
+        "kind": "collection",
+        "route": "core-vocabulary",
+        "collectionId": "social10-1-related-issue-1-option-2:core-vocabulary:globalization:collection",
+        "responseId": "social10-1-related-issue-1-option-2:core-vocabulary:globalization:definition",
+        "activateSelector": "#core-vocabulary-select option[value=\"globalization\"]"
+      }
+    ],
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "core-vocabulary",
+        "lesson-01",
+        "source-analysis",
+        "evidence-bank",
+        "resources"
+      ]
+    }
+  }
+}

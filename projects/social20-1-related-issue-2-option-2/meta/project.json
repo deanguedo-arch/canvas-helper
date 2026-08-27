@@ -58,7 +58,7 @@
     "/Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
     "projects/social20-1-related-issue-2-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "Regenerate this Social 20-1 workspace through scripts/build-social20-related-issues.ts and the shared Next Step shell. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-social20-related-issues.ts --only social20-1-related-issue-2-option-2 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "Regenerate this Social 20-1 workspace through scripts/build-social20-related-issues.ts and the shared Next Step shell. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-social20-related-issues.ts --only social20-1-related-issue-2-option-2 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable. The tester layer is confined to workspace/index.html: it adds an issue-specific eight-term Core Vocabulary route grounded in the attached textbook chapters and current lesson language, stable autosaving Frayer response IDs, deliberate Evidence Bank publishing, and non-destructive evidence grouping by collection origin. Existing lessons, the Study Guide, and attached assets remain the preserved learner baseline; do not run the quarantined legacy builder while evaluating this tester.",
   "conversionSummary": {
     "relatedIssue": "National Interest and Ultranationalism",
     "issueQuestion": "To what extent should national interest be pursued?",
@@ -81,6 +81,11 @@
         {
           "htmlPath": "index.html",
           "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
           "stateKey": null
         },
         {

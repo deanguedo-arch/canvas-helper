@@ -8456,3 +8456,44 @@ projects/general-psychology-20-independent-studies-202633108/exports/apps-script
 - Source of truth: each project remains `legacy-snapshot-v1`, with canonical learner content in `projects/<slug>/workspace/index.html` and contracts in `projects/<slug>/meta/project.json` plus `meta/e2e-contract.json`.
 - Preserved boundary: no English factory rebuild, pull request, merge, SCORM export, Brightspace upload, raw-source edit, or unrelated dirty-checkout change occurred.
 - Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5177 --strictPort --clearScreen false`.
+## Archived Active Handoff — 2026-08-21: Direct Editing V1 remediation
+
+- Project: `repo-wide`.
+- Task: Complete PR #1 Direct Editing V1 remediation without adding the separate inline-text editor.
+- Status: local implementation and release validation complete at implementation head `311d4a4426b3e685481325347fb5fb2a85097d4b`; exact published-head CI and independent review remained required before merge.
+- Verification: 50/50 course-editing tests, 5/5 onboarding tests, 5/5 Codex-course tests, 10/10 new-course-readiness tests, 17/17 editability tests, 55/55 export tests, Studio build, frozen typecheck baseline, 162 focused Studio release contracts, 58/58 inspection E2E, smoke, strict project contract, fresh-course proof, four editing pilots, and 63/63 onboarding acceptance passed.
+- Source of truth: `docs/audits/2026-08-16-direct-editing-v1-remediation-audit.md`, `app/server/lib/course-editing.ts`, `app/server/lib/course-edit-transaction.ts`, `scripts/lib/english-unit/dependencies.ts`, and `scripts/verify-fresh-course-studio-proof.ts`.
+- Preserved boundary: no inline `contenteditable` or parent-owned in-place editor was added; the filesystem lock remained cooperative for non-Studio writers; Brightspace, deployed-host, cross-browser SCORM, delayed interaction, full WCAG, and teacher rollout remained external acceptance.
+- Next command at archival time: `gh pr checks 1 --watch`.
+
+## Archived Active Handoff — 2026-08-21: Issue 1 vocabulary and evidence-origin tester
+
+- Project: `social30-1-related-issue-1-option-2`.
+- Task: Add the Core Vocabulary tester and organize its Evidence Bank by collection origin.
+- Status: complete at `567ae750bae7d6d7f1d59b8823a04aa2f11c905f` on `codex/social30-1-issue1-vocabulary-tester`; superseded by the four-course Social 30-1 Option Two tester.
+- Verification: project doctor and workspace verification passed; Studio built; the project E2E suite passed with the capability-scoped mobile preview correction; visible desktop/mobile collection, grouping, reload, removal, and restoration checks passed without console errors.
+- Source of truth: `projects/social30-1-related-issue-1-option-2/workspace/index.html` and `projects/social30-1-related-issue-1-option-2/meta/project.json`.
+- Preserved boundary: no PR, merge, SCORM export, Brightspace upload, or propagation outside Issue 1 occurred at that handoff.
+- Rollback points: restored snapshot `e78f169ec7aefe531182cef39fe72a800340d9a5`, vocabulary tester `df90bec7bbe31a3847d6f9595c3f2142d9bfbf70`, and ungrouped Evidence Bank `cf32fb14ff1ab8e8d6462a5d35475bce791320dd`.
+- Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5175 --strictPort --clearScreen false`.
+
+## Archived Active Handoff — 2026-08-21: builder-backed four-course Evidence Bank tester
+
+- Project: Social Studies 30-1 Option Two family (`social30-1-related-issue-{1,2,3,4}-option-2`).
+- Task: Propagate origin-organized Evidence Banks to the four selected Option Two courses.
+- Status: superseded because Issues 2–4 were rebuilt from the older `social30-1-brightspace-winter-2020` source and did not match the user-supplied SCORM lesson packages.
+- Incorrect implementation point: `363ed468de628f4793b24b665326cb778c1608cf`; documentation head: `4eb430e6289d779cec0eca9899c02bb031647193`.
+- Correction: all four courses now use preserved `legacy-snapshot-v1` workspaces sourced from the supplied Issue 1–4 SCORM ZIPs. The older Social builder is explicitly quarantined for these slugs.
+- Preserved useful work: the non-destructive Evidence Bank origin model and its E2E support were reapplied directly to the restored snapshots.
+- Next command at archival time: `git show --stat 9739184dbb2c3064ef984d0c9b1d1707efebe665`.
+
+## Archived Active Handoff — 2026-08-21: issue-specific Social 30-1 vocabulary tester
+
+- Project: Social Studies 30-1 Option Two family (`social30-1-related-issue-{1,2,3,4}-option-2`).
+- Task: Restore the four user-supplied SCORM lesson snapshots and add issue-specific, textbook-grounded Core Vocabulary plus origin-organized Evidence Banks.
+- Status: complete on unmerged branch `codex/social30-option2-evidence-origin-tester`; implementation `96f3822c53968a4cf5144fc3478eaa8df061ea5a`.
+- Verification: all four snapshot hashes and package trees were verified; doctor and workspace verification passed for each course; Studio built; 8/8 focused tests and 4/4 project E2Es passed; supplied lesson and Study Guide content remained unchanged under the tester overlay.
+- Source of truth: `projects/social30-1-related-issue-<n>-option-2/workspace/index.html`, adjacent preserved SCORM assets, `meta/project.json`, and `meta/e2e-contract.json`.
+- Preserved boundary: no PR, merge, SCORM export, Brightspace upload, or propagation outside the four Social 30-1 Option Two courses occurred at that handoff.
+- Rollback points: clean four-SCORM snapshot `9739184dbb2c3064ef984d0c9b1d1707efebe665`; issue-specific tester `96f3822c53968a4cf5144fc3478eaa8df061ea5a`.
+- Next command at archival time: `npm run studio -- --host 127.0.0.1 --port 5175 --strictPort --clearScreen false`.

@@ -50,7 +50,7 @@
     "/Users/deanguedo/Downloads/NSO SOCIAL STUDIES PODCAST LIST.docx",
     "projects/social10-1-related-issue-3-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "Regenerate this Social Studies 10-1 workspace through scripts/build-social10-related-issues.ts and the shared Next Step shell. Do not hand-patch generated lesson HTML. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-social10-related-issues.ts --only social10-1-related-issue-3-option-2 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable.",
+  "sourceOfTruthNotes": "Regenerate this Social Studies 10-1 workspace through scripts/build-social10-related-issues.ts and the shared Next Step shell. Do not hand-patch generated lesson HTML. Legacy onboarding quarantined the prior rebuild command until its source inputs are restored: npx tsx scripts/build-social10-related-issues.ts --only social10-1-related-issue-3-option-2 Studio onboarding: The learner page is preserved as the editable baseline because its original rebuild inputs are incomplete or not portable. The tester layer is confined to workspace/index.html: it adds an issue-specific eight-term Core Vocabulary route grounded in the attached textbook chapters and current lesson language, stable autosaving Frayer response IDs, deliberate Evidence Bank publishing, and non-destructive evidence grouping by collection origin. Existing lessons, the Study Guide, and attached assets remain the preserved learner baseline; do not run the quarantined legacy builder while evaluating this tester.",
   "conversionSummary": {
     "relatedIssue": "Sustainable Prosperity",
     "issueQuestion": "To what extent does globalization contribute to sustainable prosperity for all people?",
@@ -75,6 +75,11 @@
         {
           "htmlPath": "index.html",
           "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
           "stateKey": null
         },
         {

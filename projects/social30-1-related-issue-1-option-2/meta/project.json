@@ -2,7 +2,7 @@
   "id": "social30-1-related-issue-1-option-2",
   "slug": "social30-1-related-issue-1-option-2",
   "title": "Social Studies 30-1: Related Issue 1 (Option Two)",
-  "sourcePath": "projects/resources/social30-1-related-issues/resource-manifest.json",
+  "sourcePath": "/Users/deanguedo/Documents/GitHub/canvas-helper/projects/processed/social30-1-related-issue-1-option-2/source",
   "inputKind": "brightspace-zip",
   "brightspaceTarget": "scorm",
   "previewModes": [
@@ -11,42 +11,209 @@
   "workspaceEntrypoint": "workspace/index.html",
   "rawEntrypoint": "raw/README.md",
   "createdAt": "2026-06-23T15:31:53.176Z",
-  "updatedAt": "2026-08-13T13:08:16.727Z",
+  "updatedAt": "2026-08-21T22:21:09.000Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "scripts/build-social30-related-issues.ts",
+  "canonicalEntry": "projects/social30-1-related-issue-1-option-2/workspace/index.html",
   "canonicalSources": [
-    "scripts/build-social30-related-issues.ts",
-    "scripts/lib/next-step-course-shell.ts",
-    "projects/resources/social30-1-related-issues/resource-manifest.json"
+    "projects/social30-1-related-issue-1-option-2/workspace/index.html"
   ],
-  "generatedOutputs": [
-    "projects/social30-1-related-issue-1-option-2/workspace/index.html",
-    "projects/social30-1-related-issue-1-option-2/meta/social-build.json",
-    "projects/social30-1-related-issue-1-option-2/meta/conversion-notes.md"
-  ],
-  "regenerateCommand": "npx tsx scripts/build-social30-related-issues.ts --resource social30-1-brightspace-winter-2020 --only social30-1-related-issue-1-option-2",
+  "generatedOutputs": [],
   "authoring": {
-    "driverId": "social-related-issues-v1",
-    "familyId": "social30-related-issues",
-    "sourceResourceIds": [
-      "social30-1-brightspace-winter-2020"
-    ],
-    "qualityProfile": "social-related-issues",
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "social-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
     "studioEditing": {
       "enabled": true,
-      "renameCourse": true,
+      "renameCourse": false,
       "imageAssets": true
+    },
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-u1identity-u1-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-u1identity-section-1-intro",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-3-u1identity-l1-exploring-identity",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-4-u1identity-l2-exploring-beliefs-and-values",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-u1identity-l3-what-factors-influence-beliefs-and-values",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-u1identity-section-2-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-u1identity-l1-understanding-ideology",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-8-u1identity-l2-how-ideologies-meet-the-needs-of-the-people",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-9-u1identity-section-3-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-10-u1identity-l1-how-can-ideology-shape-identity",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-11-u1identity-l2-pros-and-cons-of-linking-identity-with-ideology-part-i",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-12-u1identity-l3-pros-and-cons-of-linking-ideology-with-identity-part-ii",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13-u2foundations-u2-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-14-u2foundations-u2s1-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-15-u2foundations-l1-basics-of-liberal-democracy",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-16-u2foundations-l2-ideological-perspectives",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-17-u2foundations-u2s2-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-18-u2foundations-l1-early-origins-of-liberalism",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-19-u2foundations-l2-development-of-classical-liberalism",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-20-u2foundations-u2s2-summary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-21-u2foundations-u2s3-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-22-u2foundations-l1-life-under-classical-liberalism",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-23-u2foundations-l2-responses-to-classical-liberalism",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#issue-inquiry",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#source-analysis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#position-builder",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#library",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#film-room",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#study-guide",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
     }
   },
   "importedFirstPassOrigin": {
-    "sourceSystem": "brightspace",
-    "sourcePath": "projects/processed/social30-1-related-issue-1/source/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
-    "importedAt": "2026-06-23T15:31:53.176Z",
-    "notes": "Related Issue 1 (Option Two) alternate palette shell option generated from Social Studies 30-1 Brightspace units U1 + U2."
+    "sourceSystem": "provided-scorm-package",
+    "sourcePath": "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_1_NEW.zip",
+    "importedAt": "2026-08-21T20:49:44.926Z",
+    "checksumSha256": "5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a",
+    "notes": "Exact 153-file SCORM 2004 learner snapshot supplied as SOCIAL_30-1_ISSUE_1_NEW.zip; the older Social factory source is not authoritative for this Option Two course."
   },
   "exportTargets": [
     {
@@ -62,10 +229,10 @@
   ],
   "authoringStatus": "active",
   "referenceOnly": [
-    "projects/processed/social30-1-related-issue-1/source/D2LExport_6712_CBE System Social Studies 30-1 (Winter 2020)_202662203.zip",
+    "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_1_NEW.zip",
     "projects/social30-1-related-issue-1-option-2/raw/README.md"
   ],
-  "sourceOfTruthNotes": "The workspace is generated output, not a hand-edit target. Rebuild this alternate palette shell through scripts/build-social30-related-issues.ts using source resource social30-1-brightspace-winter-2020 from the Social resource manifest; the staged builder never rewrites raw source or meta/project.json. Studio onboarding: Checksum-backed Social source and staged rebuild adapter retained.",
+  "sourceOfTruthNotes": "The workspace is the preserved 153-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_1_NEW.zip (5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. The tester layer is confined to workspace/index.html: it adds an issue-specific eight-term Core Vocabulary route grounded in the supplied textbook chapters and lesson language, stable autosaving Frayer response IDs, explicit Evidence Bank publishing, and non-destructive evidence grouping by collection origin. The original lesson, Study Guide, manifest, bridge, and package assets remain the supplied SCORM baseline.",
   "conversionSummary": {
     "relatedIssue": "Related Issue 1 (Option Two)",
     "issueQuestion": "To what extent should ideology be the foundation of identity?",
@@ -74,6 +241,16 @@
       "U2"
     ],
     "lessonsRecovered": 23,
-    "styleVariant": "next-step-palette-shell"
-  }
+    "sourcePackageSha256": "5d9a0d38e6d3f6403894490db11cd1c9a0c23e5567448ebd00bd7079ce9cce1a",
+    "sourceFileCount": 153,
+    "styleVariant": "preserved-scorm-2004",
+    "testerFeatures": [
+      "core-vocabulary-frayer-issue-specific-v2",
+      "evidence-bank-origin-groups-v1"
+    ]
+  },
+  "injectedComponents": [],
+  "learningSource": "other",
+  "learningTrust": "auto",
+  "learningUpdatedAt": "2026-08-19T18:26:55.348Z"
 }

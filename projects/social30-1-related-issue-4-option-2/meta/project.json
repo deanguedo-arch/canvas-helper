@@ -14,48 +14,165 @@
   "learningTrust": "curated",
   "learningUpdatedAt": "2026-08-13T13:08:16.727Z",
   "createdAt": "2026-08-13T13:08:16.727Z",
-  "updatedAt": "2026-08-13T14:06:56.573Z",
+  "updatedAt": "2026-08-21T22:21:09.000Z",
   "migrationState": "migrated",
   "projectType": "conversion",
   "preferredWorkflows": [
     "conversion"
   ],
-  "canonicalEntry": "scripts/build-social30-related-issues.ts",
+  "canonicalEntry": "projects/social30-1-related-issue-4-option-2/workspace/index.html",
   "canonicalSources": [
-    "scripts/build-social30-related-issues.ts",
-    "scripts/lib/next-step-course-shell.ts",
-    "projects/resources/social30-1-related-issues/resource-manifest.json"
+    "projects/social30-1-related-issue-4-option-2/workspace/index.html"
   ],
-  "generatedOutputs": [
-    "projects/social30-1-related-issue-4-option-2/workspace/index.html",
-    "projects/social30-1-related-issue-4-option-2/meta/social-build.json",
-    "projects/social30-1-related-issue-4-option-2/meta/conversion-notes.md"
-  ],
-  "regenerateCommand": "npm run build:social30 -- --resource social30-1-brightspace-winter-2020 --only social30-1-related-issue-4-option-2",
+  "generatedOutputs": [],
   "authoring": {
-    "driverId": "social-related-issues-v1",
-    "familyId": "social30-related-issues",
-    "sourceResourceIds": [
-      "social30-1-brightspace-winter-2020"
-    ],
-    "qualityProfile": "social-related-issues",
+    "driverId": "legacy-snapshot-v1",
+    "familyId": "social-legacy-snapshot",
+    "qualityProfile": "legacy-snapshot-rendered",
     "studioEditing": {
       "enabled": true,
-      "renameCourse": true,
+      "renameCourse": false,
       "imageAssets": true
+    },
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "declared-routes-and-states",
+      "surfaces": [
+        {
+          "htmlPath": "index.html",
+          "route": "#overview",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#core-vocabulary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lessons",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-1-u7citizen-u7-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-2-u7citizen-s1-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-3-u7citizen-l1-roadblocks-to-active-citizenship",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-4-u7citizen-l2-making-it-personal",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-5-u7citizen-l3-making-it-better",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-6-u7citizen-s1-summary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-7-u7citizen-s2-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-8-u7citizen-l1-finding-your-ideological-peers",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-9-u7citizen-l2-to-follow-to-lead-or-to-walk-away",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-10-u7citizen-s3-introduction",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-11-u7citizen-l1-tools-for-action",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-12-u7citizen-l2-my-issues-my-actions",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#lesson-13-u7citizen-u7-summary",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#issue-inquiry",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#source-analysis",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#position-builder",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#evidence-bank",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#library",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#film-room",
+          "stateKey": null
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#study-guide",
+          "stateKey": "native-details-open"
+        },
+        {
+          "htmlPath": "index.html",
+          "route": "#resources",
+          "stateKey": null
+        }
+      ]
     }
   },
   "importedFirstPassOrigin": {
-    "sourceSystem": "brightspace",
-    "sourcePath": "projects/resources/social30-1-related-issues/resource-manifest.json",
-    "importedAt": "2026-08-13T13:08:16.727Z",
-    "notes": "Palette-shell variant generated from the checksum-verified Social 30-1 source for U7."
+    "sourceSystem": "provided-scorm-package",
+    "sourcePath": "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_4_NEW.zip",
+    "importedAt": "2026-08-21T20:49:44.926Z",
+    "checksumSha256": "b50eb2c359062fcd0bb25f545271ca007997248c916449ed47e1219d7e86b67f",
+    "notes": "Exact 190-file SCORM 2004 learner snapshot supplied as SOCIAL_30-1_ISSUE_4_NEW.zip; the older Social factory source is not authoritative for this Option Two course."
   },
   "exportTargets": [
     {
       "target": "scorm",
       "enabled": true,
-      "notes": "SCORM package for Brightspace upload."
+      "notes": "SCORM 2004 package for Brightspace upload."
     },
     {
       "target": "html",
@@ -64,6 +181,24 @@
     }
   ],
   "authoringStatus": "active",
-  "referenceOnly": [],
-  "sourceOfTruthNotes": "The workspace is generated output. Studio stores course-only overrides and the staged Social factory rebuilds from social30-1-brightspace-winter-2020 without rewriting raw source or meta/project.json. Studio onboarding: Checksum-backed Social source and staged rebuild adapter retained."
+  "referenceOnly": [
+    "/Users/deanguedo/Downloads/SOCIAL_30-1_ISSUE_4_NEW.zip",
+    "projects/social30-1-related-issue-4-option-2/raw/README.md"
+  ],
+  "sourceOfTruthNotes": "The workspace is the preserved 190-file SCORM 2004 learner snapshot from SOCIAL_30-1_ISSUE_4_NEW.zip (b50eb2c359062fcd0bb25f545271ca007997248c916449ed47e1219d7e86b67f). The prior Social factory rebuild is quarantined because it does not reproduce these lessons; do not run that builder against this course. Studio edits are stored as bounded legacy-snapshot overrides. The tester layer is confined to workspace/index.html: it adds an issue-specific eight-term Core Vocabulary route grounded in the supplied textbook chapters and lesson language, stable autosaving Frayer response IDs, explicit Evidence Bank publishing, and non-destructive evidence grouping by collection origin. The original lesson, Study Guide, manifest, bridge, and package assets remain the supplied SCORM baseline.",
+  "conversionSummary": {
+    "relatedIssue": "Related Issue 4 (Option Two)",
+    "issueQuestion": "To what extent should my actions as a citizen be shaped by an ideology?",
+    "units": [
+      "U7"
+    ],
+    "lessonsRecovered": 13,
+    "sourcePackageSha256": "b50eb2c359062fcd0bb25f545271ca007997248c916449ed47e1219d7e86b67f",
+    "sourceFileCount": 190,
+    "styleVariant": "preserved-scorm-2004",
+    "testerFeatures": [
+      "core-vocabulary-frayer-issue-specific-v2",
+      "evidence-bank-origin-groups-v1"
+    ]
+  }
 }

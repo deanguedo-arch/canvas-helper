@@ -25,6 +25,7 @@
     "enabled": true,
     "routes": [
       "overview",
+      "core-vocabulary",
       "lessons",
       "lesson-1-u1identity-u1-introduction",
       "issue-inquiry",
@@ -35,19 +36,29 @@
     "printRoutes": [
       "evidence-bank"
     ],
-    "evidenceScenario": {
-      "kind": "individual",
-      "route": "evidence-bank",
-      "captureId": "social30-1-related-issue-1-option-2:evidence-notebook",
-      "contributionId": "social30-1-related-issue-1-option-2:evidence:notebook",
-      "responseId": "social30-1-related-issue-1-option-2:evidence:detail"
-    },
+    "evidenceScenarios": [
+      {
+        "kind": "individual",
+        "route": "evidence-bank",
+        "captureId": "social30-1-related-issue-1-option-2:evidence-notebook",
+        "contributionId": "social30-1-related-issue-1-option-2:evidence:notebook",
+        "responseId": "social30-1-related-issue-1-option-2:evidence:detail"
+      },
+      {
+        "kind": "collection",
+        "route": "core-vocabulary",
+        "collectionId": "social30-1-related-issue-1-option-2:core-vocabulary:ideology:collection",
+        "responseId": "social30-1-related-issue-1-option-2:core-vocabulary:ideology:definition",
+        "activateSelector": "#core-vocabulary-select option[value=\"ideology\"]"
+      }
+    ],
     "resourceChecks": [],
     "mobile": {
       "width": 390,
       "height": 844,
       "routes": [
         "overview",
+        "core-vocabulary",
         "lesson-1-u1identity-u1-introduction",
         "evidence-bank",
         "resources"

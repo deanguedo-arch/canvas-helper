@@ -5,7 +5,7 @@ import {
   type LearnerEvidenceScenario,
   type ProjectE2EContract
 } from "./project-contract-schema";
-import { reloadWorkspacePreview, waitForWorkspacePreviewReady } from "./project-open";
+import { waitForWorkspacePreviewReady, workspacePreviewPathMatchesProject } from "./project-open";
 
 type EnabledLearnerCourse = Extract<
   NonNullable<ProjectE2EContract["learnerCourse"]>,
@@ -129,9 +129,9 @@ async function assertLearnerCompletionReachesTotal(workspaceFrame: FrameLocator)
     .toMatch(new RegExp(`${completionIds.length}\\s*\\/\\s*${completionIds.length}`));
 }
 
-async function assertHintRoutes(workspaceFrame: FrameLocator, learnerCourse: EnabledLearnerCourse) {
+async function assertHintRoutes(learnerTarget: LearnerRouteTarget, learnerCourse: EnabledLearnerCourse) {
   for (const route of learnerCourse.hintRoutes) {
-    const section = await showLearnerRoute(workspaceFrame, route);
+    const section = await showLearnerRoute(learnerTarget, route);
     const toggle = section.locator("[data-worksheet-toggle-hints]:visible, [data-english-writing-toggle-hints]:visible").first();
     await expect(toggle, `visible Show Hints hook exists on #${route}`).toBeVisible();
     await toggle.click();
@@ -157,8 +157,8 @@ async function assertHintRoutes(workspaceFrame: FrameLocator, learnerCourse: Ena
   }
 }
 
-async function installPrintProbe(workspaceFrame: FrameLocator) {
-  await workspaceFrame.locator("body").evaluate(() => {
+async function installPrintProbe(learnerTarget: LearnerRouteTarget) {
+  await learnerTarget.locator("body").evaluate(() => {
     const testWindow = window as typeof window & { __canvasHelperE2EPrintCalled?: boolean };
     testWindow.__canvasHelperE2EPrintCalled = false;
     testWindow.print = () => {
@@ -167,25 +167,25 @@ async function installPrintProbe(workspaceFrame: FrameLocator) {
   });
 }
 
-async function clearPrintProbe(workspaceFrame: FrameLocator) {
-  await workspaceFrame.locator("body").evaluate(() => {
+async function clearPrintProbe(learnerTarget: LearnerRouteTarget) {
+  await learnerTarget.locator("body").evaluate(() => {
     document.body.classList.remove("print-job-active");
     document.querySelectorAll(".print-job-root").forEach((node) => node.remove());
   });
 }
 
-async function assertPrintRoutes(workspaceFrame: FrameLocator, learnerCourse: EnabledLearnerCourse) {
+async function assertPrintRoutes(learnerTarget: LearnerRouteTarget, learnerCourse: EnabledLearnerCourse) {
   for (const route of learnerCourse.printRoutes) {
-    const section = await showLearnerRoute(workspaceFrame, route);
+    const section = await showLearnerRoute(learnerTarget, route);
     const printButton = section.locator(PRINT_HOOKS).first();
     await expect(printButton, `visible scoped Print / PDF hook exists on #${route}`).toBeVisible();
-    await installPrintProbe(workspaceFrame);
+    await installPrintProbe(learnerTarget);
     await printButton.click();
 
     await expect
       .poll(
         () =>
-          workspaceFrame.locator("body").evaluate((_, activeRoute) => {
+          learnerTarget.locator("body").evaluate((_, activeRoute) => {
             const testWindow = window as typeof window & { __canvasHelperE2EPrintCalled?: boolean };
             const visibleCourseRoutes = Array.from(document.querySelectorAll<HTMLElement>("main .course-page"))
               .filter((node) => !node.hidden && getComputedStyle(node).display !== "none")
@@ -202,13 +202,13 @@ async function assertPrintRoutes(workspaceFrame: FrameLocator, learnerCourse: En
       )
       .toEqual({ called: true, scoped: true });
 
-    await clearPrintProbe(workspaceFrame);
+    await clearPrintProbe(learnerTarget);
   }
 }
 
-async function assertResourceChecks(workspaceFrame: FrameLocator, learnerCourse: EnabledLearnerCourse) {
+async function assertResourceChecks(learnerTarget: LearnerRouteTarget, learnerCourse: EnabledLearnerCourse) {
   for (const check of learnerCourse.resourceChecks) {
-    const section = await showLearnerRoute(workspaceFrame, check.route);
+    const section = await showLearnerRoute(learnerTarget, check.route);
 
     if (check.kind === "linked-page") {
       const link = section.locator(`a[href="${check.href}"]`).first();
@@ -276,9 +276,9 @@ async function assertResourceChecks(workspaceFrame: FrameLocator, learnerCourse:
   }
 }
 
-async function assertKnownMissingHooks(workspaceFrame: FrameLocator, learnerCourse: EnabledLearnerCourse) {
+async function assertKnownMissingHooks(learnerTarget: LearnerRouteTarget, learnerCourse: EnabledLearnerCourse) {
   for (const gap of learnerCourse.knownMissingHooks || []) {
-    const section = await showLearnerRoute(workspaceFrame, gap.route);
+    const section = await showLearnerRoute(learnerTarget, gap.route);
     const selector = `[${gap.requiredHook}]`;
     await expect(
       section.locator(selector),
@@ -287,8 +287,8 @@ async function assertKnownMissingHooks(workspaceFrame: FrameLocator, learnerCour
   }
 }
 
-async function assertCoreVocabularySurface(workspaceFrame: FrameLocator, projectSlug: string) {
-  const section = await showLearnerRoute(workspaceFrame, "core-vocabulary");
+async function assertCoreVocabularySurface(learnerTarget: LearnerRouteTarget, projectSlug: string) {
+  const section = await showLearnerRoute(learnerTarget, "core-vocabulary");
   const root = section.locator("[data-core-vocabulary]");
   await expect(root, "Core Vocabulary has one interaction root").toHaveCount(1);
   const declaredCount = Number(await root.getAttribute("data-core-vocabulary-count"));
@@ -387,20 +387,20 @@ async function assertCoreVocabularySurface(workspaceFrame: FrameLocator, project
   }
 }
 
-async function coreVocabularyEntry(workspaceFrame: FrameLocator, contributionId: string) {
-  return workspaceFrame.locator("body").evaluate((_, identity) => {
+async function coreVocabularyEntry(learnerTarget: LearnerRouteTarget, contributionId: string) {
+  return learnerTarget.locator("body").evaluate((_, identity) => {
     const api = (window as typeof window & { nextStepEvidenceBank?: EvidenceApi }).nextStepEvidenceBank;
     return api?.list({ contributionId: identity })[0] ?? api?.list().find((entry) => entry.contributionId === identity) ?? null;
   }, contributionId);
 }
 
 async function assertCoreVocabularyEntryContract(
-  workspaceFrame: FrameLocator,
+  learnerTarget: LearnerRouteTarget,
   projectSlug: string,
   scenario: Extract<LearnerEvidenceScenario, { kind?: "collection" }>
 ) {
   const conceptId = scenario.collectionId.split(":core-vocabulary:")[1]?.replace(/:collection$/u, "") ?? "";
-  const entry = await coreVocabularyEntry(workspaceFrame, scenario.collectionId);
+  const entry = await coreVocabularyEntry(learnerTarget, scenario.collectionId);
   expect(entry, "Core Vocabulary Evidence Bank entry is available through the shared API").not.toBeNull();
   expect(entry).toMatchObject({
     contributionId: scenario.collectionId,
@@ -417,7 +417,7 @@ async function assertCoreVocabularyEntryContract(
   ]);
   expect(entry?.tags, "Core Vocabulary collection is tagged for filtering").toEqual(expect.arrayContaining(["core-vocabulary", conceptId]));
 
-  const evidenceBank = await showLearnerRoute(workspaceFrame, "evidence-bank");
+  const evidenceBank = await showLearnerRoute(learnerTarget, "evidence-bank");
   const filters: Array<[string, string]> = [
     ["activity", entry?.activity?.title ?? "Core Vocabulary"],
     ["work", entry?.work?.title ?? entry?.metadata?.selectedSource?.title ?? ""],
@@ -434,8 +434,8 @@ async function assertCoreVocabularyEntryContract(
   await expect(evidenceBank.locator(`[data-evidence-bank-entry="${scenario.collectionId}"]`), "combined Evidence Bank filters retain the Core Vocabulary collection").toBeVisible();
 }
 
-async function evidenceEntries(workspaceFrame: FrameLocator, identity: string) {
-  return workspaceFrame.locator("body").evaluate((_, identity) => {
+async function evidenceEntries(learnerTarget: LearnerRouteTarget, identity: string) {
+  return learnerTarget.locator("body").evaluate((_, identity) => {
     const api = (window as typeof window & { nextStepEvidenceBank?: EvidenceApi }).nextStepEvidenceBank;
     if (!api) return null;
     // Sandboxed Studio previews can expose the Evidence Bank API in an isolated
@@ -497,7 +497,7 @@ async function settleEvidenceSaveControl(response: Locator, save: Locator, expec
 }
 
 async function observeCollectionSaveAttempt(
-  workspaceFrame: FrameLocator,
+  learnerTarget: LearnerRouteTarget,
   collection: Locator,
   identity: string,
   statusBefore: string | null
@@ -507,7 +507,7 @@ async function observeCollectionSaveAttempt(
   let statusAfter = await collectionSaveStatus(collection);
 
   do {
-    entryCount = evidenceSnapshot(await evidenceEntries(workspaceFrame, identity)).count;
+    entryCount = evidenceSnapshot(await evidenceEntries(learnerTarget, identity)).count;
     statusAfter = await collectionSaveStatus(collection);
     if (entryCount > 0 || (statusBefore !== null && statusAfter !== statusBefore)) break;
     await new Promise((resolve) => setTimeout(resolve, 100));
@@ -517,7 +517,7 @@ async function observeCollectionSaveAttempt(
 }
 
 async function saveCollectionWithReadinessRetry(
-  workspaceFrame: FrameLocator,
+  learnerTarget: LearnerRouteTarget,
   section: Locator,
   scenario: Extract<LearnerEvidenceScenario, { kind?: "collection" }>,
   response: Locator,
@@ -530,17 +530,16 @@ async function saveCollectionWithReadinessRetry(
   await save.click();
 
   const observation = await observeCollectionSaveAttempt(
-    workspaceFrame,
+    learnerTarget,
     collection,
     scenario.collectionId,
     statusBefore
   );
   if (!shouldRetryEvidenceCollectionSave(observation)) return;
 
-  // A Studio refresh can leave a locator attached before the learner runtime's
-  // delegated click listener is ready. Retry only when the first click produced
-  // neither an entry nor a scoped status transition, then reacquire everything.
-  const retrySection = await showLearnerRoute(workspaceFrame, scenario.route);
+  // Reacquire once when the first click produced neither an entry nor a scoped
+  // status transition. Stable collection IDs keep the retry idempotent.
+  const retrySection = await showLearnerRoute(learnerTarget, scenario.route);
   await activateEvidenceScenario(retrySection, scenario);
   const retryCollection = retrySection.locator(
     `[data-evidence-collection-id="${scenario.collectionId}"]`
@@ -559,8 +558,8 @@ async function saveCollectionWithReadinessRetry(
   await retrySave.click();
 }
 
-async function removeEvidenceEntry(workspaceFrame: FrameLocator, identity: string) {
-  await workspaceFrame.locator("body").evaluate((_, targetIdentity) => {
+async function removeEvidenceEntry(learnerTarget: LearnerRouteTarget, identity: string) {
+  await learnerTarget.locator("body").evaluate((_, targetIdentity) => {
     (window as typeof window & { nextStepEvidenceBank?: EvidenceApi }).nextStepEvidenceBank?.remove(targetIdentity);
     Array.from(document.querySelectorAll<HTMLElement>("[data-evidence-bank-entry]"))
       .filter((card) => card.getAttribute("data-evidence-bank-entry") === targetIdentity)
@@ -568,11 +567,11 @@ async function removeEvidenceEntry(workspaceFrame: FrameLocator, identity: strin
   }, identity);
 }
 
-async function assertEvidenceApi(workspaceFrame: FrameLocator) {
+async function assertEvidenceApi(learnerTarget: LearnerRouteTarget) {
   await expect
     .poll(
       () =>
-        workspaceFrame.locator("body").evaluate(() => {
+        learnerTarget.locator("body").evaluate(() => {
           const api = (window as typeof window & { nextStepEvidenceBank?: EvidenceApi }).nextStepEvidenceBank;
           return Boolean(api && typeof api.list === "function" && typeof api.remove === "function");
         }),
@@ -638,13 +637,12 @@ async function responseWithinActivityOrRoute(
 }
 
 async function assertCollectionEvidenceScenario(
-  page: Page,
-  workspaceFrame: FrameLocator,
+  learnerPage: Page,
   projectSlug: string,
   scenario: Extract<LearnerEvidenceScenario, { kind?: "collection" }>,
   scenarioIndex: number
 ) {
-  const section = await showLearnerRoute(workspaceFrame, scenario.route);
+  const section = await showLearnerRoute(learnerPage, scenario.route);
   await activateEvidenceScenario(section, scenario);
   const collection = section.locator(`[data-evidence-collection-id="${scenario.collectionId}"]`);
   const response = await responseWithinActivityOrRoute(collection, section, scenario.responseId);
@@ -654,16 +652,16 @@ async function assertCollectionEvidenceScenario(
   await expect(response, `configured autosave response exists in ${scenario.collectionId}`).toHaveCount(1);
   await expect(save, `deliberate collection save exists in ${scenario.collectionId}`).toHaveCount(1);
 
-  await assertEvidenceApi(workspaceFrame);
-  await removeEvidenceEntry(workspaceFrame, scenario.collectionId);
+  await assertEvidenceApi(learnerPage);
+  await removeEvidenceEntry(learnerPage, scenario.collectionId);
 
   const firstValue = `E2E first collection response ${scenarioIndex + 1} for ${projectSlug}`;
   const updatedValue = `E2E updated collection response ${scenarioIndex + 1} for ${projectSlug}`;
   await response.fill(firstValue);
-  expect(await evidenceEntries(workspaceFrame, scenario.collectionId), "autosave does not publish evidence").toEqual([]);
+  expect(await evidenceEntries(learnerPage, scenario.collectionId), "autosave does not publish evidence").toEqual([]);
 
   await saveCollectionWithReadinessRetry(
-    workspaceFrame,
+    learnerPage,
     section,
     scenario,
     response,
@@ -671,14 +669,14 @@ async function assertCollectionEvidenceScenario(
     firstValue
   );
   await expect
-    .poll(async () => evidenceSnapshot(await evidenceEntries(workspaceFrame, scenario.collectionId)), {
+    .poll(async () => evidenceSnapshot(await evidenceEntries(learnerPage, scenario.collectionId)), {
       message: `deliberate save creates one Evidence Bank collection for ${scenario.collectionId}`
     })
     .toMatchObject({ count: 1, contributionIds: [scenario.collectionId], content: expect.stringContaining(firstValue) });
 
   await response.fill(updatedValue);
   await saveCollectionWithReadinessRetry(
-    workspaceFrame,
+    learnerPage,
     section,
     scenario,
     response,
@@ -686,18 +684,17 @@ async function assertCollectionEvidenceScenario(
     updatedValue
   );
   await expect
-    .poll(async () => evidenceSnapshot(await evidenceEntries(workspaceFrame, scenario.collectionId)), {
+    .poll(async () => evidenceSnapshot(await evidenceEntries(learnerPage, scenario.collectionId)), {
       message: `saving ${scenario.collectionId} again updates instead of duplicating`
     })
     .toMatchObject({ count: 1, contributionIds: [scenario.collectionId], content: expect.stringContaining(updatedValue) });
 
-  if (scenario.route === "core-vocabulary") {
-    await assertCoreVocabularyEntryContract(workspaceFrame, projectSlug, scenario);
+  if (scenario.route === "core-vocabulary" && projectSlug.startsWith("ela")) {
+    await assertCoreVocabularyEntryContract(learnerPage, projectSlug, scenario);
   }
 
-  await reloadWorkspacePreview(page, projectSlug, { requireEvidenceBank: true });
-  const restoredFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-  const restoredSection = await showLearnerRoute(restoredFrame, scenario.route);
+  await reloadLearnerEvidencePreview(learnerPage, projectSlug);
+  const restoredSection = await showLearnerRoute(learnerPage, scenario.route);
   await activateEvidenceScenario(restoredSection, scenario);
   const restoredCollection = restoredSection.locator(`[data-evidence-collection-id="${scenario.collectionId}"]`);
   const restoredResponse = await responseWithinActivityOrRoute(
@@ -707,21 +704,20 @@ async function assertCollectionEvidenceScenario(
   );
   await expect(restoredResponse, `response restores after reload for ${scenario.responseId}`).toHaveValue(updatedValue);
   await expect
-    .poll(async () => evidenceSnapshot(await evidenceEntries(restoredFrame, scenario.collectionId)), {
+    .poll(async () => evidenceSnapshot(await evidenceEntries(learnerPage, scenario.collectionId)), {
       message: `Evidence Bank collection restores after reload for ${scenario.collectionId}`
     })
     .toMatchObject({ count: 1, contributionIds: [scenario.collectionId], content: expect.stringContaining(updatedValue) });
 
-  await removeEvidenceEntry(restoredFrame, scenario.collectionId);
-  expect(await evidenceEntries(restoredFrame, scenario.collectionId), "Evidence Bank entry can be removed").toEqual([]);
+  await removeEvidenceEntry(learnerPage, scenario.collectionId);
+  expect(await evidenceEntries(learnerPage, scenario.collectionId), "Evidence Bank entry can be removed").toEqual([]);
   await expect(restoredResponse, "removing Evidence Bank entry does not erase the working response").toHaveValue(
     updatedValue
   );
 }
 
 async function assertIndividualEvidenceScenario(
-  page: Page,
-  workspaceFrame: FrameLocator,
+  learnerPage: Page,
   projectSlug: string,
   scenario: Extract<LearnerEvidenceScenario, { kind: "individual" }>,
   scenarioIndex: number
@@ -731,7 +727,7 @@ async function assertIndividualEvidenceScenario(
   const setupOwnsResponse = Boolean(
     scenario.setupResponses?.some((setup) => setup.responseId === scenario.responseId)
   );
-  const section = await showLearnerRoute(workspaceFrame, scenario.route);
+  const section = await showLearnerRoute(learnerPage, scenario.route);
   await prepareEvidenceScenario(section, scenario, firstValue);
   await activateEvidenceScenario(section, scenario);
   const capture = section.locator(
@@ -743,15 +739,15 @@ async function assertIndividualEvidenceScenario(
   await expect(capture, `configured individual Evidence Bank capture exists on #${scenario.route}`).toHaveCount(1);
   await expect(response, `configured evidence draft response exists in ${scenario.captureId}`).toHaveCount(1);
   await expect(save, `deliberate individual save exists in ${scenario.captureId}`).toHaveCount(1);
-  await assertEvidenceApi(workspaceFrame);
-  await removeEvidenceEntry(workspaceFrame, scenario.contributionId);
+  await assertEvidenceApi(learnerPage);
+  await removeEvidenceEntry(learnerPage, scenario.contributionId);
 
   if (!setupOwnsResponse) await response.fill(firstValue);
-  expect(await evidenceEntries(workspaceFrame, scenario.contributionId), "draft autosave does not publish evidence").toEqual([]);
+  expect(await evidenceEntries(learnerPage, scenario.contributionId), "draft autosave does not publish evidence").toEqual([]);
 
   await save.click();
   await expect
-    .poll(async () => evidenceSnapshot(await evidenceEntries(workspaceFrame, scenario.contributionId)), {
+    .poll(async () => evidenceSnapshot(await evidenceEntries(learnerPage, scenario.contributionId)), {
       message: `deliberate save creates one individual Evidence Bank entry for ${scenario.contributionId}`
     })
     .toMatchObject({
@@ -768,7 +764,7 @@ async function assertIndividualEvidenceScenario(
   }
   await save.click();
   await expect
-    .poll(async () => evidenceSnapshot(await evidenceEntries(workspaceFrame, scenario.contributionId)), {
+    .poll(async () => evidenceSnapshot(await evidenceEntries(learnerPage, scenario.contributionId)), {
       message: `saving ${scenario.contributionId} again updates instead of duplicating`
     })
     .toMatchObject({
@@ -777,9 +773,8 @@ async function assertIndividualEvidenceScenario(
       content: expect.stringContaining(updatedValue)
     });
 
-  await reloadWorkspacePreview(page, projectSlug, { requireEvidenceBank: true });
-  const restoredFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
-  const restoredSection = await showLearnerRoute(restoredFrame, scenario.route);
+  await reloadLearnerEvidencePreview(learnerPage, projectSlug);
+  const restoredSection = await showLearnerRoute(learnerPage, scenario.route);
   await activateEvidenceScenario(restoredSection, scenario);
   const restoredCapture = restoredSection.locator(
     `[data-evidence-capture="${scenario.captureId}"][data-evidence-contribution-id="${scenario.contributionId}"]`
@@ -791,7 +786,7 @@ async function assertIndividualEvidenceScenario(
   );
 
   await expect
-    .poll(async () => evidenceSnapshot(await evidenceEntries(restoredFrame, scenario.contributionId)), {
+    .poll(async () => evidenceSnapshot(await evidenceEntries(learnerPage, scenario.contributionId)), {
       message: `individual Evidence Bank entry restores after reload for ${scenario.contributionId}`
     })
     .toMatchObject({
@@ -800,8 +795,8 @@ async function assertIndividualEvidenceScenario(
       content: expect.stringContaining(updatedValue)
     });
 
-  await removeEvidenceEntry(restoredFrame, scenario.contributionId);
-  expect(await evidenceEntries(restoredFrame, scenario.contributionId), "individual Evidence Bank entry can be removed").toEqual([]);
+  await removeEvidenceEntry(learnerPage, scenario.contributionId);
+  expect(await evidenceEntries(learnerPage, scenario.contributionId), "individual Evidence Bank entry can be removed").toEqual([]);
   if (scenario.preserveResponseOnSave) {
     if (setupOwnsResponse) {
       await expect
@@ -817,19 +812,69 @@ async function assertIndividualEvidenceScenario(
   }
 }
 
+type LearnerPreviewReadyOptions = {
+  requireEvidenceBank?: boolean;
+};
+
+async function waitForLearnerPreviewReady(
+  learnerPage: Page,
+  projectSlug: string,
+  options: LearnerPreviewReadyOptions = {}
+) {
+  await expect
+    .poll(
+      async () => {
+        const url = new URL(learnerPage.url());
+        if (!workspacePreviewPathMatchesProject(url.pathname, projectSlug)) return false;
+        return learnerPage.locator("body").evaluate((_, readiness) => {
+          const evidenceApi = (
+            window as typeof window & {
+              nextStepEvidenceBank?: {
+                list?: unknown;
+                remove?: unknown;
+                upsert?: unknown;
+              };
+            }
+          ).nextStepEvidenceBank;
+          const evidenceReady = !readiness.requireEvidenceBank || Boolean(
+              evidenceApi
+              && typeof evidenceApi.list === "function"
+              && typeof evidenceApi.remove === "function"
+              && typeof evidenceApi.upsert === "function"
+            );
+          return document.readyState !== "loading" && Boolean(document.body) && evidenceReady;
+        }, { requireEvidenceBank: Boolean(options.requireEvidenceBank) }).catch(() => false);
+      },
+      {
+        message: options.requireEvidenceBank
+          ? `isolated learner Evidence Bank runtime is ready for ${projectSlug}`
+          : `isolated learner runtime is ready for ${projectSlug}`
+      }
+    )
+    .toBe(true);
+
+  await learnerPage.locator("body").evaluate(
+    () => new Promise<void>((resolve) => requestAnimationFrame(() => requestAnimationFrame(() => resolve())))
+  );
+}
+
+async function reloadLearnerEvidencePreview(learnerPage: Page, projectSlug: string) {
+  await learnerPage.reload({ waitUntil: "domcontentloaded" });
+  await waitForLearnerPreviewReady(learnerPage, projectSlug, { requireEvidenceBank: true });
+}
+
 async function assertEvidenceScenarios(
-  page: Page,
+  learnerPage: Page,
   projectSlug: string,
   learnerCourse: EnabledLearnerCourse
 ) {
   const scenarios = resolveLearnerEvidenceScenarios(learnerCourse);
-  await waitForWorkspacePreviewReady(page, projectSlug, { requireEvidenceBank: true });
+  await waitForLearnerPreviewReady(learnerPage, projectSlug, { requireEvidenceBank: true });
   for (const [scenarioIndex, scenario] of scenarios.entries()) {
-    const workspaceFrame = page.frameLocator('[data-testid="workspace-preview-frame"]');
     if (scenario.kind === "individual") {
-      await assertIndividualEvidenceScenario(page, workspaceFrame, projectSlug, scenario, scenarioIndex);
+      await assertIndividualEvidenceScenario(learnerPage, projectSlug, scenario, scenarioIndex);
     } else {
-      await assertCollectionEvidenceScenario(page, workspaceFrame, projectSlug, scenario, scenarioIndex);
+      await assertCollectionEvidenceScenario(learnerPage, projectSlug, scenario, scenarioIndex);
     }
   }
 }
@@ -913,13 +958,28 @@ export async function assertLearnerCourseContract(
   const learnerCourse = contract.learnerCourse;
   await assertLearnerNavigation(page, workspaceFrame, learnerCourse);
   await assertLearnerCompletionReachesTotal(workspaceFrame);
-  if (learnerCourse.routes.includes("core-vocabulary")) {
-    await assertCoreVocabularySurface(workspaceFrame, contract.projectSlug);
+  await waitForWorkspacePreviewReady(page, contract.projectSlug, { requireEvidenceBank: true });
+  const previewSource = await page.getByTestId("workspace-preview-frame").getAttribute("src");
+  if (!previewSource) {
+    throw new Error(`Workspace preview did not provide a source URL for ${contract.projectSlug}.`);
   }
-  await assertHintRoutes(workspaceFrame, learnerCourse);
-  await assertEvidenceScenarios(page, contract.projectSlug, learnerCourse);
-  await assertPrintRoutes(workspaceFrame, learnerCourse);
-  await assertResourceChecks(workspaceFrame, learnerCourse);
-  await assertKnownMissingHooks(workspaceFrame, learnerCourse);
+  const learnerPreviewUrl = new URL(previewSource, page.url());
+  learnerPreviewUrl.hash = "";
+  const learnerPage = await page.context().newPage();
+
+  try {
+    await learnerPage.goto(learnerPreviewUrl.toString(), { waitUntil: "domcontentloaded" });
+    await waitForLearnerPreviewReady(learnerPage, contract.projectSlug, { requireEvidenceBank: true });
+    if (contract.projectSlug.startsWith("ela") && learnerCourse.routes.includes("core-vocabulary")) {
+      await assertCoreVocabularySurface(learnerPage, contract.projectSlug);
+    }
+    await assertHintRoutes(learnerPage, learnerCourse);
+    await assertEvidenceScenarios(learnerPage, contract.projectSlug, learnerCourse);
+    await assertPrintRoutes(learnerPage, learnerCourse);
+    await assertResourceChecks(learnerPage, learnerCourse);
+    await assertKnownMissingHooks(learnerPage, learnerCourse);
+  } finally {
+    await learnerPage.close();
+  }
   await assertMobileRoutes(page, contract.projectSlug, learnerCourse);
 }

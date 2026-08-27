@@ -589,7 +589,21 @@ function renderSourceAnalysis(config: IssueConfig) {
     <p class="course-kicker">${COURSE_CODE} | Source Work</p>
     <h2>Source Analysis</h2>
     <p class="page-intro">Use this routine for political cartoons, textbook excerpts, charts, images, quotations, and case studies from the lessons.</p>
-    <article class="social-document" data-writing-activity-panel>
+    <article
+      class="social-document"
+      data-writing-activity-panel
+      data-response-collection
+      data-evidence-collection-id="${escapeHtml(`${config.slug}:source-analysis:collection`)}"
+      data-evidence-source="Source Analysis"
+      data-evidence-activity-id="source-analysis"
+      data-evidence-activity-title="Source Analysis"
+      data-evidence-origin-id="source-analysis"
+      data-evidence-origin-title="Source Analysis"
+      data-evidence-prompt-label="Source response routine"
+      data-evidence-detail-label="Source analysis responses"
+      data-evidence-saved-message="Source Analysis saved to Evidence Bank"
+      data-evidence-updated-message="Source Analysis updated in Evidence Bank"
+    >
       <header class="social-document-dark">
         <p>${escapeHtml(config.title)} Critical Analysis</p>
         <h3>Source Response Routine</h3>
@@ -598,7 +612,7 @@ function renderSourceAnalysis(config: IssueConfig) {
       <div class="social-document-body">
         ${questions
           .map(
-            (question, index) => `<div class="worksheet-question">
+            (question, index) => `<div class="worksheet-question" data-evidence-question-number="${index + 1}" data-evidence-question-prompt="${escapeHtml(question)}">
               <div class="worksheet-question-prompt"><span>${index + 1}.</span><p>${escapeHtml(question)}</p></div>
               <label class="worksheet-answer-field">
                 <textarea data-response-id="${escapeHtml(`${config.slug}:source:${index + 1}`)}" placeholder="Type your analytical response here..."></textarea>
@@ -607,7 +621,9 @@ function renderSourceAnalysis(config: IssueConfig) {
           )
           .join("\n")}
         <div class="social-print-actions">
+          <button class="external-resource-action" type="button" data-save-response-collection>Save Source Analysis to Evidence Bank</button>
           <button class="external-resource-action" type="button" data-print-writing>Print / PDF</button>
+          <span class="save-status" data-response-collection-status aria-live="polite">Draft saves automatically</span>
           <span class="save-status" data-save-status>Saved locally</span>
         </div>
       </div>
@@ -649,7 +665,28 @@ function renderEvidenceBank(config: IssueConfig) {
     <p class="course-kicker">${COURSE_CODE} | Evidence</p>
     <h2>Evidence Bank</h2>
     <p class="page-intro">Collect moments you may reuse in source responses, position papers, discussions, and exam-style writing.</p>
-    <article class="social-document" data-writing-activity-panel data-evidence-notebook-panel data-evidence-capture="${escapeHtml(`${config.slug}:evidence-notebook`)}" data-evidence-contribution-id="${escapeHtml(`${config.slug}:evidence:notebook`)}">
+    <article class="social-document social-lesson-evidence-bank" aria-labelledby="${escapeHtml(`${config.slug}-organized-evidence-title`)}">
+      <header class="social-document-header">
+        <p>Organized evidence</p>
+        <h3 id="${escapeHtml(`${config.slug}-organized-evidence-title`)}">Collected Evidence</h3>
+        <span>Review evidence by the activity where it was collected.</span>
+      </header>
+      <div class="social-document-body">
+        <p class="social-evidence-organization-note">Evidence is organized automatically by its collection point. Existing notes remain available and are not rewritten.</p>
+        <div class="social-evidence-origin-stack" data-organized-evidence-list>
+          <p class="social-empty-state" data-evidence-bank-empty>Collect evidence from Source Analysis or the notebook below and it will be organized here.</p>
+        </div>
+      </div>
+    </article>
+    <article
+      class="social-document"
+      data-writing-activity-panel
+      data-evidence-notebook-panel
+      data-evidence-capture="${escapeHtml(`${config.slug}:evidence-notebook`)}"
+      data-evidence-contribution-id="${escapeHtml(`${config.slug}:evidence:notebook`)}"
+      data-evidence-origin-id="evidence-notebook"
+      data-evidence-origin-title="Saved Directly in Evidence Bank"
+    >
       <header class="social-document-header">
         <p>Running Evidence Notebook</p>
         <h3>Save Proof As You Move</h3>
@@ -668,12 +705,6 @@ function renderEvidenceBank(config: IssueConfig) {
           <button class="external-resource-action" type="button" data-print-writing>Print / PDF</button>
           <span class="save-status" data-save-status>Saved locally</span>
         </div>
-        <section class="social-evidence-bank" data-evidence-bank-filters>
-          <h4>Saved Evidence</h4>
-          <div class="social-evidence-bank-list" data-manual-evidence-list>
-            <p class="social-empty-state" data-manual-evidence-empty>Use the notebook above to save reusable proof notes here.</p>
-          </div>
-        </section>
       </div>
     </article>
   </section>`;
@@ -859,6 +890,71 @@ function socialExtraCss() {
   align-items: center;
   padding-top: 6px;
 }
+.social-evidence-organization-note {
+  margin: 0;
+  color: #40493B;
+  line-height: 1.55;
+}
+.social-evidence-origin-stack,
+.social-evidence-origin-items,
+.social-evidence-lesson-groups,
+.social-evidence-lesson-items {
+  display: grid;
+  gap: 14px;
+}
+.social-evidence-origin-stack {
+  gap: 24px;
+}
+.social-evidence-origin-group {
+  display: grid;
+  gap: 14px;
+  padding-top: 22px;
+  border-top: 1px solid #DDE2DD;
+}
+.social-evidence-origin-group:first-child {
+  padding-top: 0;
+  border-top: 0;
+}
+.social-evidence-origin-header,
+.social-evidence-lesson-group-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 16px;
+}
+.social-evidence-origin-header h4,
+.social-evidence-lesson-group-header h5 {
+  margin: 0;
+  color: #191C1C;
+}
+.social-evidence-origin-header h4 {
+  font-size: 20px;
+}
+.social-evidence-origin-header p {
+  margin: 4px 0 0;
+  color: #40493B;
+  line-height: 1.5;
+}
+.social-evidence-origin-count,
+.social-evidence-lesson-count {
+  flex: 0 0 auto;
+  color: #155608;
+  font-size: 14px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+.social-evidence-lesson-group {
+  display: grid;
+  gap: 12px;
+}
+.social-evidence-lesson-group + .social-evidence-lesson-group {
+  padding-top: 16px;
+  border-top: 1px solid #ECEFEC;
+}
+.social-evidence-lesson-group-header h5 {
+  font-size: 16px;
+  line-height: 1.35;
+}
 .social-resource-panel {
   margin-top: 18px;
 }
@@ -891,10 +987,19 @@ function socialExtraCss() {
   gap: 12px;
 }
 .social-lesson-evidence-card {
+  display: grid;
+  gap: 8px;
   padding: 16px;
   border: 1px solid var(--surface-muted);
+  border-left: 5px solid #155608;
   border-radius: 8px;
   background: #fff;
+}
+.social-evidence-card-title {
+  margin: 0;
+  color: #191C1C;
+  font-size: 18px;
+  line-height: 1.3;
 }
 .social-lesson-evidence-card h4,
 .social-lesson-evidence-card p {
@@ -918,6 +1023,15 @@ function socialExtraCss() {
   color: var(--text-muted);
 }
 @media (max-width: 900px) {
+  .social-evidence-origin-header,
+  .social-evidence-lesson-group-header {
+    display: grid;
+    gap: 6px;
+  }
+  .social-evidence-origin-count,
+  .social-evidence-lesson-count {
+    white-space: normal;
+  }
   .social-question-grid,
   .social-three-column,
   .social-evidence-row,
@@ -1944,7 +2058,7 @@ async function buildIssue(
             });
 
       const html = await applyStoredCourseEdits({ repoRoot: ROOT, projectSlug: config.slug, html: renderedHtml, workspaceDir });
-      await fs.writeFile(path.join(workspaceDir, "index.html"), html);
+      await fs.writeFile(path.join(workspaceDir, "index.html"), html.replace(/[\t ]+$/gmu, ""));
       await writeBuildMetadata(stageMetaDir, config, sourceResource, lessons.length, resources.length);
       summary = { slug: config.slug, lessons: lessons.length, resources: resources.length };
     }
