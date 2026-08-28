@@ -4,6 +4,11 @@
 - Task: create upload-ready SCORM 2004 packages from the accepted Social Option Two and ELA catalog, including LMS suspend-data persistence.
 - Status: complete. The SCORM export-configuration checkpoint is `d8690706` on `codex/course-catalog-social-ela`; the release contains 33 packages (21 ELA, 12 Social Option Two) in `/Users/deanguedo/Downloads/Canvas-Helper-SCORM-Social-ELA-2026-08-28`.
 
+## Latest follow-up
+
+- Social 30-1 Issue 1 only: Lesson Evidence cards now provide a Remove control. Removal stores a separate Evidence Bank dismissal and does not erase the lesson response itself. Issues 2–4 were intentionally left unchanged.
+- Verified with Issue 1 `course:doctor`, workspace verification, project E2E, and `git diff --check`.
+
 ## Summary
 
 - This worktree is the clean daily catalog source: `/Users/deanguedo/Documents/GitHub/canvas-helper-course-catalog`.

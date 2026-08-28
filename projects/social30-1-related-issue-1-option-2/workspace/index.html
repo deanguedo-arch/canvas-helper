@@ -10609,6 +10609,7 @@ const navGroupIdsByPage = {};
 const STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:complete";
 const RESPONSE_STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:responses";
 const MANUAL_EVIDENCE_STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:manual-evidence-notes";
+const DISMISSED_LESSON_EVIDENCE_STORAGE_KEY = "canvas-helper:social30-1-related-issue-1-option-2:dismissed-lesson-evidence";
 const lessonsNav = document.querySelector(".lessons-nav");
 const navGroups = Array.from(document.querySelectorAll("[data-nav-group]"));
 const fallbackStorage = {};
@@ -10653,6 +10654,12 @@ function readManualEvidenceNotes(){
 }
 function writeManualEvidenceNotes(notes){
   writeStorageValue(MANUAL_EVIDENCE_STORAGE_KEY, JSON.stringify(notes));
+}
+function readDismissedLessonEvidenceIds(){
+  try { return new Set(JSON.parse(readStorageValue(DISMISSED_LESSON_EVIDENCE_STORAGE_KEY, "[]"))); } catch { return new Set(); }
+}
+function writeDismissedLessonEvidenceIds(ids){
+  writeStorageValue(DISMISSED_LESSON_EVIDENCE_STORAGE_KEY, JSON.stringify(Array.from(ids)));
 }
 function setLessonsOpen(open){
   lessonsNav?.classList.toggle("is-open", open);
@@ -10765,6 +10772,7 @@ function getLessonEvidenceNotes(){
       const value = typeof storedValue === "string" ? storedValue.trim() : "";
       const route = field.closest(".course-page")?.id || "";
       return {
+        responseId: key || "",
         value,
         title: field.getAttribute("data-evidence-lesson-title") || "Lesson evidence note",
         group: field.getAttribute("data-evidence-lesson-group") || "",
@@ -10822,10 +10830,11 @@ function getEvidenceEntryOriginId(note){
   return "other";
 }
 function renderLessonEvidenceCard(note){
-  return '<article class="social-lesson-evidence-card" data-evidence-origin-id="lesson-evidence" data-evidence-lesson-number="' + escapeForHtml(note.number) + '">' +
+  return '<article class="social-lesson-evidence-card" data-evidence-bank-entry="' + escapeForHtml(note.responseId) + '" data-evidence-origin-id="lesson-evidence" data-evidence-lesson-number="' + escapeForHtml(note.number) + '">' +
     '<div class="social-lesson-evidence-meta">' + escapeForHtml(note.number ? "Lesson " + note.number : "Lesson note") + '</div>' +
     '<h6 class="social-evidence-card-title">' + escapeForHtml(note.title) + '</h6>' +
     '<p>' + escapeForHtml(note.value) + '</p>' +
+    '<div class="social-evidence-card-actions"><button class="external-resource-action social-secondary-action" type="button" data-remove-lesson-evidence="' + escapeForHtml(note.responseId) + '">Remove</button></div>' +
   '</article>';
 }
 function renderManualEvidenceCard(note, originId){
@@ -10887,7 +10896,7 @@ function renderEvidenceOriginGroup(definition, count, content){
 function renderOrganizedEvidenceBank(){
   const lists = Array.from(document.querySelectorAll("[data-organized-evidence-list]"));
   if (!lists.length) return;
-  const lessonNotes = getLessonEvidenceNotes();
+  const lessonNotes = getLessonEvidenceNotes().filter((note) => !readDismissedLessonEvidenceIds().has(note.responseId));
   const manualNotes = getEvidenceBankApi()?.list() || readManualEvidenceNotes();
   const manualGroups = new Map(evidenceOriginDefinitions.map((definition) => [definition.id, []]));
   manualNotes
@@ -11152,6 +11161,15 @@ function removeManualEvidenceNote(id){
   if (!id) return;
   if (removeEvidenceEntry(id)) setEvidenceNotebookStatus("Removed saved note");
 }
+function dismissLessonEvidenceNote(id){
+  const normalizedId = String(id || "").trim();
+  if (!normalizedId) return;
+  const dismissed = readDismissedLessonEvidenceIds();
+  dismissed.add(normalizedId);
+  writeDismissedLessonEvidenceIds(dismissed);
+  renderLessonEvidenceBank();
+  setEvidenceNotebookStatus("Removed from Evidence Bank. Your lesson response is still saved.");
+}
 function restoreResponses(){
   const responses = readResponses();
   document.querySelectorAll("[data-response-id]").forEach((field) => {
@@ -11305,6 +11323,12 @@ document.addEventListener("click", (event) => {
     return;
   }
   const removeEvidenceButton = event.target.closest("[data-remove-evidence-note]");
+  const removeLessonEvidenceButton = event.target.closest("[data-remove-lesson-evidence]");
+  if (removeLessonEvidenceButton) {
+    event.preventDefault();
+    dismissLessonEvidenceNote(removeLessonEvidenceButton.getAttribute("data-remove-lesson-evidence"));
+    return;
+  }
   if (removeEvidenceButton) {
     event.preventDefault();
     removeManualEvidenceNote(removeEvidenceButton.getAttribute("data-remove-evidence-note"));
