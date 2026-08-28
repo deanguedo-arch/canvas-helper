@@ -2,7 +2,7 @@
 
 - Project: Social and ELA SCORM upload release
 - Task: create upload-ready SCORM 2004 packages from the accepted Social Option Two and ELA catalog, including LMS suspend-data persistence.
-- Status: complete locally on `codex/course-catalog-social-ela`. The release contains 33 packages (21 ELA, 12 Social Option Two) in `/Users/deanguedo/Downloads/Canvas-Helper-SCORM-Social-ELA-2026-08-28`.
+- Status: complete. The SCORM export-configuration checkpoint is `d8690706` on `codex/course-catalog-social-ela`; the release contains 33 packages (21 ELA, 12 Social Option Two) in `/Users/deanguedo/Downloads/Canvas-Helper-SCORM-Social-ELA-2026-08-28`.
 
 ## Summary
 
