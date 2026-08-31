@@ -1,0 +1,90 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-a-pilot",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Formative practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13",
+      "lesson-14",
+      "lesson-15",
+      "lesson-16",
+      "lesson-17",
+      "model-lab",
+      "investigation-notebook",
+      "practice-hub",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "investigation-notebook"
+    ],
+    "evidenceScenario": {
+      "kind": "individual",
+      "route": "lesson-04",
+      "captureId": "action-potential-evidence",
+      "contributionId": "biology30-unit-a-pilot:artifact:action-potential-evidence",
+      "responseId": "biology30-unit-a-pilot:artifact:action-potential-evidence:claim",
+      "setupResponses": [
+        {
+          "responseId": "biology30-unit-a-pilot:artifact:action-potential-evidence:claim",
+          "value": "{{e2e-value}}"
+        },
+        {
+          "responseId": "biology30-unit-a-pilot:artifact:action-potential-evidence:evidence",
+          "value": "Graph evidence for {{e2e-value}}"
+        },
+        {
+          "responseId": "biology30-unit-a-pilot:artifact:action-potential-evidence:reasoning",
+          "value": "Ion-channel reasoning for {{e2e-value}}"
+        }
+      ]
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-04",
+        "lesson-09",
+        "lesson-15",
+        "investigation-notebook",
+        "practice-hub"
+      ]
+    }
+  }
+}

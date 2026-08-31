@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a-pilot",
+  "status": "baseline-captured",
+  "capturedAt": "2026-08-31T15:25:56.000Z",
+  "repository": {
+    "branch": "codex/studio-direct-editing-v1",
+    "headBeforePilotCommit": "fda171dc56371019a55e56dfb8363a28c346ae79"
+  },
+  "sourceCandidate": {
+    "projectSlug": "biology30-unit-a",
+    "workspaceTreeSha256": "4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0",
+    "indexSha256": "9c74fc7bd4a706db86f439ec68f3dc174483fd2c909ef0aa8f048896c7236979",
+    "generatedAt": "2026-08-31T01:59:00.496Z",
+    "fileCount": 7,
+    "byteCount": 1348783
+  },
+  "protectedRawSnapshot": {
+    "path": "projects/biology30-unit-a-pilot/raw",
+    "workspaceTreeSha256": "4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0",
+    "fileCount": 7,
+    "byteCount": 1348783
+  },
+  "initialPilotWorkspace": {
+    "path": "projects/biology30-unit-a-pilot/workspace",
+    "workspaceTreeSha256": "e89fcf0e78207c0320886bd772192c2a096bb6d6e4c19891ef48d0bce99fbfea",
+    "fileCount": 7,
+    "byteCount": 1349983,
+    "intentionalIdentityChanges": [
+      "Changed the learner-visible course title to identify the Unit A Pilot.",
+      "Changed response, completion, and persistence namespaces from biology30-unit-a to biology30-unit-a-pilot."
+    ]
+  },
+  "scope": {
+    "originalUnitAChanged": false,
+    "unitsBThroughDChanged": false,
+    "sourceArchivesChanged": false
+  }
+}

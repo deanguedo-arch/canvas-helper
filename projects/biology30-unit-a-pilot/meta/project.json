@@ -1,0 +1,86 @@
+{
+  "id": "5cbf1b1b-27cc-4640-9f19-e74e767f5c72",
+  "slug": "biology30-unit-a-pilot",
+  "title": "Biology 30 — Unit A Pilot: Nervous and Endocrine Systems",
+  "sourcePath": "projects/biology30-unit-a-pilot/raw/index.html",
+  "inputKind": "html",
+  "brightspaceTarget": "scorm",
+  "previewModes": [
+    "workspace"
+  ],
+  "workspaceEntrypoint": "workspace/index.html",
+  "rawEntrypoint": "raw/index.html",
+  "learningSource": "other",
+  "learningTrust": "curated",
+  "learningUpdatedAt": "2026-08-31T15:25:56.000Z",
+  "createdAt": "2026-08-31T15:24:30.939Z",
+  "updatedAt": "2026-08-31T15:25:56.000Z",
+  "migrationState": "migrated",
+  "projectType": "hybrid",
+  "preferredWorkflows": [
+    "generated-course",
+    "conversion"
+  ],
+  "canonicalEntry": "projects/biology30-unit-a-pilot/workspace/index.html",
+  "canonicalSources": [
+    "projects/biology30-unit-a-pilot/workspace/index.html",
+    "projects/biology30-unit-a-pilot/workspace/assets/brand/nxt-ce-logo-white-with-ce.png",
+    "projects/biology30-unit-a-pilot/workspace/assets/font-manifest.json",
+    "projects/biology30-unit-a-pilot/workspace/assets/fonts/HankenGrotesk-Variable.ttf",
+    "projects/biology30-unit-a-pilot/workspace/assets/fonts/OFL-Hanken-Grotesk.txt",
+    "projects/biology30-unit-a-pilot/workspace/assets/fonts/OFL-Work-Sans.txt",
+    "projects/biology30-unit-a-pilot/workspace/assets/fonts/WorkSans-Variable.ttf"
+  ],
+  "generatedOutputs": [],
+  "authoring": {
+    "driverId": "direct-workspace-v1",
+    "familyId": "biology30-unit-a-improvement-pilot",
+    "qualityProfile": "biology30-unit-a-improvement-pilot-v1",
+    "learnerSurfaces": {
+      "schemaVersion": 1,
+      "mode": "static-pages-complete",
+      "pages": [
+        {
+          "htmlPath": "index.html",
+          "route": ""
+        }
+      ]
+    },
+    "studioEditing": {
+      "enabled": false,
+      "renameCourse": false,
+      "imageAssets": false
+    }
+  },
+  "injectedComponents": [],
+  "authoringStatus": "blocked",
+  "exportTargets": [
+    {
+      "target": "html",
+      "enabled": false,
+      "notes": "Pilot remains preview-only while Unit A improvements are developed and reviewed."
+    },
+    {
+      "target": "scorm",
+      "enabled": false,
+      "notes": "Pilot export is disabled; only a separately accepted production course may be released."
+    }
+  ],
+  "referenceOnly": [
+    "projects/biology30-unit-a-pilot/raw/index.html",
+    "projects/biology30-unit-a-pilot/raw/assets/brand/nxt-ce-logo-white-with-ce.png",
+    "projects/biology30-unit-a-pilot/raw/assets/font-manifest.json",
+    "projects/biology30-unit-a-pilot/raw/assets/fonts/HankenGrotesk-Variable.ttf",
+    "projects/biology30-unit-a-pilot/raw/assets/fonts/OFL-Hanken-Grotesk.txt",
+    "projects/biology30-unit-a-pilot/raw/assets/fonts/OFL-Work-Sans.txt",
+    "projects/biology30-unit-a-pilot/raw/assets/fonts/WorkSans-Variable.ttf"
+  ],
+  "importedFirstPassOrigin": {
+    "sourceSystem": "other",
+    "sourcePath": "projects/biology30-unit-a/workspace",
+    "importedAt": "2026-08-31T15:25:56.000Z",
+    "notes": "Direct improvement pilot forked from the exact blocked Unit A production candidate with workspace tree SHA-256 4908245ee9e176d647e0f927e1fc3f7db99009a8b50ec7e8ec9a86708a6524f0."
+  },
+  "sourceOfTruthNotes": "The pilot workspace is the direct canonical source for experimentation. The raw directory preserves the exact starting candidate and must not be edited. Do not run the Unit A production builder against this pilot or hand changes back to Units A-D until the improvement playbook is reviewed.",
+  "regenerateCommand": null
+}
