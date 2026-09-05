@@ -1,0 +1,107 @@
+{
+  "$schema": "../../../e2e/project-e2e-contract.schema.json",
+  "projectSlug": "biology30-unit-a-pilot-2",
+  "requiredTestIds": [
+    "studio-shell",
+    "course-studio-tab",
+    "workspace-project-select",
+    "project-root",
+    "workspace-preview-frame"
+  ],
+  "modes": {
+    "enabled": false
+  },
+  "navigation": {
+    "enabled": false
+  },
+  "quiz": {
+    "enabled": false,
+    "lessonTitle": "Final Practice"
+  },
+  "fallbackPanel": {
+    "enabled": false
+  },
+  "learnerCourse": {
+    "enabled": true,
+    "routes": [
+      "overview",
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "chapter-11-practice",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "chapter-12-practice",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13",
+      "chapter-13-practice",
+      "review-seminar",
+      "final-practice",
+      "process-collection",
+      "core-vocabulary",
+      "advanced-learning",
+      "textbook-library",
+      "video-library",
+      "model-lab",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "hintRoutes": [],
+    "printRoutes": [
+      "process-collection"
+    ],
+    "evidenceScenario": {
+      "kind": "individual",
+      "route": "lesson-01",
+      "captureId": "lesson-01-evidence-slip",
+      "contributionId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
+      "responseId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
+      "setupResponses": [
+        {
+          "responseId": "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
+          "value": "{{e2e-value}}"
+        }
+      ]
+    },
+    "resourceChecks": [],
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "routes": [
+        "overview",
+        "lesson-01",
+        "lesson-02",
+        "lesson-03",
+        "lesson-04",
+        "lesson-05",
+        "chapter-11-practice",
+        "lesson-06",
+        "lesson-07",
+        "lesson-08",
+        "chapter-12-practice",
+        "lesson-09",
+        "lesson-10",
+        "lesson-11",
+        "lesson-12",
+        "lesson-13",
+        "chapter-13-practice",
+        "review-seminar",
+        "final-practice",
+        "process-collection",
+        "core-vocabulary",
+        "advanced-learning",
+        "textbook-library",
+        "video-library",
+        "model-lab",
+        "glossary-and-data",
+        "sources-and-credits"
+      ]
+    }
+  }
+}

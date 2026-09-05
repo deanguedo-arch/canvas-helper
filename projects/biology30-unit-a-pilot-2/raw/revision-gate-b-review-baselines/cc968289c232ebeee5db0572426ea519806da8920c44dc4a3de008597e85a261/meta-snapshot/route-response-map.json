@@ -1,0 +1,1579 @@
+{
+  "schemaVersion": 1,
+  "sourceProject": "biology30-unit-a-pilot",
+  "project": "biology30-unit-a-pilot-2",
+  "routeMap": [
+    {
+      "sourceRouteId": "overview",
+      "destinations": [
+        "overview"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-01",
+      "destinations": [
+        "lesson-09"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-02",
+      "destinations": [
+        "lesson-09"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-03",
+      "destinations": [
+        "lesson-01"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-04",
+      "destinations": [
+        "lesson-02"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-05",
+      "destinations": [
+        "lesson-03"
+      ],
+      "treatment": "advanced-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-06",
+      "destinations": [
+        "lesson-04",
+        "lesson-05"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-07",
+      "destinations": [
+        "lesson-01",
+        "process-collection"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "lesson-08",
+      "destinations": [
+        "lesson-06",
+        "process-collection"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "lesson-09",
+      "destinations": [
+        "lesson-07"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-10",
+      "destinations": [
+        "lesson-08"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-11",
+      "destinations": [
+        "lesson-06",
+        "review-seminar"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "lesson-12",
+      "destinations": [
+        "lesson-09"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-13",
+      "destinations": [
+        "lesson-10",
+        "lesson-11"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-14",
+      "destinations": [
+        "lesson-12"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-15",
+      "destinations": [
+        "lesson-13",
+        "process-collection"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "lesson-16",
+      "destinations": [
+        "lesson-13"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "lesson-17",
+      "destinations": [
+        "review-seminar",
+        "final-practice"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "chapter-11-review",
+      "destinations": [
+        "chapter-11-practice"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "chapter-12-review",
+      "destinations": [
+        "chapter-12-practice"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "chapter-13-review",
+      "destinations": [
+        "chapter-13-practice"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "review-seminar",
+      "destinations": [
+        "review-seminar"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "textbook-unit-review",
+      "destinations": [
+        "final-practice"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "core-vocabulary",
+      "destinations": [
+        "core-vocabulary"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "library",
+      "destinations": [
+        "textbook-library"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "video-library",
+      "destinations": [
+        "video-library"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "model-lab",
+      "destinations": [
+        "model-lab"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "investigation-notebook",
+      "destinations": [
+        "process-collection"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "practice-hub",
+      "destinations": [
+        "chapter-11-practice",
+        "chapter-12-practice",
+        "chapter-13-practice",
+        "final-practice"
+      ],
+      "treatment": "move-to-review"
+    },
+    {
+      "sourceRouteId": "glossary-and-data",
+      "destinations": [
+        "glossary-and-data"
+      ],
+      "treatment": "keep-interaction"
+    },
+    {
+      "sourceRouteId": "sources-and-credits",
+      "destinations": [
+        "sources-and-credits"
+      ],
+      "treatment": "core-rewrite"
+    },
+    {
+      "sourceRouteId": "review-overview",
+      "destinations": [
+        "chapter-11-practice",
+        "chapter-12-practice",
+        "chapter-13-practice",
+        "review-seminar",
+        "final-practice"
+      ],
+      "treatment": "move-to-review"
+    }
+  ],
+  "stateIdMap": [
+    {
+      "oldId": "biology30-unit-a-pilot:activity:blood-glucose:interpretation",
+      "newId": "biology30-unit-a-pilot-2:activity:blood-glucose:interpretation",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:action-potential-evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:action-potential-evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:action-potential-evidence:claim",
+      "newId": "biology30-unit-a-pilot-2:artifact:action-potential-evidence:claim",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:action-potential-evidence:evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:action-potential-evidence:evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:action-potential-evidence:reasoning",
+      "newId": "biology30-unit-a-pilot-2:artifact:action-potential-evidence:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:glucose-urinalysis:limits",
+      "newId": "biology30-unit-a-pilot-2:artifact:glucose-urinalysis:limits",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:glucose-urinalysis:mechanism",
+      "newId": "biology30-unit-a-pilot-2:artifact:glucose-urinalysis:mechanism",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:glucose-urinalysis:pattern",
+      "newId": "biology30-unit-a-pilot-2:artifact:glucose-urinalysis:pattern",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:hormone-technology-case",
+      "newId": "biology30-unit-a-pilot-2:artifact:hormone-technology-case",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:hormone-technology-case:claim",
+      "newId": "biology30-unit-a-pilot-2:artifact:hormone-technology-case:claim",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:hormone-technology-case:evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:hormone-technology-case:evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:hormone-technology-case:limitations",
+      "newId": "biology30-unit-a-pilot-2:artifact:hormone-technology-case:limitations",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:hormone-technology-case:reasoning",
+      "newId": "biology30-unit-a-pilot-2:artifact:hormone-technology-case:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:reflex-investigation",
+      "newId": "biology30-unit-a-pilot-2:artifact:reflex-investigation",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:reflex-investigation:claim",
+      "newId": "biology30-unit-a-pilot-2:artifact:reflex-investigation:claim",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:reflex-investigation:evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:reflex-investigation:evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:reflex-investigation:limitations",
+      "newId": "biology30-unit-a-pilot-2:artifact:reflex-investigation:limitations",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:reflex-investigation:reasoning",
+      "newId": "biology30-unit-a-pilot-2:artifact:reflex-investigation:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:regulation-systems-map",
+      "newId": "biology30-unit-a-pilot-2:artifact:regulation-systems-map",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:regulation-systems-map:claim",
+      "newId": "biology30-unit-a-pilot-2:artifact:regulation-systems-map:claim",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:regulation-systems-map:evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:regulation-systems-map:evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:regulation-systems-map:limitations",
+      "newId": "biology30-unit-a-pilot-2:artifact:regulation-systems-map:limitations",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:regulation-systems-map:reasoning",
+      "newId": "biology30-unit-a-pilot-2:artifact:regulation-systems-map:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-evidence-case",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-evidence-case",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-evidence-case:claim",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-evidence-case:claim",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-evidence-case:evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-evidence-case:evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-evidence-case:limitations",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-evidence-case:limitations",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-evidence-case:reasoning",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-evidence-case:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-investigation",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-investigation",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-investigation:claim",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-investigation:claim",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-investigation:evidence",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-investigation:evidence",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-investigation:limitations",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-investigation:limitations",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:artifact:sensory-investigation:reasoning",
+      "newId": "biology30-unit-a-pilot-2:artifact:sensory-investigation:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:complete",
+      "newId": "biology30-unit-a-pilot-2:complete",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:action-potential:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:action-potential:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:action-potential:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:action-potential:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:action-potential:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:action-potential:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:action-potential:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:action-potential:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:antagonistic-hormones:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:antagonistic-hormones:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:antagonistic-hormones:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:antagonistic-hormones:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:blood-glucose-regulation:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:blood-glucose-regulation:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:blood-glucose-regulation:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:blood-glucose-regulation:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:central-peripheral-systems:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:central-peripheral-systems:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:central-peripheral-systems:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:central-peripheral-systems:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:control-system-roles:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:control-system-roles:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:control-system-roles:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:control-system-roles:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:endocrine-signalling:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:endocrine-signalling:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:endocrine-signalling:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:endocrine-signalling:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hearing-equilibrium-pathway:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hearing-equilibrium-pathway:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hearing-equilibrium-pathway:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hearing-equilibrium-pathway:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:homeostasis:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:homeostasis:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:homeostasis:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:homeostasis:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hypothalamus-pituitary-axis:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hypothalamus-pituitary-axis:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hypothalamus-pituitary-axis:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:hypothalamus-pituitary-axis:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:membrane-potential-phases:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:membrane-potential-phases:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:membrane-potential-phases:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:membrane-potential-phases:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:myelin-conduction:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:myelin-conduction:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:myelin-conduction:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:myelin-conduction:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:negative-feedback:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:negative-feedback:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:negative-feedback:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:negative-feedback:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:neuron-structure:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:neuron-structure:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:neuron-structure:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:neuron-structure:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:reflex-arc:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:reflex-arc:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:reflex-arc:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:reflex-arc:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:refractory-period:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:refractory-period:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:refractory-period:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:refractory-period:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:regulated-variable-set-point:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:regulated-variable-set-point:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:regulated-variable-set-point:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:regulated-variable-set-point:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:resting-membrane-potential:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:resting-membrane-potential:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:resting-membrane-potential:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:resting-membrane-potential:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:scientific-explanation:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:scientific-explanation:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:scientific-explanation:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:scientific-explanation:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-adaptation:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-adaptation:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-adaptation:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-adaptation:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-receptor-classes:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-receptor-classes:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-receptor-classes:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-receptor-classes:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-transduction:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-transduction:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-transduction:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sensory-transduction:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:somatic-autonomic-systems:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:somatic-autonomic-systems:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:somatic-autonomic-systems:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:somatic-autonomic-systems:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:stress-response:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:stress-response:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:stress-response:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:stress-response:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:stress-response:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:stress-response:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:stress-response:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:stress-response:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sympathetic-parasympathetic:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sympathetic-parasympathetic:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sympathetic-parasympathetic:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:sympathetic-parasympathetic:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:synaptic-transmission:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:synaptic-transmission:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:synaptic-transmission:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:synaptic-transmission:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:thyroid-calcium-feedback:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:thyroid-calcium-feedback:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:thyroid-calcium-feedback:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:thyroid-calcium-feedback:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:vision-pathway:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:vision-pathway:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:vision-pathway:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:vision-pathway:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:water-salt-regulation:characteristics",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:characteristics",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:water-salt-regulation:definition",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:definition",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:water-salt-regulation:example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:core-vocabulary:water-salt-regulation:non-example",
+      "newId": "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:non-example",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:",
+      "newId": "biology30-unit-a-pilot-2:lesson:",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:01:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:01:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:01:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:01:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:02:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:02:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:02:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:02:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:03:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:03:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:03:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:03:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:04:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:04:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:04:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:04:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:05:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:05:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:05:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:05:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:06:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:06:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:06:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:06:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:07:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:07:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:07:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:07:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:08:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:08:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:08:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:08:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:09:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:09:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:09:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:09:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:10:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:10:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:10:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:10:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:11:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:11:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:11:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:11:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:12:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:12:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:12:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:12:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:13:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:13:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:13:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:13:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:14:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:14:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:14:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:14:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:15:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:15:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:15:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:15:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:16:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:16:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:16:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:16:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:17:exit",
+      "newId": "biology30-unit-a-pilot-2:lesson:17:exit",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:lesson:17:warmup",
+      "newId": "biology30-unit-a-pilot-2:lesson:17:warmup",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:manual-evidence-notes",
+      "newId": "biology30-unit-a-pilot-2:manual-evidence-notes",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:responses",
+      "newId": "biology30-unit-a-pilot-2:responses",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:review-seminar:1:reasoning",
+      "newId": "biology30-unit-a-pilot-2:review-seminar:1:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:review-seminar:2:reasoning",
+      "newId": "biology30-unit-a-pilot-2:review-seminar:2:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:review-seminar:3:reasoning",
+      "newId": "biology30-unit-a-pilot-2:review-seminar:3:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:review-seminar:4:reasoning",
+      "newId": "biology30-unit-a-pilot-2:review-seminar:4:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:review-seminar:5:reasoning",
+      "newId": "biology30-unit-a-pilot-2:review-seminar:5:reasoning",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook-review:v1",
+      "newId": "biology30-unit-a-pilot-2:textbook-review:v1",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:chapter-11-review:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:chapter-11-review:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:chapter-12-review:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:chapter-12-review:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:chapter-13-review:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:chapter-13-review:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-01:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-01:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-02:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-02:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-03:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-03:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-04:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-04:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-05:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-05:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-06:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-06:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-07:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-07:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-08:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-08:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-09:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-09:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-10:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-10:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-11:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-11:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-12:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-12:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-13:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-13:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-14:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-14:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-15:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-15:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:lesson-16:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:lesson-16:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:review-seminar-1:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:review-seminar-1:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:review-seminar-2:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:review-seminar-2:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:review-seminar-3:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:review-seminar-3:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:review-seminar-4:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:review-seminar-4:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:review-seminar-5:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:review-seminar-5:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    },
+    {
+      "oldId": "biology30-unit-a-pilot:textbook:textbook-unit-review:attempt",
+      "newId": "biology30-unit-a-pilot-2:textbook:textbook-unit-review:attempt",
+      "migrationPolicy": "namespace-reservation-only-no-learner-state-import"
+    }
+  ],
+  "currentPilot2StateIds": [
+    "biology30-unit-a-pilot-2:core-vocabulary:action-potential:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:action-potential:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:action-potential:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:action-potential:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:antagonistic-hormones:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:blood-glucose-regulation:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:central-peripheral-systems:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:control-system-roles:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:endocrine-signalling:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:hearing-equilibrium-pathway:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:homeostasis:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:hypothalamus-pituitary-axis:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:membrane-potential-phases:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:myelin-conduction:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:negative-feedback:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:neuron-structure:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:reflex-arc:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:refractory-period:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:regulated-variable-set-point:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:resting-membrane-potential:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:scientific-explanation:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-adaptation:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-receptor-classes:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sensory-transduction:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:somatic-autonomic-systems:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:stress-response:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:stress-response:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:stress-response:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:stress-response:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:sympathetic-parasympathetic:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:synaptic-transmission:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:thyroid-calcium-feedback:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:vision-pathway:non-example",
+    "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:characteristics",
+    "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:definition",
+    "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:example",
+    "biology30-unit-a-pilot-2:core-vocabulary:water-salt-regulation:non-example",
+    "biology30-unit-a-pilot-2:investigation:endocrine-data",
+    "biology30-unit-a-pilot-2:investigation:endocrine-data:analysis",
+    "biology30-unit-a-pilot-2:investigation:reflex-response",
+    "biology30-unit-a-pilot-2:investigation:reflex-response:claim",
+    "biology30-unit-a-pilot-2:investigation:reflex-response:pattern",
+    "biology30-unit-a-pilot-2:investigation:sensory-receptors",
+    "biology30-unit-a-pilot-2:investigation:sensory-receptors:analysis",
+    "biology30-unit-a-pilot-2:investigation:sensory-receptors:plan",
+    "biology30-unit-a-pilot-2:lesson-01:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-01:retrieval",
+    "biology30-unit-a-pilot-2:lesson-02:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-02:retrieval",
+    "biology30-unit-a-pilot-2:lesson-03:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-03:retrieval",
+    "biology30-unit-a-pilot-2:lesson-04:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-04:retrieval",
+    "biology30-unit-a-pilot-2:lesson-05:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-05:retrieval",
+    "biology30-unit-a-pilot-2:lesson-06:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-06:retrieval",
+    "biology30-unit-a-pilot-2:lesson-07:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-07:retrieval",
+    "biology30-unit-a-pilot-2:lesson-08:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-08:retrieval",
+    "biology30-unit-a-pilot-2:lesson-09:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-09:retrieval",
+    "biology30-unit-a-pilot-2:lesson-10:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-10:retrieval",
+    "biology30-unit-a-pilot-2:lesson-11:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-11:retrieval",
+    "biology30-unit-a-pilot-2:lesson-12:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-12:retrieval",
+    "biology30-unit-a-pilot-2:lesson-13:evidence-slip",
+    "biology30-unit-a-pilot-2:lesson-13:retrieval",
+    "biology30-unit-a-pilot-2:media:0-8PvNOdByc:checkpoint",
+    "biology30-unit-a-pilot-2:media:A44brRGG4Ys:checkpoint",
+    "biology30-unit-a-pilot-2:media:BYaR-JgbjCs:checkpoint",
+    "biology30-unit-a-pilot-2:media:Ie2j7GpC4JU:checkpoint",
+    "biology30-unit-a-pilot-2:media:QHkGG4TimvQ:checkpoint",
+    "biology30-unit-a-pilot-2:media:QY9NTVh-Awo:checkpoint",
+    "biology30-unit-a-pilot-2:media:YcJy28Nnrb8:checkpoint",
+    "biology30-unit-a-pilot-2:media:cDGmsR2ZILE:checkpoint",
+    "biology30-unit-a-pilot-2:media:eWHH9je2zG4:checkpoint",
+    "biology30-unit-a-pilot-2:media:o0DYP-u1rNM:checkpoint",
+    "biology30-unit-a-pilot-2:media:oa6rvUJlg7o:checkpoint",
+    "biology30-unit-a-pilot-2:media:qPix_X-9t7E:checkpoint",
+    "biology30-unit-a-pilot-2:media:v-t1Z5-oPtU:checkpoint",
+    "biology30-unit-a-pilot-2:media:y9Bdi4dnSlg:checkpoint",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-01",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-02",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-03",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-04",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-05",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-06",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-07",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-08",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-09",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-10",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-11",
+    "biology30-unit-a-pilot-2:practice:chapter-11-practice-12",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-01",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-02",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-03",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-04",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-05",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-06",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-07",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-08",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-09",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-10",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-11",
+    "biology30-unit-a-pilot-2:practice:chapter-12-practice-12",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-01",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-02",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-03",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-04",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-05",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-06",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-07",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-08",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-09",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-10",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-11",
+    "biology30-unit-a-pilot-2:practice:chapter-13-practice-12",
+    "biology30-unit-a-pilot-2:practice:final-practice-challenge-01",
+    "biology30-unit-a-pilot-2:practice:final-practice-challenge-02",
+    "biology30-unit-a-pilot-2:practice:final-practice-challenge-03",
+    "biology30-unit-a-pilot-2:practice:final-practice-challenge-04",
+    "biology30-unit-a-pilot-2:practice:final-practice-challenge-05",
+    "biology30-unit-a-pilot-2:practice:final-practice-challenge-06",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-01",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-02",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-03",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-04",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-05",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-06",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-07",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-08",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-09",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-10",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-11",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-12",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-13",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-14",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-15",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-16",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-17",
+    "biology30-unit-a-pilot-2:practice:final-practice-core-18",
+    "biology30-unit-a-pilot-2:practice:lesson-01-guided-1",
+    "biology30-unit-a-pilot-2:practice:lesson-01-guided-2",
+    "biology30-unit-a-pilot-2:practice:lesson-02-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-02-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-03-guided-1",
+    "biology30-unit-a-pilot-2:practice:lesson-03-guided-2",
+    "biology30-unit-a-pilot-2:practice:lesson-04-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-04-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-05-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-05-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-06-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-06-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-07-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-07-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-08-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-08-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-09-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-09-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-10-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-10-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-11-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-11-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-12-guided-01",
+    "biology30-unit-a-pilot-2:practice:lesson-12-guided-02",
+    "biology30-unit-a-pilot-2:practice:lesson-13-guided-1",
+    "biology30-unit-a-pilot-2:practice:lesson-13-guided-2",
+    "biology30-unit-a-pilot-2:process-collection:note",
+    "biology30-unit-a-pilot-2:review-seminar:endocrine",
+    "biology30-unit-a-pilot-2:review-seminar:nervous",
+    "biology30-unit-a-pilot-2:review-seminar:sensory"
+  ],
+  "gate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+  "updatedAt": "2026-09-04T01:28:43.737Z",
+  "revisionGateAWorkspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+  "stateSchemaVersion": 2,
+  "revisionGateBWorkspaceSha256": "cc968289c232ebeee5db0572426ea519806da8920c44dc4a3de008597e85a261"
+}

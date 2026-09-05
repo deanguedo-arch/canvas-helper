@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "revision": "teacher-feedback-1",
+  "iteration": "navigation-process-collection-1",
+  "status": "changes-requested",
+  "generatedAt": "2026-09-04T02:23:21.372Z",
+  "acceptedGate1WorkspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+  "changesRequestedGate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+  "acceptedRevisionGateAWorkspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+  "workspaceSha256": "b280c64e8eb144590bce5fcb3bf984de43ae1fc9fef5dfdc0f28ba051fac4161",
+  "workspaceTreeSha256": "35080a2e63377e557763a7915efaa51b7a32e98d3dceba7d709b25c37ab8ba33",
+  "protectedProjectHashes": [
+    {
+      "slug": "biology30-unit-a-pilot",
+      "sha256": "abe21ccfe31e8ac7b367f2de56c64c4628f98ce3403d32624da8dba284013549",
+      "fileCount": 99,
+      "byteCount": 43416232
+    },
+    {
+      "slug": "biology30-unit-a",
+      "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+      "fileCount": 386,
+      "byteCount": 15929864
+    },
+    {
+      "slug": "biology30-unit-b",
+      "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+      "fileCount": 219,
+      "byteCount": 7111493
+    },
+    {
+      "slug": "biology30-unit-c",
+      "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+      "fileCount": 245,
+      "byteCount": 10901188
+    },
+    {
+      "slug": "biology30-unit-d",
+      "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+      "fileCount": 241,
+      "byteCount": 6028335
+    }
+  ],
+  "previousCandidate": {
+    "workspaceSha256": "cc968289c232ebeee5db0572426ea519806da8920c44dc4a3de008597e85a261",
+    "status": "changes-requested",
+    "immutableBaseline": "raw/revision-gate-b-review-baselines/cc968289c232ebeee5db0572426ea519806da8920c44dc4a3de008597e85a261/baseline.json"
+  },
+  "expandedRoutes": [
+    "lesson-01",
+    "lesson-03",
+    "lesson-04",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-12"
+  ],
+  "completeLessonRoutes": [
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13"
+  ],
+  "reviewCriteria": [
+    "all thirteen lessons contain complete explanations at the approved reading level",
+    "teacher-plan and PowerPoint topic order is preserved",
+    "all required terms precede their use in practice",
+    "at least four purposeful visuals appear in every lesson",
+    "all fourteen required media checkpoints have complete local equivalents",
+    "all 80 required practice items are curricular and prerequisite-ready",
+    "desktop course navigation collapses and restores without affecting the mobile drawer",
+    "Core Vocabulary and Model Lab are grouped with Process Collection",
+    "all thirteen lesson-linked models provide a four-step mechanism and two reasoning conditions",
+    "selected model results can be added to or removed from Process Collection without changing course progress",
+    "all Evidence Slips and Process Collection work persist",
+    "network-blocked learning remains complete",
+    "the 18-route completion and 1505-minute contract is unchanged"
+  ],
+  "codexReview": {
+    "status": "passed",
+    "verifiedAt": "2026-09-04T02:40:16Z",
+    "workspaceSha256": "b280c64e8eb144590bce5fcb3bf984de43ae1fc9fef5dfdc0f28ba051fac4161",
+    "visualAudit": {
+      "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-04T02-37-32-739Z/report.json",
+      "sha256": "12232e3635e7f1933971ef2d0e796ab4e258848710ad2deb11bfd312b7cb76be",
+      "routeScreenshots": 78,
+      "stateScreenshots": 126,
+      "contactSheets": 28,
+      "geometryFindings": 0,
+      "allContactSheetsOpened": true,
+      "decision": "passed"
+    },
+    "verification": [
+      {
+        "command": "npm run test:biology30-unit-a-pilot-2",
+        "result": "10 of 10 passed"
+      },
+      {
+        "command": "npm run test:e2e:biology30-unit-a-pilot-2",
+        "result": "14 of 14 passed"
+      },
+      {
+        "command": "npm run test:e2e:project -- --project biology30-unit-a-pilot-2",
+        "result": "1 of 1 passed"
+      },
+      {
+        "command": "npm run test:biology30-unit-a-improvement-pilot",
+        "result": "12 of 12 passed"
+      },
+      {
+        "command": "npm run test:science-comparison",
+        "result": "6 of 6 passed"
+      },
+      {
+        "command": "npm run audit:biology30-unit-a-pilot-2:visual -- --project biology30-unit-a-pilot-2",
+        "result": "passed with zero geometry findings"
+      },
+      {
+        "command": "npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace",
+        "result": "passed with no missing assets or required external dependencies"
+      },
+      {
+        "command": "npm run validate:manifests",
+        "result": "passed"
+      },
+      {
+        "command": "npm run build:studio",
+        "result": "passed"
+      },
+      {
+        "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+        "result": "only the intentional not-active diagnostic"
+      }
+    ],
+    "notes": [
+      "Desktop navigation collapse and restoration were verified without weakening the mobile drawer.",
+      "Core Vocabulary and Model Lab are grouped under Process Collection while the learner route inventory remains unchanged.",
+      "Each of the 13 lessons deep-links to a dedicated model with four mechanism steps and two reasoning conditions.",
+      "A selected model result can be added to or removed from Process Collection without deleting the result or changing required progress.",
+      "Version 1 and version 2 learner state migrate to version 3 without losing existing work."
+    ]
+  },
+  "teacherDecision": {
+    "status": "changes-requested",
+    "basis": "The user identified that Model Lab mechanism cards were being forced into columns too narrow for their headings and explanations."
+  },
+  "changesRequestedAt": "2026-09-04T02:55:11.444Z"
+}

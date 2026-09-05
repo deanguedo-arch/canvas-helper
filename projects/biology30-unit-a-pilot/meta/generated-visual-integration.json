@@ -1,0 +1,227 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a-pilot",
+  "status": "integrated-exact-build-reviewed-awaiting-teacher-acceptance",
+  "retrievalDate": "2026-09-01",
+  "generator": {
+    "provider": "ChatGPT Images",
+    "model": "user-supplied; exact model version not provided",
+    "provenance": "Images were generated and supplied by the teacher in the Codex task after reviewing the authoring prompts.",
+    "rightsStatus": "Authorized by the teacher for private course development and Brightspace delivery; public redistribution is not authorized by this record."
+  },
+  "workflow": {
+    "generationSurface": "Authenticated ChatGPT browser session using ChatGPT Images",
+    "promptRecord": "projects/biology30-unit-a-pilot/meta/image-generation-prompts.md",
+    "comparisonManifest": "projects/biology30-unit-a-pilot/meta/visual-comparison/manifest.json",
+    "comparisonPage": "projects/biology30-unit-a-pilot/meta/visual-comparison/index.html",
+    "teacherDecisionRecord": "projects/biology30-unit-a-pilot/meta/visual-comparison/teacher-decisions.json",
+    "retrievalMethod": "Selected full-resolution originals were retrieved from the teacher's authenticated ChatGPT browser session; passwords, cookies, session tokens, and browser-profile data were not read or stored.",
+    "privateChatPolicy": "Private ChatGPT conversation URLs are authoring-only provenance in the comparison manifest and must never enter learner content, public review output, SCORM, Brightspace delivery, or B-D source records.",
+    "regenerationPolicy": "There is no automatic repository regeneration command. Regeneration requires the recorded prompt, scientific review, teacher comparison decision, full-resolution asset retrieval, checksum recording, accessible placement, and a new exact-build review."
+  },
+  "exactBuildReview": {
+    "reviewedAt": "2026-09-02T19:01:00Z",
+    "reviewer": "Codex",
+    "workspaceSha256": "fe147931e3f6c44ac4ad7ec44e1226b6d7a758daf4ab23b30d9da13669e5b77a",
+    "reportPath": ".runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-02T18-48-28-003Z/visual-audit.json",
+    "reportSha256": "4d002a34999c78cfa6286e7813197d1a94e728b9fab52777b88056b434b8fbb8",
+    "contactSheetCount": 54,
+    "allContactSheetsOpened": true,
+    "generatedVisualViewportCount": 24,
+    "geometryFindingCount": 0,
+    "result": "All twelve generated figures were inspected inline and enlarged at desktop and mobile sizes. They preserve intrinsic proportions, remain within their containers, retain nearby text equivalents and keyboard enlargement, and appear once in each intended teaching slot. The corrected retina, vestibular, stress-response, and integrated-regulation candidates are the learner-facing versions.",
+    "teacherAcceptance": "pending"
+  },
+  "assets": [
+    {
+      "id": "lesson-04-resting-membrane",
+      "lessonId": "lesson-04",
+      "lessonTitle": "Action Potentials: Ions into Information",
+      "originalFilename": "codex-clipboard-ff8feb02-5173-4d7f-8961-84f254d3f758.png",
+      "sourceSha256": "1014f22e1094a52f129d4071f5672ea415c63f883058e38823cbc31328623311",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/lesson-04-resting-membrane-1014f22e.png",
+      "outputSha256": "1014f22e1094a52f129d4071f5672ea415c63f883058e38823cbc31328623311",
+      "width": 1586,
+      "height": 992,
+      "treatment": "replacement",
+      "replacesFigureSlot": "resting-membrane",
+      "scientificReview": {
+        "status": "accepted-with-local-context",
+        "confirmed": [
+          "higher sodium concentration outside the axon",
+          "higher potassium concentration inside the axon",
+          "potassium leak directed outward",
+          "sodium-potassium pump uses ATP and moves three sodium ions out for every two potassium ions in",
+          "resting potential is shown as approximately negative 70 millivolts"
+        ],
+        "localContextRequired": "The adjacent lesson explanation and static-equivalent table retain trapped intracellular anions, selective permeability, and the distinction between gradient maintenance by the pump and rapid action-potential phases produced by ion channels."
+      },
+      "accessibility": {
+        "altText": true,
+        "nearbyTextEquivalent": "Static equivalent: ion conditions at rest",
+        "keyboardEnlargement": true,
+        "rasterTextIsNotSoleSource": true
+      }
+    },
+    {
+      "id": "lesson-12-endocrine-map",
+      "lessonId": "lesson-12",
+      "lessonTitle": "Endocrine Architecture and Feedback",
+      "originalFilename": "codex-clipboard-de40576a-4023-4029-a34c-30117deb1d2d.png",
+      "sourceSha256": "2dd61d4af2e816fe65290c27a9beff5a5b3183fe6bd48ab8b250bd2bf84febbe",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/lesson-12-endocrine-map-2dd61d4a.png",
+      "outputSha256": "2dd61d4af2e816fe65290c27a9beff5a5b3183fe6bd48ab8b250bd2bf84febbe",
+      "width": 1586,
+      "height": 992,
+      "treatment": "replacement",
+      "replacesFigureSlot": "figure-endocrine-body-map",
+      "scientificReview": {
+        "status": "accepted-with-explicit-posterior-view-clarification",
+        "confirmed": [
+          "hypothalamus is superior to and connected with the pituitary",
+          "thyroid surrounds the anterior trachea",
+          "posterior inset identifies the parathyroid location",
+          "adrenal glands rest above the kidneys",
+          "pancreatic islets are shown as clusters within the pancreas"
+        ],
+        "localContextRequired": "The nearby text explicitly identifies the posterior inset as anatomically authoritative because the main frontal body view uses visible parathyroid markers for orientation."
+      },
+      "accessibility": {
+        "altText": true,
+        "nearbyTextEquivalent": "Principal Unit A endocrine structures",
+        "keyboardEnlargement": true,
+        "rasterTextIsNotSoleSource": true
+      }
+    },
+    {
+      "id": "lesson-01-integrated-control",
+      "lessonId": "lesson-01",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-01-integrated-control-selected.png",
+      "outputSha256": "1831ffce6cb7c622ad5eeee791bd9e79779d6907c919346058f2db1357f98efc",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-integrated-control-overview",
+      "scientificReviewStatus": "accepted",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-02-control-comparison",
+      "lessonId": "lesson-02",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-02-control-comparison-selected.png",
+      "outputSha256": "300813bb15619ba5e3e55760e490b12c2d0817533a9fa5065e1f5b1c0d3a3251",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-control-system-comparison",
+      "scientificReviewStatus": "accepted",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-03-neuron-roles",
+      "lessonId": "lesson-03",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-03-neuron-roles-selected.png",
+      "outputSha256": "d92def382caf511caba2f3cddbe790aa43e7367857635384622249144af8f57a",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-neuron-types",
+      "scientificReviewStatus": "accepted",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-03-myelin-saltatory",
+      "lessonId": "lesson-03",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-03-myelin-saltatory-selected.png",
+      "outputSha256": "affbd32cff3c307760fbfb22ec6f94d4dc525553e5529f5fe85b7597c0c87a68",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-myelin-saltatory-conduction",
+      "scientificReviewStatus": "accepted",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-05-synaptic-transmission",
+      "lessonId": "lesson-05",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-05-synaptic-transmission-selected.png",
+      "outputSha256": "f2796be6d65438fe85dc4934f657c4ca16bab12e615a13921e67af07c849d03b",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-synaptic-transmission",
+      "scientificReviewStatus": "accepted",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-08-sensory-receptors",
+      "lessonId": "lesson-08",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-08-sensory-receptor-families-selected.png",
+      "outputSha256": "e4a62b3a7cc74e9ea3e6f9a5ff459dce6f0c74f9659397fedc1361d9acc0a594",
+      "width": 1536,
+      "height": 1024,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-sensory-receptor-families",
+      "scientificReviewStatus": "accepted",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-09-retina-pathway",
+      "lessonId": "lesson-09",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-09-retina-pathway-selected.png",
+      "outputSha256": "f09adc0df078dbbfba2034bf6a9bac435bda19d8f0ae1464c85c533c28ecbba3",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-retina-light-pathway",
+      "scientificReviewStatus": "accepted-after-retinal-layer-correction",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-10-equilibrium",
+      "lessonId": "lesson-10",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-10-equilibrium-selected.png",
+      "outputSha256": "69e2d2db6acda825009b6ad9f70be59d9452137da1255beb2295545c0e3a624b",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-equilibrium-apparatus",
+      "scientificReviewStatus": "accepted-after-vestibular-connection-correction",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-16-stress-response",
+      "lessonId": "lesson-16",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-16-stress-response-selected.png",
+      "outputSha256": "1090bca5ab98b066a5f63acb88ae29c0f89c66adaa24e97ed1cf5ff9b7b729c5",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-stress-response-comparison",
+      "scientificReviewStatus": "accepted-after-workable-range-wording-correction",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    },
+    {
+      "id": "lesson-17-integrated-regulation",
+      "lessonId": "lesson-17",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/generated-visuals/selected/lesson-17-integrated-regulation-selected.png",
+      "outputSha256": "03b59ded4cad82320f2bc3400bdf6e2b2699f1126a91a7600ddca6d845a7dec1",
+      "width": 1586,
+      "height": 992,
+      "treatment": "teacher-selected-replacement",
+      "replacesFigureSlot": "figure-integrated-nervous-endocrine-case",
+      "scientificReviewStatus": "accepted-after-osmoregulation-pathway-correction",
+      "accessibility": { "altText": true, "nearbyTextEquivalent": true, "keyboardEnlargement": true, "rasterTextIsNotSoleSource": true }
+    }
+  ],
+  "placementPolicy": {
+    "lesson03": "The membrane image is not placed in Lesson 3 because that lesson teaches neuron structure, functional neuron types, myelin, and saltatory conduction.",
+    "lesson04": "The resting-membrane image replaces the prior visible resting-membrane SVG in Lesson 4.",
+    "lesson12": "The endocrine map replaces the prior visible simplified body-map SVG in Lesson 12.",
+    "teacherDecisionFile": "projects/biology30-unit-a-pilot/meta/visual-comparison/teacher-decisions.json",
+    "selectedComparisonFigures": "Ten teacher-selected ChatGPT candidates replace their exact visible semantic diagrams while preserving those SVGs as hidden provenance fallbacks.",
+    "completionImpact": "none",
+    "responseIdImpact": "none",
+    "requiredMinutesImpact": "none"
+  }
+}

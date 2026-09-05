@@ -1,0 +1,270 @@
+{
+  "schemaVersion": 1,
+  "profileId": "biology30-unit-a-pilot-source-visual-resource-report-v1",
+  "project": "biology30-unit-a-pilot",
+  "status": "blocked-preview-only",
+  "contractPath": "projects/biology30-unit-a-pilot/meta/source-visual-integration.json",
+  "contractSha256": "5bbb303920794c6a5b25a157dfed35bfeeaaef22a4affe3a0fc8f2c444343ccd",
+  "sources": [
+    {
+      "id": "textbook-chapter-11",
+      "path": "projects/biology30-unit-a-pilot/workspace/assets/textbook/chapter-11.pdf",
+      "sha256": "841565cb96cbe378ba9dfe95a2718f3405ef67b3dea65a4ce8970d9d6597edec",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery"
+    },
+    {
+      "id": "textbook-chapter-13",
+      "path": "projects/biology30-unit-a-pilot/workspace/assets/textbook/chapter-13.pdf",
+      "sha256": "e69ed45e05ab0cdc55490aada364ee415197e21aaf59445f8983a8c17d92a251",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery"
+    },
+    {
+      "id": "chapter-11-deck",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1.pptx",
+      "sha256": "74630659f9860c65b17356513c37f954d4df7b2a55742f1d535f5041e40abfb1",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; embedded-image-origin-requires-release-review"
+    },
+    {
+      "id": "chapter-12-deck",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/4162d8b6bc3ebe94a11b53ed2694932adccf41622a4473e785a46d57cd2184ea.pptx",
+      "sha256": "4162d8b6bc3ebe94a11b53ed2694932adccf41622a4473e785a46d57cd2184ea",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; embedded-image-origin-requires-release-review"
+    },
+    {
+      "id": "chapter-13-deck",
+      "path": "projects/resources/biology30-unit-a-pilot/_sources/05947fe3a4712c7465e9bb370acbeef6897651eae7cac40c2af54d4839bcc482.pptx",
+      "sha256": "05947fe3a4712c7465e9bb370acbeef6897651eae7cac40c2af54d4839bcc482",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; embedded-image-origin-requires-release-review"
+    }
+  ],
+  "assets": [
+    {
+      "id": "neuron-anatomy-source",
+      "lessonId": "lesson-03",
+      "sectionId": "lesson-03-section-1",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/neuron-anatomy-source.webp",
+      "sha256": "758a72139aa73523e2e51d65f33ed66973a431fe2fb0196159e1b9e228112d81",
+      "byteLength": 24926,
+      "width": 700,
+      "height": 400,
+      "displayRole": "replacement",
+      "replacesFigureSlot": "figure-neuron-anatomy",
+      "treatment": "pilot-only-direct-review",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; original-third-party-provenance-unresolved",
+      "releaseBlocked": true,
+      "source": {
+        "sourceId": "chapter-11-deck",
+        "slideNumber": 9,
+        "sourcePath": "ppt/media/image3.png",
+        "relatedTextbook": {
+          "documentId": "chapter-11",
+          "pdfPage": 10,
+          "printedPage": 369
+        }
+      }
+    },
+    {
+      "id": "neural-tissue-micrograph",
+      "lessonId": "lesson-03",
+      "sectionId": "lesson-03-section-4",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/neural-tissue-micrograph.webp",
+      "sha256": "086bc8ac52670b6d20aaea029999b72ba3a528015a643bd0aa13cc7b54311a32",
+      "byteLength": 36088,
+      "width": 520,
+      "height": 513,
+      "displayRole": "supplemental",
+      "replacesFigureSlot": null,
+      "treatment": "direct-crop",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery",
+      "releaseBlocked": false,
+      "source": {
+        "sourceId": "textbook-chapter-11",
+        "pdfPage": 9,
+        "printedPage": 368
+      }
+    },
+    {
+      "id": "spinal-cord-cross-section-source",
+      "lessonId": "lesson-06",
+      "sectionId": "lesson-06-section-2",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/spinal-cord-cross-section-source.webp",
+      "sha256": "d8c383855d03b08f1050793183108869c8f180ffbe68fde4b95874d3681d3507",
+      "byteLength": 36002,
+      "width": 600,
+      "height": 450,
+      "displayRole": "supplemental",
+      "replacesFigureSlot": null,
+      "treatment": "pilot-only-direct-review",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; original-third-party-provenance-unresolved",
+      "releaseBlocked": true,
+      "source": {
+        "sourceId": "chapter-11-deck",
+        "slideNumber": 51,
+        "sourcePath": "ppt/media/image53.png",
+        "relatedTextbook": {
+          "documentId": "chapter-11",
+          "pdfPage": 27,
+          "printedPage": 386
+        }
+      }
+    },
+    {
+      "id": "brain-functional-regions",
+      "lessonId": "lesson-06",
+      "sectionId": "lesson-06-section-3",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/brain-functional-regions.webp",
+      "sha256": "2ccd2feeb389d399e179e77df4875d3ad0382f9606ad544784341846d8f469ae",
+      "byteLength": 100898,
+      "width": 1773,
+      "height": 933,
+      "displayRole": "replacement",
+      "replacesFigureSlot": "figure-brain-regions",
+      "treatment": "direct-crop",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery",
+      "releaseBlocked": false,
+      "source": {
+        "sourceId": "textbook-chapter-11",
+        "pdfPage": 31,
+        "printedPage": 390
+      }
+    },
+    {
+      "id": "reflex-arc-anatomy-source",
+      "lessonId": "lesson-07",
+      "sectionId": "lesson-07-section-1",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/reflex-arc-anatomy-source.webp",
+      "sha256": "ea3e88fe2b4d704223ada8a7de70b96e27b44ff230ce1cd60fa845c7b83f2652",
+      "byteLength": 28274,
+      "width": 678,
+      "height": 381,
+      "displayRole": "replacement",
+      "replacesFigureSlot": "figure-reflex-arc",
+      "treatment": "pilot-only-direct-review",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; original-third-party-provenance-unresolved",
+      "releaseBlocked": true,
+      "source": {
+        "sourceId": "chapter-11-deck",
+        "slideNumber": 18,
+        "sourcePath": "ppt/media/image9.png",
+        "relatedTextbook": {
+          "documentId": "chapter-11",
+          "pdfPage": 12,
+          "printedPage": 371
+        }
+      }
+    },
+    {
+      "id": "eye-anatomy-source",
+      "lessonId": "lesson-09",
+      "sectionId": "lesson-09-section-1",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/eye-anatomy-source.webp",
+      "sha256": "1f207508408cfb4e3369752cb798cdcfcfbc3a353cb49d2960dcdd58b240a4d7",
+      "byteLength": 52376,
+      "width": 1191,
+      "height": 889,
+      "displayRole": "replacement",
+      "replacesFigureSlot": "figure-eye-anatomy",
+      "treatment": "pilot-only-direct-review",
+      "rightsStatus": "authorized-supplied-deck-private-pilot; original-third-party-provenance-unresolved",
+      "releaseBlocked": true,
+      "source": {
+        "sourceId": "chapter-12-deck",
+        "slideNumber": 13,
+        "sourcePath": "ppt/media/image3.png",
+        "relatedTextbook": {
+          "documentId": "chapter-12",
+          "pdfPage": 8,
+          "printedPage": 411
+        }
+      }
+    },
+    {
+      "id": "ear-anatomy-source",
+      "lessonId": "lesson-10",
+      "sectionId": "lesson-10-section-1",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/ear-anatomy-source.webp",
+      "sha256": "d9150b7a1840adcc884ce4a9eadef07b2345ec1bf5f40a4f9eff67f8e7888abb",
+      "byteLength": 30682,
+      "width": 525,
+      "height": 381,
+      "displayRole": "replacement",
+      "replacesFigureSlot": "figure-ear-hearing-pathway",
+      "treatment": "direct-source-match",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery; image-matches-textbook-figure-on-printed-page-420",
+      "releaseBlocked": false,
+      "source": {
+        "sourceId": "chapter-12-deck",
+        "slideNumber": 23,
+        "sourcePath": "ppt/media/image27.png",
+        "relatedTextbook": {
+          "documentId": "chapter-12",
+          "pdfPage": 17,
+          "printedPage": 420
+        }
+      }
+    },
+    {
+      "id": "endocrine-capillary-network",
+      "lessonId": "lesson-12",
+      "sectionId": "lesson-12-section-2",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/endocrine-capillary-network.webp",
+      "sha256": "eafe018f91a04ad38a88a22eaa2160c90f0b6567725a18b9f03f6733d392dfb5",
+      "byteLength": 70590,
+      "width": 946,
+      "height": 613,
+      "displayRole": "supplemental",
+      "replacesFigureSlot": null,
+      "treatment": "direct-crop",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery",
+      "releaseBlocked": false,
+      "source": {
+        "sourceId": "textbook-chapter-13",
+        "pdfPage": 4,
+        "printedPage": 437
+      }
+    },
+    {
+      "id": "hypothalamus-pituitary-source",
+      "lessonId": "lesson-13",
+      "sectionId": "lesson-13-section-1",
+      "outputPath": "projects/biology30-unit-a-pilot/workspace/assets/source-visuals/hypothalamus-pituitary-source.webp",
+      "sha256": "3485775921626e8d2382b94cc9cfc5a2563f0c865940e4dee29f9a14ea588dbe",
+      "byteLength": 56370,
+      "width": 796,
+      "height": 792,
+      "displayRole": "replacement",
+      "replacesFigureSlot": "figure-hypothalamus-pituitary-axes",
+      "treatment": "direct-source-match",
+      "rightsStatus": "authorized-supplied-course-material-local-delivery; image-matches-textbook-figure-on-printed-page-445",
+      "releaseBlocked": false,
+      "source": {
+        "sourceId": "chapter-13-deck",
+        "slideNumber": 15,
+        "sourcePath": "ppt/media/image8.png",
+        "relatedTextbook": {
+          "documentId": "chapter-13",
+          "pdfPage": 12,
+          "printedPage": 445
+        }
+      }
+    }
+  ],
+  "counts": {
+    "total": 9,
+    "pdfCrops": 3,
+    "powerpointMedia": 6,
+    "replacements": 6,
+    "supplemental": 3,
+    "releaseBlockers": 4
+  },
+  "validation": {
+    "sourceHashesVerified": true,
+    "exactVisualInventoryVerified": true,
+    "webpDimensionsVerified": true,
+    "accessibilityRecordsComplete": true,
+    "rightsRecordsComplete": true,
+    "replacementMappingVerified": true,
+    "canonicalWorkspaceRewritten": false,
+    "projectRemainsBlocked": true
+  }
+}

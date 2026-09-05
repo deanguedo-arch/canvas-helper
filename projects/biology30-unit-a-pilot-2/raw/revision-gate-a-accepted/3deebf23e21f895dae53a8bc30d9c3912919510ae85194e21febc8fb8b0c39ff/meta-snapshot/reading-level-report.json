@@ -1,0 +1,132 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "generatedAt": "2026-09-03T22:32:01.984Z",
+  "method": "Flesch-Kincaid estimate plus sentence and paragraph limits; scientific terms are also reviewed in context",
+  "targetRange": [
+    9.5,
+    11.5
+  ],
+  "hardMaximum": 12,
+  "averageSentenceMaximumWords": 20,
+  "paragraphMaximumWords": 100,
+  "revisionGateACoreLessons": [
+    {
+      "routeId": "lesson-01",
+      "wordCount": 334,
+      "sentenceCount": 28,
+      "averageSentenceWords": 11.9,
+      "fleschKincaidGrade": 9.3,
+      "longestCoreParagraphWords": 51
+    },
+    {
+      "routeId": "lesson-02",
+      "wordCount": 776,
+      "sentenceCount": 58,
+      "averageSentenceWords": 13.4,
+      "fleschKincaidGrade": 9.8,
+      "longestCoreParagraphWords": 61
+    },
+    {
+      "routeId": "lesson-03",
+      "wordCount": 266,
+      "sentenceCount": 24,
+      "averageSentenceWords": 11.1,
+      "fleschKincaidGrade": 9.9,
+      "longestCoreParagraphWords": 42
+    },
+    {
+      "routeId": "lesson-04",
+      "wordCount": 348,
+      "sentenceCount": 28,
+      "averageSentenceWords": 12.4,
+      "fleschKincaidGrade": 10.5,
+      "longestCoreParagraphWords": 49
+    },
+    {
+      "routeId": "lesson-05",
+      "wordCount": 724,
+      "sentenceCount": 58,
+      "averageSentenceWords": 12.5,
+      "fleschKincaidGrade": 10.6,
+      "longestCoreParagraphWords": 59
+    },
+    {
+      "routeId": "lesson-06",
+      "wordCount": 341,
+      "sentenceCount": 33,
+      "averageSentenceWords": 10.3,
+      "fleschKincaidGrade": 10.6,
+      "longestCoreParagraphWords": 42
+    },
+    {
+      "routeId": "lesson-07",
+      "wordCount": 326,
+      "sentenceCount": 30,
+      "averageSentenceWords": 10.9,
+      "fleschKincaidGrade": 7.6,
+      "longestCoreParagraphWords": 41
+    },
+    {
+      "routeId": "lesson-08",
+      "wordCount": 323,
+      "sentenceCount": 29,
+      "averageSentenceWords": 11.1,
+      "fleschKincaidGrade": 8.4,
+      "longestCoreParagraphWords": 42
+    },
+    {
+      "routeId": "lesson-09",
+      "wordCount": 305,
+      "sentenceCount": 29,
+      "averageSentenceWords": 10.5,
+      "fleschKincaidGrade": 9.8,
+      "longestCoreParagraphWords": 38
+    },
+    {
+      "routeId": "lesson-10",
+      "wordCount": 310,
+      "sentenceCount": 27,
+      "averageSentenceWords": 11.5,
+      "fleschKincaidGrade": 9.9,
+      "longestCoreParagraphWords": 43
+    },
+    {
+      "routeId": "lesson-11",
+      "wordCount": 740,
+      "sentenceCount": 59,
+      "averageSentenceWords": 12.5,
+      "fleschKincaidGrade": 9.1,
+      "longestCoreParagraphWords": 59
+    },
+    {
+      "routeId": "lesson-12",
+      "wordCount": 315,
+      "sentenceCount": 29,
+      "averageSentenceWords": 10.9,
+      "fleschKincaidGrade": 9.1,
+      "longestCoreParagraphWords": 44
+    },
+    {
+      "routeId": "lesson-13",
+      "wordCount": 809,
+      "sentenceCount": 68,
+      "averageSentenceWords": 11.9,
+      "fleschKincaidGrade": 10.1,
+      "longestCoreParagraphWords": 56
+    }
+  ],
+  "depthRequirement": {
+    "sliceRoutes": [
+      "lesson-02",
+      "lesson-05",
+      "lesson-11",
+      "lesson-13"
+    ],
+    "minimumCoreWords": 700,
+    "maximumCoreWords": {
+      "default": 1050,
+      "lesson-13": 1200
+    }
+  }
+}

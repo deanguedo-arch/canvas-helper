@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "revision": "teacher-feedback-1",
+  "status": "awaiting-teacher-review",
+  "generatedAt": "2026-09-03T22:32:01.984Z",
+  "acceptedGate1WorkspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+  "changesRequestedGate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+  "workspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+  "workspaceTreeSha256": "b341400a305ec5c2ba75aba322d58d07ed500ba4642388c4bece03a9c2e17cbc",
+  "protectedProjectHashes": [
+    {
+      "slug": "biology30-unit-a-pilot",
+      "sha256": "abe21ccfe31e8ac7b367f2de56c64c4628f98ce3403d32624da8dba284013549",
+      "fileCount": 99,
+      "byteCount": 43416232
+    },
+    {
+      "slug": "biology30-unit-a",
+      "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+      "fileCount": 386,
+      "byteCount": 15929864
+    },
+    {
+      "slug": "biology30-unit-b",
+      "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+      "fileCount": 219,
+      "byteCount": 7111493
+    },
+    {
+      "slug": "biology30-unit-c",
+      "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+      "fileCount": 245,
+      "byteCount": 10901188
+    },
+    {
+      "slug": "biology30-unit-d",
+      "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+      "fileCount": 241,
+      "byteCount": 6028335
+    }
+  ],
+  "sliceRoutes": [
+    "lesson-02",
+    "lesson-05",
+    "lesson-11",
+    "lesson-13"
+  ],
+  "reviewCriteria": [
+    "complete explanations at the approved reading level",
+    "action-potential graph and data interpretation",
+    "complete brain anatomy including pons and medulla",
+    "ADH source-release-target and supplied-data reasoning",
+    "manageable pancreas and adrenal lesson chunking",
+    "four anchors plus complete term disclosure",
+    "video and local-equivalent parity",
+    "media checks required for lesson completion",
+    "version-1 state migration preserves learner work"
+  ],
+  "codexReview": {
+    "status": "passed",
+    "completedAt": "2026-09-03T22:52:00.000Z",
+    "visualAuditReport": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-03T22-32-35-753Z/report.json",
+    "visualAuditReportSha256": "96290c98bb45c97cbab18ee9301875c8e77a907fd378680e60a74698aa2f8ce0",
+    "routeScreenshots": 78,
+    "interactionStateScreenshots": 95,
+    "contactSheetsOpened": 24,
+    "geometryFindings": 0,
+    "browserTests": {
+      "pilotSpecific": "11 passed",
+      "projectContract": "1 passed"
+    },
+    "staticTests": {
+      "pilot2": "9 passed",
+      "pilot1Improvement": "12 passed",
+      "scienceComparison": "6 passed"
+    },
+    "stateBudgetCharacters": 42876,
+    "courseDoctor": "intentional not-active diagnostic only"
+  },
+  "publicReview": {
+    "status": "deployed",
+    "url": "https://biology30pilot.web.app",
+    "deployedAt": "2026-09-04T00:30:34Z",
+    "hostedFileCount": 22,
+    "allHostedFilesMatchCanonical": true,
+    "liveBrowserCheck": "passed with no warnings, errors, or horizontal overflow"
+  },
+  "teacherDecision": null
+}

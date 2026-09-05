@@ -1,0 +1,149 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "workspaceSha256": "11f9508fce938bf55065a308d4267c98c6fbc47b093fa60b7701158d4e331d4c",
+  "rules": [
+    {
+      "id": "topic-sequence-from-teacher-plans",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/gate-2-content-audit.json"
+    },
+    {
+      "id": "prerequisite-first-science-language",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/reading-level-report.json"
+    },
+    {
+      "id": "teach-then-retrieve",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "workspace/index.html"
+    },
+    {
+      "id": "required-core-versus-advanced-learning",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "workspace/index.html"
+    },
+    {
+      "id": "two-purposeful-visuals-per-lesson",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/figure-media-plan.json"
+    },
+    {
+      "id": "curricular-practice-only",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/practice-blueprint.json"
+    },
+    {
+      "id": "manageable-non-gating-investigations",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "workspace/index.html#process-collection"
+    },
+    {
+      "id": "atomic-curriculum-component-coverage",
+      "status": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "meta/revision-gate-a-review.json"
+    },
+    {
+      "id": "expanded-readable-core-explanations",
+      "status": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "meta/revision-gate-a-review.json"
+    },
+    {
+      "id": "four-anchors-plus-complete-term-inventory",
+      "status": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "meta/revision-gate-a-review.json"
+    },
+    {
+      "id": "required-media-or-local-equivalent",
+      "status": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "meta/revision-gate-a-review.json"
+    },
+    {
+      "id": "media-aware-nondestructive-state-migration",
+      "status": "teacher-accepted",
+      "acceptedScope": "revision-gate-a-slice",
+      "evidence": "meta/revision-gate-a-review.json"
+    },
+    {
+      "id": "complete-thirteen-lesson-depth-propagation",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/reading-level-report.json"
+    },
+    {
+      "id": "all-lesson-purposeful-visual-density",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-content-audit.json"
+    },
+    {
+      "id": "curricular-prerequisite-practice-readiness",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/practice-readiness-audit.json"
+    },
+    {
+      "id": "full-course-required-media-equivalent-parity",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/figure-media-plan.json"
+    },
+    {
+      "id": "restored-collapsible-course-navigation",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-review.json"
+    },
+    {
+      "id": "process-collection-resource-grouping",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-content-audit.json"
+    },
+    {
+      "id": "lesson-model-lab-and-collected-evidence",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-content-audit.json"
+    },
+    {
+      "id": "responsive-model-mechanism-layout",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-review.json"
+    },
+    {
+      "id": "pilot-1-interaction-depth-adapted-to-pilot-2",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/model-lab-interaction-map.json"
+    },
+    {
+      "id": "guided-model-investigation-cycle",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/model-lab-interaction-map.json"
+    },
+    {
+      "id": "compact-backward-compatible-learner-state",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/state-budget.json"
+    },
+    {
+      "id": "responsive-illustrated-walkthrough-steps",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-review.json"
+    },
+    {
+      "id": "operable-locked-core-vocabulary-preview",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/revision-gate-b-review.json"
+    },
+    {
+      "id": "optional-attempt-gated-textbook-review-guides",
+      "status": "awaiting-explicit-user-review",
+      "evidence": "meta/textbook-review-integration.json"
+    },
+    {
+      "id": "pilot-1-to-pilot-2-advanced-learning-bridge",
+      "status": "awaiting-explicit-user-review",
+      "acceptedScope": null,
+      "evidence": "meta/advanced-learning-bridge.json"
+    }
+  ],
+  "reviewGate": "advanced-bridge-gate-b"
+}

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 5,
+  "project": "biology30-unit-a-pilot-2",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "platformLimitCharacters": 60000,
+  "estimatedWorstCaseCharacters": 39031,
+  "headroomBelowRuntimeGuard": 8969,
+  "headroomBelowPlatformLimit": 20969,
+  "responseCountAtWorstCase": 67,
+  "practiceCountAtWorstCase": 86,
+  "mediaCheckpointCountAtWorstCase": 14,
+  "modelCountAtWorstCase": 13,
+  "textbookReviewAttemptCountAtWorstCase": 4,
+  "encoding": "hashed-v1",
+  "migrationPolicy": "Version-1 through version-4 responses, practice, completion, Process Collection, vocabulary, notes, media, and model records are preserved. Version 5 adds four allowlisted textbook-review attempt flags. Public response and practice IDs remain unchanged while their stored keys stay compacted deterministically.",
+  "overflowPolicy": "Reject an oversized write and preserve the last valid saved state. Never silently truncate learner work."
+}

@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 6,
+  "project": "biology30-unit-a-pilot-2",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "platformLimitCharacters": 60000,
+  "estimatedWorstCaseCharacters": 39061,
+  "headroomBelowRuntimeGuard": 8939,
+  "headroomBelowPlatformLimit": 20939,
+  "responseCountAtWorstCase": 67,
+  "practiceCountAtWorstCase": 86,
+  "mediaCheckpointCountAtWorstCase": 14,
+  "modelCountAtWorstCase": 13,
+  "textbookReviewAttemptCountAtWorstCase": 4,
+  "advancedCompletionCountAtWorstCase": 40,
+  "encoding": "hashed-v1-plus-advanced-bitset",
+  "migrationPolicy": "Version-1 through version-5 responses, practice, completion, Process Collection, vocabulary, notes, media, models, and textbook-review attempts are preserved. Version 6 adds forty allowlisted Advanced Learning flags as a ten-character hexadecimal bitset; all flags begin unchecked during version-5 migration. Public response and practice IDs remain unchanged while their stored keys stay compacted deterministically.",
+  "overflowPolicy": "Reject an oversized write and preserve the last valid saved state. Never silently truncate learner work."
+}

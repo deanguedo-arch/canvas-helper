@@ -1,0 +1,36 @@
+{
+  "schemaVersion": 1,
+  "projectSlug": "biology30-unit-a-pilot",
+  "status": "approved-public-review-only-stale-after-local-change",
+  "authorizedAt": "2026-09-01",
+  "authorization": "Project owner explicitly authorized an externally accessible teacher-review deployment in this Codex conversation.",
+  "hosting": {
+    "provider": "Firebase Hosting",
+    "projectId": "calm-module-one",
+    "siteId": "biology30pilot",
+    "url": "https://biology30pilot.web.app"
+  },
+  "source": {
+    "canonicalEntry": "projects/biology30-unit-a-pilot/workspace/index.html",
+    "publicRoot": "projects/biology30-unit-a-pilot/workspace",
+    "indexSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "currentLocalIndexSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "deploymentFresh": false,
+    "freshnessNote": "The public teacher-review site was replaced by Biology 30 Unit A Pilot 2 on 2026-09-03."
+  },
+  "deployedAt": "2026-09-03T01:35:29Z",
+  "scope": {
+    "purpose": "Teacher content review and notes only",
+    "learnerRelease": false,
+    "doesNotAuthorize": [
+      "Studio editing",
+      "SCORM export",
+      "Brightspace upload",
+      "promotion to production"
+    ]
+  },
+  "knownRisks": [
+    "The pilot includes source visuals with unresolved third-party reuse provenance; do not distribute beyond the named reviewers.",
+    "Firebase Hosting is publicly accessible at the listed URL; do not include learner data or assessment keys."
+  ]
+}

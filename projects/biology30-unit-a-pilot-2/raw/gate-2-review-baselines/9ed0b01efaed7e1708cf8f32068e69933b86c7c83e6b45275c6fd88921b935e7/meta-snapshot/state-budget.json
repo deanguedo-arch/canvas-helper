@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "platformLimitCharacters": 60000,
+  "estimatedWorstCaseCharacters": 40480,
+  "headroomBelowRuntimeGuard": 7520,
+  "headroomBelowPlatformLimit": 19520,
+  "responseCountAtWorstCase": 67,
+  "practiceCountAtWorstCase": 86,
+  "overflowPolicy": "Reject an oversized write and preserve the last valid saved state. Never silently truncate learner work."
+}

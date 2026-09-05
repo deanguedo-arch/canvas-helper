@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 3,
+  "project": "biology30-unit-a-pilot-2",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "platformLimitCharacters": 60000,
+  "estimatedWorstCaseCharacters": 43412,
+  "headroomBelowRuntimeGuard": 4588,
+  "headroomBelowPlatformLimit": 16588,
+  "responseCountAtWorstCase": 67,
+  "practiceCountAtWorstCase": 86,
+  "mediaCheckpointCountAtWorstCase": 14,
+  "modelCountAtWorstCase": 13,
+  "migrationPolicy": "Version-1 and version-2 responses, practice, Process Collection, vocabulary, and notes are preserved. Model state begins empty for earlier versions; only completion is recalculated to require the mapped media checkpoint.",
+  "overflowPolicy": "Reject an oversized write and preserve the last valid saved state. Never silently truncate learner work."
+}

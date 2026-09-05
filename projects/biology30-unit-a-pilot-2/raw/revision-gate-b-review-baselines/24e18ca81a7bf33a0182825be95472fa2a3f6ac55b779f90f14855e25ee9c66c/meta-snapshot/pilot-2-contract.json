@@ -1,0 +1,796 @@
+{
+  "schemaVersion": 1,
+  "profileId": "biology30-unit-a-pilot-2-topic-sequence-v1",
+  "project": "biology30-unit-a-pilot-2",
+  "title": "Biology 30 — Unit A: Nervous and Endocrine Systems",
+  "courseCode": "BIO 30",
+  "status": "blocked",
+  "previewOnly": true,
+  "studioEditing": false,
+  "exportEnabled": false,
+  "requiredMinutes": 1505,
+  "optionalMinutes": 295,
+  "requiredRouteCount": 18,
+  "navigationGroups": [
+    "Start",
+    "Learn",
+    "Practice & Review",
+    "Process Collection",
+    "Resources"
+  ],
+  "lessons": [
+    {
+      "id": "lesson-01",
+      "order": 1,
+      "chapter": 11,
+      "title": "Neuron Structure",
+      "requiredMinutes": 80,
+      "optionalMinutes": 20,
+      "coreFocus": "Neurons, glia, neuron parts, myelin function, neuron roles, and an introductory reflex pathway.",
+      "sourceSlides": "Chapter 11 slides 1–20",
+      "teacherSourceId": "chapter-11-daily-plans",
+      "textbook": {
+        "printedPages": [
+          367,
+          368,
+          369,
+          370,
+          371,
+          372,
+          384
+        ],
+        "recommendedPractice": "pp. 367–372 Q1, 2, 4–8; p. 384 Q3"
+      },
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3k",
+        "A1.2s"
+      ],
+      "conceptIds": [
+        "neuron-structure",
+        "myelin-conduction",
+        "reflex-arc"
+      ],
+      "gate1Rendered": true
+    },
+    {
+      "id": "lesson-02",
+      "order": 2,
+      "chapter": 11,
+      "title": "Action Potentials",
+      "requiredMinutes": 75,
+      "optionalMinutes": 20,
+      "coreFocus": "Resting potential, ion gradients, threshold, phases, all-or-none response, intensity, and refractory period.",
+      "sourceSlides": "Chapter 11 slides 21–30",
+      "teacherSourceId": "chapter-11-daily-plans",
+      "textbook": {
+        "printedPages": [
+          374,
+          375,
+          376,
+          377,
+          384
+        ],
+        "recommendedPractice": "pp. 374–377 Q9–13; p. 384 Q4–5"
+      },
+      "outcomeIds": [
+        "A1.1k",
+        "A1.3s"
+      ],
+      "conceptIds": [
+        "resting-membrane-potential",
+        "action-potential",
+        "membrane-potential-phases",
+        "refractory-period"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-03",
+      "order": 3,
+      "chapter": 11,
+      "title": "Synaptic Transmission",
+      "requiredMinutes": 70,
+      "optionalMinutes": 20,
+      "coreFocus": "Define neurotransmitter before teaching the synaptic sequence, acetylcholine, norepinephrine, and cholinesterase.",
+      "sourceSlides": "Chapter 11 slides 31–42",
+      "teacherSourceId": "chapter-11-daily-plans",
+      "textbook": {
+        "printedPages": [
+          380,
+          381,
+          382,
+          384
+        ],
+        "recommendedPractice": "pp. 380–382 Q14–18; p. 384 Q6"
+      },
+      "outcomeIds": [
+        "A1.1k",
+        "A1.1sts",
+        "A1.2sts",
+        "A1.3sts"
+      ],
+      "conceptIds": [
+        "synaptic-transmission"
+      ],
+      "gate1Rendered": true
+    },
+    {
+      "id": "lesson-04",
+      "order": 4,
+      "chapter": 11,
+      "title": "PNS and CNS",
+      "requiredMinutes": 65,
+      "optionalMinutes": 15,
+      "coreFocus": "CNS and PNS organization, nerves, somatic and autonomic control, and sympathetic and parasympathetic divisions.",
+      "sourceSlides": "Chapter 11 slides 43–53",
+      "teacherSourceId": "chapter-11-daily-plans",
+      "textbook": {
+        "printedPages": [
+          389,
+          396,
+          397,
+          398,
+          399
+        ],
+        "recommendedPractice": "p. 389 Q19; pp. 396–399 Q28, 29, 31, 32, 2, 3"
+      },
+      "outcomeIds": [
+        "A1.2k"
+      ],
+      "conceptIds": [
+        "central-peripheral-systems",
+        "somatic-autonomic-systems",
+        "sympathetic-parasympathetic"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-05",
+      "order": 5,
+      "chapter": 11,
+      "title": "The Brain",
+      "requiredMinutes": 70,
+      "optionalMinutes": 25,
+      "coreFocus": "Required brain structures and functions, spinal cord, and evidence-based symptom localization.",
+      "sourceSlides": "Chapter 11 slides 54–65",
+      "teacherSourceId": "chapter-11-daily-plans",
+      "textbook": {
+        "printedPages": [
+          389,
+          390,
+          391,
+          392,
+          395,
+          399
+        ],
+        "recommendedPractice": "pp. 389–392 Q20, 22–24; p. 395 Q1, 4; p. 399 Q1"
+      },
+      "outcomeIds": [
+        "A1.2k",
+        "A1.1sts",
+        "A1.3s"
+      ],
+      "conceptIds": [
+        "central-peripheral-systems",
+        "scientific-explanation"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-06",
+      "order": 6,
+      "chapter": 12,
+      "title": "Sensory Reception",
+      "requiredMinutes": 70,
+      "optionalMinutes": 15,
+      "coreFocus": "Transduction, adaptation, receptor classes, taste, smell, skin sensation, and proprioception.",
+      "sourceSlides": "Chapter 12 slides 1–11",
+      "teacherSourceId": "chapter-12-daily-plans",
+      "textbook": {
+        "printedPages": [
+          406,
+          407,
+          408,
+          409,
+          426,
+          427,
+          428,
+          429
+        ],
+        "recommendedPractice": "pp. 406–409 Q1–3, 5–6 and Q1–4; pp. 426–429 Q26–30"
+      },
+      "outcomeIds": [
+        "A1.6k",
+        "A1.1s",
+        "A1.2s",
+        "A1.3s",
+        "A1.4s"
+      ],
+      "conceptIds": [
+        "sensory-transduction",
+        "sensory-receptor-classes",
+        "sensory-adaptation"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-07",
+      "order": 7,
+      "chapter": 12,
+      "title": "Photoreception and the Eye",
+      "requiredMinutes": 75,
+      "optionalMinutes": 20,
+      "coreFocus": "Required eye anatomy, light pathway, retina, rods, cones, fovea, and optic nerve.",
+      "sourceSlides": "Chapter 12 slides 12–21",
+      "teacherSourceId": "chapter-12-daily-plans",
+      "textbook": {
+        "printedPages": [
+          412,
+          413,
+          414,
+          415,
+          416,
+          418
+        ],
+        "recommendedPractice": "pp. 412–416 Q7, 8, 10, 12–16; p. 418 Q1–5"
+      },
+      "outcomeIds": [
+        "A1.4k",
+        "A1.2s",
+        "A1.3s",
+        "A1.3sts"
+      ],
+      "conceptIds": [
+        "sensory-transduction",
+        "vision-pathway"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-08",
+      "order": 8,
+      "chapter": 12,
+      "title": "Hearing and Balance",
+      "requiredMinutes": 75,
+      "optionalMinutes": 20,
+      "coreFocus": "Required ear anatomy, sound transduction, equilibrium, and Eustachian-tube function.",
+      "sourceSlides": "Chapter 12 slides 22–29",
+      "teacherSourceId": "chapter-12-daily-plans",
+      "textbook": {
+        "printedPages": [
+          421,
+          422,
+          423,
+          424,
+          425,
+          429
+        ],
+        "recommendedPractice": "pp. 421–425 Q18–20, 23; p. 429 Q1–4"
+      },
+      "outcomeIds": [
+        "A1.5k",
+        "A1.2s",
+        "A1.3s",
+        "A1.3sts"
+      ],
+      "conceptIds": [
+        "sensory-transduction",
+        "hearing-equilibrium-pathway"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-09",
+      "order": 9,
+      "chapter": 13,
+      "title": "Homeostasis",
+      "requiredMinutes": 70,
+      "optionalMinutes": 15,
+      "coreFocus": "Dynamic homeostasis, nervous and endocrine comparison, feedback, target cells, and principal glands.",
+      "sourceSlides": "Chapter 13 slides 1–13",
+      "teacherSourceId": "chapter-13-daily-plans",
+      "textbook": {
+        "printedPages": [
+          437,
+          438,
+          439,
+          440,
+          441,
+          442
+        ],
+        "recommendedPractice": "pp. 437–441 Q1, 2, 7, 8; p. 442 Q1, 2, 4"
+      },
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.4k",
+        "A2.5k"
+      ],
+      "conceptIds": [
+        "homeostasis",
+        "regulated-variable-set-point",
+        "control-system-roles",
+        "negative-feedback",
+        "endocrine-signalling"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-10",
+      "order": 10,
+      "chapter": 13,
+      "title": "Pituitary Hormones Part 1",
+      "requiredMinutes": 70,
+      "optionalMinutes": 15,
+      "coreFocus": "Hypothalamus-pituitary relationship, tropic hormones, and human growth hormone.",
+      "sourceSlides": "Chapter 13 slides 13–19, with noncurricular hormones excluded",
+      "teacherSourceId": "chapter-13-daily-plans",
+      "textbook": {
+        "printedPages": [
+          442,
+          444,
+          445,
+          446
+        ],
+        "recommendedPractice": "p. 442 Q10–12 and Q3; p. 446 Q13–14"
+      },
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.6k"
+      ],
+      "conceptIds": [
+        "hypothalamus-pituitary-axis",
+        "endocrine-signalling"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-11",
+      "order": 11,
+      "chapter": 13,
+      "title": "Pituitary Hormones Part 2",
+      "requiredMinutes": 70,
+      "optionalMinutes": 15,
+      "coreFocus": "ADH, water balance, hormone source-target-effect reasoning, and imbalances.",
+      "sourceSlides": "Chapter 13 slides 20–24, with oxytocin excluded as out of Unit A",
+      "teacherSourceId": "chapter-13-daily-plans",
+      "textbook": {
+        "printedPages": [
+          442,
+          444,
+          445,
+          446
+        ],
+        "recommendedPractice": "p. 442 Q10–12 and Q3; p. 446 Q13–14"
+      },
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.4k",
+        "A2.6k",
+        "A2.2s",
+        "A2.3s"
+      ],
+      "conceptIds": [
+        "hypothalamus-pituitary-axis",
+        "water-salt-regulation"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-12",
+      "order": 12,
+      "chapter": 13,
+      "title": "Thyroid and Parathyroid Glands",
+      "requiredMinutes": 75,
+      "optionalMinutes": 20,
+      "coreFocus": "TSH and thyroxine, metabolism, PTH and calcitonin, and calcium feedback.",
+      "sourceSlides": "Chapter 13 slides 25–32",
+      "teacherSourceId": "chapter-13-daily-plans",
+      "textbook": {
+        "printedPages": [
+          449,
+          450
+        ],
+        "recommendedPractice": "pp. 449–450 Q15–17, 2, 4, 5"
+      },
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.4k",
+        "A2.6k",
+        "A2.3s"
+      ],
+      "conceptIds": [
+        "thyroid-calcium-feedback",
+        "antagonistic-hormones",
+        "negative-feedback"
+      ],
+      "gate1Rendered": false
+    },
+    {
+      "id": "lesson-13",
+      "order": 13,
+      "chapter": 13,
+      "title": "Pancreas and Adrenal Glands",
+      "requiredMinutes": 95,
+      "optionalMinutes": 25,
+      "coreFocus": "Insulin and glucagon, diabetes, cortisol, epinephrine, aldosterone, stress, and salt balance.",
+      "sourceSlides": "Chapter 13 slides 33–41",
+      "teacherSourceId": "chapter-13-daily-plans",
+      "textbook": {
+        "printedPages": [
+          453,
+          454,
+          455,
+          456,
+          457,
+          458,
+          459,
+          460,
+          461,
+          462
+        ],
+        "recommendedPractice": "pp. 453–455 Q18–23, 1, 2; use pp. 456–462 for pancreas and diabetes follow-up"
+      },
+      "outcomeIds": [
+        "A2.1k",
+        "A2.2k",
+        "A2.3k",
+        "A2.5k",
+        "A2.6k",
+        "A2.1s",
+        "A2.2s",
+        "A2.3s",
+        "A2.4s"
+      ],
+      "conceptIds": [
+        "antagonistic-hormones",
+        "blood-glucose-regulation",
+        "water-salt-regulation",
+        "stress-response"
+      ],
+      "gate1Rendered": true
+    }
+  ],
+  "reviewRoutes": [
+    {
+      "id": "chapter-11-practice",
+      "title": "Chapter 11 Practice",
+      "requiredMinutes": 100,
+      "optionalMinutes": 0,
+      "requiredItemCount": 12,
+      "chapter": 11
+    },
+    {
+      "id": "chapter-12-practice",
+      "title": "Chapter 12 Practice",
+      "requiredMinutes": 85,
+      "optionalMinutes": 0,
+      "requiredItemCount": 12,
+      "chapter": 12
+    },
+    {
+      "id": "chapter-13-practice",
+      "title": "Chapter 13 Practice",
+      "requiredMinutes": 100,
+      "optionalMinutes": 0,
+      "requiredItemCount": 12,
+      "chapter": 13
+    },
+    {
+      "id": "review-seminar",
+      "title": "Review Seminar",
+      "requiredMinutes": 180,
+      "optionalMinutes": 20,
+      "requiredItemCount": 0,
+      "chapter": null
+    },
+    {
+      "id": "final-practice",
+      "title": "Final Practice",
+      "requiredMinutes": 80,
+      "optionalMinutes": 30,
+      "requiredItemCount": 18,
+      "optionalItemCount": 6,
+      "chapter": null
+    }
+  ],
+  "curriculumMapPath": "meta/curriculum-performance-map.json",
+  "teacherCrosswalkPath": "meta/teacher-source-crosswalk.json",
+  "sectionDispositionPath": "meta/pilot-1-section-disposition.json",
+  "practiceBlueprintPath": "meta/practice-blueprint.json",
+  "vocabularyContractPath": "meta/core-vocabulary.json",
+  "figureMediaPlanPath": "meta/figure-media-plan.json",
+  "routeStateMapPath": "meta/route-response-map.json",
+  "stateBudgetPath": "meta/state-budget.json",
+  "completionRule": "Thirteen lessons, three chapter practices, Review Seminar, and Final Practice; optional learning never gates completion.",
+  "gate1": {
+    "renderedRoutes": [
+      "overview",
+      "lesson-01",
+      "lesson-03",
+      "lesson-13",
+      "chapter-11-practice",
+      "process-collection",
+      "core-vocabulary",
+      "textbook-library",
+      "video-library",
+      "model-lab",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "workspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+    "workspaceTreeSha256": "a2f5dd4ff3cf3d2806949e4075b8e498ae102a309414d5f5d82489eca737d481",
+    "teacherAcceptance": "accepted",
+    "acceptedAt": "2026-09-03T18:36:05Z",
+    "acceptanceRecord": "meta/gate-1-review.json"
+  },
+  "gate2": {
+    "status": "changes-requested",
+    "generatedAt": "2026-09-03T19:03:55.300Z",
+    "workspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+    "workspaceTreeSha256": "94efea5c6f43abf57d51208b228e6f9d4736572700ba31a3ebe0eecc77c999b4",
+    "renderedRoutes": [
+      "overview",
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "chapter-11-practice",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "chapter-12-practice",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13",
+      "chapter-13-practice",
+      "review-seminar",
+      "final-practice",
+      "process-collection",
+      "core-vocabulary",
+      "textbook-library",
+      "video-library",
+      "model-lab",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "counts": {
+      "lessons": 13,
+      "reviewRoutes": 5,
+      "requiredPracticeItems": 80,
+      "optionalChallengeItems": 6,
+      "investigations": 3,
+      "vocabularyFamilies": 28,
+      "mappedVideos": 12,
+      "acceptedRasterFigures": 12
+    },
+    "teacherAcceptance": "changes-requested",
+    "authorityCheck": {
+      "checkedAt": "2026-09-03",
+      "newestBiologySpecificBulletinFound": "2025-26",
+      "currentGeneralBulletin": "2026-27"
+    },
+    "feedbackRecord": "meta/teacher-feedback-revision-1.json",
+    "immutableBaseline": "raw/gate-2-review-baselines/9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7/baseline.json"
+  },
+  "revisionGateA": {
+    "status": "teacher-accepted",
+    "revision": "teacher-feedback-1",
+    "generatedAt": "2026-09-03T22:32:01.984Z",
+    "workspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+    "workspaceTreeSha256": "b341400a305ec5c2ba75aba322d58d07ed500ba4642388c4bece03a9c2e17cbc",
+    "protectedProjectHashes": [
+      {
+        "slug": "biology30-unit-a-pilot",
+        "sha256": "abe21ccfe31e8ac7b367f2de56c64c4628f98ce3403d32624da8dba284013549",
+        "fileCount": 99,
+        "byteCount": 43416232
+      },
+      {
+        "slug": "biology30-unit-a",
+        "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+        "fileCount": 386,
+        "byteCount": 15929864
+      },
+      {
+        "slug": "biology30-unit-b",
+        "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+        "fileCount": 219,
+        "byteCount": 7111493
+      },
+      {
+        "slug": "biology30-unit-c",
+        "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+        "fileCount": 245,
+        "byteCount": 10901188
+      },
+      {
+        "slug": "biology30-unit-d",
+        "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+        "fileCount": 241,
+        "byteCount": 6028335
+      }
+    ],
+    "acceptedGate1WorkspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+    "changesRequestedGate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+    "sliceRoutes": [
+      "lesson-02",
+      "lesson-05",
+      "lesson-11",
+      "lesson-13"
+    ],
+    "renderedRoutes": [
+      "overview",
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "chapter-11-practice",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "chapter-12-practice",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13",
+      "chapter-13-practice",
+      "review-seminar",
+      "final-practice",
+      "process-collection",
+      "core-vocabulary",
+      "textbook-library",
+      "video-library",
+      "model-lab",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "counts": {
+      "lessons": 13,
+      "reviewRoutes": 5,
+      "requiredPracticeItems": 80,
+      "optionalChallengeItems": 6,
+      "investigations": 3,
+      "vocabularyFamilies": 28,
+      "requiredMediaCheckpoints": 14,
+      "acceptedRasterFigures": 12,
+      "atomicComponents": 78
+    },
+    "teacherAcceptance": "accepted",
+    "authorityCheck": {
+      "checkedAt": "2026-09-03",
+      "newestBiologySpecificBulletinFound": "2025-26",
+      "currentGeneralBulletin": "2026-27",
+      "result": "no-newer-biology-specific-bulletin-found"
+    },
+    "acceptedAt": "2026-09-04T15:08:50.372Z",
+    "acceptanceRecord": "meta/revision-gate-a-review.json",
+    "immutableBaseline": "raw/revision-gate-a-accepted/3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff/baseline.json"
+  },
+  "state": {
+    "schemaVersion": 4,
+    "storageKey": "biology30-unit-a-pilot-2:state:v1",
+    "migration": "Version-1 through version-3 work is preserved. Earlier model results remain available; new prediction and explanation fields begin empty. Stable hashed keys compact response and practice records, while completed lessons without a required media check become Needs media check.",
+    "encoding": "hashed-v1"
+  },
+  "revisionGateB": {
+    "status": "awaiting-teacher-review",
+    "revision": "teacher-feedback-1",
+    "iteration": "operable-locked-vocabulary-preview-1",
+    "generatedAt": "2026-09-04T15:08:50.372Z",
+    "workspaceSha256": "24e18ca81a7bf33a0182825be95472fa2a3f6ac55b779f90f14855e25ee9c66c",
+    "workspaceTreeSha256": "57f903d6d3501fe0500ec2deb13faf69d41d6df52680b1d84b80c3c30a18a544",
+    "protectedProjectHashes": [
+      {
+        "slug": "biology30-unit-a-pilot",
+        "sha256": "abe21ccfe31e8ac7b367f2de56c64c4628f98ce3403d32624da8dba284013549",
+        "fileCount": 99,
+        "byteCount": 43416232
+      },
+      {
+        "slug": "biology30-unit-a",
+        "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+        "fileCount": 386,
+        "byteCount": 15929864
+      },
+      {
+        "slug": "biology30-unit-b",
+        "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+        "fileCount": 219,
+        "byteCount": 7111493
+      },
+      {
+        "slug": "biology30-unit-c",
+        "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+        "fileCount": 245,
+        "byteCount": 10901188
+      },
+      {
+        "slug": "biology30-unit-d",
+        "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+        "fileCount": 241,
+        "byteCount": 6028335
+      }
+    ],
+    "acceptedRevisionGateAWorkspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+    "expandedRoutes": [
+      "lesson-01",
+      "lesson-03",
+      "lesson-04",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "lesson-09",
+      "lesson-10",
+      "lesson-12"
+    ],
+    "renderedRoutes": [
+      "overview",
+      "lesson-01",
+      "lesson-02",
+      "lesson-03",
+      "lesson-04",
+      "lesson-05",
+      "chapter-11-practice",
+      "lesson-06",
+      "lesson-07",
+      "lesson-08",
+      "chapter-12-practice",
+      "lesson-09",
+      "lesson-10",
+      "lesson-11",
+      "lesson-12",
+      "lesson-13",
+      "chapter-13-practice",
+      "review-seminar",
+      "final-practice",
+      "process-collection",
+      "core-vocabulary",
+      "textbook-library",
+      "video-library",
+      "model-lab",
+      "glossary-and-data",
+      "sources-and-credits"
+    ],
+    "counts": {
+      "lessons": 13,
+      "reviewRoutes": 5,
+      "requiredPracticeItems": 80,
+      "optionalChallengeItems": 6,
+      "investigations": 3,
+      "vocabularyFamilies": 28,
+      "operableLockedVocabularyPreviews": 28,
+      "modelLabModels": 13,
+      "modelLabScenarios": 49,
+      "collectableModelResults": 13,
+      "requiredMediaCheckpoints": 14,
+      "acceptedRasterFigures": 12,
+      "renderedFigures": 62,
+      "atomicComponents": 78
+    },
+    "previousCandidate": {
+      "workspaceSha256": "b6eaba5b1f543a62e8971a55b36e5705df01e0f14adc7eaddafcd81989da0e8f",
+      "status": "changes-requested",
+      "immutableBaseline": "raw/revision-gate-b-review-baselines/b6eaba5b1f543a62e8971a55b36e5705df01e0f14adc7eaddafcd81989da0e8f/baseline.json"
+    },
+    "teacherAcceptance": "pending",
+    "authorityCheck": {
+      "checkedAt": "2026-09-03",
+      "newestBiologySpecificBulletinFound": "2025-26",
+      "currentGeneralBulletin": "2026-27",
+      "result": "no-newer-biology-specific-bulletin-found"
+    }
+  }
+}

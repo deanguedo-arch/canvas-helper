@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "revision": "teacher-feedback-1",
+  "iteration": "model-lab-responsive-fit-1",
+  "status": "changes-requested",
+  "generatedAt": "2026-09-04T02:55:11.444Z",
+  "acceptedGate1WorkspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+  "changesRequestedGate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+  "acceptedRevisionGateAWorkspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+  "workspaceSha256": "bcb522c4ea0626a4c666a85ce71d1d40d73afe57143408112037190431e4586d",
+  "workspaceTreeSha256": "e1db693295acad6031afff5350f73c34e63356f23539b54e999667f0d7f75ca5",
+  "protectedProjectHashes": [
+    {
+      "slug": "biology30-unit-a-pilot",
+      "sha256": "abe21ccfe31e8ac7b367f2de56c64c4628f98ce3403d32624da8dba284013549",
+      "fileCount": 99,
+      "byteCount": 43416232
+    },
+    {
+      "slug": "biology30-unit-a",
+      "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+      "fileCount": 386,
+      "byteCount": 15929864
+    },
+    {
+      "slug": "biology30-unit-b",
+      "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+      "fileCount": 219,
+      "byteCount": 7111493
+    },
+    {
+      "slug": "biology30-unit-c",
+      "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+      "fileCount": 245,
+      "byteCount": 10901188
+    },
+    {
+      "slug": "biology30-unit-d",
+      "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+      "fileCount": 241,
+      "byteCount": 6028335
+    }
+  ],
+  "previousCandidate": {
+    "workspaceSha256": "b280c64e8eb144590bce5fcb3bf984de43ae1fc9fef5dfdc0f28ba051fac4161",
+    "status": "changes-requested",
+    "immutableBaseline": "raw/revision-gate-b-review-baselines/b280c64e8eb144590bce5fcb3bf984de43ae1fc9fef5dfdc0f28ba051fac4161/baseline.json"
+  },
+  "expandedRoutes": [
+    "lesson-01",
+    "lesson-03",
+    "lesson-04",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-12"
+  ],
+  "completeLessonRoutes": [
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13"
+  ],
+  "reviewCriteria": [
+    "all thirteen lessons contain complete explanations at the approved reading level",
+    "teacher-plan and PowerPoint topic order is preserved",
+    "all required terms precede their use in practice",
+    "at least four purposeful visuals appear in every lesson",
+    "all fourteen required media checkpoints have complete local equivalents",
+    "all 80 required practice items are curricular and prerequisite-ready",
+    "desktop course navigation collapses and restores without affecting the mobile drawer",
+    "Core Vocabulary and Model Lab are grouped with Process Collection",
+    "all thirteen lesson-linked models provide a four-step mechanism and two reasoning conditions",
+    "Model Lab steps use readable two-column rows when space permits and one column when the model reader narrows",
+    "selected model results can be added to or removed from Process Collection without changing course progress",
+    "all Evidence Slips and Process Collection work persist",
+    "network-blocked learning remains complete",
+    "the 18-route completion and 1505-minute contract is unchanged"
+  ],
+  "codexReview": {
+    "status": "passed",
+    "verifiedAt": "2026-09-04T03:05:12Z",
+    "workspaceSha256": "bcb522c4ea0626a4c666a85ce71d1d40d73afe57143408112037190431e4586d",
+    "visualAudit": {
+      "report": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-04T03-00-00-488Z/report.json",
+      "sha256": "9aa07e6080807dc4d43d36730bec0c3aea91380592e4fb7962fe0f741309ce96",
+      "routeScreenshots": 78,
+      "stateScreenshots": 127,
+      "contactSheets": 28,
+      "geometryFindings": 0,
+      "allContactSheetsOpened": true,
+      "decision": "passed"
+    },
+    "verification": [
+      {
+        "command": "npm run test:biology30-unit-a-pilot-2",
+        "result": "10 of 10 passed"
+      },
+      {
+        "command": "npm run test:e2e:biology30-unit-a-pilot-2",
+        "result": "15 of 15 passed"
+      },
+      {
+        "command": "npm run test:e2e:project -- --project biology30-unit-a-pilot-2",
+        "result": "1 of 1 passed"
+      },
+      {
+        "command": "npm run test:biology30-unit-a-improvement-pilot",
+        "result": "12 of 12 passed"
+      },
+      {
+        "command": "npm run test:science-comparison",
+        "result": "6 of 6 passed"
+      },
+      {
+        "command": "npm run audit:biology30-unit-a-pilot-2:visual -- --project biology30-unit-a-pilot-2",
+        "result": "passed with zero geometry findings"
+      },
+      {
+        "command": "npm run verify -- --project biology30-unit-a-pilot-2 --mode workspace",
+        "result": "passed with no missing assets or required external dependencies"
+      },
+      {
+        "command": "npm run validate:manifests",
+        "result": "passed"
+      },
+      {
+        "command": "npm run build:studio",
+        "result": "passed"
+      },
+      {
+        "command": "npm run course:doctor -- --project biology30-unit-a-pilot-2",
+        "result": "only the intentional not-active diagnostic"
+      }
+    ],
+    "notes": [
+      "The exact annotated 1117x902 Model Lab state now presents the four mechanism steps in two readable columns without overlap, clipping, or text escaping its card.",
+      "A model-reader container query switches the mechanism to one column when the available reader width falls below 560 pixels, including the audited tablet and mobile layouts.",
+      "All 13 lesson-linked models passed the expanded and collapsed navigation geometry checks.",
+      "This responsive repair does not claim that Pilot 2's simplified models have the same interaction depth as Pilot 1's activity-based Model Lab; that remains a separate curriculum-and-interaction improvement decision."
+    ]
+  },
+  "teacherDecision": {
+    "status": "changes-requested",
+    "basis": "The user requested that Pilot 2 retain its accessible teaching while regaining Pilot 1's substantive graphs, builders, simulators, and evidence activities."
+  },
+  "changesRequestedAt": "2026-09-04T03:49:42.478Z"
+}

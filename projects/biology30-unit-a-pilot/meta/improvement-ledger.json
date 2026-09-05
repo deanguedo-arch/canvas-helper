@@ -1,8 +1,9 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "projectSlug": "biology30-unit-a-pilot",
   "baselineWorkspaceTreeSha256": "e89fcf0e78207c0320886bd772192c2a096bb6d6e4c19891ef48d0bce99fbfea",
-  "status": "awaiting-unit-a-audit",
+  "currentWorkspaceSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+  "status": "stage-2-core-vocabulary-awaiting-teacher-review",
   "categories": [
     "academic-accuracy-and-coverage",
     "instructional-coherence",
@@ -15,7 +16,448 @@
     "offline-runtime-and-persistence",
     "maintainability-and-rollout"
   ],
-  "entries": [],
+  "visualInspection": {
+    "reviewer": "Codex",
+    "reviewedAt": "2026-09-02T19:01:00Z",
+    "workspaceSha256": "fe147931e3f6c44ac4ad7ec44e1226b6d7a758daf4ab23b30d9da13669e5b77a",
+    "reportPath": ".runtime/biology30-unit-a-improvement-pilot-visual-audit/2026-09-02T18-48-28-003Z/visual-audit.json",
+    "reportSha256": "4d002a34999c78cfa6286e7813197d1a94e728b9fab52777b88056b434b8fbb8",
+    "contactSheetCount": 54,
+    "allContactSheetsOpened": true,
+    "auditedRouteViewportCount": 93,
+    "textbookBandViewportCount": 32,
+    "retrievalViewportCount": 34,
+    "practiceFeedbackViewportCount": 4,
+    "feedbackFigureViewportCount": 4,
+    "mediaSurfaceViewportCount": 30,
+    "sourceVisualViewportCount": 18,
+    "generatedVisualViewportCount": 24,
+    "videoLibraryStateViewportCount": 70,
+    "geometryFindingCount": 0,
+    "result": "All 54 exact-build contact sheets were opened and inspected. Automated geometry reported zero findings across 93 route viewports, 32 textbook-band viewports, 34 retrieval viewports, 4 checked-answer states, 4 generic-feedback figure states, 30 media surfaces, 18 source-visual placements, 24 generated-visual placements, and 70 Video Library states. The Process Collection route is clear and contained at desktop, tablet, and mobile sizes; its exit-slip area, process-note composer, and portfolio area retain a readable hierarchy without clipping or overflow.",
+    "userAcceptance": "pending"
+  },
+  "coreVocabularyStage1Review": {
+    "reviewer": "Codex",
+    "reviewedAt": "2026-09-02T20:24:00Z",
+    "workspaceSha256": "1b283ef4795a01ecefdbfbeb1bdd290e77210967fd1f0012b7b5f71a35bd2c47",
+    "reportPath": ".runtime/biology30-unit-a-core-vocabulary-pilot-visual-audit/2026-09-02T20-18-11-917Z/visual-audit.json",
+    "reportSha256": "fabd5a6a9fbd4fcbf85ef4b14a9817254c9bd7f256c0f60c6b1487c6cadf9c97",
+    "contactSheetCount": 7,
+    "allContactSheetsOpened": true,
+    "conceptStateViewportCount": 15,
+    "wordLensViewportCount": 15,
+    "zoomViewportCount": 2,
+    "geometryFindingCount": 0,
+    "blockedExternalRequestCount": 3,
+    "blockedExternalRequestExplanation": "The three blocked requests came from pre-existing optional YouTube previews on Lessons 4, 6, and 12 while their Word Lens placements were audited. Core Vocabulary remains locally usable and no required vocabulary instruction depends on those requests.",
+    "result": "All seven Stage 1 contact sheets were opened and inspected. The concept browser, five concept readings, fixed and learner-choice Frayer states, course-model reveal, Process Collection display, five Word Lens placements, responsive reflow, and 200 percent zoom remain readable without clipping, horizontal overflow, or response-field overlap.",
+    "teacherAcceptance": "accepted",
+    "acceptedAt": "2026-09-02",
+    "acceptanceStatement": "The teacher explicitly approved proceeding from the reviewed representative slice to the complete 28-family Unit A implementation."
+  },
+  "coreVocabularyVisualInspection": {
+    "reviewer": "Codex",
+    "reviewedAt": "2026-09-03T01:18:00Z",
+    "workspaceSha256": "b270081c9152a83b935bc2ddcb45d9fdcfc5742f3902ae03bf3abb07b945d0ee",
+    "workspaceTreeSha256": "61396aee1fec5e4c35fd408a2629ca05abda82df584a2db47e46444c37e361dc",
+    "reportPath": ".runtime/biology30-unit-a-core-vocabulary-pilot-visual-audit/2026-09-03T01-08-03-419Z/visual-audit.json",
+    "reportSha256": "6fac8fd887e27509bc4f0183ecbabaea9496396af928c11a516c439e36ed6db0",
+    "contactSheetCount": 7,
+    "allContactSheetsOpened": true,
+    "conceptEntryViewportCount": 84,
+    "conceptStateViewportCount": 30,
+    "wordLensViewportCount": 51,
+    "zoomViewportCount": 2,
+    "geometryFindingCount": 0,
+    "blockedExternalRequestCount": 12,
+    "blockedExternalRequestExplanation": "The 12 blocked requests came from pre-existing optional YouTube previews on lessons whose Word Lens placements were audited. Core Vocabulary is locally complete and no required vocabulary instruction depends on those requests.",
+    "result": "All seven Stage 2 contact sheets were opened and inspected. The complete 28-family concept browser, search and filter states, fixed and learner-choice Frayers, model reveal, two-choice limit, empty and populated Process Collection, all 17 Word Lens placements, responsive reflow, and 200 percent zoom remain readable without clipping, unintended horizontal overflow, or response-field overlap. Automated geometry inspected all 28 entries at desktop, tablet, and mobile sizes and reported zero findings.",
+    "teacherAcceptance": "pending"
+  },
+  "entries": [
+    {
+      "id": "transactional-local-textbook-intake",
+      "category": "maintainability-and-rollout",
+      "rule": "Normalize only approved Unit A textbook and seminar resources from checksum-verified archives through an idempotent transactional command that never rewrites canonical lesson HTML.",
+      "owner": "scripts/lib/biology30-unit-a/pilot-textbook.ts",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "textbook integration contract is exact and complete",
+        "prepared learner PDFs are normalized, renderable, and exactly match the resource report",
+        "pilot textbook preparation is transactional, idempotent, and never rewrites canonical HTML",
+        "pilot textbook preparation rolls back partial promotion and rejects source drift"
+      ],
+      "manualCheck": "Confirmed the three normalized chapter PDFs and one historical seminar copy render locally, while original archives remain unchanged.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Reuse the transaction, checksum, PDF-normalization, and asset-ownership pattern only after each unit has an explicit approved resource inventory and page map."
+      }
+    },
+    {
+      "id": "three-document-library-and-exact-page-links",
+      "category": "instructional-coherence",
+      "rule": "Provide one local textbook Library and connect every lesson and review summary action to an exact chapter, printed page, physical PDF page, and recommended question set.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "learner workspace exposes the chapter library, textbook bands, and student-facing reviews without secure assessment files",
+        "all sixteen lesson textbook jumps, all four native review-page jumps, and all four Review Overview direct-reader jumps in the improvement-pilot E2E suite",
+        "each requested page replaces the embedded PDF frame and increments its revision instead of mutating a stale viewer URL",
+        "library switching, whole-chapter full-screen links, and offline fallback coverage in the improvement-pilot E2E suite"
+      ],
+      "manualCheck": "Inspected desktop, tablet, and mobile Library and lesson-band screenshots. In a live Chromium preview, verified the visible PDF toolbar at Chapter 13 review page 30/38, textbook Unit Review page 35/38, and Lesson 4 page 14/44. The full-screen control continues to open the whole chapter PDF rather than inheriting the embedded reader page.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Build a unit-specific printed-to-physical page map and crosswalk; never infer page ranges from Unit A."
+      }
+    },
+    {
+      "id": "attempt-before-answer-with-isolated-persistence",
+      "category": "interactions-and-feedback",
+      "rule": "Hide textbook answers until the learner confirms an attempt, persist that attempt independently, and allow answers to be hidden without changing scoring, completion, or other saved work.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "textbook integration contract is exact and complete",
+        "attempt reveal, hide, reload restoration, isolated state, and completion invariance in the improvement-pilot E2E suite"
+      ],
+      "manualCheck": "Inspected all 16 remaining textbook-band sheets and confirmed both actions remain legible and fully visible on desktop and mobile.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Reuse the interaction rule with unit-namespaced stable IDs and unit-specific corrected answer content."
+      }
+    },
+    {
+      "id": "practice-feedback-textbook-crosswalk",
+      "category": "practice-and-artifacts",
+      "rule": "After a learner checks any of the 51 Guided Practice questions or 24 Final Practice questions, place one exact local textbook-page action inside the revealed feedback. Distinguish direct support from the closest available support when the local course corrects or extends the older textbook, leave Module Checks unchanged, and use Final Practice as the learner-facing name without changing its 24-question scoring or completion behavior.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html and meta/textbook-integration.json",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "textbook integration contract validates all 75 exact practice-feedback mappings and printed-to-physical page conversions",
+        "guided and Final Practice feedback links open the exact textbook page and restore after reload in the improvement-pilot E2E suite",
+        "checked-answer feedback geometry at desktop and mobile in the visual audit"
+      ],
+      "manualCheck": "Opened the exact-build desktop and mobile checked-answer contact sheets for lesson-04-check-1 and final-practice-20. Both direct and closest-support labels fit, wrap cleanly, remain fully visible above the fixed Save and Exit controls, and retain clear hierarchy inside the feedback panel. Fresh checks scroll the relevant action into a safe view; reload restores the feedback without moving the learner away from the restored location.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Create a question-level crosswalk from each unit's own textbook and practice bank. Never reuse Unit A pages, and label closest support honestly when newer course content exceeds the source textbook."
+      }
+    },
+    {
+      "id": "chapter-grouped-lessons-and-review-navigation",
+      "category": "instructional-coherence",
+      "rule": "Group lessons by their textbook chapter, place the required final integration lesson in a final Integration and Mastery subgroup under Lessons, and keep the separate Review navigation group optional.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "learner workspace exposes the chapter library, textbook bands, and student-facing reviews without secure assessment files",
+        "keyboard Lessons and Review separation in the improvement-pilot E2E suite",
+        "all thirty learner routes at three viewports in the improvement-pilot E2E suite"
+      ],
+      "manualCheck": "Inspected all route contact sheets and confirmed chapter hierarchy, the final Integration and Mastery lesson subgroup, optional Review labels, route order, and mobile reflow remain readable.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Use each unit's real textbook structure and preserve its required final lesson; do not copy Unit A chapter names or route count."
+      }
+    },
+    {
+      "id": "native-corrected-review-experience",
+      "category": "academic-accuracy-and-coverage",
+      "rule": "Rebuild chapter review, seminar, and textbook unit review as student-facing web content with current terminology, corrected source ambiguities, saved reasoning, and explanatory answer reveals.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "textbook integration contract is exact and complete",
+        "learner workspace exposes the chapter library, textbook bands, and student-facing reviews without secure assessment files",
+        "review navigation, seminar persistence, and answer reveal coverage in the improvement-pilot E2E suite"
+      ],
+      "manualCheck": "Inspected Review Overview, all three chapter reviews, all five seminar stations, and Textbook Unit Review at desktop, tablet, and mobile sizes.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Re-author from each unit's learner-visible review sources, current curriculum, and correction ledger; do not transplant Unit A science content."
+      }
+    },
+    {
+      "id": "secure-assessment-exclusion",
+      "category": "academic-accuracy-and-coverage",
+      "rule": "Exclude secure chapter quizzes, quiz keys, Unit tests, test answers, broken LMS launchers, and teacher-only assessment material from learner delivery.",
+      "owner": "meta/textbook-integration.json and scripts/lib/biology30-unit-a/pilot-textbook.ts",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "learner workspace exposes the chapter library, textbook bands, and student-facing reviews without secure assessment files",
+        "prepared learner PDFs are normalized, renderable, and exactly match the resource report"
+      ],
+      "manualCheck": "Reviewed learner links, embedded assets, resource report, and exclusions; no secure or teacher-only assessment surface is present.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Apply only after a unit-specific visibility and disposition audit; secure assessment remains native Brightspace content."
+      }
+    },
+    {
+      "id": "point-of-use-safety-notes",
+      "category": "learner-language-and-scaffolding",
+      "rule": "Keep one unit-level safety statement, remove oversized generic lesson safety cards, and place only essential cautions beside the activity they govern.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "lesson identity, saved responses, required time, completion gates, and practice remain unchanged"
+      ],
+      "manualCheck": "Reviewed all 17 lesson tops and activity contexts; no generic 'No special materials' copy or lesson-level safety card remains.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Retain only hazards and limitations relevant to each unit's actual investigation or health context."
+      }
+    },
+    {
+      "id": "retrieval-response-layout",
+      "category": "accessibility-and-responsive-layout",
+      "rule": "Keep each retrieval prompt and its label, textarea, and status in a stable two-column desktop layout that stacks in reading order on mobile without changing saved-response IDs.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "lesson identity, saved responses, required time, completion gates, and practice remain unchanged",
+        "all seventeen retrieval geometry checks at desktop and mobile in the improvement-pilot E2E suite"
+      ],
+      "manualCheck": "Opened all four retrieval contact sheets and inspected every lesson; columns are top-aligned on desktop and stack prompt-first on mobile with no clipping or overlap.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Reuse the responsive structure while preserving each unit's existing response IDs, labels, autosave hooks, and content sequence."
+      }
+    },
+    {
+      "id": "transactional-powerpoint-media-intake",
+      "category": "maintainability-and-rollout",
+      "rule": "Inventory checksum-verified source decks transactionally, account for every slide, embedded asset, and link, and keep generated media reports separate from canonical learner HTML.",
+      "owner": "scripts/lib/biology30-unit-a/pilot-media.ts",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "PowerPoint intake contract accounts for every source slide, media asset, and link",
+        "media preparation is transactional, idempotent, and preserves canonical HTML",
+        "a simulated promotion failure rolls back every new media target"
+      ],
+      "manualCheck": "Verified the three immutable deck hashes, exact slide counts 66/29/43, exact media counts 68/34/50, all 45 YouTube references, all three non-video links, and a disposition for every source item.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Reuse the transaction and inventory pattern only with unit-specific source hashes, counts, rights review, correction ledger, and explicit learner destinations."
+      }
+    },
+    {
+      "id": "transactional-source-visual-preparation",
+      "category": "maintainability-and-rollout",
+      "rule": "Regenerate approved source-image derivatives from exact checksum-verified PDF pages or PowerPoint media relationships through an idempotent transaction that owns only its asset directory and report, never canonical lesson HTML.",
+      "owner": "scripts/lib/biology30-unit-a/pilot-source-visuals.ts and meta/source-visual-integration.json",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "source-visual contract and generated assets are exact, accessible, and release-bounded",
+        "source-visual preparation is idempotent for the real pilot",
+        "source-visual preparation rolls back a partial promotion"
+      ],
+      "manualCheck": "Verified all nine generated WebP files against their exact PDF-page crop or PowerPoint-media relationship, opened the final assets, and confirmed the neuron, spinal-cord, reflex-arc, and corrected endocrine derivatives contain their complete diagrams without neighbouring slide or page content.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Reuse the transaction pattern only after each unit has its own explicit source-image selection, crop or relationship locator, checksum, rights decision, accessibility copy, and release blocker policy."
+      }
+    },
+    {
+      "id": "selective-source-informed-visual-upgrade",
+      "category": "figures-and-data-displays",
+      "rule": "Show one strongest visual for each teaching purpose: replace an exact redundant static figure with its stronger contract-selected source plate, retain distinct semantic figures and interactions, and keep a source image supplemental only when it contributes different evidence or anatomy. Require explicit accuracy, accessibility, provenance, and release treatment; never use a full slide or screenshot as instruction.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html, meta/media-integration.json, and meta/source-visual-integration.json",
+      "implementationStatus": "nine-source-visual-trial-six-replacements-implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "learner workspace auto-loads real previews only when their video entries are visible",
+        "representative figures reflow cleanly and enlarged views return focus",
+        "source-visual contract and generated assets are exact, accessible, and release-bounded",
+        "learner workspace replaces six redundant figures and retains three non-duplicated source additions",
+        "source visuals load locally, enlarge by keyboard, and open the exact textbook page",
+        "generic negative-feedback figures keep every label clear of connectors",
+        "audit media-surface geometry assertions"
+      ],
+      "manualCheck": "Opened and inspected both Lesson 3 source visuals, both Lesson 6 source visuals, the Lesson 7 reflex-arc plate, Lesson 9 eye, Lesson 10 ear, Lesson 12 endocrine-capillary, and Lesson 13 pituitary images at desktop and mobile. Confirmed that the older neuron, brain-region, reflex-arc, eye, ear, and hypothalamus-pituitary figures no longer appear in learner view; each replacement appears once, keeps intrinsic proportions, includes nearby explanatory text, enlarges by keyboard with focus return, and links to the exact textbook page. The neural-tissue micrograph, spinal-cord cross-section, and endocrine-capillary image remain because they add distinct information. For the repeated generic negative-feedback figure, inspected Chapter 13 PowerPoint slides 4, 5, 7, 8, and 9 plus textbook printed pp. 436–442. None was a stronger generic model: the deck options were blurry, oversimplified, or cluttered, while the textbook's clearest feedback figure was endocrine-specific. Retained a corrected course-native redraw in Lessons 2 and 12, enlarged its arrowheads, separated the principle statement from the return path, and visually confirmed every label and connector at desktop and mobile. The neuron, spinal-cord, reflex-arc, and eye images remain pilot-only until their embedded-image origins are cleared or they are redrawn.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Make a figure-by-figure decision from each unit's own deck inventory; Unit A treatment choices do not authorize reuse of another unit's imagery."
+      }
+    },
+    {
+      "id": "optional-visible-preview-video-library",
+      "category": "interactions-and-feedback",
+      "rule": "Place reviewed optional videos beside exact lesson concepts and in one filterable Video Library, automatically show the native privacy-enhanced preview only when its lesson or selected library entry is visible, never autoplay, leave hidden entries unloaded, and retain a complete local concept summary when video access fails.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html and meta/media-integration.json",
+      "implementationStatus": "implemented-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "learner workspace auto-loads real previews only when their video entries are visible",
+        "lesson and Video Library routes automatically show the exact YouTube preview without autoplay",
+        "Video Library filtering and selection are keyboard-operable with local fallbacks",
+        "Video Library axe and network-blocked checks"
+      ],
+      "manualCheck": "The initial three-lesson, five-library-entry slice was accepted as the interaction pattern. On 2026-09-02, the teacher requested the next nine primary lesson placements and all remaining usable source videos in the library. The resulting learner inventory contains twelve primary lesson companions and thirty-five sorted Video Library entries; the ten excluded source links remain absent. All expanded lesson and library states were inspected in the exact-build desktop and mobile contact sheets with no new geometry findings. This rule still awaits explicit teacher acceptance before transfer.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Review each unit's videos for accuracy, captions, availability, embedding, duplication, and learner value before exposing them; every accepted video needs a local fallback and exact lesson mapping."
+      }
+    },
+    {
+      "id": "exact-build-visual-contact-sheet-gate",
+      "category": "visual-and-editorial-quality",
+      "rule": "Generate and inspect exact-build route and component contact sheets across desktop, tablet, and mobile before proposing a pilot rule for broader use.",
+      "owner": "scripts/audit-biology30-unit-a-improvement-pilot-visual.ts",
+      "implementationStatus": "implemented",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "audit:biology30-unit-a-improvement-pilot:visual geometry assertions",
+        "all thirty-one learner routes and responsive overflow checks in the improvement-pilot E2E suite"
+      ],
+      "manualCheck": "All 54 final contact sheets tied to report SHA-256 a3f0f6abf99d8c3601e3d601c9b755647d14845e3a048c3b50267ca4ab4441a8 were opened and inspected; no unresolved geometry defect remains. The remaining sixteen textbook bands, Guided Practice and Final Practice feedback links, source visuals, generated visuals, twelve lesson-video companions, and all thirty-five Video Library states remain legible and contained.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Create a fresh exact-build audit and human review record for each unit; Unit A screenshots and approval cannot satisfy another unit's gate."
+      }
+    },
+    {
+      "id": "lesson-04-membrane-contrast-and-generated-base-review",
+      "category": "figures-and-data-displays",
+      "rule": "Place the reviewed resting-membrane image in Lesson 4, where resting potential and action potentials are taught, rather than Lesson 3. Preserve the adjacent scientific correction, static-equivalent table, alt text, and keyboard enlargement so raster labels are never the sole source of meaning.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html and meta/generated-visual-integration.json",
+      "implementationStatus": "generated-image-integrated-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "static contract verifies the exact generated asset hash, Lesson 4 placement, hidden superseded SVG, scientific-context requirement, alt text, static-equivalent table, and keyboard enlargement",
+        "improvement-pilot E2E verifies image decoding, intrinsic dimensions, responsive containment, dialog enlargement, focus return, and retained text equivalent",
+        "exact-build generated-visual contact-sheet and geometry assertions"
+      ],
+      "manualCheck": "Inspected the supplied 1586 by 992 PNG at original resolution and in the exact Lesson 4 build at desktop and mobile sizes. It correctly shows higher sodium outside, higher potassium inside, outward potassium leak, ATP use, a three-sodium-out/two-potassium-in pump, and an approximate negative 70 millivolt resting potential. It appears once, retains its proportions, enlarges cleanly, and does not clip or overflow. The local lesson copy remains responsible for trapped anions, selective permeability, and the distinction between gradient maintenance and rapid voltage phases.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Use the scientific-review, exact-placement, accessible-equivalent, and responsive-enlargement process, but create and validate a new unit-specific image rather than reusing this neuron membrane."
+      }
+    },
+    {
+      "id": "lesson-12-endocrine-body-map-generated-base-review",
+      "category": "figures-and-data-displays",
+      "rule": "Use the reviewed endocrine anatomy map in Lesson 12 while retaining an exact nearby text equivalent, alt text, keyboard enlargement, and an explicit clarification that parathyroid glands lie on the posterior thyroid surface shown in the inset.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html and meta/generated-visual-integration.json",
+      "implementationStatus": "generated-image-integrated-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "static contract verifies the exact generated asset hash, Lesson 12 placement, hidden superseded SVG, posterior-parathyroid clarification, alt text, text equivalent, and keyboard enlargement",
+        "improvement-pilot E2E verifies image decoding, intrinsic dimensions, responsive containment, dialog enlargement, focus return, and retained text equivalent",
+        "exact-build generated-visual contact-sheet and geometry assertions"
+      ],
+      "manualCheck": "Inspected the supplied 1586 by 992 PNG at original resolution and in the exact Lesson 12 build at desktop and mobile sizes. The hypothalamus-pituitary relationship, thyroid, posterior-view parathyroid inset, adrenal placement above the kidneys, and islet clusters within the pancreas are suitable for the lesson. It appears once, retains its proportions, enlarges cleanly, and does not clip or overflow. Because the frontal thyroid also uses visible yellow markers for orientation, the nearby text identifies the posterior inset as anatomically authoritative.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Retain the anatomy review, accessible-equivalent, and responsive-enlargement process, but create and validate a new unit-specific map rather than reusing this endocrine figure."
+      }
+    },
+    {
+      "id": "teacher-selected-generated-figure-replacements",
+      "category": "figures-and-data-displays",
+      "rule": "Replace each accepted course-native diagram once with the teacher-selected high-resolution figure, retain the original semantic SVG as a hidden provenance fallback, and pair every raster figure with alt text, a nearby text equivalent, and keyboard enlargement.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html, meta/visual-comparison/teacher-decisions.json, and meta/generated-visual-integration.json",
+      "implementationStatus": "implemented-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "static contract verifies all ten teacher decisions, exact local asset hashes, lesson and figure-slot placement, hidden superseded SVGs, alt text, text equivalents, and keyboard enlargement",
+        "improvement-pilot E2E verifies all twelve generated figures decode, remain contained at desktop and mobile sizes, enlarge in the shared dialog, return focus, and preserve their text equivalents",
+        "exact-build visual audit verifies all twenty-four generated-visual desktop and mobile placements with zero geometry findings"
+      ],
+      "manualCheck": "Opened and inspected every generated-visual contact sheet for the exact workspace hash. The selected figures in Lessons 1, 2, 3, 5, 8, 9, 10, 16, and 17 are readable, non-duplicated, proportionally contained, and supported by learner-facing text equivalents. The retina uses opposite light and neural directions; the vestibular figure avoids the rejected saccule-to-ampulla connector; the stress pathway returns toward a workable range; and the integrated model separates osmoreceptor sensing from volume and pressure sensing.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Reuse the compare, science-review, exact-placement, accessible-equivalent, and responsive-enlargement workflow only after unit-specific figure decisions and a fresh exact-build visual audit."
+      }
+    },
+    {
+      "id": "deduplicate-final-lesson-textbook-review",
+      "category": "instructional-coherence",
+      "rule": "When dedicated chapter and textbook-unit review routes already provide the assigned pages, questions, and answer reveals, omit the duplicate textbook-review band from the required final integration lesson. Preserve that lesson's identity, required time, Guided Practice, Final Practice, responses, persistence, and completion role.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html and meta/textbook-integration.json",
+      "implementationStatus": "implemented-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "textbook contract and static test require exactly sixteen lesson mappings and no Lesson 17 textbook band",
+        "lesson identity, 1505 required minutes, 100 practice items, stable response IDs, and completion gates remain unchanged",
+        "exact-build audit verifies Lesson 17 header-to-content flow at desktop, tablet, and mobile with zero geometry findings"
+      ],
+      "manualCheck": "Inspected Lesson 17 at desktop, tablet, and mobile sizes. The lesson now starts its required integration work immediately after the header instead of repeating links already available through Chapter Reviews and Unit A — Textbook Unit 5 Review.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Apply only where a target unit has complete dedicated review routes. Keep its required final integration lesson distinct from optional review resources, and preserve all stable learner-state and completion identifiers."
+      }
+    },
+    {
+      "id": "one-based-learner-practice-numbering",
+      "category": "learner-language-and-scaffolding",
+      "rule": "Number learner-facing Guided Practice, Module Check, and Final Practice questions from 1 within each list while preserving the stable internal practice IDs, response names, persistence keys, answer logic, scoring, and completion rules.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "static contract rejects any learner-facing practice heading beginning with zero",
+        "static contract requires consecutive one-based headings within every practice list",
+        "improvement-pilot E2E verifies representative Guided Practice and Final Practice headings while retained response state still restores"
+      ],
+      "manualCheck": "Opened all 54 exact-build contact sheets. Lesson 4 Guided Practice begins at 1 and the representative Final Practice state displays item 20; no zero-based question heading, overlap, clipping, or responsive regression was observed.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Render the visible ordinal as the array position plus one. Do not renumber stable IDs, form names, persistence keys, analytics keys, or answer references when correcting learner-facing labels."
+      }
+    },
+    {
+      "id": "process-collection-exit-slip-aggregation",
+      "category": "practice-and-artifacts",
+      "rule": "Present lesson exit slips, optional learner process notes, and saved portfolio artifacts together in one learner-facing Process Collection. Read exit slips directly from their existing stable response IDs, show draft or completed status, link back to the exact exit check, and never duplicate or transfer ownership of the saved response.",
+      "owner": "projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "implemented-exact-build-reviewed",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "static contract verifies the Process Collection label, exit-slip collection surface, unchanged notebook and artifact surfaces, and removal of the old learner-facing name",
+        "improvement-pilot E2E verifies exit-slip autosave collection, draft and completed states, exact return navigation, process-note removal isolation, reload restoration, mobile stacking, and no horizontal overflow",
+        "exact-build visual audit verifies the renamed collection route at desktop, tablet, and mobile sizes with zero geometry findings"
+      ],
+      "manualCheck": "Opened all 54 exact-build contact sheets and inspected the Process Collection route at desktop, tablet, and mobile sizes. The empty exit-slip state, collection heading, process-note composer, and portfolio structure are clear and contained. The focused browser test confirmed that a populated exit slip remains visible after completion, note removal, viewport change, and reload.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "Create a unit-specific collection view that reads the target unit's existing exit-response and completion identifiers. Preserve state ownership, response limits, artifact contracts, and completion rules; do not copy Unit A IDs, lesson titles, or route inventory."
+      }
+    },
+    {
+      "id": "science-core-vocabulary-and-frayer-process-collection",
+      "category": "learner-language-and-scaffolding",
+      "rule": "Teach a deliberately selected layer of high-value scientific concept families separately from the complete glossary. For each family, connect learner-friendly meaning, morphology or word history, biological mechanism, examples, common confusions, exact lesson and textbook locations, retrieval, and a science-adapted Frayer model; collect only complete learner-selected Frayer evidence in Process Collection without changing required course completion.",
+      "owner": "projects/biology30-unit-a-pilot/meta/core-vocabulary.json and projects/biology30-unit-a-pilot/workspace/index.html",
+      "implementationStatus": "stage-2-full-implementation-codex-verified",
+      "reviewStatus": "awaiting-explicit-user-review",
+      "automatedTests": [
+        "core-vocabulary static contract verifies the exact 28-family inventory, six fixed milestones, two-choice policy, source and rights records, exact lesson/outcome/textbook/practice/model mappings, and all 112 possible stable response IDs",
+        "Core Vocabulary E2E verifies the complete 28-entry inventory, six fixed and 22 choice interfaces, search and filtering, a strict two-choice cap, safe clear confirmation, four-field autosave, attempt-before-model reveal, collection, Process Collection derivation, removal isolation, reload restoration, mobile reflow, and version-2 state migration",
+        "state-envelope test proves a 41,378-character conservative worst case, at least 4,000 characters below the existing 48,000-character guard",
+        "all 17 lessons expose their exact contracted Word Lens concept sequence and each link focuses the requested Core Vocabulary entry",
+        "Stage 2 visual audit verifies 84 concept-entry viewports, 30 representative learner states, 51 Word Lens viewports, and desktop/mobile 200 percent zoom with zero geometry findings"
+      ],
+      "manualCheck": "The teacher accepted the exact Stage 1 representative slice, authorizing Stage 2. Opened all seven Stage 2 contact sheets and inspected the complete concept browser, search, course-section filter, all six fixed and 22 learner-choice Frayer interfaces, model reveal, two-choice limit, empty and populated Process Collection, all 17 Word Lens placements, desktop/tablet/mobile reflow, and 200 percent zoom. Automated geometry inspected all 28 entries at all three viewports and reported zero findings. The complete Stage 2 implementation now awaits explicit teacher review; the rule is not yet accepted for B-D transfer.",
+      "applicabilityToUnitsBD": {
+        "status": "conditional",
+        "adaptation": "For each target unit, first audit its curriculum outcomes, lessons, textbook, practice, recurring mechanisms, common misconceptions, and useful morphology. Select a new unit-specific core-family inventory, author fresh Frayer models and links, budget persistence against that unit's own state contract, implement through scripts/lib/biology30-course/v1 rather than copied Unit A HTML, and require a representative-slice review before full rollout. Unit A terms, counts, response IDs, mappings, and acceptance do not transfer."
+      }
+    }
+  ],
   "rolloutPolicy": {
     "targets": [
       "biology30-unit-b",
@@ -23,6 +465,6 @@
       "biology30-unit-d"
     ],
     "status": "deferred-until-unit-a-acceptance",
-    "rule": "No pilot change transfers automatically. Each accepted rule must identify its owner, applicability, automated test, manual check, and unit-specific adaptation before B-D implementation."
+    "rule": "No pilot change transfers automatically. Each rule remains pending until the user explicitly reviews it; any accepted rule still requires unit-specific adaptation and verification before B-D implementation."
   }
 }

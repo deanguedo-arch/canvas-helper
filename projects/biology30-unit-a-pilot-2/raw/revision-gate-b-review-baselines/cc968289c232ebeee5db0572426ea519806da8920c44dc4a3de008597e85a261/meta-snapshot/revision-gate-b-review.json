@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "project": "biology30-unit-a-pilot-2",
+  "revision": "teacher-feedback-1",
+  "status": "changes-requested",
+  "generatedAt": "2026-09-04T01:28:43.737Z",
+  "acceptedGate1WorkspaceSha256": "8c0e38fefdd2493155bc3de123b5f708c9eede59efb6234613b455407e2369fe",
+  "changesRequestedGate2WorkspaceSha256": "9ed0b01efaed7e1708cf8f32068e69933b86c7c83e6b45275c6fd88921b935e7",
+  "acceptedRevisionGateAWorkspaceSha256": "3deebf23e21f895dae53a8bc30d9c3912919510ae85194e21febc8fb8b0c39ff",
+  "workspaceSha256": "cc968289c232ebeee5db0572426ea519806da8920c44dc4a3de008597e85a261",
+  "workspaceTreeSha256": "ba0e5438d95a3338b12f3024782bda4bef3897cda0ea212ae41be84ffd0fe428",
+  "protectedProjectHashes": [
+    {
+      "slug": "biology30-unit-a-pilot",
+      "sha256": "abe21ccfe31e8ac7b367f2de56c64c4628f98ce3403d32624da8dba284013549",
+      "fileCount": 99,
+      "byteCount": 43416232
+    },
+    {
+      "slug": "biology30-unit-a",
+      "sha256": "4376d15c9ada896a546c9c3ddb1840ecbb1074cd78afa8aef462a38721de1fa3",
+      "fileCount": 386,
+      "byteCount": 15929864
+    },
+    {
+      "slug": "biology30-unit-b",
+      "sha256": "2952f591459467f404c7023e4a3523f4cd6757b7308504fce3f0027dd3a7df77",
+      "fileCount": 219,
+      "byteCount": 7111493
+    },
+    {
+      "slug": "biology30-unit-c",
+      "sha256": "7a097943168045a63deca062c9a2bd7d798b8a94c91de46582f23d0b6bad86f2",
+      "fileCount": 245,
+      "byteCount": 10901188
+    },
+    {
+      "slug": "biology30-unit-d",
+      "sha256": "793fe9914ab12cb3d6e0df96249c71c302a2e59ea90f852747b88416049b2b43",
+      "fileCount": 241,
+      "byteCount": 6028335
+    }
+  ],
+  "expandedRoutes": [
+    "lesson-01",
+    "lesson-03",
+    "lesson-04",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-12"
+  ],
+  "completeLessonRoutes": [
+    "lesson-01",
+    "lesson-02",
+    "lesson-03",
+    "lesson-04",
+    "lesson-05",
+    "lesson-06",
+    "lesson-07",
+    "lesson-08",
+    "lesson-09",
+    "lesson-10",
+    "lesson-11",
+    "lesson-12",
+    "lesson-13"
+  ],
+  "reviewCriteria": [
+    "all thirteen lessons contain complete explanations at the approved reading level",
+    "teacher-plan and PowerPoint topic order is preserved",
+    "all required terms precede their use in practice",
+    "at least four purposeful visuals appear in every lesson",
+    "all fourteen required media checkpoints have complete local equivalents",
+    "all 80 required practice items are curricular and prerequisite-ready",
+    "all Evidence Slips and Process Collection work persist",
+    "network-blocked learning remains complete",
+    "the 18-route completion and 1505-minute contract is unchanged"
+  ],
+  "codexReview": {
+    "status": "passed",
+    "completedAt": "2026-09-04T01:44:17Z",
+    "visualAuditReport": ".runtime/biology30-unit-a-pilot-2-visual-audit/2026-09-04T01-40-09-967Z/report.json",
+    "visualAuditReportSha256": "b13c7ac8174ce09e9c99045d2aea03d0f38dc51c153a0a31833a47163cce2542",
+    "routeScreenshots": 78,
+    "interactionStateScreenshots": 114,
+    "contactSheetsOpened": 27,
+    "geometryFindings": 0,
+    "browserTests": {
+      "pilotSpecific": "11 passed",
+      "projectContract": "1 passed"
+    },
+    "staticTests": {
+      "pilot2": "10 passed",
+      "pilot1Improvement": "12 passed",
+      "scienceComparison": "6 passed"
+    },
+    "stateBudgetCharacters": 42876,
+    "courseDoctor": "intentional not-active diagnostic only",
+    "decision": "ready-for-teacher-review"
+  },
+  "teacherDecision": {
+    "status": "changes-requested",
+    "basis": "The user requested restoration of collapsible course navigation, clearer Process Collection grouping, and a complete lesson-linked Model Lab."
+  },
+  "changesRequestedAt": "2026-09-04T02:23:21.372Z"
+}

@@ -1,0 +1,17 @@
+{
+  "schemaVersion": 4,
+  "project": "biology30-unit-a-pilot-2",
+  "targetMaximumCharacters": 44000,
+  "runtimeHardGuardCharacters": 48000,
+  "platformLimitCharacters": 60000,
+  "estimatedWorstCaseCharacters": 38753,
+  "headroomBelowRuntimeGuard": 9247,
+  "headroomBelowPlatformLimit": 21247,
+  "responseCountAtWorstCase": 67,
+  "practiceCountAtWorstCase": 86,
+  "mediaCheckpointCountAtWorstCase": 14,
+  "modelCountAtWorstCase": 13,
+  "encoding": "hashed-v1",
+  "migrationPolicy": "Version-1 through version-3 responses, practice, Process Collection, vocabulary, notes, and model results are preserved. New model prediction and explanation fields begin empty. Public response and practice IDs remain unchanged while their stored keys are compacted deterministically.",
+  "overflowPolicy": "Reject an oversized write and preserve the last valid saved state. Never silently truncate learner work."
+}
